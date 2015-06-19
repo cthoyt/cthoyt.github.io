@@ -48,7 +48,7 @@ h2 {
 }
 h3 {
 	font-size: 30px;
-	margin-top:48px;
+	margin-top:0px;
 	margin-bottom:0px;
 	letter-spacing: 2px;
 }
@@ -58,12 +58,12 @@ h3 {
 	width: 768px;
 	margin: 0 auto;
 }
-#projects ul {text-align: left;}
+ul {text-align: left;}
 
 footer {
 	text-align: center;
 	border-top: #222 solid 2px;
-	margin-top: 200px;
+	margin-top: 50px;
 	font-size: 14px;
 }
 
@@ -90,6 +90,7 @@ img.pin {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	color:#FFF;
+	text-align: center;
 }
 
 
@@ -98,7 +99,19 @@ img.pin {
 	color:#ff0;
 }
 
+.pinarray {text-align:center;}
+
 a:hover{color:#ff0;}
+
+article {padding:1.5em;}
+
+
+p {text-align:justify; margin: 1.5em 0;}
+
+article:nth-child(even) {
+	background:#151515;
+	border-radius: 1em;
+}
 
 </style>
 
@@ -124,45 +137,55 @@ eigth note: #9836
 <article>
 <h3>SCIENCE</h3>
 <p>	I was trained in synthetic organic chemistry. Now, I'm using chemoinformatics for drug discovery for my PhD.</p>
-<p><a class="pinlink" href="https://www.linkedin.com/in/cthoyt"><i class="fa fa-linkedin-square"></i> LinkedIn</a></p>
+<a class="pinlink" href="https://www.linkedin.com/in/cthoyt"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
 </article>
 
-<article>
-<h3>PROGRAMMING</h3>
+<article class="op">
+<div>
+	<h3>PROGRAMMING</h3>
+<div>
 <p>For me, programming is about problem solving. I know a lot of languages and packages. Python and SciPy have been favorites lately. I love clean code, but I've been known to do anything for the one-liner. </p>
-<p class="pinarray">
+</div>
+<div class="pinarray">
 &#128013;
 &#9749;
 <i class="fa fa-diamond"></i>
 <i class="pin fa fa-html5"></i>
 <i class="pin fa fa-css3"></i>
 <a class="pinlink" href="https://github.com/cthoyt"><i class="fa fa-github"></i> GitHub</a>
-</p>
+</div>
+</div>
 </article>
 
 <article>
+	<div>
 	<h3>MUSIC</h3>
 	<p>I'm <a href="https://www.youtube.com/watch?v=LISJUGqEYws">in love</a> with music. It carries me through a five-minute mile. I like dressing up fancy to see the symphony. I play sax and guitar, and dabble in everything else. I write music, too.</p>
-	<p><a class="pinlink" href="https://soundcloud.com/cthoyt"><i class="fa fa-soundcloud"></i> SoundCloud</a></p>
+	<a class="pinlink" href="https://soundcloud.com/cthoyt"><i class="fa fa-soundcloud"></i> SoundCloud</a>
+</div>
 </article>
 
-<article>
+<article class="op">
+	<div>
 <h3>WRITING</h3>
+<div>
 <p>My freshman year of college summer reading was Atul Gawande's <a href="http://atulgawande.com/books/"><em>Better</em></a>. He insisted at the importance of writing. I was introduced to Derek Lowe's blog, <a href="http://pipeline.corante.com/">In the Pipeline</a>, on the first day of my GSK internship in 2012. I haven't missed a post since.</p>
-<p>As I transitioned into informatics, I wished there was a publication like In the Pipeline. Sadly there isn't, so I will try my best to write about my work in graduate school. For now, I'm writing about my adventures in Europe as a teaching assistant on Northeastern's Chemistry, Drug Discovery, and Development Dialogue</p>
-<p><a class="pinlink" href="http://nu-cd4.blogspot.com/"> &#9187; Nu-CD4 Blog</a></p>
+<p>As I transitioned into informatics, I wished there was a publication like In the Pipeline. Sadly there isn't, so I will try my best to write about my work in graduate school. For now, I'm writing about my adventures in Europe as a teaching assistant on Northeastern's Chemistry, Drug Discovery, and Development Dialogue.</p>
+</div><a class="pinlink" href="http://nu-cd4.blogspot.com/"> &#9187; Nu-CD4 Blog</a>
+</div>
 </article>
-</section> 
 
-<section id="projects">
+<article>	<div>
 <h3>CURRENT PROJECTS</h3>
+<div>
 <ul>
 	<li>This website</li>
 	<li>What Country is Charlie in Tracker</li>
 	<li>Writing an Organic Chemistry Book - Pinwheels</li>
 </ul>
+</div></div></article>
 </section>
 
-<footer>Special thanks to Shannon Reardon for taking my header photo</footer>
+<footer>Special thanks to Shannon Reardon for taking my header photo, <a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a> for the icons, and <a href="https://github.com/cthoyt/cthoyt.github.io">GitHub</a> for the versioning</footer>
 </body>
 </html>
