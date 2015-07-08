@@ -25,8 +25,7 @@ header, #top {
 }
 #cont {
 	text-align:right;
-	padding-right:15px;
-	padding-top:15px;
+	padding:15px;
 	height:100%;
 	vertical-align:middle;
 }
@@ -37,6 +36,7 @@ h1 {
 	font-size:100px;
 	color:#222;
 	margin-bottom:40px;
+	text-shadow: 1px 1px #EEE;
 }
 
 h2 {
@@ -45,6 +45,7 @@ h2 {
 	font-size:26px;
 	margin-top:5px;
 	color: #E24C33;
+	text-shadow: 1px 1px #EEE;
 }
 h3 {
 	font-size: 30px;
@@ -63,7 +64,6 @@ ul {text-align: left;}
 footer {
 	text-align: center;
 	border-top: #222 solid 2px;
-	margin-top: 50px;
 	font-size: 14px;
 }
 
@@ -110,7 +110,40 @@ p {text-align:justify; margin: 1.5em 0;}
 
 article:nth-child(even) {
 	background:#151515;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
 	border-radius: 1em;
+}
+
+
+@media screen and (max-width: 768px) { 
+	h1 {
+		text-align:center;
+		letter-spacing:7px;
+		font-size:33px;
+		margin-bottom:5px;
+	}
+	h2 {
+		letter-spacing:2px;
+		font-size:14px;
+		margin-top:5px;
+		text-align:center;
+	}
+	body {
+		font-size:14px;
+		line-height:2em;
+	}
+	#about, #projects{
+		text-align: center;
+		width: 100%;
+		margin: 0 auto;
+	}
+	article:nth-child(even) {
+		background:#151515;
+		-webkit-border-radius: 0em;
+		-moz-border-radius: 0em;
+		border-radius: 0em;
+	}
 }
 
 </style>
@@ -124,11 +157,6 @@ article:nth-child(even) {
 <div id="contb">
 <h1>CHARLIE HOYT</h1>
 <h2>SCIENTIST, PROGRAMMER, MUSICIAN</h2>
-<!--
-<h2>s&#9187;ientist, p&#9095;ogrammer, m&#119057;sician</h2>
-&#9883
-eigth note: #9836
--->
 </div>
 </div>
 </header>
@@ -136,7 +164,7 @@ eigth note: #9836
 <section id="about"> 
 <article>
 <h3>SCIENCE</h3>
-<p>	I was trained in synthetic organic chemistry. Now, I'm using chemoinformatics for drug discovery for my PhD.</p>
+<p>	I was trained in synthetic organic chemistry. Now, I'm using chemoinformatics for drug discovery for my PhD at the Bonn-Aachen International Center for Information Technology, University of Bonn.</p>
 <a class="pinlink" href="https://www.linkedin.com/in/cthoyt"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
 </article>
 
@@ -177,7 +205,7 @@ eigth note: #9836
 </div>
 </article>
 
-<article>	<div>
+<article><div>
 <h3>CURRENT PROJECTS</h3>
 <div>
 <ul>
