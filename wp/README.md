@@ -1,0 +1,1 @@
+This folder is to test using sdepold/jquery-rss. Huge thanks to @sdepold!
