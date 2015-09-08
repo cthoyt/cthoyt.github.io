@@ -52,47 +52,52 @@ header, #top {
 	height:98vh;
 	vertical-align:middle;
 	border-top: #E24C33 1vh solid;
+	//border-top: #FFDC00 1vh solid;
 	border-bottom: #000 1vh solid;
 }
 #cont {
-	text-align:right;
-	padding:15px;
+	text-align:center;
+	padding:5px;
 	height:100%;
 	vertical-align:middle;
 }
+h1, h2, h3, h4 {text-transform:uppercase;}
+
+h1, h2 {-webkit-text-stroke: 0.05vw #EEE;}
+
 h1 {
 	font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	letter-spacing:1vh;
 	font-weight: 700;
-	font-size:100px;
-	color:#222;
-	margin-bottom:40px;
-	text-shadow: 1px 1px #EEE;
-	text-transform:uppercase;
+	letter-spacing:1.2vw;
+	font-size:11vw;
+	line-height:6vw;
+	//color: #E24C33;
+	color: #222;
+	margin-top:40vh;
+	margin-bottom:0;
 }
 
 h2 {
 	font-family: "Helvetica Neue";
-	letter-spacing:0.2vh;
-	font-size:26px;
-	margin-top:5px;
+	letter-spacing: 0.4vw;
+	font-weight:1000;
+	font-size:3.4vw;
+	//color: #FFDC00;
 	color: #E24C33;
-	text-shadow: 1px 1px #EEE;
-	text-transform:uppercase;
+	
 }
 h3 {
 	font-size: 30px;
 	margin-top:0px;
 	margin-bottom:0px;
 	letter-spacing: 2px;
-	text-transform:uppercase;
 }
-
-#about, #projects{
+#content {
 	text-align: center;
 	width: 768px;
 	margin: 0 auto;
 }
+
 ul {text-align: left;}
 
 footer {
@@ -100,46 +105,17 @@ footer {
 	border-top: #222 solid 2px;
 	font-size: 14px;
 }
-
 a {
 	color: #E24C33; 
 	text-decoration:none;
 }
-
-img.pin {
-	
-	height:18px;
-	display:inline-block;
-	margin: auto 2px;
-	vertical-align:middle;
+a:hover{
+	color:#ff0;
+	color: #FFDC00;
 }
 
-.pinlink {
-	min-height: 30px;
-	line-height:30px;
-	
-	display:inline-block;
-	padding: 1px 5px;
-	/*border:1px #fff solid;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;*/
-	/*color:#FF0;*/
-	text-align: center;
-}
-
-
-.pinlink:hover {
-	border-color:#fff;
-	/*color:#fff;*/
-}
-
-.pinarray {text-align:center;}
-
-a:hover{color:#ff0;}
 
 article {padding:1.5em;}
-
 
 p {text-align:justify; margin: 1.5em 0;}
 
@@ -152,29 +128,23 @@ article:nth-child(even) {
 
 
 @media screen and (max-width: 768px) { 
-	h1 {
-		text-align:center;
-		letter-spacing:7px;
-		font-size:33px;
-		margin-bottom:5px;
+	h1, h2 {
+		-webkit-text-stroke: 0.1vw #000;
 	}
-	h2 {
-		letter-spacing:2px;
-		font-size:14px;
-		margin-top:5px;
-		text-align:center;
+	
+	h3 {
+		text-align:left;
 	}
 	body {
 		font-size:14px;
 		line-height:2em;
 	}
-	#about, #projects{
+	#content{
 		text-align: center;
 		width: 100%;
 		margin: 0 auto;
 	}
 	article:nth-child(even) {
-		background:#151515;
 		-webkit-border-radius: 0em;
 		-moz-border-radius: 0em;
 		border-radius: 0em;
@@ -196,7 +166,7 @@ article:nth-child(even) {
 </div>
 </header>
 
-<section id="about"> 
+<section id="content"> 
 <article>
 <h3>Science <a class="pinlink" href="https://www.linkedin.com/in/cthoyt"><i class="fa fa-linkedin-square"></i></a></h3>
 <p>	I was trained in synthetic organic chemistry. Now, I'm using chemoinformatics for drug discovery for my PhD at the Bonn-Aachen International Center for Information Technology, University of Bonn.</p>
@@ -222,7 +192,7 @@ article:nth-child(even) {
 
 <article class="op">
 	<div>
-<h3>Writing <a href="http://charlestapleyhoyt.wordpress.com"><i class="fa fa-book"></i></a></h3>
+<h3>Writing <a href="http://charlestapleyhoyt.wordpress.com"><i class="fa fa-wordpress"></i></a></h3>
 <div>
 <p>My freshman year of college summer reading was Atul Gawande's <a href="http://atulgawande.com/books/"><em>Better</em></a>. He insisted at the importance of writing. I was introduced to Derek Lowe's blog, <a href="http://blogs.sciencemag.org/pipeline/">In the Pipeline</a>, on the first day of my GSK internship in 2012. I haven't missed a post since.</p>
 <p>As I transitioned into informatics, I wished there was a publication like In the Pipeline. Sadly there isn't, so I will try my best to write about my work in graduate school. For now, I'm writing about my adventures in Europe as a teaching assistant on Northeastern's Chemistry, Drug Discovery, and Development Dialogue.</p>
