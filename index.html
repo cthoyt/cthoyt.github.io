@@ -1,223 +1,206 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Charles Tapley Hoyt</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" href="benzene.png" />
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<title>Charles Tapley Hoyt</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="benzene.png" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="https://rawgit.com/sdepold/jquery-rss/gh-pages/lib/jquery-1.6.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 	<script src="https://rawgit.com/sdepold/jquery-rss/gh-pages/src/jquery.rss.js"></script>
-    <script>
-      jQuery(function($) {
-        $("#rss-feeds").rss("http://feeds.feedburner.com/Instagraham", {
+	<script type="text/javascript">
+	jQuery(function($) {
+		$("#rss-feeds").rss("http://feeds.feedburner.com/Instagraham", {
 			limit: 3,
-		    ssl: true,
+			ssl: true,
 			dateFormat: 'MMMM Do',
-		    layoutTemplate: "<div class='feed-container'>{entries}</div>",
-		    entryTemplate: '<div><a href="{url}">{date}: {title}</a><br/>{first_paragraph} <a class="feed-read-more" href="{url}">Read more</a></div>',
+			layoutTemplate: "<div class='feed-container'>{entries}</div>",
+			entryTemplate: '<div><a href="{url}">{date}: {title}</a><br/>{first_paragraph} <a class="feed-read-more" href="{url}">Read more</a></div>',
 			tokens: {
 				first_paragraph: function(entry, tokens) {
-					// just get the first paragraph, which might be embedded in a div or something
+					// just get the first paragraph (lede), which might be embedded in a div or something
 					s = entry['content'].replace(/<(?:.|\n)*?>/gm, '\n')
 					s = s.trim()
 					s = s.split("\n")[0]
 					return s
 				} 
 			}
-        })
-      })
-    </script>
-<style type='text/css'>
-	.feed-container {text-align:justify;}
+		})
+	})
+	</script>
+	<style type='text/css'>
+	.feed-container {text-align: justify;}
 	.feed-container div {font-size:16px; margin-bottom: 1em;}
-	.feed-read-more {color: #AAA; font-style:italic;}
-	h4 {margin-bottom:1em;}
-</style>
-<style type='text/css'>
-html, body {
-	margin:0;
-	padding:0;
-	vertical-align:middle;
-}
-body {
-	background-color: #000;
-	color:#eee;
-	font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size:18px;
-	line-height:2em;
-}
-header, #top {
-	background: url('img/top.jpg') no-repeat bottom center scroll #D2D2D2;
-	background-size:auto 100vh;
-	height:98vh;
-	vertical-align:middle;
-	border-top: #E24C33 1vh solid;
-	//border-top: #FFDC00 1vh solid;
-	border-bottom: #000 1vh solid;
-}
-#cont {
-	text-align:center;
-	padding:5px;
-	height:100%;
-	vertical-align:middle;
-}
-h1, h2, h3, h4 {text-transform:uppercase;}
-
-h1, h2 {-webkit-text-stroke: 0.05vw #EEE;}
-
-h1 {
-	font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-weight: 700;
-	letter-spacing:1.2vw;
-	font-size:11vw;
-	line-height:6vw;
-	//color: #E24C33;
-	color: #222;
-	margin-top:40vh;
-	margin-bottom:0;
-}
-
-h2 {
-	font-family: "Helvetica Neue";
-	letter-spacing: 0.4vw;
-	font-weight:1000;
-	font-size:3.4vw;
-	//color: #FFDC00;
-	color: #E24C33;
-	
-}
-h3 {
-	font-size: 30px;
-	margin-top:0px;
-	margin-bottom:0px;
-	letter-spacing: 2px;
-}
-#content {
-	text-align: center;
-	width: 768px;
-	margin: 0 auto;
-}
-
-ul {text-align: left;}
-
-footer {
-	text-align: center;
-	border-top: #222 solid 2px;
-	font-size: 14px;
-}
-a {
-	color: #E24C33; 
-	text-decoration:none;
-}
-a:hover{
-	color:#ff0;
-	color: #FFDC00;
-}
-
-
-article {padding:1.5em;}
-
-p {text-align:justify; margin: 1.5em 0;}
-
-article:nth-child(even) {
-	background:#151515;
-	-webkit-border-radius: 1em;
-	-moz-border-radius: 1em;
-	border-radius: 1em;
-}
-
-
-@media screen and (max-width: 768px) { 
-	h1, h2 {
-		-webkit-text-stroke: 0.1vw #000;
-	}
-	
-	h3 {
-		text-align:left;
+	.feed-read-more {color: #AAA; font-style: italic;}
+	h4 {margin-bottom: 1em;}
+	</style>
+	<style type='text/css'>
+	html, body {
+		margin:0;
+		padding:0;
+		vertical-align:middle;
 	}
 	body {
-		font-size:14px;
-		line-height:2em;
+		background-color: #000;
+		color: #eee;
+		font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-size: 18px;
+		line-height: 2em;
 	}
-	#content{
+	header, #top {
+		background: url('img/top.jpg') no-repeat bottom center scroll #D2D2D2;
+		background-size: auto 100vh;
+		height: 98vh;
+		vertical-align: middle;
+		border-top: #E24C33 1vh solid;
+		//border-top: #FFDC00 1vh solid;
+		border-bottom: #000 1vh solid;
+	}
+	#cont {
+		text-align:center;
+		padding: 5px;
+		height: 100%;
+		vertical-align:middle;
+	}
+	a {
+		color: #E24C33; 
+		text-decoration: none;
+	}
+	a:hover{
+		color:#ff0;
+		color: #FFDC00;
+	}
+	h1, h2, h3, h4 {text-transform: uppercase;}
+	h1, h2 {-webkit-text-stroke: 0.05vw #EEE;}
+	h1 {
+		font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-weight: 700;
+		letter-spacing: 1.2vw;
+		font-size: 11vw;
+		line-height: 7.5vw;
+		//color: #E24C33;
+		color: #222;
+		margin-top: 35vh;
+		margin-bottom:0;
+	}
+
+	h2 {
+		font-family: "Helvetica Neue";
+		letter-spacing: 0.4vw;
+		font-weight: 1000;
+		font-size: 3.4vw;
+		//color: #FFDC00;
+		color: #E24C33;
+	
+	}
+	h3 {
+		font-size: 30px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		letter-spacing: 2px;
+	}
+	#content {
 		text-align: center;
-		width: 100%;
+		width: 768px;
 		margin: 0 auto;
 	}
-	article:nth-child(even) {
-		-webkit-border-radius: 0em;
-		-moz-border-radius: 0em;
-		border-radius: 0em;
+	ul {text-align: left;}
+	footer {
+		text-align: center;
+		border-top: #222 solid 2px;
+		font-size: 14px;
 	}
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header>
-<div id="cont">
-<div id="contb">
-<h1>Charlie Hoyt</h1>
-<h2>Scientist, programmer, musician, writer</h2>
-</div>
-</div>
-</header>
-
-<section id="content"> 
-<article>
-<h3>Science <a class="pinlink" href="https://www.linkedin.com/in/cthoyt"><i class="fa fa-linkedin-square"></i></a></h3>
-<p>	I was trained in synthetic organic chemistry. Now, I'm using chemoinformatics for drug discovery for my PhD at the Bonn-Aachen International Center for Information Technology, University of Bonn.</p>
-
-</article>
-
-<article class="op">
-<div>
-	<h3>Programming <a class="pinlink" href="https://github.com/cthoyt"><i class="fa fa-github"></i></a></h3>
-<div>
-<p>For me, programming is about problem solving. I know a lot of languages and packages. Python and SciPy have been favorites lately. I love clean code, but I've been known to do anything for the one-liner. </p>
-</div>
-</div>
-</article>
-
-<article>
-	<div>
-	<h3>Music <a class="pinlink" href="https://soundcloud.com/cthoyt"><i class="fa fa-soundcloud"></i> </a></h3>
-	<p>I'm <a href="https://www.youtube.com/watch?v=LISJUGqEYws">in love</a> with music. It carries me through a five-minute mile. I like dressing up fancy to see the symphony. I play sax and guitar, and dabble in everything else. I write music, too.</p>
+	article {padding: 1.5em;}
+	p {text-align:justify; margin: 1.5em 0;}
+	article:nth-child(even) {
+		background:#151515;
+		-webkit-border-radius: 1em;
+		-moz-border-radius: 1em;
+		border-radius: 1em;
+	}
+	@media screen and (max-width: 768px) { 
+		h1, h2 {
+			-webkit-text-stroke: 0.1vw #000;
+		}
 	
-</div>
-</article>
-
-<article class="op">
-	<div>
-<h3>Writing <a href="http://charlestapleyhoyt.wordpress.com"><i class="fa fa-wordpress"></i></a></h3>
-<div>
-<p>My freshman year of college summer reading was Atul Gawande's <a href="http://atulgawande.com/books/"><em>Better</em></a>. He insisted at the importance of writing. I was introduced to Derek Lowe's blog, <a href="http://blogs.sciencemag.org/pipeline/">In the Pipeline</a>, on the first day of my GSK internship in 2012. I haven't missed a post since.</p>
-<p>As I transitioned into informatics, I wished there was a publication like In the Pipeline. Sadly there isn't, so I will try my best to write about my work in graduate school. For now, I'm writing about my adventures in Europe as a teaching assistant on Northeastern's Chemistry, Drug Discovery, and Development Dialogue.</p>
-</div>
-<h4>My Recent Posts</h4>
-<div id="rss-feeds"></div>
-<a class="pinlink" href="http://cthoyt-travel.blogspot.com/"><i class="fa fa-globe"></i> My Travel Blog</a>
-<a class="pinlink" href="http://nu-cd4.blogspot.com/"><i class="fa fa-flask"></i> Nu-CD4 Blog</a>
-</div>
-</article>
-
-<article><div>
-<h3>CURRENT PROJECTS</h3>
-<div>
-<ul>
-	<li>This website</li>
-	<li>Getting all of my blogging into Evernote and Wordpress</li>
-	<li>Writing an Organic Chemistry Book</li>
-	<li>Learning German</li>
-</ul>
-</div></div></article>
-</section>
-
-<footer>Special thanks to Shannon Reardon for taking my header photo, <a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a> for the icons, and <a href="https://github.com/cthoyt/cthoyt.github.io">GitHub</a> for the versioning</footer>
-</body>
-</html>
+		h3 {
+			text-align:left;
+		}
+		body {
+			font-size: 14px;
+			line-height: 2em;
+		}
+		#content{
+			text-align: center;
+			width: 100%;
+			margin: 0 auto;
+		}
+		article:nth-child(even) {
+			-webkit-border-radius: 0em;
+			-moz-border-radius: 0em;
+			border-radius: 0em;
+		}
+	}
+	</style>
+</head>
+<body>
+	<header>
+		<div id="cont">
+			<div id="contb">
+				<h1>Charlie Hoyt</h1>
+				<h2>Scientist, programmer, musician</h2>
+			</div>
+		</div>
+	</header>
+	<section id="content"> 
+		<article>
+			<h3>Science <a class="pinlink" href="https://www.linkedin.com/in/cthoyt"><i class="fa fa-linkedin-square"></i></a></h3>
+			<p>	I was trained in synthetic organic chemistry. Now, I'm using chemoinformatics for drug discovery for my PhD at the Bonn-Aachen International Center for Information Technology, University of Bonn.</p>
+		</article>
+		<article class="op">
+			<a id="programming"></a>
+			<div>
+				<h3>Programming <a class="pinlink" href="https://github.com/cthoyt"><i class="fa fa-github"></i></a></h3>
+				<div>
+					<p>For me, programming is about problem solving. I know a lot of languages and packages. Python and SciPy have been favorites lately. I love clean code, but I've been known to do anything for the one-liner. </p>
+				</div>
+			</div>
+		</article>
+		<article>
+			<a id="music"></a>
+			<div>
+				<h3>Music <a class="pinlink" href="https://soundcloud.com/cthoyt"><i class="fa fa-soundcloud"></i> </a></h3>
+				<p>I'm <a href="https://www.youtube.com/watch?v=LISJUGqEYws">in love</a> with music. It carries me through a five-minute mile. I like dressing up fancy to see the symphony. I play sax and guitar, and dabble in everything else. I write music, too.</p>
+			</div>
+		</article>
+		<article class="op">
+			<a id="writing"></a>	
+			<div>
+				<h3>Writing <a href="http://charlestapleyhoyt.wordpress.com"><i class="fa fa-wordpress"></i></a></h3>
+				<div>
+					<p>My freshman year of college summer reading was Atul Gawande's <a href="http://atulgawande.com/books/"><em>Better</em></a>. He insisted at the importance of writing. I was introduced to Derek Lowe's blog, <a href="http://blogs.sciencemag.org/pipeline/">In the Pipeline</a>, on the first day of my GSK internship in 2012. I haven't missed a post since.</p>
+					<p>As I transitioned into informatics, I wished there was a publication like In the Pipeline. Sadly there isn't, so I will try my best to write about my work in graduate school. For now, I'm writing about my adventures in Europe as a teaching assistant on Northeastern's Chemistry, Drug Discovery, and Development Dialogue.</p>
+				</div>
+				<h4>My Recent Posts</h4>
+				<div id="rss-feeds"></div>
+				<a class="pinlink" href="http://cthoyt-travel.blogspot.com/"><i class="fa fa-globe"></i> My Travel Blog</a>
+				<a class="pinlink" href="http://nu-cd4.blogspot.com/"><i class="fa fa-flask"></i> Nu-CD4 Blog</a>
+			</div>
+		</article>
+		<article>
+			<a id="projects"></a>
+			<div>
+				<h3>CURRENT PROJECTS</h3>
+				<div>
+					<ul>
+						<li>This website</li>
+						<li>Getting all of my blogging into Evernote and Wordpress</li>
+						<li>Writing an Organic Chemistry Book</li>
+						<li>Learning German</li>
+					</ul>
+				</div></div></article>
+			</section>
+			<footer>Special thanks to Shannon Reardon for taking my header photo, <a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a> for the icons, and <a href="https://github.com/cthoyt/cthoyt.github.io">GitHub</a> for the versioning</footer>
+		</body>
+		</html>
