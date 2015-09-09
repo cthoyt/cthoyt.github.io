@@ -4,15 +4,16 @@
 	<title>Charles Tapley Hoyt</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="benzene.png" />
+	<link href="benzene.png" rel="icon" type="image/png" />
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet" type="text/css">
 	<script src="https://rawgit.com/sdepold/jquery-rss/gh-pages/lib/jquery-1.6.4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 	<script src="https://rawgit.com/sdepold/jquery-rss/gh-pages/src/jquery.rss.js"></script>
 	<script type="text/javascript">
 	jQuery(function($) {
 		$("#rss-feeds").rss("http://feeds.feedburner.com/Instagraham", {
-			limit: 3,
+			limit: 2,
 			ssl: true,
 			dateFormat: 'MMMM Do',
 			layoutTemplate: "<div class='feed-container'>{entries}</div>",
@@ -27,122 +28,23 @@
 				} 
 			}
 		})
+		$("#rss-feeds-github").rss("http://feeds.feedburner.com/cthoyt-github", {
+			limit: 2,
+			ssl: true,
+			dateFormat: 'DD.MM.YY',
+			layoutTemplate: "<span>{entries}</span>",
+			entryTemplate: '{date}<a href="{url}"> {title}</a>',
+		})
+		$("#rss-feeds-soundcloud").rss("http://feeds.feedburner.com/soundcloud/WUST", {
+			limit: 2,
+			ssl: true,
+			dateFormat: 'DD.MM.YY',
+			layoutTemplate: "<span>{entries}</span>",
+			entryTemplate: '{date}<a href="{url}"> {title}</a>',
+		})
+		
 	})
 	</script>
-	<style type='text/css'>
-	.feed-container {text-align: justify;}
-	.feed-container div {font-size:16px; margin-bottom: 1em;}
-	.feed-read-more {color: #AAA; font-style: italic;}
-	h4 {margin-bottom: 1em;}
-	</style>
-	<style type='text/css'>
-	html, body {
-		margin:0;
-		padding:0;
-		vertical-align:middle;
-	}
-	body {
-		background-color: #000;
-		color: #eee;
-		font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-		font-size: 18px;
-		line-height: 2em;
-	}
-	header, #top {
-		background: url('img/top.jpg') no-repeat bottom center scroll #D2D2D2;
-		background-size: auto 100vh;
-		height: 98vh;
-		vertical-align: middle;
-		border-top: #E24C33 1vh solid;
-		//border-top: #FFDC00 1vh solid;
-		border-bottom: #000 1vh solid;
-	}
-	#cont {
-		text-align:center;
-		padding: 5px;
-		height: 100%;
-		vertical-align:middle;
-	}
-	a {
-		color: #E24C33; 
-		text-decoration: none;
-	}
-	a:hover{
-		color:#ff0;
-		color: #FFDC00;
-	}
-	h1, h2, h3, h4 {text-transform: uppercase;}
-	h1, h2 {-webkit-text-stroke: 0.05vw #EEE;}
-	h1 {
-		font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-		font-weight: 700;
-		letter-spacing: 1.2vw;
-		font-size: 11vw;
-		line-height: 7.5vw;
-		//color: #E24C33;
-		color: #222;
-		margin-top: 35vh;
-		margin-bottom:0;
-	}
-
-	h2 {
-		font-family: "Helvetica Neue";
-		letter-spacing: 0.4vw;
-		font-weight: 1000;
-		font-size: 3.4vw;
-		//color: #FFDC00;
-		color: #E24C33;
-	
-	}
-	h3 {
-		font-size: 30px;
-		margin-top: 0px;
-		margin-bottom: 0px;
-		letter-spacing: 2px;
-	}
-	#content {
-		text-align: center;
-		width: 768px;
-		margin: 0 auto;
-	}
-	ul {text-align: left;}
-	footer {
-		text-align: center;
-		border-top: #222 solid 2px;
-		font-size: 14px;
-	}
-	article {padding: 1.5em;}
-	p {text-align:justify; margin: 1.5em 0;}
-	article:nth-child(even) {
-		background:#151515;
-		-webkit-border-radius: 1em;
-		-moz-border-radius: 1em;
-		border-radius: 1em;
-	}
-	@media screen and (max-width: 768px) { 
-		h1, h2 {
-			-webkit-text-stroke: 0.1vw #000;
-		}
-	
-		h3 {
-			text-align:left;
-		}
-		body {
-			font-size: 14px;
-			line-height: 2em;
-		}
-		#content{
-			text-align: center;
-			width: 100%;
-			margin: 0 auto;
-		}
-		article:nth-child(even) {
-			-webkit-border-radius: 0em;
-			-moz-border-radius: 0em;
-			border-radius: 0em;
-		}
-	}
-	</style>
 </head>
 <body>
 	<header>
@@ -165,6 +67,7 @@
 				<div>
 					<p>For me, programming is about problem solving. I know a lot of languages and packages. Python and SciPy have been favorites lately. I love clean code, but I've been known to do anything for the one-liner. </p>
 				</div>
+				<div id="rss-feeds-github"><h4>Latest GitHub Activity</h4></div>
 			</div>
 		</article>
 		<article>
@@ -172,6 +75,7 @@
 			<div>
 				<h3>Music <a class="pinlink" href="https://soundcloud.com/cthoyt"><i class="fa fa-soundcloud"></i> </a></h3>
 				<p>I'm <a href="https://www.youtube.com/watch?v=LISJUGqEYws">in love</a> with music. It carries me through a five-minute mile. I like dressing up fancy to see the symphony. I play sax and guitar, and dabble in everything else. I write music, too.</p>
+				<div id="rss-feeds-soundcloud"><h4>Latest SoundCloud Activity</h4></div>
 			</div>
 		</article>
 		<article class="op">
@@ -182,8 +86,7 @@
 					<p>My freshman year of college summer reading was Atul Gawande's <a href="http://atulgawande.com/books/"><em>Better</em></a>. He insisted at the importance of writing. I was introduced to Derek Lowe's blog, <a href="http://blogs.sciencemag.org/pipeline/">In the Pipeline</a>, on the first day of my GSK internship in 2012. I haven't missed a post since.</p>
 					<p>As I transitioned into informatics, I wished there was a publication like In the Pipeline. Sadly there isn't, so I will try my best to write about my work in graduate school. For now, I'm writing about my adventures in Europe as a teaching assistant on Northeastern's Chemistry, Drug Discovery, and Development Dialogue.</p>
 				</div>
-				<h4>My Recent Posts</h4>
-				<div id="rss-feeds"></div>
+				<div id="rss-feeds"><h4>My Recent Posts</h4></div>
 				<a class="pinlink" href="http://cthoyt-travel.blogspot.com/"><i class="fa fa-globe"></i> My Travel Blog</a>
 				<a class="pinlink" href="http://nu-cd4.blogspot.com/"><i class="fa fa-flask"></i> Nu-CD4 Blog</a>
 			</div>
