@@ -1,8 +1,8 @@
 
 html, body {
-	margin:0;
-	padding:0;
-	vertical-align:middle;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
 }
 body {
 	background-color: #000;
@@ -11,33 +11,74 @@ body {
 	font-size: 18px;
 	line-height: 2em;
 }
-header, #top {
+header {
 	background: url('img/top.jpg') no-repeat bottom center scroll #D2D2D2;
 	background-size: auto 100vh;
 	height: 98vh;
-	vertical-align: middle;
+	text-align: center;
 	border-top: #E24C33 1vh solid;
 	//border-top: #FFDC00 1vh solid;
 	border-bottom: #000 1vh solid;
 }
-#cont {
-	text-align:center;
-	padding: 5px;
-	height: 100%;
-	vertical-align:middle;
+#content {
+	text-align: center;
+	width: 768px;
+	margin: 0 auto;
 }
-a {
-	color: #E24C33; 
-	text-decoration: none;
+article {
+	background: #151515;
+	-webkit-border-radius: .75em;
+	-moz-border-radius: .75em;
+	border-radius: .75em;
+	margin: 1.5em auto;
+	padding: 1em 1.5em;
 }
-a:hover{
-	color:#ff0;
-	color: #FFDC00;
+footer {
+	text-align: center;
+	border-top: #222 solid 2px;
+	font-size: 14px;
 }
-h1, h2, h3, h4 {text-transform: uppercase;}
-h1, h2 {-webkit-text-stroke: 0.05vw #EEE;}
+ul {
+	text-align: left;
+}
+p {
+	text-align: justify;
+	margin: 1.2em 0;
+}
+.feed-container {
+	text-align: justify;
+}
+.feed-container div {
+	margin-bottom: 1em;
+}
+.feed-read-more {
+	color: #AAA;
+	font-style: italic;
+}
+.feed-container-github {
+	text-align: justify;
+}
+.hashtag {
+	color: #BBB;
+	border: 1px solid #222;
+	background: #222;
+	padding: .25em;
+	-webkit-border-radius: .25em;
+	-moz-border-radius: .25em;
+	border-radius: .25em;
+}
+
+#rss-feeds-github, #rss-feeds-soundcloud {
+	text-align: left;
+}
+h1, h2, h3, h4 {
+	text-transform: uppercase;
+}
+h1, h2 {
+	-webkit-text-stroke: 0.05vw #EEE;
+}
 h1 {
-	font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-weight: 700;
 	letter-spacing: 1.2vw;
 	font-size: 11vw;
@@ -45,7 +86,7 @@ h1 {
 	//color: #E24C33;
 	color: #222;
 	margin-top: 35vh;
-	margin-bottom:0;
+	margin-bottom: 0;
 }
 h2 {
 	font-family: "Helvetica Neue";
@@ -54,7 +95,6 @@ h2 {
 	font-size: 3.4vw;
 	//color: #FFDC00;
 	color: #E24C33;
-
 }
 h3 {
 	font-size: 30px;
@@ -62,63 +102,39 @@ h3 {
 	margin-bottom: 0px;
 	letter-spacing: 2px;
 }
-#content {
-	text-align: center;
-	width: 768px;
-	margin: 0 auto;
-}
-ul {text-align: left;}
-footer {
-	text-align: center;
-	border-top: #222 solid 2px;
-	font-size: 14px;
-}
-article {padding: 1.5em;}
-p {
-	text-align:justify; 
-	margin: 1.2em 0;
-}
-article:nth-child(even) {
-	background:#151515;
-	-webkit-border-radius: 1em;
-	-moz-border-radius: 1em;
-	border-radius: 1em;
-}
-.feed-container {text-align: justify;}
-.feed-container div {
-	margin-bottom: 1em;
-}
-.feed-read-more {
-	color: #AAA; 
-	font-style: italic;
-}
-.feed-container-github {text-align: justify;}
-#rss-feeds-github, #rss-feeds-soundcloud {text-align: left;}
 h4 {
 	margin-bottom: 1em;
 	margin: 0;
 	padding: 0;
 }
-@media screen and (max-width: 768px) { 
-	h1, h2 {
-		-webkit-text-stroke: 0.1vw #000;
-	}
-
-	h3 {
-		text-align:left;
-	}
+a {
+	color: #E24C33;
+	text-decoration: none;
+}
+a:hover {
+	color: #ff0;
+	color: #FFDC00;
+}
+@media screen and (max-width: 768px) {
 	body {
 		font-size: 14px;
 		line-height: 2em;
 	}
-	#content{
+	#content {
 		text-align: center;
 		width: 100%;
 		margin: 0 auto;
 	}
-	article:nth-child(even) {
+	article {
 		-webkit-border-radius: 0em;
 		-moz-border-radius: 0em;
 		border-radius: 0em;
 	}
+	h1, h2 {
+		-webkit-text-stroke: 0.1vw #000;
+	}
+	h3 {
+		text-align: left;
+	}
+
 }

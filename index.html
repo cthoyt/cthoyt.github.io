@@ -12,12 +12,12 @@
 	<script src="https://rawgit.com/sdepold/jquery-rss/gh-pages/src/jquery.rss.js"></script>
 	<script type="text/javascript">
 	jQuery(function($) {
-		$("#rss-feeds").rss("http://feeds.feedburner.com/Instagraham", {
+		$("#rss-feeds-wordpress").rss("http://feeds.feedburner.com/CharlesTapleyHoyt", {
 			limit: 2,
 			ssl: true,
 			dateFormat: 'MMMM Do',
 			layoutTemplate: "<div class='feed-container'>{entries}</div>",
-			entryTemplate: '<div><a href="{url}">{date}: {title}</a><br/>{first_paragraph} <a class="feed-read-more" href="{url}">Read more</a></div>',
+			entryTemplate: '<div><a href="{url}">{date} - {title}</a><br/>{first_paragraph} <a class="feed-read-more" href="{url}">Read more</a> {categories}</div>',
 			tokens: {
 				first_paragraph: function(entry, tokens) {
 					// just get the first paragraph (lede), which might be embedded in a div or something
@@ -25,7 +25,18 @@
 					s = s.trim()
 					s = s.split("\n")[0]
 					return s
-				} 
+				},
+				categories: function(entry, tokens) {
+					console.log(entry)
+					r = []
+					for (var key in entry["categories"]) {
+						
+						cat = entry["categories"][key]["name"]
+						ent = '<a class="hashtag" href="https://charlestapleyhoyt.wordpress.com/category/' +  cat + '">#' + cat +  '</a> '
+						r.push(ent)
+					}
+					return r.join("")
+				}
 			}
 		})
 		$("#rss-feeds-github").rss("http://feeds.feedburner.com/cthoyt-github", {
@@ -48,62 +59,45 @@
 </head>
 <body>
 	<header>
-		<div id="cont">
-			<div id="contb">
-				<h1>Charlie Hoyt</h1>
-				<h2>Scientist, programmer, musician</h2>
-			</div>
-		</div>
+		<h1>Charlie Hoyt</h1>
+		<h2>Scientist, Programmer, Musician</h2>
 	</header>
 	<section id="content"> 
 		<article>
+			<a id="science"></a>
 			<h3>Science <a class="pinlink" href="https://www.linkedin.com/in/cthoyt"><i class="fa fa-linkedin-square"></i></a></h3>
-			<p>	I was trained in synthetic organic chemistry. Now, I'm using chemoinformatics for drug discovery for my PhD at the Bonn-Aachen International Center for Information Technology, University of Bonn.</p>
+			<p>	With a backgrounds in synthetic and medicinal chemistry, I'm using bioinformatics and chemoinformatics for drug discovery for my master's degree at University of Bonn.</p>
 		</article>
 		<article class="op">
 			<a id="programming"></a>
-			<div>
-				<h3>Programming <a class="pinlink" href="https://github.com/cthoyt"><i class="fa fa-github"></i></a></h3>
-				<div>
-					<p>For me, programming is about problem solving. I know a lot of languages and packages. Python and SciPy have been favorites lately. I love clean code, but I've been known to do anything for the one-liner. </p>
-				</div>
-				<div id="rss-feeds-github"><h4>Latest GitHub Activity</h4></div>
-			</div>
+			<h3>Programming <a class="pinlink" href="https://github.com/cthoyt"><i class="fa fa-github"></i></a></h3>
+			<p>For me, programming is about problem solving. I love code that's clean and elegant, but I've been known for code-golfing, too.</p>
+			<div id="rss-feeds-github"><h4>Latest GitHub Activity</h4></div>	
 		</article>
 		<article>
 			<a id="music"></a>
-			<div>
-				<h3>Music <a class="pinlink" href="https://soundcloud.com/cthoyt"><i class="fa fa-soundcloud"></i> </a></h3>
-				<p>I'm <a href="https://www.youtube.com/watch?v=LISJUGqEYws">in love</a> with music. It carries me through a five-minute mile. I like dressing up fancy to see the symphony. I play sax and guitar, and dabble in everything else. I write music, too.</p>
-				<div id="rss-feeds-soundcloud"><h4>Latest SoundCloud Activity</h4></div>
-			</div>
+			<h3>Music <a class="pinlink" href="https://soundcloud.com/cthoyt"><i class="fa fa-soundcloud"></i> </a></h3>
+			<p>I'm always <a href="http://www.last.fm/user/cthoyt">listening</a> whether I'm running, traveling, or at the symphony. I spend a lot of my free time writing and playing, too. (I'm <a href="https://www.youtube.com/watch?v=LISJUGqEYws">in love</a> with music)</p>
+			<div id="rss-feeds-soundcloud"><h4>Latest SoundCloud Activity</h4></div>
 		</article>
 		<article class="op">
 			<a id="writing"></a>	
-			<div>
-				<h3>Writing <a href="http://charlestapleyhoyt.wordpress.com"><i class="fa fa-wordpress"></i></a></h3>
-				<div>
-					<p>My freshman year of college summer reading was Atul Gawande's <a href="http://atulgawande.com/books/"><em>Better</em></a>. He insisted at the importance of writing. I was introduced to Derek Lowe's blog, <a href="http://blogs.sciencemag.org/pipeline/">In the Pipeline</a>, on the first day of my GSK internship in 2012. I haven't missed a post since.</p>
-					<p>As I transitioned into informatics, I wished there was a publication like In the Pipeline. Sadly there isn't, so I will try my best to write about my work in graduate school. For now, I'm writing about my adventures in Europe as a teaching assistant on Northeastern's Chemistry, Drug Discovery, and Development Dialogue.</p>
-				</div>
-				<div id="rss-feeds"><h4>My Recent Posts</h4></div>
-				<a class="pinlink" href="http://cthoyt-travel.blogspot.com/"><i class="fa fa-globe"></i> My Travel Blog</a>
-				<a class="pinlink" href="http://nu-cd4.blogspot.com/"><i class="fa fa-flask"></i> Nu-CD4 Blog</a>
-			</div>
+			<h3>Writing <a href="http://charlestapleyhoyt.wordpress.com"><i class="fa fa-wordpress"></i></a></h3>
+			<p>In my freshman <a href="http://atulgawande.com/book/better/">summer reading</a> at Northeastern, author Atul Gawande insisted at the importance of writing. I was soon introduced to <a href="http://blogs.sciencemag.org/pipeline/">In the Pipeline</a> on my first co-op at GSK. It's given me valuable insight into many facets of pharma and medicinal chemistry as a young scientist.</p>
+			<p>As I became interested in informatics, I realized there were few community sources of news. I want to make a habit of writing in graduate school to share my adventures as an American in Europe and about the science I learn. <a class="pinlink" href="http://nu-cd4.blogspot.com/">Part I</a> is my adventure as a teaching assistant on Northeastern's Chemistry, Drug Discovery, and Development Dialogue. <a href="https://charlestapleyhoyt.wordpress.com/category/todayilearned">Part II</a> is about what I'm learning in graduate school, and Parts III and beyond will come soon.</p>
+			<div id="rss-feeds-wordpress"><h4>My Recent Posts</h4></div>
 		</article>
 		<article>
 			<a id="projects"></a>
-			<div>
-				<h3>CURRENT PROJECTS</h3>
-				<div>
-					<ul>
-						<li>This website</li>
-						<li>Getting all of my blogging into Evernote and Wordpress</li>
-						<li>Writing an Organic Chemistry Book</li>
-						<li>Learning German</li>
-					</ul>
-				</div></div></article>
-			</section>
-			<footer>Special thanks to Shannon Reardon for taking my header photo, <a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a> for the icons, and <a href="https://github.com/cthoyt/cthoyt.github.io">GitHub</a> for the versioning</footer>
-		</body>
-		</html>
+			<h3>Current Projects</h3>
+			<ul>
+				<li>This website</li>
+				<li>Getting all of my blogging into Evernote and Wordpress</li>
+				<li>Writing an Organic Chemistry Book</li>
+				<li>Learning German</li>
+			</ul>
+		</article>
+	</section>
+	<footer>Special thanks to Shannon Reardon for taking my header photo, <a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a> for the icons, and <a href="https://github.com/cthoyt/cthoyt.github.io">GitHub</a> for the versioning</footer>
+</body>
+</html>
