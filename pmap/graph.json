@@ -1,0 +1,43 @@
+{
+	"nodes": [
+		{"name": "Addition of Reals", "group":1},
+		{"name": "Sum Notation", "group":1},
+		{"name": "Dot Product", "group":1},
+		{"name": "Inner Product", "group":1},
+		{"name": "Wittig Reaction", "group":2},
+		{"name": "Carbonyl Chemistry", "group":2},
+		{"name": "JSON", "group":3},
+		{"name": "D3", "group":3},
+		{"name": "JavaScript", "group":3},
+		{"name": "Proof Techniques", "group":0},
+		{"name": "Proof by Construction", "group":0},
+		{"name": "Proof by Contrapositive", "group":0},
+		{"name": "Proof by Contradiction", "group":0},
+		{"name": "Proof by Induction", "group":0},
+		{"name": "Atomic Theory", "group":2},
+		{"name": "Electronegativity Trends", "group":2},
+		{"name": "Atomic Radii Trends", "group":2},
+		{"name": "Induction", "group":2},
+		{"name": "Ionization Energy", "group":2},
+		{"name": "Acidity", "group":2}
+		
+		
+	],
+	"links": [
+		{"source": 0, "target": 1, "value": 1},
+		{"source": 1, "target": 2, "value": 1},
+		{"source": 1, "target": 3, "value": 1},
+		{"source": 2, "target": 3, "value": 2},
+		{"source": 5, "target": 4, "value": 1},
+		{"source": 6, "target": 7, "value": 1},
+		{"source": 8, "target": 7, "value": 1},
+		{"source": 9, "target": 10, "value": 3},
+		{"source": 9, "target": 11, "value": 3},
+		{"source": 9, "target": 12, "value": 3},
+		{"source": 9, "target": 13, "value": 3},
+		{"source": 14, "target": 15, "value": 3},
+		{"source": 14, "target": 16, "value": 3},
+		{"source": 14, "target": 17, "value": 3},
+		{"source": 14, "target": 18, "value": 3}
+	]
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+.node {
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+.link { 
+	stroke: #ccc; 
+	  font-weight: 300;
+
+	font-size: 11px; 
+	font-family: sans-serif; 
+}
+.arrowhead {
+	stroke: #CCC;
+	  fill: #CCC;
+	  stroke-width: 1;
+}
+.node text {
+  pointer-events: none;
+  font: 1em sans-serif;
+  color: #000;
+}
+
+</style>
+<body>
+<h1>Pedagogical Tree</h1>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+	height = 500;
+
+var color = d3.scale.category20();
+
+var force = d3.layout.force()
+	.charge(-350)
+	.linkDistance(80)
+	.size([width, height]);
+
+var svg = d3.select("body").append("svg")
+	.attr("width", width)
+	.attr("height", height);
+
+d3.json("graph.json", function(error, graph) {
+	if (error) throw error;
+
+	force
+		.nodes(graph.nodes)
+		.links(graph.links)
+		.start();
+
+	var linkHolder = svg.selectAll("linkHolder")
+		.data(graph.links)
+		.enter()
+		.append("svg:g")
+		.attr("class", "link")
+		.attr("class", function(d) {
+			return d.name
+		}).call(force.drag);
+
+	var link = linkHolder.append("svg:line")
+		.attr("class", "link")
+		.attr("stroke", "gray")
+		.attr("x1", function(d) {
+			return d.x1;
+		}).attr("y1", function(d) {
+			return d.y1;
+		}).attr("x2", function(d) {
+			return d.x1;
+		}).attr("y2", function(d) {
+			return d.y2;
+		});
+
+	var linkArrowhead = linkHolder.append("svg:polygon")
+		.attr("class", "arrowhead")
+		.attr("transform", function(d) {
+			angle = Math.atan2(d.target.y - d.source.y, d.target.x - d.source.x);
+			return "rotate(" + angle + ", " + d.target.x + ", " + d.target.y + ")";
+		})
+		.attr("points", function(d) {
+			//angle = (d.y2-d.y1)/(d.x2-d.x1);
+			return [[d.target.x, d.target.y].join(","), [d.target.x - 3, d.target.y + 26].join(","), [d.target.x + 3, d.target.y + 26].join(",")].join(" ");
+		});
+
+	var node = svg.selectAll(".node")
+		.data(graph.nodes)
+		.enter()
+		.append("g")
+		.attr("class", "node")
+		.call(force.drag);
+
+	node.append("circle")
+		.attr("r", 8)
+		.style("fill", function(d) {
+			return color(d.group);
+		});
+
+	node.append("text")
+		.attr("dx", 12)
+		.attr("dy", ".35em")
+		.text(function(d) {
+			return d.name;
+		});
+
+	node.append("title")
+		.text(function(d) {
+			return d.name;
+		});
+
+	force.on("tick", function() {
+		link.attr("x1", function(d) {
+			return d.source.x;
+		}).attr("y1", function(d) {
+			return d.source.y;
+		}).attr("x2", function(d) {
+			return d.target.x;
+		}).attr("y2", function(d) {
+			return d.target.y;
+		});
+
+		node.attr("transform", function(d) {
+			return "translate(" + d.x + "," + d.y + ")";
+		});
+
+		linkArrowhead.attr("points", function(d) {
+			return [[d.target.x, d.target.y + 8].join(","), [d.target.x - 2, d.target.y + 12].join(","), [d.target.x + 2, d.target.y + 12].join(",")].join(" ");
+		}).attr("transform", function(d) {
+			angle = Math.atan2(d.target.y - d.source.y, d.target.x - d.source.x) * 180 / Math.PI + 90;
+			return "rotate(" + angle + ", " + d.target.x + ", " + d.target.y + ")";
+		});
+	});
+});
+
+</script>
+</body>
+</html>
