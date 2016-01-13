@@ -29,6 +29,7 @@
 			<a id="music"></a>
 			<h3>Music <a class="pinlink" href="https://soundcloud.com/cthoyt"><i class="fa fa-soundcloud"></i> </a></h3>
 			<p>I'm always <a href="http://www.last.fm/user/cthoyt">listening</a> whether I'm running, traveling, or at the symphony. I spend a lot of my free time writing and playing, too. (I'm <a href="https://www.youtube.com/watch?v=LISJUGqEYws">in love</a> with music)</p>
+			<div id="nowplaying"></div>
 			<div id="rss-feeds-soundcloud"><h4>Latest SoundCloud Activity</h4></div>
 		</article>
 		<article class="op">
@@ -54,6 +55,7 @@
 <script src="https://rawgit.com/sdepold/jquery-rss/gh-pages/lib/jquery-1.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 <script src="https://rawgit.com/sdepold/jquery-rss/gh-pages/src/jquery.rss.js"></script>
+<script src="//d3js.org/d3.v3.min.js"></script>
 <script type="text/javascript">
 jQuery(function($) {
 	$("#rss-feeds-wordpress").rss("http://feeds.feedburner.com/CharlesTapleyHoyt", {
@@ -71,7 +73,7 @@ jQuery(function($) {
 				return s
 			},
 			categories: function(entry, tokens) {
-				console.log(entry)
+				//console.log(entry)
 				r = []
 				for (var key in entry["categories"]) {
 					cat = entry["categories"][key]["name"]
@@ -109,5 +111,13 @@ jQuery(function($) {
 	}); 
 		
 })
+</script>
+<script>
+d3.json("http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=cthoyt&api_key=351ea17a1c0f477bcfd6f093b8474389&format=json&limit=1&nowplaying=true", function(error, da) {
+	tune = da.recenttracks.track[0]
+	if ("nowplaying" in tune["@attr"]) {
+		document.getElementById("nowplaying").innerHTML = '<h4>Now Playing</h4><span><img id="nowplayingimg" src="' + tune.image[0]["#text"] + '"><a href="' + tune.url +  '">'  + tune.name + " - " + tune.artist["#text"] + '</a></span>'
+	}
+});
 </script>
 </html>

@@ -66,9 +66,14 @@ p {
 	-moz-border-radius: .25em;
 	border-radius: .25em;
 }
-
-#rss-feeds-github, #rss-feeds-soundcloud {
+#rss-feeds-github, #rss-feeds-soundcloud, #nowplaying {
 	text-align: left;
+}
+#nowplayingimg {
+	height:24px;
+	margin-right: 10px;
+	border: 1px solid #333;
+	vertical-align:middle;
 }
 h1, h2, h3, h4 {
 	text-transform: uppercase;
