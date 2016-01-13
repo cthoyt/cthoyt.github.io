@@ -73,7 +73,6 @@ jQuery(function($) {
 				return s
 			},
 			categories: function(entry, tokens) {
-				//console.log(entry)
 				r = []
 				for (var key in entry["categories"]) {
 					cat = entry["categories"][key]["name"]
@@ -83,36 +82,34 @@ jQuery(function($) {
 				return r.join("")
 			}
 		}
-	})
+	});
 	$("#rss-feeds-github").rss("http://feeds.feedburner.com/cthoyt-github", {
 		limit: 2,
 		ssl: true,
 		dateFormat: 'DD.MM.YY',
 		layoutTemplate: "<span>{entries}</span>",
 		entryTemplate: '{date}<a href="{url}"> {title}</a>',
-	})
+	});
 	$("#rss-feeds-soundcloud").rss("http://feeds.feedburner.com/soundcloud/WUST", {
 		limit: 2,
 		ssl: true,
 		dateFormat: 'DD.MM.YY',
 		layoutTemplate: "<span>{entries}</span>",
 		entryTemplate: '{date}<a href="{url}"> {title}</a>',
-	})
-	$(document).bind('mousemove',function(e){
+	});
+	$(document).bind('mousemove', function(e) {
 		if($(window).width() > 768) {
-			lp = Math.round(100*e.pageX/$(window).width())
-			tp = Math.round(100*e.pageY/$(window).height())
-			$("section").css("padding-left", lp/3)
-			$("article").css("margin-top", tp/8)
+			lp = Math.round(100 * e.pageX / $(window).width())
+			tp = Math.round(100 * e.pageY / $(window).height())
+			$("section").css("padding-left", lp / 3)
+			$("article").css("margin-top", tp / 8)
 		} else {
 			$("section").css("padding-left", 0)
 			$("article").css("margin-top", 0)
 		}	
 	}); 
 		
-})
-</script>
-<script>
+});
 d3.json("http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=cthoyt&api_key=351ea17a1c0f477bcfd6f093b8474389&format=json&limit=1&nowplaying=true", function(error, da) {
 	tune = da.recenttracks.track[0]
 	if ("nowplaying" in tune["@attr"]) {
