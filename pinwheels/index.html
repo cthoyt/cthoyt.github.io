@@ -1,0 +1,129 @@
+<html>
+<head>
+<style type="text/css">
+* {
+	padding:0;
+	margin: 0;
+	border: 0;
+}
+body {
+	font-family: "Georgia";
+	font-size: 1em;
+	line-height: 2em;
+	text-align:center;
+}
+
+.compound-series-entry img {
+	width: 300px;
+	height: 150px;
+}
+.compound-series {
+	display:inline;
+}
+.compound-series-entry {
+	display:inline-block;
+	text-align:center;
+}
+.compound-series-entry span {
+	display:block;
+}
+.compound-smiles {
+	display:hidden;
+}
+.compound-number {
+	font-weight:bold;
+}
+table {
+	text-align:center;
+	margin:0 auto;
+}
+
+article {
+	display:block;
+	text-align:center;
+	width: 950px;
+	margin: 0 auto;
+	background-color: #EEE;
+}
+
+.compound-series, .explanation {
+	border: 1px solid #333;
+}
+
+
+</style>
+</head>
+<body>
+<article>
+<header><h1>Effect of Induction</h1></header>
+
+<details>
+<summary>Things to Read First</summary>
+	<ul>
+		<li><a href="#">a</a></li>
+		<li><a href="#">b</a></li>
+	</ul>
+</details>
+
+<div class="compound-series">
+	<h3>Trend Example</h3>
+	<figure class="compound-series-entry">
+		<img src="http://localhost:5000/draw/CC(O)=O/?width=600&height=300"/>
+		<figcaption><span class="compound-number">1</span></figcaption>
+	</figure>
+	<figure class="compound-series-entry">
+		<img src="http://localhost:5000/draw/O=C(O)CF/?width=600&height=300"/>
+		<figcaption><span class="compound-number">2</span></figcaption>
+	</figure>
+	<figure class="compound-series-entry">
+		<img src="http://localhost:5000/draw/O=C(O)C(F)(F)F/?width=600&height=300"/>
+		<figcaption><span>pKa = 15<span><span class="compound-number">3</span></figcaption>
+	</figure>
+	<figure class="compound-trend">
+		-------------Acidity------------>
+	</figure>
+</div>
+
+<div class="explanation">
+<h3>Explanation of Trend</h3>
+Fluorine pulls electron density away from the alpha carbon, which then pulls away from the carbonyl carbon, then the oxygen, which makes the O-H bond weaker, and the H more acidic.
+<h3>Idea Flow</h3>
+<ul>
+	<li>Identify electronegative atoms - fluorine</li>
+	<li>Identify electron shift along bonds with fluorines</li>
+	<li>Identify electron defficient atoms</li>
+	<li>Identify electron shift</li>
+	<li>Propogate</li>
+	<li></li>
+	<li></li>
+</ul>
+</div>
+
+<div class="compound-ref">
+	<h3>Reference</h3>
+	<table>
+		<tr>
+			<td>Compound Number</td>
+			<td>Name</td>
+			<td>SMILES</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Acetic Acid</td>
+			<td>CC(O)=O</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Fluoroacetic Acid</td>
+			<td>O=C(O)CF</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Trifluoroacetic Acid</td>
+			<td>O=C(O)C(F)(F)F</td>
+		</tr>
+	</table>
+</div>
+</article>
+</body>
+</html>
