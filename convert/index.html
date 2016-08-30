@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<style>
+
+.node {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<h1>Test.html</h1>
+<p>this file is playtime for me to convert a list of triples into a d3 style json format </p>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var force = d3.layout.force()
+    .charge(-200)
+    .linkDistance(40)
+    .size([width, height]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+
+var graph = {
+  "nodes": [
+    {"id": "red"},
+    {"id": "orange"},
+    {"id": "yellow"},
+    {"id": "green"},
+    {"id": "blue"},
+    {"id": "violet"}
+  ],
+  "links": [
+    {"source": "red", "target": "yellow"},
+    {"source": "red", "target": "blue"},
+    {"source": "red", "target": "green"}
+  ]
+}
+
+//var g2 = [
+//	["red", "goes", "yellow"],
+//	["red", "goes", "blue"],
+//	["red", "goes", "green"],
+//]
+
+
+
+var nodeById = d3.map();
+
+graph.nodes.forEach(function(node) {
+	nodeById.set(node.id, node);
+});
+
+graph.links.forEach(function(link) {
+	link.source = nodeById.get(link.source);
+	link.target = nodeById.get(link.target);
+});
+
+force
+  .nodes(graph.nodes)
+  .links(graph.links)
+  .start();
+
+var link = svg.selectAll(".link")
+	.data(graph.links)
+	.enter().append("line")
+	.attr("class", "link-bitch")
+  	.attr("stroke", "#999")
+  	.attr("stroke-width", 1.5);
+
+var node = svg.selectAll(".node")
+  	.data(graph.nodes)
+	.enter().append("circle")
+	.attr("class", "node")
+	.attr("r", 6)
+	.style("fill", function(d) { return d.id; })
+	.call(force.drag);
+
+force.on("tick", function() {
+link.attr("x1", function(d) { return d.source.x; })
+    .attr("y1", function(d) { return d.source.y; })
+    .attr("x2", function(d) { return d.target.x; })
+    .attr("y2", function(d) { return d.target.y; });
+
+node.attr("cx", function(d) { return d.x; })
+    .attr("cy", function(d) { return d.y; });
+  });
+
+</script>
+</body>
+</html>
