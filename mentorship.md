@@ -10,8 +10,9 @@ permalink: /mentorship/
   Northeastern University.
 - [Michael P Pollastri](https://orcid.org/0000-0001-9943-7197) while at
   Northeastern University.
-- Bing Xia while at GSK.
-- Dmitri Bichko while at Pfizer.
+- [Bing Xia](https://www.linkedin.com/in/bing-xia-57031912)
+  while at GSK.
+- [Dmitri Bichko](linkedin.com/in/dmitri-bichko-1333ba1) while at Pfizer.
 - [Elisabet Gregori-Puigjane](https://orcid.org/0000-0003-4754-1720) while
   at Novartis Institutes for Biomedical Research.
 - [Shweta Bagawadi Kalawia](https://orcid.org/0000-0002-1249-6416) while at
