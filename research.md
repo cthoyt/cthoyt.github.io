@@ -16,7 +16,7 @@ Supporting Ontology (CONSO)](https://github.com/pharmacome/conso).
 
 After identifying named entities within scholarly articles, their relations can
 be extracted and encoded in a knowledge graph. I lead the team that created the
-knowledge graph [Curation of Neurodegeneration in BEL(CONIB)](https://github.com/pharmacome/conib)
+knowledge graph [Curation of Neurodegeneration in BEL (CONIB)](https://github.com/pharmacome/conib)
 and later the knowledge graph [TauBase](https://github.com/pharmacome/taubase).
 
 I also lead the same team to re-curate the knowledge graphs curated and
@@ -41,9 +41,9 @@ disambiguation, and other downstream machine learning tasks.
 
 I've worked on [PyKEEN](https://github.com/smartdataanalytics/pykeen), a
 PyTorch reimplementation of several recent knowledge graph embedding models
-with a focus on reproducibility. I've also developed [BioKEEN](https://github.com/smartdataanalytics/bikeen),
+with a focus on reproducibility. I've also developed [BioKEEN](https://github.com/smartdataanalytics/biokeen),
 which connects biological knowledge graphs in BEL (notably from Bio2BEL)
-directly in the PyKEEN pipeline.
+directly to the PyKEEN pipeline.
 
 ## Predictions
 
@@ -72,7 +72,7 @@ drug-drug links to predict compounds' side effects and give insight into
 the targets mediating those side effects.
 
 Some of my [ongoing work](https://github.com/clepp) is to apply these methods
-to precision medicine. I'm doing it by annotating patients as nodes in
+in precision medicine. I'm doing it by annotating patients as nodes in
 networks, and creating edges to biological entities based on clinical
 measurements (e.g., gene expression) then embedding those nodes for downstream
 machine learning tasks such as subgroup identification and survival analysis.
