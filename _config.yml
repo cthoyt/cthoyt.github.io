@@ -1,1 +1,7 @@
-theme: jekyll-theme-minimal
+title: Biopragmatics
+author: Charles Tapley Hoyt
+email: cthoyt@gmail.com
+twitter_username: cthoytp
+github_username:  cthoyt
+
+theme: minima
