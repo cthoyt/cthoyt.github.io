@@ -1,5 +1,6 @@
-# cthoyt.github.io
-
+---
+layout: home
+---
 I'm a bio/cheminformatician applying knowledge graph embedding methodologies to
 biological knowledge graphs to generate a variety of biological hypotheses to
 assist in drug discovery and precision medicine.
