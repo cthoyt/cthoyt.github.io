@@ -1,5 +1,8 @@
-# Research
-
+---
+layout: page
+title: Research
+permalink: /research/
+---
 My research is focused on using knowledge graph embedding methodology on
 biological knowledge graph to generate a variety of biological hypotheses to
 assist in drug discovery and precision medicine.
