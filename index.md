@@ -8,10 +8,4 @@ assist in drug discovery and precision medicine.
 Here's some details about my [research](/research.md), [teaching](/teaching.md),
 and [mentorship](/mentorship.md). My résumé can be found [here](https://github.com/cthoyt/resume/raw/master/main.pdf).
 
-## Me on the Internet
-
-- Twitter: [@cthoytp](https://twitter.com/cthoytp)
-- ORCID: [https://orcid.org/0000-0003-4423-4370](https://orcid.org/0000-0003-4423-4370)
-- Wikidata: [wikidata:Q47475003](https://www.wikidata.org/wiki/Q47475003)
-- LinkedIn: [https://linkedin.com/in/cthoyt](https://linkedin.com/in/cthoyt)
-- GitHub: [https://github.com/cthoyt](https://github.com/cthoyt)
+My ORCID iD is [https://orcid.org/0000-0003-4423-4370](https://orcid.org/0000-0003-4423-4370).
