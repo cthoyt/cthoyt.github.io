@@ -1,4 +1,8 @@
-# Mentorship
+---
+layout: page
+title: Mentorship
+permalink: /mentorship/
+---
 
 ## My Mentors
 
