@@ -1,5 +1,8 @@
-# Teaching
-
+---
+layout: page
+title: Teaching
+permalink: /teaching/
+---
 ## Courses
 
 - Enzyme Technology Internship. B-IT, University of Bonn. Summer Semester 2019
