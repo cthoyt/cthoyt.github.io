@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 ---
 I'm a bio/cheminformatician applying knowledge graph embedding methodologies to
 biological knowledge graphs to generate a variety of biological hypotheses to
