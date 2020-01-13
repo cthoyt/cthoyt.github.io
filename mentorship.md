@@ -6,21 +6,24 @@ permalink: /mentorship/
 
 ## My Mentors
 
-- [Emanuele Amata](https://orcid.org/0000-0002-4750-3479) while at
-  Northeastern University.
-- [Michael P Pollastri](https://orcid.org/0000-0001-9943-7197) while at
-  Northeastern University.
-- [Bing Xia](https://www.linkedin.com/in/bing-xia-57031912)
-  while at GSK.
-- [Dmitri Bichko](linkedin.com/in/dmitri-bichko-1333ba1) while at Pfizer.
-- [Elisabet Gregori-Puigjane](https://orcid.org/0000-0003-4754-1720) while
-  at Novartis Institutes for Biomedical Research.
-- [Shweta Bagawadi Kalawia](https://orcid.org/0000-0002-1249-6416) while at
-  Fraunhofer SCAI (pre-master's). February 2016 - March 2017.
-- [Christian Ebeling](https://orcid.org/0000-0002-7560-6846) while at
-  Fraunhofer SCAI (master's). March 2017 - October 2017.
-- [Martin Hofmann-Apitius](https://orcid.org/0000-0001-9012-6720) while at the
-  University of Bonn (doctoral).
+<ul>
+{% for mentor in site.data.mentors %}
+    <li>
+    {% if mentor contains "orcid" %}
+    <img src="https://orcid.org/sites/default/files/images/orcid_16x16(1).gif" alt="ORCID"/>
+    <a href="https://orcid.org/{{ mentor.orcid }}">{{ mentor.name }}</a>
+    {% else %}
+    <a href="https://linkedin.com/in/{{ mentor.linkedin }}">{{ mentor.name }}</a>
+    {% endif %}
+    <ul>
+        {% for role in roles %}
+        <li>
+        {{ role.name }} at {{ role.location }} from {{ role.start }} to {{ role.end}}
+        </li>
+        {% endfor %}
+    </ul>
+    </li>
+{% endfor %}
 
 ## Fraunhofer SCAI
 

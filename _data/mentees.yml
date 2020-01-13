@@ -1,0 +1,102 @@
+- name: Lauren Nicole Long
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: September 2019
+      end: December 2019
+- name: Vinay Bharadhwaj
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: July 2019
+      end: December 2019
+- name: Mauricio Pio de Lacerda
+  orcid: 0000-0002-1770-3007
+  roles:
+    - name: Master's Student
+      location: University of Bonn
+      start: March 2019
+      end: December 2019
+- name: Yojana Gadiya
+  orcid: 0000-0002-7683-0452
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: April 2019
+      end: May 2019
+- name: Trusha Adeshara
+  orcid: 0000-0002-8929-4724
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: April 2019
+      end: May 2019
+- name: Rana Aldisi
+  orcid: 0000-0002-3034-9970
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: July 2018
+      end: March 2019
+    - name: Master's Student
+      location: University of Bonn
+      start: March 2019
+      end: December 2019
+- name: Lingling Xu
+  orcid: 0000-0002-0303-8616
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: July 2018
+      end: March 2019
+    - name: Master's Student
+      location: University of Bonn
+      start: March 2019
+      end: December 2019
+- name: Özlem Muslu
+  orcid: 0000-0003-0408-6190
+  roles:
+    - name: Master's Student
+      location: University of Bonn
+      start: May 2018
+      end: December 2018
+- name: Kristian Kolpeja
+  orcid: 0000-0001-9661-5277
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: July 2018
+      end: November 2018
+- name: Esther Wollert
+  orcid: 0000-0002-7128-929X
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: July 2018
+      end: August 2019
+- name: Sandra Spalek
+  orcid: 0000-0002-6117-4413
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: July 2018
+      end: August 2019
+- name: Keerthika Lohanadan
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: July 2018
+      end: September 2018
+- name: Colin Birkenbihl
+  orcid: 0000-0002-7212-7700
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: July 2017
+      end: October 2017
+- name: Aram Grigoryan
+  roles:
+    - name: Student Research Assistant
+      location: Fraunhofer SCAI
+      start: July 2017
+      end: December 2017
