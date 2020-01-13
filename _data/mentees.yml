@@ -4,14 +4,14 @@
       location: Fraunhofer SCAI
       start: September 2019
       end: December 2019 (ongoing)
-      description: Reproducible approaches to data integration of genetics data
+      description: Reproducible approaches to data integration of genetics data. Continued under Colin Birkenbihl.
 - name: Vinay Bharadhwaj
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
       start: July 2019
       end: December 2019 (ongoing)
-      description: Application of network representation learning for embedding patients for downstream machine learning tasks
+      description: Application of network representation learning for embedding patients for downstream machine learning tasks. Continued under Daniel Domingo-Fernández.
 - name: Mauricio Pio de Lacerda
   orcid: 0000-0002-1770-3007
   roles:
