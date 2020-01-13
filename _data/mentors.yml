@@ -1,53 +1,4 @@
-- name: Emanuele Amata
-  orcid: 0000-0002-4750-3479
-  roles:
-    - name: Supervisor
-      location: Northeastern University
-      start: July 2012
-      end: December 2012
-- name: Michael P Pollastri
-  orcid: 0000-0001-9943-7197
-  roles:
-    - name: Supervisor
-      location: Northeastern University
-      start: July 2012
-      end: August 2015
-- name: Bing Xia
-  linkedin: bing-xia-57031912
-  roles:
-    - name: Supervisor
-      location: GlaxoSmithKlein
-      start: January 2013
-      end: June 2013
-- name: Dmitri Bichko
-  linkedin: dmitri-bichko-1333ba1
-  roles:
-    - name: Supervisor
-      location: Pfizer
-      start: June 2013
-      end: June 2014
-- name: Elisabet Gregori-Puigjane
-  orcid: 0000-0003-4754-1720
-  roles:
-    - name: Supervisor
-      location: Novartis Institutes for Biomedical Research
-      start: July 2014
-      end: December 2014
-- name: Shweta Bagawadi Kalawia
-  orcid: 0000-0002-1249-6416
-  roles:
-    - name: Supervisor
-      location: Fraunhofer SCAI
-      start: February 2016
-      end: March 2017
-- name: Christian Ebeling
-  orcid: 0000-0002-7560-6846
-  roles:
-    - name: Supervisor
-      location: Fraunhofer SCAI
-      start: March 2017
-      end: October 2017
-- name: Martin Hofmann-Apitius
+- name: Prof. Dr. Martin Hofmann-Apitius
   orcid: 0000-0001-9012-6720
   roles:
     - name: Supervisor
@@ -58,3 +9,53 @@
       location: University of Bonn
       start: January 2018
       end: December 2019
+- name: Christian Ebeling
+  orcid: 0000-0002-7560-6846
+  roles:
+    - name: Master's Thesis Daily Supervisor
+      location: Fraunhofer SCAI
+      start: March 2017
+      end: October 2017
+- name: Dr. Shweta Bagawadi Kalawia
+  orcid: 0000-0002-1249-6416
+  roles:
+    - name: Pre-master's Thesis Daily Supervisor
+      location: Fraunhofer SCAI
+      start: February 2016
+      end: March 2017
+- name: Dr. Elisabet Gregori-Puigjane
+  orcid: 0000-0003-4754-1720
+  roles:
+    - name: Supervisor
+      location: Novartis Institutes for Biomedical Research
+      start: July 2014
+      end: December 2014
+- name: Dmitri Bichko
+  linkedin: dmitri-bichko-1333ba1
+  roles:
+    - name: Supervisor
+      location: Pfizer
+      start: June 2013
+      end: June 2014
+- name: Dr. Bing Xia
+  linkedin: bing-xia-57031912
+  roles:
+    - name: Supervisor
+      location: GlaxoSmithKlein
+      start: January 2013
+      end: June 2013
+- name: Prof. Dr. Michael P Pollastri
+  orcid: 0000-0001-9943-7197
+  roles:
+    - name: Supervisor
+      location: Northeastern University
+      start: July 2012
+      end: August 2015
+      description:
+- name: Prof. Dr. Emanuele Amata
+  orcid: 0000-0002-4750-3479
+  roles:
+    - name: Daily Supervisor
+      location: Northeastern University
+      start: July 2012
+      end: December 2012

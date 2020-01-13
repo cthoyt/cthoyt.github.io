@@ -26,7 +26,7 @@ permalink: /mentorship/
 {% endfor %}
 </ul>
 
-## Fraunhofer SCAI
+## My Mentees
 
 During my master's and doctoral work at the Fraunhofer SCAI Department of
 Bioinformatics from 2016-2019, I had the opportunity to recruit, mentor, and
