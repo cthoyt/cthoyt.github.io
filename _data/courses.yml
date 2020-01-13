@@ -1,0 +1,50 @@
+- name: Enzyme Technology Internship
+  level: Master's Degree
+  role: Instructor (shared)
+  university: University of Bonn
+  department: Bonn-Aachen International Center for Information Technology
+  period: Summer Semester 2019
+  type: Practical
+- name: Knowledge Assembly, Data Integration, and Modeling in Systems and Networks Biology
+  level: Master's Degree
+  type: Seminar
+  role: Instructor
+  university: University of Bonn
+  department: Bonn-Aachen International Center for Information Technology
+  semester: Winter Semester 2018-2019
+- name: Medicinal Chemistry and Drug Discovery
+  level: Bachelor's Degree
+  role: Teaching Assistant
+  university: Northeastern University
+  department: Department of Chemistry and Chemical Biology
+  period: Summer II Semester 2015
+  type: Lecture
+- name: Organic Chemistry II
+  level: Bachelor's Degree
+  role: Teaching Assistant
+  university: Northeastern University
+  department: Department of Chemistry and Chemical Biology
+  period: Spring Semester 2015
+  type: Lecture
+- name: Organic Chemistry I
+  level: Bachelor's Degree
+  role: Teaching Assistant
+  university: Northeastern University
+  department: Department of Chemistry and Chemical Biology
+  period: Fall Semester 2014
+  type: Lecture
+- name: Organic Chemistry II
+  level: Bachelor's Degree
+  role: Teaching Assistant
+  university: Northeastern University
+  department: Department of Chemistry and Chemical Biology
+  period: Spring Semester 2014
+  type: Lecture
+- name: Organic Chemistry I
+  level: Bachelor's Degree
+  role: Teaching Assistant
+  university: Northeastern University
+  department: Department of Chemistry and Chemical Biology
+  period: Fall Semester 2013
+  type: Lecture
+

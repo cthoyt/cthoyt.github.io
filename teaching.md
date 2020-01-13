@@ -5,8 +5,14 @@ permalink: /teaching/
 ---
 ## Courses
 
-- Enzyme Technology Internship. B-IT, University of Bonn. Summer Semester 2019
-- Knowledge Assembly, Data Integration, and Modeling in Systems and Networks Biology. B-IT, University of Bonn. Winter Semester 2018-2019.
+<ul>
+{% for entry in site.data.courses %}
+    <li>
+    <i>{{ course.name }}</i> at {{ course.university }} during {{ course.period }}
+    ({{ course.level }} - {{ course.type }})
+    </li>
+{% endfor %}
+</ul>
 
 ## Academic Lectures
 
