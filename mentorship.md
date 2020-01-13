@@ -7,13 +7,11 @@ permalink: /mentorship/
 ## My Mentors
 
 <ul>
-{% for mentor in site.data.mentors %}
     <li>
     {% if mentor contains "orcid" %}
     <img src="https://orcid.org/sites/default/files/images/orcid_16x16(1).gif" alt="ORCID"/>
     <a href="https://orcid.org/{{ mentor.orcid }}">{{ mentor.name }}</a>
     {% else %}
-    <a href="https://linkedin.com/in/{{ mentor.linkedin }}">{{ mentor.name }}</a>
     {% endif %}
     <ul>
         {% for role in roles %}
@@ -24,6 +22,7 @@ permalink: /mentorship/
     </ul>
     </li>
 {% endfor %}
+</ul>
 
 ## Fraunhofer SCAI
 
@@ -31,9 +30,6 @@ During my master's and doctoral work at the Fraunhofer SCAI Department of
 Bioinformatics from 2016-2019, I had the opportunity to recruit, mentor, and
 work with many wonderful students:
 
-- Lauren Nicole Long. Student Research Assistant. September 2019 - December 2019.
-- Vinay Bharadhwaj. Student Research Assistant. July 2019 - December 2019.
-- Mauricio Pio de Lacerda. Master's Student. March 2019 - December 2019.
 - [Yojana Gadiya](https://orcid.org/0000-0002-7683-0452). Student Research
   Assistant. April 2019 - May 2019.
 - [Trusha Adeshara](https://orcid.org/0000-0002-8929-4724). Student Research
