@@ -8,8 +8,8 @@ permalink: /teaching/
 <ul>
 {% for entry in site.data.courses %}
     <li>
-    <i>{{ course.name }}</i> at {{ course.university }} during {{ course.period }}
-    ({{ course.level }} - {{ course.type }})
+    <i>{{ entry.name }}</i> at {{ entry.university }} during {{ entry.period }}
+    ({{ entry.level }} - {{ entry.type }})
     </li>
 {% endfor %}
 </ul>
