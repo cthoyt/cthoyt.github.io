@@ -6,9 +6,14 @@ biological knowledge graphs to generate a variety of biological hypotheses to
 assist in drug discovery and precision medicine.
 
 What is **Biopragmatics**?
-While *biosemantics* describe the names and identities of biological entities,
-it doesn’t consider their context or complex interrelationships. For this, we
-have *biopragmatics*.
+In language, semantics describe the names and meanings of words. The
+bioinformatics community has aptly adopted *biosemantics* as a name that
+encompasses the issues faced in natural language processing and data
+integration. However, semantics does not capture the context of words,
+and *biosemantics* fails to describe the biological context and complex
+relationships between biological entities. Pragmatics is the next level
+that captures exactly this, so I'm beginning to use *biopragmatics* to
+describe the family of computational approaches towards this goal.
 
 Here's some details about my [research](/research.md), [teaching](/teaching.md),
 and [mentorship](/mentorship.md). My résumé can be found [here](https://github.com/cthoyt/resume/raw/master/main.pdf).
