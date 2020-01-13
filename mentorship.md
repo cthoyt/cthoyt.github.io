@@ -10,7 +10,7 @@ permalink: /mentorship/
 {% for entry in site.data.mentors %}
     <li>
     {% if entry contains "orcid" %}
-    <img src="https://orcid.org/sites/default/files/images/orcid_16x16(1).gif" alt="ORCID"/>
+    <img src="https://orcid.org/sites/default/files/images/orcid_16x16(1).gif" alt="ORCID" />
     <a href="https://orcid.org/{{ entry.orcid }}">{{ entry.name }}</a>
     {% else %}
     <a href="https://linkedin.com/in/{{ entry.linkedin }}">{{ entry.name }}</a>
@@ -36,7 +36,7 @@ work with many wonderful students:
 {% for entry in site.data.mentees %}
     <li>
     {% if entry contains "orcid" %}
-    <img src="https://orcid.org/sites/default/files/images/orcid_16x16(1).gif" alt="ORCID"/>
+    <img src="https://orcid.org/sites/default/files/images/orcid_16x16(1).gif" alt="ORCID" />
     <a href="https://orcid.org/{{ entry.orcid }}">{{ entry.name }}</a>
     {% else %}
     {{ entry.name }}
