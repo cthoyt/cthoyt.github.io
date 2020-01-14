@@ -25,10 +25,10 @@ permalink: /teaching/
 {% endfor %}
 </ul>
 
-## Invited Lectures
+## Research Presentations
 
 <ul>
-{% for entry in site.data.lectures %}
+{% for entry in site.data.presentations %}
     <li>
     <a href="{{ entry.url }}">{{ entry.name }}</a>
     for {{ entry.venue }} at {{ entry.location }} on {{ entry.date }}
