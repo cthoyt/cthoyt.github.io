@@ -3,6 +3,9 @@ layout: page
 title: Mentorship
 permalink: /mentorship/
 ---
+As scientists, we owe a great deal to our mentors in the classroom and lab,
+each of whom altruistically invested their time and confidence in us. We can
+thank them by doing the same for others, the same as they did for us.
 
 ## My Mentors
 
