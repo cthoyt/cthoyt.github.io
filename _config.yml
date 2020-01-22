@@ -9,3 +9,5 @@ github_username:  cthoyt
 linkedin_username: cthoyt
 
 theme: minima
+plugins:
+  - jekyll-feed
