@@ -3,6 +3,10 @@ layout: page
 title: Teaching
 permalink: /teaching/
 ---
+I've found teaching and tutoring to be a really rewarding experince.
+It has been an opportunity to improve my own knowledge and communicate
+topics that I know but can't be found on the internet or in a book. 
+
 ## Courses
 
 <ul>
