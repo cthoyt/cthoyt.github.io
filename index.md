@@ -1,7 +1,7 @@
 ---
 layout: home
 ---
-<img src="/img/headshot.jpeg" alt="Charles Tapley Hoyt" align="left" height="100"/>
+<img src="/img/headshot.jpeg" alt="Charles Tapley Hoyt" align="left" height="60" hspace="15"/>
 My name is Charles Tapley Hoyt. I'm a bio/cheminformatician applying knowledge
 graph embedding methodologies to biological knowledge graphs to generate a
 variety of biological hypotheses to assist in drug discovery and precision
