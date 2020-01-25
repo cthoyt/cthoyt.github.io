@@ -1,9 +1,11 @@
 ---
 layout: home
 ---
-I'm a bio/cheminformatician applying knowledge graph embedding methodologies to
-biological knowledge graphs to generate a variety of biological hypotheses to
-assist in drug discovery and precision medicine.
+<img src="/img/headshot.jpeg" alt="Charles Tapley Hoyt" align="left" height="100"/>
+My name is Charles Tapley Hoyt. I'm a bio/cheminformatician applying knowledge
+graph embedding methodologies to biological knowledge graphs to generate a
+variety of biological hypotheses to assist in drug discovery and precision
+medicine.
 
 Here's some more details [about me](/about.md) and [my research](/research.md). My résumé can be found
 [here](https://github.com/cthoyt/resume/raw/master/main.pdf) and everything
