@@ -3,9 +3,10 @@ layout: page
 title: Research
 permalink: /research/
 ---
-My research is focused on using knowledge graph embedding methodology on
-biological knowledge graph to generate a variety of biological hypotheses to
-assist in drug discovery and precision medicine.
+My research is focused on the generation and application of biological
+knowledge graphs in drug discovery and precision medicine. Recently, I've
+had a specific focus on knowledge graph embedding methodologies and downstream
+application of link prediction.
 
 <img src="/img/research_workflow.png" alt="Research Workflow"/>
 
