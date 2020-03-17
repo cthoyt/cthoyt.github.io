@@ -286,13 +286,13 @@ console_scripts =
     obo = pyobo.cli:main
 ```
 
-Where to Put Data
------------------
+## Where to Put Data
+
 - Make folder in home directory, allow environment variable to change where this goes by default
 - use `~.config/` folder for configuration
 
-Code Style with `flake8`
-------------------------
+## Code Style with `flake8`
+
 Mercilessly use `flake8` to check your code has good style. If your code doesn't have good style, nobody else will be
 able to read it. I use the following extensions:
 
@@ -314,8 +314,8 @@ commands =
 description = Run the flake8 tool with several plugins.
 ```
 
-Random Code Style Necessities
------------------------------
+## Random Code Style Necessities
+
 Every python file must start with the file encoding, a newline, then the module docstring like:
 
 ```python
@@ -325,12 +325,28 @@ Every python file must start with the file encoding, a newline, then the module 
 ```
 
 This docstring has to follow `flake8` rules, meaning there's a short description that fits on the first line then
-there's a period. After that, there can be a blank line before any other restructured text-formatted documentation you'd
-like.
+there's a period. After that, there can be a blank line before any other restructured text-formatted documentation
+you'd like.
 
-Static Type Checking with `mypy`
---------------------------------
+## Static Type Checking with `mypy`
 
 
-Documentation with Sphinx
--------------------------
+## Documentation with Sphinx
+
+
+## Bonus Round: How to Develop with Ben Gyori
+
+This isn't something I do, but to maintain a clean git history, [Ben Gyori](https://github.com/bgyori) frequently
+reminds me to rebase on master. This keeps a more linear history of what happened and when. Here are his
+instructions:
+
+```bash
+git fetch --all
+# This is your master
+git checkout master
+# This is their master
+git merge --ff-only upstream/master
+git rebase master <your branch name>
+# Optionally
+git push -f origin <your branch name>
+```
