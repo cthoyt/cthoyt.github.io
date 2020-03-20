@@ -171,3 +171,63 @@ picking is in the context of git (and also how to use it) then you probably
 won't have the issue that prompted this blog post. But also, you should go
 outside and pick some apples instead. Thanksgiving is never more than a few
 hundred days away. It pays to be ready.
+
+## Afterword
+
+It might be illustrative to see where an example of where this was done in
+practice, so I'll share some work I did with a text mining tool from Harvard
+Medical School, [Gilda](https://github.com/indralab/gilda). It's a simple yet
+powerful system for grounding of named entities based on dictionary lookup. 
+Unfortunately, it didn't include some dictionaries I wanted, and it didn't
+have a UI to go with its web API.
+
+So I set out on figuring out how it generated dictionaries, where it stored
+them, and how it loaded them to make the web app. I ended up making several
+modifications to accomplish this goal, but it was a huge PR. I've definitely
+annoyed the author, [@bgyori](https://github.com/bgyori), with PRs that are
+too big before, which he was ultimately not able to understand or merge.
+
+Keep in mind, in your team, your teammates might be obligated to help you
+because you're working towards a common goal, getting paid, etc. When you're
+in the open source world, nobody really owes you anything, so you it's in your
+best interest to make things as easy as possible on the package's
+maintainer(s).
+
+So I made a few different pull requests that were all totally independent:
+
+- Add constants for resource file paths
+  [#12](https://github.com/indralab/gilda/pull/12)
+- Make API more reusable [#13](https://github.com/indralab/gilda/pull/13)
+- Make instantiation of Grounder more flexible
+  [#15](https://github.com/indralab/gilda/pull/15)
+
+Maybe you're seeing a theme here. I was improving lots of different bits of
+Gilda so I could reuse the package in new code later. The next incremental
+increase was:
+
+- Refactor functionality from the GrounderInstance class into the Grounder
+  class [#16](https://github.com/indralab/gilda/pull/16)
+
+And finally with these in place, I realized that adding a web interface was
+parallel to my original goal, but not the core. What was really important
+was that throughout all of the Gilda functionality, I could load my own
+synonym list (which I'd generate using the HPO, EFO, and DOID). I was
+able to address the UI with:
+
+- Add minimimal UI to web interface
+  [#19](https://github.com/indralab/gilda/pull/19)
+
+At the time of writing, we're still working through this PR. But all of it
+is leading up to the point where I can load my own files into this web
+interface. It will seem so obvious to Ben when I send this PR next (but after
+giving him some space... I did just bombard him with 5 PRs in a few days)
+what I am trying to accomplish and why.
+
+Want to see what happens when you try and do all of this in one PR? You will
+correctly guess that the PR is a total mess, impossible to understand, and
+riddled with questions that are really too big to answer when your head is
+already so far in the sand. Behold, in all its infamy, my failed PR from
+last summer ([#4](https://github.com/indralab/gilda/pull/4)). At this point,
+you can't even see what a mess it was from the linked web page but if you
+go back through the version history before I broke it into 5 smaller PRs
+(using the workflow described above) it was a monolith.
