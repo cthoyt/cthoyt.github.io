@@ -1,16 +1,25 @@
-- name: Lauren Nicole Long
+- name: Lauren Nicole DeLong
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: September 2019
-      end: December 2019 (ongoing)
+      start:
+        month: September
+        year: 2019
+      end:
+        month: December
+        year: 2019
       description: Reproducible approaches to data integration of genetics data. Continued under Colin Birkenbihl.
 - name: Vinay Bharadhwaj
+  orcid: 0000-0002-9901-9494
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: July 2019
-      end: December 2019
+      start:
+        month: July
+        year: 2019
+      end:
+        month: December
+        year: 2019
       description: Application of network representation learning for embedding patients for downstream machine learning tasks.
   after:
     position: M.Sc. Candidate
@@ -34,37 +43,57 @@
   roles:
     - name: Master's Student
       location: University of Bonn
-      start: March 2019
-      end: December 2019
+      start:
+        month: March
+        year: 2019
+      end:
+        month: December
+        year: 2019
       description: Incorporation of GWAS in network representation learning-based target prioritazation
 - name: Yojana Gadiya
   orcid: 0000-0002-7683-0452
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: April 2019
-      end: May 2019
+      start:
+        month: April
+        year: 2019
+      end:
+        month: May
+        year: 2019
       description: Curation of mechanistic knowledge of tauopathies
 - name: Trusha Adeshara
   orcid: 0000-0002-8929-4724
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: April 2019
-      end: May 2019
+      start:
+        month: April
+        year: 2019
+      end:
+        month: May
+        year: 2019
       description: Curation of mechanistic knowledge of tauopathies
 - name: Rana Aldisi
   orcid: 0000-0002-3034-9970
   roles:
     - name: Master's Student
       location: University of Bonn
-      start: March 2019
-      end: December 2019
+      start:
+        month: March
+        year: 2019
+      end:
+        month: December
+        year: 2019
       description: Application of network representation learning in side effect predition
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: July 2018
-      end: March 2019
+      start:
+        month: July
+        year: 2018
+      end:
+        month: March
+        year: 2019
       description: Curation of mechanistic knowledge of tauopathies
   after:
     position: Ph.D. Candidate
@@ -80,13 +109,19 @@
   roles:
     - name: Master's Student
       location: University of Bonn
-      start: March 2019
-      end: December 2019
+      start:
+        month: March
+        year: 2019
+      end:
+        month: December 2019
       description: Application of network representation learning to drug repositioning
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: July 2018
-      end: March 2019
+      start:
+        month: July 2018
+      end:
+        month: March
+        year: 2019
       description: Curation of mechanistic knowledge of tauopathies
   after:
     position: Bioinformatician
@@ -98,8 +133,12 @@
   roles:
     - name: Master's Student
       location: University of Bonn
-      start: May 2018
-      end: December 2018
+      start:
+        month: May
+        year: 2018
+      end:
+        month: December
+        year: 2018
       description: Application of network representation learning to target priorization
   after:
     position: Ph.D. Candidate
@@ -121,39 +160,59 @@
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: July 2018
-      end: November 2018
+      start:
+        month: July
+        year: 2018
+      end:
+        month: November
+        year: 2018
       description: Curation of quantitative pharmacological information related to amyloid and tau aggregation
 - name: Esther Wollert
   orcid: 0000-0002-7128-929X
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: July 2018
-      end: August 2019
+      start:
+        month: July
+        year: 2018
+      end:
+        month: August
+        year: 2019
       description: Curation of mechanistic knowledge related to the role of protein aggregation in neurodegenerative diseases
 - name: Sandra Spalek
   orcid: 0000-0002-6117-4413
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: July 2018
-      end: August 2019
+      start:
+        month: July
+        year: 2018
+      end:
+        month: August
+        year: 2019
       description: Curation of
 - name: Keerthika Lohanadan
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: July 2018
-      end: September 2018
+      start:
+        month: July
+        year: 2018
+      end:
+        month: September
+        year: 2018
       description: Curation of mechanistic knowledge surrounding MAPT and GSK3B
 - name: Colin Birkenbihl
   orcid: 0000-0002-7212-7700
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: July 2017
-      end: October 2017
+      start:
+        month: July
+        year: 2017
+      end:
+        month: October
+        year: 2017
       description: Reproducible approaches to multi-scale biological data integration
   after:
     position: Ph.D. Candidate
@@ -176,6 +235,10 @@
   roles:
     - name: Student Research Assistant
       location: Fraunhofer SCAI
-      start: July 2017
-      end: December 2017
+      start:
+        month: July
+        year: 2017
+      end:
+        month: December
+        year: 2017
       description: Reproducible approaches to multi-scale biological data integration

@@ -21,7 +21,11 @@ thank them by doing the same for others, the same as they did for us.
     <ul>
         {% for role in entry.roles %}
         <li>
-        {{ role.name }} at {{ role.location }} from {{ role.start }} to {{ role.end }}
+        {{ role.name }} at {{ role.location }} from {{ role.start.month }}
+        {% if role.start.year != role.end.year %}
+            {{ role.start.year }}
+        {% endif %}
+        to {{ role.end.month }} {{ role.end.year }}
         </li>
         {% endfor %}
     </ul>
@@ -47,7 +51,11 @@ work with many wonderful students:
     <ul>
         {% for role in entry.roles %}
         <li>
-        {{ role.name }} at {{ role.location }} from {{ role.start }} to {{ role.end }}
+        {{ role.name }} at {{ role.location }} from {{ role.start.month }}
+        {% if role.start.year != role.end.year %}
+            {{ role.start.year }}
+        {% endif %}
+        to {{ role.end.month }} {{ role.end.year }}
         </li>
         {% endfor %}
     </ul>

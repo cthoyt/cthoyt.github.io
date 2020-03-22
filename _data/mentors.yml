@@ -3,59 +3,94 @@
   roles:
     - name: Supervisor
       location: Fraunhofer SCAI
-      start: November 2017
-      end: December 2019
+      start:
+        month: November
+        year: 2017
+      end:
+        month: December
+        year: 2019
     - name: Doctoral Advisor
       location: University of Bonn
-      start: January 2018
-      end: December 2019
+      start:
+        month: January
+        year: 2018
+      end:
+        month: December
+        year: 2019
 - name: Christian Ebeling
   orcid: 0000-0002-7560-6846
   roles:
     - name: Master's Thesis Daily Supervisor
       location: Fraunhofer SCAI
-      start: March 2017
-      end: October 2017
+      start:
+        month: March
+        year: 2017
+      end:
+        month: October
+        year: 2017
 - name: Dr. Shweta Bagawadi Kalawia
   orcid: 0000-0002-1249-6416
   roles:
     - name: Pre-master's Thesis Daily Supervisor
       location: Fraunhofer SCAI
-      start: February 2016
-      end: March 2017
+      start:
+        month: February
+        year: 2016
+      end:
+        month: March 2017
 - name: Dr. Elisabet Gregori-Puigjane
   orcid: 0000-0003-4754-1720
   roles:
     - name: Supervisor
       location: Novartis Institutes for Biomedical Research
-      start: July 2014
-      end: December 2014
+      start:
+        month: July
+        yaer: 2014
+      end:
+        month: December
+        year: 2014
 - name: Dmitri Bichko
   linkedin: dmitri-bichko-1333ba1
   roles:
     - name: Supervisor
       location: Pfizer
-      start: June 2013
-      end: June 2014
+      start:
+        month: June
+        year: 2013
+      end:
+        month: June
+        year: 2014
 - name: Dr. Bing Xia
   linkedin: bing-xia-57031912
   roles:
     - name: Supervisor
       location: GlaxoSmithKline
-      start: January 2013
-      end: June 2013
+      start:
+        month: January
+        year: 2013
+      end:
+        month: June
+        year: 2013
 - name: Prof. Dr. Michael P. Pollastri
   orcid: 0000-0001-9943-7197
   roles:
     - name: Supervisor
       location: Northeastern University
-      start: July 2012
-      end: August 2015
+      start:
+        month: July
+        year: 2012
+      end:
+        month: August
+        year: 2015
       description:
 - name: Prof. Dr. Emanuele Amata
   orcid: 0000-0002-4750-3479
   roles:
     - name: Daily Supervisor
       location: Northeastern University
-      start: July 2012
-      end: December 2012
+      start:
+        month: July
+        year: 2012
+      end:
+        month: December
+        year: 2012
