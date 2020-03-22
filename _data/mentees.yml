@@ -10,8 +10,25 @@
     - name: Student Research Assistant
       location: Fraunhofer SCAI
       start: July 2019
-      end: December 2019 (ongoing)
-      description: Application of network representation learning for embedding patients for downstream machine learning tasks. Continued under Daniel Domingo-Fernández.
+      end: December 2019
+      description: Application of network representation learning for embedding patients for downstream machine learning tasks.
+  after:
+    position: M.Sc. Candidate
+    supervisor:
+      name: Daniel Domingo-Fernández
+      orcid: 0000-0002-2046-6145
+    location:
+      group:
+        name: Bioinformatics Group
+        url: http://www.b-it-center.de/research-groups/bioinformatics-group/
+      institute:
+        name: Bonn-Aachen International Center for Information Technology
+        url: http://www.b-it-center.de/
+      university:
+        name: University of Bonn
+        url: https://uni-bonn.de
+      city: Bonn
+      country: Germany
 - name: Mauricio Pio de Lacerda
   orcid: 0000-0002-1770-3007
   roles:
@@ -49,6 +66,15 @@
       start: July 2018
       end: March 2019
       description: Curation of mechanistic knowledge of tauopathies
+  after:
+    position: Ph.D. Candidate
+    supervisor:
+      name: Peter Krawitz
+      orcid: 0000-0002-3194-8625
+      url: https://www.igsb.uni-bonn.de/en/team-1/peter-krawitz
+    location:
+      name: Institute for Genomic Statistics and Bioinformatics, Uniklinikum Bonn
+      url: https://www.igsb.uni-bonn.de/en
 - name: Lingling Xu
   orcid: 0000-0002-0303-8616
   roles:
@@ -62,6 +88,11 @@
       start: July 2018
       end: March 2019
       description: Curation of mechanistic knowledge of tauopathies
+  after:
+    position: Bioinformatician
+    location:
+      name: Genome Biologics UG
+      url: https://genomebiologics.eu
 - name: Özlem Muslu
   orcid: 0000-0003-0408-6190
   roles:
@@ -70,6 +101,21 @@
       start: May 2018
       end: December 2018
       description: Application of network representation learning to target priorization
+  after:
+    position: Ph.D. Candidate
+    supervisor:
+      name: Uğur Şahin
+      url: http://tron-mainz.de/about-tron/management/
+      orcid: 0000-0003-0363-1564
+    location:
+      institute:
+        name: Translational Oncology at the University Medical Center
+        url: https://tron-mainz.de
+      university:
+        name: Johannes Gutenberg University Mainz
+        url: https://www.uni-mainz.de
+      city: Mainz
+      country: Germany
 - name: Kristian Kolpeja
   orcid: 0000-0001-9661-5277
   roles:
@@ -109,6 +155,23 @@
       start: July 2017
       end: October 2017
       description: Reproducible approaches to multi-scale biological data integration
+  after:
+    position: Ph.D. Candidate
+    supervisor:
+      name: Martin Hofmann-Apitius
+      orcid: 0000-0001-9012-6720
+    location:
+      group:
+        name: Bioinformatics Group
+        url: http://www.b-it-center.de/research-groups/bioinformatics-group/
+      institute:
+        name: Bonn-Aachen International Center for Information Technology
+        url: http://www.b-it-center.de/
+      university:
+        name: University of Bonn
+        url: https://uni-bonn.de
+      city: Bonn
+      country: Germany
 - name: Aram Grigoryan
   roles:
     - name: Student Research Assistant

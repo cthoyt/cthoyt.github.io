@@ -13,7 +13,7 @@ topics that I know but can't be found on the internet or in a book.
 {% for entry in site.data.courses %}
     <li>
     <i>{{ entry.name }}</i> at {{ entry.university }} during {{ entry.period }}
-    ({{ entry.level }} - {{ entry.type }} as a ({{ entry.role }})
+    ({{ entry.level }} - {{ entry.type }} as a {{ entry.role }})
     </li>
 {% endfor %}
 </ul>
