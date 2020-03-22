@@ -5,9 +5,13 @@ permalink: /community/
 ---
 ## Organizations
 
-- OpenBEL Consortium (2017-)
-- Erasmus Student Network (2016-)
-- American Chemical Society (2011-)
+<ul>
+{% for entry in site.data.organizations %}
+    <li>
+    <a href="{{ entry.url }}">{{ entry.name }}</a> ({ entry.start.year }} - { entry.end.year }})
+    </li>
+{% endfor %}
+</ul>
 
 ## Events
 
