@@ -8,7 +8,7 @@ permalink: /community/
 <ul>
 {% for entry in site.data.organizations %}
     <li>
-    <a href="{{ entry.url }}">{{ entry.name }}</a> ({ entry.start.year }} - { entry.end.year }})
+    <a href="{{ entry.url }}">{{ entry.name }}</a> ({{ entry.start.year }} - {{ entry.end.year }})
     </li>
 {% endfor %}
 </ul>
