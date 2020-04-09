@@ -1,44 +1,207 @@
 - name: INCOME Hackathon 2020
-  location: Bonn, Germany
-  period: February 5-7, 2020
+  location:
+    city: Bonn
+    country: Germany
+  start:
+    day: 5
+    month: February
+    year: 2020
+  end:
+    day: 7
+    month: February
+    year: 2020
   link: https://www.integrative-pathway-models.de/income2020-conference-and-hackathon/2020-february-hackathon/index.html
+
 - name: Workshop on Computational Models in Biology and Medicine 2020
-  location: Bonn, Germany
-  period: February 4-5, 2020
+  location:
+    city: Bonn
+    country: Germany
+  start:
+    day: 4
+    month: February
+    year: 2020
+  end:
+    day: 5
+    month: February
+    year: 2020
   link: http://www.biometrische-gesellschaft.de/arbeitsgruppen/statistische-methoden-i-d-bioinformatik/workshop2020.html
+
 - name: 4th Disease Maps Community Meeting
-  location: Seville, Spain
-  period: October 2-4, 2019
+  poster: https://doi.org/10.6084/m9.figshare.9917753.v3
+  location:
+    city: Seville
+    country: Spain
+  start:
+    day: 2
+    month: October
+    year: 2019
+  end:
+    day: 4
+    month: October
+    year: 2019
   link: https://disease-maps.org/DMCM2019
+
 - name: The Eighth Joint Sheffield Conference on Chemoinformatics
-  location: Sheffield, UK
-  period: June 17-19, 2019
+  poster: https://doi.org/10.6084/m9.figshare.8288822.v2
+  location:
+    city: Sheffield
+    country: United Kingdom
+  start:
+    day: 17
+    month: June
+    year: 2019
+  end:
+    day: 19
+    month: June
+    year: 2019
   link: https://cisrg.shef.ac.uk/shef2019/
+
 - name: INCOME Hackathon 2019
-  location: Frankfurt, Germany
-  period: March 18-20, 2019
+  location:
+    city: Frankfurt
+    country: Germany
+  start:
+    day: 18
+    month: March
+    year: 2019
+  end:
+    day: 20
+    month: March
+    year: 2019
   link: https://www.integrative-pathway-models.de/meetings/former-meetings/2019-march-hackathon/index.html
+
 - name: Summer School on Machine Learning in Drug Design
-  location: Leuven, Belgium
-  period: August 20-22, 2018
+  location:
+    city: Leuven
+    country: Belgium
+  start:
+    day: 20
+    month: August
+    year: 2018
+  end:
+    day: 22
+    month: August
+    year: 2018
   link: http://mldd.esat.kuleuven.be
+
 - name: OpenBEL Community Meeting 2018
-  location: Boston, USA
-  period: May 14, 2018
+  talk: https://docs.google.com/presentation/d/1Gsk8LxrVgrICproSgWZ3Gk4BXyOg-UwFlfzhVw5O0t8/edit?usp=sharing
+  location:
+    city: Boston
+    country: USA
+  date:
+    day: 14
+    month: May
+    year: 2018
   link: http://bel.bio/conference
+
 - name: Bio-IT World
-  location: Boston, USA
-  period: April 21-23, 2018
+  poster: https://doi.org/10.6084/m9.figshare.6231701.v1
+  talk: https://docs.google.com/presentation/d/1_3j8H4f9pQ1m2ZQrF2QNfQNLh5SGqaodnl4AlaAST6w/edit?usp=sharing
+  location:
+    city: Boston
+    country: USA
+  start:
+    day: 21
+    month: April
+    year: 2018
+  end:
+    day: 23
+    month: April
+    year: 2018
   link: https://www.bio-itworldexpo.com/18
+
 - name: 3rd European Conference on Translational Bioinformatics
-  location: Barcelona, Spain
-  period: April 16-17, 2018
+  poster: https://doi.org/10.6084/m9.figshare.6163775.v3
+  location:
+    city: Barcelona
+    country: Spain
+  start:
+    day: 16
+    month: April
+    year: 2018
+  end:
+    day: 17
+    month: April
+    year: 2018
   link: https://www.bsc.es/news/events/3rd-european-conference-translational-bioinformatics-biomedical-big-data-supporting-precision
+
 - name: Bioinformatics Strategy Meeting Europe
-  location: Zürich, Switzerland
-  period: March 5, 2018
+  location:
+    city: Zürich
+    country: Switzerland
+  date:
+    day: 5
+    month: March
+    year: 2018
   link: https://proventainternational.com/bioinformatics-eu-2018/
+
 - name: Intelligent Systems for Molecular Biology and the 16th European Conference on Computational Biology
-  location: Prague, Czech Republic
-  period: July 21-25, 2017
+  location:
+    city: Prague
+    country: Czech Republic
+  start:
+    day: 21
+    month: July
+    year: 2017
+  end:
+    day: 25
+    month: July
+    year: 2017
   link: https://www.iscb.org/ismbeccb2017
+
+- name: American Chemical Society Fall 2015 National Meeting
+  link: https://www.acs.org/content/acs/en/pressroom/news-room/meeting-news-releases-fall-2015.html
+  location:
+    venue: Boston Convention & Exhibition Center
+    city: Boston
+    country: USA
+  start:
+    day: 16
+    month: August
+    year: 2015
+  end:
+    day: 19
+    month: August
+    year: 2015
+
+- name: Research, Innovation and Scholarship Expo 2015
+  link: https://www.northeastern.edu/rise
+  poster: https://docs.google.com/presentation/d/1FU8lWGw6x4y9A_qB9rmxSaRRKiC0V3403EJETVGYMzk/edit?usp=sharing
+  location:
+    venue: Northeastern University
+    city: Boston
+    state: Massachusetts
+    country: USA
+  date:
+    day: 9
+    month: April
+    year: 2015
+
+- name: Northeast Undergraduate Research and Development Symposium
+  link: https://www.une.edu/news/2015/whats-cool-about-being-a-nurd-undergraduate-research-conference-showcases-significant-student
+  location:
+    venue: University of New England
+    city: Biddeford
+    state: Maine
+    country: USA
+  start:
+    day: 7
+    month: March
+    year: 2015
+  end:
+    day: 8
+    month: March
+    year: 2015
+
+- name: 37th Boston Regional Inorganic Colloquium
+  link: https://blogs.brandeis.edu/science/2015/01/17/37th-boston-regional-inorganic-colloquium/
+  location:
+    venue: Brandeis University
+    city: Waltham
+    state: Massachusetts
+    country: USA
+  date:
+    day: 17
+    month: January
+    year: 2015

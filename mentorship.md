@@ -21,7 +21,19 @@ thank them by doing the same for others, the same as they did for us.
     <ul>
         {% for role in entry.roles %}
         <li>
-        {{ role.name }} at {{ role.location }} from {{ role.start.month }}
+        {{ role.name }} in the
+        {% if role.location.group.url %}
+        <a href="{{ role.location.group.url }}">{{ role.location.group.name }}</a> 
+        {% else %}
+        {{ role.location.group.name }}
+        {% endif %}
+        {% if role.location.institute %}
+        in the {{ role.location.organization.name }}
+        <a href="{{ role.location.institute.url }}">{{ role.location.institute.name }}</a>
+        {% else %}
+        in {{ role.location.organization.name }}
+        {% endif %}
+        from {{ role.start.month }}
         {% if role.start.year != role.end.year %}
             {{ role.start.year }}
         {% endif %}
@@ -51,7 +63,11 @@ work with many wonderful students:
     <ul>
         {% for role in entry.roles %}
         <li>
-        {{ role.name }} at {{ role.location }} from {{ role.start.month }}
+        {{ role.name }} in the
+        <a href="{{ role.location.group.url }}">{{ role.location.group.name }}</a>
+        in the {{ role.location.organization.name }}
+        <a href="{{ role.location.institute.url }}">{{ role.location.institute.name }}</a>
+        from {{ role.start.month }}
         {% if role.start.year != role.end.year %}
             {{ role.start.year }}
         {% endif %}

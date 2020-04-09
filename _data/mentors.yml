@@ -2,7 +2,18 @@
   orcid: 0000-0001-9012-6720
   roles:
     - name: Supervisor
-      location: Fraunhofer SCAI
+      location:
+        group:
+          name: Department of Bioinformatics
+          url: https://www.scai.fraunhofer.de/en/business-research-areas/bioinformatics.html
+        institute:
+          name: Institute for Algorithms and Scientific Computing (SCAI)
+          url: https://www.scai.fraunhofer.de
+        organization:
+          name: Fraunhofer
+          url: https://www.fraunhofer.de
+        city: Sankt Augustin
+        country: Germany
       start:
         month: November
         year: 2017
@@ -10,87 +21,192 @@
         month: December
         year: 2019
     - name: Doctoral Advisor
-      location: University of Bonn
+      location:
+        group:
+          name: Bioinformatics Group
+          url: http://www.b-it-center.de/research-groups/bioinformatics-group/
+        institute:
+          name: Bonn-Aachen International Center for Information Technology
+          url: http://www.b-it-center.de/
+        organization:
+          name: University of Bonn
+          url: https://uni-bonn.de
+        city: Bonn
+        country: Germany
       start:
         month: January
         year: 2018
       end:
         month: December
         year: 2019
+
 - name: Christian Ebeling
   orcid: 0000-0002-7560-6846
   roles:
     - name: Master's Thesis Daily Supervisor
-      location: Fraunhofer SCAI
+      location:
+        group:
+          name: Department of Bioinformatics
+          url: https://www.scai.fraunhofer.de/en/business-research-areas/bioinformatics.html
+        institute:
+          name: Institute for Algorithms and Scientific Computing (SCAI)
+          url: https://www.scai.fraunhofer.de
+        organization:
+          name: Fraunhofer
+          url: https://www.fraunhofer.de
+        city: Sankt Augustin
+        country: Germany
       start:
         month: March
         year: 2017
       end:
         month: October
         year: 2017
+
 - name: Dr. Shweta Bagawadi Kalawia
   orcid: 0000-0002-1249-6416
   roles:
     - name: Pre-master's Thesis Daily Supervisor
-      location: Fraunhofer SCAI
+      location:
+        group:
+          name: Department of Bioinformatics
+          url: https://www.scai.fraunhofer.de/en/business-research-areas/bioinformatics.html
+        institute:
+          name: Institute for Algorithms and Scientific Computing (SCAI)
+          url: https://www.scai.fraunhofer.de
+        organization:
+          name: Fraunhofer
+          url: https://www.fraunhofer.de
+        city: Sankt Augustin
+        country: Germany
       start:
         month: February
         year: 2016
       end:
         month: March 2017
+
 - name: Dr. Elisabet Gregori-Puigjane
   orcid: 0000-0003-4754-1720
   roles:
     - name: Supervisor
-      location: Novartis Institutes for Biomedical Research
+      location:
+        group:
+          name: in Silico Lead Discovery
+        institute:
+          name: Center for Proteomic Chemistry
+        organization:
+          name: Novartis Institutes for Biomedical Research
+        city: Cambridge
+        country: USA
       start:
         month: July
-        yaer: 2014
+        year: 2014
       end:
         month: December
         year: 2014
+
 - name: Dmitri Bichko
   linkedin: dmitri-bichko-1333ba1
   roles:
     - name: Supervisor
-      location: Pfizer
+      location:
+        group:
+          name: Computational Sciences Center of Excellence
+        organization:
+          name: Pfizer
+        city: Cambridge
+        country: USA
       start:
         month: June
         year: 2013
       end:
         month: June
         year: 2014
+
 - name: Dr. Bing Xia
   linkedin: bing-xia-57031912
   roles:
     - name: Supervisor
-      location: GlaxoSmithKline
+      location:
+        group:
+          name: Lead Optimization Group
+        institute:
+          name: DNA-Encoded Library Platform
+        organization:
+          name: GlaxoSmithKline
+        city: Waltham
+        country: USA
       start:
         month: January
         year: 2013
       end:
         month: June
         year: 2013
+
 - name: Prof. Dr. Michael P. Pollastri
   orcid: 0000-0001-9943-7197
+  linkedin: michaelpollastri
   roles:
     - name: Supervisor
-      location: Northeastern University
+      location:
+        group:
+          name: Laboratory for Neglected Disease Drug Discovery
+          url: https://www.northeastern.edu/pollastri/
+        institute:
+          name: Department of Chemistry
+          url: https://cos.northeastern.edu/chemistry-chemical-biology
+        organization:
+          name: Northeastern University
+          url: https://northeastern.edu
+        city: Boston
+        country: USA
       start:
         month: July
         year: 2012
       end:
         month: August
         year: 2015
-      description:
+
 - name: Prof. Dr. Emanuele Amata
   orcid: 0000-0002-4750-3479
+  linkedin: emanuele-amata-01254721
   roles:
     - name: Daily Supervisor
-      location: Northeastern University
+      location:
+        group:
+          name: Laboratory for Neglected Disease Drug Discovery
+          url: https://www.northeastern.edu/pollastri/
+        institute:
+          name: Department of Chemistry
+          url: https://cos.northeastern.edu/chemistry-chemical-biology
+        organization:
+          name: Northeastern University
+          url: https://northeastern.edu
+        city: Boston
+        country: USA
       start:
         month: July
         year: 2012
       end:
         month: December
         year: 2012
+
+- name: Prof. Dr. Graham B. Jones
+  linkedin: graham-jones-nvs
+  roles:
+    - name: Department Chair
+      location:
+        institute:
+          name: Department of Chemistry
+          url: https://cos.northeastern.edu/chemistry-chemical-biology
+        organization:
+          name: Northeastern University
+          url: https://northeastern.edu
+        city: Boston
+        country: USA
+      start:
+        month: August
+        year: 2011
+      end:
+        month: August
+        year: 2015

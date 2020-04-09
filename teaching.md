@@ -3,39 +3,30 @@ layout: page
 title: Teaching
 permalink: /teaching/
 ---
-I've found teaching and tutoring to be a really rewarding experince.
+I've found teaching and tutoring to be a really rewarding experience.
 It has been an opportunity to improve my own knowledge and communicate
 topics that I know but can't be found on the internet or in a book. 
 
-## Courses
-
-<ul>
 {% for entry in site.data.courses %}
-    <li>
-    <i>{{ entry.name }}</i> at {{ entry.university }} during {{ entry.period }}
-    ({{ entry.level }} - {{ entry.type }} as a {{ entry.role }})
-    </li>
+<b>{{ entry.code }} {{ entry.name }}</b> ({{ entry.period.semester }} {{ entry.period.year }}; {{ entry.role }})<br />
+{{ entry.level }} at {{ entry.location.university }} ({{ entry.location.department }}){% if entry.primary %}
+primarily taught by <a href="{{ entry.primary.link }}">{{ entry.primary.name }}</a>.
+{% endif %}<br />
+
+{% if entry.presentation %}
+{% if entry.date %}
+Guest lecture on {{ entry.date.month }} {{ entry.date.day }}, {{ entry.date.year }}:
+{% elsif entry.start %}
+Guest lecture series from {{ entry.start.month }} {{ entry.start.day }} - {{ entry.end.month }} {{ entry.end.day }}, {{ entry.start.year }}:
+{% else %}
+Guest lecture:
+{% endif %} <a href="{{ entry.presentation.url }}">{{ entry.presentation.name }}</a><br />
+{% if entry.presentation.description %}
+<i>Description</i>: {{ entry.presentation.description }}
+{% endif %}
+{% endif %}
+{% if entry.description %}
+<i>Description</i>: {{ entry.description }}
+{% endif %}
 {% endfor %}
-</ul>
 
-## Academic Lectures
-
-<ul>
-{% for entry in site.data.lectures %}
-    <li>
-    <a href="{{ entry.url }}">{{ entry.name }}</a>
-    for {{ entry.course }} at {{ entry.department }} at {{ entry.university }} during {{ entry.period }}
-    </li>
-{% endfor %}
-</ul>
-
-## Research Presentations
-
-<ul>
-{% for entry in site.data.presentations %}
-    <li>
-    <a href="{{ entry.url }}">{{ entry.name }}</a>
-    for {{ entry.venue }} at {{ entry.location }} on {{ entry.date }}
-    </li>
-{% endfor %}
-</ul>

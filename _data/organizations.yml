@@ -1,12 +1,17 @@
 - name: OpenBEL Consortium
+  role: Member
   url: http://openbel.org
   start:
     year: 2017
+
 - name: Erasmus Student Network Bonn
+  role: Member
   url: https://bonn.esn-germany.de
   start:
     year: 2016
+
 - name: American Chemical Society
+  role: Member
   url: https://www.acs.org
   start:
     year: 2011

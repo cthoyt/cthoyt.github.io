@@ -1,50 +1,262 @@
-- name: Enzyme Technology Internship
-  level: Master's Degree
-  role: Instructor (shared)
-  university: University of Bonn
-  department: Bonn-Aachen International Center for Information Technology
-  period: Summer Semester 2019
+- name: Mechanism Enrichment Using Neurommsig
+  level: Master's course
   type: Practical
+  role: Guest Lecturer
+  primary:
+    name: Dr. Daniel Domingo-Fernández
+  location:
+    university: University of Bonn
+    department: Bonn-Aachen International Center for Information Technology
+  period:
+    semester: Winter
+    year: 2019-2020
+  date:
+    day: 18
+    month: February
+    year: 2020
+  description: Lecture/practical on reproducibility in computational sciences
+
+- name: Mathematics Meets Life Sciences
+  level: Master's course
+  type: Lecture
+  role: Guest Lecturer
+  primary:
+    name: Prof. Dr. Jan Hasanauer
+  location:
+    university: University of Bonn
+    department: Mathematics
+  period:
+    semester: Winter
+    year: 2019-2020
+  date:
+    day: 24
+    month: October
+    year: 2019
+  presentation:
+    name: Knowledge Graphs as Support for Modeling in Systems and Networks Biology
+    url: https://docs.google.com/presentation/d/1MggA-IfZ9_6aKgtm6g9Ta52TfwN7JNQxNGk6D24P5jY/edit?usp=sharing
+
+- name: Enzyme Technology Internship
+  level: Master's course
+  type: Practical
+  role: Instructor
+  location:
+    university: University of Bonn
+    department: Bonn-Aachen International Center for Information Technology
+  period:
+    semester: Summer
+    year: 2019
+  start:
+    day: 25
+    month: March
+    year: 2019
+  end:
+    day: 29
+    month: March
+    year: 2019
+  description: Planned course, helped teach curation in BEL, usage of PyBEL, and analysis of biological networks
+
+- name: Life Sciences Knowledge Discovery
+  level: Master's course
+  type: Lecture
+  role: Guest Lecturer
+  primary:
+    name: Prof. Dr. Martin Hofmann Apitius
+  location:
+    university: University of Bonn
+    department: Bonn-Aachen International Center for Information Technology
+  period:
+    semester: Summer
+    year: 2019
+  start:
+    day: 23
+    month: April
+    year: 2019
+  end:
+    day: 1
+    month: May
+    year: 2019
+  presentation:
+    name: Introduction to Machine Learning
+    url: https://docs.google.com/presentation/d/1p_rYsFUpIfIo-iX_urqw57m8A74AI8Rb-jK-zbEN7Ow/edit?usp=sharing
+
 - name: Knowledge Assembly, Data Integration, and Modeling in Systems and Networks Biology
-  level: Master's Degree
+  level: Master's course
   type: Seminar
   role: Instructor
-  university: University of Bonn
-  department: Bonn-Aachen International Center for Information Technology
-  semester: Winter Semester 2018-2019
-- name: Medicinal Chemistry and Drug Discovery
-  level: Bachelor's Degree
-  role: Teaching Assistant
-  university: Northeastern University
-  department: Department of Chemistry and Chemical Biology
-  period: Summer II Semester 2015
-  type: Lecture
-- name: Organic Chemistry II
-  level: Bachelor's Degree
-  role: Teaching Assistant
-  university: Northeastern University
-  department: Department of Chemistry and Chemical Biology
-  period: Spring Semester 2015
-  type: Lecture
-- name: Organic Chemistry I
-  level: Bachelor's Degree
-  role: Teaching Assistant
-  university: Northeastern University
-  department: Department of Chemistry and Chemical Biology
-  period: Fall Semester 2014
-  type: Lecture
-- name: Organic Chemistry II
-  level: Bachelor's Degree
-  role: Teaching Assistant
-  university: Northeastern University
-  department: Department of Chemistry and Chemical Biology
-  period: Spring Semester 2014
-  type: Lecture
-- name: Organic Chemistry I
-  level: Bachelor's Degree
-  role: Teaching Assistant
-  university: Northeastern University
-  department: Department of Chemistry and Chemical Biology
-  period: Fall Semester 2013
-  type: Lecture
+  location:
+    university: University of Bonn
+    department: Bonn-Aachen International Center for Information Technology
+  period:
+    semester: Winter
+    year: 2018-2019
 
+- name: Biological Databases
+  level: Master's course
+  type: Lecture
+  role: Guest Lecturer
+  primary:
+    name: Prof. Dr. Martin Hofmann Apitius
+  location:
+    university: University of Bonn
+    department: Bonn-Aachen International Center for Information Technology
+  period:
+    semester: Winter
+    year: 2018-2019
+  date:
+    day: 22
+    month: January
+    year: 2019
+  presentation:
+    name: An Introduction to Knowledge Assembly, Data Integration, and Modeling in Systems and Networks Biology
+    url: https://docs.google.com/presentation/d/1Zj71JN_ENrbEB4hFDnjzhCVENoOfOvBIo3tt5ygTj44/edit?usp=sharing
+
+- name: Life Sciences Knowledge Discovery
+  level: Master's course
+  type: Lecture
+  role: Guest Lecturer
+  primary:
+    name: Prof. Dr. Martin Hofmann Apitius
+  location:
+    university: University of Bonn
+    department: Bonn-Aachen International Center for Information Technology
+  period:
+    semester: Summer
+    year: 2018
+  start:
+    day: 29
+    month: May
+    year: 2018
+  end:
+    day: 6
+    month: June
+    year: 2018
+  presentation:
+    name: Introduction to Machine Learning
+    url: https://docs.google.com/presentation/d/1ReeN_XIvDsjYQoF14tL-V4hs76uD94UaFk0UEsIPOhc/edit?usp=sharing
+
+- name: Biological Databases
+  level: Master's course
+  type: Lecture
+  role: Guest Lecturer
+  primary:
+    name: Prof. Dr. Martin Hofmann Apitius
+  location:
+    university: University of Bonn
+    department: Bonn-Aachen International Center for Information Technology
+  period:
+    semester: Winter
+    year: 2017-2018
+  date:
+    day: 23
+    month: January
+    year: 2018
+  presentation:
+    name: Reproducibility in Life Sciences Knowledge Discovery
+    url: https://docs.google.com/presentation/d/1yHEtIgGIb_DzRfTKmsFMmzwQjp1GnxKamm9OJtPa83k/edit?usp=sharing
+
+- name: Life Sciences Knowledge Discovery
+  level: Master's course
+  type: Lecture
+  role: Guest Lecturer
+  primary:
+    name: Prof. Dr. Martin Hofmann Apitius
+  location:
+    university: University of Bonn
+    department: Bonn-Aachen International Center for Information Technology
+  period:
+    semester: Summer
+    year: 2017
+  description: Introdution to machine learning lecture series
+
+- name: Biomedical Database Lab
+  level: Master's course
+  type: Practical
+  role: Teaching Assistant
+  primary:
+    name: Christian Ebeling, M.Sc.
+  location:
+    university: University of Bonn
+    department: Bonn-Aachen International Center for Information Technology
+  period:
+    semester: Winter
+    year: 2016-2017
+  start:
+    day: 26
+    month: September
+    year: 2016
+  end:
+    day: 7
+    month: October
+    year: 2016
+  description: Helped teach programming in Python
+
+- name: Drug Discovery and Development
+  code: CHEM5645
+  level: Bachelor's Degree
+  type: Lecture
+  role: Teaching Assistant
+  primary:
+    name: Prof. Dr. Graham Jones
+  location:
+    university: Northeastern University
+    department: Department of Chemistry and Chemical Biology
+  period:
+    semester: Summer II
+    year: 2015
+
+- name: Organic Chemistry II for Majors
+  code: CHEM2317
+  level: Bachelor's Degree
+  role: Teaching Assistant
+  type: Lecture
+  primary:
+    name: Prof. Dr. Graham Jones
+  location:
+    university: Northeastern University
+    department: Department of Chemistry and Chemical Biology
+  period:
+    semester: Spring
+    year: 2015
+
+- name: Organic Chemistry I for Majors
+  code: CHEM2315
+  level: Bachelor's Degree
+  role: Teaching Assistant
+  type: Lecture
+  primary:
+    name: Prof. Dr. Roman Manetsch
+  location:
+    university: Northeastern University
+    department: Department of Chemistry and Chemical Biology
+  period:
+    semester: Fall
+    year: 2014
+
+- name: Organic Chemistry II for Majors
+  code: CHEM2317
+  level: Bachelor's Degree
+  role: Teaching Assistant
+  type: Lecture
+  primary:
+    name: Prof. Dr. Graham Jones
+  location:
+    university: Northeastern University
+    department: Department of Chemistry and Chemical Biology
+  period:
+    semester: Spring
+    year: 2014
+
+- name: Organic Chemistry I for Majors
+  code: CHEM2315
+  level: Bachelor's Degree
+  role: Teaching Assistant
+  type: Lecture
+  primary:
+    name: Prof. Dr. Michael Pollastri
+  location:
+    university: Northeastern University
+    department: Department of Chemistry and Chemical Biology
+  period:
+    semester: Fall
+    year: 2013

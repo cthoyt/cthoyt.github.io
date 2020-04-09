@@ -8,7 +8,7 @@ permalink: /community/
 <ul>
 {% for entry in site.data.organizations %}
     <li>
-    <a href="{{ entry.url }}">{{ entry.name }}</a> ({{ entry.start.year }} - {{ entry.end.year }})
+    {{ entry.role }} at <a href="{{ entry.url }}">{{ entry.name }}</a> ({{ entry.start.year }} - {{ entry.end.year }})
     </li>
 {% endfor %}
 </ul>
@@ -18,7 +18,23 @@ permalink: /community/
 <ul>
 {% for entry in site.data.events %}
     <li>
-    <a href="{{ entry.link }}">{{ entry.name }}</a> at {{ entry.location }} during {{ entry.period }}
+    <a href="{{ entry.link }}">{{ entry.name }}</a> in {{ entry.location.city }}, {{ entry.location.country }}
+    {% if entry.date %}
+    on {{ entry.date.month }} {{ entry.date.day }}, {{ entry.date.year }}
+    {% elsif entry.start.month == entry.end.month %}
+    from {{ entry.start.month }} {{ entry.start.day }}-{{ entry.end.day }}, {{ entry.start.year }}
+    {% else %}
+    from {{ entry.start.month }} {{ entry.start.day }}-{{ entry.end.month }} {{ entry.end.day }}, {{ entry.year }}
+    {% endif %}
+    
+    {% if entry.talk %}
+    and gave a <a href="{{ entry.talk }}">talk</a>
+    {% endif %}
+        
+    {% if entry.poster %}
+    and presented a <a href="{{ entry.poster }}">poster</a>
+    {% endif %}
+    
     </li>
 {% endfor %}
 </ul>

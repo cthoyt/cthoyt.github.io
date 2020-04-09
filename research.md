@@ -80,3 +80,15 @@ in precision medicine. I'm doing it by annotating patients as nodes in
 networks, and creating edges to biological entities based on clinical
 measurements (e.g., gene expression) then embedding those nodes for downstream
 machine learning tasks such as subgroup identification and survival analysis.
+
+## Presentations
+
+<ul>
+{% for entry in site.data.presentations %}
+    <li>
+    <a href="{{ entry.url }}">{{ entry.name }}</a>
+    at {{ entry.venue }} in {{ entry.location.city }}, {{ entry.location.country }} on {{ entry.date.month }} 
+    {{ entry.date.day }}, {{ entry.date.year }}
+    </li>
+{% endfor %}
+</ul>
