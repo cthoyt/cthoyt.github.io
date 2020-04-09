@@ -27,11 +27,11 @@ thank them by doing the same for others, the same as they did for us.
         {% else %}
         {{ role.location.group.name }}
         {% endif %}
-        {% if role.location.institute %}
         in the {{ role.location.organization.name }}
+        {% if role.location.institute.url %}
         <a href="{{ role.location.institute.url }}">{{ role.location.institute.name }}</a>
         {% else %}
-        in {{ role.location.organization.name }}
+        {{ role.location.institute.name }}
         {% endif %}
         from {{ role.start.month }}
         {% if role.start.year != role.end.year %}
