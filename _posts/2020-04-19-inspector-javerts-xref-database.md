@@ -193,3 +193,7 @@ I'd like to give a big thanks to my high school music teacher, Ken Tedeschi, for
 (and basically everyone else) fall in love with Les Mis in high school. Writing about my work
 was so much more fun in extended metaphor. I would also like to thank Hugh Jackman. You know,
 for being Hugh Jackman.
+
+P.S. You might be wondering why I didn't get into a discussion about the [Ontology Mapping Service (OXO)](https://www.ebi.ac.uk/about/news/announcement/industry-collaboration-ontology-mapping-service)
+from the EBI. It looks to me like this project has been abandoned. Even if not, it's API has most of the same issues
+that I described in a [previous post]({% post_url 2020-04-18-ooh-na-na %}).
