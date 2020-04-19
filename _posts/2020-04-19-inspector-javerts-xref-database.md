@@ -194,6 +194,19 @@ I'd like to give a big thanks to my high school music teacher, Ken Tedeschi, for
 was so much more fun in extended metaphor. I would also like to thank Hugh Jackman. You know,
 for being Hugh Jackman.
 
-P.S. You might be wondering why I didn't get into a discussion about the [Ontology Mapping Service (OXO)](https://www.ebi.ac.uk/about/news/announcement/industry-collaboration-ontology-mapping-service)
+---
+
+I have some random afterthoughts that I think might be worth including, that I'm adding after originally
+posting this.
+
+You might be wondering why I didn't get into a discussion about the [Ontology Mapping Service (OXO)](https://www.ebi.ac.uk/about/news/announcement/industry-collaboration-ontology-mapping-service)
 from the EBI. It looks to me like this project has been abandoned. Even if not, it's API has most of the same issues
 that I described in a [previous post]({% post_url 2020-04-18-ooh-na-na %}).
+
+I'm also aware of [BridgeDB](https://bridgedb.github.io), from which I think I will be able to take
+inspiration to include more xrefs later. However, I think they're limited in scope, and PyOBO is more about
+standardizing data so nobody has to figure out databases... again and again and again.
+
+One glaring omission from this work is WikiData mappings. I have a plan to include curated information in the
+PyOBO metaregistry that links databases to their WikiData properties. That will allow me to build an automated
+framework for downloading these mappings, given the curation of the properties.
