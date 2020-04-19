@@ -52,7 +52,7 @@ inspecting, Javert actually identified the wrong guy! This lead to one of the my
 musical theater ever ([Who Am I?](https://www.youtube.com/watch?v=izuD30Cp5Ao)), where Monsieur Madeleine
 (``montreuil-sur-mer:1357``, also actually Jean Valjean, but Javert didn't yet realize this) admits that
 he is actually ``prisoner:24601``. In this extended metaphor of a blog post, Jean Valjean's confession in
-"Who Am I" is effectively the same as a database proving its own cross-references to other database. Would
+"Who Am I" is effectively the same as a database providing its own cross-references to other database. Would
 be nice if everyone did this, and did it well, huh? 
 
 You should know that Javert is a powerful cross-reference reasoning machine. He already knew 
