@@ -136,7 +136,7 @@ I'll make updates periodically as I add new sources.
 
 
 Once you have a database of cross-references, you have actually built an undirected graph. Equivalences
-go both ways, and the are transitive. This means that every connected component in an equivalence graph
+go both ways, and they are transitive. This means that every connected component in an equivalence graph
 represents a set of entities that are mutually equivalent. In other words, if a path exists between
 two nodes in an equivalent graph, then they are equivalent.
 
