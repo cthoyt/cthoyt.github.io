@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Code with Me: Flake8
+title: How to Code with Me - Flake8 Hell
 date: 2020-04-25 00:00:00 -0800
 ---
 As scientists, we place huge importance on the communication of our results. We spend lots of time
