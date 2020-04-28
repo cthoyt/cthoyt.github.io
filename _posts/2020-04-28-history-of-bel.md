@@ -195,7 +195,8 @@ I think this where this story gets interesting - because it's also the part that
 least from an outside perspective. If you serch the internet for Selventa, you will indeed find lots of well-written press releases
 describing the contracts they had made over the years with several notable biotech and pharmaceutical industries.
 I've heard gossip that the reason it fell apart was because of mismanagement, but I can't weigh in on that.
-**Later than _sometime in 2016_) The Selventa team disperses. Part of the technology team that supported the OpenBEL
+
+**Later than _sometime in 2016** The Selventa team disperses. Part of the technology team that supported the OpenBEL
 Framework moved to [Applied Dynamic Solutions (ADS), LLC](http://www.adsworks.com/). Some of the computational
 biologists moved to [PatientsLikeMe (PLM)](https://www.patientslikeme.com/) (in waves), and I believe some of the
 computational team moved directly to Philip Morris International. Many continued working together, and with the
