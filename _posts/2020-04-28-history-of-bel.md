@@ -371,7 +371,7 @@ by Charles Tapley Hoyt (Fraunhofer) and moved to [a new GitHub repository](https
 [*Frontiers in Bioengineering and Biotechnology*](https://doi.org/10.3389/fbioe.2020.00074).
 
 **September 24, 2019** Charles Tapley Hoyt (Fraunhofer) [announces](https://medium.com/bel-news/bel-v2-2-enhancements-cfb4b27b22cb)
-the release of the BEL v2.2 specification.
+the release of the BEL v2.2 specification on behalf of the BEL Language Committee.
 
 **December 9th, 2019** After a large curation project around neurodegenerative diseases and tauopathies lead by
 Stephan Gebel and Charles Tapley Hoyt, Fraunhofer makes its [last public commit](https://github.com/pharmacome/conib/commit/98fe95b4c2dab202b313bf911257d4b009ce4440)
