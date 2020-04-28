@@ -142,6 +142,12 @@ in *BMC Bioinformatics*, this time with no co-authors from PMI.
 **January 23rd, 2014** With the death of the OpenBEL Framework in sight, the [@openbel](https://twitter.com/openbel) Twitter account
 [began to publicize](https://twitter.com/OpenBEL/status/423083988291313664?s=20) the `bel.rb` Ruby package.
 
+**February 2014** Ted Slater publishes a review of BEL, [Recent advances in modeling languages for pathway maps
+and computable biological networks](https://doi.org/10.1016/j.drudis.2013.12.011) which continues to serve as
+the appropriate paper to reference for the Biological Expression Language itself. When you skip ahead it might seem
+obvious that I'm collating information to put together a new reference paper describing the updates from the following
+six years.
+
 **July 11, 2014** Florian Martin (Philip Morris International) and colleagues published their [third paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4227138/)
 (I think; they have been quite prolific in the 2010's) paper describing the Network Perturbation Amplitude analysis,
 this time with no co-authors from Selventa.
