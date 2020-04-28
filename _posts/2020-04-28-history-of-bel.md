@@ -18,7 +18,8 @@ both things that I've learned through by word of mouth that I think are worth sh
 considered gossip. There are things that I know because of my time and work at Fraunhofer that I'm not able
 to share due to non-disclosure agreements, too, though a secondary purpose of this post is to show off just how many
 people have been involved either directly or tangentially in this community, so I will try my best to share what I
-can.
+can. There were even a few cases where I found references to things I thought were under NDA on the internet, so I
+feel perfectly fine with sharing. I've put references to everything that can be qualified throughout this post.
 
 There are also things that I'm aware of that I've chosen to exclude because of their lack of relevance, quality,
 impact, or contribution the community. For example, I have chosen to exclude some papers that have claimed to use
