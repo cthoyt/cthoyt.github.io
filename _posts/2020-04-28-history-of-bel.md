@@ -453,4 +453,5 @@ and then joined me as co-authors on my publications. When it came to writing thi
 I had lots of high granular information to share on the things that I worked on and also the the desire to share as
 much of it as possible. I hope I did a good enough job at laying out the landscape of the other things going on outside
 of my perspective. If you've got something to add, all of my contact information is available on the footer of my blog.
-Or tweet at me [@cthoytp](https://twitter.com/cthoytp).
+Or make a [pull request against this page](https://github.com/cthoyt/cthoyt.github.io/edit/master/_posts/2020-04-28-history-of-bel.md)
+directly. Or tweet at me [@cthoytp](https://twitter.com/cthoytp).
