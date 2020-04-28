@@ -396,7 +396,16 @@ working group.
 ---
 
 There are a few things that I would like to mention as afterthoughts that I don't know where to place on the timeline.
-First, is that the Chemotoxicogenomics Database had been converted to BEL by Thomas Weigers a long time ago, when the
+
+One of the most egregious ommisions I have made is the date of the BEL 2.0 release and the events that lead up to
+it. Even crazier, I don't know much of the pre-2016 history of how my group at Fraunhofer got involved with Selventa -
+perhaps it was their long history of text mining (since the dictionary and CRF days) that got these groups together.
+If someone has that information, I would be really glad to include it here.
+
+During my time at Fraunhofer, there were a lot of people working with BEL. Many of them made tools and algorithms
+that never got published, so unfortunately, they are not included in this history.
+
+The Chemotoxicogenomics Database had been converted to BEL by Thomas Weigers a long time ago, when the
 XML BEL format existed (another thing that I think wasn't worth bringing). I corresponded with him about it when I was
 at Fraunhofer, but unfortunately don't have access my the emails anymore to double check exactly what we talked about.
 He did send me the database as XBEL which he said he made with a script he wrote but didn't have anymore. Ultimately,
@@ -407,12 +416,9 @@ _again_.
 I'm not sure what happened at PatientsLikeMe, but from LinkedIn I can tell that there was a mass migration of
 ex-Selventa to [Quartz Bio](https://www.quartz.bio/), who also appear to be [hiring BEL people](https://www.linkedin.com/jobs/view/knowledge-management-expert-quartzbio-at-precision-medicine-group-1714058313/)
 to join their team. After burning out from finishing my PhD in late 2019, I haven't been proactive about keeping
-up with many people (quarantine life isn't making me feel that kind of motivation either, which is categorically
+up with many people (quarantine life isn't making me feel that kind of motivation either, which is somehow categorically
 different from the entire day I spent researching and preparing this blog post), though I do personally know some of
 them and could ask...
-
-During my time at Fraunhofer, there were a lot of people working with BEL. Many of them made tools and algorithms
-that never got published, so unfortunately, they are not included in this history.
 
 One of the other peculiarities about the history of BEL is the adjacent history of BioPAX. This happened _way_ before
 my time, so I wonder why they diverged so much. I think that they're ultimately trying to accomplish the same thing,
