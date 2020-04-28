@@ -157,7 +157,8 @@ BioCreative Challenge](https://biocreative.bioinformatics.udel.edu/tasks/biocrea
 hosts its first [BEL-specific text mining challenge](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-v/track-4-bel-task/).
 It was organized by OntoGene (Fabio Rinaldi), the sbv IMPROVER/PMI (Sam Ansari, Julia Hoeng), and Fraunhofer
 (Juliane Fluck, Martin Hofmann Apitius) following the footsteps of the sbvIMPROVER network verification challenge.
-**Sometime before April 2017) The second iteration of the sbv IMPROVER's Network Verification Challenge was hosted with
+
+**Sometime before April 2017** The second iteration of the sbv IMPROVER's Network Verification Challenge was hosted with
 a focus on COPD. It's not clear when this happened, so I'll say before April 17th, 2015 because the CausalBioNet
 paper (see next bullet point) used the results. On May 15, 2015, [Stéphanie Boué](https://www.linkedin.com/in/st%C3%A9phanie-bou%C3%A9-716a8710/)
 (PMI, with shared first authorship with the sbv IMPROVER team) published a summary of the challenge in 
@@ -169,7 +170,7 @@ as a summary of the results of the curation done in the second iteration of the 
 Challenge. This is the first evidence I found of the participation of [Anselmo Di Fabio](https://www.linkedin.com/in/anselmodifabio/)'s
 company, [Applied Dynamic Solutions (ADS), LLC](http://www.adsworks.com/), in the BEL Community, though
 the metadata listed on the paper's page is wrong so it's not obvious which co-authors had affiliations to that
-organization at the time, besides Anselmo.
+organization at the time, besides Anselmo. Later, William Hayes will join ADS after the dissolution of Selventa.
 
 **June 16th, 2015** [Justyna Szostak](https://www.pmiscience.com/science/scientists/scientist/justyna-szostak) (PMI)
 and [Sumit Madan](https://www.linkedin.com/in/smadan-1/) (Fraunhofer) publish the [BELIEF text mining
@@ -402,6 +403,13 @@ He did send me the database as XBEL which he said he made with a script he wrote
 I decided to re-write the converter to play nicer in the Bio2BEL ecosystem, which worked for a while and then broke
 because its downstream dependency for parsing the database wasn't updated. I never got around to re-writing this
 _again_.
+
+I'm not sure what happened at PatientsLikeMe, but from LinkedIn I can tell that there was a mass migration of
+ex-Selventa to [Quartz Bio](https://www.quartz.bio/), who also appear to be [hiring BEL people](https://www.linkedin.com/jobs/view/knowledge-management-expert-quartzbio-at-precision-medicine-group-1714058313/)
+to join their team. After burning out from finishing my PhD in late 2019, I haven't been proactive about keeping
+up with many people (quarantine life isn't making me feel that kind of motivation either, which is categorically
+different from the entire day I spent researching and preparing this blog post), though I do personally know some of
+them and could ask...
 
 During my time at Fraunhofer, there were a lot of people working with BEL. Many of them made tools and algorithms
 that never got published, so unfortunately, they are not included in this history.
