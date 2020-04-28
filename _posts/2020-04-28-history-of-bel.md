@@ -219,7 +219,7 @@ pipeline](https://academic.oup.com/database/article/doi/10.1093/database/baw136/
 service and lack of further publications might lead the reader to believe the project is abandoned.
 
 **October 9th, 2016** Following a long hiatus in the development of open source software to support BEL, Charles
-Tapley Hoyt (Fraunhofer; that's me!), Andrej Konotopez (Fraunhofer, and Christian Ebeling (Fraunhofer) release the
+Tapley Hoyt (Fraunhofer; that's me!), Andrej Konotopez (Fraunhofer), and Christian Ebeling (Fraunhofer) release the
 [first version](https://github.com/pybel/pybel/releases/tag/v0.1.2) of the PyBEL python package. It was later
 published in [*Oxford Bioinformatics*](https://academic.oup.com/bioinformatics/article/34/4/703/4557184).
 I may be biased, but I think this marked the beginning of the rejuvination of the BEL community. Many more
@@ -235,10 +235,14 @@ publishes the [NeuroMMSig Web server](https://neurommsig.scai.fraunhofer.de/) in
 the first publicly available BEL knowledge graphs as well as one of the first publicly usable algorithms for
 BEL graphs.
 
-**Sometime in 2016** Cohen Veteran's BioSciences contracts Fraunhofer to generate a knowledge graph for PTSD and TBI, 
+**Sometime in 2016** Cohen Veteran's BioSciences contracts Fraunhofer to curate a knowledge graph for PTSD and TBI, 
 supported by PyBEL and BEL Commons ([ref](https://www.cohenveteransbioscience.org/wp-content/uploads/2016/10/CohenVeteransBioscience-FactSheet.pdf)).
 In addition, [Exaptive](https://www.exaptive.com/blog/topic/data-visualization) developed additional software for 
 visualization.
+
+**Sometime in 2016-2017** Boehringer Ingelheim contracts Fraunhofer to curate a knowledge graph for psychiatric
+conditions in the BEL4IMOCEDE project ([ref 1](https://www.scai.fraunhofer.de/en/about-us/staff/domingo-fernandez.html),
+[ref 2](https://www.linkedin.com/in/asifemon/?originalSubdomain=de)), supported by PyBEL and BEL Commons.
 
 ### 2017
 
