@@ -37,12 +37,6 @@ community. And so, we being on a dark and stormy night in 2001....
 
 **2001** Selventa is [founded](https://www.flagshippioneering.com/companies/selventa) by Keith Elliston (originally as GenStruct, Inc.)
 
-
-### 2006
-
-**Sometime in 2006** Selventa breaks even and has positive cash flow ([ref](https://www.linkedin.com/in/keithelliston/)).
-Keith Elliston's LinkedIn profile claims that it was profitable in 2008 and 2009.
-
 ### 2003
 
 **September 8th, 2003** Selventa [raises $6.5M](https://www.crunchbase.com/funding_round/selventa-series-a--1f3d3583)
@@ -51,6 +45,11 @@ in a Series A with lead investors [Flagship Pioneering](https://www.flagshippion
 in successive Venture Rounds. The link on Flagship Pioneering to this event is [dead](https://www.flagshippioneering.com/about/news/genstruct-completes-65-million-series-financing).
 
 **Sometime in 2003** Biological Expression Language is created by Dexter Pratt while working at Selventa ([ref](https://fairsharing.org/bsg-s000572))
+
+### 2006
+
+**Sometime in 2006** Selventa breaks even and has positive cash flow ([ref](https://www.linkedin.com/in/keithelliston/)).
+Keith Elliston's LinkedIn profile claims that it was profitable in 2008 and 2009.
 
 ### 2010
 
