@@ -97,6 +97,9 @@ Metabase/[Metacore](https://clarivate.com/cortellis/solutions/early-research-int
 IDBS (listed, but I wasn't able to figure out who they were), [Linguamatics](https://www.linguamatics.com/),
 [Entagen (since dissolved)](https://www.crunchbase.com/organization/entagen).
 
+**July 25th, 2012** The [OpenBEL Google group](https://groups.google.com/forum/#!forum/openbel-discuss) is created.
+Through 2020, it remains a semi-active place for discussion in the BEL Community.
+
 **August 9th, 2012** [David Fryburg](https://www.linkedin.com/in/david-fryburg-m-d-ba67995/), Selventa's Chief Medical
 Officer from 2011-2015, authored a [company profile](https://pubmed.ncbi.nlm.nih.gov/29768793/) in *Future Medicine*
 (paywall).
