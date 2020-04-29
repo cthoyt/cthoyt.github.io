@@ -23,7 +23,7 @@ feel perfectly fine with sharing. I've put references to everything that can be 
 
 There are also things that I'm aware of that I've chosen to exclude because of their lack of relevance, quality,
 impact, or contribution the community. For example, I have chosen to exclude some papers that have claimed to use
-BEL for modeling purposes, but have not share their underlying knowledge graphs. I have also chosen to exclude
+BEL for modeling purposes, but have not shared their underlying knowledge graphs. I have also chosen to exclude
 papers that present new algorithms for BEL graphs that do not share code or examples.
 
 Finally, I am not perfect and do not know everything. I'm certain I've missed something important, because it turns
