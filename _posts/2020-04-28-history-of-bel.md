@@ -403,7 +403,7 @@ along with a pre-print on [*bioRxiv*](https://doi.org/10.1101/2020.04.14.040667)
 as a reference for Fraunhofer's new [OrientDB instance](http://graphstore.scai.fraunhofer.de) that holds BEL and
 their [Biomedical Knowledge Miner web application](https://bikmi.covid19-knowledgespace.de/)
 
-**April 3rd, 2020** Jeremy Zucker (Pacific Northwest National Labs) and students of Robert Ness/Olga Vitek (Northeatern)
+**April 3rd, 2020** Jeremy Zucker (Pacific Northwest National Labs) and students of Robert Ness/Olga Vitek (Northeastern; my alma mater!)
 begin developing [pipelines](https://github.com/COVID-19-Causal-Reasoning/bel2pyro) for generating causal models
 (SCMs) from BEL graphs for modeling of COVID-19, resulting in further interest in BEL in the [CoronaWhy](https://www.coronawhy.org/)
 working group.
