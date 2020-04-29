@@ -68,8 +68,15 @@ in a Venture Round. This is the second of three rounds of funding, the last of w
 
 ### 2012
 
-**May 18th, 2012** Selventa releases the source code for their Java ecosystem, the *OpenBEL Framework*, on the
-[OpenBEL GitHub organization](https://github.com/OpenBEL) ([ref initial commit](https://github.com/OpenBEL/openbel-framework/commit/09dee5283f2de5a5302d8bece14321b8fd268ef6)) 
+**April 27th, 2012** The OpenBEL Consortium begins and establishes [http://openbel.org](http://openbel.org) as a
+community resource ([ref](https://wiki.openbel.org/display/BLDV10/BEL+History), written by Jordan Hourani on July 9th,
+2012). There has been (and remains) great conflation between the name of the Biological Expression Language,
+the OpenBEL Framework (see next line), and the OpenBEL Consortium. Skipping ahead a few years: with the later
+deprecation and abandonment of the OpenBEL Framework, whose organization on GitHub also hosted the OpenBEL
+Consortium's website, it became unclear how maintenance should proceed.
+
+**May 18th, 2012** Selventa makes their [first public commit](https://github.com/OpenBEL/openbel-framework/commit/09dee5283f2de5a5302d8bece14321b8fd268ef6)
+to their open source Java ecosystem, the [OpenBEL Framework](https://github.com/openbel/openbel-framework).
 
 **May 23rd, 2012** Kevin Davies writes [Ring My BEL: Selventa Releases Biological Expression Language](http://www.bio-itworld.com/2012/05/23/ring-my-bel-selventa-releases-biological-expression-language.html)
 to be published on the Bio-IT World Website
@@ -108,12 +115,6 @@ Officer from 2011-2015, authored a [company profile](https://pubmed.ncbi.nlm.nih
 [Dr. Diane H. Song](https://www.linkedin.com/in/diane-song-0718b46/), marketing, publish <a href="https://www.ddw-online.com/informatics/p191019-biological-expression-language-(bel):ringing-in-a-common-language-for-the-life-sciences.html">
 Biological Expression Language (BEL): Ringing In A Common Language For The Life Sciences</a>
 in the Fall 2012 issue of *Drug Discovery World* as well as a companion piece [Saved by the BEL - ringing in a common language for the life sciences](https://www.ddw-online.com/media/32/6950/saved-by-the-bel---ringing-in-a-common-language-for-the-life-sciences.pdf)
-
-**Late 2012** The OpenBEL Consortium begins and establishes [http://openbel.org](http://openbel.org) as a community
-resource. There has been (and remains) great conflation between the name of the Biological Expression Language,
-the OpenBEL Framework, and the OpenBEL Consortium. Skipping ahead a few years: with the later deprecation and
-abandonment of the OpenBEL Framework, whose organization on GitHub also hosted the OpenBEL Consortium's website, it
-became unclear how maintenance should proceed.
 
 ### 2013
 
