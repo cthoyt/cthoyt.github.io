@@ -11,3 +11,4 @@ linkedin_username: cthoyt
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
