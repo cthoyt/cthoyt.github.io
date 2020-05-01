@@ -8,6 +8,8 @@ twitter_username: cthoytp
 github_username:  cthoyt
 linkedin_username: cthoyt
 
+url: "https://cthoyt.com"
+
 theme: minima
 plugins:
   - jekyll-feed
