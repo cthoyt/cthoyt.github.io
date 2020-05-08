@@ -10,7 +10,7 @@ application of link prediction.
 
 <img src="/img/research_workflow.png" alt="Research Workflow"/>
 
-## Creating Knowledge Graphs
+## Biocuration
 
 While there are several useful public terminologies useful for curation of
 biomedical relations, there is often the need to develop new controlled
@@ -24,18 +24,30 @@ knowledge graph [Curation of Neurodegeneration in BEL (CONIB)](https://github.co
 and later the knowledge graph [TauBase](https://github.com/pharmacome/taubase).
 
 I also lead the same team to re-curate the knowledge graphs curated and
-published during the [AETIONOMY](https://www.aetionomy.eu/) project. In order
-to check the syntax and semantics of these knowledge graphs, I developed
+published during the [AETIONOMY](https://www.aetionomy.eu/) project and developed
+a novel [rational enrichment workflow](https://github.com/bel-enrichment/bel-enrichment).
+Because of the time and cost of curation, prioritization of articles is crucial.
+I've developed [semi-automated curation workflows](https://doi.org/10.1093/database/baz068)
+based on a new metric for information density in regions of knowledge graphs.
+
+I also serve on the [Biological Expression Language Committee](https://bep.bel.bio) that
+facilitates the improvement of the language as a modeling paradigm in systems and networks
+biology.
+
+## Data Integration and Harmonization
+
+In order to check the syntax and semantics of these knowledge graphs, I developed
 [PyBEL](https://github.com/pybel). To interactively explore these graphs in a
 web-based environment and identify biological contractions, I developed
 [BEL Commons](https://github.com/bel-commons).
 
-Because of curation's time and cost, prioritization of articles is crucial.
-I've developed [semi-automated curation workflows](https://doi.org/10.1093/database/baz068)
-based on a new metric for information density in regions of knowledge graphs.
-
 Finally, to integrate all of the rich biological data sources available to the
-public, I developed [Bio2BEL](https://github.com/bio2bel).
+public, I developed [Bio2BEL](https://github.com/bio2bel). During the process,
+I was able to support the [ComPath](https://github.com/compath) project, which
+used the Bio2BEL framework to support the curation of equivalencies and hierarchical
+relations between entries in several major pathway databases (e.g., KEGG, WikiPathways, Reactome)
+and then later in the [PathMe](https://github.com/pathme) project where they were
+harmonized in BEL as a common schema.
 
 ## Knowledge Graph Embeddings
 
@@ -65,7 +77,7 @@ on one disease at a time).
 Predicting links between chemicals and diseases accomplishes drug repositioning
 (in the case when the chemical is a known drug) or otherwise novel drug
 discovery. I've worked on [DrugReLink](https://github.com/drugrelink),
-which uses [hetionet](https://het.io) to make these predictions for a given
+which uses [Hetionet](https://het.io) to make these predictions for a given
 chemical or disease.
 
 Because many compounds fail in the clinic due to undesirable side effects,
