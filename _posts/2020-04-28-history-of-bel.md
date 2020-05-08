@@ -159,8 +159,9 @@ this time with no co-authors from Selventa.
 ### 2015
 
 **Sometime between 2015-2017** With the withdrawn of support from Christoph Brockel (sometime between 2015 and 2017,
-when he left Pfizer), Pfizer divests from BEL. Its internal BEL-based analytical platform, the Causal Reasoning Engine,
-is never published.
+when he left Pfizer), Pfizer divests from BEL. Its internal BEL-based analytical platform, the [Causal Reasoning
+Engine](https://academic.oup.com/bioinformatics/article/28/8/1114/195407) and its underlying knowledgebase 
+are publicized, but never released.
 
 **January 23rd, 2015** In concert with the sbv IMPROVER's adoption of BEL from PMI, the[fifth iteration of the
 BioCreative Challenge](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-v/)
@@ -206,7 +207,7 @@ least from an outside perspective. If you serch the internet for Selventa, you w
 describing the contracts they had made over the years with several notable biotech and pharmaceutical industries.
 I've heard gossip that the reason it fell apart was because of mismanagement, but I can't weigh in on that.
 
-**Later than _sometime in 2016** The Selventa team disperses. Part of the technology team that supported the OpenBEL
+**Later than _sometime in 2016_** The Selventa team disperses. Part of the technology team that supported the OpenBEL
 Framework moved to [Applied Dynamic Solutions (ADS), LLC](http://www.adsworks.com/). Some of the computational
 biologists moved to [PatientsLikeMe (PLM)](https://www.patientslikeme.com/) (in waves), and I believe some of the
 computational team moved directly to Philip Morris International. Many continued working together, and with the
@@ -216,7 +217,7 @@ Before its dissolution, Dexter Pratt had already moved to UCSD and begun work on
 in VC and entrepreneurship. Luckily, we have LinkedIn to figure this kind of stuff out.
 
 During its 15 years of operation, Selventa contracted an enormous amount of curation to generate BEL content. I'm
-not sure what the actual number but I've heard that it has millions of nodes in it. After the closure of Selventa,
+not sure what the actual number but I've heard that it has millions of edges in it. After the closure of Selventa,
 it's not obvious what happened to the intellectual property of the company. Dexter Pratt asked through the
 OpenBEL Google Group where it was, and [Nimisha Schneider](https://www.linkedin.com/in/nimisha-schneider-9a1bb3123/)
 claimed that [Alexion](https://alexion.com/) might own it now. I'm quite interested to know about the fate of this
