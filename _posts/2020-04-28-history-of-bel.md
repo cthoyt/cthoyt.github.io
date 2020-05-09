@@ -1,9 +1,9 @@
 ---
 layout: post
-title: An Incomplete History of Selventa and the Biological Expression Language
+title: An Incomplete History of Selventa and the Biological Expression Language (BEL)
 date: 2020-04-28 00:00:00 -0800
 ---
-The company and community that surround the Biological Expression Language are enigmatic, to say the least.
+The company and community that surround the Biological Expression Language (BEL) are enigmatic, to say the least.
 This post represents the best I could do to tell the history of Selventa and BEL.
 
 If you've read my last few posts, you know that I'm making the best of quarantine time by being quite silly

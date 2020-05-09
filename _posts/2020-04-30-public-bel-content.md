@@ -1,10 +1,10 @@
 ---
 layout: post
-title: A Listing of Publicly Available BEL Content
+title: A Listing of Publicly Available Content in the Biological Expression Language (BEL)
 date: 2020-04-30 17:50:00 +0100
 ---
 While many researchers have a pathway or pathology of interest, their first time
-curating content in the Biological Expression Language may seem intimidating. This
+curating content in the Biological Expression Language (BEL) may seem intimidating. This
 post lists several disease maps and BEL content sources that are directly available
 for re-use.
 
