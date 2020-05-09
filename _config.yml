@@ -13,8 +13,10 @@ url: "https://cthoyt.com"
 google_analytics: UA-166029785-1
 
 paginate: 5
+show_excerpts: true
 
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-paginate
