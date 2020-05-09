@@ -10,6 +10,10 @@ linkedin_username: cthoyt
 
 url: "https://cthoyt.com"
 
+google_analytics: UA-166029785-1
+
+paginate: 5
+
 theme: minima
 plugins:
   - jekyll-feed
