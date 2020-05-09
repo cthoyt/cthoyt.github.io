@@ -409,6 +409,8 @@ begin developing [pipelines](https://github.com/COVID-19-Causal-Reasoning/bel2py
 (SCMs) from BEL graphs for modeling of COVID-19, resulting in further interest in BEL in the [CoronaWhy](https://www.coronawhy.org/)
 working group.
 
+**May 9th, 2020** The OpenBEL community website, [https://openbel.org](https://openbel.org) is taken down.
+
 ---
 
 There are a few things that I would like to mention as afterthoughts that I don't know where to place on the timeline.
