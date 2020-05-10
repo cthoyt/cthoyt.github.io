@@ -12,7 +12,7 @@ each semester. I took freshmen chemistry, which turned out to basically be an
 applied calculus class in thermodynamics and quantum mechanics. I didn't know
 calculus back then.
 
-I shipped up to boston (as one does) to join the Department of Chemistry and
+I shipped up to Boston (as one does) to join the Department of Chemistry and
 Chemical Biology at Northeastern University. I was totally enchanted by my 
 organic chemistry professor, Prof. Mike Pollastri, and joined his lab to learn
 synthetic organic chemistry. As I became more familiar with the lab's focus
