@@ -321,6 +321,7 @@ we nominated William Hayes (BioDati), Natalie Catlett (now at PatientsLikeMe), J
 and Charles Tapley Hoyt (still me, at the time Fraunhofer) due to our mixed statuses in the industry and academy as
 well as our mixed roles as tool developers and tool users to serve as the BEL Language Committee going forwards. We
 agreed on guidelines for BEL Enhancement Proposals and published them at [http://bep.bel.bio](http://bep.bel.bio/).
+Videos from this event are available at [https://www.youtube.com/playlist?list=PLwXD2R4UjER0IfAQpqxOBkSe08gTPws41](https://www.youtube.com/playlist?list=PLwXD2R4UjER0IfAQpqxOBkSe08gTPws41).
 
 **June 4th, 2018** Dexter Pratt (on behalf of the Cytoscape Consortium) contracts Fraunhofer to improve interoperability
 between BEL and NDEx through the PyBEL framework. The results were posted to GitHub in their own [repository](https://github.com/pybel/pybel-cx)
