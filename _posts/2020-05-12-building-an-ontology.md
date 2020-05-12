@@ -177,8 +177,13 @@ ontology. Instead, it's better to focus on the aspects of the ontology that I
 think are practically the most important. So in this guide, we're going to
 use a set of interconnected tab-separated values (TSV) documents. Why TSV?
 Because comma-separated values (CSV) documents look awful and Excel sheets
-can't be diff'd / viewed in GitHub. In a later post, I'll come back
-to how to programatically generate OWL, OBO, BEL, and other files from
+can't be diff'd / viewed in GitHub. However, I would accept the following
+alternative:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I propose we change CSV to Clown Separated Values since that tends to be about how well CSV parsers work. <a href="https://t.co/C8Uys3H9Kp">pic.twitter.com/C8Uys3H9Kp</a></p>&mdash; Kevin Jones 🏳️‍🌈 🧼👏 (@vcsjones) <a href="https://twitter.com/vcsjones/status/1170828523881271298?ref_src=twsrc%5Etfw">September 8, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+In a later post, I'll come back to how to programatically generate OWL,
+OBO, BEL, and other formats that are commonly used for ontologies from
 your curation sheets.
 
 ### Curate entities
