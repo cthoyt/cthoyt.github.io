@@ -50,7 +50,7 @@ approaches for target identification in neurodegenerative diseases.
 That work evolved into my master's thesis on the development of a general
 framework for hypothesis generation using knowledge assembly approaches in
 networks and systems biology. I continued my work during my Ph.D. at Fraunhofer
-SCAI to bridge the gap between systems biology and cheminformatics for
+to bridge the gap between systems biology and cheminformatics for
 mechanistically informed patient stratification, drug identification, and drug
 repurposing. Following my Ph.D., I had a few months to continue my work in 
 further interfacing machine learning and knowledge graphs in the biomedical
