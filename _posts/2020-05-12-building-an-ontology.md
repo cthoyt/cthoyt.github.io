@@ -177,11 +177,11 @@ ontology. Instead, it's better to focus on the aspects of the ontology that I
 think are practically the most important. So in this guide, we're going to
 use a set of interconnected tab-separated values (TSV) documents. Why TSV?
 Because comma-separated values (CSV) documents look awful and Excel sheets
-can't be diff'd / viewed in GitHub. Later, we'll come back
+can't be diff'd / viewed in GitHub. In a later post, we'll come back
 to how to programatically generate OWL, OBO, BEL, and other files from
 your curation sheets.
 
-### Maintain entities
+### Curate entities
 
 The most important thing in an ontology is the entities. Make a file called
 *entities.tsv*. It needs a few columns to hold the most important information
@@ -212,7 +212,7 @@ ontology, then you can also include it in this sheet. Later, the properties and
 relationships sheets can be used for other information and other relationships
 such as parent/child relationships, physical properties, etc..
 
-### Maintain synonyms
+### Curate synonyms
 
 Make a file called *synonyms.tsv*. It needs a few columns to describe synonyms
 for each term and the provenance of where they came from:
@@ -228,7 +228,7 @@ for each term and the provenance of where they came from:
    standard](https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html).
    If you're not sure, just put EXACT.
 
-### Maintain xrefs
+### Curate xrefs
 
 Make a file called *xrefs.tsv*. It needs three columns:
 
@@ -245,7 +245,7 @@ of parsing CURIEs later.
 It's best to consider xrefs as equivalences. All other relationships
 should be in the relationships page (later).
 
-### Maintain typedefs
+### Curate typedefs
 
 An xref is a very specific type of relationship, so it has first-class
 status. The parent-child relationship is also first-class and it goes without
@@ -267,7 +267,7 @@ for defining relationships. It should have the following columns:
    is a special case that doesn't appear in the relationships sheets because
    *isA* relationships are so important.
 
-### Maintain relationships
+### Curate relationships
 
 You're ready to use the relationships defined in *typedefs.tsv* to write out
 relationships. Make *out_relations.tsv* with the following columns:
@@ -294,7 +294,7 @@ Between these two sheets, you can encode relationships between
 entities in the ontology that are both incoming and outgoing, removing
 the need to define ad-hoc inverses of common relationships, like *isA*.
 
-### Maintain properties
+### Curate properties
 
 Properties are like relationships that point to scalar values instead of other
 entities. For a counterexample, synonyms are a first-class property that
