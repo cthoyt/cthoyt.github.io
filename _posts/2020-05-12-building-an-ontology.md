@@ -176,7 +176,7 @@ Protégé is a really good way to get bogged down in the ivory tower that is
 ontology. Instead, it's better to focus on the aspects of the ontology that I
 think are practically the most important. So in this guide, we're going to
 use a set of interconnected tab-separated values (TSV) documents. Why TSV?
-Because comma-separated values (CSV_ documents look awful and Excel sheets
+Because comma-separated values (CSV) documents look awful and Excel sheets
 can't be diff'd / viewed in GitHub. Later, we'll come back
 to how to programatically generate OWL, OBO, BEL, and other files from
 your curation sheets.
@@ -262,7 +262,7 @@ for defining relationships. It should have the following columns:
    uses `^Q\d+$` for entities and `^P\d+$` for relationships
 3. Name - The preferred name of the relationship
 4. (Optional) Inverse Of - If the relationship can be defined as the inverse
-   of another, put it's CURIE here
+   of another, put its CURIE here
 5. Parent(s) - a comma-separated list of the relation's parents' CURIEs. This
    is a special case that doesn't appear in the relationships sheets because
    *isA* relationships are so important.
@@ -377,9 +377,12 @@ seasoned programmer, so in a later post, I'll provide you with a
 [cookiecutter](https://github.com/cookiecutter/cookiecutter) template
 repository with all of the files, scripts, and configuration that you
 need to do this without any programming at all. An example of most of
-it in practice can be found at https://github.com/pharmacome/conso, with
-a few deviations - this guide also makes some better recommendations
-based on the mistakes I made with CONSO.
+it in practice is the Curation of Neurodegeneration Supporting Ontology
+(CONSO) ([source code](https://github.com/pharmacome/conso);
+[web site](https://pharmacome.github.io/conso/)). It has a few differences
+from the recommendations I've made in this post - some of them inspired
+by choices I made during the curation of CONSO that I think could have
+been done better.
 
 ### Choose a License
 
@@ -387,8 +390,9 @@ The license tells other people how they're allowed to use your ontology.
 If you don't use an appropriate open license, other people will not be
 legally allowed to use your ontology. And if that's the case, there really
 wasn't a point to making it (yes, I'm being pedantic here). Check out
-https://choosealicense.com/non-software/ for some pointers. I suggest the
-[CC0](https://choosealicense.com/licenses/cc0-1.0/), license, which is the
+[https://choosealicense.com/non-software/](https://choosealicense.com/non-software/)
+for some pointers. I suggest the
+[CC0](https://choosealicense.com/licenses/cc0-1.0/) license, which is the
 most usable one out there. Don't fear - people will cite your work and thank
 you for it, even if the license doesn't legally obligate them to.
 
