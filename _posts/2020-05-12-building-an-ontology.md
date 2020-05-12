@@ -136,9 +136,10 @@ schemes:
   identifier itself looks like a CURIE. An example from the [Gene Ontology](http://geneontology.org/)
   is [GO:0006915](https://identifiers.org/GO:0006915). This is sort of
   confusing, and has been dubbed the GOGO problem. Or the Bananananana problem.
-- Identifiers that look like numbers, but are prefixed with the prefix. An
-  example from [ChEMBL](https://www.ebi.ac.uk/chembl/) is
-  [CHEMBL941](https://identifiers.org/chembl.compound:CHEMBL941).
+- Identifiers that look like numbers, but are prefixed with part of all of the
+  prefix. An example from [ChEMBL](https://www.ebi.ac.uk/chembl/) is
+  [CHEMBL941](https://identifiers.org/chembl.compound:CHEMBL941) where the
+  prefix is `chembl.compound`.
 - Identifiers that have a short letter prefix then a fixed width number with
   left-padded zeros. An example from MeSH is [D013313](https://identifiers.org/mesh:D013313).
 
@@ -146,11 +147,21 @@ My favorite is the MeSH style, because it allows for the most information to be
 conveyed succinctly. You should use numbers of width 6 or 7, even if you only
 plan on curating a few dozen or hundred terms.
 
+Please don't use the GO style identifiers, because this is creates a ton
+of confusion.
+
+You should also write down what the regular expression that goes with your
+identifiers for later validation. In the MeSH example, the regular expression
+is `^(C|D)\d{6,9}$`, which means it either starts with C or D, and is
+followed by between 6 and 9 numbers. The `^` means beginning of the string
+and `$` means end of the string, so it's clear that nothing can precede or
+follow.
+
 ### Pick your scope
 
 The last, and most important, part of planning is to pick the scope of your
 ontology. You have to choose what kinds of entities you want to include (genes,
-proteins, side effects, etc.). Keep in mind that if you're picking one of my
+proteins, side effects, etc.). Keep in mind that if you're picking one of these
 examples, there's probably already a good nomenclature source for it, so it's
 best you don't curate it again.
 
@@ -163,11 +174,12 @@ _Don't_.
 
 Protégé is a really good way to get bogged down in the ivory tower that is
 ontology. Instead, it's better to focus on the aspects of the ontology that I
-think are practically the most important. So we're going to use a set of
-interconnected tab-separated values (TSV) documents. Why TSV? Because
-comma-separated values (CSV_ documents look awful and Excel sheets can't be
-diff'd / viewed in GitHub. In the end, we'll come back
-to how to generate OWL, OBO, BEL, and other files from your curation sheets.
+think are practically the most important. So in this guide, we're going to
+use a set of interconnected tab-separated values (TSV) documents. Why TSV?
+Because comma-separated values (CSV_ documents look awful and Excel sheets
+can't be diff'd / viewed in GitHub. Later, we'll come back
+to how to programatically generate OWL, OBO, BEL, and other files from
+your curation sheets.
 
 ### Maintain entities
 
@@ -198,7 +210,7 @@ here.
 If there are other pieces of information that all entities must have in your
 ontology, then you can also include it in this sheet. Later, the properties and
 relationships sheets can be used for other information and other relationships
-such as parent/child relationships, physical properties, etc.
+such as parent/child relationships, physical properties, etc..
 
 ### Maintain synonyms
 
@@ -212,7 +224,8 @@ for each term and the provenance of where they came from:
    be a PubMed, PubMed Central, URL, or related.
 4. Synonym Semantics - is this an exact synonym, a broad synonym, a narrow
    synonym, or a related synonym? Each entry should only be one of EXACT,
-   NARROW, BROAD, or RELATED as defined in the [OBO 1.4 standard](https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html).
+   NARROW, BROAD, or RELATED as defined in the [OBO 1.4
+   standard](https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html).
    If you're not sure, just put EXACT.
 
 ### Maintain xrefs
@@ -246,11 +259,13 @@ for defining relationships. It should have the following columns:
 1. Prefix - could be the same as the current ontology, or an external one
 2. Identifier - if it's from the current ontology, you might consider using
    a different identifier scheme than for entities. For example, WikiData
-   uses `Q\d+` for entities and `P\d+` for relationships
+   uses `^Q\d+$` for entities and `^P\d+$` for relationships
 3. Name - The preferred name of the relationship
 4. (Optional) Inverse Of - If the relationship can be defined as the inverse
    of another, put it's CURIE here
-5. Parent(s) - a comma-separated list of the relation's parents' CURIEs
+5. Parent(s) - a comma-separated list of the relation's parents' CURIEs. This
+   is a special case that doesn't appear in the relationships sheets because
+   *isA* relationships are so important.
 
 ### Maintain relationships
 
@@ -263,17 +278,17 @@ relationships. Make *out_relations.tsv* with the following columns:
 3. Relation Identifier
 4. Target Prefix
 5. Target Identifier
-6. Target Name
+6. Target Name (Optional, but useful for readers)
 
 Similarly, make another sheet called *in_relations.tsv* with
 the following columns:
 
 1. Source Prefix
 2. Source Identifier
-3. Source Name (optional)
+3. Source Name (Optional, but useful for readers)
 4. Relation Prefix
 5. Relation Identifier
-6. Identifier - the identifier of the entity that matches to the entities.tsv sheet
+6. Identifier - the identifier of the entity that matches to the *entities.tsv* sheet
 
 Between these two sheets, you can encode relationships between
 entities in the ontology that are both incoming and outgoing, removing
@@ -282,8 +297,11 @@ the need to define ad-hoc inverses of common relationships, like *isA*.
 ### Maintain properties
 
 Properties are like relationships that point to scalar values instead of other
-entities. For example, synonyms are a first-class property that contains lots
-of extra metadata. Another good example of a property is the chemical formula,
+entities. For a counterexample, synonyms are a first-class property that
+contains lots of extra metadata and therefore get their own sheet.
+
+The rest of the properties will appear here.
+A good example of a property is the chemical formula,
 SMILES string, and mass of a given small molecule in the ChEBI ontology.
 However, not all entries in the ChEBI ontology are small molecules, so if they
 were following this guide, it might not have made sense to put that property
@@ -358,7 +376,10 @@ These suggestions probably sound a bit abstract or scary if you're not a
 seasoned programmer, so in a later post, I'll provide you with a
 [cookiecutter](https://github.com/cookiecutter/cookiecutter) template
 repository with all of the files, scripts, and configuration that you
-need to do this without any programming at all.
+need to do this without any programming at all. An example of most of
+it in practice can be found at https://github.com/pharmacome/conso, with
+a few deviations - this guide also makes some better recommendations
+based on the mistakes I made with CONSO.
 
 ### Choose a License
 
