@@ -177,7 +177,7 @@ ontology. Instead, it's better to focus on the aspects of the ontology that I
 think are practically the most important. So in this guide, we're going to
 use a set of interconnected tab-separated values (TSV) documents. Why TSV?
 Because comma-separated values (CSV) documents look awful and Excel sheets
-can't be diff'd / viewed in GitHub. In a later post, we'll come back
+can't be diff'd / viewed in GitHub. In a later post, I'll come back
 to how to programatically generate OWL, OBO, BEL, and other files from
 your curation sheets.
 
@@ -302,7 +302,7 @@ contains lots of extra metadata and therefore get their own sheet.
 
 The rest of the properties will appear here.
 A good example of a property is the chemical formula,
-SMILES string, and mass of a given small molecule in the ChEBI ontology.
+SMILES string, and mass of a given small molecule in the [ChEBI ontology](https://www.ebi.ac.uk/chebi/).
 However, not all entries in the ChEBI ontology are small molecules, so if they
 were following this guide, it might not have made sense to put that property
 in the *entities.tsv* sheet. Make a sheet called *properties.tsv* with the
@@ -360,8 +360,9 @@ usable license.
 The next few suggestions rely on a bit of technical expertise. The first
 is that you should write scripts that validate the content's integrity,
 formatting, correctness, or whatever rules you can come up with. Then you
-should use continuous integration (e.g., [Travis-CI](https://travis-ci.com/))
-or GitHub Actions) to run those scripts on every commit to give feedback. If
+should use continuous integration (e.g., [Travis-CI](https://travis-ci.com/)
+or [GitHub Actions](https://github.com/features/actions)) to run those
+scripts on every commit to give feedback. If
 you're working using the GitHub Flow fork/pull request workflow, then you can
 always ask your curators to make sure that their content doesn't make the
 validation scripts fail before merging them into master.
@@ -400,7 +401,8 @@ you for it, even if the license doesn't legally obligate them to.
 
 If you're using GitHub, you can easily integrate the repository with
 [Zenodo](https://zenodo.org/), which archives the repository when you
-make a tag and assigns a DOI to each release. You might also want to
+make a tag and assigns a digital object identifier (DOI) to each release.
+You might also want to
 make releases to the OBO Foundry or BioPortal. You might also want to
 register your prefix at Identifiers.org to give your CURIEs maximum
 legitimacy.
