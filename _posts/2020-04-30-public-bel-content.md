@@ -239,4 +239,4 @@ and others that aren't mentioned here, but can be found in its documentation [he
 I hope you're able to find some of this content useful! If you know about any other publicly available BEL content,
 please let me know so I can update this post. All of my contact info is below. Or make a [pull request against
 this page](https://github.com/cthoyt/cthoyt.github.io/edit/master/_posts/2020-04-30-public-bel-content.md)
-directly. Or tweet at me [@cthoytp](https://twitter.com/cthoytp).
+directly. Or tweet at me [@cthoyt](https://twitter.com/cthoyt).
