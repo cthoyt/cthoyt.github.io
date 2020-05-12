@@ -147,6 +147,28 @@ has human, rat, and mouse networks that can be downloaded from the main page in 
 variant. Luckily, an importer can be found in the [PyBEL documentation](https://pybel.readthedocs.io/en/latest/reference/io.html?highlight=CBN#pybel.from_cbn_jgif_file)
 with instructions for unzipping the downloads and loading them into PyBEL with `pybel.from_cbn_jgif_file()`.
 
+The content has also been pre-processed and is available at [https://github.com/pybel/cbn-bel](https://github.com/pybel/cbn-bel)
+
+### Hetionet
+
+Hetionet is a large biomedical knowledge graphs created for drug repositioning.
+
+> [Systematic integration of biomedical knowledge prioritizes drugs for repurposing](https://doi.org/10.7554/eLife.26726)
+Daniel S Himmelstein, Antoine Lizee, Christine Hessler, Leo Brueggeman, Sabrina L Chen, Dexter Hadley, Ari Green, Pouya Khankhanian, Sergio E Baranzini
+*eLife* (2017-09-22) DOI: `10.7554/eLife.26726`
+
+An export of Hetionet as BEL can be found at [https://github.com/pybel/hetionet-bel](https://github.com/pybel/hetionet-bel).
+
+### OpenBioLink
+
+OpenBioLink is a framework that produces biomedical knowledge graphs for link prediction.
+
+> [OpenBioLink: A benchmarking framework for large-scale biomedical link prediction](https://doi.org/10.1093/bioinformatics/btaa274)
+Breit, A., Ott, S., Agibetov, A., & Samwald, M. *Bioinformatics* (2020) DOI: `10.1093/bioinformatics/btaa274`
+
+An export of the high-quality data set in BEL can be found at 
+[https://github.com/pybel/openbiolink-bel](https://github.com/pybel/openbiolink-bel).
+
 ### KEGG, WikiPathways, and Reactome
 
 The [PathMe](https://github.com/PathwayMerger) package converts KEGG, Reactome, and WikiPathways to BEL. Results may
