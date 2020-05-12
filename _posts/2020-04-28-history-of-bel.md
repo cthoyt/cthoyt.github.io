@@ -323,6 +323,9 @@ well as our mixed roles as tool developers and tool users to serve as the BEL La
 agreed on guidelines for BEL Enhancement Proposals and published them at [http://bep.bel.bio](http://bep.bel.bio/).
 Videos from this event are available at [https://www.youtube.com/playlist?list=PLwXD2R4UjER0IfAQpqxOBkSe08gTPws41](https://www.youtube.com/playlist?list=PLwXD2R4UjER0IfAQpqxOBkSe08gTPws41).
 
+**Also May 14th, 2018** Christian Ebeling (Fraunhofer) publishes an [Atom](https://atom.io/)) plugin
+for BEL syntax highlighting at [https://atom.io/packages/language-bel](https://atom.io/packages/language-bel).
+
 **June 4th, 2018** Dexter Pratt (on behalf of the Cytoscape Consortium) contracts Fraunhofer to improve interoperability
 between BEL and NDEx through the PyBEL framework. The results were posted to GitHub in their own [repository](https://github.com/pybel/pybel-cx)
 but the utility of the CX format and NDEx interchange were eventually [incorporated](https://github.com/pybel/pybel-cx/commit/05463fcdeca612f1e6ab50fafdd117406bbce096)
