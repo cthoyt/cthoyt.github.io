@@ -3,7 +3,7 @@ layout: post
 title: The Trouble with Ontologies, or, How to Build an Ontology
 date: 2020-05-12 00:00:00 -0800
 ---
-Everyone's talking about biomedical ontologies! Let's dissect the hype. Let's
+Everyone's talking about biomedical ontologies! Let's
 look at where most people go wrong and how to do it right.
 
 # The Trouble with Biomedical Ontologies
