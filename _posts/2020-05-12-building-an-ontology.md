@@ -418,6 +418,34 @@ However, you might have to retire entries. This might mean adding an
 additional column to *entities.tsv* with the date that a term is made
 obsolete.
 
+### Upgrade to more powerful tooling
+
+While this guide was focused on how to get started with building ontologies
+if you're new, there are obviously a lot of good reasons why people use
+more powerful formalisms like OWL to curate their ontologies. Chris Mungall,
+a prominent ontologist, gave me some feedback via Twitter that's definitely
+worth a ready from anyone who made it this far in the following thread:
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I really like Charlie&#39;s take here, even though some of it will annoy many ontologists and my <a href="https://twitter.com/OBOFoundry?ref_src=twsrc%5Etfw">@OBOFoundry</a> colleagues! Lots of sensible advice, would make a good PLOS 10 rules article. I do have a few suggestions and comments... 1/ <a href="https://t.co/LXxa13LJ4a">https://t.co/LXxa13LJ4a</a></p>&mdash; Chris Mungall (@chrismungall) <a href="https://twitter.com/chrismungall/status/1260394048839225344?ref_src=twsrc%5Etfw">May 13, 2020</a></blockquote>
+
+To summarize, he linked to the following article to show how OWL enables
+the Gene Ontology to do many more powerful things, such as axiomization,
+that just don't fit into a TSV-only world for curation.
+
+> [Use of OWL within the Gene Ontology](https://doi.org/10.1101/010090)
+Christopher J Mungall, Heiko Dietze, David Osumi-Sutherland.
+*bioRxiv*, 010090; DOI: `10.1101/010090 `
+
+He also gave two links to some previously developed tools that can help
+you get started with generating ontologies from tables:
+
+- https://github.com/INCATools/ontology-development-kit/
+- http://robot.obolibrary.org/template
+
+These accomplish a similar goal to what I'll present in the next blog post,
+and I'll have to do my due diligence to figure out how they work to provide
+a more in-depth comparison.
+
 ---
 
 You can't compete with UniProt, the Disease Ontology, the Gene Ontology, or
