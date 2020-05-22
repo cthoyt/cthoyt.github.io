@@ -52,7 +52,7 @@ paper.
 
 [**Assessment of network perturbation amplitudes by applying high-throughput data to causal biological networks**](https://doi.org/10.1186/1752-0509-6-54).
 <br /> Martin, F., Thomson, T. M., Sewer, A., Drubin, D. a, Mathis, C., Weisensee, D., Pratt, D., Hoeng, J., & Peitsch, M. C. (2012).
-<br /> *BMC Systems Biology*, 6, 54. 
+<br /> *BMC Systems Biology*, **6**, 54. 
 
 [**Quantitative assessment of biological impact using transcriptomic data and mechanistic network models**](https://doi.org/10.1016/j.taap.2013.07.007).
 <br /> Thomson, T. M., Sewer, A., Martin, F., Belcastro, V., Frushour, B. P., Gebel, S., Park, J., Schlage, W. K., Talikka, M., Vasilyev, D. M., Westra, J. W., Hoeng, J., & Peitsch, M. C. (2013). 
@@ -64,7 +64,7 @@ paper.
 
 [**An algorithm for score aggregation over causal biological networks based on random walk sampling**](https://doi.org/10.1186/1756-0500-7-516).
 <br /> Vasilyev, D. M., Thomson, T. M., Frushour, B. P., Martin, F., & Sewer, A. (2014).
-<br /> *BMC Research Notes*, 7, 516. 
+<br /> *BMC Research Notes*, **7**, 516. 
 
 [**Quantification of biological network perturbations for mechanistic insight and diagnostics using two-layer causal models**](https://doi.org/10.1186/1471-2105-15-238).
 <br /> Martin, F., Sewer, A., Talikka, M., Xiang, Y., Hoeng, J., & Peitsch, M. C. (2014).
@@ -110,25 +110,25 @@ paper.
 
 [**The Impact of Pathway Database Choice on Statistical Enrichment Analysis and Predictive Modeling**](https://doi.org/10.3389/fgene.2019.01203).
 <br /> Mubeen, S., Hoyt, C. T., Gemünd, A., Hofmann-Apitius, M., Fröhlich, H., & Domingo-Fernández, D. (2019).
-<br /> *Frontiers in Genetics*, 10, 654442. 
+<br /> *Frontiers in Genetics*, **10**, 654442. 
 
 ## Natural Language Processing
 
 [**Construction of biological networks from unstructured information based on a semi-automated curation workflow**](https://doi.org/10.1093/database/bav057).
 <br /> Szostak, J., Ansari, S., Madan, S., Fluck, J., Talikka, M., Iskandar, A., De Leon, H., Hofmann-Apitius, M., Peitsch, M. C., & Hoeng, J. (2015).
-<br /> *Database*, 2015, bav057.
+<br /> *Database*, **2015**, bav057.
 
 [**Training and evaluation corpora for the extraction of causal relationships encoded in biological expression language (BEL)**](https://doi.org/10.1093/database/baw113).
 <br /> Fluck, J., Madan, S., Ansari, S., Kodamullil, A. T., Karki, R., Rastegar-Mojarad, M., Catlett, N. L., Hayes, W., Szostak, J., Hoeng, J., & Peitsch, M. (2016).
-<br /> *Database*, 2016, 1–20. 
+<br /> *Database*, **2016**, 1–20. 
 
 [**BioCreative V track 4: a shared task for the extraction of causal network information using the Biological Expression Language**](https://doi.org/10.1093/database/baw067).
 <br /> Rinaldi, F., Ellendorff, T. R., Madan, S., Clematide, S., van der Lek, A., Mevissen, T., & Fluck, J. (2016).
-<br /> *Database*, 2016, baw067. 
+<br /> *Database*, **2016**, baw067. 
 
 [**Coreference resolution improves extraction of Biological Expression Language statements from texts**](https://doi.org/10.1093/database/baw076).
 <br /> Choi, M., Liu, H., Baumgartner, W., Zobel, J., & Verspoor, K. (2016).
-<br /> *Database*, 2016, 1–14. 
+<br /> *Database*, **2016**, 1–14. 
 
 [**The BEL information extraction workflow (BELIEF): evaluation in the BioCreative V BEL and IAT track**](https://doi.org/10.1093/database/baw136).
 <br /> Madan, S., Hodapp, S., Senger, P., Ansari, S., Szostak, J., Hoeng, J., Peitsch, M., & Fluck, J. (2016).
@@ -170,7 +170,7 @@ paper.
 
 [**On crowd-verification of biological networks**](https://doi.org/10.4137/BBI.S12932).
 <br />  Ansari, S., Binder, J., Boue, S., Di Fabio, A., Hayes, W., Hoeng, J., Iskandar, A., Kleiman, R., Norel, R., O’Neel, B., Peitsch, M. C., Poussin, C., Pratt, D., Rhrissorrakrai, K., Schlage, W. K., Stolovitzky, G., & Talikka, M. (2013).
-<br />  *Bioinformatics and Biology Insights*, 7, 307–325. 
+<br />  *Bioinformatics and Biology Insights*, **7**, 307–325. 
 
 [**sbv IMPROVER: Modern Approach to Systems Biology BT  - Biological Networks and Pathway Analysis**](https://doi.org/10.1007/978-1-4939-7027-8_2).
 <br /> Guryanova, S., & Guryanova, A. (2017).
@@ -184,23 +184,23 @@ paper.
 
 [**A computable cellular stress network model for non-diseased pulmonary and cardiovascular tissue**](https://doi.org/10.1186/1752-0509-5-168).
 <br /> Schlage, W. K., Westra, J. W., Gebel, S., Catlett, N. L., Mathis, C., Frushour, B. P., Hengstermann, A., Van Hooser, A., Poussin, C., & Wong, B. (2011).
-<br /> *BMC Syst Biol*, 5.
+<br /> *BMC Syst Biol*, **5**.
 
 [**Construction of a Computable Cell Proliferation Network Focused on Non-Diseased Lung Cells**](https://doi.org/10.1186/1752-0509-5-105).
 <br /> Westra, J. W., Schlage, W. K., Frushour, B. P., Gebel, S., Catlett, N. L., Han, W., Eddy, S. F., Hengstermann, A., Matthews, A. L., & Mathis, C. (2011).
-<br /> *BMC Syst Biol*, 5. 
+<br /> *BMC Syst Biol*, **5**. 
 
 [**Construction of a computable network model for DNA damage, autophagy, cell death, and senescence**](https://doi.org/10.4137/BBI.S11154).
 <br /> Gebel, S., Lichtner, R. B., Frushour, B., Schlage, W. K., Hoang, V., Talikka, M., Hengstermann, A., Mathis, C., Veljkovic, E., Peck, M., Peitsch, M. C., Deehan, R., Hoeng, J., & Westra, J. W. (2013).
-<br /> *Bioinformatics and Biology Insights*, 7, 97–117. 
+<br /> *Bioinformatics and Biology Insights*, **7**, 97–117. 
 
 [**A modular cell-type focused inflammatory process network model for non-diseased pulmonary tissue**](https://doi.org/10.4137/BBI.S11509). 
 <br /> Westra, J. W., Schlage, W. K., Hengstermann, A., Gebel, S., Mathis, C., Thomson, T., Wong, B., Hoang, V., Veljkovic, E., Peck, M., Lichtner, R. B., Weisensee, D., Talikka, M., Deehan, R., Hoeng, J., & Peitsch, M. C. (2013).
-<br /> *Bioinformatics and Biology Insights*, 7, 167–192. 
+<br /> *Bioinformatics and Biology Insights*, **7**, 167–192. 
 
 [**Systematic verification of upstream regulators of a computable cellular proliferation network model on non-diseased lung cells using a dedicated dataset**](https://doi.org/10.4137/BBI.S12167).
 <br /> Belcastro, V., Poussin, C., Gebel, S., Mathis, C., Schlage, W. K., Lichtner, R. B., Quadt-Humme, S., Wagner, S., Hoeng, J., & Peitsch, M. C. (2013).
-<br /> *Bioinformatics and Biology Insights*, 7, 217–230.
+<br /> *Bioinformatics and Biology Insights*, **7**, 217–230.
 
 [**Case study: the role of mechanistic network models in systems toxicology**](https://doi.org/10.1016/j.drudis.2013.07.023).
 <br /> Hoeng, J., Talikka, M., Martin, F., Sewer, A., Yang, X., Iskandar, A., Schlage, W. K., & Peitsch, M. C. (2014).
@@ -208,7 +208,7 @@ paper.
 
 [**In vitro systems toxicology approach to investigate the effects of repeated cigarette smoke exposure on human buccal and gingival organotypic epithelial tissue cultures.**](https://doi.org/10.3109/15376516.2014.943441).
 <br /> Schlage, W. K., Iskandar, A. R., Kostadinova, R., Xiang, Y., Sewer, A., Majeed, S., Kuehn, D., Frentzel, S., Talikka, M., Geertz, M., Mathis, C., Ivanov, N., Hoeng, J., & Peitsch, M. C. (2014).
-<br /> Toxicology Mechanisms and Methods, 24(7), 470–487. 
+<br /> Toxicology Mechanisms and Methods, **24**(7), 470–487. 
 
 [**A vascular biology network model focused on inflammatory processes to investigate atherogenesis and plaque instability**](https://doi.org/10.1186/1479-5876-12-185).
 <br /> De León, H., Boué, S., Schlage, W. K., Boukharov, N., Westra, J. W., Gebel, S., VanHooser, A., Talikka, M., Fields, R. B., Veljkovic, E., Peck, M. J., Mathis, C., Hoang, V., Poussin, C., Deehan, R., Stolle, K., Hoeng, J., & Peitsch, M. C. (2014).
@@ -220,15 +220,15 @@ paper.
 
 [**Computational Modelling Approaches on Epigenetic Factors in Neurodegenerative and Autoimmune Diseases and Their Mechanistic Analysis**](https://doi.org/10.1155/2015/737168).
 <br /> Khanam Irin, A., Tom Kodamullil, A., Gündel, M., & Hofmann-Apitius, M. (2015).
-<br /> *Journal of Immunology Research*, 2015, 1–10. 
+<br /> *Journal of Immunology Research*, **2015**, 1–10. 
 
 [**Semi-automated curation allows causal network model building for the quantification of age-dependent plaque progression in ApoE−/− mouse**](https://doi.org/10.4137/GRSB.S40031).
 <br /> Szostak, J., Martin, F., Talikka, M., Peitsch, M. C., & Hoeng, J. (2016).
-<br /> *Gene Regulation and Systems Biology*, 10, 95–103.
+<br /> *Gene Regulation and Systems Biology*, **10**, 95–103.
 
 [**Community-reviewed biological network models for toxicology and drug discovery applications**](https://doi.org/10.4137/GRSB.S39076).
 <br /> Namasivayam, A. A., Morales, A. F., Lacave, Á. M. F., Tallam, A., Simovic, B., Alfaro, D. G., Bobbili, D. R., Martin, F., Androsova, G., Shvydchenko, I., Park, J., Val Calvo, J., Hoeng, J., Peitsch, M. C., Racero, M. G. V., Biryukov, M., Talikka, M., Pérez, M. B., Rohatgi, N., … Xiang, Y. (2016).
-<br /> *Gene Regulation and Systems Biology*, 10, 51–66. 
+<br /> *Gene Regulation and Systems Biology*, **10**, 51–66. 
 
 [**Reasoning over genetic variance information in cause-and-effect models of neurodegenerative diseases**](https://doi.org/10.1093/bib/bbv063).
 <br /> Naz, M., Kodamullil, A. T., & Hofmann-Apitius, M. (2016).
