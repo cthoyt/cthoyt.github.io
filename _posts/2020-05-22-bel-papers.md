@@ -1,12 +1,12 @@
 ---
 layout: post
 title: A Reading List of Academic Articles using the Biological Expression Language (BEL)
-date: 2020-05-22 17:50:00 +0100
+date: 2020-05-22 14:50:00 +0100
 ---
-This post is halfway between a reading list and a review of the academic papers published
-that are either about or use the Biological Expression Language (BEL), divided into the
-categories of software/visualization tools, algorithms/analytical frameworks, data integation,
-natural langauge processing, curation workflows, and downstream applications.
+This post is evolving from a reading list to a review of the academic papers published
+that are either about or use the Biological Expression Language (BEL). It's divided into the
+categories of software/visualization tools, algorithms/analytical frameworks, data integration,
+natural language processing, curation workflows, and downstream applications.
 
 In my [history of BEL]({% post_url 2020-04-28-history-of-bel %}), I imposed some quality
 and impact standards. Without getting into a debate about how peer review is broken because
@@ -26,7 +26,9 @@ check out CoCites:
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Am thrilled this paper is finally out. The most exciting project I&#39;ve ever worked on, a totally new method for searching scientific literature with stunning results.<br><br>We work to launch the method as a webtool in the coming months. Stay tuned. <a href="https://twitter.com/CoCites?ref_src=twsrc%5Etfw">@cocites</a><br>1/<a href="https://t.co/Ok7RW6yXIn">https://t.co/Ok7RW6yXIn</a> <a href="https://t.co/tkpRqOT6bj">pic.twitter.com/tkpRqOT6bj</a></p>&mdash; Cecile Janssens (@cecilejanssens) <a href="https://twitter.com/cecilejanssens/status/1225789201901215744?ref_src=twsrc%5Etfw">February 7, 2020</a></blockquote>
 
-As always, improvements are welcome. Check my contact info at the bottom of this post.
+As always, improvements are welcome. Check my contact info at the bottom of this post. I'll be making
+a major update to this post later to be more like a review as I'm putting together the new BEL reference
+paper.
 
 ## Software and Visualization
 
@@ -194,7 +196,7 @@ As always, improvements are welcome. Check my contact info at the bottom of this
 
 > [**A modular cell-type focused inflammatory process network model for non-diseased pulmonary tissue**](https://doi.org/10.4137/BBI.S11509). 
 > <br /> Westra, J. W., Schlage, W. K., Hengstermann, A., Gebel, S., Mathis, C., Thomson, T., Wong, B., Hoang, V., Veljkovic, E., Peck, M., Lichtner, R. B., Weisensee, D., Talikka, M., Deehan, R., Hoeng, J., & Peitsch, M. C. (2013).
-> <br /> *Bioinformatics and Biology Insights(, 7, 167–192. 
+> <br /> *Bioinformatics and Biology Insights*, 7, 167–192. 
 
 > [**Systematic verification of upstream regulators of a computable cellular proliferation network model on non-diseased lung cells using a dedicated dataset**](https://doi.org/10.4137/BBI.S12167).
 > <br /> Belcastro, V., Poussin, C., Gebel, S., Mathis, C., Schlage, W. K., Lichtner, R. B., Quadt-Humme, S., Wagner, S., Hoeng, J., & Peitsch, M. C. (2013).
