@@ -21,23 +21,27 @@ thank them by doing the same for others, the same as they did for us.
     <ul>
         {% for role in entry.roles %}
         <li>
-        {{ role.name }} in the
+        {{ role.name }}{% if role.location.group.name %}in the
         {% if role.location.group.url %}
         <a href="{{ role.location.group.url }}">{{ role.location.group.name }}</a> 
         {% else %}
         {{ role.location.group.name }}
-        {% endif %}
+        {% endif %}{% endif %}
         in the {{ role.location.organization.name }}
         {% if role.location.institute.url %}
         <a href="{{ role.location.institute.url }}">{{ role.location.institute.name }}</a>
         {% else %}
         {{ role.location.institute.name }}
         {% endif %}
+        {% if role.end %}
         from {{ role.start.month }}
         {% if role.start.year != role.end.year %}
             {{ role.start.year }}
         {% endif %}
         to {{ role.end.month }} {{ role.end.year }}
+        {% else %}
+        starting {{ role.start.month }} {{ role.start.year }}
+        {% endif %}
         </li>
         {% endfor %}
     </ul>
