@@ -1,3 +1,9 @@
+- name: CoronaWhy
+  role: Volunteer
+  url: https://www.coronawhy.org/
+  start:
+    year: 2020
+
 - name: OpenBEL Consortium
   role: Member
   url: http://openbel.org

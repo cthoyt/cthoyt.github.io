@@ -1,3 +1,17 @@
+- name: Dr. Viswa Colluru
+  orcid: 0000-0002-6208-9288
+  roles:
+    - name: CEO
+      location:
+        organization:
+          name: Enveda Therapeutics
+          url: https://envedatherapeutics.com
+        city: Bonn
+        country: Germany
+      start:
+        month: May
+        year: 2020
+
 - name: Prof. Dr. Martin Hofmann-Apitius
   orcid: 0000-0001-9012-6720
   roles:

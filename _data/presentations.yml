@@ -1,3 +1,14 @@
+- name: Introduction to Biological Expression Language and the Rational Enrichment Workflow
+  url: https://youtu.be/rHhuVBpoKdI
+  venue: YouTube
+  location:
+    city: Bonn
+    country: Germany
+  date:
+    day: 6
+    month: May
+    year: 2020
+
 - name: Generation and Application of Biomedical Knowledge Graphs
   url:  https://docs.google.com/presentation/d/11CG_Q3JrsqqKsDhl8uXP_TZzcyALhcVLvoP_pDmQ5JA/edit?usp=sharing
   venue: Harvard Medical School
