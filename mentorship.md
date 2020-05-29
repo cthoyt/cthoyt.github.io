@@ -21,7 +21,7 @@ thank them by doing the same for others, the same as they did for us.
     <ul>
         {% for role in entry.roles %}
         <li>
-        {{ role.name }}{% if role.location.group.name %}in the
+        {{ role.name }}{% if role.location.group.name %} in the
         {% if role.location.group.url %}
         <a href="{{ role.location.group.url }}">{{ role.location.group.name }}</a> 
         {% else %}
