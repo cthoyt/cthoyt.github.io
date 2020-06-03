@@ -342,10 +342,79 @@ console_scripts =
     obo = pybel.cli:main
 ```
 
-## Where to Put Data
+## Where to Put Configuration
 
-- Make folder in home directory, allow environment variable to change where this goes by default
-- use `~.config/` folder for configuration
+Only use the following section if your package *actually* needs configuration. Keep in mind that there
+should always be reasonable defaults for anything that can be configured, so users don't actually have
+to engage with configuration. If you think that users enjoy being forced to read through your (likely)
+insufficient documentation for setting configuration before they can use your software, then you can
+just got back to working in C or Java. Fight me.
+
+Most packages will put configuration inside the `~/.config/` folder, you should do the same.
+PyBEL uses something a bit different, but here's a mock of how loading configuration might look.
+
+```python
+# -*- coding: utf-8 -*-
+
+"""Configuration for PyBEL."""
+
+import os
+from configparser import ConfigParser
+
+__all__ = [
+    'config',
+]
+
+CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'pybel.ini')
+
+cfp = ConfigParser()
+cfp.read(CONFIG_PATH)
+
+try:
+    config = cfp['pybel']
+except KeyError:
+    config = {}
+```
+
+You could also use JSON and get into an argument about which is better, but of all of the things that I have
+an opinion on, this is not one of them. Do what feels right.
+
+I helped [Scott Colby](https://github.com/scolby33) make
+[`easy_config`](https://github.com/scolby33/easy_config) for a bit more customizable solution that
+handles multiple config files, environment parsing, etc.
+
+## Where to Put Persistent Data
+
+If your application needs to download data that is not related to user input or configuration,
+it's best that it has a default location for storing stuff that isn't in a place a normal
+user will delete or corrup. This is a situation where it might make sense to make a folder
+in the user's home directory.
+
+```python
+# -*- coding: utf-8 -*-
+
+"""Constants for PyBEL."""
+
+import os
+
+__all__ = [
+    'PYBEL_HOME',
+]
+
+# Have a reasonable default location
+_DEFAULT_HOME = os.path.join(os.path.expanduser('~'), '.pybel')
+# Allow the user to modify the location with an environment variable
+PYBEL_HOME = os.path.abspath(os.getenv('PYBEL_HOME', _DEFAULT_HOME))
+os.makedirs(PYBEL_HOME, exist_ok=True)
+```
+
+Now you can import `PYBEL_HOME` and do all sorts of nice `os.path.join`s to build
+the directory structure to help organize the data you might need. For example,
+PyBEL will download a copy of Daniel Himmelstein's [hetionet](https://github.com/hetio/hetionet)
+for conversion to BEL and put it in its cache folder.
+
+It might actually make more sense to deal with this sort of stuff in combination with
+configuation mentioned in the section above.
 
 ## Code Style
 
