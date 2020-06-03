@@ -367,7 +367,7 @@ This docstring has to follow `flake8` rules, meaning there's a short description
 there's a period. After that, there can be a blank line before any other restructured text-formatted documentation
 you'd like.
 
-## Bonus Round: How to Develop with Ben Gyori
+## Bonus Round: How to Code with Ben Gyori
 
 This isn't something I do, but to maintain a clean git history, [Ben Gyori](https://github.com/bgyori) frequently
 reminds me to rebase on master. This keeps a more linear history of what happened and when. Here are his
@@ -386,4 +386,5 @@ git push -f origin <your branch name>
 
 ---
 
-This is by no means everything I have to say on this topic. I'll be back.
+This is by no means everything I have to say on this topic. I'll be back with more on documentation,
+ReadTheDocs, using CI, checking unit test coverage, and more.
