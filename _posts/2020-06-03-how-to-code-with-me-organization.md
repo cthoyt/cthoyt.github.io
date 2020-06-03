@@ -226,7 +226,7 @@ pytest tests/
 `pytest` isn't actually a requirement to use `pybel`, so it's not included in `setup.cfg`. It might be the
 case that you want to include it as an extra called `testing`, so you can install `pybel` with:
 
-```shell script
+```sh
 pip install -e .[testing]
 ```
 
