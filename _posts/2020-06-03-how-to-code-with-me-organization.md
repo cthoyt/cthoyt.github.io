@@ -339,7 +339,7 @@ if __name__ == '__main__':
 ```ini
 [options.entry_points]
 console_scripts =
-    obo = pyobo.cli:main
+    obo = pybel.cli:main
 ```
 
 ## Where to Put Data
