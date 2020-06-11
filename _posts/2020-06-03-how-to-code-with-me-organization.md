@@ -283,65 +283,6 @@ This environment adds the `skip_install` key, which just says not to bother pip 
 package for the tests. This makes sense here because checking the metadata contained in `setup.cfg`
 doesn't require actually installing the code.
 
-## Making a CLI
-
-### `cli.py`
-
-```python
-# -*- coding: utf-8 -*-
-
-"""Command line interface for PyBEL.
-
-Why does this file exist, and why not put this in ``__main__``? You might be tempted to import things from ``__main__``
-later, but that will cause problems--the code will get executed twice:
-
-- When you run ``python3 -m pybel`` python will execute``__main__.py`` as a script. That means there won't be any
-  ``pybel.__main__`` in ``sys.modules``.
-- When you import __main__ it will get executed again (as a module) because
-  there's no ``pybel.__main__`` in ``sys.modules``.
-.. seealso:: https://click.palletsprojects.com/en/7.x/setuptools/
-"""
-
-import click
-
-@click.command()
-def main():
-    """Command line interface for PyBEL."""
-
-if __name__ == '__main__':
-    main()
-```
-
-This script can now be run as `python -m pybel.cli`, but there's a better way 
-
-
-### `__main__.py`
-
-```python
-# -*- coding: utf-8 -*-
-
-"""Entrypoint module, in case you use `python -m pybel`.
-
-Why does this file exist, and why __main__? For more info, read:
-
- - https://www.python.org/dev/peps/pep-0338/
- - https://docs.python.org/3/using/cmdline.html#cmdoption-m
-"""
-
-from .cli import main
-
-if __name__ == '__main__':
-    main()
-```
-
-### Console Scripts
-
-```ini
-[options.entry_points]
-console_scripts =
-    obo = pybel.cli:main
-```
-
 ## Where to Put Configuration
 
 Only use the following section if your package *actually* needs configuration. Keep in mind that there
