@@ -26,11 +26,11 @@
 - name: GuiltyTargets
   github: guiltytargets/guiltytargets
   role: maintainer
-  description: Target prioritization using differential gene expression, protein-protein interaction networks, and network representation learning
+  description: Target prioritization framework using differential gene expression, protein-protein interaction networks, and network representation learning
 
 - name: PS4DR
   github: ps4dr/ps4dr
-  role: contributor
+  role: advisor
   description: Drug reposition based on bioactivity pattern matching and GWAS
 
 - name: ComPath
@@ -47,3 +47,13 @@
   github: ratvec/ratved
   role: contributor
   description: Sequence-based representation learning
+
+- name: SeffNet
+  github: seffnet/seffnet
+  role: advisor
+  description: Drug repositioning framework based on network representation learning
+
+- name: Clinical Embeddings for Patient Prediction (CLEPP)
+  github: https://github.com/clepp/clep
+  role: advisor
+  description: Patient stratification framework based on network representation learning
