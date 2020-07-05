@@ -6,13 +6,13 @@ permalink: /software/
 I've worked on several open source projects, and still do quite a bit of maintenance on them:
 
 {% for entry in site.data.software %}
-    <div>
-    {% if entry contains "logo" %}
-    <img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="float: left; max-height: 40px; max-width: 40px; margin-right: 15px" />
-    {% endif %}
-    <strong><a href="https://github.com/{{ entry.github }}">{{ entry.name }}</a></strong><br />
-    {{ entry.description }} ({{ entry.role }})
-    </div>
+<div>
+{% if entry contains "logo" %}
+<img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="float: left; max-height: 40px; max-width: 40px; margin-right: 15px" />
+{% endif %}
+<strong><a href="https://github.com/{{ entry.github }}">{{ entry.name }}</a></strong><br />
+{{ entry.description }} ({{ entry.role }})
+</div>
 {% endfor %}
 
 ## Training
