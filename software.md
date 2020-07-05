@@ -9,9 +9,9 @@ I've worked on several open source projects, and still do quite a bit of mainten
 {% for entry in site.data.software %}
     <li>
     {% if entry contains "logo" %}
-    <img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="float: right; max-height: 40px; max-width: 40px;" />
+    <img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="float: left; max-height: 40px; max-width: 40px;" />
     {% endif %}
-    <strong><a href="https://github.com/{{ entry.github }}">{{ entry.name }}</a></strong>
+    <strong><a href="https://github.com/{{ entry.github }}">{{ entry.name }}</a></strong><br />
     {{ entry.description }} ({{ entry.role }})
     </li>
 {% endfor %}
