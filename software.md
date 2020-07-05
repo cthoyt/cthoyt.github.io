@@ -20,9 +20,12 @@ I've created many open-source projects as well as made significant contributions
 {% for entry in site.data.software %}
 <div style="padding-bottom: 10px;">
 <strong>
-<a href="{% if entry contains "github" %}https://github.com/{{ entry.github }}{% else %}https://zenodo.org/record/{{ entry.zenodo }}{% endif %}">
-{{ entry.name }}</a></strong> <small style="color: #999">{{ entry.role }}</small><br />
-{% else $}
+{% if entry contains "github" %}
+<a href="https://github.com/{{ entry.github }}">{{ entry.name }}</a>
+{% else %}
+<a href="https://zenodo.org/record/{{ entry.zenodo }}">{{ entry.name }}</a>
+{% endif %}
+</strong> <small style="color: #999">{{ entry.role }}</small><br />
 <strong><a href="https://github.com/{{ entry.github }}">{{ entry.name }}</a></strong> <small style="color: #999">{{ entry.role }}</small><br />
 
 {{ entry.description }}
