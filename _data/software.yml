@@ -2,6 +2,7 @@
   github: pybel/pybel
   role: maintainer
   description: Compiler for the Biological Expression Language
+  logo: https://github.com/pybel/pybel/raw/master/docs/source/PyBEL-square-100.png
 
 - name: Bio2BEL
   github: bio2bel/bio2bel
@@ -22,6 +23,7 @@
   github: pykeen/pykeen
   role: maintainer
   description: The most expansive knowledge graph embedding framework to date
+  logo: https://raw.githubusercontent.com/pykeen/pykeen/master/docs/source/logo.png
 
 - name: GuiltyTargets
   github: guiltytargets/guiltytargets
@@ -41,7 +43,7 @@
 - name: PathMe
   github: PathwayMerger/PathMe
   role: contributor
-  description: Web appl
+  description: Web application for exploration of pathway databases
 
 - name: RatVec
   github: ratvec/ratved
@@ -53,7 +55,8 @@
   role: advisor
   description: Drug repositioning framework based on network representation learning
 
-- name: Clinical Embeddings for Patient Prediction (CLEPP)
+- name: CLEPP
   github: https://github.com/clepp/clep
   role: advisor
   description: Patient stratification framework based on network representation learning
+  logo: https://raw.githubusercontent.com/clepp/clep/master/docs/source/logo.jpg
