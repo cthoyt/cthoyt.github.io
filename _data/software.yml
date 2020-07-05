@@ -8,16 +8,19 @@
   github: bio2bel/bio2bel
   role: maintainer
   description: Framework for reproducible data integration based on the Biological Expression Language
+  logo: https://github.com/bio2bel/bio2bel-art/raw/master/bio2bel-logo-100.png
 
 - name: BEL Commons
   github: bel-commons/bel-commons
   role: maintainer
   description: Interactive exploration of networks encoded in the Biological Expression Langauge
+  logo: https://github.com/pybel/pybel-art/raw/master/BEL%20Commons/BELcommons-square-100.png
 
 - name: PyOBO
   github: pyobo/pyobo
   role: maintainer
   description: Harmonization of biological ontologies and controlled vocabularies
+  logo: /img/logos/ratvec.png
 
 - name: PyKEEN
   github: pykeen/pykeen
@@ -29,31 +32,37 @@
   github: guiltytargets/guiltytargets
   role: maintainer
   description: Target prioritization framework using differential gene expression, protein-protein interaction networks, and network representation learning
+  logo: /img/logos/ratvec.png
 
 - name: PS4DR
   github: ps4dr/ps4dr
   role: advisor
   description: Drug reposition based on bioactivity pattern matching and GWAS
+  logo: https://avatars0.githubusercontent.com/u/51780347?s=200&v=4
 
 - name: ComPath
   github: ComPath/ComPath
   role: contributor
   description: Platform and web application for integrating and curating pathway databases
+  logo: https://avatars0.githubusercontent.com/u/36850400?s=200&v=4
 
 - name: PathMe
   github: PathwayMerger/PathMe
   role: contributor
   description: Web application for exploration of pathway databases
+  logo: https://avatars0.githubusercontent.com/u/46240301?s=200&v=4
 
 - name: RatVec
-  github: ratvec/ratved
+  github: ratvec/ratvec
   role: contributor
   description: Sequence-based representation learning
+  logo: /img/logos/ratvec.png
 
 - name: SeffNet
   github: seffnet/seffnet
   role: advisor
   description: Drug repositioning framework based on network representation learning
+  logo: https://avatars0.githubusercontent.com/u/53968086?s=200&v=4
 
 - name: CLEPP
   github: https://github.com/clepp/clep
