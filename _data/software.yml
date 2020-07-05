@@ -7,13 +7,13 @@
 - name: Bio2BEL
   github: bio2bel/bio2bel
   role: maintainer
-  description: Framework for reproducible data integration based on the Biological Expression Language
+  description: Framework for reproducible data integration in BEL
   logo: https://github.com/bio2bel/bio2bel-art/raw/master/bio2bel-logo-100.png
 
 - name: BEL Commons
   github: bel-commons/bel-commons
   role: maintainer
-  description: Interactive exploration of networks encoded in the Biological Expression Langauge
+  description: Interactive exploration of networks encoded in the BEL
   logo: https://github.com/pybel/pybel-art/raw/master/BEL%20Commons/BELcommons-square-100.png
 
 - name: PyOBO
@@ -31,7 +31,7 @@
 - name: GuiltyTargets
   github: guiltytargets/guiltytargets
   role: maintainer
-  description: Target prioritization framework using differential gene expression, protein-protein interaction networks, and network representation learning
+  description: Target prioritization framework using gene expression and network representation learning
   logo: /img/logos/guiltytargets.png
 
 - name: PS4DR
