@@ -1,0 +1,49 @@
+- name: PyBEL
+  github: pybel/pybel
+  role: maintainer
+  description: Compiler for the Biological Expression Language
+
+- name: Bio2BEL
+  github: bio2bel/bio2bel
+  role: maintainer
+  description: Framework for reproducible data integration based on the Biological Expression Language
+
+- name: BEL Commons
+  github: bel-commons/bel-commons
+  role: maintainer
+  description: Interactive exploration of networks encoded in the Biological Expression Langauge
+
+- name: PyOBO
+  github: pyobo/pyobo
+  role: maintainer
+  description: Harmonization of biological ontologies and controlled vocabularies
+
+- name: PyKEEN
+  github: pykeen/pykeen
+  role: maintainer
+  description: The most expansive knowledge graph embedding framework to date
+
+- name: GuiltyTargets
+  github: guiltytargets/guiltytargets
+  role: maintainer
+  description: Target prioritization using differential gene expression, protein-protein interaction networks, and network representation learning
+
+- name: PS4DR
+  github: ps4dr/ps4dr
+  role: contributor
+  description: Drug reposition based on bioactivity pattern matching and GWAS
+
+- name: ComPath
+  github: ComPath/ComPath
+  role: contributor
+  description: Platform and web application for integrating and curating pathway databases
+
+- name: PathMe
+  github: PathwayMerger/PathMe
+  role: contributor
+  description: Web appl
+
+- name: RatVec
+  github: ratvec/ratved
+  role: contributor
+  description: Sequence-based representation learning
