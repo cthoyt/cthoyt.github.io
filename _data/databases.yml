@@ -13,12 +13,12 @@
 - name: Ooh Na Na
   role: maintainer
   description: Comprehensive metadatabase of identifiers and names for biological entities
-  zenodo: https://zenodo.org/record/3866538
+  zenodo: 3866538
 
 - name: Inspector Javert's Xref Database
   role: maintainer
   description: Comprehensive metadatabase of cross-references between databases of biological entities
-  zenodo: https://zenodo.org/record/3757266
+  zenodo: 3757266
 
 - name: Chemical Roles Graph
   role: maintainer

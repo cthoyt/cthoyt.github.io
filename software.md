@@ -17,6 +17,9 @@ I've created many open-source projects as well as made significant contributions
 
 ## Databases
 
+I've created many databases myself through curation, automated assembly, and also by coordinating
+others.
+
 {% for entry in site.data.databases %}
 <div style="padding-bottom: 10px;">
 {% if entry contains "logo" %}
