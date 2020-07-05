@@ -6,7 +6,7 @@ permalink: /software/
 I've worked on several open source projects, and still do quite a bit of maintenance on them:
 
 {% for entry in site.data.software %}
-<div style="padding-bottom: 15px;">
+<div style="padding-bottom: 10px;">
 {% if entry contains "logo" %}
 <img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="float: left; max-height: 40px; max-width: 40px; margin-right: 15px" />
 {% endif %}
