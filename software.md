@@ -10,7 +10,7 @@ I've worked on several open source projects, and still do quite a bit of mainten
 {% if entry contains "logo" %}
 <img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="float: left; max-height: 40px; max-width: 40px; margin-right: 15px" />
 {% endif %}
-<strong><a href="https://github.com/{{ entry.github }}">{{ entry.name }}</a></strong><small>{{ entry.role }}</small><br />
+<strong><a href="https://github.com/{{ entry.github }}">{{ entry.name }}</a></strong> <small style="color: #999">{{ entry.role }}</small><br />
 {{ entry.description }}
 </div>
 {% endfor %}
