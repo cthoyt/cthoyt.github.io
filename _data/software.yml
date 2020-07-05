@@ -22,27 +22,27 @@
   description: Harmonization of biological ontologies and controlled vocabularies
   logo: /img/logos/pyobo.png
 
-- name: PyKEEN
-  github: pykeen/pykeen
-  role: maintainer
-  description: The most expansive knowledge graph embedding framework to date
-  logo: https://raw.githubusercontent.com/pykeen/pykeen/master/docs/source/logo.png
-
 - name: GuiltyTargets
   github: guiltytargets/guiltytargets
   role: maintainer
   description: Target prioritization framework using gene expression and network representation learning
   logo: /img/logos/guiltytargets.png
 
+- name: PyKEEN
+  github: pykeen/pykeen
+  role: maintainer (core team member)
+  description: The most expansive knowledge graph embedding framework to date
+  logo: https://raw.githubusercontent.com/pykeen/pykeen/master/docs/source/logo.png
+
 - name: ComPath
   github: ComPath/ComPath
-  role: contributor
+  role: contributor (core team member)
   description: Platform and web application for integrating and curating pathway databases
   logo: https://avatars0.githubusercontent.com/u/36850400?s=200&v=4
 
 - name: PathMe
   github: PathwayMerger/PathMe
-  role: contributor
+  role: contributor (core team member)
   description: Web application for exploration of pathway databases
   logo: https://avatars0.githubusercontent.com/u/46240301?s=200&v=4
 

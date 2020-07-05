@@ -3,7 +3,7 @@ layout: page
 title: Software
 permalink: /software/
 ---
-I've worked on several open source projects, and still do quite a bit of maintenance on them:
+I've created many open-source projects as well as made significant contributions to others:
 
 {% for entry in site.data.software %}
 <div style="padding-bottom: 10px;">
@@ -17,8 +17,9 @@ I've worked on several open source projects, and still do quite a bit of mainten
 
 ## Training
 
-I care very deeply about reproducibility, especially in scientific software development. I've
-created several resources including blog posts, videos, and repositories.
+I care very deeply about reproducibility, especially in scientific software development. However,
+this is not one of the core values taught by most PIs, nor are the core skills part of either scientific
+or informatics curricula. I'm generating some resources to help fill that gap:
 
 - [Blog: Dealing with Big Pull Requets]({% post_url 2020-03-20-how-to-fix-your-monolithic-pull-request %})
 - [Blog: Flake8]({% post_url 2020-04-25-how-to-code-with-me-flake8 %})
