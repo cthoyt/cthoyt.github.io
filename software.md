@@ -15,6 +15,21 @@ I've created many open-source projects as well as made significant contributions
 </div>
 {% endfor %}
 
+## Databases
+
+{% for entry in site.data.software %}
+<div style="padding-bottom: 10px;">
+<strong>
+<a href="{% if entry contains "github" %}https://github.com/{{ entry.github }}{% else %}https://zenodo.org/record/{{ entry.zenodo }}{% endif %}">
+{{ entry.name }}</a></strong> <small style="color: #999">{{ entry.role }}</small><br />
+{% else $}
+<strong><a href="https://github.com/{{ entry.github }}">{{ entry.name }}</a></strong> <small style="color: #999">{{ entry.role }}</small><br />
+
+{{ entry.description }}
+</div>
+{% endfor %}
+
+
 ## Training
 
 I care very deeply about reproducibility, especially in scientific software development. However,
