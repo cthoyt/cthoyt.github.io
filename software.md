@@ -17,7 +17,7 @@ I've created many open-source projects as well as made significant contributions
 
 ## Databases
 
-{% for entry in site.data.software %}
+{% for entry in site.data.databases %}
 <div style="padding-bottom: 10px;">
 <strong>
 {% if entry contains "github" %}
@@ -26,8 +26,6 @@ I've created many open-source projects as well as made significant contributions
 <a href="https://zenodo.org/record/{{ entry.zenodo }}">{{ entry.name }}</a>
 {% endif %}
 </strong> <small style="color: #999">{{ entry.role }}</small><br />
-<strong><a href="https://github.com/{{ entry.github }}">{{ entry.name }}</a></strong> <small style="color: #999">{{ entry.role }}</small><br />
-
 {{ entry.description }}
 </div>
 {% endfor %}
