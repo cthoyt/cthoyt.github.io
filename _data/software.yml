@@ -20,7 +20,7 @@
   github: pyobo/pyobo
   role: maintainer
   description: Harmonization of biological ontologies and controlled vocabularies
-  logo: /img/logos/ratvec.png
+  logo: /img/logos/pyobo.png
 
 - name: PyKEEN
   github: pykeen/pykeen
@@ -32,7 +32,7 @@
   github: guiltytargets/guiltytargets
   role: maintainer
   description: Target prioritization framework using differential gene expression, protein-protein interaction networks, and network representation learning
-  logo: /img/logos/ratvec.png
+  logo: /img/logos/guiltytargets.png
 
 - name: PS4DR
   github: ps4dr/ps4dr
