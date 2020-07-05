@@ -104,3 +104,13 @@ machine learning tasks such as subgroup identification and survival analysis.
     </li>
 {% endfor %}
 </ul>
+
+## Publications
+
+My publications are listed in many places, so there's not much good in writing it all again on this site.
+Check one of the following:
+
+- [Scholia](https://tools.wmflabs.org/scholia/author/Q47475003)
+- [Google Scholar](https://scholar.google.com/citations?user=PjrpzUIAAAAJ)
+- [Loop](https://loop.frontiersin.org/people/827476/overview)
+- [DBLP](https://dblp.org/pid/199/2168)
