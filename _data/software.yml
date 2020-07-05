@@ -34,12 +34,6 @@
   description: Target prioritization framework using gene expression and network representation learning
   logo: /img/logos/guiltytargets.png
 
-- name: PS4DR
-  github: ps4dr/ps4dr
-  role: advisor
-  description: Drug reposition based on bioactivity pattern matching and GWAS
-  logo: https://avatars0.githubusercontent.com/u/51780347?s=200&v=4
-
 - name: ComPath
   github: ComPath/ComPath
   role: contributor
@@ -58,6 +52,12 @@
   description: Sequence-based representation learning
   logo: /img/logos/ratvec.png
 
+- name: PS4DR
+  github: ps4dr/ps4dr
+  role: advisor
+  description: Drug reposition based on bioactivity pattern matching and GWAS
+  logo: https://avatars0.githubusercontent.com/u/51780347?s=200&v=4
+
 - name: SeffNet
   github: seffnet/seffnet
   role: advisor
@@ -65,7 +65,7 @@
   logo: https://avatars0.githubusercontent.com/u/53968086?s=200&v=4
 
 - name: CLEPP
-  github: https://github.com/clepp/clep
+  github: clepp/clep
   role: advisor
   description: Patient stratification framework based on network representation learning
-  logo: https://raw.githubusercontent.com/clepp/clep/master/docs/source/logo.jpg
+  logo: /img/logos/clepp.png
