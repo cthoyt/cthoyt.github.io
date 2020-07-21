@@ -43,7 +43,7 @@ I care very deeply about reproducibility, especially in scientific software deve
 this is not one of the core values taught by most PIs, nor are the core skills part of either scientific
 or informatics curricula. I'm generating some resources to help fill that gap:
 
-- [Blog: Dealing with Big Pull Requets]({% post_url 2020-03-20-how-to-fix-your-monolithic-pull-request %})
+- [Blog: Dealing with Big Pull Requests]({% post_url 2020-03-20-how-to-fix-your-monolithic-pull-request %})
 - [Blog: Flake8]({% post_url 2020-04-25-how-to-code-with-me-flake8 %})
 - [Blog: Packaging]({% post_url 2020-06-03-how-to-code-with-me-organization %})
 - [Blog: CLIs]({% post_url 2020-06-11-click %})

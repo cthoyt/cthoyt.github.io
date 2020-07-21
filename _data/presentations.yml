@@ -1,6 +1,17 @@
-- name: Introduction to Biological Expression Language and the Rational Enrichment Workflow
+- name: The Biological Expression Language and PyBEL in 2020
+  url: https://docs.google.com/presentation/d/18ntRMvO3Q9KTX87xoLOIgqAW3iiUvxJsfEmaFh1-52A/edit?usp=sharing
+  venue: COVID-19 Disease Map Community
+    location:
+      city: Bonn
+      country: Germany
+  date:
+    day: 10
+    month: July
+    year: 2020
+
+- name: Introduction to the Biological Expression Language and the Rational Enrichment Workflow
   url: https://youtu.be/rHhuVBpoKdI
-  venue: YouTube
+  venue: CoronaWhy
   location:
     city: Bonn
     country: Germany
