@@ -1,9 +1,9 @@
 - name: The Biological Expression Language and PyBEL in 2020
   url: https://docs.google.com/presentation/d/18ntRMvO3Q9KTX87xoLOIgqAW3iiUvxJsfEmaFh1-52A/edit?usp=sharing
   venue: COVID-19 Disease Map Community
-    location:
-      city: Bonn
-      country: Germany
+  location:
+    city: Bonn
+    country: Germany
   date:
     day: 10
     month: July
