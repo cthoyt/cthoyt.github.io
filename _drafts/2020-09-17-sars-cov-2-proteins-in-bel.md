@@ -5,24 +5,25 @@ date: 2020-09-17 01:05:00 +0100
 ---
 Many of the proteins in the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)
 are cleavage products of the replicase polyprotein 1ab ([uniprot:P0DTD1](https://identifiers.org/uniprot:P0DTD1)).
-Unfortunately, the bioinformatics community and infrastructure are not so comfortable with proteins
-like this, which makes nomenclature very difficult. Luckily, the Biological Expression Language (BEL)
-has exactly the right tool to integrate information about these proteins.
+Unfortunately, the bioinformatics community is not so comfortable with proteins
+like this and nomenclature remains tricky. Luckily, the [Biological Expression Language (BEL)](https://biological-expression-language.github.io)
+has exactly the right tool to integrate information about these proteins with the `fragment()` function.
 
 ![SARS-CoV-2 Genome](/img/sars-cov-2-genome.jpeg)
 
 This image was modified from the C&EN article [What do we know about the novel coronavirus’s 29 proteins? ](https://cen.acs.org/biological-chemistry/infectious-disease/know-novel-coronaviruss-29-proteins/98/web/2020/04).
 
-The solution provided by UniProt was to list each of the 16 non-structural proteins (often written as symbols
-nsp1-nsp16) as protein chains of the main protein entry, uniprot:P0DTD1. These chains were assigned identifiers
-following the regular expression pattern of `PRO_\d{10}`. This is listed in the Identifiers.org registry
+UniProt lists each of the 16 non-structural proteins (often written as symbols nsp1-nsp16) as protein chains
+of the main protein entry, uniprot:P0DTD1. These chains are assigned identifiers
+following the regular expression pattern of `PRO_\d{10}`. The Identifiers.org registered this pattern
 under the prefix [`uniprot.chain`](https://registry.identifiers.org/registry/uniprot.chain). While it resolves
 to URLs following the pattern of `https://www.uniprot.org/uniprot/<uniprot_id>#<chain_id>`, it appears that the
-protein's UniProt identifier is not strictly necessary. This is really good news because it means that we can
-start using stable CURIEs to identify these proteins (even if this prefix makes you uneasy).
+parent protein's UniProt identifier is looked up automatically . This is really good news and means that we can
+start using stable CURIEs to identify these proteins, even if like me, you've never used this prefix before.
 
 Alternatively, BEL allows you to write out the relationship between the parent protein and the
-fragment. For example, the nsp1 fragment from position 1-180 can be written in BEL either as
+fragment using the `fragment() / frag()` function ([docs](https://biological-expression-language.github.io/entities/physical/#protein-fragments)).
+For example, the nsp1 fragment from position 1-180 can be written in BEL either as
 `p(uniprot.chain:PRO_0000449619)` or as a fragment `p(uniprot:P0DTD1 ! R1AB_SARS2, frag(1_180))`.
 The entire table of non-structural proteins is written out below for your copy/paste convenience
 in BEL coding.
@@ -49,6 +50,8 @@ I'm not sure what happened to #11. UniProt isn't listing it here. There's also
 the Replicase polyprotein 1a, which lists nsp1-nsp11. I'm not sure what the difference
 is yet.
 
+---
+
 When I first started writing this, I wasn't actually aware of the existence of the `uniprot.chain` entry
 in Identifiers.org. This makes things a lot better. However, this leaves two tasks for me:
 
@@ -62,3 +65,5 @@ in Identifiers.org. This makes things a lot better. However, this leaves two tas
     ...
     p(uniprot.chain:PRO_0000449633) equivalentTo p(uniprot:P0DTD1 ! R1AB_SARS2, frag(6799_7096))
     ```
+
+Happy BEL coding!
