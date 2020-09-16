@@ -47,13 +47,13 @@ in BEL coding.
 | nsp16   | PRO_0000449633 | 6799 – 7096 | 2'-O-methyltransferase                | `p(uniprot:P0DTD1 ! R1AB_SARS2, frag(6799_7096))` |
 
 I'm not sure what happened to #11. UniProt isn't listing it here. There's also
-the Replicase polyprotein 1a, which lists nsp1-nsp11. I'm not sure what the difference
+the Replicase polyprotein 1a, which lists nsp1-nsp11, but I'm not sure what the difference
 is yet.
 
 ---
 
 When I first started writing this, I wasn't actually aware of the existence of the `uniprot.chain` entry
-in Identifiers.org. This makes things a lot better. However, this leaves two tasks for me:
+in Identifiers.org. This makes things a lot better! However, this leaves two tasks for me:
 
 1. Integrate the `uniprot.chain` nomenclature into PyOBO such that identifiers can be validated and
    easily resolved to names
