@@ -1,17 +1,17 @@
 ---
 layout: post
-title: How to Refer to SARS-CoV-2 Proteins in BEL
+title: Referring to SARS-CoV-2 Proteins in BEL
 date: 2020-09-17 01:05:00 +0100
 ---
 Many of the proteins in the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)
 are cleavage products of the replicase polyprotein 1ab ([uniprot:P0DTD1](https://identifiers.org/uniprot:P0DTD1)).
 Unfortunately, the bioinformatics community is not so comfortable with proteins
 like this and nomenclature remains tricky. Luckily, the [Biological Expression Language (BEL)](https://biological-expression-language.github.io)
-has exactly the right tool to integrate information about these proteins with the `fragment()` function.
+has exactly the right tool to encode information about these proteins using the `fragment()` function.
 
 ![SARS-CoV-2 Genome](/img/sars-cov-2-genome.jpeg)
 
-This image was modified from the C&EN article [What do we know about the novel coronavirus’s 29 proteins? ](https://cen.acs.org/biological-chemistry/infectious-disease/know-novel-coronaviruss-29-proteins/98/web/2020/04).
+This image was modified from the C&EN article [What do we know about the novel coronavirus’s 29 proteins?](https://cen.acs.org/biological-chemistry/infectious-disease/know-novel-coronaviruss-29-proteins/98/web/2020/04)
 
 UniProt lists each of the 16 non-structural proteins (often written as symbols nsp1-nsp16) as protein chains
 of the main protein entry, uniprot:P0DTD1. These chains are assigned identifiers
