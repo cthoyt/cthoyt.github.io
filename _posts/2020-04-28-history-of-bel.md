@@ -35,30 +35,67 @@ community. And so, we being on a dark and stormy night in 2001....
 
 ### 2001
 
-**2001** Selventa is [founded](https://www.flagshippioneering.com/companies/selventa) by Keith Elliston (originally as GenStruct, Inc.)
+**2001** Selventa is [founded](https://www.flagshippioneering.com/companies/selventa) by Noubar Afeyan as GenStruct, Inc.  The concept was to create a computational complement to the company Beyond Genomics - which was a systems biology company also founded by AGTC (a predecessor fund to Flagship).
+
+### 2002
+**Summer 2002** Keith Elliston is hired by Flagship Ventures to work with the founding team of Genstruct (Navin Chandra, Justin Sun, Ted Slater, Dexter Pratt) to find a technology and business model for the company.  Keith was brought in by Jim Serum, who co-founded Viaken Systems with Keith, and was on the board of Genstruct.
+
+**October 2002** Keith submits a funding proposal and business plan for Genstruct, based upon a new approach to using AI for biological networks proposed by Navin Chandra and developed by the team.  The board approves the plan, approves investment in Genstruct, and hires Keith as the CEO.  
 
 ### 2003
 
-**September 8th, 2003** Selventa [raises $6.5M](https://www.crunchbase.com/funding_round/selventa-series-a--1f3d3583)
-in a Series A with lead investors [Flagship Pioneering](https://www.flagshippioneering.com/companies/selventa) and
-[A.M. Pappas & Associates](https://www.pappas-capital.com/portfolio/selventa/). Later they will raise $500K and $5M
-in successive Venture Rounds. The link on Flagship Pioneering to this event is [dead](https://www.flagshippioneering.com/about/news/genstruct-completes-65-million-series-financing).
+**January 2003** Genstruct does its first commercial project, a pilot project with Pfizer, where they successfully identified the mechanism of action of an unknown cancer drug.  This leads to a more than 10 year collaboration between the companies.
 
-**Sometime in 2003** Biological Expression Language is created by Dexter Pratt while working at Selventa ([ref](https://fairsharing.org/bsg-s000572))
+**Spring 2003**. Biological Expression Language is created by Dexter Pratt, Navin Chandra, Keith Elliston and Ted Slater.  This development is based on work done by Navin at Perot Systems and Nets, work done by Dexter on CycL with Cycorp, and on Biological Ontologies by Keith and Ted.
+
+**September 8th, 2003** Genstruct [raises $6.5M](https://www.crunchbase.com/funding_round/selventa-series-a--1f3d3583)
+in a Series A with lead investors [Flagship Pioneering](https://www.flagshippioneering.com/companies/selventa) and
+[A.M. Pappas & Associates](https://www.pappas-capital.com/portfolio/selventa/), during which they acquire the Pappas portfolio company InCellico (led by John Wilbanks and Toby Segaren).  
+
+### 2004
+**2004** Toby Segaren, working with Justin Sun and other developers at the company, develop the first practical version of the Genstruct Inference Engine.  The inference engine implements a reverse causal reasoning using a graph-based approach, and identifies upstream causes (mechanisms) for downstream observations (state changes).  Bill Ladd develops the statistical methods that power the inference engine and that are used to evaluate the results of simulations.
+
+**February 24, 2004** Genstruct appoints Doug Lauffenberg, Director of the Biological Engineering Division and Uncas & Helen Whitaker Professor of Biological Engineering, Chemical Engineering and Biology at the Massachusetts Institute of Technology (MIT), to the board of directors.
+
+**November 2004** Genstruct and Pfizer extend and expand their partnership, applying the Genstruct platform to various R&D and Toxicology programs throughout Pfizer. (https://www.genomeweb.com/archive/genstruct-pfizer-expand-research-partnership#.X3jczJNKh24)
 
 ### 2006
 
-**Sometime in 2006** Selventa breaks even and has positive cash flow ([ref](https://www.linkedin.com/in/keithelliston/)).
-Keith Elliston's LinkedIn profile claims that it was profitable in 2008 and 2009.
+**August 2006** Genstruct and GSK extend their partnership to apply the Genstruct platform to define compound mechanisms of action in Oncology (https://www.fdanews.com/articles/61568-genstruct-extends-collaboration-in-cancer-with-glaxosmithkline)
+
+**Sometime in 2006** Gensruct reaches cashflow break even ([ref](https://www.linkedin.com/in/keithelliston/)).
+Keith Elliston's LinkedIn profile claims that it was cash flow positive in 2008 and 2009.
+
+### 2007
+
+
+
+### 2008
+
+**April 30, 2008** Genstruct and Sirtris win the BioIT World Best Practices Award for their work using the Genstruct Platform to identify the mechanisms of action for the Sirtris Sirt1 activators.  Sirtris was acquired by GSK to further develop its Sirt1 activators.  
+
+**July 2008** Genstruct begins a collaboration with Manuel Pietsch and his group on the use of the Genstruct technology to assess the stength and extent of toxicity using network analysis
+
+### 2009
+
+**2009** Genstruct develops the "Network Perturbation Amplitude" algorithm, based on early work done by Jim Watters on pathway expression activation.
+
+**September 2009** Board appoints Chris Varma from Flagship Ventures as Executive Chairman.
 
 ### 2010
 
-**May 17th, 2010** Selventa [raises $500K](https://www.crunchbase.com/funding_round/selventa-series-unknown--a7424e79#section-overview)
-in a Venture Round. This is the second of three rounds of funding, the last of which will occur in late 2011.
+**Jan 2010** Keith Elliston resigns from the company, Chris Varma named CEO.  
 
-**November 10th, 2010** Selventa rebrands from GenStruct, Inc. to Selventa ([ref](https://www.businesswire.com/news/home/20101130005216/en/Genstruct-Selventa-Company-Launches-Re-branding-Effort))
+**May 17th, 2010** Genstruct [raises $500K](https://www.crunchbase.com/funding_round/selventa-series-unknown--a7424e79#section-overview)
+in a Venture Round. This is the second of three rounds of funding, the last of which will occur in late 2011. 
 
-**December 8th, 2010** Selventa replaces Keith Elliston as CEO with David de Graaf ([ref](https://www.biospace.com/article/releases/-b-selventa-b-names-b-david-de-graaf-b-as-president-and-chief-executive-officer)).
+**May 2010** Genstruct hires David de Graaf as CSO.
+
+**July 2010** Chris Varma leaves Genstruct to join Third Rock Ventures.
+
+**November 10th, 2010** Genstruct is rebranded as Selventa ([ref](https://www.businesswire.com/news/home/20101130005216/en/Genstruct-Selventa-Company-Launches-Re-branding-Effort))
+
+**December 2010** David de Graaf named CEO.
 
 ### 2011
 
@@ -169,6 +206,8 @@ hosts its first [BEL-specific text mining challenge](https://biocreative.bioinfo
 It was organized by OntoGene (Fabio Rinaldi), the sbv IMPROVER/PMI (Sam Ansari, Julia Hoeng), and Fraunhofer
 (Juliane Fluck, Martin Hofmann Apitius) following the footsteps of the sbvIMPROVER network verification challenge.
 
+**March 2015** David de Graaf steps out of CEO role at Genstruct, joins Flagship Venturelabs. 
+
 **Sometime before April 2017** The second iteration of the sbv IMPROVER's Network Verification Challenge was hosted with
 a focus on COPD. It's not clear when this happened, so I'll say before April 17th, 2015 because the CausalBioNet
 paper (see next bullet point) used the results. On May 15, 2015, [Stéphanie Boué](https://www.linkedin.com/in/st%C3%A9phanie-bou%C3%A9-716a8710/)
@@ -216,9 +255,9 @@ Before its dissolution, Dexter Pratt had already moved to UCSD and begun work on
 [NDEx](http://www.ndexbio.org/) project. Ex-CEO Keith Ellison and current CEO David de Graaf continued their careers
 in VC and entrepreneurship. Luckily, we have LinkedIn to figure this kind of stuff out.
 
-During its 15 years of operation, Selventa contracted an enormous amount of curation to generate BEL content. I'm
+During its 15 years of operation, Selventa performed an enormous amount of curation to generate BEL content. I'm
 not sure what the actual number but I've heard that it has millions of edges in it. After the closure of Selventa,
-it's not obvious what happened to the intellectual property of the company. Dexter Pratt asked through the
+ the intellectual property of the company was sold to Alexion. Dexter Pratt asked through the
 OpenBEL Google Group where it was, and [Nimisha Schneider](https://www.linkedin.com/in/nimisha-schneider-9a1bb3123/)
 claimed that [Alexion](https://alexion.com/) might own it now. I'm quite interested to know about the fate of this
 trove of curated content, as many of the Selventa papers alluded to its existence (but the reviewers didn't seem to
