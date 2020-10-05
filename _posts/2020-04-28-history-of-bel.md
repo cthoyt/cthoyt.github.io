@@ -35,27 +35,35 @@ community. And so, we being on a dark and stormy night in 2001....
 
 ### 2001
 
-**2001** Selventa is [founded](https://www.flagshippioneering.com/companies/selventa) by Noubar Afeyan as GenStruct, Inc.  The concept was to create a computational complement to the company Beyond Genomics - which was a systems biology company also founded by AGTC (a predecessor fund to Flagship).
+**2001** Selventa is [founded](https://www.flagshippioneering.com/companies/selventa) by [Noubar Afeyan](https://www.linkedin.com/in/noubarafeyan/) as Genstruct, Inc.
+The concept was to create a computational complement to the company [Beyond Genomics, Inc.](https://bg-medicine.com) - which was a systems biology company also founded by AGTC (a predecessor fund to Flagship).
 
 ### 2002
-**Summer 2002** Keith Elliston is hired by Flagship Ventures to work with the founding team of Genstruct (Navin Chandra, Justin Sun, Ted Slater, Dexter Pratt) to find a technology and business model for the company.  Keith was brought in by Jim Serum, who co-founded Viaken Systems with Keith, and was on the board of Genstruct.
+**Summer 2002** Keith Elliston is hired by Flagship Ventures (later renamed Flagship Pioneering) to work with the founding team of Genstruct (Navin Chandra, [Justin Sun](https://www.linkedin.com/in/justinsun/), [Ted Slater](https://www.linkedin.com/in/tedslater/), [Dexter Pratt](https://www.linkedin.com/in/dexter-pratt-80a0901/)) to find a technology and business model for the company.
+Keith was brought in by [Jim Serum](https://www.linkedin.com/in/james-serum-b10ba/), who co-founded [Viaken Systems](https://www.crunchbase.com/organization/viaken-systems) with Elliston, and was on the board of Genstruct.
 
-**October 2002** Keith submits a funding proposal and business plan for Genstruct, based upon a new approach to using AI for biological networks proposed by Navin Chandra and developed by the team.  The board approves the plan, approves investment in Genstruct, and hires Keith as the CEO.  
+**October 2002** Keith submits a funding proposal and business plan for Genstruct, based upon a new approach to using artificial intelligence for biological networks proposed by Navin Chandra and developed by the team.
+The board approves the plan, approves investment in Genstruct, and hires Keith as the CEO.
 
 ### 2003
 
-**January 2003** Genstruct does its first commercial project, a pilot project with Pfizer, where they successfully identified the mechanism of action of an unknown cancer drug.  This leads to a more than 10 year collaboration between the companies.
+**January 2003** Genstruct does its first commercial project, a pilot project with Pfizer, where they successfully identified the mechanism of action of an unknown cancer drug.
+This leads to a more than 10 year collaboration between the companies.
 
-**Spring 2003**. Biological Expression Language is created by Dexter Pratt, Navin Chandra, Keith Elliston and Ted Slater.  This development is based on work done by Navin at Perot Systems and Nets, work done by Dexter on CycL with Cycorp, and on Biological Ontologies by Keith and Ted.
+**Spring 2003**. Biological Expression Language is created by Dexter Pratt, Navin Chandra, Keith Elliston and Ted Slater.
+This development is based on work done by Navin at [Perot Systems and Nets](https://en.wikipedia.org/wiki/Perot_Systems), work done by Dexter on CycL with [Cycorp](https://www.cyc.com), and on biological ontologies by Keith and Ted.
 
 **September 8th, 2003** Genstruct [raises $6.5M](https://www.crunchbase.com/funding_round/selventa-series-a--1f3d3583)
 in a Series A with lead investors [Flagship Pioneering](https://www.flagshippioneering.com/companies/selventa) and
-[A.M. Pappas & Associates](https://www.pappas-capital.com/portfolio/selventa/), during which they acquire the Pappas portfolio company InCellico (led by John Wilbanks and Toby Segaren).  
+[A.M. Pappas & Associates](https://www.pappas-capital.com/portfolio/selventa/), during which they acquire the Pappas portfolio company [Incellico, Inc.](https://www.crunchbase.com/organization/incellico-inc) (led by [John Wilbanks](https://www.linkedin.com/in/johnwilbanks/) and [Toby Segaran](https://www.linkedin.com/in/toby-segaran-80bbb9/)).
 
 ### 2004
-**2004** Toby Segaren, working with Justin Sun and other developers at the company, develop the first practical version of the Genstruct Inference Engine.  The inference engine implements a reverse causal reasoning using a graph-based approach, and identifies upstream causes (mechanisms) for downstream observations (state changes).  Bill Ladd develops the statistical methods that power the inference engine and that are used to evaluate the results of simulations.
 
-**February 24, 2004** Genstruct appoints Doug Lauffenberg, Director of the Biological Engineering Division and Uncas & Helen Whitaker Professor of Biological Engineering, Chemical Engineering and Biology at the Massachusetts Institute of Technology (MIT), to the board of directors.
+**2004** Toby Segaren, working with Justin Sun and other developers at the company, develop the first practical version of the Genstruct Inference Engine.
+The inference engine implements a reverse causal reasoning using a graph-based approach, and identifies upstream causes (mechanisms) for downstream observations (state changes).
+[Bill Ladd](https://www.linkedin.com/in/bill-ladd-a8b258/) develops the statistical methods that power the inference engine and that are used to evaluate the results of simulations.
+
+**February 24, 2004** Genstruct appoints [Doug Lauffenberg](https://www.linkedin.com/in/douglas-lauffenburger-34a0282), Director of the Biological Engineering Division and Uncas & Helen Whitaker Professor of Biological Engineering, Chemical Engineering and Biology at the Massachusetts Institute of Technology (MIT), to the board of directors.
 
 **November 2004** Genstruct and Pfizer extend and expand their partnership, applying the Genstruct platform to various R&D and Toxicology programs throughout Pfizer. (https://www.genomeweb.com/archive/genstruct-pfizer-expand-research-partnership#.X3jczJNKh24)
 
@@ -66,13 +74,10 @@ in a Series A with lead investors [Flagship Pioneering](https://www.flagshippion
 **Sometime in 2006** Gensruct reaches cashflow break even ([ref](https://www.linkedin.com/in/keithelliston/)).
 Keith Elliston's LinkedIn profile claims that it was cash flow positive in 2008 and 2009.
 
-### 2007
-
-
-
 ### 2008
 
-**April 30, 2008** Genstruct and Sirtris win the BioIT World Best Practices Award for their work using the Genstruct Platform to identify the mechanisms of action for the Sirtris Sirt1 activators.  Sirtris was acquired by GSK to further develop its Sirt1 activators.  
+**April 30, 2008** Genstruct and Sirtris win the BioIT World Best Practices Award for their work using the Genstruct Platform to identify the mechanisms of action for the Sirtris Sirt1 activators.
+Sirtris was acquired by GSK to further develop its Sirt1 activators.
 
 **July 2008** Genstruct begins a collaboration with Manuel Pietsch and his group on the use of the Genstruct technology to assess the stength and extent of toxicity using network analysis
 
@@ -84,12 +89,12 @@ Keith Elliston's LinkedIn profile claims that it was cash flow positive in 2008 
 
 ### 2010
 
-**Jan 2010** Keith Elliston resigns from the company, Chris Varma named CEO.  
+**Jan 2010** Keith Elliston resigns from the company, [Chris Varma](https://www.linkedin.com/in/chris-varma-59828a4/) named CEO (though this is missing from his LinkedIn profile).
 
 **May 17th, 2010** Genstruct [raises $500K](https://www.crunchbase.com/funding_round/selventa-series-unknown--a7424e79#section-overview)
 in a Venture Round. This is the second of three rounds of funding, the last of which will occur in late 2011. 
 
-**May 2010** Genstruct hires David de Graaf as CSO.
+**May 2010** Genstruct hires [David de Graaf](https://www.linkedin.com/in/davidd12/) as CSO.
 
 **July 2010** Chris Varma leaves Genstruct to join Third Rock Ventures.
 
