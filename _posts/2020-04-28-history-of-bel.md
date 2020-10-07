@@ -262,7 +262,7 @@ in VC and entrepreneurship. Luckily, we have LinkedIn to figure this kind of stu
 
 During its 15 years of operation, Selventa performed an enormous amount of curation to generate BEL content. I'm
 not sure what the actual number but I've heard that it has millions of edges in it. After the closure of Selventa,
- the intellectual property of the company was sold to Alexion. Dexter Pratt asked through the
+the intellectual property of the company was sold to [Alexion](https://alexion.com/). Dexter Pratt asked through the
 OpenBEL Google Group where it was, and [Nimisha Schneider](https://www.linkedin.com/in/nimisha-schneider-9a1bb3123/)
 claimed that [Alexion](https://alexion.com/) might own it now. I'm quite interested to know about the fate of this
 trove of curated content, as many of the Selventa papers alluded to its existence (but the reviewers didn't seem to
