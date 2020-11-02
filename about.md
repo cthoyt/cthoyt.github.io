@@ -57,12 +57,12 @@ further interfacing machine learning and knowledge graphs in the biomedical
 domain and applications across a range of topics.
 
 As I entered 2020, I had planned on taking some well-deserved time off. The
-work I started was nowhere near done, but it was time for a break before returning
-to academia for a postdoc. Those plans didn't work out because of the pandemic
-and I instead joined Enveda Therapeutics remotely to build their discovery platform
-around the concepts from my doctoral work. I still have the freedom to work
-academically have enjoyed communicating parts of my work through my blog - it's lead
-to a few very cool academic collaborations already.
+work I had started was nowhere near done, but it was time for a break before returning
+to academia for a postdoc. Because the pandemic made it a bad year for a vacation,
+I spent 10 months at Enveda Therapeutics to build their semantics, knowledge
+graph, and machine learning platforms, which played an important role in securing
+their second round of venture capital funding. I also joined CoronaWhy to advise
+on the same topics and reproducibility in computational science.
 
 I'm also a real person, too! I love making music, watching movies/TV, running,
 and traveling. I've been to 30 countries so far and tried beer in almost all
