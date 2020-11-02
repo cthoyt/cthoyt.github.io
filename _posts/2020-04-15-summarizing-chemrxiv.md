@@ -9,7 +9,7 @@ A few months ago, the question was posed on science Twitter:
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">makes me wonder about the stats at <a href="https://twitter.com/ChemRxiv?ref_src=twsrc%5Etfw">@ChemRxiv</a> <a href="https://t.co/Ml5X8F4ckJ">https://t.co/Ml5X8F4ckJ</a></p>&mdash; Egon Willighⓐgen (@egonwillighagen) <a href="https://twitter.com/egonwillighagen/status/1219193083792969728?ref_src=twsrc%5Etfw">January 20, 2020</a></blockquote>
 
 It was a good day for me, which meant I was in the mood to take up the first
-challenged posed on Twitter. I found that [@fxcoudert](https://github.com/fxcoudert) has previously written a
+challenged posed on Twitter. I found that François-Xavier Coudert ([@fxcoudert](https://github.com/fxcoudert)) has previously written a
 [python client](https://github.com/fxcoudert/tools/blob/master/chemRxiv/chemRxiv.py) for ChemRxiv. I made a pair
 of pull requests ([fxcoudert/tools#9](https://github.com/fxcoudert/tools/pull/9) and
 [fxcoudert/tools#10](https://github.com/fxcoudert/tools/pull/10)) to fix some bugs and make it importable
@@ -75,3 +75,8 @@ As a final note, I'd like to shout out to Marshall Brennan
 ([@Organometallica](https://twitter.com/Organometallica)) for being an excellent spokesperson
 and public face of ChemRxiv. Also, throughout this process I realized he also was a chemistry
 major in his bachelor's at Northeastern University like me. Go huskies!
+
+May 2020 Update: François-Xavier Coudert created the [ChemRxiv-Dashboard](https://chemrxiv-dashboard.github.io/),
+which makes some similar summaries to this. Check it out!
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I made a dashboard for <a href="https://twitter.com/ChemRxiv?ref_src=twsrc%5Etfw">@ChemRxiv</a>, fed by the <a href="https://twitter.com/figshare?ref_src=twsrc%5Etfw">@figshare</a><br>metadata API.<a href="https://t.co/rKyAOGkrVO">https://t.co/rKyAOGkrVO</a> <a href="https://t.co/fLfjEabraz">pic.twitter.com/fLfjEabraz</a></p>&mdash; FX Coudert (@fxcoudert) <a href="https://twitter.com/fxcoudert/status/1262763710956793860?ref_src=twsrc%5Etfw">May 19, 2020</a></blockquote>
