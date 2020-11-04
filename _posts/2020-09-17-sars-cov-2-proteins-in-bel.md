@@ -2,6 +2,7 @@
 layout: post
 title: Referring to SARS-CoV-2 Proteins in BEL
 date: 2020-09-17 01:05:00 +0100
+author: Charles Tapley Hoyt
 ---
 Many of the proteins in the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)
 are cleavage products of the replicase polyprotein 1ab ([uniprot:P0DTD1](https://identifiers.org/uniprot:P0DTD1)).

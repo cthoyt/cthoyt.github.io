@@ -2,6 +2,7 @@
 layout: post
 title: Inspector Javert's Xref Database
 date: 2020-04-19 00:00:00 -0800
+author: Charles Tapley Hoyt
 ---
 On top the issue of [resolving identifiers to their names]({% post_url 2020-04-18-ooh-na-na %}), 
 the bioinformatics community has a hard time figuring out when two identifiers from different

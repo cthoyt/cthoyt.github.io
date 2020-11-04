@@ -2,6 +2,7 @@
 layout: post
 title: A Reading List of Academic Articles using the Biological Expression Language (BEL)
 date: 2020-05-22 14:50:00 +0100
+author: Charles Tapley Hoyt
 ---
 This post is evolving from a reading list to a review of the academic papers published
 that are either about or use the Biological Expression Language (BEL). It's divided into the

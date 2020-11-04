@@ -2,6 +2,7 @@
 layout: post
 title: A Listing of Publicly Available Content in the Biological Expression Language (BEL)
 date: 2020-04-30 17:50:00 +0100
+author: Charles Tapley Hoyt
 ---
 While many researchers have a pathway or pathology of interest, their first time
 curating content in the Biological Expression Language (BEL) may seem intimidating. This
