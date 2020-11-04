@@ -50,7 +50,9 @@ submitted lots of articles:
 ### What licenses are popular on ChemRxiv?
 
 The following chart shows the popularity of different licenses
-over time. The CC BY-NC-ND 4.0 license is a resounding victor:
+over time. The [CC BY-NC-ND 4.0 license](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+is a resounding victor. You can learn about Creative Commons (CC)
+licenses [here](https://creativecommons.org/licenses/).
 
 ![Historical Licenses](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/historical_licenses.png)
 
@@ -87,3 +89,9 @@ May 2020 Update: François-Xavier Coudert created the [ChemRxiv-Dashboard](https
 which makes some similar summaries to this. Check it out!
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I made a dashboard for <a href="https://twitter.com/ChemRxiv?ref_src=twsrc%5Etfw">@ChemRxiv</a>, fed by the <a href="https://twitter.com/figshare?ref_src=twsrc%5Etfw">@figshare</a><br>metadata API.<a href="https://t.co/rKyAOGkrVO">https://t.co/rKyAOGkrVO</a> <a href="https://t.co/fLfjEabraz">pic.twitter.com/fLfjEabraz</a></p>&mdash; FX Coudert (@fxcoudert) <a href="https://twitter.com/fxcoudert/status/1262763710956793860?ref_src=twsrc%5Etfw">May 19, 2020</a></blockquote>
+
+November 2020 Update: I added a license chart and made some changes to enable
+this repo to be much more easily used for other FigShare institutions. If you've
+found this post from @figshare's [tweet](https://twitter.com/figshare/status/1323762002293121025)
+and want help making these charts for your FigShare institution, please feel
+free to @ me on Twitter or send me an email.
