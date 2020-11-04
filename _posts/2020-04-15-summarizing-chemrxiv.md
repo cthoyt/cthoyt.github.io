@@ -42,10 +42,17 @@ is included in the metadata for each article.
 
 ### How many authors are prolific on ChemRxiv?
 
-If we aggregate that data, we can ask how man authors have
+If we aggregate that data, we can ask how many authors have
 submitted lots of articles:
 
 ![Author Prolificness](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/author_prolificness.png)
+
+### What licenses are popular on ChemRxiv?
+
+The following chart shows the popularity of different licenses
+over time. The CC BY-NC-ND 4.0 license is a resounding victor:
+
+![Historical Licenses](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/historical_licenses.png)
 
 ### How many unique first authors are there on ChemRxiv?
 
