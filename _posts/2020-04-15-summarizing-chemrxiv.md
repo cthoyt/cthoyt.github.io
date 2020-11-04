@@ -54,11 +54,11 @@ How many authors submitted more than once per month? This
 chart shows spikes in August, which I will guess is when
 most people are submitting before their summer breaks :) 
 
-![Percent Duplicate Authors per Month](percent_duplicate_authors_per_month.png)
+![Percent Duplicate Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/percent_duplicate_authors_per_month.png)
 
 ### How many authors submitted for their first time each month?
 
-![First Time First Authors per Month](first_time_first_authors_per_month.png)
+![First Time First Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/first_time_first_authors_per_month.png)
 
 ### How many unique first authors are there on ChemRxiv?
 
