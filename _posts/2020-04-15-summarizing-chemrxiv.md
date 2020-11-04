@@ -38,7 +38,7 @@ information, the history is already conveyed within the chart.
 How many papers were submitted each month to ChemRxiv? 
 Keep in mind that the current month is likely not complete.
 
-![Articles per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/articles_per_month.png)
+![Articles per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/articles_per_month.png)
 
 ### How many unique authors contribute each month to ChemRxiv?
 
@@ -46,7 +46,7 @@ This only counts using the ORCID iDs of the first authors;
 it's pretty inconsistent what other identifying information
 is included in the metadata for each article.
 
-![Unique Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/unique_authors_per_month.png)
+![Unique Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/unique_authors_per_month.png)
 
 ### How many author submit multiple times each month?
 
@@ -54,11 +54,11 @@ How many authors submitted more than once per month? This
 chart shows spikes in August, which I will guess is when
 most people are submitting before their summer breaks :) 
 
-![Percent Duplicate Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/percent_duplicate_authors_per_month.png)
+![Percent Duplicate Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/percent_duplicate_authors_per_month.png)
 
 ### How many authors submitted for their first time each month?
 
-![First Time First Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/first_time_first_authors_per_month.png)
+![First Time First Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/first_time_first_authors_per_month.png)
 
 ### How many unique first authors are there on ChemRxiv?
 
@@ -69,14 +69,14 @@ authors there are. Then, we can use a cumulative sum to show
 how many authors have contributed to ChemRxiv at any point in
 time.
 
-![Historical Authorship](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/historical_authorship.png)
+![Historical Authorship](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/historical_authorship.png)
 
 ### How many authors are prolific on ChemRxiv?
 
 If we aggregate the data, we can ask how many authors have
 submitted lots of articles:
 
-![Author Prolificness](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/author_prolificness.png)
+![Author Prolificness](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/author_prolificness.png)
 
 ### What licenses are popular on ChemRxiv?
 
@@ -85,7 +85,7 @@ over time. The [CC BY-NC-ND 4.0 license](https://creativecommons.org/licenses/by
 is a resounding victor. You can learn about Creative Commons (CC)
 licenses [here](https://creativecommons.org/licenses/).
 
-![Historical Licenses](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/historical_licenses.png)
+![Historical Licenses](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/historical_licenses.png)
 
 
 If you're interested to regenerate these charts yourself, you're welcome to do so with the following code:
