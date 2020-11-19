@@ -3,6 +3,8 @@
   roles:
     - name: CEO
       location:
+        institute:
+          name: Computational Biology Group
         organization:
           name: Enveda Therapeutics
           url: https://envedatherapeutics.com
