@@ -9,7 +9,10 @@
         city: Bonn
         country: Germany
       start:
-        month: May
+        month: January
+        year: 2020
+      end:
+        month: October
         year: 2020
 
 - name: Prof. Dr. Martin Hofmann-Apitius
