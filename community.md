@@ -18,7 +18,7 @@ permalink: /community/
 <ul>
 {% for entry in site.data.events %}
     <li>
-    <a href="{{ entry.link }}">{{ entry.name }}</a> in {{ entry.location.city }}, {{ entry.location.country }}
+    <a href="{{ entry.link }}">{{ entry.name }}</a> {% if entry.online %}(online) {% else %}in {{ entry.location.city }}, {{ entry.location.country }}{% endif %}
     {% if entry.date %}
     on {{ entry.date.month }} {{ entry.date.day }}, {{ entry.date.year }}
     {% elsif entry.start.month == entry.end.month %}
