@@ -99,7 +99,7 @@ machine learning tasks such as subgroup identification and survival analysis.
 {% for entry in site.data.presentations %}
     <li>
     <a href="{{ entry.url }}">{{ entry.name }}</a>
-    at {{ entry.venue }} in {{ entry.location.city }}, {{ entry.location.country }} on {{ entry.date.month }} 
+    at {{ entry.venue }} {% if entry.online %}(online) {% else %}in {{ entry.location.city }}, {{ entry.location.country }}{% endif %} on {{ entry.date.month }} 
     {{ entry.date.day }}, {{ entry.date.year }}
     </li>
 {% endfor %}
