@@ -58,6 +58,25 @@
       end:
         month: December
         year: 2019
+    - name: Master's Thesis Advisor
+      location:
+        group:
+          name: Bioinformatics Group
+          url: http://www.b-it-center.de/research-groups/bioinformatics-group/
+        institute:
+          name: Bonn-Aachen International Center for Information Technology
+          url: http://www.b-it-center.de/
+        organization:
+          name: University of Bonn
+          url: https://uni-bonn.de
+        city: Bonn
+        country: Germany
+      start:
+        month: March
+        year: 2017
+      end:
+        month: October
+        year: 2017
 
 - name: Christian Ebeling, M.Sc.
   orcid: 0000-0002-7560-6846
