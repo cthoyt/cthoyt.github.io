@@ -145,6 +145,7 @@
         year: 2014
 
 - name: Dr. Bing Xia
+  orcid: 0000-0001-9488-6874
   linkedin: bing-xia-57031912
   roles:
     - name: Supervisor
@@ -213,6 +214,7 @@
         year: 2012
 
 - name: Prof. Dr. Graham B. Jones
+  orcid: 0000-0003-2195-3567
   linkedin: graham-jones-nvs
   roles:
     - name: Department Chair
