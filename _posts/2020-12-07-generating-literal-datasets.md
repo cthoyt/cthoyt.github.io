@@ -24,19 +24,21 @@ Therefore, we punted writing proper tests for LiteralE models because of the lac
 of a small, well-studied dataset like Nations or Kinships.
 
 Today, that came to bite us in the butt because we decided to improve the implementation
-of the underlying interface for loading triples from files (more specifically, the 
-`pykeen.triples.TriplesFactory` class, see [pykeen/pykeen#193](https://github.com/pykeen/pykeen/pull/193)).
+of the underlying interface for loading triples from files
+(see [pykeen/pykeen#193](https://github.com/pykeen/pykeen/pull/193)). That meant that it
+was time to set off on creating a dataset that was small and had literals  in it and
+implementing proper tests for the LiteralE models.
 
-That meant that it was time to set off on creating a dataset that was small and had literals
-in it. My first idea was to take an arbitrary dataset, like Nations, and generate random features
-for it. I went down quite a rabbit hole to create an implementation that had slightly meaningful
-representations before [@mberr](https://github.com/mberr/) made the excellent suggestion that the CIA's
+My first idea was to take an arbitrary dataset, like Nations, and generate random features
+for it. I implemented an algorithm that created (slightly meaningful) random
+representations, but then [@mberr](https://github.com/mberr/) gave the excellent suggestion that the CIA's
 [World FactBook](https://www.cia.gov/library/publications/the-world-factbook/) contains all sorts of
-information for each country in tabular form. I scrapped the idea of generating random triples and
-did the dirty work of grabbing some features from that database for the ten entities in the Nations
-dataset, and simply creating a Nations Literal dataset. That all came to fruition in
-[pykeen/pykeen#193](https://github.com/pykeen/pykeen/pull/199), but I had to delete the code for
-generating random literals since it was basically irrelevant in the package.
+information for each country in tabular form, and that I could use that to extend the Nations dataset
+to have literals. I did the dirty work of grabbing some features (area, population, etc.) for
+the ten entities in the Nations dataset then a bit of improvement on the underlying PyKEEN code
+for dataset loading. It all come to fruition in [pykeen/pykeen#193](https://github.com/pykeen/pykeen/pull/199)
+where @mberr helped update the LiteralE implementations, but he rightfully pointed out that my
+random dataset generation code was no longer necessary and didn't belong in the pull request.
 
 Luckily, I have a blog, which seems like a great place to share my code and my thought process!
 
