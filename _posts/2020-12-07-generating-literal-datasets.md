@@ -36,7 +36,7 @@ representations, but then [@mberr](https://github.com/mberr/) gave the excellent
 information for each country in tabular form, and that I could use that to extend the Nations dataset
 to have literals. I did the dirty work of grabbing some features (area, population, etc.) for
 the ten entities in the Nations dataset then a bit of improvement on the underlying PyKEEN code
-for dataset loading. It all come to fruition in [pykeen/pykeen#193](https://github.com/pykeen/pykeen/pull/199)
+for dataset loading. It all come to fruition in [pykeen/pykeen#199](https://github.com/pykeen/pykeen/pull/199)
 where @mberr helped update the LiteralE implementations, but he rightfully pointed out that my
 random dataset generation code was no longer necessary and didn't belong in the pull request.
 
