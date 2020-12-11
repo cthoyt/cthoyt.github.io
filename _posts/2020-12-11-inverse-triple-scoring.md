@@ -70,13 +70,17 @@ for use in your own comparisons and visualizations. The first thing I did was pl
 distributions of both with [`seaborn.histplot`](https://seaborn.pydata.org/generated/seaborn.histplot.html).
 
 The following two plots show that sometimes the distributions match up pretty well, and sometimes they
-don't. However, this was just one comparison for the same model/training assumption. In order to make
-it possible to look at many facets at the same time, the data needs to be simplified.
+don't. The distributions are shown normalized to make it easier to compare - the shapes are more important
+than the actual counts because the number of testing triples changes from dataset to dataset. Sorry about
+the inconsistency in bin widths - I've tried a lot and haven't figured it out. If you know the solution,
+please let me know (or make a PR to PyKEEN for ultimate PR cred).
 
 | Nations | Kinships |
 |---------|----------|
 |![Comparison of Distributions for Nations/RotatE/LCWA](/img/inverse_triple_scoring/nations_rotate_lcwa_overlay.png) | ![Comparison of Distributions for Kinships/RotatE/LCWA](/img/inverse_triple_scoring/kinships_rotate_lcwa_overlay.png) |
 
+This was just one comparison for the same model/training assumption. In order to make
+it possible to look at many facets at the same time, the data need to be simplified.
 Because the scores have a pairwise correspondence (the same triple was scored two ways), it
 makes sense to plot distribution of residuals (the forward score minus the inverse score).
 Here's the same plots simplified with residuals:
@@ -84,5 +88,8 @@ Here's the same plots simplified with residuals:
 | Nations | Kinships |
 |---------|----------|
 |![Comparison of Residuals for Nations/RotatE/LCWA](/img/inverse_triple_scoring/nations_rotate_lcwa_residuals.png) | ![Comparison of Residuals for Kinships/RotatE/LCWA](/img/inverse_triple_scoring/kinships_rotate_lcwa_residuals.png) |
+
+The score axes will not be share because each model produces different ranges of scores with different
+density functions. This itself is also an interesting and upcoming avenue of research!
 
 ![Inverse Scores Residuals](/img/inverse_triple_scoring/inverse_scores_residuals.png)
