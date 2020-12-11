@@ -69,8 +69,9 @@ These results are both PyTorch tensors, so don't forget to use `scores_*.detach(
 for use in your own comparisons and visualizations. The first thing I did was plotted the
 distributions of both with [`seaborn.histplot`](https://seaborn.pydata.org/generated/seaborn.histplot.html).
 
-![Comparison of Distributions for Nations/RotatE/LCWA](/img/inverse_triple_scoring/nations_rotate_lcwa_overlay.png)
 
-![Comparison of Distributions for Kinships/RotatE/LCWA](/img/inverse_triple_scoring/kinships_rotate_lcwa_overlay.png)
+| Nations | Kinships |
+|---------|----------|
+|![Comparison of Distributions for Nations/RotatE/LCWA](/img/inverse_triple_scoring/nations_rotate_lcwa_overlay.png) | ![Comparison of Distributions for Kinships/RotatE/LCWA](/img/inverse_triple_scoring/kinships_rotate_lcwa_overlay.png) |
 
 ![Inverse Scores Residuals](/img/inverse_triple_scoring/inverse_scores_residuals.png)
