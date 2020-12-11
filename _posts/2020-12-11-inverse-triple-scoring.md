@@ -94,7 +94,8 @@ and scientists. The part where I excel is in organization and software developme
 like the `pipeline()`, visualization, and data science aspects of our work. Naturally, I gravitate towards any tasks
 that can be solved with super deep loops. So without further ado, below are presented the results from the script
 that runs this experiment for all datasets, models, and training assumptions. It assigns row by dataset, column
-by model, and color by training assumption.
+by model, and color by training assumption. Note: the score axes will not be share because each model produces different ranges of scores with different
+density functions. This itself is also an interesting and upcoming avenue of research!
 
 ![Inverse Scores Residuals](/img/inverse_triple_scoring/inverse_scores_residuals.png)
 
@@ -105,9 +106,6 @@ better, replace them with the [python entrypoint-loaded classes](https://github.
 However, with many experiments, I think the small datasets like Nations and Kinships are sufficient to
 demonstrate a given phenomena.
 
-Note: the score axes will not be share because each model produces different ranges of scores with different
-density functions. This itself is also an interesting and upcoming avenue of research!
-
 There are a few major insights to be taken from this chart. First, the RotatE, TransE, and DistMult
 model seem to operate pretty similarly for forwards and inverse triples. This is demonstrated by two
 aspects of the distributions - their normality and tightness (low standard deviation). When considering
@@ -117,10 +115,10 @@ ComplEx shows neither normality in its distributions nor tightness. This is beca
 function is explicitly supposed to model the directionality of triples through its use of complex-valued
 entity embeddings and the use of the non-commutative multiplication operation on complex numbers.
 
-SimplE is an incredibly interesting model to consider when studying the difference between forward and
+SimplE is an interesting model to consider when studying the difference between forward and
 inverse triples because it explicitly models the forward and inverse of a given triple then takes
 the average for its final score. Its strange behavior based on the difference between the stochastic
-local closed-world assumption (sLCWA) and locla closed-word assumption (LCWA) during training could be
+local closed-world assumption (sLCWA) and local closed-word assumption (LCWA) during training could be
 due to the fact that it is a complete graph (e.g, all pairs of entities have a triple in both directions).
 
 There are definitely more insights and more satisfying explanations to be gained by looking at a larger-scale
