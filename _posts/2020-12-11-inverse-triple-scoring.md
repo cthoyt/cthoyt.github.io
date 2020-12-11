@@ -69,9 +69,20 @@ These results are both PyTorch tensors, so don't forget to use `scores_*.detach(
 for use in your own comparisons and visualizations. The first thing I did was plotted the
 distributions of both with [`seaborn.histplot`](https://seaborn.pydata.org/generated/seaborn.histplot.html).
 
+The following two plots show that sometimes the distributions match up pretty well, and sometimes they
+don't. However, this was just one comparison for the same model/training assumption. In order to make
+it possible to look at many facets at the same time, the data needs to be simplified.
 
 | Nations | Kinships |
 |---------|----------|
 |![Comparison of Distributions for Nations/RotatE/LCWA](/img/inverse_triple_scoring/nations_rotate_lcwa_overlay.png) | ![Comparison of Distributions for Kinships/RotatE/LCWA](/img/inverse_triple_scoring/kinships_rotate_lcwa_overlay.png) |
+
+Because the scores have a pairwise correspondence (the same triple was scored two ways), it
+makes sense to plot distribution of residuals (the forward score minus the inverse score).
+Here's the same plots simplified with residuals:
+
+| Nations | Kinships |
+|---------|----------|
+|![Comparison of Residuals for Nations/RotatE/LCWA](/img/inverse_triple_scoring/nations_rotate_lcwa_residuals.png) | ![Comparison of Residuals for Kinships/RotatE/LCWA](/img/inverse_triple_scoring/kinships_rotate_lcwa_residuals.png) |
 
 ![Inverse Scores Residuals](/img/inverse_triple_scoring/inverse_scores_residuals.png)
