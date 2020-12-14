@@ -42,6 +42,8 @@ citations as of the time of writing this post on December 14th, 2020.
 
 ![DrugBank Citations](/img/drugbank_citations.png)
 
+Search conducted on December 14th, 2020 with https://pubmed.ncbi.nlm.nih.gov/?term=drugbank.
+
 It's difficult to tell which, if any, of these efforts are meaningful. Without the
 ability to reproduce the steps taken to do analyses based on DrugBank, we can not
 even begin to evaluate these papers. Even further - imagine the intense pressure
@@ -81,7 +83,7 @@ asks for a version, a DrugBank username, and the corresponding DrugBank password
 the username and password into the script however you want - usually loading from the environment
 using `os.getenv()` is a good choice. Hard-coding them is not so much, because it could potentially
 violate the terms and conditions of use of DrugBank, and just isn't good practice in general, especially
-if you reuse password. Get [LastPass](https://www.lastpass.com).
+if you reuse passwords. Get [LastPass](https://www.lastpass.com).
 
 ```python
 import os
