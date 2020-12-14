@@ -195,7 +195,7 @@ def load_my_parsing_results(path):
 def get_processed_data():
     cache_path = ...
     if os.path.exists(cache_path):
-        processed_data = load_my_parsing_results(path)
+        processed_data = load_my_parsing_results(cache_path)
     else:
         root = parse_drugbank(username=..., password=...)
         processed_data = process_data(root)
@@ -204,6 +204,7 @@ def get_processed_data():
     return processed_data
 ```
 
+---
 I understand that most scientists aren't trained as software engineers, nor are they
 incentivized to write code that's reproducible, but I at least hope this code
 helps cut a few non-reproducible steps out of your science. Happy drug hunting!
