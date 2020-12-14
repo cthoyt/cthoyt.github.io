@@ -118,3 +118,25 @@ You know what this means
 
 - Symlink from "latest" or "current"
 -
+
+# Recommendations
+
+Of all of these different systems, I think BioGRID is the best example,
+It maintains an archive of all current versions, it includes the
+version information in both the path and file name.
+
+The improvement BioGRID should have is in each release, a file with the same
+name, not including the version number, that just contains the version number.
+This means that if the symlink for latest is used, there will always be a file
+with the same URI whose content always reflects the current version.
+
+Even further, I could imagine defining a JSON schema for what a "current version
+metadata file" might include, with the version number, the release date, the location
+of the version file, etc.
+
+A solid second place is the concept of the OBO PURL system, where
+a file is always at the same location with the same name, but contains
+version information in the content of the file itself. To make this system
+the winner, it would be necessary for the PURL system to also keep track of 
+the current version of all OBO ontologies and make that information easy to get
+(spoilers, I'm building that system at https://cthoyt.com/bioversions)
