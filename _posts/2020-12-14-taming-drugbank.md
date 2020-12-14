@@ -175,6 +175,35 @@ root = parse_drugbank(username=..., password=...)
 ## DrugBank: Endgame
 
 Once you've got the `XML` python object, you can write all of the code to extract the parts you
-want, load them in a `pandas.DataFrame`, or do whatever you'd like. I understand that most scientists
-aren't trained as software engineers, but at least I hope this code helps you cut a few non-reproducible
-steps out of your science. Remember - code is like our experimental notebook.
+want, load them in a `pandas.DataFrame`, or do whatever you'd like. If these steps are slow,
+you could even write code that caches it in the middle. Below is my template for an
+expensive processing step.
+
+```python
+
+from drugbank_downloader import parse_drugbank
+
+def process_data():
+    ...
+
+def save_my_parsing_results(processed_data, file):
+    ...
+
+def load_my_parsing_results(path):
+    ...
+    
+def get_processed_data():
+    cache_path = ...
+    if os.path.exists(cache_path):
+        processed_data = load_my_parsing_results(path)
+    else:
+        root = parse_drugbank(username=..., password=...)
+        processed_data = process_data(root)
+        with open(cache_path, 'w') as file:
+            save_my_parsing_results(root, file)
+    return processed_data
+```
+
+I understand that most scientists aren't trained as software engineers, nor are they
+incentivized to write code that's reproducible, but I at least hope this code
+helps cut a few non-reproducible steps out of your science. Happy drug hunting!
