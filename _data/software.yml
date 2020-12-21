@@ -46,6 +46,12 @@
   description: Web application for exploration of pathway databases
   logo: https://avatars0.githubusercontent.com/u/46240301?s=200&v=4
 
+- name: Pathway Forte
+  github: PathwayMerger/PathMe
+  role: contributor (core team member)
+  description: Benchmarking pathway databases in functional enrichment analysis and prediction methods
+  logo: https://avatars3.githubusercontent.com/u/49114317?s=200&
+
 - name: RatVec
   github: ratvec/ratvec
   role: contributor
@@ -69,3 +75,9 @@
   role: advisor
   description: Patient stratification framework based on network representation learning
   logo: /img/logos/clep.jpg
+
+- name: BEL2SCM
+  github: bel2scm/bel2scm
+  role: contributor (core team member)
+  description: Generation of structural causal models (SCMs) from BEL graphs
+  logo: https://avatars3.githubusercontent.com/u/67915215?s=200
