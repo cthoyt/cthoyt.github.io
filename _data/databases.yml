@@ -16,6 +16,11 @@
   zenodo: 4328920
   logo: https://avatars1.githubusercontent.com/u/69258560?s=200
 
+- name: Bioversions
+  role: maintainer
+  description: What's the current version for each biological database?
+  logo: /img/logos/bioversions.png
+
 - name: Ooh Na Na
   role: maintainer
   description: Comprehensive metadatabase of identifiers and names for biological entities
