@@ -11,15 +11,24 @@
   logo: https://camo.githubusercontent.com/5efad183dee6f10de91d2cafa5e049aaba472f61/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f652f32504143582d3176535965385341384a31756c4c524671466a5832626e655f4c2d356678622d794846636a3142324a594c6b734a533930717a3879327377505a504e537277395a6a33746c6a725a696b62354b574f672f7075623f773d31353026683d313530
 
 - name: Biomappings
+  github: biomappings/biomappings
   role: maintainer
   description: Community curated and predicted equivalences and related mappings between named biological entities that are not available from primary sources.
   zenodo: 4328920
   logo: https://avatars1.githubusercontent.com/u/69258560?s=200
 
 - name: Bioversions
+  github: cthoyt/bioversions
   role: maintainer
+  zenodo: 4320054
   description: What's the current version for each biological database?
   logo: /img/logos/bioversions.png
+
+- name: Bioregistry
+  role: maintainer
+  github: cthoyt/bioregistry
+  description: An integrative registry of biological databases, ontologies, and nomenclatures.
+  logo: /img/logos/bioregistry.png
 
 - name: Ooh Na Na
   role: maintainer
