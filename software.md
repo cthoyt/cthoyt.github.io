@@ -37,7 +37,7 @@ others.
 {% endfor %}
 
 
-## Training
+## Scientific Programming Training
 
 I care very deeply about reproducibility, especially in scientific software development. However,
 this is not one of the core values taught by most PIs, nor are the core skills part of either scientific
