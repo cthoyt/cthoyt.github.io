@@ -40,6 +40,7 @@
   role: maintainer
   description: Comprehensive metadatabase of cross-references between databases of biological entities
   zenodo: 3757266
+  logo: /img/logos/javert.png
 
 - name: Chemical Roles Graph
   role: maintainer
