@@ -34,6 +34,7 @@
   role: maintainer
   description: Comprehensive metadatabase of identifiers and names for biological entities
   zenodo: 3866538
+  logo: /img/logos/ooh_na_na.png
 
 - name: Inspector Javert's Xref Database
   role: maintainer
