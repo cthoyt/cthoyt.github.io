@@ -13,7 +13,7 @@
 - name: Biomappings
   github: biomappings/biomappings
   role: maintainer
-  description: Community curated and predicted equivalences and related mappings between named biological entities that are not available from primary sources.
+  description: Predicted and curated mappings between named biological entities
   zenodo: 4328920
   logo: https://avatars1.githubusercontent.com/u/69258560?s=200
 
