@@ -1,30 +1,30 @@
 - name: PyBEL
   github: pybel/pybel
-  role: maintainer
+  role: creator, maintainer
   description: Compiler for the Biological Expression Language
   logo: https://github.com/pybel/pybel/raw/master/docs/source/PyBEL-square-100.png
 
 - name: Bio2BEL
   github: bio2bel/bio2bel
-  role: maintainer
+  role: creator, maintainer
   description: Framework for reproducible data integration in BEL
   logo: https://github.com/bio2bel/bio2bel-art/raw/master/bio2bel-logo-100.png
 
 - name: BEL Commons
   github: bel-commons/bel-commons
-  role: maintainer
+  role: creator, maintainer
   description: Interactive exploration of networks encoded in the BEL
   logo: https://github.com/pybel/pybel-art/raw/master/BEL%20Commons/BELcommons-square-100.png
 
 - name: PyOBO
   github: pyobo/pyobo
-  role: maintainer
+  role: creator, maintainer
   description: Harmonization of biological ontologies and controlled vocabularies
   logo: /img/logos/pyobo.png
 
 - name: GuiltyTargets
   github: guiltytargets/guiltytargets
-  role: maintainer
+  role: contributor, maintainer
   description: Target prioritization framework using gene expression and network representation learning
   logo: /img/logos/guiltytargets.png
 
