@@ -60,8 +60,8 @@ KEGG, Reactome, and WikiPathways:
 | kegg.pathway:hsa04210 | skos:exactMatch | wikipathways:WP254    |
 | wikipathways:WP254    | skos:exactMatch | reactome:R-HSA-109581 |
 
-Similarly, the relationships between cow-specific pathways for apoptosis 
-in KEGG, Reactome, and WikiPathways:
+Similarly, the relationships between cow-specific (Bos Taurus; BTA)
+pathways for apoptosis in KEGG, Reactome, and WikiPathways:
 
 | Subject               | Predicate       | Object                |
 | --------------------- | --------------- | --------------------- |
@@ -128,18 +128,19 @@ for other databases like WikiPathways and KEGG. Therefore, we can introduce a re
 
 Orthology relationships effectively convey the same information as `speciesSpecific`
 with the advantage that they do not require the addition of a parent term. However,
-between N orthologous pathways, there will be a complete graph of (1/2) * N * (N-1)
-edges. Depending on the downstream use case, these kinds of subgraphs can be problematic.
+between N orthologous pathways, there will be a complete subggraph of (1/2) * N * (N-1)
+edges (also called a clique in graph theory). Depending on the downstream use case,
+these kinds of subgraphs can be problematic.
 
 Because `kegg.pathway:hsa04210 skos:exactMatch reactome:R-HSA-109581`,
 we can infer `reactome:R-HSA-109581 orthology kegg.pathway:bta04210`. However, I think
 it would be best to only curate orthology relationships within a given database because
-it will increase N of the complete subgraph (also called a clique in graph theory).
+it will increase the size (N) of the clique.
 
 ## Pathway is About a Concept
 
 KEGG, Reactome, and WikiPathways not only include pathways, but also
-other schematics about specific topics such as diseases, families of
+other "maps" about specific topics such as diseases, families of
 proteins, and other biological entities.
 
 For example, KEGG has an entry `kegg.pathway:hsa05010` entitled *Alzheimer disease - Homo sapiens (human)*.
@@ -182,11 +183,20 @@ variants of pathways. These would need their own dedicated relationships to conn
 the "canonical" pathway and to the disease that they describe.
 
 ---
-Again, apologies to any purists who don't believe apoptosis and apoptotic process are the same.
-
 I have to give a huge shout-out to [Daniel Domingo-Fernández](https://github.com/ddomingof),
 [Josep Marín-Llaó](https://github.com/jmarinllao), Carlos Bobis-Álvarez,
 and [Yojana Gadiya](https://github.com/YojanaGadiya) who have done the curation in the ComPath
 project as well as [Ben Gyori](https://github.com/bgyori/) who laid the groundwork for
 improving the lexical mappings with the Gilda software as well  as contributed tons of
 curations for MeSH-GO mappings.
+
+There are still many disjoint resources that need normalization, including the
+Pathway Ontology, which I haven't touched yet, PathBank, which Yojana curated but hasn't
+made it into any publications yet, BioCyc, MetaCyc, and many others. Each must first be
+included in [PyOBO](https://github.com/pyobo/pyobo) as I described in a
+[previous post]({% post_url 2020-04-18-ooh-na-na.md %}) before getting into curation so
+I can reuse all of the code. 
+
+This is all part of a greater effort, [Biomappings](https://github.com/biomappings/biomappings)
+which Ben and I have been working on to make it much easier to curate equivalences and
+related mappings. I'll have more to say about that in a future post.
