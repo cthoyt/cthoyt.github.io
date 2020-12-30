@@ -7,9 +7,9 @@ author: Charles Tapley Hoyt
 Domingo-Fernandez *et al.* published [ComPath: An ecosystem for exploring, analyzing,
 and curating mappings across pathway databases.](https://doi.org/10.1038/s41540-018-0078-8)
 in 2018 describing the overlap between human pathways in KEGG, Reactome, and WikiPathways.
-A lot of the underlying machinery I developed to support this effort has been improved since,
+A lot of the underlying machinery I developed to support this project has been improved since,
 and it's time to spread the search to other organisms besides humans and other databases.
-This blog post is about some of the additional relationships needed to capture the relations
+This blog post is about some additional relation types needed to capture the relations
 between pathways appearing in these databases.
 
 Like many blog posts, this one was inspired by a tweet. After the following discussion,
@@ -42,15 +42,17 @@ KEGG, Reactome, and WikiPathways all provide human-specific variants of these pa
 
 Two pathways are equivalent and can be represented with `skos:exactMatch` if they both
 have the same species specificity. The following relationships are between the non-species
-specific pathways:
+specific pathways for apoptosis:
 
 | Subject      | Predicate       | Object                 |
 | ------------ | --------------- | ---------------------- |
 | GO:0006915   | skos:exactMatch | mesh:D017209           |
 | GO:0006915   | skos:exactMatch | kegg.pathway:map04210  |
 | mesh:D017209 | skos:exactMatch | kegg.pathway:map04210  |
+| ...          | ...             | ...                    |
 
-The following relationships are between the human-specific pathways in KEGG, Reactome, and WikiPathways:
+The following relationships are between the human-specific pathways for apoptosis in
+KEGG, Reactome, and WikiPathways:
 
 | Subject               | Predicate       | Object                |
 | --------------------- | --------------- | --------------------- |
@@ -58,7 +60,8 @@ The following relationships are between the human-specific pathways in KEGG, Rea
 | kegg.pathway:hsa04210 | skos:exactMatch | wikipathways:WP254    |
 | wikipathways:WP254    | skos:exactMatch | reactome:R-HSA-109581 |
 
-Similarly, the relationships between cow-specific pathways in KEGG, Reactome, and WikiPathways
+Similarly, the relationships between cow-specific pathways for apoptosis 
+in KEGG, Reactome, and WikiPathways:
 
 | Subject               | Predicate       | Object                |
 | --------------------- | --------------- | --------------------- |
@@ -83,15 +86,16 @@ and species-specific pathway, prefixed with their internal 3 or 4-letter species
 
 It should generally hold that when `X speciesSpecific Y` and `Y skos:exactMatch Z`
 are true, `X speciesSpecific Z`. This allows KEGG to serve as a bridge between
-the species-specific and non-species-specific pathway worlds. However, as
-Domingo-Fernandez *et al* showed, there are huge discrepancies between KEGG, Reactome,
+the species-specific and non-species-specific pathway worlds. However,
+Domingo-Fernandez *et al* showed that there are huge discrepancies between KEGG, Reactome,
 and WikiPathways, so there is still need to curate/infer the same kinds relationships in
 Reactome and WikiPathways.
 
-However, Reactome and WikiPathways do not (yet) have parent terms for non-species-specific pathways.
-Because Reactome uses a standardized nomenclature where all variants of each pathway across
-species have the same numerical part to their identifier (e.g., `R-HSA-109581` and `R-BTA-109581`),
-they could institute a similar parent nomenclature like KEGG's. WikiPathways does not have
+Unfortunately, Reactome and WikiPathways do not (yet) have parent terms for
+non-species-specific pathways.  Because Reactome uses a standardized nomenclature
+where all variants of each pathway across  species have the same numerical part to
+their identifier (e.g., `R-HSA-109581` and `R-BTA-109581`), they could institute a
+similar parent nomenclature like KEGG's. WikiPathways identifiers do not have
 this sort of regularity, but they have the benefit of being highly receptive to external
 input and improvements.
 
@@ -104,19 +108,19 @@ between two entities.
 ## Pathway are Orthologs
 
 Two genes with similar evolutionary history and function appearing in two organisms
-are called orthologs. They are incredibly important for studying biology because
-they allow us to make inferences about how human biology works when studying model
+are called orthologs. Orthology is incredibly important for studying biology because
+it allows us to make inferences about how human biology works by studying model
 organisms like mice and rats. There are several databases collecting orthology
 relationships, such as [HomoloGene](https://www.ncbi.nlm.nih.gov/homologene).
 
-It follows that orthology should apply to pathways as well. In fact, Reactome's
+It follows that orthology could be applied to pathways as well. In fact, Reactome's
 web interface already has a box below each pathway linking to the orthologous pathways:
 
 ![Reactome Orthology Box](/img/reactome_orthology_box.png)
 
-However, this information is not programatically available, and it is not available
+However, this information is not programatically available (AFAIK), and it is not available
 for other databases like WikiPathways and KEGG. Therefore, we can introduce a relationship
-`orthology` to write triples.
+`orthology` to start curating triples like:
 
 | Subject               | Predicate | Object                |
 | --------------------- | ----------| --------------------- |
@@ -126,6 +130,11 @@ Orthology relationships effectively convey the same information as `speciesSpeci
 with the advantage that they do not require the addition of a parent term. However,
 between N orthologous pathways, there will be a complete graph of (1/2) * N * (N-1)
 edges. Depending on the downstream use case, these kinds of subgraphs can be problematic.
+
+Because `kegg.pathway:hsa04210 skos:exactMatch reactome:R-HSA-109581`,
+we can infer `reactome:R-HSA-109581 orthology kegg.pathway:bta04210`. However, I think
+it would be best to only curate orthology relationships within a given database because
+it will increase N of the complete subgraph (also called a clique in graph theory).
 
 ## Pathway is About a Concept
 
@@ -155,7 +164,7 @@ Another example is opsins - a family of light-sensitive proteins. Reactome has a
 `reactome:R-HSA-419771` (Opsins) that is not the same as the MeSH entry `mesh:D055355`
 (Opsins) describing the protein family.
 
-There is specific interest for connecting disease maps appearing in pathway databases
+There is specific interest in connecting disease maps appearing in pathway databases
 to the diseases themselves. WikiPathways has already begun doing this as can be
 seen on https://www.wikipathways.org/index.php/Pathway:WP2059.
 
@@ -171,3 +180,13 @@ This is a bit of an afterthought, but it might be mentioning that there are plac
 like [NeuroMMSig](https://neurommsig.scai.fraunhofer.de/), that curate disease-specific
 variants of pathways. These would need their own dedicated relationships to connect to
 the "canonical" pathway and to the disease that they describe.
+
+---
+Again, apologies to any purists who don't believe apoptosis and apoptotic process are the same.
+
+I have to give a huge shout-out to [Daniel Domingo-Fernández](https://github.com/ddomingof),
+[Josep Marín-Llaó](https://github.com/jmarinllao), Carlos Bobis-Álvarez,
+and [Yojana Gadiya](https://github.com/YojanaGadiya) who have done the curation in the ComPath
+project as well as [Ben Gyori](https://github.com/bgyori/) who laid the groundwork for
+improving the lexical mappings with the Gilda software as well  as contributed tons of
+curations for MeSH-GO mappings.
