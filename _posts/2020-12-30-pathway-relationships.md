@@ -22,21 +22,21 @@ covers all manners of programed cell death. This blog post isn't about the nitty
 pathways, biological processes, and mechanisms - so we will consider all variants of apoptosis
 and apoptotic process effectively the same.
 
-| Resource                                | Prefix       | Identifier |
-| --------------------------------------- | ------------ | ---------- |
-| Gene Ontology                           | go           | GO:0006915 |
-| Medical Subject Headings                | mesh         | D017209    |
-| Kyoto Encyclopedia of Genes and Genomes (KEGG) | kegg.pathway | map04210   |
-| NCI Thesaurus                           | ncit         | C17557     |
+| Resource                                       | Prefix       | Identifier                                                |
+| ---------------------------------------------- | ------------ | --------------------------------------------------------- |
+| Gene Ontology (GO)                             | go           | [GO:0006915](https://identifiers.org/GO:0006915)          |
+| Medical Subject Headings (MeSH)                | mesh         | [D017209](https://identifiers.org/mesh:)                  |
+| Kyoto Encyclopedia of Genes and Genomes (KEGG) | kegg.pathway | [map04210](https://identifiers.org/kegg.pathway:map04210) |
+| NCI Thesaurus (NCIT)                           | ncit         | [C17557](https://identifiers.org/ncit:C17557)             |
 
 KEGG, Reactome, and WikiPathways all provide human-specific variants of these pathways
 (below) as well as many other species, including both model organisms and not.
 
-| Resource     | Prefix       | Identifier   |
-| ------------ | ------------ | ------------ |
-| KEGG         | kegg.pathway | hsa04210     |
-| Reactome     | reactome     | R-HSA-109581 |
-| WikiPathways | wikipathways | WP254        |
+| Resource     | Prefix       | Identifier                                                    |
+| ------------ | ------------ | ------------------------------------------------------------- |
+| KEGG         | kegg.pathway | [hsa04210](https://identifiers.org/kegg.pathway:hsa04210)     |
+| Reactome     | reactome     | [R-HSA-109581](https://identifiers.org/reactome:R-HSA-109581) |
+| WikiPathways | wikipathways | [WP254](https://identifiers.org/wikipathways:WP254)           |
 
 ## Pathways are Equivalent
 
@@ -44,30 +44,30 @@ Two pathways are equivalent and can be represented with `skos:exactMatch` if the
 have the same species specificity. The following relationships are between the non-species
 specific pathways for apoptosis:
 
-| Subject      | Predicate       | Object                 |
-| ------------ | --------------- | ---------------------- |
-| GO:0006915   | skos:exactMatch | mesh:D017209           |
-| GO:0006915   | skos:exactMatch | kegg.pathway:map04210  |
-| mesh:D017209 | skos:exactMatch | kegg.pathway:map04210  |
-| ...          | ...             | ...                    |
+| Subject                                              | Predicate       | Object                                                                 |
+| ---------------------------------------------------- | --------------- | ---------------------------------------------------------------------- |
+| [GO:0006915](https://identifiers.org/GO:0006915)     | skos:exactMatch | [mesh:D017209](https://identifiers.org/mesh:D017209)                   |
+| [GO:0006915](https://identifiers.org/GO:0006915)     | skos:exactMatch | [kegg.pathway:map04210](https://identifiers.org/kegg.pathway:map04210) |
+| [mesh:D017209](https://identifiers.org/mesh:D017209) | skos:exactMatch | [kegg.pathway:map04210](https://identifiers.org/kegg.pathway:map04210) |
+| ...                                                  | ...             | ...                                                                    |
 
 The following relationships are between the human-specific pathways for apoptosis in
 KEGG, Reactome, and WikiPathways:
 
-| Subject               | Predicate       | Object                |
-| --------------------- | --------------- | --------------------- |
-| kegg.pathway:hsa04210 | skos:exactMatch | reactome:R-HSA-109581 |
-| kegg.pathway:hsa04210 | skos:exactMatch | wikipathways:WP254    |
-| wikipathways:WP254    | skos:exactMatch | reactome:R-HSA-109581 |
+| Subject                                                                | Predicate       | Object                                                                 |
+| ---------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------- |
+| [kegg.pathway:hsa04210](https://identifiers.org/kegg.pathway:hsa04210) | skos:exactMatch | [reactome:R-HSA-109581](https://identifiers.org/reactome:R-HSA-109581) |
+| [kegg.pathway:hsa04210](https://identifiers.org/kegg.pathway:hsa04210) | skos:exactMatch | [wikipathways:WP254](https://identifiers.org/wikipathways:WP254)       |
+| [wikipathways:WP254](https://identifiers.org/wikipathways:WP254)       | skos:exactMatch | [reactome:R-HSA-109581](https://identifiers.org/reactome:R-HSA-109581) |
 
 Similarly, the relationships between cow-specific (Bos Taurus; BTA)
 pathways for apoptosis in KEGG, Reactome, and WikiPathways:
 
-| Subject               | Predicate       | Object                |
-| --------------------- | --------------- | --------------------- |
-| kegg.pathway:bta04210 | skos:exactMatch | reactome:R-BTA-109581 |
-| kegg.pathway:bta04210 | skos:exactMatch | wikipathways:WP1018   |
-| wikipathways:WP1018   | skos:exactMatch | reactome:R-BTA-109581 |
+| Subject                                           | Predicate       | Object                                            |
+| ------------------------------------------------- | --------------- | ------------------------------------------------- |
+| [kegg.pathway:bta04210](https://identifiers.org/) | skos:exactMatch | [reactome:R-BTA-109581](https://identifiers.org/) |
+| [kegg.pathway:bta04210](https://identifiers.org/) | skos:exactMatch | [wikipathways:WP1018](https://identifiers.org/)   |
+| [wikipathways:WP1018](https://identifiers.org/)   | skos:exactMatch | [reactome:R-BTA-109581](https://identifiers.org/) |
 
 While equivalences begins to tame the ontology of pathways, it is missing
 links between the GO, MeSH, and NCIT terms to Reactome and WikiPathways.
@@ -78,11 +78,11 @@ GO, MeSH, NCIT, and many other nomenclatures do not contain species-specific var
 of their pathways. However, KEGG contains both a parent pathway, prefixed with `map`
 and species-specific pathway, prefixed with their internal 3 or 4-letter species code.
 
-| Subject               | Predicate       | Object                |
-| --------------------- | --------------- | --------------------- |
-| kegg.pathway:hsa04210 | speciesSpecific | kegg.pathway:map04210 |
-| kegg.pathway:bta04210 | speciesSpecific | kegg.pathway:map04210 |
-| ...                   | ...             | ...                   |
+| Subject                                                                | Predicate       | Object                                                                 |
+| ---------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------- |
+| [kegg.pathway:hsa04210](https://identifiers.org/kegg.pathway:hsa04210) | speciesSpecific | [kegg.pathway:map04210](https://identifiers.org/kegg.pathway:map04210) |
+| [kegg.pathway:bta04210](https://identifiers.org/kegg.pathway:bta04210) | speciesSpecific | [kegg.pathway:map04210](https://identifiers.org/kegg.pathway:map04210) |
+| ...                                                                    | ...             | ...                                                                    |
 
 It should generally hold that when `X speciesSpecific Y` and `Y skos:exactMatch Z`
 are true, `X speciesSpecific Z`. This allows KEGG to serve as a bridge between
@@ -95,16 +95,17 @@ Unfortunately, Reactome and WikiPathways do not (yet) have parent terms for
 non-species-specific pathways. Asking about this was the point of the tweet that
 inspired this blog post. Because Reactome uses a standardized nomenclature
 where all variants of each pathway across  species have the same numerical part to
-their identifier (e.g., `R-HSA-109581` and `R-BTA-109581`), they could institute a
+their identifier (e.g., [R-HSA-109581](https://identifiers.org/reactome:R-HSA-109581)
+and [R-BTA-109581](https://identifiers.org/reactome:R-BTA-109581)), they could institute a
 similar parent nomenclature like KEGG's. WikiPathways identifiers do not have
 this sort of regularity, but they have the benefit of being highly receptive to external
 input and improvements.
 
 Side bar: I've seen an elegant solution for this in OBO that defines child terms
 with an intersection of the [Relation Ontology](https://github.com/oborel/obo-relations)
-relation `RO:0002160` (only in taxon) to a given species and the parent term, but this
-is an unnecessarily complicated alternative for the goal of representing the relation
-between two entities.
+relation [RO:0002160](https://identifiers.org/RO:0002160) (only in taxon) to a given species
+and the parent term, but this is an unnecessarily complicated alternative for the goal of
+representing the relation between two entities.
 
 ## Pathway are Orthologs
 
@@ -123,9 +124,9 @@ However, this information is not programatically available (AFAIK), and it is no
 for other databases like WikiPathways and KEGG. Therefore, we can introduce a relationship
 `orthology` to start curating triples like:
 
-| Subject               | Predicate | Object                |
-| --------------------- | ----------| --------------------- |
-| kegg.pathway:hsa04210 | orthology | kegg.pathway:bta04210 |
+| Subject                                                                | Predicate | Object                                                                 |
+| ---------------------------------------------------------------------- | ----------| ---------------------------------------------------------------------- |
+| [kegg.pathway:hsa04210](https://identifiers.org/kegg.pathway:hsa04210) | orthology | [kegg.pathway:bta04210](https://identifiers.org/kegg.pathway:bta04210) |
 
 Orthology relationships effectively convey the same information as `speciesSpecific`
 with the advantage that they do not require the addition of a parent term. However,
@@ -144,18 +145,19 @@ KEGG, Reactome, and WikiPathways not only include pathways, but also
 other "maps" about specific topics such as diseases, families of
 proteins, and other biological entities.
 
-For example, KEGG has an entry `kegg.pathway:hsa05010` entitled *Alzheimer disease - Homo sapiens (human)*.
-When using [Gilda](https://github.com/indralab/gilda) to generate lexical matchings, the MeSH
-entry `mesh:D000544` (Alzheimer Disease) appeared highly ranked. However, KEGG's notion of pathway
+For example, KEGG has an entry [kegg.pathway:hsa05010](https://identifiers.org/kegg.pathway:hsa05010)
+entitled *Alzheimer disease - Homo sapiens (human)*. When using [Gilda](https://github.com/indralab/gilda)
+to generate lexical matchings, the MeSH entry [mesh:D000544](https://identifiers.org/mesh:D000544)
+(Alzheimer Disease) appeared highly ranked. However, KEGG's notion of pathway
 and MeSH's notion of a disease are not the same, and these two terms should not be considered equivalent.
 For this case, not only KEGG but also Reactome and WikiPathways, we can introduce a new
 relationship ``pathwayAbout``. It turns out that WikiPathways also has an Alzheimer's
 disease "pathway" as well.
 
-| Subject               | Predicate    | Object       |
-| --------------------- | ------------ | ------------ |
-| kegg.pathway:hsa05010 | pathwayAbout | mesh:D000544 |
-| wikipathways:WP2059   | pathwayAbout | mesh:D000544 |
+| Subject                                                                | Predicate    | Object                                               |
+| ---------------------------------------------------------------------- | ------------ | ---------------------------------------------------- |
+| [kegg.pathway:hsa05010](https://identifiers.org/kegg.pathway:hsa05010) | pathwayAbout | [mesh:D000544](https://identifiers.org/mesh:D000544) |
+| [wikipathways:WP2059](https://identifiers.org/wikipathways:WP2059)     | pathwayAbout | [mesh:D000544](https://identifiers.org/mesh:D000544) |
 
 Note that KEGG and WikiPathways both have specificity in their pathways for organisms,
 but diseases in MeSH and other nomenclatures aren't typically stratified by their
@@ -163,7 +165,8 @@ target organisms. Therefore, the mouse-specific Alzheimer's disease pathway in
 WikiPathways (`wikipathways:WP2075`) could also have the same relationship.
 
 Another example is opsins - a family of light-sensitive proteins. Reactome has a pathway
-`reactome:R-HSA-419771` (Opsins) that is not the same as the MeSH entry `mesh:D055355`
+[reactome:R-HSA-419771](https://identifiers.org/reactome:R-HSA-419771) (Opsins) that is
+not the same as the MeSH entry [mesh:D055355](https://identifiers.org/mesh:D055355)
 (Opsins) describing the protein family.
 
 There is specific interest in connecting disease maps appearing in pathway databases
