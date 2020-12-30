@@ -107,7 +107,7 @@ relation [RO:0002160](https://identifiers.org/RO:0002160) (only in taxon) to a g
 and the parent term, but this is an unnecessarily complicated alternative for the goal of
 representing the relation between two entities.
 
-## Pathway are Orthologs
+## Pathways are Orthologs
 
 Two genes with similar evolutionary history and function appearing in two organisms
 are called orthologs. Orthology is incredibly important for studying biology because
@@ -138,3 +138,43 @@ Because `kegg.pathway:hsa04210 skos:exactMatch reactome:R-HSA-109581`,
 we can infer `reactome:R-HSA-109581 orthology kegg.pathway:bta04210`. However, I think
 it would be best to only curate orthology relationships within a given database because
 it will increase the size (N) of the clique.
+
+## Pathway is About a Concept
+
+KEGG, Reactome, and WikiPathways not only include pathways, but also
+other "maps" about specific topics such as diseases, families of
+proteins, and other biological entities.
+
+For example, KEGG has an entry [kegg.pathway:hsa05010](https://identifiers.org/kegg.pathway:hsa05010)
+entitled *Alzheimer disease - Homo sapiens (human)*. When using [Gilda](https://github.com/indralab/gilda)
+to generate lexical matchings, the MeSH entry [mesh:D000544](https://identifiers.org/mesh:D000544)
+(Alzheimer Disease) appeared highly ranked. However, KEGG's notion of pathway
+and MeSH's notion of a disease are not the same, and these two terms should not be considered equivalent.
+For this case, not only KEGG but also Reactome and WikiPathways, we can introduce a new
+relationship ``pathwayAbout``. It turns out that WikiPathways also has an Alzheimer's
+disease "pathway" as well.
+
+| Subject                                                                | Predicate    | Object                                               |
+| ---------------------------------------------------------------------- | ------------ | ---------------------------------------------------- |
+| [kegg.pathway:hsa05010](https://identifiers.org/kegg.pathway:hsa05010) | pathwayAbout | [mesh:D000544](https://identifiers.org/mesh:D000544) |
+| [wikipathways:WP2059](https://identifiers.org/wikipathways:WP2059)     | pathwayAbout | [mesh:D000544](https://identifiers.org/mesh:D000544) |
+
+Note that KEGG and WikiPathways both have specificity in their pathways for organisms,
+but diseases in MeSH and other nomenclatures aren't typically stratified by their
+target organisms. Therefore, the mouse-specific Alzheimer's disease pathway in
+WikiPathways (`wikipathways:WP2075`) could also have the same relationship.
+
+Another example is opsins - a family of light-sensitive proteins. Reactome has a pathway
+[reactome:R-HSA-419771](https://identifiers.org/reactome:R-HSA-419771) (Opsins) that is
+not the same as the MeSH entry [mesh:D055355](https://identifiers.org/mesh:D055355)
+(Opsins) describing the protein family.
+
+There is specific interest in connecting disease maps appearing in pathway databases
+to the diseases themselves. WikiPathways has already begun doing this as can be
+seen on https://www.wikipathways.org/index.php/Pathway:WP2059.
+
+![WikiPathways Ontology Terms](/img/wikipathways_ontology_terms.png)
+
+It might be justified to propose an alternate relationship with more specific semantics.
+More information on various disease-specific curation projects outside major pathway
+databases can be found at https://disease-maps.org.
