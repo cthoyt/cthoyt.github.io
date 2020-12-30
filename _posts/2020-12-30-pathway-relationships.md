@@ -12,7 +12,7 @@ and it's time to spread the search to other organisms besides humans and other d
 This blog post is about some additional relation types needed to capture the relations
 between pathways appearing in these databases.
 
-Like many blog posts, this one was inspired by a tweet. After the following discussion,
+Like many of my blog posts, this one was inspired by a tweet. After the following discussion,
 I thought it would be good to better organize the ideas and elaborate.
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/KEGG?src=hash&amp;ref_src=twsrc%5Etfw">#KEGG</a> provides a namespace of non-species-specific pathway terms that all of its species-specific pathways can map to. <a href="https://twitter.com/reactome?ref_src=twsrc%5Etfw">@reactome</a> could you provide the same?</p>&mdash; Charles Tapley Hoyt (@cthoyt) <a href="https://twitter.com/cthoyt/status/1344076052386238464?ref_src=twsrc%5Etfw">December 30, 2020</a></blockquote>
@@ -198,8 +198,15 @@ There are still many disjoint resources that need normalization, including the
 Pathway Ontology, which I haven't touched yet, PathBank, which Yojana curated but hasn't
 made it into any publications yet, BioCyc, MetaCyc, and many others. Each must first be
 included in [PyOBO](https://github.com/pyobo/pyobo) as I described in a
-[previous post]({% post_url 2020-04-18-ooh-na-na %}) before getting into curation so
-I can reuse all of the code.
+[previous post]({% post_url 2020-04-18-ooh-na-na %}) before getting into curation, so
+I can reuse all the code.
+
+I'm not super happy with any of the names I've given to relationships in this post,
+either. I'm open to suggestion for improvement. We alternatively discussed using
+`skos:broader` and `skos:narrower`, as well. Further, I'd love to see these kinds
+of relationships appear in the Relation Ontology itself, but unfortunately I have
+not been super successful in petitioning them for improvements in the past, so
+I may start another open ontology project focused on relationships themselves.
 
 This is all part of a greater effort, [Biomappings](https://github.com/biomappings/biomappings),
 which Ben and I have been working on to make it much easier to curate equivalences and
