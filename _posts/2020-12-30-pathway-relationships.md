@@ -116,7 +116,8 @@ organisms like mice and rats. There are several databases collecting orthology
 relationships, such as [HomoloGene](https://www.ncbi.nlm.nih.gov/homologene).
 
 It follows that orthology could be applied to pathways as well. In fact, Reactome's
-web interface already has a box below each pathway linking to the orthologous pathways:
+web interface already has a box below each pathway linking to the orthologous pathways
+as seen on https://reactome.org/content/detail/R-HSA-109581:
 
 ![Reactome Orthology Box](/img/reactome_orthology_box.png)
 
