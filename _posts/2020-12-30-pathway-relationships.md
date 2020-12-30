@@ -84,11 +84,29 @@ between two entities.
 
 ## Pathway are Orthologs
 
+Two genes with similar evolutionary history and function appearing in two organisms
+are called orthologs. They are incredibly important for studying biology because
+they allow us to make inferences about how human biology works when studying model
+organisms like mice and rats. There are several databases collecting orthology
+relationships, such as [HomoloGene](https://www.ncbi.nlm.nih.gov/homologene).
+
+It follows that orthology should apply to pathways as well. In fact, Reactome's
+web interface already has a box below each pathway linking to the orthologous pathways:
+
+![Reactome Orthology Box](/img/reactome_orthology_box.png)
+
+However, this information is not programatically available, and it is not available
+for other databases like WikiPathways and KEGG. Therefore, we can introduce a relationship
+`orthology` to write triples.
+
 | Subject               | Predicate | Object                |
 | --------------------- | ----------| --------------------- |
 | kegg.pathway:hsa04210 | orthology | kegg.pathway:bta04210 |
 
-![Reactome Orthology Box](/img/reactome_orthology_box.png)
+Orthology relationships effectively convey the same information as `speciesSpecific`
+with the advantage that they do not require the addition of a parent term. However,
+between N orthologous pathways, there will be a complete graph of (1/2) * N * (N-1)
+edges. Depending on the downstream use case, these kinds of subgraphs can be problematic.
 
 ## Pathway is About a Concept
 
@@ -127,3 +145,10 @@ seen on https://www.wikipathways.org/index.php/Pathway:WP2059.
 It might be justified to propose an alternate relationship with more specific semantics.
 More information on various disease-specific curation projects outside major pathway
 databases can be found at https://disease-maps.org.
+
+## Disease-specific Variant of a Pathway
+
+This is a bit of an afterthought, but it might be mentioning that there are places,
+like [NeuroMMSig](https://neurommsig.scai.fraunhofer.de/), that curate disease-specific
+variants of pathways. These would need their own dedicated relationships to connect to
+the "canonical" pathway and to the disease that they describe.
