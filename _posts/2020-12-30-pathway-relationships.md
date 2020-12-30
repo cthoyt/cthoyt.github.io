@@ -25,7 +25,7 @@ and apoptotic process effectively the same.
 | Resource                                       | Prefix       | Identifier                                                |
 | ---------------------------------------------- | ------------ | --------------------------------------------------------- |
 | Gene Ontology (GO)                             | go           | [GO:0006915](https://identifiers.org/GO:0006915)          |
-| Medical Subject Headings (MeSH)                | mesh         | [D017209](https://identifiers.org/mesh:)                  |
+| Medical Subject Headings (MeSH)                | mesh         | [D017209](https://identifiers.org/mesh:D017209)           |
 | Kyoto Encyclopedia of Genes and Genomes (KEGG) | kegg.pathway | [map04210](https://identifiers.org/kegg.pathway:map04210) |
 | NCI Thesaurus (NCIT)                           | ncit         | [C17557](https://identifiers.org/ncit:C17557)             |
 
@@ -71,3 +71,38 @@ pathways for apoptosis in KEGG, Reactome, and WikiPathways:
 
 While equivalences begins to tame the ontology of pathways, it is missing
 links between the GO, MeSH, and NCIT terms to Reactome and WikiPathways.
+
+## Species-Specific Variant of a Pathway
+
+GO, MeSH, NCIT, and many other nomenclatures do not contain species-specific variants
+of their pathways. However, KEGG contains both a parent pathway, prefixed with `map`
+and species-specific pathway, prefixed with their internal 3 or 4-letter species code.
+
+| Subject                                                                | Predicate       | Object                                                                 |
+| ---------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------- |
+| [kegg.pathway:hsa04210](https://identifiers.org/kegg.pathway:hsa04210) | speciesSpecific | [kegg.pathway:map04210](https://identifiers.org/kegg.pathway:map04210) |
+| [kegg.pathway:bta04210](https://identifiers.org/kegg.pathway:bta04210) | speciesSpecific | [kegg.pathway:map04210](https://identifiers.org/kegg.pathway:map04210) |
+| ...                                                                    | ...             | ...                                                                    |
+
+It should generally hold that when `X speciesSpecific Y` and `Y skos:exactMatch Z`
+are true, `X speciesSpecific Z`. This allows KEGG to serve as a bridge between
+the species-specific and non-species-specific pathway worlds. However,
+Domingo-Fernandez *et al.* showed that there are huge discrepancies between KEGG, Reactome,
+and WikiPathways, so there is still need to curate/infer the same kinds relationships in
+Reactome and WikiPathways.
+
+Unfortunately, Reactome and WikiPathways do not (yet) have parent terms for
+non-species-specific pathways. Asking about this was the point of the tweet that
+inspired this blog post. Because Reactome uses a standardized nomenclature
+where all variants of each pathway across  species have the same numerical part to
+their identifier (e.g., [R-HSA-109581](https://identifiers.org/reactome:R-HSA-109581)
+and [R-BTA-109581](https://identifiers.org/reactome:R-BTA-109581)), they could institute a
+similar parent nomenclature like KEGG's. WikiPathways identifiers do not have
+this sort of regularity, but they have the benefit of being highly receptive to external
+input and improvements.
+
+Side bar: I've seen an elegant solution for this in OBO that defines child terms
+with an intersection of the [Relation Ontology](https://github.com/oborel/obo-relations)
+relation [RO:0002160](https://identifiers.org/RO:0002160) (only in taxon) to a given species
+and the parent term, but this is an unnecessarily complicated alternative for the goal of
+representing the relation between two entities.
