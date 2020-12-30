@@ -28,3 +28,46 @@ and apoptotic process effectively the same.
 | Medical Subject Headings (MeSH)                | mesh         | [D017209](https://identifiers.org/mesh:)                  |
 | Kyoto Encyclopedia of Genes and Genomes (KEGG) | kegg.pathway | [map04210](https://identifiers.org/kegg.pathway:map04210) |
 | NCI Thesaurus (NCIT)                           | ncit         | [C17557](https://identifiers.org/ncit:C17557)             |
+
+KEGG, Reactome, and WikiPathways all provide human-specific variants of these pathways
+(below) as well as many other species, including both model organisms and not.
+
+| Resource     | Prefix       | Identifier                                                    |
+| ------------ | ------------ | ------------------------------------------------------------- |
+| KEGG         | kegg.pathway | [hsa04210](https://identifiers.org/kegg.pathway:hsa04210)     |
+| Reactome     | reactome     | [R-HSA-109581](https://identifiers.org/reactome:R-HSA-109581) |
+| WikiPathways | wikipathways | [WP254](https://identifiers.org/wikipathways:WP254)           |
+
+## Pathways are Equivalent
+
+Two pathways are equivalent and can be represented with `skos:exactMatch` if they both
+have the same species specificity. The following relationships are between the non-species
+specific pathways for apoptosis:
+
+| Subject                                              | Predicate       | Object                                                                 |
+| ---------------------------------------------------- | --------------- | ---------------------------------------------------------------------- |
+| [GO:0006915](https://identifiers.org/GO:0006915)     | skos:exactMatch | [mesh:D017209](https://identifiers.org/mesh:D017209)                   |
+| [GO:0006915](https://identifiers.org/GO:0006915)     | skos:exactMatch | [kegg.pathway:map04210](https://identifiers.org/kegg.pathway:map04210) |
+| [mesh:D017209](https://identifiers.org/mesh:D017209) | skos:exactMatch | [kegg.pathway:map04210](https://identifiers.org/kegg.pathway:map04210) |
+| ...                                                  | ...             | ...                                                                    |
+
+The following relationships are between the human-specific pathways for apoptosis in
+KEGG, Reactome, and WikiPathways:
+
+| Subject                                                                | Predicate       | Object                                                                 |
+| ---------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------- |
+| [kegg.pathway:hsa04210](https://identifiers.org/kegg.pathway:hsa04210) | skos:exactMatch | [reactome:R-HSA-109581](https://identifiers.org/reactome:R-HSA-109581) |
+| [kegg.pathway:hsa04210](https://identifiers.org/kegg.pathway:hsa04210) | skos:exactMatch | [wikipathways:WP254](https://identifiers.org/wikipathways:WP254)       |
+| [wikipathways:WP254](https://identifiers.org/wikipathways:WP254)       | skos:exactMatch | [reactome:R-HSA-109581](https://identifiers.org/reactome:R-HSA-109581) |
+
+Similarly, the relationships between cow-specific (Bos Taurus; BTA)
+pathways for apoptosis in KEGG, Reactome, and WikiPathways:
+
+| Subject                                           | Predicate       | Object                                            |
+| ------------------------------------------------- | --------------- | ------------------------------------------------- |
+| [kegg.pathway:bta04210](https://identifiers.org/) | skos:exactMatch | [reactome:R-BTA-109581](https://identifiers.org/) |
+| [kegg.pathway:bta04210](https://identifiers.org/) | skos:exactMatch | [wikipathways:WP1018](https://identifiers.org/)   |
+| [wikipathways:WP1018](https://identifiers.org/)   | skos:exactMatch | [reactome:R-BTA-109581](https://identifiers.org/) |
+
+While equivalences begins to tame the ontology of pathways, it is missing
+links between the GO, MeSH, and NCIT terms to Reactome and WikiPathways.
