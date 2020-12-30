@@ -4,8 +4,8 @@ title: Pathway Relationships
 date: 2020-12-30 00:00:00 -0800
 author: Charles Tapley Hoyt
 ---
-When Daniel started the [ComPath](https://doi.org/10.1038/s41540-018-0078-8) project, he wanted to look into the overlap
-of the human pathways in KEGG, Reactome, and WikiPathways.
+When Daniel started the [ComPath](https://doi.org/10.1038/s41540-018-0078-8) project, he wanted to
+look into the overlap  of the human pathways in KEGG, Reactome, and WikiPathways.
 
 This blog post will follow apoptosis, one of the most ubiquitous pathways in biology that
 covers all manners of programed cell death. This blog post isn't about the nitty-gritty difference between
@@ -71,14 +71,14 @@ Reactome and WikiPathways.
 
 However, Reactome and WikiPathways do not (yet) have parent terms for non-species-specific pathways.
 Because Reactome uses a standardized nomenclature where all variants of each pathway across
-species have the same numerical part to their identifier (e.g., R-HSA-109581 and R-BTA-109581),
+species have the same numerical part to their identifier (e.g., `R-HSA-109581` and `R-BTA-109581`),
 they could institute a similar parent nomenclature like KEGG's. WikiPathways does not have
 this sort of regularity, but they have the benefit of being highly receptive to external
 input and improvements.
 
 Side bar: I've seen an elegant solution for this in OBO that defines child terms
 with an intersection of the [Relation Ontology](https://github.com/oborel/obo-relations)
-relation RO:0002160 (only in taxon) to a given species and the parent term, but this
+relation `RO:0002160` (only in taxon) to a given species and the parent term, but this
 is an unnecessarily complicated alternative for the goal of representing the relation
 between two entities.
 
@@ -88,6 +88,7 @@ between two entities.
 | --------------------- | ----------| --------------------- |
 | kegg.pathway:hsa04210 | orthology | kegg.pathway:bta04210 |
 
+![Reactome Orthology Box](/img/reactome_orthology_box.png)
 
 ## Pathway is About a Concept
 
@@ -95,11 +96,11 @@ KEGG, Reactome, and WikiPathways not only include pathways, but also
 other schematics about specific topics such as diseases, families of
 proteins, and other biological entities.
 
-KEGG has an entry kegg.pathway:hsa05010 entitled "Alzheimer disease - Homo sapiens (human)".
-When doing lexical matchings, the MeSH entry mesh:D000544 "Alzheimer Disease" appeared
-highly ranked. However, KEGG's notion of pathway and MeSH's notion of a disease are not
-the same, and these two terms should not be considered equivalent. For the many cases
-like this not only KEGG but also Reactome and WikiPathways, we can introduce a new
+For example, KEGG has an entry `kegg.pathway:hsa05010` entitled *Alzheimer disease - Homo sapiens (human)*.
+When using [Gilda](https://github.com/indralab/gilda) to generate lexical matchings, the MeSH
+entry `mesh:D000544` (Alzheimer Disease) appeared highly ranked. However, KEGG's notion of pathway
+and MeSH's notion of a disease are not the same, and these two terms should not be considered equivalent.
+For this case, not only KEGG but also Reactome and WikiPathways, we can introduce a new
 relationship ``pathwayAbout``. It turns out that WikiPathways also has an Alzheimer's
 disease "pathway" as well.
 
@@ -111,14 +112,18 @@ disease "pathway" as well.
 Note that KEGG and WikiPathways both have specificity in their pathways for organisms,
 but diseases in MeSH and other nomenclatures aren't typically stratified by their
 target organisms. Therefore, the mouse-specific Alzheimer's disease pathway in
-WikiPathways (wikipathways:WP2075) could also have the same relationship.
+WikiPathways (`wikipathways:WP2075`) could also have the same relationship.
 
-Another example is opsins - a family of light-sensitive proteins.
+Another example is opsins - a family of light-sensitive proteins. Reactome has a pathway
+`reactome:R-HSA-419771` (Opsins) that is not the same as the MeSH entry `mesh:D055355`
+(Opsins) describing the protein family.
 
+There is specific interest for connecting disease maps appearing in pathway databases
+to the diseases themselves. WikiPathways has already begun doing this as can be
+seen on https://www.wikipathways.org/index.php/Pathway:WP2059.
 
+![WikiPathways Ontology Terms](/img/wikipathways_ontology_terms.png)
 
-When we were using Gilda to do lexical matching of pathways in 
-
-1. Diseases
-2. Families of Proteins
-
+It might be justified to propose an alternate relationship with more specific semantics.
+More information on various disease-specific curation projects outside major pathway
+databases can be found at https://disease-maps.org.
