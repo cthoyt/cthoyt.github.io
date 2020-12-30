@@ -106,3 +106,35 @@ with an intersection of the [Relation Ontology](https://github.com/oborel/obo-re
 relation [RO:0002160](https://identifiers.org/RO:0002160) (only in taxon) to a given species
 and the parent term, but this is an unnecessarily complicated alternative for the goal of
 representing the relation between two entities.
+
+## Pathway are Orthologs
+
+Two genes with similar evolutionary history and function appearing in two organisms
+are called orthologs. Orthology is incredibly important for studying biology because
+it allows us to make inferences about how human biology works by studying model
+organisms like mice and rats. There are several databases collecting orthology
+relationships, such as [HomoloGene](https://www.ncbi.nlm.nih.gov/homologene).
+
+It follows that orthology could be applied to pathways as well. In fact, Reactome's
+web interface already has a box below each pathway linking to the orthologous pathways:
+
+![Reactome Orthology Box](/img/reactome_orthology_box.png)
+
+However, this information is not programatically available (AFAIK), and it is not available
+for other databases like WikiPathways and KEGG. Therefore, we can introduce a relationship
+`orthology` to start curating triples like:
+
+| Subject                                                                | Predicate | Object                                                                 |
+| ---------------------------------------------------------------------- | ----------| ---------------------------------------------------------------------- |
+| [kegg.pathway:hsa04210](https://identifiers.org/kegg.pathway:hsa04210) | orthology | [kegg.pathway:bta04210](https://identifiers.org/kegg.pathway:bta04210) |
+
+Orthology relationships effectively convey the same information as `speciesSpecific`
+with the advantage that they do not require the addition of a parent term. However,
+between N orthologous pathways, there will be a complete subggraph of (1/2) * N * (N-1)
+edges (also called a clique in graph theory). Depending on the downstream use case,
+these kinds of subgraphs can be problematic.
+
+Because `kegg.pathway:hsa04210 skos:exactMatch reactome:R-HSA-109581`,
+we can infer `reactome:R-HSA-109581 orthology kegg.pathway:bta04210`. However, I think
+it would be best to only curate orthology relationships within a given database because
+it will increase the size (N) of the clique.
