@@ -196,8 +196,11 @@ improving the lexical mappings with the Gilda software as well  as contributed t
 curations for MeSH-GO mappings.
 
 There are still many disjoint resources that need normalization, including the
-Pathway Ontology, which I haven't touched yet, PathBank, which Yojana curated but hasn't
-made it into any publications yet, BioCyc, MetaCyc, and many others. Each must first be
+Pathway Ontology, which looks to have lots of information. I'll be working on it
+via this [GitHub issue](https://github.com/biomappings/biomappings/issues/36).
+
+There's also PathBank, (curated by Yojana but not appearing in the original ComPath publication), 
+BioCyc, MetaCyc, and many others. Each must first be
 included in [PyOBO](https://github.com/pyobo/pyobo) as I described in a
 [previous post]({% post_url 2020-04-18-ooh-na-na %}) before getting into curation, so
 I can reuse all the code.
