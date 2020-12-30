@@ -87,12 +87,13 @@ and species-specific pathway, prefixed with their internal 3 or 4-letter species
 It should generally hold that when `X speciesSpecific Y` and `Y skos:exactMatch Z`
 are true, `X speciesSpecific Z`. This allows KEGG to serve as a bridge between
 the species-specific and non-species-specific pathway worlds. However,
-Domingo-Fernandez *et al* showed that there are huge discrepancies between KEGG, Reactome,
+Domingo-Fernandez *et al.* showed that there are huge discrepancies between KEGG, Reactome,
 and WikiPathways, so there is still need to curate/infer the same kinds relationships in
 Reactome and WikiPathways.
 
 Unfortunately, Reactome and WikiPathways do not (yet) have parent terms for
-non-species-specific pathways.  Because Reactome uses a standardized nomenclature
+non-species-specific pathways. Asking about this was the point of the tweet that
+inspired this blog post. Because Reactome uses a standardized nomenclature
 where all variants of each pathway across  species have the same numerical part to
 their identifier (e.g., `R-HSA-109581` and `R-BTA-109581`), they could institute a
 similar parent nomenclature like KEGG's. WikiPathways identifiers do not have
@@ -197,6 +198,6 @@ included in [PyOBO](https://github.com/pyobo/pyobo) as I described in a
 [previous post]({% post_url 2020-04-18-ooh-na-na.md %}) before getting into curation so
 I can reuse all of the code. 
 
-This is all part of a greater effort, [Biomappings](https://github.com/biomappings/biomappings)
+This is all part of a greater effort, [Biomappings](https://github.com/biomappings/biomappings),
 which Ben and I have been working on to make it much easier to curate equivalences and
 related mappings. I'll have more to say about that in a future post.
