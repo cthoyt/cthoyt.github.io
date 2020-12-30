@@ -178,3 +178,29 @@ seen on https://www.wikipathways.org/index.php/Pathway:WP2059.
 It might be justified to propose an alternate relationship with more specific semantics.
 More information on various disease-specific curation projects outside major pathway
 databases can be found at https://disease-maps.org.
+
+## Disease-specific Variant of a Pathway
+
+This is a bit of an afterthought, but it might be mentioning that there are places,
+like [NeuroMMSig](https://neurommsig.scai.fraunhofer.de/), that curate disease-specific
+variants of pathways. These would need their own dedicated relationships to connect to
+the "canonical" pathway and to the disease that they describe.
+
+---
+I have to give a huge shout-out to [Daniel Domingo-Fernández](https://github.com/ddomingof),
+[Josep Marín-Llaó](https://github.com/jmarinllao), Carlos Bobis-Álvarez,
+and [Yojana Gadiya](https://github.com/YojanaGadiya) who have done the curation in the ComPath
+project as well as [Ben Gyori](https://github.com/bgyori/) who laid the groundwork for
+improving the lexical mappings with the Gilda software as well  as contributed tons of
+curations for MeSH-GO mappings.
+
+There are still many disjoint resources that need normalization, including the
+Pathway Ontology, which I haven't touched yet, PathBank, which Yojana curated but hasn't
+made it into any publications yet, BioCyc, MetaCyc, and many others. Each must first be
+included in [PyOBO](https://github.com/pyobo/pyobo) as I described in a
+[previous post]({% post_url 2020-04-18-ooh-na-na %}) before getting into curation so
+I can reuse all of the code.
+
+This is all part of a greater effort, [Biomappings](https://github.com/biomappings/biomappings),
+which Ben and I have been working on to make it much easier to curate equivalences and
+related mappings. I'll have more to say about that in a future post.
