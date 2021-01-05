@@ -67,3 +67,15 @@ on the same topics and reproducibility in computational science.
 I'm also a real person, too! I love making music, watching movies/TV, running,
 and traveling. I've been to 30 countries so far and tried beer in almost all
 of them. I have yet to enjoy it.
+
+## Short Bio Text
+
+For any content requiring a short bio (~1 paragraph), you can use the following text and
+[this photo](https://commons.wikimedia.org/wiki/File:Charles_Tapley_Hoyt_2019.jpg).
+
+Dr. Charles Tapley Hoyt received his Ph.D. in Computational Life Sciences from
+the University of Bonn. His research interests cover the interface of biocuration,
+knowledge graphs, and machine learning with systems biology, networks biology, and 
+drug discovery. He is an advocate of open source software, reproducibility, and
+open science. His open source projects PyBEL and PyKEEN are used by several academic
+and industrial groups.
