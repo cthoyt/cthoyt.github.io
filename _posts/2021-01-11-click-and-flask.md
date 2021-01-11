@@ -38,7 +38,8 @@ if __name__ == '__main__':
     app.run()
 ```
 
-Note that the `app.run()` is enclosed in `if __name__ == '__main__'`. This means that the app only gets run if
+Note that the [`app.run()`](https://flask.palletsprojects.com/en/1.1.x/api/#flask.Flask.run) is enclosed in
+`if __name__ == '__main__'`. This means that the app only gets run if
 the `granola_explosion.wsgi` is run as a script. Later, we will be importing this module inside our CLI, and we don't
 want it to run until we tell it to (and with our very own options).
 
@@ -267,4 +268,7 @@ if __name__ == '__main__':
 ```
 
 ---
+I intentionally did not cover the built-in [Flask Script](https://flask.palletsprojects.com/en/1.1.x/cli/) because
+it doesn't fit in with my paradigm of "everything must be packaged."
+
 This is my first post of 2021! Happy new year!
