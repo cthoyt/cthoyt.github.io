@@ -45,8 +45,9 @@ want it to run until we tell it to (and with our very own options).
 ## Run a Flask Web Application with Click
 
 Let's also assume your command line interface is in a module called `granola_explosion.cli` located
-at `src/granola_explosion/wsgi.py` using a `click.Group` to organize several subcommands. The following example shows
-how you can import the `app` object and run it from inside the command line.
+at `src/granola_explosion/cli.py` using a [`click.Group`](https://click.palletsprojects.com/en/7.x/api/#click.Group)
+to organize several subcommands. The following example shows  how you can import the `app` object and run it from
+inside the command line.
 
 ```python
 # cli.py
