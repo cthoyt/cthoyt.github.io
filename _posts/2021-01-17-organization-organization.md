@@ -86,14 +86,22 @@ External Account Links:
    ![Wikidata create item page](/img/wikidata-create-item.png)
 3.
 
-## Step 2: Global Research Identifier Database
-
-The [Global Research Identifier Database (GRID)](https://grid.ac/)
-
-GRID is released about every three months via FigShare under
-the [Creative Commons Public Domain 1.0 International licence](https://creativecommons.org/publicdomain/zero/1.0/),
-which means anyone can use it any way they want.
-
-## Step 3: Research Organization Registry
+## Step 2: Research Organization Registry
 
 The [Research Organization Registry (ROR)](https://ror.org)
+
+Finally, the whole loop that started with Wikidata can be closed by copying your newly minted ROR identifier back to
+your organization's Wikidata item. Wikidata has a property [ROR ID](https://www.wikidata.org/wiki/Property:P6782) whose
+object is the scalar identifier from ROR!
+
+## Step 3: Global Research Identifier Database
+
+The [Global Research Identifier Database (GRID)](https://grid.ac/) is a parallel effort that imports data from ROR on a
+quarterly (every three months) basis. It assigns an additional GRID identifier to an organization that is already in
+ROR. GRID is released about every three months via FigShare under
+the [Creative Commons Public Domain 1.0 International license](https://creativecommons.org/publicdomain/zero/1.0/),
+which means anyone can use it any way they want.
+
+Like with ROR, GRID has a Wikidata property [GRID ID](https://www.wikidata.org/wiki/Property:P2427) that links a
+Wikidata item to the scalar GRID identifier.
+
