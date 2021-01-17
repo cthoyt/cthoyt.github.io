@@ -1,14 +1,16 @@
 ---
 layout: post
-title: Organizing the Public Data about your Organization
+title: Organizing the Public Data about your Research Organization
 date: 2021-01-17 19:23:00 +0100
 author: Charles Tapley Hoyt
 ---
-I'm a big fan of [Manubot](https://manubot.org/) and fully support its mission to upend the modern scientific publishing
-model. Like how they use structured [ORCID identifiers](https://orcid.org/) for identifying authors in manuscript
-metadata, they are also working towards using [ROR identifiers](https://ror.org) for organizations. There are still a
-few growing pains for ROR, so I chimed in on a [discussion](https://github.com/manubot/manubot/issues/155) on GitHub
-about how Wikidata might be a potential solution. I said I'd describe my idea more in detail, so here I go!
+If you've ever read a scientific paper, you know that the information that makes it into the author affiliations is a
+mess. I'm a big fan of [Manubot](https://manubot.org/) and fully support its mission to upend the modern scientific
+publishing model. Like how they use structured [ORCID identifiers](https://orcid.org/) for identifying authors in
+manuscript metadata, they are also working towards using [ROR identifiers](https://ror.org) for organizations. There are
+still a few growing pains for ROR, so I chimed in on a [discussion](https://github.com/manubot/manubot/issues/155) on
+GitHub about how Wikidata might be a potential solution for organizing and retrieving information about reserach
+organizations. I said I'd describe my idea more in detail, so here I go!
 
 ## Step 1: Wikidata
 
@@ -94,13 +96,13 @@ External Account Links:
    ![Wikidata add statement step 2](/img/wikidata_add_statement_2.png)
 5. After checking what you've typed is correct, click publish! Don't worry, all items can be edited/updated later.
    ![Wikidata add statement step 3](/img/wikidata_add_statement_3.png)
-6. Repeat for all information you know about the organization. It's a bit high-minded, but you can also follow the
-   links for the properties mentioned above to see the rules they define for how they should be used. The cool thing
-   about ontologies is that properties can actually be the subject of relationships that describe how they work using
+6. Repeat for all information you know about the organization. It's a bit high-minded, but you can also follow the links
+   for the properties mentioned above to see the rules they define for how they should be used. The cool thing about
+   ontologies is that properties can actually be the subject of relationships that describe how they work using
    "meta-properties" 🤯.
 
-If you've got any suggestions for improving this tutorial, feel free to get in touch with me (contact information at
-the bottom of this post) or make a PR to this page directly on GitHub!
+If you've got any suggestions for improving this tutorial, feel free to get in touch with me (contact information at the
+bottom of this post) or make a PR to this page directly on GitHub!
 
 ## Step 2: Research Organization Registry
 
@@ -140,7 +142,7 @@ Wikidata item to the scalar GRID identifier.
 ### Ringgold and ISNI
 
 Many publishers use the Ringgold system for organization resolution (such as Manuscript Central). For a group interested
-in scholary publishing (which could either be an academic or commercial organization), you can simultaneously apply for
+in scholarly publishing (which could either be an academic or commercial organization), you can simultaneously apply for
 a Ringgold and ISNI by emailing isni@ringgold.com (copied from their [FAQ](https://www.ringgold.com/isni/)).
 
 These can be linked to a Wikidata item with the [Ringgold ID](https://www.wikidata.org/wiki/Property:P3500) and
@@ -162,6 +164,6 @@ they provide for accessing the data however you want. This is the original reaso
 Manubot issue tracker. It would be totally reasonable to hit their SPARQL endpoint with one query per Manubot build and
 continue being good open source citizens.
 
-This blog post might have gone off on a couple tangents besides what was relevant for Manubot, but becuase I did all of
-these things to set up the internet presence of Enveda Biosciences when I worked there last year, it could serve as a
-good guide for any new organizations to get up to speed.
+This blog post might have gone off on a couple tangents besides what was relevant for Manubot, but because I did all of
+these things to set up the internet presence of my previous employer, it could serve as a good guide for any new
+organizations to get up to speed.
