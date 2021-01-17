@@ -1,6 +1,8 @@
 ---
-layout: post title: Organizing the Public Data about your Organization date: 2021-01-17 17:14:00 +0100 author: Charles
-Tapley Hoyt
+layout: post
+title: Organizing the Public Data about your Organization
+date: 2021-01-17 19:23:00 +0100
+author: Charles Tapley Hoyt
 ---
 I'm a big fan of [Manubot](https://manubot.org/) and fully support its mission to upend the modern scientific publishing
 model. Like how they use structured [ORCID identifiers](https://orcid.org/) for identifying authors in manuscript
