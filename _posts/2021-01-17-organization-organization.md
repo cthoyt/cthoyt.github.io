@@ -82,13 +82,33 @@ External Account Links:
    this could cause confusion. The rest of the form is pretty obvious, but if you aren't sure what to entry for the
    description, writing what kind of thing it is might be best. For the Northeastern Department of Chemistry, one might
    write "academic department"
-
    ![Wikidata create item page](/img/wikidata-create-item.png)
-3.
+3. You'll see a mostly blank page. Start by clicking the  "+ add statement" link in the middle to bring up the following
+   box. On the left where "Property" is greyed out, you can type the name of the relationship and click the right
+   suggestion from the dropdown
+   ![Wikidata add statement step 1](/img/wikidata_add_statement_1.png)
+4. In the middle, you can type the object of the relationship. If the property accepts another Wikidata item, it will
+   show an autocomplete field. If the property accepts a scalar (like an identifier), then no dropdown will pop up.
+   ![Wikidata add statement step 2](/img/wikidata_add_statement_2.png)
+5. After checking what you've typed is correct, click publish! Don't worry, all items can be edited/updated later.
+   ![Wikidata add statement step 3](/img/wikidata_add_statement_3.png)
+6. Repeat for all information you know about the organization. It's a bit high-minded, but you can also follow the
+   links for the properties mentioned above to see the rules they define for how they should be used. The cool thing
+   about ontologies is that properties can actually be the subject of relationships that describe how they work using
+   "meta-properties" 🤯.
 
 ## Step 2: Research Organization Registry
 
-The [Research Organization Registry (ROR)](https://ror.org)
+The [Research Organization Registry (ROR)](https://ror.org) is an organization dedicated to assigning unique identifiers
+to all research organizations. Definitely check out their homepage, I couldn't write it any better than they did. They
+can accomplish the same goal that you can on Wikidata, but there's a clear advantage towards having nomenclature
+authorities that manually curate and maintain data.
+
+Their [curation page](https://ror.org/curation/) has a link to their request form where you can send information about
+your organization to them. Even better, they accept Wikidata identifiers, so you don't have to type everything all over
+again! I personally filled out the form and had some very nice email exchanges later with their team, so I hope you have
+a nice experience too. Eventually, they will assign your organization a ROR identifier as well as curate relationships
+between your organization and others.
 
 Finally, the whole loop that started with Wikidata can be closed by copying your newly minted ROR identifier back to
 your organization's Wikidata item. Wikidata has a property [ROR ID](https://www.wikidata.org/wiki/Property:P6782) whose
@@ -129,12 +149,14 @@ the information attached to your organization through Wikidata. For example, see
 annotate for each member of your organization that they are affiliated, have been educated at, or have been employed at
 your organization, whether it's current or past - Wikidata has additional metadata for a relationship for representing
 the time period during which it was true.
+
 ---
+
 Scholia shows off how easy it is to build a system on top of the data in Wikidata and the (free!) SPARQL infrastructure
 they provide for accessing the data however you want. This is the original reason for me bringing up Wikidata in the
 Manubot issue tracker. It would be totally reasonable to hit their SPARQL endpoint with one query per Manubot build and
 continue being good open source citizens.
 
-This blog post might have gone off on a couple tangents besides what was relevant for Manubot, but becuase I did all
-of these things to set up the internet presence of Enveda Biosciences when I worked there last year, it could serve as
-a good guide for any new organizations to get up to speed.
+This blog post might have gone off on a couple tangents besides what was relevant for Manubot, but becuase I did all of
+these things to set up the internet presence of Enveda Biosciences when I worked there last year, it could serve as a
+good guide for any new organizations to get up to speed.
