@@ -69,7 +69,7 @@ Leadership and organizer links:
 
 External Account Links:
 
-- [Twitter usernae](https://www.wikidata.org/wiki/Property:P2002)
+- [Twitter username](https://www.wikidata.org/wiki/Property:P2002)
 - [LinkedIn company ID](https://www.wikidata.org/wiki/Property:P4264)
 - [GitHub username](https://www.wikidata.org/wiki/Property:P2037)
 
