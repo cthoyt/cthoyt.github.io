@@ -84,7 +84,7 @@ External Account Links:
    this could cause confusion. The rest of the form is pretty obvious, but if you aren't sure what to entry for the
    description, writing what kind of thing it is might be best. For the Northeastern Department of Chemistry, one might
    write "academic department"
-   ![Wikidata create item page](/img/wikidata-create-item.png)
+   ![Wikidata create item page](/img/wikidata_create_item.png)
 3. You'll see a mostly blank page. Start by clicking the  "+ add statement" link in the middle to bring up the following
    box. On the left where "Property" is greyed out, you can type the name of the relationship and click the right
    suggestion from the dropdown
