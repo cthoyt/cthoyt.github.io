@@ -97,6 +97,9 @@ External Account Links:
    about ontologies is that properties can actually be the subject of relationships that describe how they work using
    "meta-properties" 🤯.
 
+If you've got any suggestions for improving this tutorial, feel free to get in touch with me (contact information at
+the bottom of this post) or make a PR to this page directly on GitHub!
+
 ## Step 2: Research Organization Registry
 
 The [Research Organization Registry (ROR)](https://ror.org) is an organization dedicated to assigning unique identifiers
