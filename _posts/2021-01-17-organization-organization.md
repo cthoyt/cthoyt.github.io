@@ -94,7 +94,14 @@ Finally, the whole loop that started with Wikidata can be closed by copying your
 your organization's Wikidata item. Wikidata has a property [ROR ID](https://www.wikidata.org/wiki/Property:P6782) whose
 object is the scalar identifier from ROR!
 
-## Step 3: Global Research Identifier Database
+## Step 3: Optional but Cool Things
+
+Wikidata, ROR, and GRID (below) are by far the best solutions for storing scholarly metadata because of their licensing
+and API accessibility. Ringgold and ISNI are not good options for building a reusable infrastructure since they are both
+closed and paid systems, but they are still relevant (until the revolution) for some aspects of modern scientific
+publication.
+
+### Global Research Identifier Database
 
 The [Global Research Identifier Database (GRID)](https://grid.ac/) is a parallel effort that imports data from ROR on a
 quarterly (every three months) basis. It assigns an additional GRID identifier to an organization that is already in
@@ -105,3 +112,29 @@ which means anyone can use it any way they want.
 Like with ROR, GRID has a Wikidata property [GRID ID](https://www.wikidata.org/wiki/Property:P2427) that links a
 Wikidata item to the scalar GRID identifier.
 
+### Ringgold and ISNI
+
+Many publishers use the Ringgold system for organization resolution (such as Manuscript Central). For a group interested
+in scholary publishing (which could either be an academic or commercial organization), you can simultaneously apply for
+a Ringgold and ISNI by emailing isni@ringgold.com (copied from their [FAQ](https://www.ringgold.com/isni/)).
+
+These can be linked to a Wikidata item with the [Ringgold ID](https://www.wikidata.org/wiki/Property:P3500) and
+[ISNI](https://www.wikidata.org/wiki/Property:P213) properties.
+
+### Scholia
+
+Once your Wikidata page is full of information, you can use [Scholia](https://scholia.toolforge.org/) to visualize all
+the information attached to your organization through Wikidata. For example, see the
+[University of Cambridge](https://scholia.toolforge.org/organization/Q35794). To get the most of this, you should
+annotate for each member of your organization that they are affiliated, have been educated at, or have been employed at
+your organization, whether it's current or past - Wikidata has additional metadata for a relationship for representing
+the time period during which it was true.
+---
+Scholia shows off how easy it is to build a system on top of the data in Wikidata and the (free!) SPARQL infrastructure
+they provide for accessing the data however you want. This is the original reason for me bringing up Wikidata in the
+Manubot issue tracker. It would be totally reasonable to hit their SPARQL endpoint with one query per Manubot build and
+continue being good open source citizens.
+
+This blog post might have gone off on a couple tangents besides what was relevant for Manubot, but becuase I did all
+of these things to set up the internet presence of Enveda Biosciences when I worked there last year, it could serve as
+a good guide for any new organizations to get up to speed.
