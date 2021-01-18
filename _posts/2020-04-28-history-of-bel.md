@@ -50,8 +50,8 @@ The board approves the plan, approves investment in Genstruct, and hires Keith a
 **January 2003** Genstruct does its first commercial project, a pilot project with Pfizer, where they successfully identified the mechanism of action of an unknown cancer drug.
 This leads to a more than 10 year collaboration between the companies.
 
-**Spring 2003**. Biological Expression Language is created by Dexter Pratt, Navin Chandra, Keith Elliston and Ted Slater.
-This development is based on work done by Navin at [Perot Systems and Nets](https://en.wikipedia.org/wiki/Perot_Systems), work done by Dexter on CycL with [Cycorp](https://www.cyc.com), and on biological ontologies by Keith and Ted.
+**Spring 2003**. Biological Expression Language is created by Dexter Pratt, Navin Chandra, Keith Elliston, and Ted Slater.
+This development is based on work done by Navin at [Perot Systems and Nets](https://en.wikipedia.org/wiki/Perot_Systems), work done by Dexter on [CycL](https://www.cyc.com/archives/glossary/cycl-sentence) with [Cycorp](https://www.cyc.com), and on biological ontologies by Keith and Ted.
 
 **September 8th, 2003** Genstruct [raises $6.5M](https://www.crunchbase.com/funding_round/selventa-series-a--1f3d3583)
 in a Series A with lead investors [Flagship Pioneering](https://www.flagshippioneering.com/companies/selventa) and
