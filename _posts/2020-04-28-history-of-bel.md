@@ -2,6 +2,8 @@
 layout: post
 title: An Incomplete History of Selventa and the Biological Expression Language (BEL)
 date: 2020-04-28 00:00:00 -0800
+author: Charles Tapley Hoyt
+tags: bel pybel
 ---
 The company and community that surround the Biological Expression Language (BEL) are enigmatic, to say the least.
 This post represents the best I could do to tell the history of Selventa and BEL.
@@ -507,6 +509,9 @@ work at Fraunhofer. I'm thankful for all of the people who were interested in my
 and then joined me as co-authors on my publications. When it came to writing this history, I was in a situation where
 I had lots of high granular information to share on the things that I worked on and also the the desire to share as
 much of it as possible. I hope I did a good enough job at laying out the landscape of the other things going on outside
-of my perspective. If you've got something to add, all of my contact information is available on the footer of my blog.
+of my perspective.
+
+If you've got something to add, all of my contact information is available on the footer of my blog.
 Or make a [pull request against this page](https://github.com/cthoyt/cthoyt.github.io/edit/master/_posts/2020-04-28-history-of-bel.md)
-directly. Or tweet at me [@cthoyt](https://twitter.com/cthoyt).
+directly. Or tweet at me [@cthoyt](https://twitter.com/cthoyt). Special thanks to Keith Ellison for suggesting
+[these changes](https://github.com/cthoyt/cthoyt.github.io/pull/10).
