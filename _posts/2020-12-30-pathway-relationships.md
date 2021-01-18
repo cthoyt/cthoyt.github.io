@@ -3,6 +3,7 @@ layout: post
 title: Pathway Relationships
 date: 2020-12-30 00:00:00 -0800
 author: Charles Tapley Hoyt
+tags: ontology curation
 ---
 Domingo-Fernandez *et al.* published [ComPath: An ecosystem for exploring, analyzing,
 and curating mappings across pathway databases.](https://doi.org/10.1038/s41540-018-0078-8)

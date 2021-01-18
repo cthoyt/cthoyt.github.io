@@ -3,6 +3,7 @@ layout: post
 title: How to Code with Me - Organizing a Package
 date: 2020-06-03 00:00:00 -0800
 author: Charles Tapley Hoyt
+tags: code-with-me
 ---
 This blog post is the next installment in the series about all of the very particular ways I do software development
 in Python. This round is about where to put your code, your tests, your CLI, and the right metadata for each.

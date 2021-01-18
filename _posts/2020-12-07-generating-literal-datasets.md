@@ -3,6 +3,7 @@ layout: post
 title: Generating Testing Knowledge Graphs with Literals
 date: 2020-12-07 00:00:00 -0800
 author: Charles Tapley Hoyt
+tags: knowledge-graphs pykeen
 ---
 [PyKEEN](https://github.com/pykeen/pykeen/) has a wide variety of functionality related
 to knowledge graph embedding models  and handling various sources of knowledge graphs.

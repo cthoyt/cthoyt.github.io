@@ -3,6 +3,7 @@ layout: post
 title: Summarizing ChemRxiv
 date: 2020-04-15 00:00:00 -0800
 author: Charles Tapley Hoyt
+tags: bibliometrics
 ---
 A few months ago, the question was posed on science Twitter:
 "How many people have published on [ChemRxiv](https://chemrxiv.org/)?"

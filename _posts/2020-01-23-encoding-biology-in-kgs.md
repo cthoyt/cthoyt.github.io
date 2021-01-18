@@ -3,6 +3,7 @@ layout: post
 title: "Encoding Biology in Knowledge Graphs"
 date: 2020-01-23 00:00:00 -0800
 author: Charles Tapley Hoyt
+tags: knowledge-graphs
 ---
 How many molecular biology papers have you read today? This week?
 This month? If you're like me, its not so many, and we're falling

@@ -3,6 +3,7 @@ layout: post
 title: How to Code with Me - Wrapping a Flask App in a CLI
 date: 2021-01-11 01:14:00 +0100
 author: Charles Tapley Hoyt
+tags: code-with-me
 ---
 Previous posts in my "How to Code with Me" series have addressed
 [packaging python code]({% post_url 2020-06-03-how-to-code-with-me-organization %}) and

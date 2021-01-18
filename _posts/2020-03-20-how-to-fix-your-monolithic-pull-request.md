@@ -3,6 +3,7 @@ layout: post
 title: How to Fix Your Monolithic Pull Request
 date: 2020-03-20 00:00:00 -0800
 author: Charles Tapley Hoyt
+tags: code-with-me
 ---
 We've all been there. You started a new branch from master. You had a very
 specific goal in mind, **The Original Goal**. You made a pull request (PR) to

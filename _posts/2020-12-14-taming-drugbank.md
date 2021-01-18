@@ -3,6 +3,7 @@ layout: post
 title: Making DrugBank Reproducible
 date: 2020-12-14 00:00:00 -0800
 author: Charles Tapley Hoyt
+tags: reproducibility
 ---
 If you're reading my blog, there's a pretty high chance you've used
 [DrugBank](https://go.drugbank.com/), a database of drug-target
