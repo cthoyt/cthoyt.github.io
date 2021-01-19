@@ -15,7 +15,7 @@ permalink: /community/
 
 ## Events
 
-<ul>
+<ol reversed>
 {% for entry in site.data.events %}
     <li>
     <a href="{{ entry.link }}">{{ entry.name }}</a> {% if entry.online %}(online) {% else %}in {{ entry.location.city }}, {{ entry.location.country }}{% endif %}
@@ -37,7 +37,7 @@ permalink: /community/
     
     </li>
 {% endfor %}
-</ul>
+</ol>
 
 ## Events on Wikidata
 
