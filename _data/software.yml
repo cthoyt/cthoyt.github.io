@@ -81,3 +81,9 @@
   role: contributor (core team member)
   description: Generation of structural causal models (SCMs) from BEL graphs
   logo: https://avatars3.githubusercontent.com/u/67915215?s=200
+
+- name: y0
+  github: y0-causal-inference/y0
+  role: maintainer (core team member)
+  description: Representation and manipulating probabilistic expressions
+  logo: /img/logos/y0.png
