@@ -64,24 +64,59 @@ the [edit](https://github.com/SuLab/WikidataIntegrator/edit/main/wikidataintegra
 which will automatically fork the repository and create a new branch. I'm terrible using git and managing multiple
 remotes, so this is my preferred way to start a PR in any repository that I might want to PR more than once.
 
-The first step is to identify if there's a Wikidata property corresponding to entries in your new source. This was
-already the case for arXiv and bioRxiv, so I added an entry to the `ID_TYPES` dictionary where the key is the name of
-the source (not necessarily the name on the property, keep it short and simple). In the case of ChemRxiv, DOIs are
-available for each article so I did not need to add a new entry to `ID_TYPES`. However, because the scholarly articles
-on Wikidata typically use the DOI to point to the peer-reviewed article and a preprint-specific property to point to the
-preprint describing the same paper (I know, confusing...), I created
-a [property proposal for "ChemRxiv ID"](https://www.wikidata.org/wiki/Wikidata:Property_proposal/ChemRxiv_ID) on
+### Adding the right metadata
+
+![Wikidata Integrator - Add New Source - Steps 1 and 2](/img/wdi_steps/1_2.png)
+
+The first step is to identify the Wikidata property corresponding to entries in your new source. This was already the
+case for arXiv ([P818](https://www.wikidata.org/wiki/Property:P818)) and bioRxiv
+([P3951](https://www.wikidata.org/wiki/Property:P3951)), so I added an entry to the `ID_TYPES` dictionary in
+the `Publication` class where the key is the name of the source (not necessarily the name on the property, keep it short
+and simple).
+
+The second step is to identify the Wikidata item corresponding to the source itself and add it to the `SOURCES`
+dictionary in the `Publication` class (just below the `ID_TYPES` dictionary).
+
+### Implementing the getter
+
+![Wikidata Integrator - Add New Source - Step 3](/img/wdi_steps/3.png)
+
+The third step is where the domain logic about your source comes in. You need to implement a function that takes in an
+identifier that spits back an instance of the `Publication` class. It also has to have an `id_type` argument where the
+default value matches to the key you used in the sources. This actually isn't used anywhere, but must be there because
+of the interface that consumes it. This function can live towards the bottom of the Python file and isn't inside a class
+
+- it's best to put it next to the bioRxiv, arXiv, and crossref ones.
+
+Most of the way you get data from your source is up to you. Most sources have some kind of endpoint that can be queried
+and returns JSON - note that Wikidata Integrator has a consistent USER AGENT that tells services what kind of code is
+querying it. This is important if you're hitting an API with many queries so they sysadmins can see what's going on.
+
+The Publication class is pretty self-explanatory except for a few parts.
+
+1. The `authors` keyword arguments takes a list of dictionaries whose keys are `full_name` and `orcid`. You can
+   omit `orcid` or pass `None`.
+2. Make sure that the keys in the `ids` keyword argument correspond to keys in `ID_TYPES`. If your document has more
+   than one ID, you can put them her (though there is some debate whether this is a good idea).
+3. You have to set the `instance_of` property not with the `__init__()` because it gets handled with a Python
+   descriptor. This is a design choice in the Publication class that is out of our hands.
+4. Don't forget to set the `published_in_qid` which will correspond to the `venue` on your wikidata item.
+
+### Tying it all together
+
+![Wikidata Integrator - Add New Source - Step 4](/img/wdi_steps/4.png)
+![Wikidata Integrator - Add New Source - Step 5](/img/wdi_steps/5.png)
+
+## My Source Doesn't Have a Wikidata Property
+
+In the case of ChemRxiv, DOIs are available for each article so I did not need to add a new entry to `ID_TYPES`
+dictionary. However, because the scholarly articles on Wikidata typically use the DOI to point to the peer-reviewed
+article and a preprint-specific property to point to the preprint describing the same paper (I know, confusing...), I
+created a [property proposal for "ChemRxiv ID"](https://www.wikidata.org/wiki/Wikidata:Property_proposal/ChemRxiv_ID) on
 Wikidata. You can propose a new property
 from [this page](https://www.wikidata.org/wiki/Wikidata:Property_proposal/Generic) but beware: Wikidata property
 maintainers are quite cautious to add new things and aren't necessarily giving the most prompt feedback.
 
-![Wikidata Integrator - Add New Source - Steps 1 and 2](/img/wdi_step_1_2.png)
-
-1. Add an entry to the `PROPS` dictionary
-   in [`wikidataintegrator/wdi_helpers/__init__.py`](https://github.com/SuLab/WikidataIntegrator/blob/c0e16e4ba416979c9a6ae600b4edb2860a2772ed/wikidataintegrator/wdi_helpers/__init__.py#L23-L47)
-   . where the key
-
-https://github.com/SuLab/WikidataIntegrator/pull/169
 ---
 
 I had a lot of fun working on this blog post, and had it was a reminder of the nice discussion I had with Andrew Su last
