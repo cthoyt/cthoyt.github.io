@@ -1,6 +1,9 @@
 ---
-layout: post title: Adding New Literature Sources to the Wikidata Integrator date: 2021-01-25 01:14:00 +0100 author:
-Charles Tapley Hoyt tags: bibliometrics
+layout: post
+title: Adding New Literature Sources to the Wikidata Integrator
+date: 2021-01-23 21:12:00 +0100
+author: Charles Tapley Hoyt
+tags: bibliometrics wikidata
 ---
 [Scholia](https://scholia.toolforge.org) is a powerful frontend for summarizing authors, publications, institutions,
 topics, etc. that draws content from [Wikidata](https://www.wikidata.org). However, the content that's available in
