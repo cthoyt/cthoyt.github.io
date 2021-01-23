@@ -120,8 +120,8 @@ use `self.ID_TYPES['your key']`.
 
 ### Testing
 
-Try running the following code with a valid ID and hope that everything works! If you are having issues here, then
-you can always send a draft pull request to solicit help from the maintainers of the project.
+Try running the following code with a valid ID and hope that everything works! If you are having issues here, then you
+can always send a draft pull request to solicit help from the maintainers of the project.
 
 ```shell
 $ wikidataintegrator-publication --idtype "your key" "your id"
@@ -130,15 +130,14 @@ $ wikidataintegrator-publication --idtype "your key" "your id"
 ## My Source Doesn't Have a Wikidata Property
 
 In the case of ChemRxiv, DOIs are available for each article, so I did not need to add a new entry to `ID_TYPES`
-dictionary. However, because the scholarly articles on Wikidata typically use the DOI to point to the peer-reviewed
-article and a preprint-specific property to point to the preprint describing the same paper (I know, confusing...), I
-created a [property proposal for "ChemRxiv ID"](https://www.wikidata.org/wiki/Wikidata:Property_proposal/ChemRxiv_ID) on
-Wikidata. You can propose a new property
+dictionary. However, scholarly articles on Wikidata typically use the DOI to point to the peer-reviewed article and a
+preprint-specific property to point to the preprint describing the same paper (I know, confusing...).
+
+I created a [property proposal for "ChemRxiv ID"](https://www.wikidata.org/wiki/Wikidata:Property_proposal/ChemRxiv_ID)
+on Wikidata to help rectify this. You can propose a new property
 from [this page](https://www.wikidata.org/wiki/Wikidata:Property_proposal/Generic) but beware: Wikidata property
 maintainers are quite cautious to add new things and aren't necessarily giving the most prompt feedback.
-
 ---
-
 I had a lot of fun working on this blog post, and had it was a reminder of the nice discussion I had with Andrew Su last
-year. I hope this post enables others to add support for chemRxiv, Preprints.org, and other places where people are
+year. I hope this post enables others to add support for medRxiv, Preprints.org, and other places where people are
 leaving their pre-prints!
