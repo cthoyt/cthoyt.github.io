@@ -84,9 +84,8 @@ dictionary in the `Publication` class (just below the `ID_TYPES` dictionary).
 The third step is where the domain logic about your source comes in. You need to implement a function that takes in an
 identifier that spits back an instance of the `Publication` class. It also has to have an `id_type` argument where the
 default value matches to the key you used in the sources. This actually isn't used anywhere, but must be there because
-of the interface that consumes it. This function can live towards the bottom of the Python file and isn't inside a class
-
-- it's best to put it next to the bioRxiv, arXiv, and crossref ones.
+of the interface that consumes it. This function can live towards the bottom of the Python file and isn't inside a
+class. It's best to put it next to the bioRxiv, arXiv, and crossref ones.
 
 Most of the way you get data from your source is up to you. Most sources have some kind of endpoint that can be queried
 and returns JSON - note that Wikidata Integrator has a consistent USER AGENT that tells services what kind of code is
@@ -104,12 +103,33 @@ The Publication class is pretty self-explanatory except for a few parts.
 
 ### Tying it all together
 
+In the fourth step, you need to register your newly implemented function in the `SOURCE_FUNCT` dictionary inside
+the `PublicationHelper` class. Make sure the key you use is consistent with before, and use the function as the value.
+Don't use parentheses, since you want to actually have the function be the value and not the result of calling the
+function. This is part of a programming paradigm called "functional programming".
+
 ![Wikidata Integrator - Add New Source - Step 4](/img/wdi_steps/4.png)
+
+In the fifth and final step, you need to scroll up to the `get_or_create()` function in the `Publication` class to tell
+it which ID is the primary key for your item. Add a new conditional `elif self.source == 'your key'` to check for your
+source key (same as all of the other places you added it) then add the key corresponding to your source from the ids
+(this was the part from step 3) and the correct property. The previous examples use `PROPS` which is redundant. You can
+use `self.ID_TYPES['your key']`.
+
 ![Wikidata Integrator - Add New Source - Step 5](/img/wdi_steps/5.png)
+
+### Testing
+
+Try running the following code with a valid ID and hope that everything works! If you are having issues here, then
+you can always send a draft pull request to solicit help from the maintainers of the project.
+
+```shell
+$ wikidataintegrator-publication --idtype "your key" "your id"
+```
 
 ## My Source Doesn't Have a Wikidata Property
 
-In the case of ChemRxiv, DOIs are available for each article so I did not need to add a new entry to `ID_TYPES`
+In the case of ChemRxiv, DOIs are available for each article, so I did not need to add a new entry to `ID_TYPES`
 dictionary. However, because the scholarly articles on Wikidata typically use the DOI to point to the peer-reviewed
 article and a preprint-specific property to point to the preprint describing the same paper (I know, confusing...), I
 created a [property proposal for "ChemRxiv ID"](https://www.wikidata.org/wiki/Wikidata:Property_proposal/ChemRxiv_ID) on
