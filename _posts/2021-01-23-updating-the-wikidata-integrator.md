@@ -94,7 +94,9 @@ querying it. This is important if you're hitting an API with many queries so the
 The Publication class is pretty self-explanatory except for a few parts.
 
 1. The `authors` keyword arguments takes a list of dictionaries whose keys are `full_name` and `orcid`. You can
-   omit `orcid` or pass `None`.
+   omit `orcid` or pass `None`. bioRxiv isn't currently providing author information like ORCID identifiers in its API
+   so it did not show up in this example, but you can see in the other parts of the code for PMC and PubMed how this
+   works.
 2. Make sure that the keys in the `ids` keyword argument correspond to keys in `ID_TYPES`. If your document has more
    than one ID, you can put them her (though there is some debate whether this is a good idea).
 3. You have to set the `instance_of` property not with the `__init__()` because it gets handled with a Python
@@ -127,6 +129,9 @@ can always send a draft pull request to solicit help from the maintainers of the
 $ wikidataintegrator-publication --idtype "your key" "your id"
 ```
 
+Be careful here, since this will hit the live Wikidata instance. If you make a new item that has a problem, please try
+to fix it since deleting entries from Wikidata isn't so common and we don't want to add to the mess!
+
 ## My Source Doesn't Have a Wikidata Property
 
 In the case of ChemRxiv, DOIs are available for each article, so I did not need to add a new entry to `ID_TYPES`
@@ -137,7 +142,9 @@ I created a [property proposal for "ChemRxiv ID"](https://www.wikidata.org/wiki/
 on Wikidata to help rectify this. You can propose a new property
 from [this page](https://www.wikidata.org/wiki/Wikidata:Property_proposal/Generic) but beware: Wikidata property
 maintainers are quite cautious to add new things and aren't necessarily giving the most prompt feedback.
+
 ---
-I had a lot of fun working on this blog post, and had it was a reminder of the nice discussion I had with Andrew Su last
-year. I hope this post enables others to add support for medRxiv, Preprints.org, and other places where people are
-leaving their pre-prints!
+
+I had a lot of fun working on this new codebase and this blog post, and it was a reminder of the nice discussion I had
+with Andrew Su last year. I hope this post enables others to add support for medRxiv, Preprints.org, and other places
+where people are leaving their pre-prints!
