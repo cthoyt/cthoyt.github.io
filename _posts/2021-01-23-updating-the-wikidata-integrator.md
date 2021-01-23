@@ -39,8 +39,8 @@ up sending three pull requests.
 
 At the time of writing, the arXiv and bioRxiv ones have been accepted, and the ChemRxiv one is waiting for review - I
 think the maintainer was busy at a conference this week, and now I'm writing on a Saturday. In another unrelated pull
-request to the project, I added a vanity CLI, so when you install the code with `pip install wikidataintegrator`,
-a program `wikidataintegrator-publication` is installed for direct usage from the shell. It can be used like this:
+request to the project, I added a vanity CLI, so when you install the code with `pip install wikidataintegrator`, a
+program `wikidataintegrator-publication` is installed for direct usage from the shell. It can be used like this:
 
 ```shell
 $ wikidataintegrator-publication --idtype arxiv 2101.05136
@@ -48,10 +48,34 @@ $ wikidataintegrator-publication --idtype biorxiv 2020.08.20.259226
 $ wikidataintegrator-publication --idtype chemrxiv 13607438
 ```
 
-If you're using a DOI or PubMed identifier as the `--idtype`, you also have to specify a `--source`, but since each
-of arXiv, bioRxiv, and ChemRxiv have their own custom sources, this isn't necessary.
+If you're using a DOI or PubMed identifier as the `--idtype`, you also have to specify a `--source`, but since each of
+arXiv, bioRxiv, and ChemRxiv have their own custom sources, this isn't necessary. The program will print the Wikidata
+identifier (starting with a Q followed by some numbers) of the newly created item or an error message if there was a
+problem. It's quite smart and avoids creating duplicate pages by checking if the ID type has already been used with a
+pre-defined Wikidata property that goes with it. More on that below in the tutorial, since we have to make that
+definition when adding new sources.
 
 ## Implementing a New Importer
+
+Luckily, all of the work in implementing a new importer happens in one python
+module: [`wikidataintegrator.wdi_helpers.publication`](https://github.com/SuLab/WikidataIntegrator/blob/main/wikidataintegrator/wdi_helpers/publication.py)
+. You can begin by clicking
+the [edit](https://github.com/SuLab/WikidataIntegrator/edit/main/wikidataintegrator/wdi_helpers/publication.py) button,
+which will automatically fork the repository and create a new branch. I'm terrible using git and managing multiple
+remotes, so this is my preferred way to start a PR in any repository that I might want to PR more than once.
+
+The first step is to identify if there's a Wikidata property corresponding to entries in your new source. This was
+already the case for arXiv and bioRxiv, so I added an entry to the `ID_TYPES` dictionary where the key is the name of
+the source (not necessarily the name on the property, keep it short and simple). In the case of ChemRxiv, DOIs are
+available for each article so I did not need to add a new entry to `ID_TYPES`. However, because the scholarly articles
+on Wikidata typically use the DOI to point to the peer-reviewed article and a preprint-specific property to point to the
+preprint describing the same paper (I know, confusing...), I created
+a [property proposal for "ChemRxiv ID"](https://www.wikidata.org/wiki/Wikidata:Property_proposal/ChemRxiv_ID) on
+Wikidata. You can propose a new property
+from [this page](https://www.wikidata.org/wiki/Wikidata:Property_proposal/Generic) but beware: Wikidata property
+maintainers are quite cautious to add new things and aren't necessarily giving the most prompt feedback.
+
+![Wikidata Integrator - Add New Source - Steps 1 and 2](/img/wdi_step_1_2.png)
 
 1. Add an entry to the `PROPS` dictionary
    in [`wikidataintegrator/wdi_helpers/__init__.py`](https://github.com/SuLab/WikidataIntegrator/blob/c0e16e4ba416979c9a6ae600b4edb2860a2772ed/wikidataintegrator/wdi_helpers/__init__.py#L23-L47)
