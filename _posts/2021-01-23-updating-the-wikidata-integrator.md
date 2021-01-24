@@ -20,7 +20,7 @@ about [the role of metadata in reproducible computational research](https://arxi
 with Jeremy Leipzig ([@jermdemo](https://twitter.com/jermdemo)) on Wikidata so it would appear
 on [my Scholia page](https://scholia.toolforge.org/author/Q47475003), but I didn't want to do it by hand. I had already
 had good experiences using Magnus Manske's [SourceMD](https://sourcemd.toolforge.org/),
-[Author Disambiguator](https://author-disambiguator.toolforge.org), and related tools for queuing import of
+[Author Disambiguator](https://author-disambiguator.toolforge.org), and related tools for queueing import of
 peer-reviewed papers with PubMed identifiers or digital object identifiers (DOIs), ORCID identifiers of co-authors, and
 ultimately assisted disambiguation of author names.
 
@@ -29,7 +29,7 @@ DOIs to their preprints that can be queried through Crossref, but this doesn't e
 preprints in a special way, and it doesn't solve the problem for arXiv. I asked around on Twitter and was turned towards
 the Wikidata Integrator project, which already supported building both general pipelines for automating content import
 in Wikidata and a specific one for publications. All I had to do was figure out how it works, and get hacking! I ended
-up sending three pull requests.
+up sending the following three pull requests:
 
 | Server   | Pull Request                                                                         |
 |----------|--------------------------------------------------------------------------------------|
@@ -48,16 +48,22 @@ $ wikidataintegrator-publication --idtype biorxiv 2020.08.20.259226
 $ wikidataintegrator-publication --idtype chemrxiv 13607438
 ```
 
+This resulted in the following three Wikidata pages:
+
+- arXiv: https://www.wikidata.org/wiki/Q104846171
+- bioRxiv: https://www.wikidata.org/wiki/Q104920313
+- ChemRxiv: https://www.wikidata.org/wiki/Q104931192
+
 If you're using a DOI or PubMed identifier as the `--idtype`, you also have to specify a `--source`, but since each of
 arXiv, bioRxiv, and ChemRxiv have their own custom sources, this isn't necessary. The program will print the Wikidata
-identifier (starting with a Q followed by some numbers) of the newly created item or an error message if there was a
+identifier (starting with a Q followed by some numbers) of the newly created item, or an error message if there was a
 problem. It's quite smart and avoids creating duplicate pages by checking if the ID type has already been used with a
 pre-defined Wikidata property that goes with it. More on that below in the tutorial, since we have to make that
 definition when adding new sources.
 
 ## Implementing a New Importer
 
-Luckily, all of the work in implementing a new importer happens in one python
+Luckily, all the work in implementing a new importer happens in one python
 module: [`wikidataintegrator.wdi_helpers.publication`](https://github.com/SuLab/WikidataIntegrator/blob/main/wikidataintegrator/wdi_helpers/publication.py)
 . You can begin by clicking
 the [edit](https://github.com/SuLab/WikidataIntegrator/edit/main/wikidataintegrator/wdi_helpers/publication.py) button,
@@ -85,16 +91,16 @@ The third step is where the domain logic about your source comes in. You need to
 identifier that spits back an instance of the `Publication` class. It also has to have an `id_type` argument where the
 default value matches to the key you used in the sources. This actually isn't used anywhere, but must be there because
 of the interface that consumes it. This function can live towards the bottom of the Python file and isn't inside a
-class. It's best to put it next to the bioRxiv, arXiv, and crossref ones.
+class. It's best to put it next to the bioRxiv, arXiv, and Crossref ones.
 
 Most of the way you get data from your source is up to you. Most sources have some kind of endpoint that can be queried
 and returns JSON - note that Wikidata Integrator has a consistent USER AGENT that tells services what kind of code is
-querying it. This is important if you're hitting an API with many queries so they sysadmins can see what's going on.
+querying it. This is important if you're hitting an API with many queries so sysadmins can see what's going on.
 
 The Publication class is pretty self-explanatory except for a few parts.
 
 1. The `authors` keyword arguments takes a list of dictionaries whose keys are `full_name` and `orcid`. You can
-   omit `orcid` or pass `None`. bioRxiv isn't currently providing author information like ORCID identifiers in its API
+   omit `orcid` or pass `None`. bioRxiv isn't currently providing author information like ORCID identifiers in its API,
    so it did not show up in this example, but you can see in the other parts of the code for PMC and PubMed how this
    works.
 2. Make sure that the keys in the `ids` keyword argument correspond to keys in `ID_TYPES`. If your document has more
@@ -114,7 +120,7 @@ function. This is part of a programming paradigm called "functional programming"
 
 In the fifth and final step, you need to scroll up to the `get_or_create()` function in the `Publication` class to tell
 it which ID is the primary key for your item. Add a new conditional `elif self.source == 'your key'` to check for your
-source key (same as all of the other places you added it) then add the key corresponding to your source from the ids
+source key (same as all the other places you added it) then add the key corresponding to your source from the ids
 (this was the part from step 3) and the correct property. The previous examples use `PROPS` which is redundant. You can
 use `self.ID_TYPES['your key']`.
 
@@ -130,12 +136,12 @@ $ wikidataintegrator-publication --idtype "your key" "your id"
 ```
 
 Be careful here, since this will hit the live Wikidata instance. If you make a new item that has a problem, please try
-to fix it since deleting entries from Wikidata isn't so common and we don't want to add to the mess!
+to fix it since deleting entries from Wikidata isn't so common, and we don't want to add to the mess!
 
 ## My Source Doesn't Have a Wikidata Property
 
 In the case of ChemRxiv, DOIs are available for each article, so I did not need to add a new entry to `ID_TYPES`
-dictionary. However, scholarly articles on Wikidata typically use the DOI to point to the peer-reviewed article and a
+dictionary. However, scholarly articles on Wikidata typically use the DOI to point to the peer-reviewed article, and a
 preprint-specific property to point to the preprint describing the same paper (I know, confusing...).
 
 I created a [property proposal for "ChemRxiv ID"](https://www.wikidata.org/wiki/Wikidata:Property_proposal/ChemRxiv_ID)
