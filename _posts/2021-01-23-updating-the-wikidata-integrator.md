@@ -50,9 +50,9 @@ $ wikidataintegrator-publication --idtype chemrxiv 13607438
 
 This resulted in the following three Wikidata pages:
 
-- arXiv: https://www.wikidata.org/wiki/Q104846171
-- bioRxiv: https://www.wikidata.org/wiki/Q104920313
-- ChemRxiv: https://www.wikidata.org/wiki/Q104931192
+- arXiv: [Q104846171](https://www.wikidata.org/wiki/Q104846171)
+- bioRxiv: [Q104920313](https://www.wikidata.org/wiki/Q104920313)
+- ChemRxiv: [Q104931192](https://www.wikidata.org/wiki/Q104931192)
 
 If you're using a DOI or PubMed identifier as the `--idtype`, you also have to specify a `--source`, but since each of
 arXiv, bioRxiv, and ChemRxiv have their own custom sources, this isn't necessary. The program will print the Wikidata
