@@ -47,21 +47,23 @@ selventa_graph.summarize()
 
 This knowledge graph describes putative mechanisms involved in the pathogenesis
 of Epilepsy. It was published by Hoyt and Domingo-Fernández *et al.* (2018) in [A systematic approach for identifying
-shared mechanisms in epilepsy and its comorbidities](https://doi.org/10.1093/database/bay050).
+shared mechanisms in epilepsy and its comorbidities](https://doi.org/10.1093/database/bay050). The
+data itself can be referenced via
+[![DOI](https://zenodo.org/badge/189166127.svg)](https://zenodo.org/badge/latestdoi/189166127).
 
 It is available on GitHub under [neurommsig-epilepsy/neurommsig-epilepsy](https://github.com/neurommsig-epilepsy/neurommsig-epilepsy)
 or can be installed directly with Python using:
 
 ```bash
-pip install git+https://github.com/neurommsig-epilepsy/neurommsig-epilepsy.git
-neurommsig-epilepsy-knowledge summarize
+pip install neurommsig-epilepsy
+neurommsig-epilepsy summarize
 ```
 
 After installation, it can be directly used with PyBEL like:
 
 ```python
-import neurommsig_epilepsy_knowledge
-epilepsy_graph = neurommsig_epilepsy_knowledge.get_graph()
+import neurommsig_epilepsy
+epilepsy_graph = neurommsig_epilepsy.get_graph()
 epilepsy_graph.summarize()
 ```
 
@@ -98,7 +100,7 @@ It is available on GitHub under [hemekg/hemekg](https://github.com/hemekg/hemekg
 or can be installed directly with Python using:
 
 ```bash
-pip install git+https://github.com/hemekg/hemekg.git
+pip install hemekg
 hemekg summarize
 ```
 
