@@ -18,7 +18,7 @@ leverages `pybel` and `tox` to pre-compile BEL content and provide summaries tha
 by GitHub (when configured properly). The following is a short but growing list of some resources
 that are available through GitHub.
 
-### Selventa Large + Small Corpora
+### Selventa Large + Small Corpora [![DOI](https://zenodo.org/badge/199500332.svg)](https://zenodo.org/badge/latestdoi/199500332)
 
 Along with their release of the OpenBEL Framework in 2012, Selventa published two files [to GitHub](https://github.com/OpenBEL/openbel-framework-resources/tree/latest/knowledge)
 that showcased the range of biological phenomena that could be expressed in BEL with a slight focus on atherosclerosis.
@@ -43,13 +43,11 @@ selventa_graph = selventa_knowledge.get_graph()
 selventa_graph.summarize()
 ```
 
-### EpiCom
+### EpiCom [![DOI](https://zenodo.org/badge/189166127.svg)](https://zenodo.org/badge/latestdoi/189166127)
 
 This knowledge graph describes putative mechanisms involved in the pathogenesis
 of Epilepsy. It was published by Hoyt and Domingo-Fernández *et al.* (2018) in [A systematic approach for identifying
-shared mechanisms in epilepsy and its comorbidities](https://doi.org/10.1093/database/bay050). The
-data itself can be referenced via
-[![DOI](https://zenodo.org/badge/189166127.svg)](https://zenodo.org/badge/latestdoi/189166127).
+shared mechanisms in epilepsy and its comorbidities](https://doi.org/10.1093/database/bay050).
 
 It is available on GitHub under [neurommsig-epilepsy/neurommsig-epilepsy](https://github.com/neurommsig-epilepsy/neurommsig-epilepsy)
 or can be installed directly with Python using:
@@ -67,11 +65,10 @@ epilepsy_graph = neurommsig_epilepsy.get_graph()
 epilepsy_graph.summarize()
 ```
 
-### CONIB
+### CONIB [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3385895.svg)](https://doi.org/10.5281/zenodo.3385895)
 
 The Curation of Neurodegeneration in BEL (CONIB) encodes biological phenomena related to
-tauopathies in the context of neurodegeneration. It has yet to be published, but can be referenced
-via [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3385895.svg)](https://doi.org/10.5281/zenodo.3385895).
+tauopathies in the context of neurodegeneration.
 
 It is available on GitHub under [pharmacome/conib](https://github.com/pharmacome/conib)
 or can be installed directly with Python using:
@@ -112,12 +109,11 @@ heme_graph = hemekg.get_graph()
 heme_graph.summarize()
 ```
 
-### COVID-19 Knowledge Graph
+### COVID-19 Knowledge Graph [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3748950.svg)](https://doi.org/10.5281/zenodo.3748950)
 
 The COVID-19 Knowledge graph encodes biology surrounding the infection of the novel coronavirus.
 It was published by Domingo-Fernández *et al.* in [ COVID-19 Knowledge Graph: a computable,
 multi-modal, cause-and-effect knowledge model of COVID-19 pathophysiology](https://doi.org/10.1101/2020.04.14.040667).
-The data itself can be referenced by [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3748950.svg)](https://doi.org/10.5281/zenodo.3748950).
 
 It is available on GitHub under [covid19kg/covid19kg](https://github.com/covid19kg/covid19kg)
 or can be installed directly with Python using:
