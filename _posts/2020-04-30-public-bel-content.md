@@ -159,15 +159,12 @@ Daniel S Himmelstein, Antoine Lizee, Christine Hessler, Leo Brueggeman, Sabrina 
 
 An export of Hetionet as BEL can be found at [https://github.com/pybel/hetionet-bel](https://github.com/pybel/hetionet-bel).
 
-### OpenBioLink
+### OpenBioLink [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3834052.svg)](https://doi.org/10.5281/zenodo.3834052)
 
 OpenBioLink is a framework that produces biomedical knowledge graphs for link prediction.
 
 > [OpenBioLink: A benchmarking framework for large-scale biomedical link prediction](https://doi.org/10.1093/bioinformatics/btaa274)
 Breit, A., Ott, S., Agibetov, A., & Samwald, M. *Bioinformatics* (2020) DOI: `10.1093/bioinformatics/btaa274`
-
-An export of the high-quality data set in BEL can be found at 
-[https://github.com/pybel/openbiolink-bel](https://github.com/pybel/openbiolink-bel).
 
 ### KEGG, WikiPathways, and Reactome
 
