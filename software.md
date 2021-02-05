@@ -47,6 +47,7 @@ or informatics curricula. I'm generating some resources to help fill that gap:
 - [Blog: Flake8]({% post_url 2020-04-25-how-to-code-with-me-flake8 %})
 - [Blog: Packaging]({% post_url 2020-06-03-how-to-code-with-me-organization %})
 - [Blog: CLIs]({% post_url 2020-06-11-click %})
+- [Blog: CLIs and Flask]({% post_url 2021-01-11-click-and-flask %})
 - [Video: Writing Reusable, Reproducible Python: Documentation, Packaging, Continuous Integration, and Beyond](https://www.youtube.com/watch?v=lo_g-GbYtaA)
 - [GitHub: Using Flask, Celery, and Docker](https://github.com/cthoyt/flask-celery-docker-demo)
 - [GitHub: Examples](https://github.com/cthoyt-teaches-reproducibility/)
