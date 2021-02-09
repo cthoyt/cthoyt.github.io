@@ -55,7 +55,7 @@ Knowledge graph embedding methods learn latent representations for the nodes
 and edges in a graph to support clustering, link prediction, entity
 disambiguation, and other downstream machine learning tasks.
 
-I've worked on [PyKEEN](https://github.com/smartdataanalytics/pykeen), a
+I've worked on [PyKEEN](https://github.com/pykeen/pykeen), a
 PyTorch reimplementation of several recent knowledge graph embedding models
 with a focus on reproducibility. I've also developed [BioKEEN](https://github.com/smartdataanalytics/biokeen),
 which connects biological knowledge graphs in BEL (notably from Bio2BEL)

@@ -230,7 +230,7 @@ statements = pybel.to_indra_statements(graph)
 ---
 
 PyBEL has tons of other I/O formats, especially for analytical tools like [HiPathia](http://hipathia.babelomics.org),
-[SPIA](https://bioconductor.org/packages/release/bioc/html/SPIA.html), [PyKEEN](https://github.com/smartdataanalytics/pykeen),
+[SPIA](https://bioconductor.org/packages/release/bioc/html/SPIA.html), [PyKEEN](https://github.com/pykeen/pykeen),
 and others that aren't mentioned here, but can be found in its documentation [here](https://pybel.readthedocs.io/en/latest/reference/io.html).
 
 I hope you're able to find some of this content useful! If you know about any other publicly available BEL content,
