@@ -87,7 +87,7 @@ uses a network composed of drug-disease, drug-side effect, drug-target, and
 drug-drug links to predict compounds' side effects and give insight into
 the targets mediating those side effects.
 
-Some of my [ongoing work](https://github.com/clepp) is to apply these methods
+Some of my [ongoing work](https://github.com/hybrid-kg) is to apply these methods
 in precision medicine. I'm doing it by annotating patients as nodes in
 networks, and creating edges to biological entities based on clinical
 measurements (e.g., gene expression) then embedding those nodes for downstream
