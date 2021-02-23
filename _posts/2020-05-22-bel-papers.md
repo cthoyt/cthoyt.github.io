@@ -168,6 +168,10 @@ paper.
 <br /> Liu, S., Shao, Y., Qian, L., & Zhou, G. (2019).
 <br /> *BMC Medical Informatics and Decision Making*, **19**(Suppl 2). 
 
+[**Extraction of causal relations based on SBEL and BERT model**](https://doi.org/10.1093/database/baab005)
+<br /> Shao, Y., Li, H., Gu, J., Qian, L., & Zhou, G. (2021).
+<br /> *Database*, **2021**. 
+
 ## Curation Workflows
 
 [**On crowd-verification of biological networks**](https://doi.org/10.4137/BBI.S12932).
@@ -263,3 +267,7 @@ paper.
 [**COVID-19 Knowledge Graph: a computable, multi-modal, cause-and-effect knowledge model of COVID-19 pathophysiology**](https://doi.org/10.1101/2020.04.14.040667).
 <br /> Domingo-Fernández, D., Baksi, S., Schultz, B., Gadiya, Y., Karki, R., Raschka, T., Ebeling, C., Hofmann-Apitius, M., & Kodamullil, A. T. (2020).
 <br /> *bioRxiv*, 2020.04.14.040667. 
+
+[**A Systems Biology Approach for Hypothesizing the Effect of Genetic Variants on Neuroimaging Features in Alzheimer’s Disease**](https://doi.org/10.3233/JAD-201397)
+<br /> Khatami, S. G., Domingo-Fernández, D., Mubeen, S., Hoyt, C. T., Robinson, C., Karki, R., Iyappan, A., Kodamullil, A. T., & Hofmann-Apitius, M. (2021).
+<br /> *Journal of Alzheimer’s Disease*, 201397
