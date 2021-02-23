@@ -110,7 +110,7 @@ to inflammation — one of the main processes associated with AD.
 There may be a crosstalk between APP and KAT8 since the APP intracellular domain (AICD) has been
 observed to form a ternary complex with FE65 and KAT5. Because KAT5 and KAT8 both share the domain
 that mediates the formation of this complex (histone acetyltransferase domain, MYST-type (
-IPR002717)), we infer that KAT8 could act through the same mechanism as KAT5 to regulate the
+IPR002717)), we suggest that KAT8 could act through the same mechanism as KAT5 to regulate the
 expression of multiple genes (Müller *et al.*, 2013).
 
 ### DYRK1A
