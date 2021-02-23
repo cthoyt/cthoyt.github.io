@@ -92,6 +92,10 @@ paper.
 <br /> Martin, F., Gubian, S., Talikka, M., Hoeng, J., & Peitsch, M. C. (2019).
 <br /> *BMC Bioinformatics*, **20**(1), 451.
 
+[**Leveraging Structured Biological Knowledge for Counterfactual Inference: a Case Study of Viral Pathogenesis**](https://doi.org/10.1109/TBDATA.2021.3050680)
+<br /> Zucker, J., Paneri, K., Mohammad-Taheri, S., Bhargava, S., Kolambkar, P., Bakker, C., Teuton, J., Hoyt, C. T., Oxford, K., Ness, R., & Vitek, O. (2021).
+<br /> *IEEE Transactions on Big Data*, 2021.3050680
+
 ## Data Integration
 
 [**Using Drugs as Molecular Probes: A Computational Chemical Biology Approach in Neurodegenerative Diseases**](https://doi.org/10.3233/JAD-160222).
