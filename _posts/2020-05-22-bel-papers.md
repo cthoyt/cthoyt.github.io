@@ -260,6 +260,15 @@ paper.
 <br /> Yepiskoposyan, H., Talikka, M., Vavassori, S., Martin, F., Sewer, A., Gubian, S., Luettich, K., Peitsch, M. C., & Hoeng, J. (2019).
 <br /> *Frontiers in Genetics*, **10**(FEB), 1–12. 
 
+[**34th Annual Meeting & Pre-Conference Programs of the Society for Immunotherapy of Cancer (SITC 2019): part 2 : National Harbor, MD, USA. 10 November 2019**](https://doi.org/10.1186/s40425-019-0764-0).
+<br /> (2019).
+<br /> *Journal for Immunotherapy of Cancer*, **7**(Suppl 1), 283.
+* See entry entitled "Reverse causal inferencing on lung adenocarcinoma patients reveals a stem cell-like molecular subtype associated with pack year history"
+
+[**The reduction of DSS-induced colitis severity in mice exposed to cigarette smoke is linked to immune modulation and microbial shifts.**](https://doi.org/10.1038/s41598-020-60175-3)
+<br /> Lo Sasso, G., Phillips, B. W., Sewer, A., Battey, J. N. D., Kondylis, A., Talikka, M., Titz, B., Guedj, E., Peric, D., Bornand, D., Dulize, R., Merg, C., Corciulo, M., Ouadi, S., Yanuar, R., Tung, C. K., Ivanov, N. V, Peitsch, M. C., & Hoeng, J. (2020).
+<br /> *Scientific Reports*, **10**(1), 3829. 
+
 [**A Computational Approach for Mapping Heme Biology in the Context of Hemolytic Disorders**](https://doi.org/10.3389/fbioe.2020.00074).
 <br /> Humayun, F., Domingo-Fernández, D., Paul George, A. A., Hopp, M. T., Syllwasschy, B. F., Detzel, M. S., Hoyt, C. T., Hofmann-Apitius, M., & Imhof, D. (2020).
 <br /> *Frontiers in Bioengineering and Biotechnology*, **8**(March), 1–10. 
@@ -268,6 +277,14 @@ paper.
 <br /> Domingo-Fernández, D., Baksi, S., Schultz, B., Gadiya, Y., Karki, R., Raschka, T., Ebeling, C., Hofmann-Apitius, M., & Kodamullil, A. T. (2020).
 <br /> *bioRxiv*, 2020.04.14.040667. 
 
-[**A Systems Biology Approach for Hypothesizing the Effect of Genetic Variants on Neuroimaging Features in Alzheimer’s Disease**](https://doi.org/10.3233/JAD-201397)
+[**Unravelling the debate on heme effects in COVID-19 infections**](https://doi.org/10.1101/2020.06.09.142125).
+<br /> Hopp, M., Domingo-Fernández, D., Gadiya, Y., Detzel, M. S., Schmalohr, B. F., Steinbock, F., Imhof, D., & Martin Hofmann-Apitius, M. (2020).
+<br /> *bioRxiv*, 2020.06.09.142125
+
+[**Data-Driven Modeling of Knowledge Assemblies in Understanding Comorbidity Between Type 2 Diabetes Mellitus and Alzheimer’s Disease**](https://doi.org/10.3233/JAD-200752).
+<br /> Karki, R., Madan, S., Gadiya, Y., Domingo-Fernández, D., Kodamullil, A. T., & Hofmann-Apitius, M. (2020).
+<br /> *Journal of Alzheimer’s Disease*, **78**(1), 87–95. 
+
+[**A Systems Biology Approach for Hypothesizing the Effect of Genetic Variants on Neuroimaging Features in Alzheimer’s Disease**](https://doi.org/10.3233/JAD-201397).
 <br /> Khatami, S. G., Domingo-Fernández, D., Mubeen, S., Hoyt, C. T., Robinson, C., Karki, R., Iyappan, A., Kodamullil, A. T., & Hofmann-Apitius, M. (2021).
 <br /> *Journal of Alzheimer’s Disease*, 201397
