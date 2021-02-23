@@ -84,7 +84,7 @@ rationalize the MCI model with the relevant molecular biology. All of these step
 local instance of [BEL Commons](https://github.com/bel-commons/bel-commons) that was loaded with the
 NeuroMMSig BEL file.
 
-![C-Path Results](/img/cpath_road.png)
+![C-Path Results](/img/cpath_road.jpg)
 
 We didn't spend the *entire* time in Arizona working. We also got to run in a dried up 
 river bed, play Frogger trying to cross the street, and eat Klaus and his wife's amazing cooking.
