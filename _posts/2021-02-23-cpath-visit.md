@@ -8,10 +8,10 @@ tags: curation bioinformatics
 In late 2017, I visited the [Critical Path Institute](https://c-path.org/) in Tucson, Arizona with
 my colleague Daniel Domingo-Fernández to use
 our [Alzheimer's disease map](https://neurommsig.scai.fraunhofer.de/) encoded in the
-[Biological Expression Language](https://biological-expression-language.github.io/) and the tools we
-built in [PyBEL](https://github.com/pybel/pybel) to help contextualize their mild cognitive
-impairment (MCI) conversions models. We got very interesting results, but they had a major overlap
-with unpublished work of one of our colleagues on the role of
+[Biological Expression Language (BEL)](https://biological-expression-language.github.io/) and the
+tools we built with [PyBEL](https://github.com/pybel/pybel) to help contextualize their mild
+cognitive impairment (MCI) conversion models. We got very interesting results, but they had a major
+overlap with unpublished work of one of our colleagues on the role of
 [KANSL1](https://identifiers.org/hgnc:24565) in Alzheimer's disease, so we never reported them. Last
 week, his [paper](https://doi.org/10.3233/JAD-201397) finally made it publication
 (congratulations, Sepehr!) so I thought it would be fun to rehash the old results and look at how
@@ -131,7 +131,8 @@ and two co-variates from the MCI model: the CDR-SoB and the mini mental state ex
 al.*, 2014). These correlations motivate further curation that could provide more causal insight as
 well as investigation of measurements of this protein as a biomarker for these clinical endpoints.
 
----
+## Afterthoughts
+
 Our findings highlighted crosstalk between several well-known mechanisms (e.g., beta-amyloid,
 oxidative stress, and inflammation) and the co-variates observed by the MCI model. Furthermore, the
 analysis identified various controllers that might regulate these processes: rs2732703, DYRK1A, and
@@ -165,10 +166,10 @@ enrich NeuroMMSig. I made sure that all of this found its way directly into the 
 the NeuroMMSig BEL content is made publicly available, I will follow up this post with a very short
 script showing how to do the following to reproduce the graph presented above:
 
-1) Load a BEL graph
-2) Create a shortest paths query using the `pybel.struct.get_subgraph_by_all_shortest_paths()`
+1. Load a BEL graph
+2. Create a shortest paths query using the `pybel.struct.get_subgraph_by_all_shortest_paths()`
    function
-3) Visualize the resulting subgraph in a Jupyter notebook.
+3. Visualize the resulting subgraph in a Jupyter notebook.
 
 Until then, good luck with the next wave of (endless) beta amyloid antibodies!
 
