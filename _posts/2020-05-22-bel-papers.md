@@ -6,8 +6,8 @@ author: Charles Tapley Hoyt
 tags: bel
 ---
 This post is evolving from a reading list to a review of the academic papers published
-that are either about or use the Biological Expression Language (BEL). It's divided into the
-categories of software/visualization tools, algorithms/analytical frameworks, data integration,
+that are either about or use the [Biological Expression Language (BEL)](https://biological-expression-language.github.io).
+It's divided into the categories of software/visualization tools, algorithms/analytical frameworks, data integration,
 natural language processing, curation workflows, and downstream applications.
 
 In my [history of BEL]({% post_url 2020-04-28-history-of-bel %}), I imposed some quality
@@ -15,11 +15,11 @@ and impact standards. Without getting into a debate about how peer review is bro
 it's missing these standards, this list is more inclusive to papers whether they are likely
 to be reproducible or useful to the community, or not.
 
-Some of the papers in this list were tricky to find - many of the PMI papers do not mention BEL
+Some papers in this list were tricky to find - many of the PMI papers do not mention BEL
 in the abstract and the journals in which their papers were published don't seem to index
 properly in MEDLINE. You're welcome to use [my search on PubMed](https://pubmed.ncbi.nlm.nih.gov/?term=%22biological+expression+language%22)
 and [my search on Europe PubMed Central](https://europepmc.org/search?query=%22biological%20expression%20language%22)
-to see for yourself. I also looked through the publication lists of some of the key authors from
+to see for yourself. I also looked through the publication lists of some key authors from
 Selventa and PMI over the last 10 years to find several other application papers. As always,
 this list is incomplete due to the lack of findability/accessibility of papers, my lack of knowledge
 of *everything*, and lack of time to deeply read through all authors' histories. If you know of a
