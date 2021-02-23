@@ -161,16 +161,16 @@ platform in which we did the analysis presented here that makes it much more sim
 Despite several publications using the NeuroMMSig BEL content, none were ever accompanied by a
 release of the underlying BEL content. In 2018, I began to lead work on the
 [Human Brain Pharmacome Project](https://pharmacome.github.io) which included additional curation to
-enrich NeuroMMSig. I made sure that all of this found its way directly into the open source. Once
-the NeuroMMSig content is publicly available, I will follow up this post with a very short script
-showing how to do the following to reproduce the graph presented above:
+enrich NeuroMMSig. I made sure that all of this found its way directly into the open source. If/when
+the NeuroMMSig BEL content is made publicly available, I will follow up this post with a very short
+script showing how to do the following to reproduce the graph presented above:
 
 1) Load a BEL graph
 2) Create a shortest paths query using the `pybel.struct.get_subgraph_by_all_shortest_paths()`
    function
 3) Visualize the resulting subgraph in a Jupyter notebook.
 
-Until then, good luck with the next wave of endless beta amyloid antibodies!
+Until then, good luck with the next wave of (endless) beta amyloid antibodies!
 
 ## References
 
