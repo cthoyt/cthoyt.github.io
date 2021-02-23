@@ -28,14 +28,37 @@ computational tools to gain regulatory approval for use in a clinical setting.
 As our working lay on the computational side of neurodegeneration, we were introduced to
 [Daniela Conrado](https://www.linkedin.com/in/daniela-conrado-82492945/) and her work on a clinical
 data-driven conversion model from mild cognitive impairment (MCI) to full Alzheimer's disease.
-Ultimately, it was a linear mixed-effect model that implicated several clincal exams and
-measurements as covariates:
+Ultimately, it was a linear mixed-effect model that implicated several clinical exams and
+measurements as co-variates:
 
 - Clinical Dementia Rating (CDR)
 - Clinical Dementia Rating Scale (sum of boxes) (CDR-SOB)
-- Mini mental state exam (MMSE)
+- Mini Mental State Exam (MMSE)
 - APOE ε4 status
 - amyloid beta 40
 - amyloid beta 42
 - hippocampal volume
 - hippocampal atrophy
+
+It became our goal to use NeuroMMSig (the Alzheimer's disease map) to identify a potentially
+explanatory subgraph (i.e., a mechanism) that connected all the co-variates. After spending months
+re-curating the NeuroMMSig subgraph following the end of the AETIONOMY project, we were excited to
+apply it and all of its shiny new goodness.
+
+## Methodology
+
+When we first mapped the co-variates in the MCI conversion model to nodes in our knowledge graph, we
+found some had high information density, like the amyloid and APOE nodes, but the clinical
+measurements were relatively low. While this would generally lead to poor robustness, an advantage
+of curated knowledge graph-based approaches is that we were able to curate additional relevant
+knowledge for these nodes by making use of automated and semi-automated relation extraction
+pipelines as well as manual curation for enrichment. Further, the clinical relationships were
+curated during the work presented
+in [NIFT project](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5611802/), so we were able to adapt
+the curation guidelines and apply them once again. We did some curation with the help of master's
+student of molecular biology Lukas Beniusis who was working in our group back in Germany as a
+student research assistant at the time. Ultimately, the resulting curated content found its way to
+GitHub in the [CONIB](https://github.
+com/pharmacome/conib/blob/master/hbp_knowledge/biomarkers/cdr_sb_associations.bel) repository under
+the CC BY 4.0 license. After substantially broadening the connections with other nodes, more
+hypotheses could be generated in algorithmic steps.
