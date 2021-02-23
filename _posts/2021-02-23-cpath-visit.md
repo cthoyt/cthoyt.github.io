@@ -73,8 +73,10 @@ disease map that had the appropriate polarity (a series of increases, decreases,
 correlations, and/or negative correlations that matched the observations of the MCI model). These
 paths were combined to sub-graphs that could be interpreted and so individual paths could be
 prioritized by their explanatory potential. Finally, the sub-graphs were filtered to best
-rationalize the MCI model with the relevant molecular biology. In the next section, different
-explanations for those observations are presented.
+rationalize the MCI model with the relevant molecular biology. All of these steps were done in a
+local instance of [BEL Commons](https://github.com/bel-commons/bel-commons) that was loaded with the
+NeuroMMSig BEL file. In the next section, different explanations for those observations are
+presented.
 
 ## Results
 
@@ -137,10 +139,24 @@ another classic co-variate, the APOE mutations due to this constraint.
 
 Additional knowledge enrichment around the clinical endpoints used in MCI models could be used to
 provide further support for these hypotheses as well as facilitate the generation of new hypotheses.
-Future work will include expansion of the graph around the genes of interest with dedicated
-literature mining approaches as well as enriching the graph with further knowledge around the
-co-variates. Ultimately, we hope this will result in hypotheses that can be investigated in a
-clinical setting.
+Back in 2017, we wrote that future work could include expansion of the graph around the genes of
+interest with dedicated literature mining approaches as well as enriching the graph with further
+knowledge around the co-variates. I mentioned Sepehr's
+paper [A Systems Biology Approach for Hypothesizing the Effect of Genetic Variants on Neuroimaging Features in Alzheimer’s Disease**](https://doi.org/10.3233/JAD-201397)
+at the onset in which he prioritized curation around the SNPs associated with Alzheimer's disease
+and related neurodegenerative diseases like Parkinson's disease through genome-wide association
+studies (GWASs). He also converged on the KANSL1 gene through a similar process during which he also
+did orthogonal enrichment of NeuroMMSig to ours. In the years since this analysis, we also made huge
+improvements to PyBEL and [BEL Commons](https://github.com/bel-commons/bel-commons), the interactive
+visualization platform in which we did the analyis presented here.
+
+Despite several publications using the NeuroMMSig BEL content, none were ever accompanied by a
+release of the underlying BEL content. In 2018, I began to lead work on the [Human Brain Pharmacome]
+(https://pharmacome.github.io) which included curation. I made sure that all of this found its way
+directly into the open source. Once the NeuroMMSig content is publicly available, I will follow up
+this post with a very short script showing how to 1) load a BEL graph, 2) create a shortest paths
+query using the `pybel.struct.get_subgraph_by_all_shortest_paths()` function, and 3) visualize the
+resulting subgraph in a Jupyter notebook.
 
 ## References
 
