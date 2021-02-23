@@ -82,20 +82,24 @@ paths were combined to sub-graphs that could be interpreted and so individual pa
 prioritized by their explanatory potential. Finally, the sub-graphs were filtered to best
 rationalize the MCI model with the relevant molecular biology. All of these steps were done in a
 local instance of [BEL Commons](https://github.com/bel-commons/bel-commons) that was loaded with the
-NeuroMMSig BEL file. In the next section, different explanations for those observations are
-presented.
-
-## Results
+NeuroMMSig BEL file.
 
 ![C-Path Results](/img/cpath_graph.png)
 
-The most interesting hypotheses are presented in the graph above. The first hypothesis (yellow)
+We didn't spend the *entire* time in Arizona working. We also got to run in a dried up 
+river bed, play Frogger trying to cross the street, and eat Klaus and his wife's amazing cooking.
+
+## Results
+
+The most interesting hypotheses are presented in the graph below. The first hypothesis (yellow)
 involves three entities classically associated with AD: the amyloid precursor protein (APP); one of
 its secretases (BACE1); and the amyloid beta 42 (Aβ-42) proteolytic cleavage fragment from the
 cleavage of APP by BACE1. They participate in a positive feedback loop where an increase in the
 abundance of the secretase leads to more amyloid beta aggregation. Since this process is widely
 described in the literature, there are multiple connections, or crosstalks, from this part of the
-graph to the more novel paths we describe below.
+graph to the more novel paths we describe in the following.
+
+![C-Path Results](/img/cpath_graph.png)
 
 ### rs2732703
 
