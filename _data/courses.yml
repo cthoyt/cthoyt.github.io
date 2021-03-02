@@ -9,6 +9,24 @@
     department: Bonn-Aachen International Center for Information Technology
   period:
     semester: Winter
+    year: 2020-2021
+  date:
+    day: 2
+    month: March
+    year: 2021
+  description: Lecture/practical on reproducibility in computational sciences
+
+- name: Mechanism Enrichment Using Neurommsig
+  level: Master's course
+  type: Practical
+  role: Guest Lecturer
+  primary:
+    name: Dr. Daniel Domingo-Fernández
+  location:
+    university: University of Bonn
+    department: Bonn-Aachen International Center for Information Technology
+  period:
+    semester: Winter
     year: 2019-2020
   date:
     day: 18
