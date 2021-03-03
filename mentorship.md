@@ -20,12 +20,12 @@ thank them by doing the same for others, the same as they did for us.
     {% endif %}
     {% if entry contains "linkedin" %}
         <a href="https://linkedin.com/in/{{ entry.linkedin }}">
-        <img alt="LinkedIn logo" src="/img/logos/LI-In-Bug.png" width="16" height="16" />
+        <img alt="LinkedIn logo" src="/img/logos/linkedin-icon.svg" width="16" height="16" />
         </a>
     {% endif %}
     {% if entry contains "github" %}
         <a href="https://github.com/in/{{ entry.github }}">
-        <img alt="GitHub logo" src="/img/logos/GitHub-Mark-32px.png" width="16" height="16" />
+        <img alt="GitHub logo" src="/img/logos/github-icon.svg" width="16" height="16" />
         </a>
     {% endif %}
     <ul>
@@ -76,12 +76,12 @@ students:
     {% endif %}
     {% if entry contains "linkedin" %}
         <a href="https://linkedin.com/in/{{ entry.linkedin }}">
-        <img alt="LinkedIn logo" src="/img/logos/LI-In-Bug.png" width="16" height="16" />
+        <img alt="LinkedIn logo" src="/img/logos/linkedin-icon.svg" width="16" height="16" />
         </a>
     {% endif %}
     {% if entry contains "github" %}
         <a href="https://github.com/in/{{ entry.github }}">
-        <img alt="GitHub logo" src="/img/logos/GitHub-Mark-32px.png" width="16" height="16" />
+        <img alt="GitHub logo" src="/img/logos/github-icon.svg" width="16" height="16" />
         </a>
     {% endif %}
     <ul>
