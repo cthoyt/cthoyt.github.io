@@ -87,15 +87,22 @@ students:
     <ul>
         {% for role in entry.roles %}
         <li>
-        {{ role.name }} in the
+        {{ role.name }}
+        {% if role.location.group.name %}
+        in the
         <a href="{{ role.location.group.url }}">{{ role.location.group.name }}</a>
+        {% endif %}
         in the {{ role.location.organization.name }}
         <a href="{{ role.location.institute.url }}">{{ role.location.institute.name }}</a>
         from {{ role.start.month }}
         {% if role.start.year != role.end.year %}
             {{ role.start.year }}
         {% endif %}
+        {% if role.end %}
         to {{ role.end.month }} {{ role.end.year }}
+        {% else %}
+        (current)
+        {% endif %}
         </li>
         {% endfor %}
     </ul>
