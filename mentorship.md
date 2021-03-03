@@ -3,6 +3,7 @@ layout: page
 title: Mentorship
 permalink: /mentorship/
 ---
+Mentorship is so much more than being a supervisor or a boss.
 As scientists, we owe a great deal to our mentors in the classroom and lab,
 each of whom altruistically invested their time and confidence in us. We can
 thank them by doing the same for others, the same as they did for us.
@@ -61,8 +62,7 @@ thank them by doing the same for others, the same as they did for us.
 
 ## My Mentees
 
-During my master's and doctoral work at the Fraunhofer from 2016-2019,
-I had the opportunity to recruit, mentor, and work with many wonderful
+I've had the opportunity to recruit, mentor, and work with many wonderful
 students:
 
 <ul>

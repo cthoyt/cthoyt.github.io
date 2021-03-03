@@ -1,24 +1,6 @@
-- name: Dr. Viswa Colluru
-  orcid: 0000-0002-6208-9288
-  roles:
-    - name: CEO
-      location:
-        institute:
-          name: Computational Biology Group
-        organization:
-          name: Enveda Therapeutics
-          url: https://envedatherapeutics.com
-        city: Bonn
-        country: Germany
-      start:
-        month: January
-        year: 2020
-      end:
-        month: October
-        year: 2020
-
 - name: Prof. Dr. Martin Hofmann-Apitius
   orcid: 0000-0001-9012-6720
+  linkedin: hofmannapitius
   roles:
     - name: Supervisor
       location:
@@ -81,6 +63,7 @@
 - name: Christian Ebeling, M.Sc.
   orcid: 0000-0002-7560-6846
   github: cebel
+  linkedin: christian-ebeling
   roles:
     - name: Master's Thesis Daily Supervisor
       location:
@@ -105,6 +88,7 @@
 - name: Dr. Shweta Bagawadi Kalawia
   orcid: 0000-0002-1249-6416
   github: sbagewadi
+  linkedin: shweta-bagewadi-kawalia
   roles:
     - name: Pre-master's Thesis Daily Supervisor
       location:
@@ -127,6 +111,7 @@
 
 - name: Dr. Elisabet Gregori-Puigjane
   orcid: 0000-0003-4754-1720
+  linkedin: elisabet-gregori-puigjané-b7b69b1a
   roles:
     - name: Supervisor
       location:
