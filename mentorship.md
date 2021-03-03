@@ -15,7 +15,7 @@ thank them by doing the same for others, the same as they did for us.
     {{ entry.name }}
     {% if entry contains "orcid" %}
         <a href="https://orcid.org/{{ entry.orcid }}">
-        <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" />
+        <img alt="ORCID logo" src="/img/logos/orcid-icon.svg" width="16" height="16" />
         </a>
     {% endif %}
     {% if entry contains "linkedin" %}
@@ -71,7 +71,7 @@ students:
     {{ entry.name }}
     {% if entry contains "orcid" %}
         <a href="https://orcid.org/{{ entry.orcid }}">
-        <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" />
+        <img alt="ORCID logo" src="/img/logos/orcid-icon.svg" width="16" height="16" />
         </a>
     {% endif %}
     {% if entry contains "linkedin" %}
