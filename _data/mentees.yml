@@ -1,3 +1,17 @@
+- name: Aman Choudhri
+  linkedin: aman-choudhri
+  github: aman527
+  roles:
+    - name: Student Research Assistant
+      location:
+        organization:
+          name: Coronawhy
+          url: https://www.coronawhy.org
+      start:
+        month: June
+        year: 2020
+      description: Development of the Biological Expression Software ecosystem (PyBEL, Bio2BEL, etc.) and biosemantics technologies
+
 - name: Lauren Nicole DeLong
   orcid: 0000-0001-6618-3370
   roles:
