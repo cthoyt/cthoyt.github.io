@@ -14,14 +14,19 @@ thank them by doing the same for others, the same as they did for us.
     <li>
     {{ entry.name }}
     {% if entry contains "orcid" %}
-    <a href="https://orcid.org/{{ entry.orcid }}">
-    <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" />
-    </a>
+        <a href="https://orcid.org/{{ entry.orcid }}">
+        <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" />
+        </a>
     {% endif %}
     {% if entry contains "linkedin" %}
-    <a href="https://linkedin.com/in/{{ entry.linkedin }}">
-    <img alt="LinkedIn logo" src="img/logos/LI-In-Bug.png" width="16" height="16" />
-    </a>
+        <a href="https://linkedin.com/in/{{ entry.linkedin }}">
+        <img alt="LinkedIn logo" src="/img/logos/LI-In-Bug.png" width="16" height="16" />
+        </a>
+    {% endif %}
+    {% if entry contains "github" %}
+        <a href="https://github.com/in/{{ entry.github }}">
+        <img alt="GitHub logo" src="/img/logos/GitHub-Mark-32px.png" width="16" height="16" />
+        </a>
     {% endif %}
     <ul>
         {% for role in entry.roles %}
@@ -65,13 +70,19 @@ students:
     <li>
     {{ entry.name }}
     {% if entry contains "orcid" %}
-    <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" />
-    <a href="https://orcid.org/{{ entry.orcid }}">{{ entry.name }}</a>
+        <a href="https://orcid.org/{{ entry.orcid }}">
+        <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" />
+        </a>
     {% endif %}
     {% if entry contains "linkedin" %}
-    <a href="https://linkedin.com/in/{{ entry.linkedin }}">
-    <img alt="LinkedIn logo" src="img/logos/LI-In-Bug.png" width="16" height="16" />
-    </a>
+        <a href="https://linkedin.com/in/{{ entry.linkedin }}">
+        <img alt="LinkedIn logo" src="/img/logos/LI-In-Bug.png" width="16" height="16" />
+        </a>
+    {% endif %}
+    {% if entry contains "github" %}
+        <a href="https://github.com/in/{{ entry.github }}">
+        <img alt="GitHub logo" src="/img/logos/GitHub-Mark-32px.png" width="16" height="16" />
+        </a>
     {% endif %}
     <ul>
         {% for role in entry.roles %}
