@@ -80,6 +80,7 @@
 
 - name: Christian Ebeling, M.Sc.
   orcid: 0000-0002-7560-6846
+  github: cebel
   roles:
     - name: Master's Thesis Daily Supervisor
       location:
@@ -103,6 +104,7 @@
 
 - name: Dr. Shweta Bagawadi Kalawia
   orcid: 0000-0002-1249-6416
+  github: sbagewadi
   roles:
     - name: Pre-master's Thesis Daily Supervisor
       location:
@@ -145,6 +147,7 @@
 
 - name: Dmitri Bichko
   linkedin: dmitri-bichko-1333ba1
+  github: dbichko
   roles:
     - name: Supervisor
       location:

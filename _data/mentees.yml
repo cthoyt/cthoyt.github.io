@@ -14,6 +14,7 @@
 
 - name: Lauren Nicole DeLong
   orcid: 0000-0001-6618-3370
+  github: laurendelong21
   roles:
     - name: Student Research Assistant
       location:
@@ -38,6 +39,7 @@
 
 - name: Vinay Bharadhwaj
   orcid: 0000-0002-9901-9494
+  github: vinaysb
   roles:
     - name: Student Research Assistant
       location:
@@ -79,6 +81,7 @@
 
 - name: Mauricio Pio de Lacerda
   orcid: 0000-0002-1770-3007
+  github: mauriciopl
   roles:
     - name: Master's Student
       location:
@@ -103,6 +106,7 @@
 
 - name: Yojana Gadiya
   orcid: 0000-0002-7683-0452
+  github: YojanaGadiya
   roles:
     - name: Student Research Assistant
       location:
@@ -127,6 +131,7 @@
 
 - name: Trusha Adeshara
   orcid: 0000-0002-8929-4724
+  github: trushaadeshara8
   roles:
     - name: Student Research Assistant
       location:
@@ -151,6 +156,7 @@
 
 - name: Rana Aldisi
   orcid: 0000-0002-3034-9970
+  github: AldisiRana
   roles:
     - name: Master's Student
       location:
@@ -210,6 +216,7 @@
 
 - name: Lingling Xu
   orcid: 0000-0002-0303-8616
+  github: lingling93
   roles:
     - name: Master's Student
       location:
@@ -257,6 +264,7 @@
 
 - name: Özlem Muslu
   orcid: 0000-0003-0408-6190
+  github: ozlemmuslu
   roles:
     - name: Master's Student
       location:
@@ -296,6 +304,7 @@
 
 - name: Kristian Kolpeja
   orcid: 0000-0001-9661-5277
+  github: kk0lpej4
   roles:
     - name: Student Research Assistant
       location:
@@ -320,6 +329,7 @@
 
 - name: Esther Wollert
   orcid: 0000-0002-7128-929X
+  github: ewollert
   roles:
     - name: Student Research Assistant
       location:
@@ -344,6 +354,7 @@
 
 - name: Sandra Spalek
   orcid: 0000-0002-6117-4413
+  github: sspalek
   roles:
     - name: Student Research Assistant
       location:
@@ -367,6 +378,7 @@
       description: Curation of
 
 - name: Keerthika Lohanadan
+  github: KeerthikaL
   roles:
     - name: Student Research Assistant
       location:
@@ -391,6 +403,7 @@
 
 - name: Colin Birkenbihl
   orcid: 0000-0002-7212-7700
+  github: Cojabi
   roles:
     - name: Student Research Assistant
       location:
@@ -431,6 +444,7 @@
       country: Germany
 
 - name: Aram Grigoryan
+  github: aramgrigoryan
   roles:
     - name: Student Research Assistant
       location:
