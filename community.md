@@ -33,9 +33,8 @@ permalink: /community/
     and presented a <a href="{{ entry.poster }}">poster</a>
     {% endif %}
     {% if entry.wikidata %}
-    (<a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}">Wikidata</a>
+    (<a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}">{{ entry.wikidata }}</a>)
     {% endif %}
-    .
     </li>
 {% endfor %}
 </ol>
