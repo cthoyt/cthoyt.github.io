@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-<img src="/img/personal_history.png" alt="Personal History"/>
+<img src="/img/personal_history.svg" alt="Personal History"/>
 
 I fell in love with chemistry in high school - back then it was about making
 things change color and/or explode. I was sold. My high school was down the
@@ -59,10 +59,11 @@ domain and applications across a range of topics.
 As I entered 2020, I had planned on taking some well-deserved time off. The
 work I had started was nowhere near done, but it was time for a break before returning
 to academia for a postdoc. Because the pandemic made it a bad year for a vacation,
-I spent 10 months at Enveda Therapeutics to build their semantics, knowledge
+I spent 10 months at Enveda Biosciences to build their semantics, knowledge
 graph, and machine learning platforms, which played an important role in securing
 their second round of venture capital funding. I also joined CoronaWhy to advise
-on the same topics and reproducibility in computational science.
+on the same topics and reproducibility in computational science. At the beginning of 2021,
+I made the move to Harvard Medical School to continue my academic work.
 
 I'm also a real person, too! I love making music, watching movies/TV, running,
 and traveling. I've been to 30 countries so far and tried beer in almost all
