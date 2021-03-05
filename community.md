@@ -26,15 +26,16 @@ permalink: /community/
     {% else %}
     from {{ entry.start.month }} {{ entry.start.day }}-{{ entry.end.month }} {{ entry.end.day }}, {{ entry.year }}
     {% endif %}
-    
     {% if entry.talk %}
     and gave a <a href="{{ entry.talk }}">talk</a>
     {% endif %}
-        
     {% if entry.poster %}
     and presented a <a href="{{ entry.poster }}">poster</a>
     {% endif %}
-    
+    {% if entry.wikidata %}
+    (<a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}">Wikidata</a>
+    {% endif %}
+    .
     </li>
 {% endfor %}
 </ol>
