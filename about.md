@@ -74,9 +74,10 @@ of them. I have yet to enjoy it.
 For any content requiring a short bio (~1 paragraph), you can use the following text and
 [this photo](https://commons.wikimedia.org/wiki/File:Charles_Tapley_Hoyt_2019.jpg).
 
-> Dr. Charles Tapley Hoyt received his Ph.D. in Computational Life Sciences from
-the University of Bonn. His research interests cover the interface of biocuration,
-knowledge graphs, and machine learning with systems biology, networks biology, and 
+> Dr. Charles Tapley Hoyt is a Postdoctoral Research Fellow in the Laboratory of Systems
+Pharmacology at Harvard Medical School based out of Germany. He received his Ph.D. in Computational
+Life Sciences from the University of Bonn. His research interests cover the interface of
+biocuration, knowledge graphs, and machine learning with systems biology, networks biology, and 
 drug discovery. He is an advocate of open source software, reproducibility, and
-open science. His open source projects PyBEL and PyKEEN are used by several academic
+open science. His open source projects such as PyBEL and PyKEEN are used by several academic
 and industrial groups.
