@@ -62,8 +62,10 @@ to academia for a postdoc. Because the pandemic made it a bad year for a vacatio
 I spent 10 months at Enveda Biosciences to build their semantics, knowledge
 graph, and machine learning platforms, which played an important role in securing
 their second round of venture capital funding. I also joined CoronaWhy to advise
-on the same topics and reproducibility in computational science. At the beginning of 2021,
-I made the move to Harvard Medical School to continue my academic work.
+on the same topics and reproducibility in computational science.
+
+In 2021, I joined the Laboratory of Systems Pharmacology at Harvard Medical School to 
+continue my academic work.
 
 I'm also a real person, too! I love making music, watching movies/TV, running,
 and traveling. I've been to 30 countries so far and tried beer in almost all
