@@ -17,7 +17,7 @@ I've created many open-source projects as well as made significant contributions
       </a>
 {% endif %}
 {% if entry contains "wikidata" %}
-    <a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}">
+    <a href="https://scholia.toolforge.org/topic/{{ entry.wikidata }}">
     <img alt="WikiData logo" src="/img/logos/wikidata_logo.svg" height="16" />
     </a>
 {% endif %}
@@ -49,7 +49,7 @@ others.
       </a>
 {% endif %}
 {% if entry contains "wikidata" %}
-    <a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}">
+    <a href="https://scholia.toolforge.org/topic/{{ entry.wikidata }}">
     <img alt="WikiData logo" src="/img/logos/wikidata_logo.svg" height="16" />
     </a>
 {% endif %}

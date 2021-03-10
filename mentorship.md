@@ -30,7 +30,7 @@ thank them by doing the same for others, the same as they did for us.
         </a>
     {% endif %}
     {% if entry contains "wikidata" %}
-        <a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}">
+        <a href="https://scholia.toolforge.org/author/{{ entry.wikidata }}">
         <img alt="WikiData logo" src="/img/logos/wikidata_logo.svg" height="16" />
         </a>
     {% endif %}
@@ -90,7 +90,7 @@ students:
         </a>
     {% endif %}
     {% if entry contains "wikidata" %}
-        <a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}">
+        <a href="https://scholia.toolforge.org/author/{{ entry.wikidata }}">
         <img alt="WikiData logo" src="/img/logos/wikidata_logo.svg" height="16" />
         </a>
     {% endif %}
