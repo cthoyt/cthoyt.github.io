@@ -29,6 +29,11 @@ thank them by doing the same for others, the same as they did for us.
         <img alt="GitHub logo" src="/img/logos/github-icon.svg" width="16" height="16" />
         </a>
     {% endif %}
+    {% if entry contains "wikidata" %}
+        <a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}">
+        <img alt="WikiData logo" src="/img/logos/wikidata_logo.svg" height="16" />
+        </a>
+    {% endif %}
     <ul>
         {% for role in entry.roles %}
         <li>
@@ -82,6 +87,11 @@ students:
     {% if entry contains "github" %}
         <a href="https://github.com/in/{{ entry.github }}">
         <img alt="GitHub logo" src="/img/logos/github-icon.svg" width="16" height="16" />
+        </a>
+    {% endif %}
+    {% if entry contains "wikidata" %}
+        <a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}">
+        <img alt="WikiData logo" src="/img/logos/wikidata_logo.svg" height="16" />
         </a>
     {% endif %}
     <ul>

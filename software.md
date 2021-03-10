@@ -31,7 +31,13 @@ others.
 {% else %}
 <a href="https://zenodo.org/record/{{ entry.zenodo }}">{{ entry.name }}</a>
 {% endif %}
-</strong> <small style="color: #999">{{ entry.role }}</small><br />
+</strong> <small style="color: #999">{{ entry.role }}</small>
+{% if entry contains "wikidata" %}
+    <a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}">
+    <img alt="WikiData logo" src="/img/logos/wikidata_logo.svg" height="16" />
+    </a>
+{% endif %}
+<br />
 {{ entry.description }}
 </div>
 {% endfor %}
