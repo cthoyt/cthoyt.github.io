@@ -47,10 +47,38 @@ training set and others in the test set would enable trivial inference and ultim
 the performance of your model (barring discussion about how this could be considered trivial is a huge triumph of modern
 pharacology and chemoinformatics). The solution often referenced in
 [proteochemometrics](https://www.universiteitleiden.nl/en/research/research-projects/science/lacdr-proteochemometrics)
-papers is to use scaffold-based splitting like Bemis-Murcko scaffold splitting or to pre-cluster molecules based on 
+papers is to use scaffold-based splitting like Bemis-Murcko scaffold splitting or to pre-cluster molecules based on
 structural similarity and to split based on clusters. More information on these methods is reviewed in
 [Bongers *et al.* (2019)](https://www.sciencedirect.com/science/article/pii/S1740674920300111) and
 [Parks *et al.* (2020)](https://www.frontiersin.org/articles/10.3389/fmolb.2020.00093/full).
 
-A more thorough listing of statins can be found through the ChEBI ontology browser under the entry. There are other
-statins that do not share this privileged scaffold
+### Redundant Information in Graphs
+
+Transcriptomics experiments are often analyzed with statistical over-representation analysis
+or [gene set enrichment analysis (GSEA)](https://www.gsea-msigdb.org/gsea/index.jsp) with respect to gene sets derived
+from pathway databases like KEGG, Reactome, WikiPathways, the Pathway Interaction Database, and BioCyc, functional
+annotations such as those from the Gene Ontology, and biological signatures such as those listed in MSigDB. In addition
+to *p*-values, the high number of statistical tests also motivates the reporting of adjusted *p*-values to
+address [multiple hypothesis testing](https://en.wikipedia.org/wiki/Multiple_comparisons_problem). However, these
+adjustments do not consider the high overlap in information due to the redundancy of pathway databases or potential
+correlations between expert-defined pathways and certain functional or biological signatures. Therefore, several results
+from the same theme or biological phenomena often co-occur as enriched which often leads to an inflated sense of
+concordance of results and thus higher confirmation bias. Further, [Mubeen *et
+al.* (2019)](https://www.frontiersin.org/articles/10.3389/fgene.2019.01203/full) showed that the variability of
+definitions in each pathway database for the "same" pathway (e.g., apoptosis) caused significantly different results in
+many downstream tasks.
+
+Many benchmark biological knowledge graphs such as [Hetionet](https://het.io/) and
+[OpenBioLink](https://github.com/openbiolink/openbiolink) include multiple pathway databases. Therefore, link prediction
+tasks between genes and pathways (such as the case scenario presented in
+[Ali *et al* (2019)](https://doi.org/10.1093/bioinformatics/btz117)) could be skewed both during the training and
+evaluation of link prediction models, and ultimately in the interpretation of predicted results. While methodological
+improvements like SetRank
+([Simillion *et al.* (2017)](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1571-6) have been
+proposed to mitigate the redundancies in the over-representation analysis setting, there have not yet been
+methodological improvements for link prediction models that consider these kinds redundancies. Further, these kinds of
+redundancies do not fit as neatly into the "leakage" issue.
+
+Tools like [ComPath](https://github.com/compath/) can be used to enrich KGs with links between functionally equivalent
+pathways, but this kind of information is not readily used by typical KGEMs. Alternative rule-based and symbolic 
+reasoning systems might present solutions in this area.
