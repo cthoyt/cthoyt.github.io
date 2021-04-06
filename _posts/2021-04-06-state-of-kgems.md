@@ -1,3 +1,16 @@
+---
+layout: post
+title: Current Perspectives on KGEMs in and out of Biomedicine
+date: 2021-04-05 13:13:00 +0100
+author: Charles Tapley Hoyt
+tags: bioinformatics pykeen
+---
+After many discussions scientists from AstraZeneca's knowledge graph and target prioritization platform 
+(BIKG) about the [PyKEEN](https://github.com/pykeen/pykeen) knowledge graph embedding model package, I joined them 
+in writing a [review on biomedical knowledge graphs](https://arxiv.org/abs/2102.10062). Further, I'm giving a talk 
+in their group today. This blog post is a longer form of some of the ideas I'll be presenting there. At the bottom 
+is a link to the slides themselves.
+
 ### Who is the Arbiter of Benchmarks?
 
 The publication of each new knowledge graph embedding model is usually accompanied by an evaluation of the link
@@ -258,3 +271,32 @@ of those generalizations even fit into the philosophy and architecture of graph 
 (GNNs). Further, there are lots of quantitative data such as chemical-enzyme IC50s, chemical-receptor EC50s, GWAS
 *p*-values, etc. that all have widely different scales and dynamic ranges that are difficult to simultaneously
 incorporate in any of these methods in a meaningful way.
+
+### Willkommen in der Zukunft (The Future)
+
+Random parting thoughts:
+
+Biomedical knowledge graph benchmarks are consistently topping out around 5 million edges. If I had to guess, that's
+because that's the number where if you go higher, you have to start using some packages that are not meant for users
+like Amazon's DGL or PyTorch's BigGraph. If we're ever going to go from drug repositioning, where there are on the scale
+of only thousands of chemicals versus hundreds of proven targets to billions (or more if you want to get fancy with
+virtual screening) chemicals across potentially the whole genome of ~20K protein coding genes, the products of other
+non-protein-coding genes, and other stuff floating around in and around the cell.
+
+Negative knowledge should be emphasized. Formats like the
+[Biological Expression Language (BEL)](https://biological-expression-language.github.io/) should support its curation,
+natural language processing systems and tools like [INDRA](https://github.com/sorgerlab/indra) should start extracting
+in bulk, and the concept of the open world assumption, local closed world assumption, and closed world assumption need
+to be ammended to better reflect the reality that we know some negative knowledge, but it's distributed across different
+relations in different densities.
+
+Genes, RNAs, and proteins are not the same! Even worse, they can have several variants due to differential splicing and
+they can have all sorts of pre- and post-translational modifications. BEL and related formats like BioPAX can 
+represent these, but the knowledge graph approach to biology tends to throw this away completely. On the other hand, 
+high granular information on this level of specificity is likely too low to make dense knowledge graphs over which 
+typical tasks like link prediction can be successful. This motivates a greater focus on modeling the hierarchies of 
+information (a task at which INDRA excels) to generate knowledge graphs that balance these competing qualities.
+
+The entire semantic infrastructure for building knowledge graphs is improving (I'd like to say in some small part 
+due to the tools I've build) that enables mappings between entities, such as [Inspector Javert's Xref database]() and
+the new [SSSOM format](https://github.com/mapping-commons/SSSOM) to make mapping data more standardized.
