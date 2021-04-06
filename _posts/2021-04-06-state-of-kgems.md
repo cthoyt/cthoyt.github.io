@@ -1,3 +1,34 @@
+### Who is the Arbiter of Benchmarks?
+
+The publication of each new knowledge graph embedding model is usually accompanied by an evaluation of the link
+prediction task on common benchmark datasets and a comparison to previous models' performances on those datasets.
+There's a variety of ways authors report this, either by copying the original results from the original papers
+describing the competitor models, by re-running the author's original code, by reimplementing the code themselves, or by
+running an implementation from a larger knowledge graph embedding model package.
+
+Who can be trusted? The original authors of each competitor model were/are motivated to show that theirs was better than
+others, so their paper might have inflated metrics. The authors of the current paper are motivated to show that previous
+models are worse, so they may deflate metrics for old models (and inflate theirs). Knowledge graph embedding model
+packages are motivated to inflate metrics to show that using their package is better -- I've indeed been asked questions
+about why other packages are "performing better" than PyKEEN and had to answer that they're just evaluating differently
+that is less conservative, and sometimes misleading. Even in a world without these competing interests, it's very hard
+to understand each other's code, especially since it's not just about the model itself but also the training and
+evaluation pipeline.
+
+This motivates large benchmarking studies that use unified frameworks and re-implementations of models to investigate
+the relative performances of models (and can for a brief moment, let you throw away your metric fixation).
+The [PyKEEN benchmark](https://arxiv.org/abs/2006.13365) is the largest and most comprehensive to date, covering many
+models, datasets, and configurations. I was proudly a part of this work under the leadership of Mehdi Ali
+[@mali-git](https://github.com/mali-git/), he's a really good guy. There's also the smaller
+[LibKGE benchmark](https://openreview.net/forum?id=BkxSmlBFvr) as well as several others that we're maintaining in a
+curated list in this [meta-review](https://pykeen.github.io/kgem-meta-review/) repository.
+
+The [Open Graph Benchmark (OGB)](https://ogb.stanford.edu/) provides a potential solution to these issues by
+externalizing and standardizing the code that evaluates the results. There are still sneaky ways to game this that I
+won't describe in detail, but I like the concept. However, the framework does not cover some of the more popular
+datasets and the ones that it does introduce in the link prediction task, it does not do so with any provenance on how
+they're created.
+
 ### Testing/Validation Leakage
 
 Leakage is when triples in the testing/validation sets can be trivially inferred from triples in the training set. This
@@ -145,13 +176,85 @@ using the same training configuration for several models.
 
 ![The effect of random splits](/img/bonner_rand_splits.png)
 
-The confidence intervals support an even more startling conclusion - the effect of random splitting of the dataset
-could cause a model like DistMult to outperform models like ComplEx due to its huge variance. Further, datasets
-like Hetionet definitely are susceptible to the leakage problem. Note: there's a prototype implementation of the
-Toutanova and Chen algorithm for removing leakages in PyKEEN, but it's neither finished nor integrated in the PyKEEN
-pipeline. Combine with DistMult's penchant for modeling inverse relations the same as the canonical ones, this could
-wreak havoc on its performance depending on how bad the leakage was by chance. Like with random initialization,
-there has not yet been a comprehensive benchmarking that could give more general insight into the liabilities of not
-reporting distributions of results over several random splits. Even further, combine with the previous section's
-prescription to report distribution over multiple random initializations, doing a "proper" investigating of
-robustness seems to be getting more high dimensional.
+The confidence intervals support an even more startling conclusion - the effect of random splitting of the dataset could
+cause a model like DistMult to outperform models like ComplEx due to its huge variance. Further, datasets like Hetionet
+definitely are susceptible to the leakage problem. Note: there's a prototype implementation of the Toutanova and Chen
+algorithm for removing leakages in PyKEEN, but it's neither finished nor integrated in the PyKEEN pipeline. Combine with
+DistMult's penchant for modeling inverse relations the same as the canonical ones, this could wreak havoc on its
+performance depending on how bad the leakage was by chance. Like with random initialization, there has not yet been a
+comprehensive benchmarking that could give more general insight into the liabilities of not reporting distributions of
+results over several random splits. Even further, combine with the previous section's prescription to report
+distribution over multiple random initializations, doing a "proper" investigating of robustness seems to be getting more
+high dimensional.
+
+## Do KGEMs Actually Learn?
+
+The formulation of the link prediction task on knowledge graphs as a binary classification task over a dataset of true
+positives and randomly sampled negatives (under the local closed world assumption) is already a concession to many more
+obvious machine learning tasks (like classifying Mendel's irises). Even further, many machine learning techniques have
+the concept of a null model against which they can compare if their results are meaningful, or just good by chance. In
+classification tasks, this is often done with y-scrambling which compares the evaluation metric obtained from the real
+dataset to the evaluation metrics obtained by repetitively shuffling the response variable and generating a null
+distribution of evaluation metrics against which the real one can be compared. Ultimately, the *p*-value of a one-tailed
+test against this distribution tells you if you actually learned something, or if your results are the same as what
+you'd get with a random dataset.
+
+While this is a pretty typical test that reviewers ask for in other machine learning tasks, it has not (yet) penetrated
+the knowledge graph embedding model domain. I think this likely limited by the difficulty in writing performant research
+code. While tools like PyTorch BigGraph and Amazon's DGL are able to scale across many machines or GPUs, they are not
+accessible to anyone without significant dev-ops abilities nor are they frameworks that could support researchers.
+PyKEEN itself has the opposite problem (for now, get hyped for new improvements in 2021). A solution might lie
+in [Marius](https://github.com/marius-team/marius), a new knowledge graph embedding model library that could be the best
+of both worlds. Assuming these weren't considerations, there are two themes through which I could see the question
+"did I learn anything?": knowledge graph reorganization and knowledge graph deterioration.
+
+The idea of reorganization is a bit more classic, coming from previous approaches. There are a few concepts that could
+be used to generate derived knowledge graphs based on a given one that could be use to generate null networks:
+
+1. Degree-preserving network shuffle ([pmc:PMC3307026](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3307026);
+   [pmc:PMC5168876](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5168876)))
+2. Xswap ([doi:10.1137/1.9781611972795.67](https://doi.org/10.1137/1.9781611972795.67); https://github.com/hetio/xswap)
+3. Relabeling of nodes, similarly to the y-scrambling technique
+
+[Himmelstein *et al* (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5640425/) provides a gold standard on how
+these techniques could be used to report on how meaningful results are from a link prediction model on a knowledge graph
+
+The idea of deterioration encompasses randomly removing edges from the knowledge graph and training. It could determine
+how much of knowledge graph is actually needed to train the model to make meaningful prediction. This would be done for
+multiple increments (e.g., remove 10% of the training set, remove 20% of the training set) with multiple trials on each.
+
+### Are KGEMs King Now?
+
+The COVID-19 pandemic has not only been a battle for public health, but it has also resulted in the largest wave of low
+quality scientific work in recent memory. Lots of this low-quality work included half-baked usage of network
+representation learning, matrix completion, and for the first time, knowledge graph embedding models in the mainstream
+to predict drug-disease links. It was lacking on many fronts: the formulations of knowledge graphs, the evaluation of
+training and link prediction, and the communication of results.
+
+As a critique, I will share with you my own drug repositioning algorithm for COVID-19: take the list of all drugs in
+DrugBank, and randomly select 100 of them. You'd be surprised how competitive this algorithm is with others.
+
+The more upsetting examples was from a *very* prominent network science group that used the RotatE (and other standard)
+knowledge graph embedding models for the link prediction task for drug repositioning for COVID-19. They evaluated the
+task on its ability to recover drugs that had already gone into clinical trials for COVID-19, and claimed victory
+because they were able to recapitulate enough of the list. This was a bad evaluation because the drugs in the clinic
+were there based on inference made on the same data used to train and evaluate the model. More importantly, it was bad
+because it was a famous group that misrepresented the way science is done - link prediction in biomedicine is a way to
+generate hypotheses that can be tested in the lab. Focusing communication around its ability to recapitulate what's in
+the training set (i.e., overfitting) is one of the first lessons that students are taught in introduction to machine
+learning class.
+
+Does this mean that knowledge graph embedding models are king now? No - there's still a long way to go in biomedicine
+before they are accepted as canonical tools, that must include some more high-profile papers in that include
+experimental evaluation of the results. This will most likely happen in the chemistry or target prioritization domains,
+where the predictions of the model can motivate experiments of actual value.
+
+As a few of the vignettes in this post mentioned, there are still problems with model formulation that can cause huge
+performance deficits on biomedical knowledge graphs. A different class of models based on random walks, while less
+complex than knowledge graph embedding models, continue to perform well on tasks in biomedical knowledge graphs because
+their formulation is oriented towards extracting local community structure - a feature that is very important in
+biology. Several attempts have been made to extend these to better take into account directionality and edge type. Some
+of those generalizations even fit into the philosophy and architecture of graph neural networks
+(GNNs). Further, there are lots of quantitative data such as chemical-enzyme IC50s, chemical-receptor EC50s, GWAS
+*p*-values, etc. that all have widely different scales and dynamic ranges that are difficult to simultaneously
+incorporate in any of these methods in a meaningful way.
