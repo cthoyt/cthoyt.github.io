@@ -1,15 +1,15 @@
 ---
 layout: post
 title: Current Perspectives on KGEMs in and out of Biomedicine
-date: 2021-04-05 13:13:00 +0100
+date: 2021-04-06 13:13:00 +0100
 author: Charles Tapley Hoyt
 tags: bioinformatics pykeen
 ---
 After many discussions scientists from AstraZeneca's knowledge graph and target prioritization platform 
 (BIKG) about the [PyKEEN](https://github.com/pykeen/pykeen) knowledge graph embedding model package, I joined them 
 in writing a [review on biomedical knowledge graphs](https://arxiv.org/abs/2102.10062). I'm agreed to give a talk 
-in their group today - this blog post is a longer form of some of the ideas I'll be presenting there. At the bottom 
-is a link to the slides themselves.
+in their group today - this blog post is a longer form of some of the ideas I'll be presenting there. Here are
+[the slides](https://docs.google.com/presentation/d/1JyTkf58LnK7OEiwYUtqkHXuk4n3le3-mAWSI6t4IEp8/edit#slide=id.p).
 
 ### Who is the Arbiter of Benchmarks?
 
