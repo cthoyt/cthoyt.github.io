@@ -7,8 +7,8 @@ tags: bioinformatics pykeen
 ---
 After many discussions scientists from AstraZeneca's knowledge graph and target prioritization platform 
 (BIKG) about the [PyKEEN](https://github.com/pykeen/pykeen) knowledge graph embedding model package, I joined them 
-in writing a [review on biomedical knowledge graphs](https://arxiv.org/abs/2102.10062). Further, I'm giving a talk 
-in their group today. This blog post is a longer form of some of the ideas I'll be presenting there. At the bottom 
+in writing a [review on biomedical knowledge graphs](https://arxiv.org/abs/2102.10062). I'm agreed to give a talk 
+in their group today - this blog post is a longer form of some of the ideas I'll be presenting there. At the bottom 
 is a link to the slides themselves.
 
 ### Who is the Arbiter of Benchmarks?
