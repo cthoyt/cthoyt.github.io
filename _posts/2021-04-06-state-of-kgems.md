@@ -80,5 +80,78 @@ methodological improvements for link prediction models that consider these kinds
 redundancies do not fit as neatly into the "leakage" issue.
 
 Tools like [ComPath](https://github.com/compath/) can be used to enrich KGs with links between functionally equivalent
-pathways, but this kind of information is not readily used by typical KGEMs. Alternative rule-based and symbolic 
-reasoning systems might present solutions in this area.
+pathways, but this kind of information is not readily used by typical knowledge graph embedding models. Alternative
+rule-based and symbolic reasoning systems might present solutions in this area.
+
+### The Effect of Non-Determinism
+
+There are several meaningful non-deterministic factors that affect the performance of a model:
+
+1. The effect of random initialization. The commonly used `pytorch.nn.Embedding` initializes its weightings by default
+   with the vanilla `pytorch.nn.init.normal_` function. Using alternative parameters for the distribution (e.g.,
+   Xavier/Glorot) have been shown to improve performance in a variety of settings.
+2. The effect of non-determinism during training that occurs during batch shuffling. This has shown to quicken
+   convergence and mitigate overfitting based on the ordering of training data.
+3. The effect of random negative sampling when training under the stochastic local closed world (sLCWA) assumption.
+
+To compensate for the non-determinism, several trials using the same settings should be run and the distribution of each
+metric (or at minimum, summary statistics over their means and standard deviations) should be presented. Below, the
+distribution of mean ranks resulting from 10 trials of training of several models on the Hetionet dataset are
+presented (credit to Stephen Bonner [@sbonner](https://github.com/sbonner0) for running this trial and generating the
+chart).
+
+![The effect of random initialization](/img/bonner_rand_init.png)
+
+From this chart, it is obvious that the
+[DistMult](https://pykeen.readthedocs.io/en/latest/api/pykeen.models.DistMult.html) model has the potential to perform
+both very well and very poorly based on the random initialization. There are two reasons that this might be the case for
+this model/dataset in particular:
+
+1. The interaction for DistMult function uses the Hadamard operators, which commute, so `f(h,r,t) = f(t,r,h)`. With the
+   Hetionet dataset, where there is meaningful directionality and also the existence of inverse edges, this could be a
+   liability to both meaningful training and accurate evaluation
+2. The L_1 norm formulation of DistMult makes it much more susceptible to random initialization than if the L_2 norm
+   were specified. Because the original formulation of the DistMult model uses the idiom of matrix factorization, the
+   norm's `p` is not configurable within PyKEEN (the tool used to train these models and generate these charts).
+
+While there are a few insights into the formulations of models and the properties of datasets that could inform users to
+avoid using models like DistMult with datasets like Hetionet, the more general case is likely more bleak - even small
+changes in hyper-parameters could potentially affect the robustness of a model to non-determinism. However, there does
+not yet exist a comprehensive benchmarking study (even over small KGs) to confirm this nor elucidate general insight.
+
+As an end note - this is not meant to say that non-determinism should be mitigated nor removed. It is a vital part to
+creating meaningful results and fixing the random seed is certainly not a viable solution.
+
+### Splits Aren't Gospel
+
+Benchmark datasets for knowledge graph embedding models typically consist of a pre-stratified training, testing, and
+validation set. The FB15k, FB15k-237, WN18, WN18-RR, and YAGO3-10 are the most commonly used to assess the performance
+of new models or compare the performance of old models due to their relatively small sizes. More specifically, the same
+exact pre-stratification is used in all papers.
+
+While this potentially could make results more comparable across different experiments, it presents a huge liability in
+that it is another "random" effect that is completely discarded. Rather than present results on a single split, results
+should be presented as a distribution over several splits to show if there are certain properties of the split that
+cause some models to perform better than others. Perhaps this kind of evaluation would have informed Bordes *et al.*
+about the issues with the FB15k and WN18 datasets before they were later identified by other authors. This also presents
+a practical problem since there are potentially many ways to generate dataset splits, and typical knowledge graph
+embedding model researchers likely aren't interested in adding another level of cross-validation to their already
+complex pipelines.
+
+This issue is more apparent when applying knowledge graph embedding models to datasets that are not pre-stratified such
+as the Common Sense Knowledge Graph, NELL, or any biomedical knowledge graph. It can again be demonstrated with an image
+from Stephen Bonner. Below, the distribution of mean ranks resulting from 10 random splits of the Hetionet dataset and
+using the same training configuration for several models.
+
+![The effect of random splits](/img/bonner_rand_splits.png)
+
+The confidence intervals support an even more startling conclusion - the effect of random splitting of the dataset
+could cause a model like DistMult to outperform models like ComplEx due to its huge variance. Further, datasets
+like Hetionet definitely are susceptible to the leakage problem. Note: there's a prototype implementation of the
+Toutanova and Chen algorithm for removing leakages in PyKEEN, but it's neither finished nor integrated in the PyKEEN
+pipeline. Combine with DistMult's penchant for modeling inverse relations the same as the canonical ones, this could
+wreak havoc on its performance depending on how bad the leakage was by chance. Like with random initialization,
+there has not yet been a comprehensive benchmarking that could give more general insight into the liabilities of not
+reporting distributions of results over several random splits. Even further, combine with the previous section's
+prescription to report distribution over multiple random initializations, doing a "proper" investigating of
+robustness seems to be getting more high dimensional.
