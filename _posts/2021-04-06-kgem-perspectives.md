@@ -40,7 +40,10 @@ The [Open Graph Benchmark (OGB)](https://ogb.stanford.edu/) provides a potential
 externalizing and standardizing the code that evaluates the results. There are still sneaky ways to game this that I
 won't describe in detail, but I like the concept. However, the framework does not cover some of the more popular
 datasets and the ones that it does introduce in the link prediction task, it does not do so with any provenance on how
-they're created.
+they're created. During my talk, Benedek Rozemberczki brought up another interesting point - many of the benchmarks in
+OGB have surpassed the size that can be addressed by the physical infrastructure or cloud compute budgets of many small
+academic institutions. As machine learning continues to rely on larger, more exotic models, we will soon have to reckon
+with this divide.
 
 ### Testing/Validation Leakage
 
@@ -115,7 +118,7 @@ many downstream tasks.
 Many benchmark biological knowledge graphs such as [Hetionet](https://het.io/) and
 [OpenBioLink](https://github.com/openbiolink/openbiolink) include multiple pathway databases. Therefore, link prediction
 tasks between genes and pathways (such as the case scenario presented in
-[Ali *et al* (2019)](https://doi.org/10.1093/bioinformatics/btz117)) could be skewed both during the training and
+[Ali *et al*. (2019)](https://doi.org/10.1093/bioinformatics/btz117) could be skewed both during the training and
 evaluation of link prediction models, and ultimately in the interpretation of predicted results. While methodological
 improvements like SetRank
 ([Simillion *et al.* (2017)](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1571-6) have been
