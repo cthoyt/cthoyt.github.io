@@ -227,8 +227,8 @@ The idea of reorganization is a bit more classic, coming from previous approache
 be used to generate derived knowledge graphs based on a given one that could be use to generate null networks:
 
 1. Degree-preserving network shuffle ([pmc:PMC3307026](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3307026);
-   [pmc:PMC5168876](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5168876)))
-2. Xswap ([doi:10.1137/1.9781611972795.67](https://doi.org/10.1137/1.9781611972795.67); https://github.com/hetio/xswap)
+   [pmc:PMC5168876](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5168876))
+2. Xswap ([paper](https://doi.org/10.1137/1.9781611972795.67); [code](https://github.com/hetio/xswap))
 3. Relabeling of nodes, similarly to the y-scrambling technique
 
 [Himmelstein *et al* (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5640425/) provides a gold standard on how
@@ -269,9 +269,9 @@ complex than knowledge graph embedding models, continue to perform well on tasks
 their formulation is oriented towards extracting local community structure - a feature that is very important in
 biology. Several attempts have been made to extend these to better take into account directionality and edge type. Some
 of those generalizations even fit into the philosophy and architecture of graph neural networks
-(GNNs). Further, there are lots of quantitative data such as chemical-enzyme IC50s, chemical-receptor EC50s, GWAS
-*p*-values, etc. that all have widely different scales and dynamic ranges that are difficult to simultaneously
-incorporate in any of these methods in a meaningful way.
+(GNNs). Further, there are lots of quantitative data such as chemical-enzyme IC<sub>50</sub> values, chemical-receptor
+EC<sub>50</sub> values, GWAS *p*-values, etc. that all have widely different scales and dynamic ranges that are
+difficult to simultaneously incorporate in any of these methods in a meaningful way.
 
 ### Willkommen in der Zukunft (The Future)
 
