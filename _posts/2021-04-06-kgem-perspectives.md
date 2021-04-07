@@ -5,11 +5,11 @@ date: 2021-04-05 13:13:00 +0100
 author: Charles Tapley Hoyt
 tags: bioinformatics pykeen
 ---
-After many discussions scientists from AstraZeneca's knowledge graph and target prioritization platform 
-(BIKG) about the [PyKEEN](https://github.com/pykeen/pykeen) knowledge graph embedding model package, I joined them 
-in writing a [review on biomedical knowledge graphs](https://arxiv.org/abs/2102.10062). I'm giving a talk 
-in their group tomorrow - this blog post is a longer form of some ideas I'll be presenting there. Here are
-[the slides](https://docs.google.com/presentation/d/1JyTkf58LnK7OEiwYUtqkHXuk4n3le3-mAWSI6t4IEp8/edit#slide=id.p).
+After many discussions scientists from AstraZeneca's knowledge graph and target prioritization platform
+(BIKG) about the [PyKEEN](https://github.com/pykeen/pykeen) knowledge graph embedding model package, I joined them in
+writing a [review on biomedical knowledge graphs](https://arxiv.org/abs/2102.10062). I'm giving a talk in their group
+tomorrow - this blog post is a longer form of some ideas I'll be presenting there. Here are
+[the slides](https://docs.google.com/presentation/d/1JyTkf58LnK7OEiwYUtqkHXuk4n3le3-mAWSI6t4IEp8).
 
 ### Who is the Arbiter of Benchmarks?
 
@@ -186,9 +186,8 @@ embedding model researchers likely aren't interested in adding another level of 
 complex pipelines.
 
 This issue is more apparent when applying knowledge graph embedding models to datasets that are not pre-stratified such
-as the Common Sense Knowledge Graph, NELL, or any biomedical knowledge graph. It can again be demonstrated with an image
-from Stephen Bonner. Below, the distribution of mean ranks resulting from 10 random splits of the Hetionet dataset and
-using the same training configuration for several models.
+as the [Common Sense Knowledge Graph](http://arxiv.org/abs/2012.11490), [NELL](http://rtw.ml.cmu.edu/rtw/), or any
+biomedical knowledge graph. It can again be demonstrated with an image from Stephen Bonner. Below, the distribution of
 
 ![The effect of random splits](/img/bonner_rand_splits.png)
 
@@ -258,8 +257,6 @@ because they were able to recapitulate enough of the list. This was a bad evalua
 were there based on inference made on the same data used to train and evaluate the model. More importantly, it was bad
 because it was a famous group that misrepresented the way science is done - link prediction in biomedicine is a way to
 generate hypotheses that can be tested in the lab. Focusing communication around its ability to recapitulate what's in
-the training set (i.e., overfitting) is one of the first lessons that students are taught to avoid in 
-their introduction to machine learning classes.
 
 Does this mean that knowledge graph embedding models are king now? No - there's still a long way to go in biomedicine
 before they are accepted as canonical tools, that must include some more high-profile papers in that include
@@ -295,13 +292,11 @@ to be amended to better reflect the reality that we know some negative knowledge
 relations in different densities.
 
 Genes, RNAs, and proteins are not the same! Even worse, they can have several variants due to differential splicing, and
-they can have all sorts of pre- and post-translational modifications. BEL and related formats like BioPAX can 
-represent these, but the knowledge graph approach to biology tends to throw this away completely. On the other hand, 
-high granular information on this level of specificity is likely too low to make dense knowledge graphs over which 
-typical tasks like link prediction can be successful. This motivates a greater focus on modeling the hierarchies of 
-information (a task at which INDRA excels) to generate knowledge graphs that balance these competing qualities.
+they can have all sorts of pre- and post-translational modifications. BEL and related formats like BioPAX can represent
+these, but the knowledge graph approach to biology tends to throw this away completely. On the other hand, high granular
+information on this level of specificity is likely too low to make dense knowledge graphs over which typical tasks like
+link prediction can be successful. This motivates a greater focus on modeling the hierarchies of information (a task at
+which INDRA excels) to generate knowledge graphs that balance these competing qualities.
 
-The entire semantic infrastructure for building knowledge graphs is improving (I'd like to say in some small part 
-due to the tools I've built) that enables mappings between entities, such as
-[Inspector Javert's Xref database]({% post_url 2020-04-19-inspector-javerts-xref-database %}) and
-the new [SSSOM format](https://github.com/mapping-commons/SSSOM) to make mapping data more standardized.
+The entire semantic infrastructure for building knowledge graphs is improving (I'd like to say in some small part due to
+the tools I've built) that enables mappings between entities, such as
