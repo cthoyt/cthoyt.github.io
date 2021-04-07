@@ -40,10 +40,10 @@ The [Open Graph Benchmark (OGB)](https://ogb.stanford.edu/) provides a potential
 externalizing and standardizing the code that evaluates the results. There are still sneaky ways to game this that I
 won't describe in detail, but I like the concept. However, the framework does not cover some of the more popular
 datasets and the ones that it does introduce in the link prediction task, it does not do so with any provenance on how
-they're created. During my talk, Benedek Rozemberczki brought up another interesting point - many of the benchmarks in
-OGB have surpassed the size that can be addressed by the physical infrastructure or cloud compute budgets of many small
-academic institutions. As machine learning continues to rely on larger, more exotic models, we will soon have to reckon
-with this divide.
+they're created. During my talk, Benedek Rozemberczki ([@benedekrozemberczki](https://github.com/benedekrozemberczki))
+brought up another interesting point - many of the benchmarks in OGB have surpassed the size that can be addressed by
+the physical infrastructure or cloud compute budgets of many small academic institutions. As machine learning continues
+to rely on larger, more exotic models, we will soon have to reckon with this divide.
 
 ### Testing/Validation Leakage
 
@@ -232,7 +232,7 @@ be used to generate derived knowledge graphs based on a given one that could be 
 3. Relabeling of nodes, similarly to the y-scrambling technique
 
 [Himmelstein *et al* (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5640425/) provides a gold standard on how
-these techniques could be used to report on how meaningful results are from a link prediction model on a knowledge 
+these techniques could be used to report on how meaningful results are from a link prediction model on a knowledge
 graph.
 
 The idea of deterioration encompasses randomly removing edges from the knowledge graph and training. It could determine
