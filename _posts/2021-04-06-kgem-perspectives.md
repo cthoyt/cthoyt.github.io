@@ -32,9 +32,9 @@ This motivates large benchmarking studies that use unified frameworks and re-imp
 the relative performances of models (and can for a brief moment, let you throw away your metric fixation).
 The [PyKEEN benchmark](https://arxiv.org/abs/2006.13365) is the largest and most comprehensive to date, covering many
 models, datasets, and configurations. I was proudly a part of this work under the leadership of Mehdi Ali
-[@mali-git](https://github.com/mali-git/), he's a really good guy. There's also the smaller
-[LibKGE benchmark](https://openreview.net/forum?id=BkxSmlBFvr) as well as several others that we're maintaining in a
-curated list in this [meta-review](https://pykeen.github.io/kgem-meta-review/) repository.
+[@mali-git](https://github.com/mali-git/) and with an amazing [team](https://pykeen.github.io/organization/). There's
+also the smaller [LibKGE benchmark](https://openreview.net/forum?id=BkxSmlBFvr) as well as several others that we're
+maintaining in a curated list in this [meta-review](https://pykeen.github.io/kgem-meta-review/) repository.
 
 The [Open Graph Benchmark (OGB)](https://ogb.stanford.edu/) provides a potential solution to these issues by
 externalizing and standardizing the code that evaluates the results. There are still sneaky ways to game this that I
@@ -187,7 +187,9 @@ complex pipelines.
 
 This issue is more apparent when applying knowledge graph embedding models to datasets that are not pre-stratified such
 as the [Common Sense Knowledge Graph](http://arxiv.org/abs/2012.11490), [NELL](http://rtw.ml.cmu.edu/rtw/), or any
-biomedical knowledge graph. It can again be demonstrated with an image from Stephen Bonner. Below, the distribution of
+biomedical knowledge graph. It can again be demonstrated with another image from Stephen Bonner. Below, the distribution
+of mean ranks resulting from 10 random splits of the Hetionet dataset and using the same training configuration for
+several models.
 
 ![The effect of random splits](/img/bonner_rand_splits.png)
 
