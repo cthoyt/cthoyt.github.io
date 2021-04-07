@@ -281,9 +281,10 @@ Random parting thoughts:
 
 Biomedical knowledge graph benchmarks are consistently topping out around 5 million edges. If I had to guess, that's
 because that's the number where if you go higher, you have to start using some packages that are not meant for users
-like Amazon's DGL or PyTorch's BigGraph. If we're ever going to go from drug repositioning, where there are on the scale
-of only thousands of chemicals versus hundreds of proven targets to billions (or more if you want to get fancy with
-virtual screening) chemicals across potentially the whole genome of ~20K protein coding genes, the products of other
+like Amazon's DGL or PyTorch's BigGraph. We'll need more accessible, scalable systems if we're ever going to move on
+from drug repositioning, where there are only on the scale of thousands of chemicals against hundreds of proven targets,
+to *bona fide* drug discovery, where there are on the scale of billions of chemicals (or more if you want to get fancy
+with virtual screening) against potentially the whole genome of ~20K protein coding genes, the products of other
 non-protein-coding genes, and other stuff floating around in and around the cell.
 
 Negative knowledge should be emphasized. Formats like the
