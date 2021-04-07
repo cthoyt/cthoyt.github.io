@@ -54,7 +54,7 @@ The most common form of leakage occurs when a knowledge graph contains inverse t
 
 - `A` and `B` are entities in a knowledge graph
 - `part of` and `has part` are inverse relations in the knowledge graph
-- `A part of B` is in the training
+- `A part of B` is in the training set
 - `B has part A` is in the testing set
 
 This scenario occurs in two datasets widely used in knowledge graph embedding model benchmarking:
@@ -118,10 +118,10 @@ many downstream tasks.
 Many benchmark biological knowledge graphs such as [Hetionet](https://het.io/) and
 [OpenBioLink](https://github.com/openbiolink/openbiolink) include multiple pathway databases. Therefore, link prediction
 tasks between genes and pathways (such as the case scenario presented in
-[Ali *et al*. (2019)](https://doi.org/10.1093/bioinformatics/btz117) could be skewed both during the training and
+[Ali *et al*., 2019](https://doi.org/10.1093/bioinformatics/btz117)) could be skewed both during the training and
 evaluation of link prediction models, and ultimately in the interpretation of predicted results. While methodological
 improvements like SetRank
-([Simillion *et al.* (2017)](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1571-6) have been
+([Simillion *et al.*, 2017](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1571-6)) have been
 proposed to mitigate the redundancies in the over-representation analysis setting, there have not yet been
 methodological improvements for link prediction models that consider these kinds redundancies. Further, these kinds of
 redundancies do not fit as neatly into the "leakage" issue.
@@ -233,7 +233,8 @@ be used to generate derived knowledge graphs based on a given one that could be 
 3. Relabeling of nodes, similarly to the y-scrambling technique
 
 [Himmelstein *et al* (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5640425/) provides a gold standard on how
-these techniques could be used to report on how meaningful results are from a link prediction model on a knowledge graph
+these techniques could be used to report on how meaningful results are from a link prediction model on a knowledge 
+graph.
 
 The idea of deterioration encompasses randomly removing edges from the knowledge graph and training. It could determine
 how much of knowledge graph is actually needed to train the model to make meaningful prediction. This would be done for
@@ -257,8 +258,8 @@ because they were able to recapitulate enough of the list. This was a bad evalua
 were there based on inference made on the same data used to train and evaluate the model. More importantly, it was bad
 because it was a famous group that misrepresented the way science is done - link prediction in biomedicine is a way to
 generate hypotheses that can be tested in the lab. Focusing communication around its ability to recapitulate what's in
-the training set (i.e., overfitting) is one of the first lessons that students are taught in introduction to machine
-learning class.
+the training set (i.e., overfitting) is one of the first lessons that students are taught to avoid in 
+their introduction to machine learning classes.
 
 Does this mean that knowledge graph embedding models are king now? No - there's still a long way to go in biomedicine
 before they are accepted as canonical tools, that must include some more high-profile papers in that include
@@ -290,10 +291,10 @@ Negative knowledge should be emphasized. Formats like the
 [Biological Expression Language (BEL)](https://biological-expression-language.github.io/) should support its curation,
 natural language processing systems and tools like [INDRA](https://github.com/sorgerlab/indra) should start extracting
 in bulk, and the concept of the open world assumption, local closed world assumption, and closed world assumption need
-to be ammended to better reflect the reality that we know some negative knowledge, but it's distributed across different
+to be amended to better reflect the reality that we know some negative knowledge, but it's distributed across different
 relations in different densities.
 
-Genes, RNAs, and proteins are not the same! Even worse, they can have several variants due to differential splicing and
+Genes, RNAs, and proteins are not the same! Even worse, they can have several variants due to differential splicing, and
 they can have all sorts of pre- and post-translational modifications. BEL and related formats like BioPAX can 
 represent these, but the knowledge graph approach to biology tends to throw this away completely. On the other hand, 
 high granular information on this level of specificity is likely too low to make dense knowledge graphs over which 
@@ -301,5 +302,6 @@ typical tasks like link prediction can be successful. This motivates a greater f
 information (a task at which INDRA excels) to generate knowledge graphs that balance these competing qualities.
 
 The entire semantic infrastructure for building knowledge graphs is improving (I'd like to say in some small part 
-due to the tools I've build) that enables mappings between entities, such as [Inspector Javert's Xref database]() and
+due to the tools I've built) that enables mappings between entities, such as
+[Inspector Javert's Xref database]({% post_url 2020-04-19-inspector-javerts-xref-database %}) and
 the new [SSSOM format](https://github.com/mapping-commons/SSSOM) to make mapping data more standardized.
