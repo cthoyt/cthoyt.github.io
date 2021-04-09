@@ -32,8 +32,8 @@
 
 - name: Bioregistry
   role: creator, maintainer
-  github: cthoyt/bioregistry
-  description: An integrative registry of biological databases, ontologies, and nomenclatures.
+  github: bioregistry/bioregistry
+  description: An integrative meta-registry of biological databases, ontologies, and nomenclatures.
   logo: /img/logos/bioregistry.png
 
 - name: Ooh Na Na
