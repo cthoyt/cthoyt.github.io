@@ -92,7 +92,7 @@ activity. If you're building a classifier for activity against HMG-CoA reductase
 model that includes chemical-protein or chemical-enzyme class predictions, including some of these molecules in the
 training set and others in the test set would enable trivial inference and ultimately result in an over-estimation of
 the performance of your model (barring discussion about how this could be considered trivial is a huge triumph of modern
-pharacology and chemoinformatics). The solution often referenced in
+pharmacology and chemoinformatics). The solution often referenced in
 [proteochemometrics](https://www.universiteitleiden.nl/en/research/research-projects/science/lacdr-proteochemometrics)
 papers is to use scaffold-based splitting like Bemis-Murcko scaffold splitting or to pre-cluster molecules based on
 structural similarity and to split based on clusters. More information on these methods is reviewed in
@@ -259,6 +259,8 @@ because they were able to recapitulate enough of the list. This was a bad evalua
 were there based on inference made on the same data used to train and evaluate the model. More importantly, it was bad
 because it was a famous group that misrepresented the way science is done - link prediction in biomedicine is a way to
 generate hypotheses that can be tested in the lab. Focusing communication around its ability to recapitulate what's in
+the training set (i.e., overfitting) is one of the first lessons that students are taught to avoid in
+their introduction to machine learning classes.
 
 Does this mean that knowledge graph embedding models are king now? No - there's still a long way to go in biomedicine
 before they are accepted as canonical tools, that must include some more high-profile papers in that include
@@ -301,5 +303,7 @@ information on this level of specificity is likely too low to make dense knowled
 link prediction can be successful. This motivates a greater focus on modeling the hierarchies of information (a task at
 which INDRA excels) to generate knowledge graphs that balance these competing qualities.
 
-The entire semantic infrastructure for building knowledge graphs is improving (I'd like to say in some small part due to
-the tools I've built) that enables mappings between entities, such as
+The entire semantic infrastructure for building knowledge graphs is improving (I'd like to say in some small part
+due to the tools I've built) that enables mappings between entities, such as
+[Inspector Javert's Xref database]({% post_url 2020-04-19-inspector-javerts-xref-database %}) and
+the new [SSSOM format](https://github.com/mapping-commons/SSSOM) to make mapping data more standardized.
