@@ -7,7 +7,7 @@ tags: pykeen
 ---
 The mean rank (MR) and mean reciprocal rank (MRR) are among the most popular metrics reported for the evaluation of
 knowledge graph embedding models in the link prediction task. While they are reported on very different intervals
-(MR between {% raw %}$$[1,\infty)$${% endraw %} and MRR between {% raw %}$$(0, 1]$${% endraw %}, their deep theoretical
+(MR between {% raw %}\([1,\infty)\){% endraw %} and MRR between {% raw %}$$(0, 1]$${% endraw %}, their deep theoretical
 connection can be elegantly described through the lens of [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means). This blog post describes
 ideas [Max Berrendorf](https://github.com/mberr) shared with me that I recently implemented in
 [PyKEEN](https://github.com/pykeen/).
@@ -71,7 +71,7 @@ $$\text{score} =\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r$$
 
 It has the advantage over hits@k that it is sensitive to any model performance changes, not only what occurs under a
 certain cutoff and therefore reflects average performance. With PyKEEN's standard 1-based indexing, the mean rank lies
-on the interval \([1, \infty)\) where lower is better.
+on the interval {% raw %}\([1, \infty)\){% endraw %} where lower is better.
 
 While it remains interpretable, the mean rank is dependent on the number of candidates. A mean rank of 10 might indicate
 strong performance for a candidate set size of 1,000,000, but incredibly poor performance for a candidate set size of
@@ -97,7 +97,7 @@ the hits@k ignores changes among high rank values completely, and the mean rank 
 range, the mean reciprocal rank is more affected by changes of low rank values than high ones
 (without disregarding them completely like hits@k does for low rank values)
 Therefore, it can be considered as soft a version of hits@k that is less sensitive to outliers. It is bound on
-\((0, 1]\) where closer to 1 is better.
+{% raw %}\((0, 1]\){% endraw %} where closer to 1 is better.
 
 https://pykeen.readthedocs.io/en/stable/tutorial/understanding_evaluation.html
 https://github.com/pykeen/pykeen/pull/381
