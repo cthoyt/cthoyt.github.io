@@ -7,7 +7,7 @@ tags: pykeen
 ---
 The mean rank (MR) and mean reciprocal rank (MRR) are among the most popular metrics reported for the evaluation of
 knowledge graph embedding models in the link prediction task. While they are reported on very different intervals
-(MR between 1 and ∞ and MRR between 0 and 1, their deep theoretical connection can be elegantly described through the
+(MR between $[1,\\infty)$ and MRR between 0 and 1, their deep theoretical connection can be elegantly described through the
 lens of [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means). This blog post describes
 ideas [Max Berrendorf](https://github.com/mberr) shared with me that I recently implemented in
 [PyKEEN](https://github.com/pykeen/).
@@ -38,24 +38,24 @@ over the set of ranks (again, the positions in the list of all true triples + sa
 
 ## Definitions of Rank-based Metrics
 
-This post is about to include some equations. I'm going to use $$\mathcal{I}$$ to denote the set of all ranks for true
+This post is about to include some equations. I'm going to use $\\mathcal{I}$ to denote the set of all ranks for true
 triples.
 
 ### Hits @ K
 
 While this post isn't about hits@k, it's worth summarizing the alternative approach that it takes to summarizing the
 rank list because it's a much more application-driven metric. Effectively, the hits@k describes the fraction of true
-entities that appear in the first *k* entities of the sorted rank list. It is given as:
+entities that appear in the first $k$ entities of the sorted rank list. It is given as:
 
 {% raw %}
 
 $$\text{score}_k = \frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} \mathbb{I}[r \leq k]$$
 
 For example, if Google shows 20 results on the first page, then the percentage of results that are relevant is the hits
-@ 20. The hits@k, regardless of k, lies between 0 and 1 where closer to 1 is better.
+@ 20. The hits@k, regardless of k, lies between $(0, 1]$ where closer to 1 is better.
 
 This metric does not differentiate between cases when the rank is larger than *k*. This means that a miss with rank
-$$k+1$$ and $$k+d$$ where $$d \gg 1$$ have the same effect on the final score. Therefore, it is less suitable for the
+$k+1$ and $k+d$ where $d \gg 1$ have the same effect on the final score. Therefore, it is less suitable for the
 comparison of different models.
 
 ### Mean Rank
@@ -70,7 +70,7 @@ $$\text{MR} =\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r$$
 
 It has the advantage over hits@k that it is sensitive to any model performance changes, not only what occurs under a
 certain cutoff and therefore reflects average performance. With PyKEEN's standard 1-based indexing, the mean rank lies
-on the interval {% raw %}\([1, \infty)\){% endraw %} where lower is better.
+on the interval {% raw %}$[1, \infty)${% endraw %} where lower is better.
 
 While it remains interpretable, the mean rank is dependent on the number of candidates. A mean rank of 10 might indicate
 strong performance for a candidate set size of 1,000,000, but incredibly poor performance for a candidate set size of
