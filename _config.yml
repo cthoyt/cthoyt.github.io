@@ -17,6 +17,8 @@ paginate: true
 paginate_path: "/blog/page:num/"
 show_excerpts: true
 
+markdown: kramdown
+
 theme: minima
 plugins:
   - jekyll-feed
