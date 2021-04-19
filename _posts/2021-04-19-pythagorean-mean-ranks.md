@@ -7,9 +7,9 @@ tags: pykeen
 ---
 The mean rank (MR) and mean reciprocal rank (MRR) are among the most popular metrics reported for the evaluation of
 knowledge graph embedding models in the link prediction task. While they are reported on very different intervals
-(MR between $[1,\\infty)$ and MRR between 0 and 1, their deep theoretical connection can be elegantly described through the
-lens of [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means). This blog post describes
-ideas [Max Berrendorf](https://github.com/mberr) shared with me that I recently implemented in
+($\\text{MR} \\in [1,\\infty)$ and $\\text{MRR} \\in (0,1]$, their deep theoretical connection can be elegantly
+described through the lens of [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means). This blog post
+describes ideas [Max Berrendorf](https://github.com/mberr) shared with me that I recently implemented in
 [PyKEEN](https://github.com/pykeen/).
 
 ## The Formulation of the Link Prediction Task
@@ -17,8 +17,9 @@ ideas [Max Berrendorf](https://github.com/mberr) shared with me that I recently 
 The link prediction task in knowledge graphs is effectively a binary classification task for each potential triple
 (h, r, t) on whether it is true or not. While the accuracy, precision, recall, F<sub>1</sub>,
 [Matthews correlation coefficient](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) (MCC), the area under
-[the precision-recall curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html),
-and area under the [receiver operating characteristic curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
+[the precision-recall curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html)
+, and area under
+the [receiver operating characteristic curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
 (AUC-ROC or AUROC) are typically used as metrics for binary classifications, the link prediction task has the added
 twist that there are only positive examples in a knowledge graph. This means that during training, potential negative
 triples need to be sampled from the finite set of all possible triples. This is called negative sampling within the
@@ -51,11 +52,13 @@ entities that appear in the first $k$ entities of the sorted rank list. It is gi
 
 $$\text{score}_k = \frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} \mathbb{I}[r \leq k]$$
 
+{% endraw %}
+
 For example, if Google shows 20 results on the first page, then the percentage of results that are relevant is the hits
 @ 20. The hits@k, regardless of k, lies between $(0, 1]$ where closer to 1 is better.
 
-This metric does not differentiate between cases when the rank is larger than *k*. This means that a miss with rank
-$k+1$ and $k+d$ where $d \gg 1$ have the same effect on the final score. Therefore, it is less suitable for the
+This metric does not differentiate between cases when the rank is larger than $k$. This means that a miss with rank
+$k+1$ and $k+d$ where $d \\gg 1$ have the same effect on the final score. Therefore, it is less suitable for the
 comparison of different models.
 
 ### Mean Rank
@@ -70,11 +73,10 @@ $$\text{MR} =\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r$$
 
 It has the advantage over hits@k that it is sensitive to any model performance changes, not only what occurs under a
 certain cutoff and therefore reflects average performance. With PyKEEN's standard 1-based indexing, the mean rank lies
-on the interval {% raw %}$[1, \infty)${% endraw %} where lower is better.
+on the interval $\\text{MR} \\in [1,\\infty)$ where lower is better.
 
 While it remains interpretable, the mean rank is dependent on the number of candidates. A mean rank of 10 might indicate
 strong performance for a candidate set size of 1,000,000, but incredibly poor performance for a candidate set size of
-
 20.
 
 ### Mean Reciprocal Rank
@@ -97,8 +99,8 @@ Despite its flaws, MRR is still often used during early stopping due to its beha
 the hits@k ignores changes among high rank values completely, and the mean rank changes uniformly across the full value
 range, the mean reciprocal rank is more affected by changes of low rank values than high ones
 (without disregarding them completely like hits@k does for low rank values)
-Therefore, it can be considered as soft a version of hits@k that is less sensitive to outliers. It is bound on {% raw
-%}$(0, 1]${% endraw %} where closer to 1 is better.
+Therefore, it can be considered as soft a version of hits@k that is less sensitive to outliers. It is bound on
+$\\text{MRR} \\in (0, 1]$ where closer to 1 is better.
 
 https://pykeen.readthedocs.io/en/stable/tutorial/understanding_evaluation.html
 https://github.com/pykeen/pykeen/pull/381
