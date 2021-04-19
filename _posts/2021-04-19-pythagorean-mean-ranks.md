@@ -7,8 +7,9 @@ tags: pykeen
 ---
 The mean rank (MR) and mean reciprocal rank (MRR) are among the most popular metrics reported for the evaluation of
 knowledge graph embedding models in the link prediction task. While they are reported on very different intervals
-(MR between {% raw %}\([1,\infty)\){% endraw %} and MRR between {% raw %}$$(0, 1]$${% endraw %}, their deep theoretical
-connection can be elegantly described through the lens of [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means). This blog post describes
+(MR between $$[1,\infty)$$ and MRR between {% raw %}$$(0, 1]$${% endraw %}, their deep theoretical
+connection can be elegantly described through the lens
+of [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means). This blog post describes
 ideas [Max Berrendorf](https://github.com/mberr) shared with me that I recently implemented in
 [PyKEEN](https://github.com/pykeen/).
 
@@ -84,7 +85,8 @@ the ranks. It is defined as:
 
 {% raw %}
 
-$$\text{score} =\frac{1}{|\mathcal{I}|} \sum_{r \in \mathcal{I}} r^{-1}$$
+$$\text{score} =\frac{1}{|\mathcal{I}|} \sum_{r \in \mathcal{I}} r^{-1} = \bigg(\frac{|\mathcal{I}|}{ \sum_{r \in
+\mathcal{I}} r^{-1}}\bigg)^{-1}$$
 
 {% endraw %}
 
@@ -96,8 +98,8 @@ Despite its flaws, MRR is still often used during early stopping due to its beha
 the hits@k ignores changes among high rank values completely, and the mean rank changes uniformly across the full value
 range, the mean reciprocal rank is more affected by changes of low rank values than high ones
 (without disregarding them completely like hits@k does for low rank values)
-Therefore, it can be considered as soft a version of hits@k that is less sensitive to outliers. It is bound on
-{% raw %}\((0, 1]\){% endraw %} where closer to 1 is better.
+Therefore, it can be considered as soft a version of hits@k that is less sensitive to outliers. It is bound on {% raw
+%}\((0, 1]\){% endraw %} where closer to 1 is better.
 
 https://pykeen.readthedocs.io/en/stable/tutorial/understanding_evaluation.html
 https://github.com/pykeen/pykeen/pull/381
