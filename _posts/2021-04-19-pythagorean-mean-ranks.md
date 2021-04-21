@@ -97,19 +97,19 @@ undisputed, cf. [Sakai (2021)](https://pykeen.readthedocs.io/en/latest/reference
 Despite its flaws, MRR is still often used during early stopping due to its behavior related to low rank values. While
 the hits@k ignores changes among high rank values completely, and the mean rank changes uniformly across the full value
 range, the mean reciprocal rank is more affected by changes of low rank values than high ones
-(without disregarding them completely like hits@k does for low rank values)
+without disregarding them completely like hits@k does for low rank values.
 Therefore, it can be considered as soft a version of hits@k that is less sensitive to outliers. It is bound on
 $\\text{MRR} \\in (0, 1]$ where closer to 1 is better.
 
 ### Inverse Arithmetic Mean Rank and Harmonic Mean Rank
 
-It's odd that the mean rank and mean reciprocal rank are formulated in a way such that $\\text{MR}
-\\in [1,\\infty)$ and $\\text{MRR} \\in (0,1]$. Since the mean reciprocal rank is just the inverse of the harmonic mean
-rank, then it would make sense to report the harmonic mean rank (HMR) as well, defined by:
+It's odd that the mean rank and mean reciprocal rank are formulated in a way such that
+$\\text{MR} \\in [1,\\infty)$ and $\\text{MRR} \\in (0,1]$. Since the mean reciprocal rank is just the inverse of the
+harmonic mean rank, then it would make sense to report the harmonic mean rank (HMR) as well, defined by:
 
 {% raw %}
 
-$$\text{HMR} = \frac{|\mathcal{I}|}{ \sum_{r \in \mathcal{I}} r^{-1}} = \frac{1}{\text{MRR}$$
+$$\text{HMR} = \frac{|\mathcal{I}|}{ \sum_{r \in \mathcal{I}} r^{-1}} = \frac{1}{\text{MRR}}$$
 
 {% endraw %}
 
@@ -119,7 +119,7 @@ Alternatively, the inverse arithmetic mean rank (IAMR) could be defined as the i
 
 {% raw %}
 
-$$\text{IAMR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r \bigg)^{-1} = \frac{1}{\text{MR}$$
+$$\text{IAMR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r \bigg)^{-1} = \frac{1}{\text{MR}}$$
 
 {% endraw %}
 
@@ -154,7 +154,7 @@ mean rank (IGMR) can be defined as:
 
 {% raw %}
 
-$$\text{IGMR} = \frac{1}{\text{GMR} = \bigg(\sqrt[\|\mathcal{I}\|]{\prod \limits_{r \in \mathcal{I}} r}\bigg)^{-1}$$
+$$\text{IGMR} = \frac{1}{\text{GMR}} = \bigg(\sqrt[\|\mathcal{I}\|]{\prod \limits_{r \in \mathcal{I}} r}\bigg)^{-1}$$
 
 {% endraw %}
 
