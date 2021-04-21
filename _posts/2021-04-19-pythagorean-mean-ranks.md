@@ -130,8 +130,10 @@ This has the benefit that it's more comparable to the mean reciprocal rank becau
 Since we're thinking about arithmetic means and harmonic means over the ranks, it would make sense to investigate
 the third [Pythagorean mean](https://en.wikipedia.org/wiki/Pythagorean_means): the geometric mean.
 
-<img style="max-width: 500px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/MathematicalMeans.svg/2560px-MathematicalMeans.svg.png"  alt="Pythagorean Mean Diagram"/>
+<img style="max-width: 500px; text-align: center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/MathematicalMeans.svg/2560px-MathematicalMeans.svg.png"  alt="Pythagorean Mean Diagram"/>
 
+This figure (from Wikimedia) shows the relationship between the arithmetic mean (A), geometric mean (G), and harmonic
+mean (H) on a triangle circumscribed by a circle of diameter $a+b$.
 
 ### Getting Geometrified
 
@@ -143,7 +145,7 @@ two biases. We can define the geometric mean rank (GMR) as:
 
 {% raw %}
 
-\text{GMR} = \sqrt[\|\mathcal{I}\|]{\prod \limits_{r \in \mathcal{I}} r}
+$$\text{GMR} = \sqrt[\|\mathcal{I}\|]{\prod \limits_{r \in \mathcal{I}} r}$$
 
 {% endraw %}
 
@@ -152,7 +154,7 @@ mean rank (IGMR) can be defined as:
 
 {% raw %}
 
-\text{IGMR} = \frac{1}{\text{GMR} = \bigg(\sqrt[\|\mathcal{I}\|]{\prod \limits_{r \in \mathcal{I}} r}\bigg)^{-1}
+$$\text{IGMR} = \frac{1}{\text{GMR} = \bigg(\sqrt[\|\mathcal{I}\|]{\prod \limits_{r \in \mathcal{I}} r}\bigg)^{-1}$$
 
 {% endraw %}
 
