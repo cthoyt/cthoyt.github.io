@@ -119,7 +119,7 @@ Alternatively, the inverse arithmetic mean rank (IAMR) could be defined as the i
 
 {% raw %}
 
-$$\text{IAMR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}}\bigg)^{-1} = \frac{1}{\text{MR}r$$
+$$\text{IAMR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r \bigg)^{-1} = \frac{1}{\text{MR}$$
 
 {% endraw %}
 
