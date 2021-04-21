@@ -93,10 +93,9 @@ $$\text{MRR} =\frac{1}{|\mathcal{I}|} \sum_{r \in \mathcal{I}} r^{-1} = \bigg(\f
 It has been argued that the mean reciprocal rank has theoretical flaws by
 [Fuhr (2018)](https://pykeen.readthedocs.io/en/latest/references.html#fuhr2018). However, this opinion is not
 undisputed, cf. [Sakai (2021)](https://pykeen.readthedocs.io/en/latest/references.html#sakai2021).
-
-Despite its flaws, MRR is still often used during early stopping due to its behavior related to low rank values. While
-the hits@k ignores changes among high rank values completely, and the mean rank changes uniformly across the full value
-range, the mean reciprocal rank is more affected by changes of low rank values than high ones
+Despite its *potential* flaws, MRR is still often used during early stopping due to its behavior related to low rank
+values. While the hits@k ignores changes among high rank values completely, and the mean rank changes uniformly across
+the full value range, the mean reciprocal rank is more affected by changes of low rank values than high ones
 without disregarding them completely like hits@k does for low rank values.
 Therefore, it can be considered as soft a version of hits@k that is less sensitive to outliers. It is bound on
 $\\text{MRR} \\in (0, 1]$ where closer to 1 is better.
