@@ -184,6 +184,7 @@ igmr = results.get_metric('inverse_geometric_mean_rank')
 The rules for `get_metric()` are outlined [here](https://pykeen.readthedocs.io/en/latest/api/pykeen.evaluation.RankBasedMetricResults.html#pykeen.evaluation.RankBasedMetricResults.get_metric).
 Usually, you should write out the metric name in full, with underscores in the middle. The common ones like `mrr`,
 `mr`, and `igmr` can be accessed by synonym.
+
 ---
 We've implemented all of these statistics in PyKEEN [pull request #381](https://github.com/pykeen/pykeen/pull/381),
 reported for the left sided, right sided, and two-sided evaluation as well as for the optimistic, pessimistic, and
