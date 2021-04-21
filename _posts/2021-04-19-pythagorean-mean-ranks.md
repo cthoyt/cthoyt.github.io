@@ -109,7 +109,7 @@ rank, then it would make sense to report the harmonic mean rank (HMR) as well, d
 
 {% raw %}
 
-$$\text{HMR} = \frac{|\mathcal{I}|}{ \sum_{r \in \mathcal{I}} r^{-1}}$$
+$$\text{HMR} = \frac{|\mathcal{I}|}{ \sum_{r \in \mathcal{I}} r^{-1}} = \frac{1}{\text{MRR}$$
 
 {% endraw %}
 
@@ -119,7 +119,7 @@ Alternatively, the inverse arithmetic mean rank (IAMR) could be defined as the i
 
 {% raw %}
 
-$$\text{MR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}}\bigg)^{-1} r$$
+$$\text{IAMR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}}\bigg)^{-1} = \frac{1}{\text{MR}r$$
 
 {% endraw %}
 
