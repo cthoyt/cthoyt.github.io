@@ -9,6 +9,12 @@ github_username:  cthoyt
 linkedin_username: cthoyt
 keybase_username: cthoyt
 
+mastodon:
+- username: cthoyt
+  instance: scholar.social
+- username: cthoyt
+  instance: mastodon.social
+
 url: "https://cthoyt.com"
 
 google_analytics: UA-166029785-1
