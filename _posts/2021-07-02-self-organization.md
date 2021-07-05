@@ -8,3 +8,8 @@ tags: bibliometrics
 I described how to organize all of the information about an organization in
 my [previous post]({% post_url 2021-01-17-organization-organization %}). This
 one is all about how to organize the public data about a researcher.
+
+- linkedin is great, but not open
+- ORCID identifier
+- Wikidata
+cth
