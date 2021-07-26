@@ -77,7 +77,7 @@ coming and officially tomorrow I will be in Germany illegally.
 
 Last time I ended up on the phone line with the City Hall instead of the Ausländeramt, they weren't very sympathetic to
 my cause, and also realized that they could effectively speak in their fastest and most ornamented German such that I
-couldn't understand them anymore. Luckily, my friend Moritz offered to help me with the shuffle and we got on the phone
+couldn't understand them anymore. Luckily, my German friend offered to help me with the shuffle and we got on the phone
 with the City Hall. They were helpful this time, but what happened next was just beyond words.
 
 1. We talked to the nice lady at the city hall. She figured out what the office number for my case worker was (this is
@@ -96,9 +96,9 @@ with the City Hall. They were helpful this time, but what happened next was just
    Ausländeramt and this should arrive tomorrow.
 
 Let's hope this means I won't be here illegally come tomorrow! By the end of this experience, I think we had spent way
-too much time of several people at the Bonn City Hall and also the Ausländeramt. Moritz had spent a few hours with me,
-too, so what was the real cost of all of this? I actually still haven't solved my problem since I still don't have an
-appointment to _actually_ extend my visa. Moritz hadn't experienced this kind of problem when he lived in Belgium and
-France because EU citizens all share the right of free movement between countries, and was just as jarring for him. He
-emailed our mayor, [Katja Dörner](https://www.bonn.de/vv/personen/Doerner-2379.php), a nice letter about the experience
-too. She's part of the "Green Party" which is pretty progressive, so maybe this will be a wake up call.
+too much time of several people at the Bonn City Hall and also the Ausländeramt. My friend had spent a few hours with
+me, too, so what was the real cost of all of this? I actually still haven't solved my problem since I still don't have
+an appointment to _actually_ extend my visa, either. My friend hadn't experienced this kind of problem when he lived in
+Belgium and France because EU citizens all share the right of free movement between countries, and was just as jarring
+for him. He emailed our mayor, [Katja Dörner](https://www.bonn.de/vv/personen/Doerner-2379.php), a nice letter about the
+experience too. She's part of the "Green Party" which is pretty progressive, so maybe this will be a wake up call.
