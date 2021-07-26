@@ -9,14 +9,13 @@ experiences at the Bonner Ausländeramt (Bonn's Foreigner's Office of the City o
 
 I moved to Germany in August 2015 and immediately began my first incarnation of the Ausländer Shuffle (which I
 affectionately name after
-the [NU Shuffle](https://huntnewsnu.com/49669/editorial/editorial-students-want-an-end-to-the-nu-shuffle/)
-). Luckily, as a USA citizen, I entered the country with a 90-day tourist visa which required no prior paperwork or
-pre-registration; just show up. In that 90 days, I had to get all of my paperwork in order, which included a local cell
-phone number, proof of local housing, proof of German insurance, proof of minimum bank account funds, and ultimately
-proof of enrollment at the university. This was about as non-linear as a Kurt Vonnegut novel. I had the benefit that my
-housing had been pre-registered by my study program. For everyone else, the first thing they'd have to do is find
-housing, and even worse, do it without the benefit of all the other paperwork that they couldn't get without already
-having housing.
+the [NU Shuffle](https://huntnewsnu.com/49669/editorial/editorial-students-want-an-end-to-the-nu-shuffle/)). Luckily, as
+a USA citizen, I entered the country with a 90-day tourist visa which required no prior paperwork or pre-registration;
+just show up. In that 90 days, I had to get all of my paperwork in order, which included a local cell phone number,
+proof of local housing, proof of German insurance, proof of minimum bank account funds, and ultimately proof of
+enrollment at the university. This was about as non-linear as a Kurt Vonnegut novel. I had the benefit that my housing
+had been pre-registered by my study program. For everyone else, the first thing they'd have to do is find housing, and
+even worse, do it without the benefit of all the other paperwork that they couldn't get without already having housing.
 
 After that was all done, I was able to sign up for my first appointment with the Bonner Ausländeramt (Terminvereinbarung
 im Ausländeramt). Side bar: an adjectival is when you turn a noun into an adjective. In the German language, most places
@@ -69,7 +68,37 @@ My fourth encounter with the Ausländeramt should have been sometime around toda
 tomorrow. Unfortunately, I signed up two months ago for an appointment and never received any post. I emailed the office
 to ask for a confirmation, and got nothing back. The office doesn't answer their phone line (this is the same now as it
 was before the pandemic). The difference between this time and last time is when I went to get a walk-in appointment, I
-was refused at the door by security because of pandemic precautions such that only appointment holders can enter. It
-turns out they're still rotating which staff are in on any given day and many have home office (where they can't really
-work, since all of it is done on paper that lives in the office itself). I have been very anxious about this day coming
-and officially tomorrow I will be in Germany illegally.
+was refused at the door by security because of pandemic precautions - only appointment holders can enter. This is a bit
+of a Catch-22: Can't go in the office without an appointment. Can't get an appointment without going in the office.
+
+It turns out they're still rotating which staff are in on any given day and many have home office (where they can't
+really work, since all of it is done on paper that lives in the office itself). I have been very anxious about this day
+coming and officially tomorrow I will be in Germany illegally.
+
+Last time I ended up on the phone line with the City Hall instead of the Ausländeramt, they weren't very sympathetic to
+my cause, and also realized that they could effectively speak in their fastest and most ornamented German such that I
+couldn't understand them anymore. Luckily, my friend Moritz offered to help me with the shuffle and we got on the phone
+with the City Hall. They were helpful this time, but what happened next was just beyond words.
+
+1. We talked to the nice lady at the city hall. She figured out what the office number for my case worker was (this is
+   very secret information) and shared it with us so we could call directly.
+2. We called directly. It didn't answer (just went on ringing). After trying this at 15 minute intervals, we decided to
+   call back the city and ask if we could have another case worker's number. She gave us the name and number of another
+   case worker in the office. We called them. They said that they would share the number of the person who shared the
+   office with my case worker (these guys are cramped in there with all the files.)
+3. We called the office mate of my case worker. No answer (but this time, it cut out after a few rings). We supposed
+   that she was in office, but obviously busy. We tried a few times, no luck.
+4. We tried the first case worker again that the nice lady at the city hall had given us. She was busy too, so we had to
+   wait a while before she picked up. We asked her about the other lady, and she was nice enough to walk in the other
+   room and ask the second case worker when she would be available for us to call.
+5. We called back when she was available. She looked up my file, saw my visa expires tomorrow, was sympathetic to my
+   cause, and said that she would snail mail a Fiktionsbescheinigung to me. Luckily, I live in walking distance from the
+   Ausländeramt and this should arrive tomorrow.
+
+Let's hope this means I won't be here illegally come tomorrow! By the end of this experience, I think we had spent way
+too much time of several people at the Bonn City Hall and also the Ausländeramt. Moritz had spent a few hours with me,
+too, so what was the real cost of all of this? I actually still haven't solved my problem since I still don't have an
+appointment to _actually_ extend my visa. Moritz hadn't experienced this kind of problem when he lived in Belgium and
+France because EU citizens all share the right of free movement between countries, and was just as jarring for him. He
+emailed our mayor, [Katja Dörner](https://www.bonn.de/vv/personen/Doerner-2379.php), a nice letter about the experience
+too. She's part of the "Green Party" which is pretty progressive, so maybe this will be a wake up call.
