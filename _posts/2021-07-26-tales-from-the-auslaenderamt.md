@@ -53,11 +53,11 @@ no plan how to get home for Christmas, I ended up going to the office at 6:45AM 
 walk-in appointment. I was the 5th person in line, and by the time office opened at 8AM, the line was going down the
 street. I knew I would be quick, but there were many people who were unprepared, had extenuating circumstances, or were
 just a more difficult case to deal with, so only a few of them would be seen between 8AM and noon when the office
-closed. Being 5th, I got to see the walk-in administrator around 9:30AM, and they easily issued me a
-Fiktionsbescheinigung after only a few minutes of describing my situation. That document states that my case has
-basically been approved, but the paperwork is still pending. Effectively, I could travel with my expired visa + this
-document freely, and I then proceeded to book a very expensive last minute flight back home. Unfortunately, my
-appointment was just after New Year's, so I didn't get much vacation at hom.
+closed (and it's only open 4 days a week). Being 5th, I got to see the walk-in administrator around 9:30AM, and they
+easily issued me a Fiktionsbescheinigung after only a few minutes of describing my situation. That document states that
+my case has basically been approved, but the paperwork is still pending. Effectively, I could travel with my expired
+visa + this document freely, and I then proceeded to book a very expensive last minute flight back home. Unfortunately,
+my appointment was just after New Year's, so I didn't get much vacation at home.
 
 All the people I've talked to at the Ausländeramt were good people. They're just really understaffed, overworked, and
 without the benefit of competent programmers and a progressive digitalization agenda to make their lives and the lives
@@ -78,8 +78,8 @@ coming and officially tomorrow I will be in Germany illegally.
 
 Last time I ended up on the phone line with the City Hall instead of the Ausländeramt, they weren't very sympathetic to
 my cause, and also realized that they could effectively speak in their fastest and most ornamented German such that I
-couldn't understand them anymore. Luckily, my German friend offered to help me with the shuffle and we got on the phone
-with the City Hall. They were helpful this time, but what happened next was just beyond words.
+couldn't understand them anymore. Luckily, my German friend offered to help me this time with the shuffle and we got on
+the phone with the City Hall. They were surprisingly helpful this time, but what happened next was a total farce:
 
 1. We talked to the nice lady at the city hall. She figured out what the office number for my case worker was (this is
    very secret information) and shared it with us so we could call directly.
@@ -103,3 +103,12 @@ an appointment to _actually_ extend my visa, either. My friend hadn't experience
 Belgium and France because EU citizens all share the right of free movement between countries, and was just as jarring
 for him. He emailed our mayor, [Katja Dörner](https://www.bonn.de/vv/personen/Doerner-2379.php), a nice letter about the
 experience too. She's part of the "Green Party" which is pretty progressive, so maybe this will be a wake up call.
+
+I've been lucky enough to be an easy case for the Ausländeramt - but it can't be overstated the advantage I have enjoyed
+based on my country of origin and my educational status (among other things). However, most of the things I've done at
+the Ausländeramt could have been automated. The system for creating appointments should be 100% automated. It should be
+more granular as to what you need from the appointment, and better inform clients what they need and better allot time.
+The system should know when your visa expires, and automatically issue a Fiktionsbescheinigung (perhaps with an apology
+note) if they can't get you an appointment before the expiration. Even most of the stuff that you need to do at the
+appointment (present documents, etc.) can be automated through the internet (even if only applicable to a subset of easy
+cases, like mine)! I'm sure this would make this a much more pleasent experience for the case workers and clients.
