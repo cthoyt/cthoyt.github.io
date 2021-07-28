@@ -70,5 +70,6 @@ scientific or informatics curricula. I'm generating some resources to help fill 
 - [Blog: CLIs]({% post_url 2020-06-11-click %})
 - [Blog: CLIs and Flask]({% post_url 2021-01-11-click-and-flask %})
 - [Video: Writing Reusable, Reproducible Python: Documentation, Packaging, Continuous Integration, and Beyond](https://www.youtube.com/watch?v=lo_g-GbYtaA)
+- [Video: Reusable, Reproducible, Useful Computational Science in Python (July 2021)](https://www.youtube.com/watch?v=f6brWkO9OiE)
 - [GitHub: Using Flask, Celery, and Docker](https://github.com/cthoyt/flask-celery-docker-demo)
 - [GitHub: Examples](https://github.com/cthoyt-teaches-reproducibility/)
