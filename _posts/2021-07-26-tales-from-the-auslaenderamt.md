@@ -112,3 +112,6 @@ The system should know when your visa expires, and automatically issue a Fiktion
 note) if they can't get you an appointment before the expiration. Even most of the stuff that you need to do at the
 appointment (present documents, etc.) can be automated through the internet (even if only applicable to a subset of easy
 cases, like mine)! I'm sure this would make this a much more pleasent experience for the case workers and clients.
+
+Update 2021-07-28: I've received a Fiktionsbescheinigung in the post, it was signed and sent on the 26th. It's good
+through the end of January 2022 - that's how behind the office is. Ooof.
