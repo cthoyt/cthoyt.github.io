@@ -7,11 +7,11 @@ tags: cheminformatics chembl
 ---
 [ChEMBL](https://www.ebi.ac.uk/chembl) is easily the most useful database in a cheminformatician's toolbox, containing
 structural and activity information for millions of diverse compounds.
-In his recent blog post [Generalized Substructure Search](https://greglandrum.github.io/rdkit-blog/tutorial/substructure/2021/08/03/generalized-substructure-search.html),
-Greg Landrum highlighted some new features in RDKit that enable more advanced substructure queries. It
+In his recent blog post, [Generalized Substructure Search](https://greglandrum.github.io/rdkit-blog/tutorial/substructure/2021/08/03/generalized-substructure-search.html),
+Greg Landrum highlighted some new RDKit features that enable more advanced substructure queries. It
 started by loading molecules from the ChEMBL 29 SDF dump, but it featured a common issue that hampers reproducibility:
-a hard-coded file path to the ChEMBL data. This blog post is how to address this using
-[`chembl_downloader`](https://github.com/cthoyt/chembl_downloader) and make code using ChEMBL's
+a hard-coded local file path to the ChEMBL data. This blog post is how to address this using
+[`chembl_downloader`](https://github.com/cthoyt/chembl-downloader) and make code using ChEMBL's
 SDF dump more reusable and reproducible.
 
 ## Getting Data Reproducibly
@@ -44,7 +44,7 @@ There are three main issues with this code:
 
 To be fair, this is a blog post that's not necessarily supposed to be reused. But what if were so easy to fix this
 anti-pattern that there's no excuse not to? Here's how using
-the [`chembl_downloader`](https://github.com/cthoyt/chembl_downloader) Python package:
+the [`chembl_downloader`](https://github.com/cthoyt/chembl-downloader) Python package:
 
 ```python
 import chembl_downloader
