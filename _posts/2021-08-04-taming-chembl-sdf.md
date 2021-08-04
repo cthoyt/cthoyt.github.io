@@ -3,7 +3,7 @@ layout: post
 title: Loading the ChEMBL SDF Dump Reproducibly
 date: 2021-08-04 13:46:00 +0100
 author: Charles Tapley Hoyt
-tags: cheminformatics, chembl
+tags: cheminformatics chembl
 ---
 [ChEMBL](https://www.ebi.ac.uk/chembl) is easily the most useful database in a cheminformatician's toolbox, containing
 structural and activity information for millions of diverse compounds.
