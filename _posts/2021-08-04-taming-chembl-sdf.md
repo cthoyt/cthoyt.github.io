@@ -7,9 +7,9 @@ tags: cheminformatics chembl
 ---
 [ChEMBL](https://www.ebi.ac.uk/chembl) is easily the most useful database in a cheminformatician's toolbox, containing
 structural and activity information for millions of diverse compounds.
-In his recent post entitled [Generalized Substructure Search](https://greglandrum.github.io/rdkit-blog/tutorial/substructure/2021/08/03/generalized-substructure-search.html),
+In his recent blog post [Generalized Substructure Search](https://greglandrum.github.io/rdkit-blog/tutorial/substructure/2021/08/03/generalized-substructure-search.html),
 Greg Landrum highlighted some new features in RDKit that enable more advanced substructure queries. It
-outlined indexing molecules from the ChEMBL 29 SDF dump, but it featured a common issue that hampers reproducibility:
+started by loading molecules from the ChEMBL 29 SDF dump, but it featured a common issue that hampers reproducibility:
 a hard-coded file path to the ChEMBL data. This blog post is how to address this using
 [`chembl_downloader`](https://github.com/cthoyt/chembl_downloader) and make code using ChEMBL's
 SDF dump more reusable and reproducible.
