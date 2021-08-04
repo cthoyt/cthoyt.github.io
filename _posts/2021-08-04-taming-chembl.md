@@ -37,43 +37,52 @@ There are two main issues with this code:
    without editing it.
 
 To be fair, this is a blog post that's not necessarily supposed to be reused. But what if were so easy to fix this
-pattern that there's no excuse not to? Here's how to fix it using the `chembl_downloader.download_sdf` function:
+anti-pattern that there's no excuse not to? Here's how using
+the [`chembl_downloader`](https://github.com/cthoyt/chembl_downloader) Python package:
 
 ```python
 import chembl_downloader
+
 in_path = chembl_downloader.download_sdf(version="29")
 
 with gzip.open(in_path) as file:
-   data = []
-   for i, mol in enumerate(rdkit.Chem.ForwardSDMolSupplier(file)):
-      ...
-      data.append(...)
+    data = []
+    for i, mol in enumerate(rdkit.Chem.ForwardSDMolSupplier(file)):
+        ...
+        data.append(...)
 
 out_path = "../data/chembl29_sssdata.pkl"
 with open(out_path, 'wb') as file:
-   pickle.dump(data, file)
+    pickle.dump(data, file)
 ```
 
-Now, this code automatically downloads the ChEBML 29 SDF dump to a deterministic location and returns it so anyone can
-run this code exactly how it's written. It also implicitly solves the problem that there's no documentation on how to
-get or preprocess ChEMBL 29.
+With only a single line changed, this code now knows how to download the ChEBML 29 from the source and store it
+in a deterministic location on your hard drive. This means that anyone can run it without knowing how to download
+ChEMBL themselves, which version to get, how to name the file, or where to put it on their machine. It also implicitly
+solves the problem that the user doesn't know if there was any pre-processing done to the file at
+`"/home/glandrum/Downloads/chembl_29.sdf.gz"`. Under the hood, it's using the
+[`pystow`](https://github.com/cthoyt/pystow) package to pick a deterministic location (`~/.data/chembl/29/`) into
+which the file `https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_29/chembl_29.sdf.gz`
+is download.
 
-What about making this code automatically updating to the newest version of ChEBML? Just drop `version="29"` and it will
-look the latest version up for you using the [`bioversions`](https://github.com/cthoyt/bioversions) package.
+What about making this code automatically updating to the newest version of ChEBML? Just drop `version="29"` and
+`chembl_downloader` will look the latest version up for you. Under the hood, it's using the
+[`bioversions`](https://github.com/cthoyt/bioversions) package to do this.
 
 ```python
 import chembl_downloader
+
 in_path = chembl_downloader.download_sdf()
 
 with gzip.open(in_path) as file:
-   data = []
-   for i, mol in enumerate(rdkit.Chem.ForwardSDMolSupplier(file)):
-      ...
-      data.append(...)
+    data = []
+    for i, mol in enumerate(rdkit.Chem.ForwardSDMolSupplier(file)):
+        ...
+        data.append(...)
 
 out_path = "../data/chembl29_sssdata.pkl"
 with open(out_path, 'wb') as file:
-   pickle.dump(data, file)
+    pickle.dump(data, file)
 ```
 
 Now this code is ready to stand the test of time! Just to make sure we save the right artifacts in the right places, I
