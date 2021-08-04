@@ -16,7 +16,7 @@ SDF dump more reusable and reproducible.
 
 ## Getting Data Reproducibly
 
-The code in the blog post began by loading up ChEMBL like this (edited for clarity and imports omitted for brevity):
+The code in the blog post began by loading up ChEMBL 29 like this (edited for clarity and imports omitted for brevity):
 
 ```python
 in_path = "/home/glandrum/Downloads/chembl_29.sdf.gz"
