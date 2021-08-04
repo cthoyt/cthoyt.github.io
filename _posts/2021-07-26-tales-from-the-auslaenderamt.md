@@ -47,7 +47,7 @@ issued even if you don't already have a job. I was exited by this because I want
 was they issued my appointment after when my visa expired. This was particularly bad becuase it was in December, and I
 wanted to travel for the holidays. If I did this and my visa expired while I was out of the country, I would have a big
 problem - you can't re-enter for 6 months after your visa expires. I tried emailing (unsuccessfully) and phoning the
-office every day for two hole weeks. They don't answer the phone. It turns out that sometimes it forwards to the City
+office every day for two whole weeks. They don't answer the phone. It turns out that sometimes it forwards to the City
 Hall, and they are very annoyed to get questions about Ausländer affairs. With the end of December approaching and still
 no plan how to get home for Christmas, I ended up going to the office at 6:45AM (it opens at 8AM) one day try and get a
 walk-in appointment. I was the 5th person in line, and by the time office opened at 8AM, the line was going down the
