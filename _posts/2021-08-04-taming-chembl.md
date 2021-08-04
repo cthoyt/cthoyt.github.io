@@ -35,6 +35,8 @@ There are two main issues with this code:
     - There's no information on how to get or preprocess this file before running the script.
 2. It relies on a specific version of ChEMBL, which means that we can't benefit from new compounds in new releases
    without editing it.
+3. It outputs data to a relative file path, which might work based on the way the script is run or the directory
+   structure on your drive
 
 To be fair, this is a blog post that's not necessarily supposed to be reused. But what if were so easy to fix this
 anti-pattern that there's no excuse not to? Here's how using
@@ -43,7 +45,8 @@ the [`chembl_downloader`](https://github.com/cthoyt/chembl_downloader) Python pa
 ```python
 import chembl_downloader
 
-in_path = chembl_downloader.download_sdf(version="29")
+version = "29"                                             # <-- This line changed for this example
+in_path = chembl_downloader.download_sdf(version=version)  # <-- This line changed for this example
 
 with gzip.open(in_path) as file:
     data = []
@@ -56,23 +59,24 @@ with open(out_path, 'wb') as file:
     pickle.dump(data, file)
 ```
 
-With only a single line changed, this code now knows how to download the ChEBML 29 from the source and store it
-in a deterministic location on your hard drive. This means that anyone can run it without knowing how to download
-ChEMBL themselves, which version to get, how to name the file, or where to put it on their machine. It also implicitly
-solves the problem that the user doesn't know if there was any pre-processing done to the file at
+With only a single line changed, this code now knows how to download the ChEBML 29 from the source and store it in a
+deterministic location on your hard drive. This means that anyone can run it without knowing how to download ChEMBL
+themselves, which version to get, how to name the file, or where to put it on their machine. It also implicitly solves
+the problem that the user doesn't know if there was any pre-processing done to the file at
 `"/home/glandrum/Downloads/chembl_29.sdf.gz"`. Under the hood, it's using the
-[`pystow`](https://github.com/cthoyt/pystow) package to pick a deterministic location (`~/.data/chembl/29/`) into
-which the file `https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_29/chembl_29.sdf.gz`
+[`pystow`](https://github.com/cthoyt/pystow) package to pick a deterministic location (`~/.data/chembl/29/`) into which
+the file `ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_29/chembl_29.sdf.gz`
 is download.
 
-What about making this code automatically updating to the newest version of ChEBML? Just drop `version="29"` and
-`chembl_downloader` will look the latest version up for you. Under the hood, it's using the
+What about making this code automatically updating to the newest version of ChEBML? Just use the
+`chembl_downloader.latest()` to the latest version up for you. Under the hood, it's using the
 [`bioversions`](https://github.com/cthoyt/bioversions) package to do this.
 
 ```python
 import chembl_downloader
 
-in_path = chembl_downloader.download_sdf()
+version = chembl_downloader.latest()  # <-- This line changed for this example
+in_path = chembl_downloader.download_sdf(version=version)
 
 with gzip.open(in_path) as file:
     data = []
@@ -85,18 +89,56 @@ with open(out_path, 'wb') as file:
     pickle.dump(data, file)
 ```
 
-Now this code is ready to stand the test of time! Just to make sure we save the right artifacts in the right places, I
-would also suggest generating file paths in a deterministic way that includes the version number. You can get the latest
-version number using `chembl_downloader.latest()`. You can use [`pystow`](https://github.com/cthoyt/pystow)
-to pick a deterministic data location
+Note, if you omit the `version` argument completely, it automatically looks up the version as well. However, there's one
+more thing to update before we've addressed our third point: where the file is output. There are two goals in fixing the
+output:
+
+1. Make the path deterministic
+2. Make the path based on the version of ChEMBL that's being used, so if a newer version gets used, it doesn't delete
+   the old file
+
+The solution comes by using `pystow` to pick a deterministic path, which the `download_sdf()` function was actually
+using under the hood before:
 
 ```python
-output_path = '../data/chembl29_sssdata.pkl'
-pickle.dump(data, open(','
-wb + '))
+import chembl_downloader
 
+version = chembl_downloader.latest()
+in_path = chembl_downloader.download_sdf(version=version)
+
+with gzip.open(in_path) as file:
+    data = []
+    for i, mol in enumerate(rdkit.Chem.ForwardSDMolSupplier(file)):
+        ...
+        data.append(...)
+
+import pystow                                                  # <-- This line changed for this example
+
+out_path = pystow.join("chembl", version, name="sssdata.pkl")  # <-- This line changed for this example
+with open(out_path, 'wb') as file:
+    pickle.dump(data, file)
 ```
 
-## Querying reproducibly
+The `pystow.join` method creates a path to `~/.data/chembl/<version>/sssdata.pkl`.
+Now this code is ready to stand the test of time and a variety of different uses!
 
-See also: taming drugbank post
+Because the pattern of getting the SDF from ChEMBL then opening it with a `ForwardSDMolSupplier` is so common,
+it's actually included in its own function `supplier()`. The code could be compressed one more time like:
+
+```python
+import chembl_downloader
+
+version = chembl_downloader.latest()
+
+with chembl_downloader.supplier(version=version) as suppl:
+    data = []
+    for i, mol in enumerate(suppl):
+        ...
+        data.append(...)
+
+import pystow
+
+out_path = pystow.join("chembl", version, name="sssdata.pkl")
+with open(out_path, 'wb') as file:
+    pickle.dump(data, file)
+```
