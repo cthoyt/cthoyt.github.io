@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Reproducibly Loading the ChEMBL Relational Database
-date: 2021-08-04 13:46:00 +0100
+date: 2021-08-05 15:36:00 +0100
 author: Charles Tapley Hoyt
 tags: cheminformatics chembl sql
 ---
@@ -14,9 +14,10 @@ a common issue that hampers reproducibility: hard-coded configuration to a local
 [`chembl_downloader`](https://github.com/cthoyt/chembl-downloader) and make code using ChEMBL's SQL dump more reusable
 and reproducible.
 
-The original blog post pointed to code [here](https://github.com/PatWalters/comparing_classifier). It was slightly
-modified [here](https://github.com/PatWalters/jcamd_model_comparison) to include the code that queries ChEMBL (among
-other things).
+While the original blog post pointed to
+code [PatWalters/comparing_classifier](https://github.com/PatWalters/comparing_classifier), there's an updated version
+at [PatWalters/jcamd_model_comparison](https://github.com/PatWalters/jcamd_model_comparison)
+that includes the code that queries ChEMBL (among other things).
 The [original notebook](https://nbviewer.jupyter.org/github/PatWalters/jcamd_model_comparison/blob/92cc912f24dcac5cad0c52143b67b8c2c124c11e/jcamd_model_comparison.ipynb)
 began like this in cells 2 and 4 (edited for clarity):
 
@@ -63,8 +64,8 @@ There are two main issues with this code:
 2. It relies on a specific version of ChEMBL, which means that we can't benefit from new compounds and assays in new
    releases without editing it.
 
-To be fair, this is a blog post that's not necessarily supposed to be reused. But what if were so easy to fix this
-anti-pattern that there's no excuse not to? Here's how using
+To be fair, this is from a Jupyter notebook that's not necessarily supposed to be reused. But what if were so easy to
+fix this anti-pattern that there's no excuse not to? Here's how using
 the [`chembl_downloader`](https://github.com/cthoyt/chembl-downloader) Python package:
 
 ```python
@@ -90,7 +91,7 @@ the file.
 
 Under the hood, it's using the
 [`pystow`](https://github.com/cthoyt/pystow) package to deterministically pick a folder (`~/.data/chembl/26/`) into
-which the file `https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_26/chembl_26_sqlite.tar.gz`
+which the file `ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_26/chembl_26_sqlite.tar.gz`
 is download (`~/.data/chembl/26/chembl_26_sqlite.tar.gz`).
 
 Since the pattern of connecting to the database then running a SQL query with pandas is so common, the
@@ -128,7 +129,7 @@ I made a [pull request](https://github.com/PatWalters/jcamd_model_comparison/pul
 these suggestions. The new notebook
 is [here](https://nbviewer.jupyter.org/github/PatWalters/jcamd_model_comparison/blob/60f1ac2c62a6be957d78c6cf3a570946d714397a/jcamd_model_comparison.ipynb)
 and features the most recent version of ChEMBL at the time of writing (ChEMBL 29) instead of ChEMBL 26. The table below
-shows how much free improvement we got by updating ChEMBL:
+shows how much improvement updating ChEMBL gives:
 
 | Flag     | ChEMBL 26 | ChEMBL 29 | Increase | Percent Increase |
 |----------|----------:|----------:|---------:|-----------------:|
@@ -140,16 +141,23 @@ success. In this notebook, the AUC-ROC of the prominently presented LGBM classif
 have just as easily have gone down, but I think it was worth checking.
 
 ---
-One time, I received negative feedback from authors I asked to re-run analysis they presented in their manuscripts using
-the newest version of ChEMBL (this was a few months ago, so the jump was from ChEMBL 25 to ChEMBL 28). One deflection
-was that new data would (probably) not change their results. Depending on what kind of stuff you do, 1% might be a big
-deal.
+One time, I received negative feedback from authors I asked why they hadn't updated the analysis they presented in their
+manuscript using the newest version of ChEMBL (this was a few months ago, so the jump was from ChEMBL 25 to ChEMBL 28).
+One excuse they gave was that new data would (probably) not change their results. Depending on what kind of stuff you
+do, 1% might be a big deal. Or not.
 
-When I got that feedback, I checked in on the code that had been released to go along with the manuscript. It wasn't
-pretty. I'd guess the authors really just didn't want to ever touch their code again because it was very complicated,
-relied on tons of finnicky dependencies, and overall written poorly. I don't think shaming scientists for writing bad
-code is a very good way to make them write better code, so I started updating and making pull requests to the
-dependencies of that repo and writing a bit of my own code to see if I could re-write their analysis to be a little
-more automatic. This `chembl_downloader` package is one of the  tools I built along the way!
-I might come back and write a blog post about the original paper that caused the negative feedback too, because it was
-indeed a very cool paper! But first, I want to show that it can be reproduced.
+When I got that feedback, I checked in on the code that had been released along with the manuscript to see if I could do
+it myself. It wasn't pretty. I'd guess the authors really just didn't want to ever touch their code again because it was
+very complicated, relied on tons of finnicky dependencies, and was overall written poorly. I don't think shaming
+scientists for writing bad code is a very constructive nor a good way to motivate them to write better code. I've found
+on many occassions that authors usually just don't have the right training or mindset to do reproducible/reusable
+science. A better solution is to offer pull requests to their code that demonstrates how to fix the issues and explain
+in detail how it works. Then, the best you can do is hope that they learn something and use it in their next
+publication.
+
+So for the case of these authors, I looked into their downstream dependencies and began getting in touch with their code
+owners (maintainer would be a strong word) then sending pull requests to make them more reusable. I also ended up
+writing a bit of my own code to see if I could ultimately re-write the analysis to be a little more automatic.
+This `chembl_downloader` package is one of the tools I built along the way! I might come back and write a blog post
+about the original paper that caused the negative feedback too, because it was indeed a very cool paper! But first, I
+want to show that it can be reproduced.
