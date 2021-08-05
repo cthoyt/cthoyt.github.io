@@ -18,7 +18,7 @@ The original blog post pointed to code [here](https://github.com/PatWalters/comp
 modified [here](https://github.com/PatWalters/jcamd_model_comparison) to include the code that queries ChEMBL (among
 other things).
 The [original notebook](https://nbviewer.jupyter.org/github/PatWalters/jcamd_model_comparison/blob/92cc912f24dcac5cad0c52143b67b8c2c124c11e/jcamd_model_comparison.ipynb)
-began like this (edited for clarity):
+began like this in cells 2 and 4 (edited for clarity):
 
 ```python
 import mysql.connector as sql
@@ -84,14 +84,14 @@ source, store it in a deterministic location, extract it, and load with SQLite.
 This means that anyone can run it without knowing how to download ChEMBL themselves, which version to get, how to name
 the file, or where to put it on their machine. It also relies on SQLite, which is effectively available on all devices
 that run Python and has exactly the same programmatic API, but without the need to run or connect to extra software.
-While a RDBMS like MySQL might be more powerful for kinds of queries, the difference is negligible when querying single
-assays. It also implicitly solves the problem that the user doesn't know if there was any pre-processing done to the
-file.
+While a RDBMS like MySQL might be more powerful for some kinds of queries, the difference is negligible when querying
+single assays. It also implicitly solves the problem that the user doesn't know if there was any pre-processing done to
+the file.
 
 Under the hood, it's using the
 [`pystow`](https://github.com/cthoyt/pystow) package to deterministically pick a folder (`~/.data/chembl/26/`) into
-which the file `https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_29/chembl_29_sqlite.tar.gz`
-is download (`~/.data/chembl/26/chembl_29_sqlite.tar.gz`).
+which the file `https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_26/chembl_26_sqlite.tar.gz`
+is download (`~/.data/chembl/26/chembl_26_sqlite.tar.gz`).
 
 Since the pattern of connecting to the database then running a SQL query with pandas is so common, the
 `chembl_downloader` has a `query()` function that wraps the two lines from the previous example:
