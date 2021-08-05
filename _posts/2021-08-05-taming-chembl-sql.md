@@ -148,8 +148,8 @@ deal.
 When I got that feedback, I checked in on the code that had been released to go along with the manuscript. It wasn't
 pretty. I'd guess the authors really just didn't want to ever touch their code again because it was very complicated,
 relied on tons of finnicky dependencies, and overall written poorly. I don't think shaming scientists for writing bad
-code is a very good way to make them write better code, so I started updating all of the dependencies of that repo to
-see if I could re-write their analysis to be a little more automatic. This `chembl_downloader` package is one of the
-tools I built along the way!
+code is a very good way to make them write better code, so I started updating and making pull requests to the
+dependencies of that repo and writing a bit of my own code to see if I could re-write their analysis to be a little
+more automatic. This `chembl_downloader` package is one of the  tools I built along the way!
 I might come back and write a blog post about the original paper that caused the negative feedback too, because it was
 indeed a very cool paper! But first, I want to show that it can be reproduced.
