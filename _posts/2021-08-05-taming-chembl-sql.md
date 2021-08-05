@@ -7,10 +7,10 @@ tags: cheminformatics chembl sql
 ---
 In his blog post, [Some Thoughts on Comparing Classification Models](https://practicalcheminformatics.blogspot.com/2020/05/some-thoughts-on-comparing.html),
 Pat Walters illustrated enlightened ways to convey the results of training and evaluating machine learning models
-on [hERG](https://en.wikipedia.org/wiki/HERG) activity data from ChEMBL (spoiler, it's
+on [hERG](https://en.wikipedia.org/wiki/HERG) activity data from ChEMBL (spoiler: it includes
 [box plots](https://en.wikipedia.org/wiki/Box_plot)). It started by querying the ChEMBL relational database, but featured
-a common issue that hampers reproducibility: hard-coded configuration to a local database based on a specific RDBMS (
-MySQL). This blog post is about how to address this
+a common issue that hampers reproducibility: hard-coded configuration to a local database based on a specific database
+(MySQL). This blog post is about how to address this using
 [`chembl_downloader`](https://github.com/cthoyt/chembl-downloader) and make code using ChEMBL's SQL dump more reusable
 and reproducible.
 
@@ -129,3 +129,33 @@ and it will look up the latest for you.
 I made a [pull request](https://github.com/PatWalters/jcamd_model_comparison/pull/1) to update the notebook
 based on these suggestions. The new notebook is [here](https://nbviewer.jupyter.org/github/PatWalters/jcamd_model_comparison/blob/60f1ac2c62a6be957d78c6cf3a570946d714397a/jcamd_model_comparison.ipynb)
 and features the most recent version of ChEMBL at the time of writing (ChEMBL 29) instead of ChEMBL 26.
+The table below shows how much free improvement we got by updating ChEMBL:
+
+| Flag     | ChEMBL 26 | ChEMBL 29 | Increase | Percent Increase |
+|----------|----------:|----------:|---------:|-----------------:|
+| Active   |      4191 |     4601  |     410  |              9%  |
+| Inactive |      2048 |     2274  |     226  |             11%  |
+
+I'd say getting 9% more actives and 11% more inactives basically for free by writing
+better code is a pretty big success. In this notebook, the AUC-ROC of the prominently
+presented LGBM classifier improved by about 1%. This could have just as easily have
+gone down, but I think it was worth checking.
+
+---
+One time, I received negative feedback from authors I asked
+to re-run analysis they presented in their manuscripts using the newest version
+of ChEMBL (this was a few months ago, so the jump was from ChEMBL 25 to ChEMBL 28).
+One deflection was that new data would (probably) not change their
+results. Depending on what kind of stuff you do, 1% might be a big deal.
+
+When I got that feedback, I checked in on the code that had been released to
+go along with the manuscript. It wasn't pretty. I'd guess the authors really
+just didn't want to ever touch their code again because it was very complicated,
+relied on tons of finnicky dependencies, and overall written poorly.
+I don't think shaming scientists for writing bad code is a very good way to
+make them write better code, so I started updating all of the dependencies
+of that repo to see if I could re-write their analysis to be a little more automatic.
+This `chembl_downloader` package is one of the tools I built along the way!
+I might come back and write a blog post about the original paper that caused
+the negative feedback too, because it was indeed a very cool paper! But first, I
+want to show that it can be reproduced.

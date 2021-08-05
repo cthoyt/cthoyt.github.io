@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reproducibly Loading ChEMBL SDF 
+title: Reproducibly Loading the ChEMBL SDF 
 date: 2021-08-04 13:46:00 +0100
 author: Charles Tapley Hoyt
 tags: cheminformatics chembl sdf
