@@ -15,8 +15,8 @@ a common issue that hampers reproducibility: hard-coded configuration to a local
 and reproducible.
 
 The original blog post pointed to code [here](https://github.com/PatWalters/comparing_classifier). It was slightly
-modified [here](https://github.com/PatWalters/jcamd_model_comparison) to include the code that queries
-ChEMBL (among other things).
+modified [here](https://github.com/PatWalters/jcamd_model_comparison) to include the code that queries ChEMBL (among
+other things).
 The [original notebook](https://nbviewer.jupyter.org/github/PatWalters/jcamd_model_comparison/blob/92cc912f24dcac5cad0c52143b67b8c2c124c11e/jcamd_model_comparison.ipynb)
 began like this (edited for clarity):
 
@@ -81,17 +81,16 @@ with chembl_downloader.connect(version=version) as con:
 With only a single (logical) line changed, this code now knows how to download the ChEMBL 26 SQLite dump from the
 source, store it in a deterministic location, extract it, and load with SQLite.
 
-This means that anyone can run it
-without knowing how to download ChEMBL themselves, which version to get, how to name the file, or where to put it on
-their machine. It also relies on SQLite, which is effectively available on all devices that run Python and has
-exactly the same programmatic API, but without the need to run or connect to extra software.
-While a RDBMS like MySQL might be more powerful for kinds of queries, the difference
-is negligible when querying single assays.
-It also implicitly solves the problem that the user doesn't know if there was any pre-processing done to the file.
+This means that anyone can run it without knowing how to download ChEMBL themselves, which version to get, how to name
+the file, or where to put it on their machine. It also relies on SQLite, which is effectively available on all devices
+that run Python and has exactly the same programmatic API, but without the need to run or connect to extra software.
+While a RDBMS like MySQL might be more powerful for kinds of queries, the difference is negligible when querying single
+assays. It also implicitly solves the problem that the user doesn't know if there was any pre-processing done to the
+file.
 
 Under the hood, it's using the
-[`pystow`](https://github.com/cthoyt/pystow) package to deterministically pick a folder (`~/.data/chembl/26/`) into which
-the file `https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_29/chembl_29_sqlite.tar.gz`
+[`pystow`](https://github.com/cthoyt/pystow) package to deterministically pick a folder (`~/.data/chembl/26/`) into
+which the file `https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_29/chembl_29_sqlite.tar.gz`
 is download (`~/.data/chembl/26/chembl_29_sqlite.tar.gz`).
 
 Since the pattern of connecting to the database then running a SQL query with pandas is so common, the
@@ -117,45 +116,40 @@ import chembl_downloader
 
 sql = ...  # omitted for brevity
 
-version = chembl_downloader.latest()                       # <-- This line changed for this example
+version = chembl_downloader.latest()
 df = chembl_downloader.query(sql, version=version)
 ```
 
-Doing this is so common, that you can actually just omit the `version` argument
-and it will look up the latest for you.
+Doing this is so common, that you can actually just omit the `version` argument and it will look up the latest for you.
 
 ## Meaningful Improvement
 
-I made a [pull request](https://github.com/PatWalters/jcamd_model_comparison/pull/1) to update the notebook
-based on these suggestions. The new notebook is [here](https://nbviewer.jupyter.org/github/PatWalters/jcamd_model_comparison/blob/60f1ac2c62a6be957d78c6cf3a570946d714397a/jcamd_model_comparison.ipynb)
-and features the most recent version of ChEMBL at the time of writing (ChEMBL 29) instead of ChEMBL 26.
-The table below shows how much free improvement we got by updating ChEMBL:
+I made a [pull request](https://github.com/PatWalters/jcamd_model_comparison/pull/1) to update the notebook based on
+these suggestions. The new notebook
+is [here](https://nbviewer.jupyter.org/github/PatWalters/jcamd_model_comparison/blob/60f1ac2c62a6be957d78c6cf3a570946d714397a/jcamd_model_comparison.ipynb)
+and features the most recent version of ChEMBL at the time of writing (ChEMBL 29) instead of ChEMBL 26. The table below
+shows how much free improvement we got by updating ChEMBL:
 
 | Flag     | ChEMBL 26 | ChEMBL 29 | Increase | Percent Increase |
 |----------|----------:|----------:|---------:|-----------------:|
 | Active   |      4191 |     4601  |     410  |              9%  |
 | Inactive |      2048 |     2274  |     226  |             11%  |
 
-I'd say getting 9% more actives and 11% more inactives basically for free by writing
-better code is a pretty big success. In this notebook, the AUC-ROC of the prominently
-presented LGBM classifier improved by about 1%. This could have just as easily have
-gone down, but I think it was worth checking.
+I'd say getting 9% more actives and 11% more inactives basically for free by writing better code is a pretty big
+success. In this notebook, the AUC-ROC of the prominently presented LGBM classifier improved by about 1%. This could
+have just as easily have gone down, but I think it was worth checking.
 
 ---
-One time, I received negative feedback from authors I asked
-to re-run analysis they presented in their manuscripts using the newest version
-of ChEMBL (this was a few months ago, so the jump was from ChEMBL 25 to ChEMBL 28).
-One deflection was that new data would (probably) not change their
-results. Depending on what kind of stuff you do, 1% might be a big deal.
+One time, I received negative feedback from authors I asked to re-run analysis they presented in their manuscripts using
+the newest version of ChEMBL (this was a few months ago, so the jump was from ChEMBL 25 to ChEMBL 28). One deflection
+was that new data would (probably) not change their results. Depending on what kind of stuff you do, 1% might be a big
+deal.
 
-When I got that feedback, I checked in on the code that had been released to
-go along with the manuscript. It wasn't pretty. I'd guess the authors really
-just didn't want to ever touch their code again because it was very complicated,
-relied on tons of finnicky dependencies, and overall written poorly.
-I don't think shaming scientists for writing bad code is a very good way to
-make them write better code, so I started updating all of the dependencies
-of that repo to see if I could re-write their analysis to be a little more automatic.
-This `chembl_downloader` package is one of the tools I built along the way!
-I might come back and write a blog post about the original paper that caused
-the negative feedback too, because it was indeed a very cool paper! But first, I
-want to show that it can be reproduced.
+When I got that feedback, I checked in on the code that had been released to go along with the manuscript. It wasn't
+pretty. I'd guess the authors really just didn't want to ever touch their code again because it was very complicated,
+relied on tons of finnicky dependencies, and overall written poorly. I don't think shaming scientists for writing bad
+code is a very good way to make them write better code, so I started updating all of the dependencies of that repo to
+see if I could re-write their analysis to be a little more automatic. This `chembl_downloader` package is one of the
+tools I built along the way!
+I might come back and write a blog post about the original paper that caused the negative feedback too, because it was
+indeed a very cool paper! But first, I want to show that it can be reproduced.
