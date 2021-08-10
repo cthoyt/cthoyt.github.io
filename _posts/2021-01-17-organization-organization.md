@@ -140,6 +140,9 @@ which means anyone can use it any way they want.
 Like with ROR, GRID has a Wikidata property [GRID ID](https://www.wikidata.org/wiki/Property:P2427) that links a
 Wikidata item to the scalar GRID identifier.
 
+**August 10, 2021 update**: GRID is shutting down and getting consumed by ROR
+([ref](https://www.digital-science.com/grid-passes-the-torch-to-ror-faqs/)).
+
 ### Ringgold and ISNI
 
 Many publishers use the Ringgold system for organization resolution (such as Manuscript Central). For a group interested
