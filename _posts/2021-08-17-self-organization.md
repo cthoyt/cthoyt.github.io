@@ -166,7 +166,12 @@ One part that's really cool is the co-author graph:
 
 ![Co-authors of Charles Tapley Hoyt](/img/scholia_coauthor_graph.png)
 
-When you start off, there won't be much here. Luckily, it has a curation link that takes advantage of the
-synonyms on the Wikidata and helps connect papers that are already on Wikidata to the given researcher's page. Here's
-the link for mine (though I keep it pretty up-to-date and it's likely empty):
+When you start off, there won't be much here. Luckily, it has a curation link that takes advantage of the synonyms on
+the Wikidata and helps connect papers that are already on Wikidata to the given researcher's page. Here's the link for
+mine (though I keep it pretty up-to-date and it's likely empty):
 [https://scholia.toolforge.org/author/Q47475003/curation](https://scholia.toolforge.org/author/Q47475003/curation)
+
+---
+
+There's quite a bit more with respect to getting papers and associations between researchers and events like
+conferences, but this is already a great place to start.

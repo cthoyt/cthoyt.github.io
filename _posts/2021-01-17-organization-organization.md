@@ -171,5 +171,5 @@ This blog post might have gone off on a couple tangents besides what was relevan
 these things to set up the internet presence of my previous employer, it could serve as a good guide for any new
 organizations to get up to speed.
 
-See also the [newer post]({% post_url 2021-07-02-self-organization %}) on organizing all of the public
+See also the [newer post]({% post_url 2021-08-17-self-organization %}) on organizing all of the public
 data about a researcher, like you!
