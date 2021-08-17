@@ -92,6 +92,9 @@ humans have certain pieces of information associated with them using the followi
 - [official blog](https://www.wikidata.org/wiki/Property:P1581) - one or more blog written for the researcher. It
   happens that my blog and personal site are on the same page.
 
+I'd highly suggest doing all of these before moving on to the next few sections, which have quite a few bells and
+whistles.
+
 Affiliations:
 
 - [educated at](https://www.wikidata.org/wiki/Property:P69) - links a person to the institutions at which they earned
@@ -105,6 +108,12 @@ Affiliations:
   its membership within the [Harvard Program in Therapeutic Science](https://www.wikidata.org/wiki/Q107392274).
 - [member of](https://www.wikidata.org/wiki/Property:P463) - any professional societies, working groups, or other
   organizations. For example, I belong to the [American Chemical Society](https://www.wikidata.org/wiki/Q247556).
+- [doctoral advisor](https://www.wikidata.org/wiki/Property:P184) - useful for building up academic trees. I asked my
+  doctoral advisor about his doctoral advisor and actually ended up emailing him to find out some more information about
+  my academic lineage. It turns out that there's a lot of information in the Academic Tree website that gets propagated
+  through to Wikidata already by bots. After I added a few missing links, I found out that I am in the lineage
+  of [Emil Erlenmeyer](https://www.wikidata.org/wiki/Q76597) after whom the eponymous Erlenmeyer flask is named.
+  Depending on if you left your doctoral work happy or not, you might not want to revisit this. Totally understandable.
 
 Accomplishments:
 
@@ -112,10 +121,14 @@ Accomplishments:
   e.g., [Doctor of Philosophy](https://www.wikidata.org/wiki/Q752297)). Using the "qualifiers", it's also possible to
   add information about the doctoral advisor, when the degree was received, the opponents during the disputation (i.e.,
   the examination committee)
-- [academic thesis](https://www.wikidata.org/wiki/Property:P1026) - make a page for your master's or PhD thesis, and
+- [academic thesis](https://www.wikidata.org/wiki/Property:P1026) - make an entry for your master's or PhD thesis, and
   link them to you this way!
-- [award received](https://www.wikidata.org/wiki/Property:P166) - make pages for the awards you've received, then
+- [award received](https://www.wikidata.org/wiki/Property:P166) - make an entry for the awards you've received, then
   connect them here.
+
+Some of the affiliations and accomplishments will require going even deeper into your curation and making additional
+Wikidata entries. For example, many awards probably don't already have a Wikidata entry. Same is likely true about your
+academic thesis.
 
 General External Account Links:
 
@@ -129,3 +142,31 @@ Academic External Account Links:
 - [Google scholar author ID](https://www.wikidata.org/wiki/Property:P1960)
 - [DBLP author ID](https://www.wikidata.org/wiki/Property:P2456)
 
+The ORCID identifier is definitely the most important, but Google and DBLP often pre-index researchers even if they have
+not got an ORCID, so this might be the best you can do for some researchers.
+
+There are tons of other IDs you can link as well as other properties. When I was working on
+[my Wikidata entry](https://www.wikidata.org/wiki/Q47475003), I used
+[Egon Willighagen's](https://scholia.toolforge.org/author/Q20895241) as an example. I'd suggest browsing through ours to
+go to the next level.
+
+## Tutorial
+
+I'll refer back to my [previous post]({% post_url 2021-01-17-organization-organization %}) on curating information about
+an organization, since it works basically the same way.
+
+## Scholia
+
+If you do a really good job curating information about yourself, your co-workers, and your
+affiliations, [Scholia](https://scholia.toolforge.org/)
+becomes a very powerful tool for showing information about you. For example, here's my Wikidata page rendered by
+Scholia: [https://scholia.toolforge.org/author/Q47475003](https://scholia.toolforge.org/author/Q47475003).
+
+One part that's really cool is the co-author graph:
+
+[Co-authors of Charles Tapley Hoyt](/img/scholia_coauthor_graph.png)
+
+When you start off, there won't be much here. Luckily, it has a curation link that takes advantage of the
+synonyms on the Wikidata and helps connect papers that are already on Wikidata to the given researcher's page. Here's
+the link for mine (though I keep it pretty up-to-date and it's likely empty):
+[https://scholia.toolforge.org/author/Q47475003/curation](https://scholia.toolforge.org/author/Q47475003/curation)
