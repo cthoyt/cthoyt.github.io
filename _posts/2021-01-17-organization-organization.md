@@ -38,12 +38,14 @@ When making a Wikidata page for an organization, it should have a type of either
 [organization](https://www.wikidata.org/wiki/Q43229) or one of its subclasses representing various kinds of
 organizations, parts of organizations, or combinations of subclasses and parts. Some examples are:
 
+- [university research group](https://www.wikidata.org/wiki/Q28863779) like the
+  [Laboratory of Systems Pharmacology](https://www.wikidata.org/wiki/Q107380113)
 - [research institute](https://www.wikidata.org/wiki/Q31855) like
   the [Fraunhofer SCAI](https://www.wikidata.org/wiki/Q1451981)
 - [department](https://www.wikidata.org/wiki/Q2366457)
   like [Fraunhofer SCAI Department of Bioinformatics](https://www.wikidata.org/wiki/Q67200492)
 - [university](https://www.wikidata.org/wiki/Q3918) like [Northeastern University](https://www.wikidata.org/wiki/Q37548)
-- [faculty](Q180958) like
+- [faculty](https://www.wikidata.org/wiki/Q180958) like
   the [Maastricht Faculty of Health, Medicine and Life Sciences](https://www.wikidata.org/wiki/Q48888910)
 - [academic department](https://www.wikidata.org/wiki/Q2467461)
   like [Maastricht University Department of Bioinformatics (BiGCaT)](https://www.wikidata.org/wiki/Q19845644)
@@ -58,7 +60,7 @@ Typically, organizations have certain pieces of information associated with them
 - [official website](https://www.wikidata.org/wiki/Property:P856) - what is the URL of the homepage for your
   organization?
 - [part of](https://www.wikidata.org/wiki/Property:P361) and [has part](https://www.wikidata.org/wiki/Property:P527) -
-  what are the parent organzation(s) and child organizations? If your item is a department, it is likely "part of" a
+  what are the parent organization(s) and child organizations? If your item is a department, it is likely "part of" a
   school, faculty, college, university, or research institution. It's best to be as specific as possible. If you are
   describing a department that is part of a faculty in a university (see the BiGCaT example above), it doesn't make
   sense to be redundant and also write that it is a part of the University.
@@ -171,3 +173,6 @@ continue being good open source citizens.
 This blog post might have gone off on a couple tangents besides what was relevant for Manubot, but because I did all of
 these things to set up the internet presence of my previous employer, it could serve as a good guide for any new
 organizations to get up to speed.
+
+See also the [newer post]({% post_url 2021-08-17-self-organization %}) on organizing all of the public
+data about a researcher, like you!
