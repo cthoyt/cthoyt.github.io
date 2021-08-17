@@ -164,7 +164,7 @@ Scholia: [https://scholia.toolforge.org/author/Q47475003](https://scholia.toolfo
 
 One part that's really cool is the co-author graph:
 
-[Co-authors of Charles Tapley Hoyt](/img/scholia_coauthor_graph.png)
+![Co-authors of Charles Tapley Hoyt](/img/scholia_coauthor_graph.png)
 
 When you start off, there won't be much here. Luckily, it has a curation link that takes advantage of the
 synonyms on the Wikidata and helps connect papers that are already on Wikidata to the given researcher's page. Here's
