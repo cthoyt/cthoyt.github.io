@@ -155,6 +155,11 @@ go to the next level.
 I'll refer back to my [previous post]({% post_url 2021-01-17-organization-organization %}) on curating information about
 an organization, since it works basically the same way.
 
+One of the important things I mentioned before is to add lots of synonyms for your name, especially in ways they might
+appear in journal articles.
+
+![Synonyms of Charles Tapley Hoyt](/img/wikidata_researcher_synonyms.png)
+
 ## Scholia
 
 If you do a really good job curating information about yourself, your co-workers, and your
