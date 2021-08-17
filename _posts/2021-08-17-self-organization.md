@@ -60,4 +60,4 @@ people to find you:
 I happen to spend extra time to maintain my [ORCID profile](https://bioregistry.io/orcid:0000-0003-4423-4370), and
 here's what it looks like:
 
-[![ORCID](img/orcid_page.png)](https://bioregistry.io/orcid:0000-0003-4423-4370)
+[![ORCID Profile of Charles Tapley Hoyt](/img/orcid_page.png)](https://bioregistry.io/orcid:0000-0003-4423-4370)
