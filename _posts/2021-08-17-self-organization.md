@@ -74,6 +74,10 @@ I'll reiterate the short summary I gave on Wikidata from my previous post:
 [instance of](https://www.wikidata.org/wiki/Property:P31) a [human](https://www.wikidata.org/wiki/Q5). The "instance of"
 item on Wikidata is a special kind called a "property" and is one of the places where the ontology lives - there are specific rules for each property on how it should be used in a relationship, like what's allowed to be the subject and what's allowed to be the object. For"instance of", there are no rules about the subject. However, the object of the relationship where "instance of" is the property should be a "class" of thing. It wouldn't make sense for the type of another entity to be an instance of "Albert Einstein".
 
+One thing to note: use the Wikidata search bar to see if there's already a page for the person you're looking for!
+It's a big problem if there are duplicate entries on Wikidata. [Scholia](https://scholia.toolforge.org/) also
+has some tools for looking people up by ORCID or other identifiers that might be helpful.
+
 ### Ontology for Researchers (and other Humans)
 
 Unlike an organizations, all researchers will have the type of [human](https://www.wikidata.org/wiki/Q5). Typically,
