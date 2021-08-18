@@ -117,6 +117,6 @@ printed the results to a file and then it no longer needed to be in memory.
 ---
 
 This was a quick blog post I wrote while the code I updated was running. The full PR I did can be
-found at https://github.com/stonkgs/stonkgs/pull/7 for reference. Feel free to chime in on that PR
-if you have some questions about how I did this or get in touch with any of the contact info on the
-bottom of my blog.
+found [here](https://github.com/stonkgs/stonkgs/pull/7) for reference. Feel free to chime in on that
+PR if you have some questions about how I did this or get in touch with any of the contact info on
+the bottom of my blog.
