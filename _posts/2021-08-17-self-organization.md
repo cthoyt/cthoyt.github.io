@@ -33,7 +33,11 @@ Let's get to it.
 
 ## Step 1: ORCID
 
-The ORCiD identifier is the single unambiguous identifier for each researcher. If you don't have one, it literally takes
+The ORCiD identifier is the single unambiguous identifier for each researcher. 
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">As unique as you are, the truth is your name probably isn’t all that unique. ORCID was founded specifically to help solve the problem of name ambiguity in research. Want to learn more? Start here! <a href="https://twitter.com/hashtag/openscience?src=hash&amp;ref_src=twsrc%5Etfw">#openscience</a> <a href="https://twitter.com/hashtag/openresearch?src=hash&amp;ref_src=twsrc%5Etfw">#openresearch</a> <a href="https://twitter.com/hashtag/namedisambiguity?src=hash&amp;ref_src=twsrc%5Etfw">#namedisambiguity</a><a href="https://t.co/Q2J1bVrolc">https://t.co/Q2J1bVrolc</a></p>&mdash; ORCID Organization (@ORCID_Org) <a href="https://twitter.com/ORCID_Org/status/1427578459258249245?ref_src=twsrc%5Etfw">August 17, 2021</a></blockquote>
+
+If you don't have one, it only takes
 2 minutes to make one [here](https://orcid.org/register). ORCID profiles look like a bunch of sets of 4 numbers/letters
 with dashes between them. Mine is [0000-0003-4423-4370](https://bioregistry.io/orcid:0000-0003-4423-4370). You can use a
 resolver like the Bioregistry to look up web pages on ORCID IDs with links that look like
@@ -54,10 +58,12 @@ people to find you:
     - Hoyt, Charles Tapley
 2. Include your education. Since most people reference their highest academic degree in prose, this again helps people
    find you and disambiguate you from other people. Even ORCID knows about this
+3. Make sure you set each field to "public" so everyone can see it! These are marked as private by
+   default, so make sure you click the following box (thanks to Ann Reynolds for pointing this out)
 
-<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">As unique as you are, the truth is your name probably isn’t all that unique. ORCID was founded specifically to help solve the problem of name ambiguity in research. Want to learn more? Start here! <a href="https://twitter.com/hashtag/openscience?src=hash&amp;ref_src=twsrc%5Etfw">#openscience</a> <a href="https://twitter.com/hashtag/openresearch?src=hash&amp;ref_src=twsrc%5Etfw">#openresearch</a> <a href="https://twitter.com/hashtag/namedisambiguity?src=hash&amp;ref_src=twsrc%5Etfw">#namedisambiguity</a><a href="https://t.co/Q2J1bVrolc">https://t.co/Q2J1bVrolc</a></p>&mdash; ORCID Organization (@ORCID_Org) <a href="https://twitter.com/ORCID_Org/status/1427578459258249245?ref_src=twsrc%5Etfw">August 17, 2021</a></blockquote>
+![ORCID Privacy box](/img/orcid_privacy.png)
 
-I happen to spend extra time to maintain my [ORCID profile](https://bioregistry.io/orcid:0000-0003-4423-4370), and
+I happen to enjoy spending time to maintain my [ORCID profile](https://bioregistry.io/orcid:0000-0003-4423-4370), and
 here's what it looks like:
 
 [![ORCID Profile of Charles Tapley Hoyt](/img/orcid_page.png)](https://bioregistry.io/orcid:0000-0003-4423-4370)
@@ -83,10 +89,10 @@ has some tools for looking people up by ORCID or other identifiers that might be
 Unlike an organizations, all researchers will have the type of [human](https://www.wikidata.org/wiki/Q5). Typically,
 humans have certain pieces of information associated with them using the following properties:
 
-- [sex or gender](https://www.wikidata.org/wiki/Property:P21) - for humans, this can include or human: male, female,
+- [sex or gender](https://www.wikidata.org/wiki/Property:P21) - for humans, this can include: male, female,
   non-binary, intersex, transgender female, transgender male, and agender.
 - [country of citizenship](https://www.wikidata.org/wiki/Property:P27)
-- [native language](https://www.wikidata.org/wiki/Property:P103)
+- [native language](https://www.wikidata.org/wiki/Property:P103) - there are Wikidata entries for most (if not all) common languages
 - [languages spoken, written or signed](https://www.wikidata.org/wiki/Property:P1412) - additional non-native languages.
   It doesn't have any information about levels, so I'm a bit hesitant about advertizing my B1 level of German!
 - [nickname](https://www.wikidata.org/wiki/Property:P1449) - a slightly more specific place to put a nickname than the
