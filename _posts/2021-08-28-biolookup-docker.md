@@ -18,12 +18,13 @@ restricted to ontologies).
 ```shell
 $ docker pull postgres
 $ docker run \
-  -p 5434:5432 \
-  --name postgres-biolookup \
-  --detach \
-  -e POSTGRES_PASSWORD=biolookup \
-  -e PGDATA=/var/lib/postgresql/pgdata postgres \
-  --shm-size 1gb
+    -p 5434:5432 \
+    --name postgres-biolookup \
+    --detach \
+    -e POSTGRES_PASSWORD=biolookup \
+    -e PGDATA=/var/lib/postgresql/pgdata \
+    --shm-size 1gb
+    postgres
 ```
 
 1. `-p`/`--publish` This takes an argument looking like `<X>:<Y>`. The `<Y>` corresponds to the port
@@ -110,10 +111,10 @@ saturday morning American breakfast.
 
 ```shell
 $ docker commit \
-  -a "Charles Tapley Hoyt <cthoyt@gmail.com>" \
-  -m "Added biolookup schema and data" \
-  $(docker ps --filter "name=postgres-biolookup" -q) \
-  biopragmatics/postgres-biolookup:latest
+    -a "Charles Tapley Hoyt <cthoyt@gmail.com>" \
+    -m "Added biolookup schema and data" \
+    $(docker ps --filter "name=postgres-biolookup" -q) \
+    biopragmatics/postgres-biolookup:latest
 ```
 
 After committing, it's time to push to DockerHub. You might need to do `docker login` before this.
