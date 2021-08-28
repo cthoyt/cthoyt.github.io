@@ -16,6 +16,7 @@ and what it does (think [Ontology Lookup Service](https://www.ebi.ac.uk/ols/inde
 restricted to ontologies).
 
 ```shell
+$ docker pull postgres
 $ docker run \
   -p 5434:5432 \
   --name postgres-biolookup \
