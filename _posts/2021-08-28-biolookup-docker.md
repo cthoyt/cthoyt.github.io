@@ -125,6 +125,9 @@ organization that you have rights to, and the tag is optional.
 $ docker push biopragmatics/postgres-biolookup:latest
 ```
 
+You can check to see it was uploaded
+properly [here](https://hub.docker.com/repository/docker/biopragmatics/postgres-biolookup).
+
 ## Run locally
 
 Since the `biolookup` web application is automatically installed with PyOBO and the database is now
