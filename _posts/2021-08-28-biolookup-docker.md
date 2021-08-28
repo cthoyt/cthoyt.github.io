@@ -5,7 +5,7 @@ date: 2021-08-18 12:21:00 +0100
 author: Charles Tapley Hoyt
 tags: docker ontology
 ---
-[PostgreSQL](https://www.postgresql.org/) (i.e., postgres) is a powerful relational database
+[PostgreSQL](https://www.postgresql.org/) is a powerful relational database
 management system that can be easily downloaded and installed from
 its [official image on DockerHub](https://hub.docker.com/_/postgres)
 using [Docker](https://www.docker.com/). However, it's not so simple to pre-load your own database.
@@ -15,7 +15,7 @@ with your own database.
 I'm going to assume you have a modern version of docker running. I'm using
 [Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac/). I'm
 usually using [fish](https://fishshell.com/), but the following instructions are given with
-Bourne-again shell (bash) syntax.
+Bourne-again shell (bash) syntax. Throughout this post, I'll shorten PostgreSQL to postgres.
 
 ## Run the base image
 
