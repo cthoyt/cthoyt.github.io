@@ -161,8 +161,30 @@ services:
       - "5432:5432"
 ```
 
+When you do this, you need to be patient (30-60 seconds) for the database to start up before the web
+application will be able to do anything, since it will give this error message:
+
+```python-traceback
+Traceback (most recent call last):
+  ...
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  the database system is starting up
+```
+
 ## Next Steps
 
 My next steps are to figure out the best way to automate the first three steps (running the base
 image, creating the database, and loading the database) then hopefully do it in an automated setting
 in GitHub Actions.
+
+---
+
+Special thanks to [Ben Gyori](https://github.com/bgyori) for outlining how to do this and getting me
+going in the right direction.
