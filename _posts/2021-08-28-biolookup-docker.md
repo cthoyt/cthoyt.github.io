@@ -151,7 +151,8 @@ $ biolookup --sql --sql-uri postgresql+psycopg2://postgres:biolookup@localhost:5
 ## Run with Docker Compose
 
 You can use the following configuration as a `docker-compose.yml` file to orchestrate the pre-loaded
-database with the front-end web application:
+database with the front-end web application (more information on
+that [here](https://github.com/biolookup/biolookup-docker/)):
 
 ```yaml
 version: '3'
