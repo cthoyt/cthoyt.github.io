@@ -11,7 +11,9 @@ Bourne-again shell (bash) syntax.
 The first step is to run a base image. This could be as simple as `docker run postgres`, but there
 are a few options to add to make the rest of this process more simple. I've written this post while
 preparing the docker image for the Biolookup Service, so `biolookup` appears many times as
-names/passwords throughout.
+names/passwords throughout. I'll definitely be writing another post soon about what that service is
+and what it does (think [Ontology Lookup Service](https://www.ebi.ac.uk/ols/index), but not just
+restricted to ontologies).
 
 ```shell
 $ docker run \
@@ -132,8 +134,8 @@ $ biolookup --sql --sql-uri postgresql+psycopg2://postgres:biolookup@localhost:5
 
 ## Run with Docker Compose
 
-You can use the following configuration as a `docker-compose.yml` file to orchestrate the
-pre-loaded database with the front-end web application:
+You can use the following configuration as a `docker-compose.yml` file to orchestrate the pre-loaded
+database with the front-end web application:
 
 ```yaml
 version: '3'
