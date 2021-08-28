@@ -12,10 +12,16 @@ using [Docker](https://www.docker.com/). However, it's not so straightforward to
 data. This blog post is about preparing a derivative of the base PostgreSQL Docker image that's
 preloaded with your own database and pushing it back to DockerHub for redistribution.
 
-I'm going to assume you have a modern version of docker running. I'm using
-[Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac/). I'm
-usually using [fish](https://fishshell.com/), but the following instructions are given with
-Bourne-again shell (bash) syntax. Throughout this post, I'll shorten PostgreSQL to postgres.
+**Prerequisites** I'm going to assume you have a modern version of docker running. I'm using
+[Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac/). I've
+also installed PostgreSQL using `brew install postgresql`, which puts a suite of command line
+utilities, including `createdb`, which I use in the middle of this tutorial. I'm usually
+using [fish](https://fishshell.com/), but the following instructions are given with Bourne-again
+shell (bash) syntax.
+
+**Notes** Throughout this post, I'll shorten PostgreSQL to postgres. All the commands in this
+tutorial are run from the shell of the host system, i.e. I did not ssh or exec into the Docker image
+itself to run them.
 
 ## Run the base image
 
@@ -130,7 +136,7 @@ $ docker commit \
 
 After committing, it's time to push to DockerHub. You might need to do `docker login` before this.
 The name of the image takes the form `<organization>/<name>[:<tag>]`. Make sure you push to an
-organization that you have rights to, and the tag is optional.
+organization that you have rights to, and the tag (the part after the colon) is optional.
 
 ```shell
 $ docker push biopragmatics/postgres-biolookup:latest
@@ -173,9 +179,10 @@ services:
       - "5432:5432"
 ```
 
-When you do this, you need to be patient (30-60 seconds) for the database to start up before the web
-application will be able to do anything, since it will give this error message if it's not done
-restarting:
+You can run this with `docker-compose up --detach`. When you do this, you need to be patient (1-5
+minutes) for the database to start up before making requests from the web application. If you didn't
+detach when running docker-compose, postgres will actually log when it's ready. If you try making
+a request before it's done starting, you'll probably get an error message that looks like this:
 
 ```python-traceback
 Traceback (most recent call last):
@@ -191,6 +198,10 @@ Traceback (most recent call last):
 sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  the database system is starting up
 ```
 
+If you want to more correct about this, you can use the
+[`pg_isready`](https://www.postgresql.org/docs/current/app-pg-isready.html) to check the connection
+status of a PostgreSQL server. But I think it's practical enough just to wait a few minutes
+
 ## Next Steps
 
 My next steps are to figure out the best way to automate the first three steps (running the base
@@ -200,4 +211,5 @@ in GitHub Actions.
 ---
 
 Special thanks to [Ben Gyori](https://github.com/bgyori) for outlining how to do this and getting me
-going in the right direction.
+going in the right direction. Thanks to [Scott Colby](https://github.com/scolby33) for feedback
+and pro docker tips.
