@@ -2,7 +2,9 @@ This blog post is about preparing a derivative of the base postgres Docker image
 with a database.
 
 I'm going to assume you have a modern version of docker running. I'm using
-[Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac/).
+[Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac/). I'm
+usually using [fish](https://fishshell.com/), but the following instructions are given with
+Bourne-again shell (bash) syntax.
 
 ### Run the base image
 
@@ -51,22 +53,33 @@ $ docker run \
    ```
 
    Luckily, [StackOverflow](https://stackoverflow.com/questions/56751565/pq-could-not-resize-shared-memory-segment-no-space-left-on-device)
-   had me covered and suggested to increased the shared memory to 1gb using `--shm-size`.
+   had me covered and suggested to increase the shared memory to 1gb using `--shm-size`.
 
 ### Create the database
 
-PGPASSWORD=biolookup createdb -h localhost -p 5434 -U postgres biolookup
+Creating the database on the already running postgres docker image is a bit more straightforwards:
 
-`PGPASSWORD=biolookup` sets the password in the enviornment when this command gets run so we don't
-have to manually interact with it. `-h` is for host, `-p` is for password, and `-U` is for
+```shell
+$ PGPASSWORD=biolookup createdb -h localhost -p 5434 -U postgres biolookup
+```
+
+`PGPASSWORD=biolookup` sets the password in the environment when this command gets run so there's no
+need to to manually interact with it. `-h` is for host, `-p` is for password, and `-U` is for
 username. `-e` can be added optionally to show the commands that are run for debugging.
 
 ### Load the database
+
+Loading the database requires the PyOBO Python package (for now, I'll probably move all of this code
+into its own package later). It automatically downloads the data from the latest releases on Zenodo
+if not available locally, then puts it in the database.
 
 ```shell
 $ python -m pip install pyobo
 $ pyobo database sql load --uri postgresql+psycopg2://postgres:biolookup@localhost:5434/biolookup --test
 ```
+
+The `--test` makes the database only load 100K records instead of hundreds of millions of records.
+For building a real database, remove this.
 
 ### Commit and push to DockerHub
 
