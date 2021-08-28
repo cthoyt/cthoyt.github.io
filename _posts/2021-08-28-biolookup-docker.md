@@ -162,7 +162,8 @@ services:
 ```
 
 When you do this, you need to be patient (30-60 seconds) for the database to start up before the web
-application will be able to do anything, since it will give this error message:
+application will be able to do anything, since it will give this error message if it's not done
+restarting:
 
 ```python-traceback
 Traceback (most recent call last):
