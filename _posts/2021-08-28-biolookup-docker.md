@@ -142,7 +142,7 @@ version: '3'
 
 services:
   app:
-    image: cthoyt/biolookup:latest
+    image: biopragmatics/biolookup:latest
     environment:
       PYOBO_SQLALCHEMY_URI: postgresql+psycopg2://postgres:biolookup@database/biolookup
     restart: always
