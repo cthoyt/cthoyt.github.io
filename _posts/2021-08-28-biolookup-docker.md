@@ -105,14 +105,13 @@ this database, which after an incredible effort boils down to running
 | Definitions             | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4662925.svg)](https://doi.org/10.5281/zenodo.4662925) |
 | Alternative Identifiers | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4661368.svg)](https://doi.org/10.5281/zenodo.4661368) |
 
-Loading the database requires the [`pyobo`](https://github.com/pyobo/pyobo) Python package
-(for now, I'll probably move all of this code into its own package later). It automatically
-downloads the data from the latest releases on Zenodo if not available locally, then puts it in the
-database.
+Loading the database requires the [`biolookup`](https://github.com/biolookup/biolookup) Python
+package. It automatically downloads the data from the latest releases on Zenodo if not available
+locally, then puts it in the database.
 
 ```shell
-$ python -m pip install pyobo
-$ pyobo database sql load --uri postgresql+psycopg2://postgres:biolookup@localhost:5434/biolookup --test
+$ python -m pip install biolookup
+$ biolookup load --uri postgresql+psycopg2://postgres:biolookup@localhost:5434/biolookup --test
 ```
 
 The `--test` makes the database only load 100K records instead of hundreds of millions of records.
@@ -151,7 +150,7 @@ Since the `biolookup` web application is automatically installed with PyOBO and 
 built locally, you can test it locally with:
 
 ```shell
-$ biolookup --sql --sql-uri postgresql+psycopg2://postgres:biolookup@localhost:5434/biolookup
+$ biolookup web --sql --sql-uri postgresql+psycopg2://postgres:biolookup@localhost:5434/biolookup
 ```
 
 ## Run with Docker Compose
@@ -181,8 +180,8 @@ services:
 
 You can run this with `docker-compose up --detach`. When you do this, you need to be patient (1-5
 minutes) for the database to start up before making requests from the web application. If you didn't
-detach when running docker-compose, postgres will actually log when it's ready. If you try making
-a request before it's done starting, you'll probably get an error message that looks like this:
+detach when running docker-compose, postgres will actually log when it's ready. If you try making a
+request before it's done starting, you'll probably get an error message that looks like this:
 
 ```python-traceback
 Traceback (most recent call last):
@@ -211,5 +210,5 @@ in GitHub Actions.
 ---
 
 Special thanks to [Ben Gyori](https://github.com/bgyori) for outlining how to do this and getting me
-going in the right direction. Thanks to [Scott Colby](https://github.com/scolby33) for feedback
-and pro docker tips.
+going in the right direction. Thanks to [Scott Colby](https://github.com/scolby33) for feedback and
+pro docker tips.
