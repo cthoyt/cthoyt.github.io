@@ -104,6 +104,7 @@ this database, which after an incredible effort boils down to running
 | Names                   | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4660694.svg)](https://doi.org/10.5281/zenodo.4660694) |
 | Definitions             | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4662925.svg)](https://doi.org/10.5281/zenodo.4662925) |
 | Alternative Identifiers | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4661368.svg)](https://doi.org/10.5281/zenodo.4661368) |
+| Species                 | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5334738.svg)](https://doi.org/10.5281/zenodo.5334738) |
 
 Loading the database requires the [`biolookup`](https://github.com/biolookup/biolookup) Python
 package. It automatically downloads the data from the latest releases on Zenodo if not available
