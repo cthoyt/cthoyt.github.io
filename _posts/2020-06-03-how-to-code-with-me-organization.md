@@ -46,6 +46,10 @@ Things that are especially bad to commit to repos:
 - tox and other automation/build tool caches (`.tox/`, `.pytest_cache/`, `.mypy_cache/`, `build/`, `dist/`, etc.)
 - basically any file you didn't make on purpose
 
+I usually use [this](https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks,intellij,pycharm,macos,linux,windows)
+pre-configured `.gitignore` with has ignores appropriate for Python, Jupyter Notebooks,
+IntelliJ/PyCharm, Mac, Windows, and Linux.
+
 ## Packaging
 
 I use a [declarative setup](https://setuptools.readthedocs.io/en/latest/setuptools.html) in all of my packages. It's
