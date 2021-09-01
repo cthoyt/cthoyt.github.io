@@ -53,10 +53,12 @@ IntelliJ/PyCharm, Mac, Windows, and Linux.
 ## Packaging
 
 I use a [declarative setup](https://setuptools.readthedocs.io/en/latest/setuptools.html) in all of my packages. It's
-not easy to figure out everything in this documentation, so I always copy-paste from a previous project, usually
-[pybel/pybel](https://github.com/pybel/pybel/blob/master/setup.cfg).
+not easy to figure out everything in this documentation, so I either copy-paste from a previous project (usually
+[pybel/pybel](https://github.com/pybel/pybel/blob/master/setup.cfg) or use my
+[cookiecutter template](https://github.com/cthoyt/cookiecutter-snekpack).
 
-You still need a `setup.py` when using a declarative setup. It should always look exactly like this:
+First, you need to create a `setup.py` file in the root of your repository when using a declarative
+setup. It should always look exactly like this:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -136,10 +138,10 @@ classifiers =
     License :: OSI Approved :: MIT License
     Operating System :: OS Independent
     Programming Language :: Python
-    Programming Language :: Python :: 3.9
     Programming Language :: Python :: 3.8
     Programming Language :: Python :: 3.7
     Programming Language :: Python :: 3.6
+    Programming Language :: Python :: 3.5
     Programming Language :: Python :: 3 :: Only
     Topic :: Scientific/Engineering :: Bio-Informatics
     Topic :: Scientific/Engineering :: Chemistry
@@ -147,7 +149,7 @@ classifiers =
 
 Again, the license is very important! `pyroma` (see below) won't pass if you don't have this. Also, the other things
 are important too, because this will tell users that you're cool and only allow the newest Python versions.
-Unfortunately, I still have to support Python 3.6 in PyBEL for downstream dependencies :/ 
+Unfortunately, at the time of writing this post, I still had to support Python 3.5 in PyBEL for downstream dependencies :/ 
 
 Next are the [keywords](https://github.com/pybel/pybel/blob/dba0c5afd37bef7d162937d0407045f15a515a87/setup.cfg#L43-L49),
 which can be whatever you want. Here's what I've got for PyBEL:
@@ -192,7 +194,7 @@ zip_safe = false
 # want to come for the ride when other people use your code, do this
 include_package_data = True
 # Always tell people what python you support! Is redundant of classifiers, but that's how it is.
-python_requires = >=3.6
+python_requires = >=3.5
 
 # Where is my code?
 packages = find:
@@ -277,6 +279,17 @@ the repository using the setup.cfg/setup.py, installs the tox environment-specif
 runs the commands in order. There are tons of other options available for customizing tox listed on
 their [documentation](https://tox.readthedocs.io/en/latest/). There will be several more examples here
 that show some of them being used.
+
+Since you're using the `extras` in the `setup.cfg`, you can actually rewrite this configuration to
+use them:
+
+```ini
+[testenv]
+commands =
+    pytest tests/
+extras =
+    testing
+```
 
 ## Packaging Metadata
 
