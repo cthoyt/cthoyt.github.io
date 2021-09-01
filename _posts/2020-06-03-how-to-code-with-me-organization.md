@@ -108,14 +108,14 @@ author_email = cthoyt@gmail.com
 maintainer = Charles Tapley Hoyt
 maintainer_email = cthoyt@gmail.com
 
-# What kind of license are you using? Somehow, this isn't the same as the trove classifiers
+# What kind of license are you using? This uses a SPDX identifier (https://spdx.org/licenses/)
 license = MIT
 # The thing you put here is the name of the file in the same directory as the setup.cfg
 license_file = LICENSE
 ```
 
-The `license_file` entry obviously points to the file. The `license` entry is what gets shown on PyPI, and I'm not
-exactly sure what the controlled vocabulary is. But for MIT, it works, so happy hunting.
+The `license_file` entry obviously points to the file. The `license` entry is what gets shown on PyPI
+using the [Software Package Data Exchange](https://spdx.org/licenses/) controlled vocabulary.
 
 Next comes the [PyBEL classifiers](https://github.com/pybel/pybel/blob/dba0c5afd37bef7d162937d0407045f15a515a87/setup.cfg#L28-L42).
 This is a list of [trove classifiers](https://pypi.org/classifiers/) that are a controlled vocabulary for describing
@@ -132,21 +132,21 @@ classifiers =
     License :: OSI Approved :: MIT License
     Operating System :: OS Independent
     Programming Language :: Python
+    Programming Language :: Python :: 3.9
     Programming Language :: Python :: 3.8
     Programming Language :: Python :: 3.7
     Programming Language :: Python :: 3.6
-    Programming Language :: Python :: 3.5
     Programming Language :: Python :: 3 :: Only
     Topic :: Scientific/Engineering :: Bio-Informatics
     Topic :: Scientific/Engineering :: Chemistry
 ```
 
-Again, the license is very important! `pyroma` (see below) won't pass if you don't have this. Also the other things
+Again, the license is very important! `pyroma` (see below) won't pass if you don't have this. Also, the other things
 are important too, because this will tell users that you're cool and only allow the newest Python versions.
-Unfortunately, I still have to support Python 3.5 in PyBEL for downstream dependencies :/ 
+Unfortunately, I still have to support Python 3.6 in PyBEL for downstream dependencies :/ 
 
 Next are the [keywords](https://github.com/pybel/pybel/blob/dba0c5afd37bef7d162937d0407045f15a515a87/setup.cfg#L43-L49),
-which can be whatever you want. Here's what I've got for PyBEL.
+which can be whatever you want. Here's what I've got for PyBEL:
 
 ```ini
 # [metadata]
@@ -188,7 +188,7 @@ zip_safe = false
 # want to come for the ride when other people use your code, do this
 include_package_data = True
 # Always tell people what python you support! Is redundant of classifiers, but that's how it is.
-python_requires = >=3.5
+python_requires = >=3.6
 
 # Where is my code?
 packages = find:
@@ -225,11 +225,25 @@ pip install pytest
 pytest tests/
 ```
 
-`pytest` isn't actually a requirement to use `pybel`, so it's not included in `setup.cfg`. It might be the
-case that you want to include it as an extra called `testing`, so you can install `pybel` with:
+Because `pytest` isn't actually a requirement to use `pybel`, but it's useful to have installed,
+you can specify it in an optional requirement in the `[options.extras_require]` section of your
+`setup.cfg` like in:
+
+```ini
+[options.extras_require]
+testing =
+    pytest
+docs =
+    sphinx
+    sphinx-rtd-theme
+    sphinx-click
+    sphinx-autodoc-typehints
+```
+
+You can install PyBEL with the testing and docs extras like:
 
 ```sh
-pip install -e .[testing]
+pip install -e .[testing,docs]
 ```
 
 Then you wouldn't have to worry about the availability of `pytest`. However, there's a better way
@@ -264,7 +278,7 @@ that show some of them being used.
 
 I use `pyroma` to make sure that I remembered to put everything in the packaging metadata. It can be run with
 
-1. `pip install pyroma` (you *do* have Python3's `pip3` linked to `pip`, right?)
+1. `python -m pip install pyroma`
 2. `pyroma --min=10 .`
 
 I welcome and encourage you to copy my configuration, but don't forget to carefully change everything to your metadata.
@@ -285,52 +299,11 @@ This environment adds the `skip_install` key, which just says not to bother pip 
 package for the tests. This makes sense here because checking the metadata contained in `setup.cfg`
 doesn't require actually installing the code.
 
-## Where to Put Configuration
-
-Only use the following section if your package *actually* needs configuration. Keep in mind that there
-should always be reasonable defaults for anything that can be configured, so users don't actually have
-to engage with configuration. If you think that users enjoy being forced to read through your (likely)
-insufficient documentation for setting configuration before they can use your software, then you can
-just got back to working in C or Java. Fight me.
-
-Most packages will put configuration inside the `~/.config/` folder, you should do the same.
-PyBEL uses something a bit different, but here's a mock of how loading configuration might look.
-
-```python
-# -*- coding: utf-8 -*-
-
-"""Configuration for PyBEL."""
-
-import os
-from configparser import ConfigParser
-
-__all__ = [
-    'config',
-]
-
-CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'pybel.ini')
-
-cfp = ConfigParser()
-cfp.read(CONFIG_PATH)
-
-try:
-    config = cfp['pybel']
-except KeyError:
-    config = {}
-```
-
-You could also use JSON and get into an argument about which is better, but of all of the things that I have
-an opinion on, this is not one of them. Do what feels right.
-
-I helped [Scott Colby](https://github.com/scolby33) make
-[`easy_config`](https://github.com/scolby33/easy_config) for a bit more customizable solution that
-handles multiple config files, environment parsing, etc.
-
 ## Where to Put Persistent Data
 
 If your application needs to download data that is not related to user input or configuration,
 it's best that it has a default location for storing stuff that isn't in a place a normal
-user will delete or corrup. This is a situation where it might make sense to make a folder
+user will delete or corrupt. This is a situation where it might make sense to make a folder
 in the user's home directory.
 
 ```python
@@ -356,8 +329,58 @@ the directory structure to help organize the data you might need. For example,
 PyBEL will download a copy of Daniel Himmelstein's [hetionet](https://github.com/hetio/hetionet)
 for conversion to BEL and put it in its cache folder.
 
-It might actually make more sense to deal with this sort of stuff in combination with
-configuation mentioned in the section above.
+Becuase this kind of configuration is so ubiquitous, I've written an package that supports doing
+this called [`pystow`](https://github.com/cthoyt/pystow) that simplifies the previous code to:
+
+```python
+import pystow
+
+pybel_module = pystow.module("pybel")
+PYBEL_HOME = pybel_module.base
+```
+
+## Where to Put Configuration
+
+Only use the following section if your package *actually* needs configuration. Keep in mind that there
+should always be reasonable defaults for anything that can be configured, so users don't actually have
+to engage with configuration.
+
+Most packages put configuration inside the `~/.config/` folder, so you should do the same.
+PyBEL uses something a bit different, but here's a mock of how loading configuration might look.
+
+```python
+import os
+from configparser import ConfigParser
+
+CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'pybel.ini')
+
+cfp = ConfigParser()
+cfp.read(CONFIG_PATH)
+
+try:
+    config = cfp['pybel']
+except KeyError:
+    config = {}
+
+
+def get_config(key):
+    """Get PyBEL-specific configuration."""
+    return config.get(key)
+```
+
+You could also use JSON, but ini/cfg files are ubiquitous for configuration so it's best to stick
+to what's expected. Because I've written the previous code so often, I encapsulated it in a function
+in `pystow`:
+
+```python
+import pystow
+
+def get_config(key):
+    pystow.get_config("pybel", key)
+```
+
+Note, this function has a few more bells and whistles than the boilerplate code for fallbacks,
+passthroughs, error handling, and type coercion.
 
 ## Code Style
 
