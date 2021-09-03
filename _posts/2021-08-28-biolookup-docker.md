@@ -106,7 +106,7 @@ this database, which after an incredible effort boils down to running
 | Alternative Identifiers | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4661368.svg)](https://doi.org/10.5281/zenodo.4661368) |
 | Species                 | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5334738.svg)](https://doi.org/10.5281/zenodo.5334738) |
 
-Loading the database requires the [`biolookup`](https://github.com/biolookup/biolookup) Python
+Loading the database requires the [`biolookup`](https://github.com/biopragmatics/biolookup) Python
 package. It automatically downloads the data from the latest releases on Zenodo if not available
 locally, then puts it in the database.
 
@@ -151,14 +151,14 @@ Since the `biolookup` web application is automatically installed with PyOBO and 
 built locally, you can test it locally with:
 
 ```shell
-$ biolookup web --sql --sql-uri postgresql+psycopg2://postgres:biolookup@localhost:5434/biolookup
+$ biolookup web --sql --uri postgresql+psycopg2://postgres:biolookup@localhost:5434/biolookup
 ```
 
 ## Run with Docker Compose
 
 You can use the following configuration as a `docker-compose.yml` file to orchestrate the pre-loaded
 database with the front-end web application (more information on
-that [here](https://github.com/biolookup/biolookup-docker/)):
+that [here](https://github.com/biopragmatics/biolookup-docker/)):
 
 ```yaml
 version: '3'
@@ -167,7 +167,7 @@ services:
   app:
     image: biopragmatics/biolookup:latest
     environment:
-      PYOBO_SQLALCHEMY_URI: postgresql+psycopg2://postgres:biolookup@database/biolookup
+      BIOLOOKUP_SQLALCHEMY_URI: postgresql+psycopg2://postgres:biolookup@database/biolookup
     restart: always
     ports:
       - "8765:8765"
