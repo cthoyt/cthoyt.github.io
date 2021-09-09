@@ -55,6 +55,12 @@ This leads to a more than 10 year collaboration between the companies.
 **Spring 2003**. Biological Expression Language is created by Dexter Pratt, Navin Chandra, Keith Elliston, and Ted Slater.
 This development is based on work done by Navin at [Perot Systems and Nets](https://en.wikipedia.org/wiki/Perot_Systems), work done by Dexter on [CycL](https://www.cyc.com/archives/glossary/cycl-sentence) with [Cycorp](https://www.cyc.com), and on biological ontologies by Keith and Ted.
 
+**August 20th, 2003** Genstruct files a [patent](https://patents.google.com/patent/US20050038608A1/en)
+that outlines many of the core ideas of modern systems biology years before they became mainstream.
+While it doesn't mention BEL explicitly, it's obvious that many of the ideas in this application
+became part of the BEL standard when it was later released to the public. The patent was accepted 8
+years later in 2011. Thanks to Ted Slater for bringing attention to this!
+
 **September 8th, 2003** Genstruct [raises $6.5M](https://www.crunchbase.com/funding_round/selventa-series-a--1f3d3583)
 in a Series A with lead investors [Flagship Pioneering](https://www.flagshippioneering.com/companies/selventa) and
 [A.M. Pappas & Associates](https://www.pappas-capital.com/portfolio/selventa/), during which they acquire the Pappas portfolio company [Incellico, Inc.](https://www.crunchbase.com/organization/incellico-inc) (led by [John Wilbanks](https://www.linkedin.com/in/johnwilbanks/) and [Toby Segaran](https://www.linkedin.com/in/toby-segaran-80bbb9/)).
