@@ -110,7 +110,7 @@ df = chembl_downloader.query(sql, version=version)
 
 What about making this code automatically updating to the newest version of ChEMBL? Just use the
 `chembl_downloader.latest()` to the latest version up for you. Under the hood, it's using the
-[`bioversions`](https://github.com/cthoyt/bioversions) package to do this.
+[`bioversions`](https://github.com/biopragmatics/bioversions) package to do this.
 
 ```python
 import chembl_downloader

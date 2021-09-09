@@ -108,7 +108,7 @@ behind the scenes. If you specify an alternate version, it's pretty obvious wher
 ### Download the Latest Version
 
 If you want to automate running your code on the most recent version of DrugBank, you
-can use the same function, but you'll first have to install [`bioversions`](https://github.com/cthoyt/bioversions)
+can use the same function, but you'll first have to install [`bioversions`](https://github.com/biopragmatics/bioversions)
 with `pip install bioversions`. This package's job is to look up the most recent version of
 varions biological databases. I'll have a whole post on that later. Then, you can modify the
 previous code slightly by simply removing the `version` argument.

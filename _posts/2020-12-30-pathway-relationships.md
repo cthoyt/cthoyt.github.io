@@ -198,7 +198,7 @@ curations for MeSH-GO mappings.
 
 There are still many disjoint resources that need normalization, including the
 Pathway Ontology, which looks to have lots of information. I'll be working on it
-via this [GitHub issue](https://github.com/biomappings/biomappings/issues/36).
+via this [GitHub issue](https://github.com/biopragmatics/biomappings/issues/36).
 
 There's also PathBank, (curated by Yojana but not appearing in the original ComPath publication), 
 BioCyc, MetaCyc, and many others. Each must first be
@@ -213,6 +213,6 @@ of relationships appear in the Relation Ontology itself, but unfortunately I hav
 not been super successful in petitioning them for improvements in the past, so
 I may start another open ontology project focused on relationships themselves.
 
-This is all part of a greater effort, [Biomappings](https://github.com/biomappings/biomappings),
+This is all part of a greater effort, [Biomappings](https://github.com/biopragmatics/biomappings),
 which Ben and I have been working on to make it much easier to curate equivalences and
 related mappings. I'll have more to say about that in a future post.
