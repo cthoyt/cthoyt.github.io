@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Code with Me: Beyond Linters
+title: How to Code with Me - Beyond Linters
 date: 2021-09-14 00:18:00 +0100
 author: Charles Tapley Hoyt
 tags: code-with-me
