@@ -57,7 +57,20 @@ The next image shows the expansion of `AKT affects BAD` to
 this is because there are actually some more specific phosphorylation events
 contained in here as well!
 
+Open up the curation interface by pressing the pencil button next to the
+evidence you want to curate. Note that some sources, like BioPAX
+(from Pathway Commons) don't give evidence text, so these aren't appropriate
+for curation via the INDRA Database.
+
 ![](/img/indra_curation/08_navigate_search_results.png)
+
+Now that the curation menu has come up, you can select one of several error
+types. Use your best judgement if a statement is really correct. Note that
+INDRA does synonym disambiguation, so the label for the statement may not match
+to the highlighted text. You can click the entity names in the statement header
+to open pages with more information about the entities, including their
+synonyms.
+
 ![](/img/indra_curation/09_open_curation_menu.png)
 ![](/img/indra_curation/10_select_curation_type.png)
 ![](/img/indra_curation/11_submit_and_profit.png)
