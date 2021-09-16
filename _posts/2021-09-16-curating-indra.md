@@ -90,3 +90,8 @@ and combination with other curations.
 Stay tuned for the upcoming INDRA 2 paper that outlines how curations can be
 used to assess the quality of each statement (at each level of hierarchical
 abstraction, too) as well as the INDRA Database paper describing this resource.
+We're currently working on
+[updating the API](https://github.com/indralab/indra_db/pull/187) for bulk
+downloading curations from the INDRA Database and for use with the
+INDRA assemble corpus utility
+[indra.tools.assemble_corpus.filter_by_curation()](https://github.com/sorgerlab/indra/blob/bc39dae6849b1fd484d83eabb3d2afee963a6298/indra/tools/assemble_corpus.py#L1669).
