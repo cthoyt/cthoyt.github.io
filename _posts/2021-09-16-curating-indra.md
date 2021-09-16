@@ -72,6 +72,21 @@ to open pages with more information about the entities, including their
 synonyms.
 
 ![](/img/indra_curation/09_open_curation_menu.png)
+
+If you want to leave a note that explains why you made the curation you did,
+that would be very helpful! Finally, smash that submit button.
+
 ![](/img/indra_curation/10_select_curation_type.png)
+
+You've now contributed a curation! Thank you very much. You and the rest of the
+scientific community will now disproportionately benefit from this small amount
+of effort because of the large-scale extraction efforts of the INDRA Database
+and combination with other curations.
+
 ![](/img/indra_curation/11_submit_and_profit.png)
 
+---
+
+Stay tuned for the upcoming INDRA 2 paper that outlines how curations can be
+used to assess the quality of each statement (at each level of hierarchical
+abstraction, too) as well as the INDRA Database paper describing this resource.
