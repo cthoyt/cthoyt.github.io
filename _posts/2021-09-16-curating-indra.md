@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to Curate the INDRA Database
-date: 2021-09-14 09:47:00 +0100
+date: 2021-09-16 13:30:00 +0100
 author: Charles Tapley Hoyt
 tags: nlp indra
 ---
