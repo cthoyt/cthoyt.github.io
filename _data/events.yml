@@ -1,16 +1,32 @@
 - name: 4th Session of the International Society of Biocuration 2021 Virtual Conference
   online: true
+  poster: https://f1000research.com/posters/10-1005
   date:
     day: 5
     month: October
     year: 2021
 
 - name: Graph Machine Learning in Industry
-  url: https://sites.google.com/view/graph-ml-in-industry/home
+  link: https://sites.google.com/view/graph-ml-in-industry/home
+  talk: https://www.youtube.com/watch?v=bLN1V5fZD2g&t=3665s
   wikidata: Q107633454
   online: true
   date:
     day: 23
+    month: September
+    year: 2021
+
+- name: 12th International Conference on Biomedical Ontologies
+  wikidata: Q108555471
+  talk: https://www.youtube.com/watch?v=9Pf5wr8JxCQ&t=1s
+  link: https://icbo2021.inf.unibz.it/
+  online: true
+  start:
+    day: 15
+    month: September
+    year: 2021
+  end:
+    day: 18
     month: September
     year: 2021
 
