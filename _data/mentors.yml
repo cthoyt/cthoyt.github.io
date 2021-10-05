@@ -14,6 +14,9 @@
         organization:
           name: Harvard Medical School
           url: https://hms.harvard.edu
+      start:
+        month: February
+        year: 2021
 
 - name: Prof. Dr. Martin Hofmann-Apitius
   orcid: 0000-0001-9012-6720
