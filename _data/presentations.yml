@@ -1,3 +1,20 @@
+- name: "Biomappings: Community Curation of Mappings between Biomedical Entities"
+  url: https://f1000research.com/posters/10-1005
+  venue: International Society of Biocuration 2021 Virtual Conference
+  online: true
+  date:
+    day: 5
+    month: October
+    year: 2021
+
+- name: Current Issues in Theory, Reproducibility, and Utility of Graph Machine Learning in the Life Sciences
+  url: https://bit.ly/current-issues-graphml-2021
+  online: true
+  date:
+    day: 23
+    month: September
+    year: 2021
+
 - name: Perspectives on Knowledge Graph Embedding Models in/out of Biomedicine
   url: https://docs.google.com/presentation/d/1JyTkf58LnK7OEiwYUtqkHXuk4n3le3-mAWSI6t4IEp8
   venue: AstraZeneca

@@ -1,3 +1,26 @@
+- name: 4th Session of the International Society of Biocuration 2021 Virtual Conference
+  online: true
+  date:
+    day: 5
+    month: October
+    year: 2021
+
+- name: Graph Machine Learning in Industry
+  url: https://sites.google.com/view/graph-ml-in-industry/home
+  wikidata: Q107633454
+  online: true
+  date:
+    day: 23
+    month: September
+    year: 2021
+
+- name: 3rd Session of the International Society of Biocuration 2021 Virtual Conference
+  online: true
+  date:
+    day: 17
+    month: August
+    year: 2021
+
 - name: INCOME Conference and Hackathon 2021
   wikidata: Q104905693
   online: true

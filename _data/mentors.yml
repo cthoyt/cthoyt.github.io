@@ -1,3 +1,20 @@
+- name: Dr. Benjamin Gyori
+  orcid: 0000-0001-9439-5346
+  linkedin: benjamin-m-gyori-0519b630
+  wikidata: Q61195994
+  roles:
+    - name: Supervisor
+      location:
+        group:
+          name: Laboratory of Systems Pharmacology
+          url: https://hits.harvard.edu/the-program/laboratory-of-systems-pharmacology/about/
+        institute:
+          name: Harvard Program in Therapeutic Science
+          url: https://hits.harvard.edu
+        organization:
+          name: Harvard Medical School
+          url: https://hms.harvard.edu
+
 - name: Prof. Dr. Martin Hofmann-Apitius
   orcid: 0000-0001-9012-6720
   linkedin: hofmannapitius
