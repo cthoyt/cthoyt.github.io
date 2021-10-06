@@ -24,33 +24,27 @@ often restricted to IRIs that are also **uniform resource identifiers (URIs)**
 resource locators (URLs)** (i.e., they point to a web page). In applied semantic
 web contexts like biomedicine, the subtleties between URLs, URIs, and IRIs are
 disregarded and the term URI is preferred such as in the seminal paper
-[Identifiers for the 21st Century](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001414#sec001)
-. A more detailed explanation on the difference between URLs, URIs, and IRIs can
-be
-found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-and-their-differences/)
-.
+[Identifiers for the 21st Century](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001414#sec001).
+A more detailed explanation on the difference between URLs, URIs, and IRIs can
+be found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-and-their-differences/).
 
-For a given nomenclature like
-the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi)
-, URIs can usually be split into two parts:
+For a given nomenclature like the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi),
+URIs can usually be split into two parts:
 
 1. A URI prefix (in red)
 2. A local identifier (in orange)
 
 All URIs from the same nomenclature have the same URI prefix (in red), but a
 different local identifier (in orange). Here's an example, using the ChEBI local
-identifier
-for [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:138488):
+identifier for [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:138488):
 
-<span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:</span><span
-style="color:orange">138488</span>
+<span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:</span><span style="color:orange">138488</span>
 
 There may be potentially many URI prefixes corresponding to the same
 nomenclature and therefore many URIs describing the same entity. For example,
 ChEBI also serves images with:
 
-<span style="color:red">https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=</span><span
-style="color:orange">138488</span>
+<span style="color:red">https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=</span><span style="color:orange">138488</span>
 
 ### Compact Uniform Resource Identifiers (CURIEs)
 
@@ -73,13 +67,12 @@ each prefix.
 Here's the same example as in the URI section above for alsterpaullone, but now
 condensed into a CURIE:
 
-<span style="color:red">chebi</span><b>:</b><span style="color:orange">
-138488</span>
+<span style="color:red">chebi</span><b>:</b><span style="color:orange">138488</span>
 
 ### Converting between URIs and CURIEs
 
-CURIEs can be expanded back into URIs using a **prefix map**, which associates
-each prefix to exactly one URI prefix. Disregarding (for now) how to choose the
+A **prefix map** associates each prefix to exactly one URI prefix. It can be
+used to expand CURIEs into URIs. Disregarding (for now) how to choose the
 best URI prefix, one potential prefix map that could be used to expand the
 example CURIE for alsterpaullone could be:
 
@@ -89,16 +82,17 @@ example CURIE for alsterpaullone could be:
 }
 ```
 
-The most simple algorithm for expanding a CURIE to a URI is as follows:
+A simple algorithm for expanding a CURIE to a URI is as follows:
 
 1. Split the CURIE on the first instance of the delimiter, usually a colon `:`
 2. Look up the left-hand side of the split (i.e., the prefix) in the prefix map
 3. String concatenate the resulting URI prefix with the right-hand side of the
    split (i.e., the local identifier)
 
-A **reverse prefix map** can associate one or more URI prefixes to the same
-prefix and supports parsing the many potential URIs describing the same entity
-into CURIEs:
+A **reverse prefix map** associates one or more URI prefixes to each prefix.
+It can be used to contract URIs into CURIEs. Disregarding (for now) how to chose
+the best prefix for each URI prefix, one potential reverse prefix map that could
+be used to contract the two example URIs for alterpaullone could be:
 
 ```json
 {
@@ -119,13 +113,11 @@ A resource assigns unique identifiers to a collection of entities.
 
 There are several types of resources such as:
 
-1. **Ontologies** like the [Gene Ontology (GO)](https://bioregistry.io/go)
-   , [Chemical Entities of Biological Interest (ChEBI)](https://bioregisty.io/chebi)
-   , and [Experimental Factor Ontology (EFO)](https://bioregistry.io/efo)
-2. **Controlled Vocabularies**
-   like [Entrez Gene](https://bioregistry.io/ncbigene)
-   , [InterPro](https://biorestry.io/interpro),
-   and [FamPlex](https://bioregistry.io/fplx)
+1. **Ontologies** like the [Gene Ontology (GO)](https://bioregistry.io/go),
+   [Chemical Entities of Biological Interest (ChEBI)](https://bioregisty.io/chebi),
+   and [Experimental Factor Ontology (EFO)](https://bioregistry.io/efo)
+2. **Controlled Vocabularies** like [Entrez Gene](https://bioregistry.io/ncbigene),
+   [InterPro](https://biorestry.io/interpro), and [FamPlex](https://bioregistry.io/fplx)
 3. **Databases** like [Protein Data Bank](https://bioregistry.io/pdb)
    and [Gene Expression Omnibus](https://bioregistry.io/geo)
 
@@ -133,11 +125,9 @@ There are several types of resources such as:
 
 Resources typically fall into one of several "completeness" categories:
 
-1. **Complete by Definition**
-   like [Enzyme Classification](https://bioregistry.io/eccode)
+1. **Complete by Definition** like [Enzyme Classification](https://bioregistry.io/eccode)
 2. **Complete, but Subject to Change** like [HGNC](https://bioregistry.io/hgnc)
-3. **Always Incomplete**
-   like [Chemical Entities of Biological Interest (ChEBI)](https://bioregisty.io/chebi)
+3. **Always Incomplete** like [Chemical Entities of Biological Interest (ChEBI)](https://bioregisty.io/chebi)
    and [PDB](https://bioregistry.io/pdb)
 
 ### Scope
@@ -145,12 +135,11 @@ Resources typically fall into one of several "completeness" categories:
 Resources have a variety of scopes
 
 1. **Single entity type** like [HGNC](https://bioregistry.io/hgnc)
-2. **A few entity types** like
-   the [Gene Ontology (GO)](https://bioregistry.io/go)
+2. **A few entity types** like the [Gene Ontology (GO)](https://bioregistry.io/go)
 3. **Many entity types**
-   like [Medical Subject Headings (MeSH)](https://bioregistry.io/mesh)
-   , [Unified Medical Language System (UMLS)](https://bioregistry.io/ums)
-   , [National Cancer Institute Thesaurus (NCIT)](https://bioregistry.io/ncit)
+   like [Medical Subject Headings (MeSH)](https://bioregistry.io/mesh),
+   [Unified Medical Language System (UMLS)](https://bioregistry.io/ums),
+   [National Cancer Institute Thesaurus (NCIT)](https://bioregistry.io/ncit)
 
 ### Relationship to Projects and Organizations
 
@@ -171,19 +160,17 @@ is characterized by a URL format string into which an identifier from its
 resource can be substituted for a special token (e.g., $1). For example, the
 following formatter can be used to get a web page about a given HGNC entity
 based on its identifier by replacing the $1 with a given HGNC gene identifier
-like 5173 for
-HRAS: http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=$1.
+like 5173 for HRAS: `http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=$1`.
 
 Well-behaved URL format strings only have one instance of the special token that
 occurs at the end. Poorly-behaved URL format strings may have additional
 characters following the special token as
-in http://rebase.neb.com/rebase/enz/$1.html for REBASE or as
-in http://eawag-bbd.ethz.ch/$1/$1_map.html for the UM-BBD Pathway database.
+in `http://rebase.neb.com/rebase/enz/$1.html` for REBASE or as
+in `http://eawag-bbd.ethz.ch/$1/$1_map.html` for the UM-BBD Pathway database.
 
 Providers can return information HTML as in the previous example, images (
 e.g., https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&chebiId=132964
-for the ChEBI entry on fluazifop-P-butyl), XML (
-e.g., https://www.uniprot.org/uniprot/P10636.xml for UniProt entry on human
+for the ChEBI entry on fluazifop-P-butyl), XML (e.g., https://www.uniprot.org/uniprot/P10636.xml for UniProt entry on human
 Microtubule-associated protein tau), or any other information that can be
 transferred via HTTP, FTP, or related data transfer protocols. Alternatively,
 content negotiation could be used to return multiple kinds of data from the same
