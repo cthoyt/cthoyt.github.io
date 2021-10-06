@@ -51,15 +51,21 @@ style="color:orange">138488</span>
 ### Compact Uniform Resource Identifiers (CURIEs)
 
 A **compact uniform resource identifier (CURIE)** allows for the replacement of
-a URI prefix in a URI with a short prefix. A CURIE has three parts:
+a URI prefix in a URI with a short prefix. As a short recapitulation of the
+[W3C specification](https://www.w3.org/TR/2010/NOTE-curie-20101216), a CURIE
+has three parts:
 
 1. A prefix (in red)
 2. A delimiter (in black)
 3. An identifier from the given nomenclature (in orange)
 
-Since everyone agrees on what ChEBI is, it makes sense to use `chebi` as the
-prefix for ChEBI local identifiers. The W3C has an exact specification on
-prefixes, local identifiers, and CURIEs [here](https://www.w3.org/TR/2010/NOTE-curie-20101216/).
+Since everyone agrees on what ChEBI is within the biomedical domain, it makes
+sense to use `chebi` as the prefix for ChEBI local identifiers. However, there
+is no globally unique set of prefixes used across the semantic web (nor should
+there be). Therefore, when using CURIEs, you need at minimum a prefix map
+(described below) and ideally a registry that stores additional metadata about
+each prefix.
+
 Here's the same example as in the URI section above for alsterpaullone, but now
 condensed into a CURIE:
 
@@ -97,7 +103,7 @@ length.
 
 A resource assigns unique identifiers to a collection of entities.
 
-### Types of Resources
+### Manifestations of Resources
 
 There are several types of resources such as:
 
