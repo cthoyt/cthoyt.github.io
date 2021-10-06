@@ -20,12 +20,12 @@ box.
 
 Login with your email/password.
 
-![](/img/indra_curation/03_login.png)
+![Login](/img/indra_curation/03_login.png)
 
 Enter search text. This can be a gene symbol, chemical, or any other biomedical
 entity. In this tutorial, we'll search for "AKT1."
 
-![](/img/indra_curation/04_begin_search.png)
+![Begin search](/img/indra_curation/04_begin_search.png)
 
 Now, click the "Ground with Gilda" button.
 [Gilda](https://github.com/indralab/gilda) will automatically look up the most
@@ -33,14 +33,14 @@ likely database identifier that goes with your search string. It's quite smart
 and can even disambiguate different senses of the same word. If it's not sure,
 it will ask you to pick from a list.
 
-![](/img/indra_curation/05_input_text.png)
+![Input search text](/img/indra_curation/05_input_text.png)
 
 In this example, I chose AKT1, which was pretty easy for Gilda to ground and
 didn't need me to check. It also reports the confidence in the grounding and
 the namespace to which it grounded in the box. Click the search button
 to get going to the next step!
 
-![](/img/indra_curation/06_ground_with_gilda.png)
+![Ground with Gilda](/img/indra_curation/06_ground_with_gilda.png)
 
 Now you will see the search results. On the left, it has many
 kinds of statements that INDRA models. They're hierarchical, meaning you
@@ -50,7 +50,7 @@ On the right are badges for the different sources that give evidence for each
 statement. The ones with the black text correspond to databases, like BioGRID,
 and the ones with white text correspond to reading systems, like REACH.
 
-![](/img/indra_curation/07_search_results.png)
+![View the search results](/img/indra_curation/07_search_results.png)
 
 The next image shows the expansion of `AKT affects BAD` to
 `AKT1 phosphorylates BAD`. Note that the third level is the same as the second -
@@ -62,7 +62,7 @@ evidence you want to curate. Note that some sources, like BioPAX
 (from Pathway Commons) don't give evidence text, so these aren't appropriate
 for curation via the INDRA Database.
 
-![](/img/indra_curation/08_navigate_search_results.png)
+![Navigate the hierarchical search results](/img/indra_curation/08_navigate_search_results.png)
 
 Now that the curation menu has come up, you can select one of several error
 types. Use your best judgement if a statement is really correct. Note that
@@ -71,19 +71,19 @@ to the highlighted text. You can click the entity names in the statement header
 to open pages with more information about the entities, including their
 synonyms.
 
-![](/img/indra_curation/09_open_curation_menu.png)
+![Open the curation menu](/img/indra_curation/09_open_curation_menu.png)
 
 If you want to leave a note that explains why you made the curation you did,
 that would be very helpful! Finally, smash that submit button.
 
-![](/img/indra_curation/10_select_curation_type.png)
+![Select the curation type](/img/indra_curation/10_select_curation_type.png)
 
 You've now contributed a curation! Thank you very much. You and the rest of the
 scientific community will now disproportionately benefit from this small amount
 of effort because of the large-scale extraction efforts of the INDRA Database
 and combination with other curations.
 
-![](/img/indra_curation/11_submit_and_profit.png)
+![Submit the curation](/img/indra_curation/11_submit_and_profit.png)
 
 ---
 
