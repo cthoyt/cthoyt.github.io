@@ -16,11 +16,11 @@ resource identifiers (CURIEs).
 
 ### Uniform Resource Identifiers (URIs)
 
-The semantic web community has adopted the internationalized resource identifier
-(IRI) as the _de facto_ standard for naming entities. In practice, usage is
-often restricted to IRIs that are also uniform resource identifiers (URIs; i.e.,
-they only use ASCII characters) and that are also valid uniform resource
-locators (URLs, i.e., they point to a web page). In applied semantic web
+The semantic web community has adopted the **internationalized resource identifier
+(IRI)** as the _de facto_ standard for naming entities. In practice, usage is
+often restricted to IRIs that are also **uniform resource identifiers (URIs)**
+(i.e., they only use ASCII characters) and that are also **valid uniform resource
+locators (URLs)** (i.e., they point to a web page). In applied semantic web
 contexts like biomedicine, the subtleties between URLs, URIs, and IRIs are
 disregarded and the term URI is preferred such as in the seminal paper 
 [Identifiers for the 21st Century](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001414#sec001).
@@ -50,7 +50,7 @@ style="color:orange">138488</span>
 
 ### Compact Uniform Resource Identifiers (CURIEs)
 
-A compact uniform resource identifier (CURIE) allows for the replacement of
+A **compact uniform resource identifier (CURIE)** allows for the replacement of
 a URI prefix in a URI with a short prefix. Since everyone agrees on what ChEBI
 is, it makes sense to use `chebi` as the prefix for ChEBI local identifiers.
 Here's the same example for alsterpaullone, condensed as a CURIE:
