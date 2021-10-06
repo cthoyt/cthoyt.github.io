@@ -77,8 +77,8 @@ could be:
 ```
 
 A **reverse prefix map** can associate several URI prefixes to the same prefix
-and is useful for normalizing the many potential URIs that may describe the same
-entity, like alsterpaullone:
+and supports parsing the many potential URIs describing the same entity into
+CURIEs:
 
 ```json
 {
