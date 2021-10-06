@@ -51,9 +51,17 @@ style="color:orange">138488</span>
 ### Compact Uniform Resource Identifiers (CURIEs)
 
 A **compact uniform resource identifier (CURIE)** allows for the replacement of
-a URI prefix in a URI with a short prefix. Since everyone agrees on what ChEBI
-is, it makes sense to use `chebi` as the prefix for ChEBI local identifiers.
-Here's the same example for alsterpaullone, condensed as a CURIE:
+a URI prefix in a URI with a short prefix. A CURIE has three parts:
+
+1. A prefix (in red)
+2. A delimiter (in black)
+3. An identifier from the given nomenclature (in orange)
+
+Since everyone agrees on what ChEBI is, it makes sense to use `chebi` as the
+prefix for ChEBI local identifiers. The W3C has an exact specification on
+prefixes, local identifiers, and CURIEs [here](https://www.w3.org/TR/2010/NOTE-curie-20101216/).
+Here's the same example as in the URI section above for alsterpaullone, but now
+condensed into a CURIE:
 
 <span style="color:red">chebi</span><b>:</b><span style="color:orange">138488</span>
 
@@ -65,6 +73,17 @@ could be:
 ```json
 {
    "chebi": "https://www.ebi.ac.uk/chebi/searchId.do?chebiId="
+}
+```
+
+A **reverse prefix map** can associate several URI prefixes to the same prefix
+and is useful for normalizing the many potential URIs that may describe the same
+entity, like alsterpaullone:
+
+```json
+{
+   "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=": "chebi",
+   "https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=": "chebi"
 }
 ```
 
