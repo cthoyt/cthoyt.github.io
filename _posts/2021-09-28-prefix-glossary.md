@@ -22,9 +22,10 @@ often restricted to IRIs that are also uniform resource identifiers (URIs; i.e.,
 they only use ASCII characters) and that are also valid uniform resource
 locators (URLs, i.e., they point to a web page). In applied semantic web
 contexts like biomedicine, the subtleties between URLs, URIs, and IRIs are
-disregarded and the term URI is preferred. A more detailed explanation on the
-difference between URLs, URIs, and IRIs can be
-found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-and-their-differences/).
+disregarded and the term URI is preferred such as in the seminal paper 
+[Identifiers for the 21st century](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001414#sec001).
+A more detailed explanation on the difference between URLs, URIs, and IRIs can
+be found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-and-their-differences/).
 
 For a given nomenclature like the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi),
 URIs can usually be split into two parts:
