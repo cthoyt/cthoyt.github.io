@@ -5,37 +5,41 @@ date: 2021-09-14 09:47:00 +0100
 author: Charles Tapley Hoyt
 tags: semantics
 ---
-There are a lot of terms that I've been throwning around when talking about
-the Bioregistry, so here's a glossary of each of them.
+There are a lot of terms that I've been throwning around when talking about the
+Bioregistry, so here's a glossary of each of them.
 
 ## Naming things on the semantic web
 
 There are two (mostly) interchangeable formalisms for naming things in the
-semantic web: uniform resource identifiers (URIs) and compact uniform
-resource identifiers (CURIEs).
+semantic web: uniform resource identifiers (URIs) and compact uniform resource
+identifiers (CURIEs).
 
 ### Uniform Resource Identifiers (URIs)
 
-The semantic web community has adopted the **internationalized resource identifier
+The semantic web community has adopted the **internationalized resource
+identifier
 (IRI)** as the _de facto_ standard for naming entities. In practice, usage is
 often restricted to IRIs that are also **uniform resource identifiers (URIs)**
-(i.e., they only use ASCII characters) and that are also **valid uniform resource
-locators (URLs)** (i.e., they point to a web page). In applied semantic web
-contexts like biomedicine, the subtleties between URLs, URIs, and IRIs are
-disregarded and the term URI is preferred such as in the seminal paper 
-[Identifiers for the 21st Century](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001414#sec001).
-A more detailed explanation on the difference between URLs, URIs, and IRIs can
-be found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-and-their-differences/).
+(i.e., they only use ASCII characters) and that are also **valid uniform
+resource locators (URLs)** (i.e., they point to a web page). In applied semantic
+web contexts like biomedicine, the subtleties between URLs, URIs, and IRIs are
+disregarded and the term URI is preferred such as in the seminal paper
+[Identifiers for the 21st Century](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001414#sec001)
+. A more detailed explanation on the difference between URLs, URIs, and IRIs can
+be
+found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-and-their-differences/)
+.
 
-For a given nomenclature like the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi),
-URIs can usually be split into two parts:
+For a given nomenclature like
+the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi)
+, URIs can usually be split into two parts:
 
 1. A URI prefix (in red)
 2. A local identifier (in orange)
 
-All URIs from the same nomenclature have the same URI prefix (in red),
-but a different local identifier (in orange). Here's an example, using the ChEBI
-local identifier
+All URIs from the same nomenclature have the same URI prefix (in red), but a
+different local identifier (in orange). Here's an example, using the ChEBI local
+identifier
 for [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:138488):
 
 <span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:</span><span
@@ -52,8 +56,8 @@ style="color:orange">138488</span>
 
 A **compact uniform resource identifier (CURIE)** allows for the replacement of
 a URI prefix in a URI with a short prefix. As a short recapitulation of the
-[W3C specification](https://www.w3.org/TR/2010/NOTE-curie-20101216), a CURIE
-has three parts:
+[W3C specification](https://www.w3.org/TR/2010/NOTE-curie-20101216), a CURIE has
+three parts:
 
 1. A prefix (in red)
 2. A delimiter (in black)
@@ -69,7 +73,8 @@ each prefix.
 Here's the same example as in the URI section above for alsterpaullone, but now
 condensed into a CURIE:
 
-<span style="color:red">chebi</span><b>:</b><span style="color:orange">138488</span>
+<span style="color:red">chebi</span><b>:</b><span style="color:orange">
+138488</span>
 
 ### Converting between URIs and CURIEs
 
@@ -80,9 +85,16 @@ example CURIE for alsterpaullone could be:
 
 ```json
 {
-   "chebi": "https://www.ebi.ac.uk/chebi/searchId.do?chebiId="
+  "chebi": "https://www.ebi.ac.uk/chebi/searchId.do?chebiId="
 }
 ```
+
+The most simple algorithm for expanding a CURIE to a URI is as follows:
+
+1. Split the CURIE on the first instance of the delimiter, usually a colon `:`
+2. Look up the left-hand side of the split (i.e., the prefix) in the prefix map
+3. String concatenate the resulting URI prefix with the right-hand side of the
+   split (i.e., the local identifier)
 
 A **reverse prefix map** can associate one or more URI prefixes to the same
 prefix and supports parsing the many potential URIs describing the same entity
@@ -90,8 +102,8 @@ into CURIEs:
 
 ```json
 {
-   "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=": "chebi",
-   "https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=": "chebi"
+  "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=": "chebi",
+  "https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=": "chebi"
 }
 ```
 
