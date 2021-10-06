@@ -23,7 +23,7 @@ they only use ASCII characters) and that are also valid uniform resource
 locators (URLs, i.e., they point to a web page). In applied semantic web
 contexts like biomedicine, the subtleties between URLs, URIs, and IRIs are
 disregarded and the term URI is preferred such as in the seminal paper 
-[Identifiers for the 21st century](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001414#sec001).
+[Identifiers for the 21st Century](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001414#sec001).
 A more detailed explanation on the difference between URLs, URIs, and IRIs can
 be found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-and-their-differences/).
 
@@ -41,7 +41,7 @@ for [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:13848
 <span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:</span><span
 style="color:orange">138488</span>
 
-There may be potentially many URI prefixes corresponding to the same local
+There may be potentially many URI prefixes corresponding to the same
 nomenclature and therefore many URIs describing the same entity. For example,
 ChEBI also serves images with:
 
@@ -50,6 +50,23 @@ style="color:orange">138488</span>
 
 ### Compact Uniform Resource Identifiers (CURIEs)
 
+A compact uniform resource identifier (CURIE) allows for the replacement of
+a URI prefix in a URI with a short prefix. Since everyone agrees on what ChEBI
+is, it makes sense to use `chebi` as the prefix for ChEBI local identifiers.
+Here's the same example for alsterpaullone, condensed as a CURIE:
+
+<span style="color:red">chebi</span><b>:</b><span style="color:orange">138488</span>
+
+CURIEs can be expanded back into URIs using a **prefix map**, which associates
+each URI to exactly one URI prefix. Disregarding (for now) how to choose which
+URI prefix is associated with each prefix, the prefix map to expand this CURIE
+could be:
+
+```json
+{
+   "chebi": "https://www.ebi.ac.uk/chebi/searchId.do?chebiId="
+}
+```
 
 ## Resource
 
