@@ -65,10 +65,12 @@ condensed into a CURIE:
 
 <span style="color:red">chebi</span><b>:</b><span style="color:orange">138488</span>
 
+### Converting between URIs and CURIEs
+
 CURIEs can be expanded back into URIs using a **prefix map**, which associates
-each URI to exactly one URI prefix. Disregarding (for now) how to choose which
-URI prefix is associated with each prefix, the prefix map to expand this CURIE
-could be:
+each prefix to exactly one URI prefix. Disregarding (for now) how to choose the
+best URI prefix, one potential prefix map that could be used to expand the
+example CURIE for alsterpaullone could be:
 
 ```json
 {
@@ -76,9 +78,9 @@ could be:
 }
 ```
 
-A **reverse prefix map** can associate several URI prefixes to the same prefix
-and supports parsing the many potential URIs describing the same entity into
-CURIEs:
+A **reverse prefix map** can associate one or more URI prefixes to the same
+prefix and supports parsing the many potential URIs describing the same entity
+into CURIEs:
 
 ```json
 {
@@ -86,6 +88,10 @@ CURIEs:
    "https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=": "chebi"
 }
 ```
+
+Because it's possible some URI prefixes might overlap, it's a good heuristic to
+check a given URI against a reverse prefix map in decreasing order by URI prefix
+length.
 
 ## Resource
 
