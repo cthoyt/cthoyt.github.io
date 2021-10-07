@@ -29,8 +29,8 @@ property. Any resource that assigns stable local identifiers to entities,
 even if it is not itself a controlled vocabulary, is a **semantic space**.
 
 The term _local identifier_ is synonymous with _identifier_ and _accession_,
-but has the added qualifier _local_ as a reminder that two controlled
-vocabularies may use the same one. For example, the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi)
+but has the added qualifier _local_ as a reminder that two semantic
+spaces may use the same one. For example, the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi)
 entry for [6-methoxy-2-octaprenyl-1,4-benzoquinone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:1234)
 and the [Human Disease Ontology (DOID)](https://bioregistry.io/doid) entry for
 [gender identity disorder](https://www.ebi.ac.uk/ols/ontologies/doid/terms?obo_id=DOID:1234)
@@ -60,7 +60,7 @@ Interaction Database, NDEx), and many other variations.
 
 ### Origins
 
-Controlled vocabularies arise from several kinds of resources such as:
+Semantic spaces arise from several kinds of resources such as:
 
 1. **Ontologies** like the [Gene Ontology (GO)](https://bioregistry.io/go),
    [Chemical Entities of Biological Interest (ChEBI)](https://bioregisty.io/chebi),
@@ -72,7 +72,7 @@ Controlled vocabularies arise from several kinds of resources such as:
 
 ### Completeness
 
-Controlled vocabularies typically fall into one of several "completeness"
+Semantic spaces typically fall into one of several "completeness"
 categories:
 
 1. **Complete by Definition** like [Enzyme Classification](https://bioregistry.io/eccode)
@@ -82,7 +82,7 @@ categories:
 
 ### Scope
 
-Controlled vocabularies have a variety of scopes:
+Semantic spaces have a variety of scopes:
 
 1. **Single entity type** like [HGNC](https://bioregistry.io/hgnc)
 2. **A few entity types** like the [Gene Ontology (GO)](https://bioregistry.io/go)
@@ -93,12 +93,11 @@ Controlled vocabularies have a variety of scopes:
 
 ### Relationship to Projects and Organizations
 
-Controlled vocabularies do not always correspond one-to-one with projects, such
+Semantic spaces do not always correspond one-to-one with projects, such
 as how the ChEMBL database contains both the [ChEMBL Compound](https://bioregistry.io/chembl.compound)
-and [ChEMBL Target](https://bioregistry.io/chembl.target) controlled
-vocabularies or how the Uber Anatomy Ontology (UBERON)
-contains both [UBERON](https://bioregistry.io/uberon) and UBPROP controlled
-vocabularies for terms and properties, respectively.
+and [ChEMBL Target](https://bioregistry.io/chembl.target) semantic spaces or how
+the Uber Anatomy Ontology (UBERON) contains both [UBERON](https://bioregistry.io/uberon)
+and UBPROP semantic spaces for terms and properties, respectively.
 
 ## Providers
 
@@ -134,12 +133,12 @@ could be used to return multiple kinds of data from the same provider URI.
 
 ### Responsibility
 
-Most controlled vocabularies have an associated first-party provider that
-returns information via a web page. Some controlled vocabularies, like ChEBI,
+Most semantic spaces have an associated first-party provider that
+returns information via a web page. Some semantic spaces, like ChEBI,
 have several first-party providers for different content types (e.g., HTML,
-image). Some controlled vocabularies, like Entrez Gene, have additional external
+image). Some semantic spaces, like Entrez Gene, have additional external
 providers, including databases that use its identifiers like the Comparative
-Toxicogenomics Database. Some controlled vocabularies, such as many OBO
+Toxicogenomics Database. Some semantic spaces, such as many OBO
 ontologies, do not have an associated first party provider and rely
 solely on third party browsers like AberOWL, OntoBee, and the Ontology Lookup
 Service.
@@ -243,7 +242,7 @@ length.
 ### Poorly Behaved URIs
 
 Unfortunately, not all URLs that provide information about named entities
-in controlled vocabularies can be trivially split into a URI prefix and a
+in semantic spaces can be trivially split into a URI prefix and a
 local identifier. For example, the [ViralZone](https://bioregistry.io/viralzone)
 entry for [Fusion of virus membrane with host endosomal membrane](https://bioregistry.io/viralzone:992)
 has a URL that looks like http://viralzone.expasy.org/all_by_protein/992.html.
@@ -309,15 +308,15 @@ CURIEs in the meantime to remove instances of this redundancy.
 ### Registry
 
 A registry is a special kind of semantic space that assigns unique
-identifiers to a collection of controlled vocabularies. For historical reasons, these identifiers are
+identifiers to a collection of semantic spaces. For historical reasons, these identifiers are
 colloquially called prefixes. A registry collects additional metadata about each
 semantic space, though there is a wide variety of metadata standards across existing
 registries (Table 1; left). These metadata may include the name, homepage, a
 regular expression pattern for validating identifiers, one or more example
 identifiers, a default provider, and potentially additional providers.
 
-Like with controlled vocabularies, a high-quality registry should have an associated
-first-party provider that comprises a web site for exploring its entries and
+Like with semantic spaces, a high-quality registry should have an associated
+first-party provider that comprises a website for exploring its entries and
 their associated metadata.
 
 Some registries are directly imported and reused in other places (e.g., GO
@@ -344,12 +343,12 @@ nor provide mappings.
 A resolver uses a registry to generate a URI for a given prefix/identifier pair
 based on the registry's default provider for the semantic space with the given prefix,
 then redirects the requester to the constructed URI. Resolvers are different
-from providers in that they are general for many controlled vocabularies and do not host
+from providers in that they are general for many semantic spaces and do not host
 content themselves. Two well-known resolvers are Identifiers.org and
 Name-To-Thing.
 
 Lookup Service A lookup service is like a provider but generalized to provide
-for many controlled vocabularies. They typically have a URI format string into which a compact
+for many semantic spaces. They typically have a URI format string into which a compact
 identifier can be placed like OntoBee, but many require more complicated
 programmatic logic to construct. Some well-known lookup services are the OLS,
 AberOWL, OntoBee, and BioPortal.
