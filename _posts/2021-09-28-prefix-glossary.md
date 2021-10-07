@@ -17,13 +17,12 @@ identifiers (CURIEs).
 ### Uniform Resource Identifiers (URIs)
 
 The semantic web community has adopted the **internationalized resource
-identifier
-(IRI)** as the _de facto_ standard for naming entities. In practice, usage is
-often restricted to IRIs that are also **uniform resource identifiers (URIs)**
-(i.e., they only use ASCII characters) and that are also **valid uniform
-resource locators (URLs)** (i.e., they point to a web page). In applied semantic
-web contexts like biomedicine, the subtleties between URLs, URIs, and IRIs are
-disregarded and the term URI is preferred such as in the seminal paper
+identifier (IRI)** as the _de facto_ standard for naming entities. In practice,
+usage is often restricted to IRIs that are also **uniform resource identifiers
+(URIs)** (i.e., they only use ASCII characters) and that are also **valid
+uniform  resource locators (URLs)** (i.e., they point to a web page). In applied
+semantic web contexts like biomedicine, the subtleties between URLs, URIs, and
+IRIs are disregarded and the term URI is preferred such as in the seminal paper
 [Identifiers for the 21st Century](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001414#sec001).
 A more detailed explanation on the difference between URLs, URIs, and IRIs can
 be found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-and-their-differences/).
@@ -31,8 +30,8 @@ be found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-
 For a given nomenclature like the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi),
 URIs can usually be split into two parts:
 
-1. A URI prefix (in red)
-2. A local identifier (in orange)
+1. A **URI prefix** (in red)
+2. A **local identifier** (in orange)
 
 All URIs from the same nomenclature have the same URI prefix (in red), but a
 different local identifier (in orange). Here's an example, using the ChEBI local
@@ -68,6 +67,29 @@ Here's the same example as in the URI section above for alsterpaullone, but now
 condensed into a CURIE:
 
 <span style="color:red">chebi</span><b>:</b><span style="color:orange">138488</span>
+
+### OBO CURIEs
+
+The Open Biomedical Ontologies (OBO) Foundry provides a persistent URL
+service (PURL) to create stable URIs for biomedical entities curated in their
+ontologies (e.g., [Human Disease Ontology](https://bioregistry.io/doid),
+[Phenotype And Trait Ontology](https://bioregistry.io/pato)). They have four
+parts:
+
+1. A URI prefix (red)
+2. An ontology prefix (orange)
+3. An underscore as a delimiter (black)
+4. An ontology local identifier (blue)
+
+<span style="color:red">http://purl.obolibrary.org/obo/</span><span style="color:orange">DRON</span>_<span style="color:blue">0000005</span>
+
+Confusingly, some people consider the entire combination of the ontology's
+prefix, the delimiter, and the ontology's local identifier as a local identifier
+in the OBO namespace, whose prefix is `http://purl.obolibrary.org/obo/`.
+Therefore, services like Identifiers.org often denote these ontologies as having
+the "namespace embedded in the local unique identifier" and include the prefix
+again in the regular expression pattern describing the local identifiers, such
+as `^DOID:\d+$` for the Human Disease Ontology.
 
 ### Converting between URIs and CURIEs
 
