@@ -272,23 +272,25 @@ parts:
 
 <span style="color:red">http://purl.obolibrary.org/obo/</span><span style="color:orange">DRON</span>_<span style="color:blue">0000005</span>
 
-Confusingly, some people consider the entire combination of the ontology's
-prefix, the delimiter, and the ontology's local identifier
-(e.g., `DRON_0000005`) as a local identifier
-in the OBO namespace, whose URI prefix is `http://purl.obolibrary.org/obo/`.
-This confusion lead to services like Identifiers.org to denote these ontologies
-as having the "namespace embedded in the local unique identifier" and therefore
-include the prefix again in the regular expression pattern describing the local
+Confusingly, the entire combination of the ontology's prefix, the delimiter,
+and the ontology's local identifier (e.g., `DRON_0000005`) are considered in
+some contexts as a local identifier in a theoretical semantic space
+for OBO, whose URI prefix is `http://purl.obolibrary.org/obo/`. This confusion
+lead to services like Identifiers.org to denote these ontologies  as having the
+"namespace embedded in the local unique identifier" and therefore include the
+prefix again in the regular expression pattern describing the local 
 identifiers, e.g. `^DOID:\d+$` for the Human Disease Ontology.
 
-This notation makes no sense for a slew of reasons:
+This notation of the regular expression makes no sense for several reasons:
 
 1. The regular expression should correspond to the local identifiers of a
    semantic space like `DOID`, not a registry like the OBO PURL system.
 2. If you follow the simple algorithm for constructing a CURIE from a prefix and
    identifier, you end up with identifiers that look like CURIEs like
    `DOID:11337` or redundant CURIEs that look like `DOID:DOID:11337`.
-3. It creates ambiguities in spreadsheets where columns are supposed to
+3. Identifiers.org doesn't even handle CURIEs constructed following the rules
+   for embedding the prefix in the local identifier.
+4. It creates ambiguities in spreadsheets where columns are supposed to
    contain local identifiers or CURIEs.
 
 The solution is simply to drop the entire notion of namespaces embedded in local
