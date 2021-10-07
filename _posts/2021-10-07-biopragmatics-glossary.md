@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Glossary for the Bioregistry
+title: A Glossary for the Bioregistry and Biopragmatics Stack
 date: 2021-10-07 14:26:00 +0100
 author: Charles Tapley Hoyt
 tags: semantics
