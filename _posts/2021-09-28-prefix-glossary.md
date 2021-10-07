@@ -330,22 +330,25 @@ metadata standards and capabilities. Most importantly, a
 metaregistry contains mappings between equivalent entries in its constituent
 registries. Before the publication of this article, to the best of our
 knowledge, there were no dedicated metaregistries. Some registries such as
-FAIRSharing and the MIRIAM/Identifiers.org registry contain limited numbers of
-entries referring to other registries (e.g., BioPortal), but they neither
+[FAIRSharing](https://fairsharing.org/) and the [MIRIAM/Identifiers.org](https://registry.identifiers.org/)
+registry contain limited numbers of entries referring to other registries
+(e.g., [BioPortal](https://bioportal.bioontology.org)), but they neither
 delineate these records as representing registries, provide additional metadata,
 nor provide mappings.
 
 ### Resolver
 
-A resolver uses a registry to generate a URI for a given CURIE
-based on the registry's default provider for the semantic space with the given prefix,
-then redirects the requester to the constructed URI. Resolvers are different
-from providers in that they are general for many semantic spaces and do not host
-content themselves. Two well-known resolvers are Identifiers.org and
-Name-To-Thing.
+A resolver uses a registry to generate a URI for a given CURIE based on the
+registry's default provider for the semantic space with the given prefix, then
+redirects the requester to the constructed URI. Resolvers are different from
+providers in that they are general for many semantic spaces and do not host
+content themselves. Two well-known resolvers are
+[Identifiers.org](https://identifiers.org) and
+[Name-To-Thing](https://n2t.net).
 
 Lookup Service A lookup service is like a provider but generalized to provide
-for many semantic spaces. They typically have a URI format string into which a compact
-identifier can be placed like OntoBee, but many require more complicated
-programmatic logic to construct. Some well-known lookup services are the OLS,
-AberOWL, OntoBee, and BioPortal.
+for many semantic spaces. They typically have a URI format string into which a
+compact identifier can be placed like [OntoBee](http://www.ontobee.org/), but
+many require more complicated programmatic logic to construct. Some well-known
+lookup services are the [OLS](https://www.ebi.ac.uk/ols),
+[AberOWL](http://aber-owl.net/), OntoBee, and BioPortal.
