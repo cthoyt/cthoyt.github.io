@@ -304,7 +304,8 @@ prefix maps and CURIEs, the local identifiers in registries are also
 colloquially called prefixes. 
 
 A registry also collects additional metadata about each semantic space,
-including its name, its homepage, an example local identifier, a regular
+including its name, its canonical prefix, its stylized prefix, additional prefix
+synonyms, its homepage, an example local identifier, a regular
 expression pattern for local identifiers, and one or more URI format strings
 from both first-party and third-party sources. However, there are a wide
 variety of metadata standards across various biomedical and semantic web
