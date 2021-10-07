@@ -6,7 +6,11 @@ author: Charles Tapley Hoyt
 tags: semantics
 ---
 There are a lot of terms that I've been throwing around when talking about the
-Bioregistry, so here's a glossary of each of them.
+Bioregistry, so this blog post is a first draft of a gloassary of all of them.
+
+Later, I will revise this further and put it either on the Bioregistry website,
+or make a totally new repo on the [Biopragmatics](https://github.com/biopragmatics)
+GitHub organization.
 
 ## Controlled vocabularies
 
