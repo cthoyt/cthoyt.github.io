@@ -237,23 +237,18 @@ length.
 
 ### Poorly Behaved URIs
 
-Unfortunately, not all URLs that provide information about named entities
+Unfortunately, not all URLs that provide information about entities
 in semantic spaces can be trivially split into a URI prefix and a
-local identifier. For example, the [ViralZone](https://bioregistry.io/viralzone)
-entry for [Fusion of virus membrane with host endosomal membrane](https://bioregistry.io/viralzone:992)
-has a URL that looks like http://viralzone.expasy.org/all_by_protein/992.html.
-Note the pesky `.html` at the end, which can't be removed because of the way
-the web server works.
+local identifier. For example, the [REBASE](https://bioregistry.io/rebase)
+entry for [Asp14HI](https://bioregistry.io/rebase:101) has the URI
+http://rebase.neb.com/rebase/enz/101.html.
+Note the pesky `.html` at the end, which if removed, causes an HTTP 404 error
+due to the implementation of the REBASE website.
 
 While this creates a big problem for parsing URIs into CURIEs, it's still
 possible to generate a URI from a CURIE given a slight variation on a prefix map,
-which introduces the notion of a **URI formatter**. A URI formatter is a string
-that contains a `$1` character anywhere the local identifier should be put.
-For ViralZone, the URI formatter looks like: 
-`http://viralzone.expasy.org/all_by_protein/$1.html`. Interestingly, there are
-examples where the local identifier appears twice in the URI formatter, like
-for the [EAWAG Biocatalysis/Biodegradation Database](http://bioregistry.io/umbbd.pathway),
-which has a URI formatter string of `http://eawag-bbd.ethz.ch/$1/$1_map.html`.
+which relies on the previously described notion of URI formatters (see the
+section above on Providers)
 
 A URI prefix corresponds to a special case of a URI formatter where there
 is exactly one instance of `$1` that appears at the end of the string.
@@ -303,29 +298,35 @@ CURIEs in the meantime to remove instances of this redundancy.
 
 ### Registry
 
-A registry is a special kind of semantic space that assigns unique
-identifiers to a collection of semantic spaces. For historical reasons, these identifiers are
-colloquially called prefixes. A registry collects additional metadata about each
-semantic space, though there is a wide variety of metadata standards across existing
-registries (Table 1; left). These metadata may include the name, homepage, a
-regular expression pattern for validating identifiers, one or more example
-identifiers, a default provider, and potentially additional providers.
+A registry is a special kind of semantic space that enumerates other semantic
+spaces and assigns them local identifiers. Due to the connection with
+prefix maps and CURIEs, the local identifiers in registries are also
+colloquially called prefixes. 
+
+A registry also collects additional metadata about each semantic space,
+including its name, its homepage, an example local identifier, a regular
+expression pattern for local identifiers, and one or more URI format strings
+from both first-party and third-party sources. However, there are a wide
+variety of metadata standards across various biomedical and semantic web
+registries, and not all fields are included.
 
 Like with semantic spaces, a high-quality registry should have an associated
 first-party provider that comprises a website for exploring its entries and
 their associated metadata.
 
+<!--
 Some registries are directly imported and reused in other places (e.g., GO
 Registry reused in
 psi-mi-CV [https://github.com/HUPO-PSI/psi-ms-CV/blob/master/db-xrefs.yaml],
 NCBI GenBank Registry reused in https://www.ddbj.nig.ac.jp/ddbj/db_xref-e.html).
+-->
 
 ### Metaregistry
 
-A metaregistry is a special kind of registry that assigns unique identifiers to
+A metaregistry is a special kind of registry that assigns local identifiers to
 a collection of registries; it could even contain an entry about itself. It
 collects additional metadata about each registry, such as a description of its
-metadata standards and capabilities (Table 1; right). Most importantly, a
+metadata standards and capabilities. Most importantly, a
 metaregistry contains mappings between equivalent entries in its constituent
 registries. Before the publication of this article, to the best of our
 knowledge, there were no dedicated metaregistries. Some registries such as
@@ -336,7 +337,7 @@ nor provide mappings.
 
 ### Resolver
 
-A resolver uses a registry to generate a URI for a given prefix/identifier pair
+A resolver uses a registry to generate a URI for a given CURIE
 based on the registry's default provider for the semantic space with the given prefix,
 then redirects the requester to the constructed URI. Resolvers are different
 from providers in that they are general for many semantic spaces and do not host
