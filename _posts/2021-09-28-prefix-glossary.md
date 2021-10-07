@@ -18,9 +18,9 @@ identifiers (CURIEs).
 
 A [controlled vocabulary](https://en.wikipedia.org/wiki/Controlled_vocabulary)
 enumerates a set of named entities. A useful (but not required) property of a
-controlled vocabulary is to additionally assign each named entity a **stable
-local identifier**. Throughout this document, we will assume that all controlled
-vocabularies have this property.
+controlled vocabulary is to additionally assign each named entity a stable
+**local identifier**. Throughout this document, we will assume that all
+controlled vocabularies have this property.
 
 The term _local identifier_ is synonymous with _identifier_ and _accession_,
 but has the added qualifier _local_ as a reminder that two controlled
@@ -43,7 +43,7 @@ should _never_ be treated as such. For example, the [Gene Ontology (GO)](https:/
 uses identifiers that are left-padded with zeros like in the CURIE `go:0032571`
 for [response to vitamin K](https://bioregistry.io/go:0032571). The regular
 expression pattern for GO entries is `^\d{7}$`, since there are always exactly
-seven numbers. Regular expressions don't really have the utility to describe
+seven numbers. Regular expressions don't have a straightforward way to describe
 numbers that are left padded with zero, so keep in mind that this is
 approximation is a good balance between precision and simplicity.
 
@@ -60,20 +60,20 @@ IRIs are disregarded and the term URI is preferred such as in the seminal paper
 A more detailed explanation on the difference between URLs, URIs, and IRIs can
 be found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-and-their-differences/).
 
-For a given nomenclature like the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi),
-URIs can usually be split into two parts:
+For a given controlled vocabulary like ChEBI, URIs can usually be constructed
+given two parts:
 
 1. A **URI prefix** (in red)
-2. A **local identifier** (in orange)
+2. A local identifier (in orange)
 
-All URIs from the same nomenclature have the same URI prefix (in red), but a
-different local identifier (in orange). Here's an example, using the ChEBI local
-identifier for [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:138488):
+All URIs from the same controlled vocabulary have the same URI prefix (in red),
+but a different local identifier (in orange). Here's an example, using the ChEBI
+local identifier for [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:138488):
 
 <span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:</span><span style="color:orange">138488</span>
 
 There may be potentially many URI prefixes corresponding to the same
-nomenclature and therefore many URIs describing the same entity. For example,
+controlled vocabulary and therefore many URIs describing the same entity. For example,
 ChEBI also serves images with:
 
 <span style="color:red">https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=</span><span style="color:orange">138488</span>
@@ -87,7 +87,7 @@ three parts:
 
 1. A prefix (in red)
 2. A delimiter (in black)
-3. An identifier from the given nomenclature (in orange)
+3. An identifier from the given controlled vocabulary (in orange)
 
 Since everyone agrees on what ChEBI is within the biomedical domain, it makes
 sense to use `chebi` as the prefix for ChEBI local identifiers. However, there
@@ -100,29 +100,6 @@ Here's the same example as in the URI section above for alsterpaullone, but now
 condensed into a CURIE:
 
 <span style="color:red">chebi</span><b>:</b><span style="color:orange">138488</span>
-
-### OBO CURIEs
-
-The Open Biomedical Ontologies (OBO) Foundry provides a persistent URL
-service (PURL) to create stable URIs for biomedical entities curated in their
-ontologies (e.g., [Human Disease Ontology](https://bioregistry.io/doid),
-[Phenotype And Trait Ontology](https://bioregistry.io/pato)). They have four
-parts:
-
-1. A URI prefix (red)
-2. An ontology prefix (orange)
-3. An underscore as a delimiter (black)
-4. An ontology local identifier (blue)
-
-<span style="color:red">http://purl.obolibrary.org/obo/</span><span style="color:orange">DRON</span>_<span style="color:blue">0000005</span>
-
-Confusingly, some people consider the entire combination of the ontology's
-prefix, the delimiter, and the ontology's local identifier as a local identifier
-in the OBO namespace, whose prefix is `http://purl.obolibrary.org/obo/`.
-Therefore, services like Identifiers.org often denote these ontologies as having
-the "namespace embedded in the local unique identifier" and include the prefix
-again in the regular expression pattern describing the local identifiers, such
-as `^DOID:\d+$` for the Human Disease Ontology.
 
 ### Converting between URIs and CURIEs
 
@@ -159,6 +136,45 @@ be used to contract the two example URIs for alterpaullone could be:
 Because it's possible some URI prefixes might overlap, it's a good heuristic to
 check a given URI against a reverse prefix map in decreasing order by URI prefix
 length.
+
+### Open Biomedical Ontologies CURIEs
+
+The [Open Biomedical Ontologies (OBO) Foundry](http://www.obofoundry.org/)
+provides a persistent URL service (PURL) to create stable URIs for biomedical
+entities curated in their ontologies (e.g., [Human Disease Ontology](https://bioregistry.io/doid),
+[Phenotype And Trait Ontology](https://bioregistry.io/pato)). They have four
+parts:
+
+1. A URI prefix (in red; always the same)
+2. An ontology prefix (in orange)
+3. A delimiter (in black; always the same)
+4. An ontology local identifier (in blue)
+
+<span style="color:red">http://purl.obolibrary.org/obo/</span><span style="color:orange">DRON</span>_<span style="color:blue">0000005</span>
+
+Confusingly, some people consider the entire combination of the ontology's
+prefix, the delimiter, and the ontology's local identifier
+(e.g., `DRON_0000005`) as a local identifier
+in the OBO namespace, whose URI prefix is `http://purl.obolibrary.org/obo/`.
+This confusion lead to services like Identifiers.org to denote these ontologies
+as having the "namespace embedded in the local unique identifier" and therefore
+include the prefix again in the regular expression pattern describing the local
+identifiers, e.g. `^DOID:\d+$` for the Human Disease Ontology.
+
+This notation makes no sense for a slew of reasons:
+
+1. The regular expression should correspond to the local identifiers of a
+   resource like `DOID`, not a registry like the OBO PURL system.
+2. If you follow the simple algorithm for constructing a CURIE from a prefix and
+   identifier, you end up with identifiers that look like CURIEs like
+   `DOID:11337` or redundant CURIEs that look like `DOID:DOID:11337`.
+3. It creates ambiguities in spreadsheets where columns are supposed to
+   contain local identifiers or CURIEs.
+
+The solution is simply to drop the entire notion of namespaces embedded in local
+unique identifiers. Since this would require updating a lot of data in a lot
+of places, the interim solution is to programmatically normalize identifiers and
+CURIEs in the meantime to remove instances of this redundancy.
 
 ## Resource
 
