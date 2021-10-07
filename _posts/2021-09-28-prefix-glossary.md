@@ -14,6 +14,39 @@ There are two (mostly) interchangeable formalisms for naming things in the
 semantic web: uniform resource identifiers (URIs) and compact uniform resource
 identifiers (CURIEs).
 
+### Local Identifiers
+
+A [controlled vocabulary](https://en.wikipedia.org/wiki/Controlled_vocabulary)
+enumerates a set of named entities. A useful (but not required) property of a
+controlled vocabulary is to additionally assign each named entity a **stable
+local identifier**. Throughout this document, we will assume that all controlled
+vocabularies have this property.
+
+The term _local identifier_ is synonymous with _identifier_ and _accession_,
+but has the added qualifier _local_ as a reminder that two controlled
+vocabularies may use the same one. For example, the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi)
+entry for [6-methoxy-2-octaprenyl-1,4-benzoquinone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:1234)
+and the [Human Disease Ontology (DOID)](https://bioregistry.io/doid) entry for
+[gender identity disorder](https://www.ebi.ac.uk/ols/ontologies/doid/terms?obo_id=DOID:1234)
+both share the local identifier of `1234`.
+
+It's often useful to have a [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
+that describes local identifiers of a given controlled vocabulary. For example,
+both ChEBI and DOID use local identifiers that look like numbers, which match
+the regular expression `^\d+$`. The `^` and `$` denote the beginning and end
+of the regular expression and appear exactly the same in all regular expressions
+for local identifiers. The `\d` will match a number and the `+` means that the
+preceding token (`\d`) can be matched one or more times in a row.
+
+It's important to remember that identifiers might look like numbers, but they
+should _never_ be treated as such. For example, the [Gene Ontology (GO)](https://bioregistry.io/go)
+uses identifiers that are left-padded with zeros like in the CURIE `go:0032571`
+for [response to vitamin K](https://bioregistry.io/go:0032571). The regular
+expression pattern for GO entries is `^\d{7}$`, since there are always exactly
+seven numbers. Regular expressions don't really have the utility to describe
+numbers that are left padded with zero, so keep in mind that this is
+approximation is a good balance between precision and simplicity.
+
 ### Uniform Resource Identifiers (URIs)
 
 The semantic web community has adopted the **internationalized resource
