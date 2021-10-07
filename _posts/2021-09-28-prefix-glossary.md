@@ -336,6 +336,9 @@ registry contain limited numbers of entries referring to other registries
 delineate these records as representing registries, provide additional metadata,
 nor provide mappings.
 
+The only metaregistry in the biomedical domain is the
+[Bioregistry](https://bioregistry.io).
+
 ### Resolver
 
 A resolver uses a registry to generate a URI for a given CURIE based on the
