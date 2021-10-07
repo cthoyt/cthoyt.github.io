@@ -12,7 +12,7 @@ Later, I will revise this further and put it either on the Bioregistry website,
 or make a totally new repo on the [Biopragmatics](https://github.com/biopragmatics)
 GitHub organization.
 
-## Controlled vocabularies
+## Semantic spaces
 
 A [controlled vocabulary](https://en.wikipedia.org/wiki/Controlled_vocabulary)
 enumerates a set of named entities. For example, the
@@ -25,7 +25,8 @@ an ontology.
 A useful (but not required) property of a controlled vocabulary is to
 additionally assign each named entity a stable **local identifier**. Throughout
 this document, it is assumed that all controlled vocabularies have this
-property.
+property. Any resource that assigns stable local identifiers to entities,
+even if it is not itself a controlled vocabulary, is a **semantic space**.
 
 The term _local identifier_ is synonymous with _identifier_ and _accession_,
 but has the added qualifier _local_ as a reminder that two controlled
@@ -36,7 +37,7 @@ and the [Human Disease Ontology (DOID)](https://bioregistry.io/doid) entry for
 share the local identifier of `1234`.
 
 It's often useful to have a [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
-that describes local identifiers of a given controlled vocabulary. For example,
+that describes local identifiers of a given semantic space. For example,
 both ChEBI and DOID use local identifiers that look like numbers, which match
 the regular expression `^\d+$`. The `^` and `$` denote the beginning and end
 of the regular expression and appear exactly the same in all regular expressions
@@ -99,15 +100,16 @@ vocabularies or how the Uber Anatomy Ontology (UBERON)
 contains both [UBERON](https://bioregistry.io/uberon) and UBPROP controlled
 vocabularies for terms and properties, respectively.
 
-### Provider
+## Providers
 
-A provider returns information about entities from a given resource. A provider
+A provider returns information about entities from a given semantic space. A provider
 is characterized by a **URI format string**, or URI formatter, into which a
-local identifier from its controlled vocabulary can be substituted for a special
+local identifier from its semantic space can be substituted for a special
 token (e.g., `$1`). For example, the following formatter can be used to get a
-web page about a given HGNC entity based on its identifier by replacing the `$1`
-with a given HGNC gene identifier like `5173` for HRAS:
-`http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=$1`.
+web page about [HRAS](https://bioregistry.io/hgnc:5173) by replacing `$1` in the
+URI format string
+`http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=$1` by its HGNC
+identifier, `5173`.
 
 Well-behaved URI format strings only have one instance of the special token that
 occurs at the end. Poorly-behaved URI format strings may have additional
@@ -116,20 +118,29 @@ in `http://rebase.neb.com/rebase/enz/$1.html` for [REBASE](https://bioregistry.i
 or as in `http://eawag-bbd.ethz.ch/$1/$1_map.html` for the
 [UM-BBD Pathway database](http://bioregistry.io/umbbd.pathway).
 
-Providers can return information HTML as in the previous example, images
-(e.g., https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&chebiId=132964
-for the ChEBI entry on fluazifop-P-butyl), XML (e.g., https://www.uniprot.org/uniprot/P10636.xml
-for UniProt entry on human Microtubule-associated protein tau), or any other
-information that can be transferred via HTTP, FTP, or related data transfer
-protocols. Alternatively, content negotiation could be used to return multiple
-kinds of data from the same provider URI.
+### Content Type
 
-Most controlled vocabularies have an associated first-party provider that returns information
-via a web page. Some controlled vocabularies, like ChEBI, have several first-party providers
-for different content types (e.g., HTML, image). Some controlled vocabularies, like Entrez
-Gene, have additional external providers, including databases that use its
-identifiers like the Comparative Toxicogenomics Database. Some controlled vocabularies, such
-as many OBO ontologies, do not have an associated first party provider and rely
+While providers typically return human-readable HTML, they can also return
+many other data types, including:
+
+- Images (e.g., https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&chebiId=132964 for the ChEBI entry on fluazifop-P-butyl)
+- XML (e.g., https://www.uniprot.org/uniprot/P10636.xml for UniProt entry on human Microtubule-associated protein tau)
+- JSON (e.g., https://gen3.biodatacatalyst.nhlbi.nih.gov/ga4gh/drs/v1/objects/0000ffeb-36e0-4a29-b21d-84423bda979d for NCBI's BioData Catalyst)
+- RDF
+
+Providers can return any other information that can be transferred via HTTP,
+FTP, or related data transfer protocols. Alternatively, content negotiation
+could be used to return multiple kinds of data from the same provider URI.
+
+### Responsibility
+
+Most controlled vocabularies have an associated first-party provider that
+returns information via a web page. Some controlled vocabularies, like ChEBI,
+have several first-party providers for different content types (e.g., HTML,
+image). Some controlled vocabularies, like Entrez Gene, have additional external
+providers, including databases that use its identifiers like the Comparative
+Toxicogenomics Database. Some controlled vocabularies, such as many OBO
+ontologies, do not have an associated first party provider and rely
 solely on third party browsers like AberOWL, OntoBee, and the Ontology Lookup
 Service.
 
@@ -152,20 +163,20 @@ IRIs are disregarded and the term URI is preferred such as in the seminal paper
 A more detailed explanation on the difference between URLs, URIs, and IRIs can
 be found [here](https://fusion.cs.uni-jena.de/fusion/2016/11/18/iri-uri-url-urn-and-their-differences/).
 
-For a given controlled vocabulary like ChEBI, URIs can usually be constructed
+For a given semantic space like ChEBI, URIs can usually be constructed
 given two parts:
 
 1. A **URI prefix** (in red)
 2. A local identifier (in orange)
 
-All URIs from the same controlled vocabulary have the same URI prefix (in red),
+All URIs from the same semantic space have the same URI prefix (in red),
 but a different local identifier (in orange). Here's an example, using the ChEBI
 local identifier for [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:138488):
 
 <span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:</span><span style="color:orange">138488</span>
 
 There may be potentially many URI prefixes corresponding to the same
-controlled vocabulary and therefore many URIs describing the same entity. For example,
+semantic space and therefore many URIs describing the same entity. For example,
 ChEBI also serves images with:
 
 <span style="color:red">https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=</span><span style="color:orange">138488</span>
@@ -179,7 +190,7 @@ three parts:
 
 1. A prefix (in red)
 2. A delimiter (in black)
-3. A local identifier from the given controlled vocabulary (in orange)
+3. A local identifier from the given semantic space (in orange)
 
 Since everyone agrees on what ChEBI is within the biomedical domain, it makes
 sense to use `chebi` as the prefix for ChEBI local identifiers. However, there
@@ -283,7 +294,7 @@ identifiers, e.g. `^DOID:\d+$` for the Human Disease Ontology.
 This notation makes no sense for a slew of reasons:
 
 1. The regular expression should correspond to the local identifiers of a
-   resource like `DOID`, not a registry like the OBO PURL system.
+   semantic space like `DOID`, not a registry like the OBO PURL system.
 2. If you follow the simple algorithm for constructing a CURIE from a prefix and
    identifier, you end up with identifiers that look like CURIEs like
    `DOID:11337` or redundant CURIEs that look like `DOID:DOID:11337`.
@@ -297,10 +308,10 @@ CURIEs in the meantime to remove instances of this redundancy.
 
 ### Registry
 
-A registry is a special kind of resource that assigns unique identifiers to a
-collection of controlled vocabularies. For historical reasons, these identifiers are
+A registry is a special kind of semantic space that assigns unique
+identifiers to a collection of controlled vocabularies. For historical reasons, these identifiers are
 colloquially called prefixes. A registry collects additional metadata about each
-resource, though there is a wide variety of metadata standards across existing
+semantic space, though there is a wide variety of metadata standards across existing
 registries (Table 1; left). These metadata may include the name, homepage, a
 regular expression pattern for validating identifiers, one or more example
 identifiers, a default provider, and potentially additional providers.
@@ -331,7 +342,7 @@ nor provide mappings.
 ### Resolver
 
 A resolver uses a registry to generate a URI for a given prefix/identifier pair
-based on the registry's default provider for the resource with the given prefix,
+based on the registry's default provider for the semantic space with the given prefix,
 then redirects the requester to the constructed URI. Resolvers are different
 from providers in that they are general for many controlled vocabularies and do not host
 content themselves. Two well-known resolvers are Identifiers.org and
