@@ -137,6 +137,33 @@ Because it's possible some URI prefixes might overlap, it's a good heuristic to
 check a given URI against a reverse prefix map in decreasing order by URI prefix
 length.
 
+### Poorly Behaved URIs
+
+Unfortunately, not all URLs that provide information about named entities
+in controlled vocabularies can be trivially split into a URI prefix and a
+local identifier. For example, the [ViralZone](https://bioregistry.io/viralzone)
+entry for [Fusion of virus membrane with host endosomal membrane](https://bioregistry.io/viralzone:992)
+has a URL that looks like http://viralzone.expasy.org/all_by_protein/992.html.
+Note the pesky `.html` at the end, which can't be removed because of the way
+the web server works.
+
+While this creates a big problem for parsing URIs into CURIEs, it's still
+possible to generate a URI from a CURIE given a slight variation on a prefix map,
+which introduces the notion of a **URI formatter**. A URI formatter is a string
+that contains a `$1` character anywhere the local identifier should be put.
+For ViralZone, the URI formatter looks like: 
+`http://viralzone.expasy.org/all_by_protein/$1.html`. Interestingly, there are
+examples where the local identifier appears twice in the URI formatter, like
+for the [EAWAG Biocatalysis/Biodegradation Database](http://bioregistry.io/umbbd.pathway),
+which has a URI formatter string of `http://eawag-bbd.ethz.ch/$1/$1_map.html`.
+
+A URI prefix corresponds to a special case of a URI formatter where there
+is exactly one instance of `$1` that appears at the end of the string.
+Therefore, it is more valuable to curate URI formatters and programmatically
+generate prefix maps when possible. The fact that some URIs are hard to
+construct easily is also one of the motivations for resolver services, described
+in a later section.
+
 ### Open Biomedical Ontologies CURIEs
 
 The [Open Biomedical Ontologies (OBO) Foundry](http://www.obofoundry.org/)
