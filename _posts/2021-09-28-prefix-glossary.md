@@ -5,22 +5,23 @@ date: 2021-09-14 09:47:00 +0100
 author: Charles Tapley Hoyt
 tags: semantics
 ---
-There are a lot of terms that I've been throwning around when talking about the
+There are a lot of terms that I've been throwing around when talking about the
 Bioregistry, so here's a glossary of each of them.
 
-## Naming things on the semantic web
-
-There are two (mostly) interchangeable formalisms for naming things in the
-semantic web: uniform resource identifiers (URIs) and compact uniform resource
-identifiers (CURIEs).
-
-### Local Identifiers
+## Controlled vocabularies
 
 A [controlled vocabulary](https://en.wikipedia.org/wiki/Controlled_vocabulary)
-enumerates a set of named entities. A useful (but not required) property of a
-controlled vocabulary is to additionally assign each named entity a stable
-**local identifier**. Throughout this document, we will assume that all
-controlled vocabularies have this property.
+enumerates a set of named entities. For example, the
+[Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi)
+is a well-known controlled vocabulary in the biomedical domain that lives in
+an ontology.
+
+### Local identifiers
+
+A useful (but not required) property of a controlled vocabulary is to
+additionally assign each named entity a stable **local identifier**. Throughout
+this document, it is assumed that all controlled vocabularies have this
+property.
 
 The term _local identifier_ is synonymous with _identifier_ and _accession_,
 but has the added qualifier _local_ as a reminder that two controlled
@@ -28,7 +29,7 @@ vocabularies may use the same one. For example, the [Chemical Entities of Biolog
 entry for [6-methoxy-2-octaprenyl-1,4-benzoquinone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:1234)
 and the [Human Disease Ontology (DOID)](https://bioregistry.io/doid) entry for
 [gender identity disorder](https://www.ebi.ac.uk/ols/ontologies/doid/terms?obo_id=DOID:1234)
-both share the local identifier of `1234`.
+share the local identifier of `1234`.
 
 It's often useful to have a [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
 that describes local identifiers of a given controlled vocabulary. For example,
@@ -40,12 +41,99 @@ preceding token (`\d`) can be matched one or more times in a row.
 
 It's important to remember that identifiers might look like numbers, but they
 should _never_ be treated as such. For example, the [Gene Ontology (GO)](https://bioregistry.io/go)
-uses identifiers that are left-padded with zeros like in the CURIE `go:0032571`
+uses identifiers that are left-padded with zeros like in `0032571`
 for [response to vitamin K](https://bioregistry.io/go:0032571). The regular
 expression pattern for GO entries is `^\d{7}$`, since there are always exactly
 seven numbers. Regular expressions don't have a straightforward way to describe
 numbers that are left padded with zero, so keep in mind that this is
 approximation is a good balance between precision and simplicity.
+
+There are a variety of patterns used for identifiers, including integers (`^\d+$`;
+e.g., PubMed), zero padded integers (`^\d{7}$`; e.g., GO and other OBO
+Ontologies), universally unique identifiers (UUIDs; e.g., NCI Pathway
+Interaction Database, NDEx), and many other variations.
+
+### Origins
+
+Controlled vocabularies arise from several kinds of resources such as:
+
+1. **Ontologies** like the [Gene Ontology (GO)](https://bioregistry.io/go),
+   [Chemical Entities of Biological Interest (ChEBI)](https://bioregisty.io/chebi),
+   and [Experimental Factor Ontology (EFO)](https://bioregistry.io/efo)
+2. **Controlled Vocabularies** like [Entrez Gene](https://bioregistry.io/ncbigene),
+   [InterPro](https://biorestry.io/interpro), and [FamPlex](https://bioregistry.io/fplx)
+3. **Databases** like [Protein Data Bank](https://bioregistry.io/pdb)
+   and [Gene Expression Omnibus](https://bioregistry.io/geo)
+
+### Completeness
+
+Controlled vocabularies typically fall into one of several "completeness"
+categories:
+
+1. **Complete by Definition** like [Enzyme Classification](https://bioregistry.io/eccode)
+2. **Complete, but Subject to Change** like [HGNC](https://bioregistry.io/hgnc)
+3. **Always Incomplete** like [Chemical Entities of Biological Interest (ChEBI)](https://bioregisty.io/chebi)
+   and the [Protein Data Bank (PDB)](https://bioregistry.io/pdb)
+
+### Scope
+
+Controlled vocabularies have a variety of scopes:
+
+1. **Single entity type** like [HGNC](https://bioregistry.io/hgnc)
+2. **A few entity types** like the [Gene Ontology (GO)](https://bioregistry.io/go)
+3. **Many entity types**
+   like [Medical Subject Headings (MeSH)](https://bioregistry.io/mesh),
+   [Unified Medical Language System (UMLS)](https://bioregistry.io/ums),
+   [National Cancer Institute Thesaurus (NCIT)](https://bioregistry.io/ncit)
+
+### Relationship to Projects and Organizations
+
+Controlled vocabularies do not always correspond one-to-one with projects, such
+as how the ChEMBL database contains both the [ChEMBL Compound](https://bioregistry.io/chembl.compound)
+and [ChEMBL Target](https://bioregistry.io/chembl.target) controlled
+vocabularies or how the Uber Anatomy Ontology (UBERON)
+contains both [UBERON](https://bioregistry.io/uberon) and UBPROP controlled
+vocabularies for terms and properties, respectively.
+
+### Provider
+
+A provider returns information about entities from a given resource. A provider
+is characterized by a **URI format string**, or URI formatter, into which a
+local identifier from its controlled vocabulary can be substituted for a special
+token (e.g., `$1`). For example, the following formatter can be used to get a
+web page about a given HGNC entity based on its identifier by replacing the `$1`
+with a given HGNC gene identifier like `5173` for HRAS:
+`http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=$1`.
+
+Well-behaved URI format strings only have one instance of the special token that
+occurs at the end. Poorly-behaved URI format strings may have additional
+characters following the special token as
+in `http://rebase.neb.com/rebase/enz/$1.html` for [REBASE](https://bioregistry.io/rebase)
+or as in `http://eawag-bbd.ethz.ch/$1/$1_map.html` for the
+[UM-BBD Pathway database](http://bioregistry.io/umbbd.pathway).
+
+Providers can return information HTML as in the previous example, images
+(e.g., https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&chebiId=132964
+for the ChEBI entry on fluazifop-P-butyl), XML (e.g., https://www.uniprot.org/uniprot/P10636.xml
+for UniProt entry on human Microtubule-associated protein tau), or any other
+information that can be transferred via HTTP, FTP, or related data transfer
+protocols. Alternatively, content negotiation could be used to return multiple
+kinds of data from the same provider URI.
+
+Most controlled vocabularies have an associated first-party provider that returns information
+via a web page. Some controlled vocabularies, like ChEBI, have several first-party providers
+for different content types (e.g., HTML, image). Some controlled vocabularies, like Entrez
+Gene, have additional external providers, including databases that use its
+identifiers like the Comparative Toxicogenomics Database. Some controlled vocabularies, such
+as many OBO ontologies, do not have an associated first party provider and rely
+solely on third party browsers like AberOWL, OntoBee, and the Ontology Lookup
+Service.
+
+## Naming things on the semantic web
+
+There are two (mostly) interchangeable formalisms for naming things in the
+semantic web: uniform resource identifiers (URIs) and compact uniform resource
+identifiers (CURIEs).
 
 ### Uniform Resource Identifiers (URIs)
 
@@ -87,7 +175,7 @@ three parts:
 
 1. A prefix (in red)
 2. A delimiter (in black)
-3. An identifier from the given controlled vocabulary (in orange)
+3. A local identifier from the given controlled vocabulary (in orange)
 
 Since everyone agrees on what ChEBI is within the biomedical domain, it makes
 sense to use `chebi` as the prefix for ChEBI local identifiers. However, there
@@ -203,97 +291,17 @@ unique identifiers. Since this would require updating a lot of data in a lot
 of places, the interim solution is to programmatically normalize identifiers and
 CURIEs in the meantime to remove instances of this redundancy.
 
-## Resource
-
-A resource assigns unique identifiers to a collection of entities.
-
-### Manifestations of Resources
-
-There are several types of resources such as:
-
-1. **Ontologies** like the [Gene Ontology (GO)](https://bioregistry.io/go),
-   [Chemical Entities of Biological Interest (ChEBI)](https://bioregisty.io/chebi),
-   and [Experimental Factor Ontology (EFO)](https://bioregistry.io/efo)
-2. **Controlled Vocabularies** like [Entrez Gene](https://bioregistry.io/ncbigene),
-   [InterPro](https://biorestry.io/interpro), and [FamPlex](https://bioregistry.io/fplx)
-3. **Databases** like [Protein Data Bank](https://bioregistry.io/pdb)
-   and [Gene Expression Omnibus](https://bioregistry.io/geo)
-
-### Completeness
-
-Resources typically fall into one of several "completeness" categories:
-
-1. **Complete by Definition** like [Enzyme Classification](https://bioregistry.io/eccode)
-2. **Complete, but Subject to Change** like [HGNC](https://bioregistry.io/hgnc)
-3. **Always Incomplete** like [Chemical Entities of Biological Interest (ChEBI)](https://bioregisty.io/chebi)
-   and [PDB](https://bioregistry.io/pdb)
-
-### Scope
-
-Resources have a variety of scopes
-
-1. **Single entity type** like [HGNC](https://bioregistry.io/hgnc)
-2. **A few entity types** like the [Gene Ontology (GO)](https://bioregistry.io/go)
-3. **Many entity types**
-   like [Medical Subject Headings (MeSH)](https://bioregistry.io/mesh),
-   [Unified Medical Language System (UMLS)](https://bioregistry.io/ums),
-   [National Cancer Institute Thesaurus (NCIT)](https://bioregistry.io/ncit)
-
-### Relationship to Projects and Organizations
-
-Resources do not always correspond one-to-one with projects, such as how the
-ChEMBL database contains both the ChEMBL Compound and ChEMBL Target resources or
-how the Uber Anatomy Ontology (UBERON) contains both UBERON and UBPROP resources
-for terms and properties, respectively.
-
-There are a variety of patterns used for identifiers, including integers (^\d+$;
-e.g., PubMed), zero padded integers (`^\d{7}$`; e.g., GO, ChEBI, other OBO
-Ontologies), universally unique identifiers (UUIDs; e.g., NCI Pathway
-Interaction Database, NDEx), and many other variations.
-
-### Provider
-
-A provider returns information about entities from a given resource. A provider
-is characterized by a URL format string into which an identifier from its
-resource can be substituted for a special token (e.g., $1). For example, the
-following formatter can be used to get a web page about a given HGNC entity
-based on its identifier by replacing the $1 with a given HGNC gene identifier
-like 5173 for HRAS: `http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=$1`.
-
-Well-behaved URL format strings only have one instance of the special token that
-occurs at the end. Poorly-behaved URL format strings may have additional
-characters following the special token as
-in `http://rebase.neb.com/rebase/enz/$1.html` for REBASE or as
-in `http://eawag-bbd.ethz.ch/$1/$1_map.html` for the UM-BBD Pathway database.
-
-Providers can return information HTML as in the previous example, images (
-e.g., https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&chebiId=132964
-for the ChEBI entry on fluazifop-P-butyl), XML (e.g., https://www.uniprot.org/uniprot/P10636.xml for UniProt entry on human
-Microtubule-associated protein tau), or any other information that can be
-transferred via HTTP, FTP, or related data transfer protocols. Alternatively,
-content negotiation could be used to return multiple kinds of data from the same
-provider URL.
-
-Most resources have an associated first-party provider that returns information
-via a web page. Some resources, like ChEBI, have several first-party providers
-for different content types (e.g., HTML, image). Some resources, like Entrez
-Gene, have additional external providers, including databases that use its
-identifiers like the Comparative Toxicogenomics Database. Some resources, such
-as many OBO ontologies, do not have an associated first party provider and rely
-solely on third party browsers like AberOWL, OntoBee, and the Ontology Lookup
-Service.
-
 ### Registry
 
 A registry is a special kind of resource that assigns unique identifiers to a
-collection of resources. For historical reasons, these identifiers are
+collection of controlled vocabularies. For historical reasons, these identifiers are
 colloquially called prefixes. A registry collects additional metadata about each
 resource, though there is a wide variety of metadata standards across existing
 registries (Table 1; left). These metadata may include the name, homepage, a
 regular expression pattern for validating identifiers, one or more example
 identifiers, a default provider, and potentially additional providers.
 
-Like with resources, a high-quality registry should have an associated
+Like with controlled vocabularies, a high-quality registry should have an associated
 first-party provider that comprises a web site for exploring its entries and
 their associated metadata.
 
@@ -318,15 +326,15 @@ nor provide mappings.
 
 ### Resolver
 
-A resolver uses a registry to generate a URL for a given prefix/identifier pair
+A resolver uses a registry to generate a URI for a given prefix/identifier pair
 based on the registry's default provider for the resource with the given prefix,
-then redirects the requester to the constructed URL. Resolvers are different
-from providers in that they are general for many resources and do not host
+then redirects the requester to the constructed URI. Resolvers are different
+from providers in that they are general for many controlled vocabularies and do not host
 content themselves. Two well-known resolvers are Identifiers.org and
 Name-To-Thing.
 
 Lookup Service A lookup service is like a provider but generalized to provide
-for many resources. They typically have a URL format string into which a compact
+for many controlled vocabularies. They typically have a URI format string into which a compact
 identifier can be placed like OntoBee, but many require more complicated
 programmatic logic to construct. Some well-known lookup services are the OLS,
 AberOWL, OntoBee, and BioPortal.
