@@ -14,19 +14,13 @@ GitHub organization.
 
 ## Semantic spaces
 
-A [controlled vocabulary](https://en.wikipedia.org/wiki/Controlled_vocabulary)
-enumerates a set of named entities. For example, the
-[Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi)
-is a well-known controlled vocabulary in the biomedical domain that lives in
-an ontology.
-
-### Local identifiers
-
-A useful (but not required) property of a controlled vocabulary is to
-additionally assign each named entity a stable **local identifier**. Throughout
-this document, it is assumed that all controlled vocabularies have this
-property. Any resource that assigns stable local identifiers to entities,
-even if it is not itself a controlled vocabulary, is a **semantic space**.
+While a [controlled vocabulary](https://en.wikipedia.org/wiki/Controlled_vocabulary)
+enumerates a set of named entities, a **semantic space** enumerates a set
+of stable **local identifies** for entities. Most high-quality controlled
+vocabularies also assign local identifiers for their named entities and are also
+semantic spaces. For example, the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi)
+is a well-known ontology in the biomedical domain that is both a controlled
+vocabulary and a semantic space.
 
 The term _local identifier_ is synonymous with _identifier_ and _accession_,
 but has the added qualifier _local_ as a reminder that two semantic
@@ -35,6 +29,8 @@ entry for [6-methoxy-2-octaprenyl-1,4-benzoquinone](https://www.ebi.ac.uk/chebi/
 and the [Human Disease Ontology (DOID)](https://bioregistry.io/doid) entry for
 [gender identity disorder](https://www.ebi.ac.uk/ols/ontologies/doid/terms?obo_id=DOID:1234)
 share the local identifier of `1234`.
+
+### Formalizing local identifiers
 
 It's often useful to have a [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
 that describes local identifiers of a given semantic space. For example,
