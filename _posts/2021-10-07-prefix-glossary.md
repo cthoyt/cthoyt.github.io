@@ -296,7 +296,7 @@ unique identifiers. Since this would require updating a lot of data in a lot
 of places, the interim solution is to programmatically normalize identifiers and
 CURIEs in the meantime to remove instances of this redundancy.
 
-### Registry
+## Registry
 
 A registry is a special kind of semantic space that enumerates other semantic
 spaces and assigns them local identifiers. Due to the connection with
@@ -321,7 +321,7 @@ psi-mi-CV [https://github.com/HUPO-PSI/psi-ms-CV/blob/master/db-xrefs.yaml],
 NCBI GenBank Registry reused in https://www.ddbj.nig.ac.jp/ddbj/db_xref-e.html).
 -->
 
-### Metaregistry
+## Metaregistry
 
 A metaregistry is a special kind of registry that assigns local identifiers to
 a collection of registries; it could even contain an entry about itself. It
@@ -339,7 +339,7 @@ nor provide mappings.
 The only metaregistry in the biomedical domain is the
 [Bioregistry](https://bioregistry.io).
 
-### Resolver
+## Resolver
 
 A resolver uses a registry to generate a URI for a given CURIE based on the
 registry's default provider for the semantic space with the given prefix, then
