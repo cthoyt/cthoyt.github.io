@@ -25,7 +25,7 @@ vocabulary and a semantic space.
 The term _local identifier_ is synonymous with _identifier_ and _accession_,
 but has the added qualifier _local_ as a reminder that two semantic
 spaces may use the same one. For example, the [Chemical Entities of Biological Interest (ChEBI)](https://www.ebi.ac.uk/chebi)
-entry for [6-methoxy-2-octaprenyl-1,4-benzoquinone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:1234)
+entry for [6-methoxy-2-octaprenyl-1,4-benzoquinone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=1234)
 and the [Human Disease Ontology (DOID)](https://bioregistry.io/doid) entry for
 [gender identity disorder](https://www.ebi.ac.uk/ols/ontologies/doid/terms?obo_id=DOID:1234)
 share the local identifier of `1234`.
@@ -166,9 +166,9 @@ given two parts:
 
 All URIs from the same semantic space have the same URI prefix (in red),
 but a different local identifier (in orange). Here's an example, using the ChEBI
-local identifier for [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:138488):
+local identifier for [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=138488):
 
-<span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:</span><span style="color:orange">138488</span>
+<span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=</span><span style="color:orange">138488</span>
 
 There may be potentially many URI prefixes corresponding to the same
 semantic space and therefore many URIs describing the same entity. For example,
