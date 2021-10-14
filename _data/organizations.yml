@@ -3,6 +3,8 @@
   url: https://www.coronawhy.org/
   start:
     year: 2020
+  end:
+    year: 2021
 
 - name: OpenBEL Consortium
   role: Member
