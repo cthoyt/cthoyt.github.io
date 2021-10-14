@@ -1,3 +1,14 @@
+- name: RDKit User Group Meeting 2021
+  online: true
+  start:
+    day: 14
+    month: October
+    year: 2021
+  end:
+    day: 15
+    month: October
+    year: 2021
+
 - name: 4th Session of the International Society of Biocuration 2021 Virtual Conference
   online: true
   poster: https://f1000research.com/posters/10-1005
