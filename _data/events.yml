@@ -12,6 +12,7 @@
 
 - name: 4th Session of the International Society of Biocuration 2021 Virtual Conference
   online: true
+  link: https://www.biocuration.org/14th-annual-biocuration-conference-virtual/
   poster: https://f1000research.com/posters/10-1005
   date:
     day: 5
@@ -44,6 +45,7 @@
 
 - name: 3rd Session of the International Society of Biocuration 2021 Virtual Conference
   online: true
+  link: https://www.biocuration.org/14th-annual-biocuration-conference-virtual/
   date:
     day: 17
     month: August
