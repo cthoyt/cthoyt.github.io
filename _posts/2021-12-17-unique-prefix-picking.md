@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to Pick a Unique Prefix
-date: 2021-10-07 14:26:00 +0100
+date: 2021-12-17 14:17:00 +0100
 author: Charles Tapley Hoyt
 tags: semantics
 ---
