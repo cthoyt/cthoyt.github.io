@@ -1,6 +1,14 @@
+- name: International Society of Biocuration
+  role: Member
+  url: https://www.biocuration.org
+  wikidata: Q23809291
+  start:
+    year: 2021
+
 - name: CoronaWhy
   role: Volunteer
-  url: https://www.coronawhy.org/
+  url: https://www.coronawhy.org
+  wikidata: Q95587147
   start:
     year: 2020
   end:
@@ -15,11 +23,13 @@
 - name: Erasmus Student Network Bonn
   role: Member
   url: https://bonn.esn-germany.de
+  wikidata: Q655757
   start:
     year: 2016
 
 - name: American Chemical Society
   role: Member
   url: https://www.acs.org
+  wikidata: Q247556
   start:
     year: 2011
