@@ -94,3 +94,15 @@
   role: advisor
   description: Multimodal Transformers for biomedical text and Knowledge Graph data
   logo: https://avatars.githubusercontent.com/u/81307925?s=200&v=4
+
+- name: ChemixalX
+  github: AstraZeneca/chemicalx
+  role: contributor (core team member)
+  description: A deep learning library for drug-drug interaction, polypharmacy side effect, and synergy prediction.
+  logo: https://github.com/AstraZeneca/chemicalx/raw/main/images/chemicalx_logo.jpg?sanitize=true
+
+- name: RexMex
+  github: AstraZeneca/rexmex
+  role: contributor
+  description: A library implementing a comprehensive collection of metrics for the evaluation of recommender systems.
+  logo: https://github.com/AstraZeneca/rexmex/raw/main/rexmex_small.jpg?raw=true?sanitize=true
