@@ -30,8 +30,8 @@ layout: default
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
-  
-  <div class="utterances"></div>
+
+  {%- include utterances.html -%}
 
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}
