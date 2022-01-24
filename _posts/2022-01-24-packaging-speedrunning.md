@@ -14,7 +14,7 @@ Speedruns.
 
 Speedrunning is the sport of finishing a video game as fast as possible. Some
 games are so broken 
-(e.g., [The Legend of Zelda: The Ocarina of Time](https://www.speedrun.com/oot))
+(e.g., [The Legend of Zelda: Ocarina of Time](https://www.speedrun.com/oot))
 that it's not really even that interesting to just get to the end, so many
 games introduce additional variants to Any% such as 100%. For each game,
 the speedrunning community decides when the timer should start (e.g., most games
@@ -107,6 +107,8 @@ was in. Obviously, Python packaging speedruns can't be so rigorously compared
 as video game speedruns. That's okay.
 
 I posted my [first Python packaging speedrunning](https://www.youtube.com/watch?v=-aje6kszNcc)
-on YouTube this evening. I didn't do any commentary but next time I will try my
-best. I also [tweeted](https://twitter.com/cthoyt/status/1485406393251377159)
-about it and am curious to see if this is interesting to anyone.
+on YouTube this evening. It doesn't actually follow the rules I proposed here
+because I started thinking about this after I was done [tweeting](https://twitter.com/cthoyt/status/1485406393251377159)
+about it. Please let me know if you have any ideas on how to improve these
+rules, have an idea for a new category, or if you want me to link to your
+Python packaging speedrun video.
