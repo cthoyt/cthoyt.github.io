@@ -39,15 +39,21 @@ which I'll designate as Any% because it's the simplest version that has the
 least restrictions. Other categories can take these rules and build on top
 of them.
 
+### Rule 1: Timing
+
 Python packaging speedruns are timed in the following way:
 
 1. Start the clock when you click the fork button on GitHub
 2. End the clock after all commits have been made to your fork AND a pull request has been made.
 
+### Rule 2: Package Layout
+
 To ensure imports aren't sneakily being done via directory structure, the
 `src/` layout is mandatory for _all_ Python packaging speedruns. Read
 Hynek Schlawack's excellent explanation why this restriction is necessary
 [here](https://hynek.me/articles/testing-packaging/).
+
+### Rule 3: Testing
 
 To make sure that packaging was done properly, automated unit tests should check
 that the package can be imported using the same directory structure
@@ -86,6 +92,8 @@ description = Run unit tests.
 
 Note the `[tox]` section was included for ergonomic usage of the `tox` command
 from the command line.
+
+### Rule 4: Provenance
 
 Finally, like video game speedruns, there needs to be video proof, preferably
 uploaded to YouTube or witnessed on Twitch.
