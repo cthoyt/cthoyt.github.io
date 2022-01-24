@@ -72,7 +72,7 @@ class TestTrivial(unittest.TestCase):
         self.assertIsNotNone(module)
 ```
 
-## Rule 4: Automated Application of Testing
+### Rule 4: Automated Application of Testing
 
 This file should be run with `tox` on a `tox.ini` that minimally contains the
 following `[testenv]`:
