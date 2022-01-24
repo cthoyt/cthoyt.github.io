@@ -53,7 +53,7 @@ To ensure imports aren't sneakily being done via directory structure, the
 Hynek Schlawack's excellent explanation why this restriction is necessary
 [here](https://hynek.me/articles/testing-packaging/).
 
-### Rule 3: Testing
+### Rule 3: Minimal Unit Testing
 
 To make sure that packaging was done properly, automated unit tests should check
 that the package can be imported using the same directory structure
@@ -71,6 +71,8 @@ class TestTrivial(unittest.TestCase):
         module = importlib.import_module(name)
         self.assertIsNotNone(module)
 ```
+
+## Rule 4: Automated Application of Testing
 
 This file should be run with `tox` on a `tox.ini` that minimally contains the
 following `[testenv]`:
@@ -93,7 +95,7 @@ description = Run unit tests.
 Note the `[tox]` section was included for ergonomic usage of the `tox` command
 from the command line.
 
-### Rule 4: Provenance
+### Rule 5: Provenance
 
 Finally, like video game speedruns, there needs to be video proof, preferably
 uploaded to YouTube or witnessed on Twitch.
