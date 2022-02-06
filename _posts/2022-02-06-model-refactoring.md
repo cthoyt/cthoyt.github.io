@@ -285,7 +285,6 @@ function using the [`class-resolver`](https://github.com/cthoyt/class-resolver)
 ```python
 from itertools import chain
 
-from class_resolver import Hint, OptionalKwargs
 from class_resolver.contrib.torch import activation_resolver
 from more_itertools import pairwise
 from torch import nn
@@ -294,8 +293,8 @@ class MLP8(nn.Sequential):
     def __init__(
         self, 
         dims: list[int],
-        activation: Hint[nn.Module] = "relu",
-        activation_kwargs: OptionalKwargs = None,
+        activation: None | str | nn.Module | type[nn.Module] = "relu",
+        activation_kwargs: None | dict[str, any] = None,
     ):
         super().__init__(*chain.from_iterable(
             (
