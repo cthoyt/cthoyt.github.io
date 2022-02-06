@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Abstracting the parameters of a Machine Learning Model
-date: 2022-02-07 9:00:00 +0100
+date: 2022-02-06 19:00:00 +0100
 author: Charles Tapley Hoyt
 tags: programming machine-learning deep-learning python
 ---

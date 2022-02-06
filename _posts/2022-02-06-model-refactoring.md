@@ -289,6 +289,6 @@ leave comment or get in touch!
 While we were originally aiming at reducing complexity, this model still has the
 issue that it contains a hard-coded reference to the ReLU non-linear activation
 function, which could be easily generalized to support alternate non-linear
-activation functions. In my [next post]({% post_url 2022-02-07-model-abstraction %}),
+activation functions. In my [next post]({% post_url 2022-02-06-model-abstraction %}),
 I'll demonstrate the thought process behind this and the ultimate solution
 using the [`class-resolver`](https://github.com/cthoyt/class-resolver).
