@@ -3,12 +3,13 @@ layout: post
 title: Refactoring a Machine Learning Model
 date: 2022-02-06 16:45:00 +0100
 author: Charles Tapley Hoyt
-tags: programming machine-learning deep-earning
+tags: programming machine-learning deep-learning python
 ---
 This blog post is a tutorial that will take you from a naive implementation of a
-[multilayer perceptron](https://en.wikipedia.org/wiki/Multilayer_perceptron) in
-PyTorch to an enlightened implementation that simultaneously leverages the power
-of PyTorch, Python's builtins, and some powerful third party Python packages.
+[multilayer perceptron (MLP)](https://en.wikipedia.org/wiki/Multilayer_perceptron)
+in PyTorch to an enlightened implementation that simultaneously leverages the
+power of [PyTorch](https://pytorch.org), Python's built-ins, and some powerful
+third party Python packages.
 
 This tutorial is going to assume the following imports for all code blocks:
 
@@ -33,8 +34,8 @@ models - it's just about the best ways to implement them. I'm also going to
 commit the sin of omitting docstrings and a lot of type annotations, since most
 of the MLP should be pretty obvious.
 
-Let's start with a naive implementation, that reflects some old habits from
-C or Java programming:
+Let's start with a naive implementation, that reflects some old habits from C or
+Java programming:
 
 ```python
 import torch
@@ -58,6 +59,8 @@ class MLP1(nn.Module):
             rv = F.relu(rv)
         return rv
 ```
+
+## Incremental Improvements
 
 MLP1 uses the dreaded `range(len(...))` pattern, which can almost always be
 replaced with direct iteration. However, in this case, it uses the index to get
@@ -169,6 +172,8 @@ class MLP5(nn.Module):
         return self.layers(x)
 ```
 
+## An Aside on List Comprehensions
+
 As we prepare to refactor MLP5, we'll take a short aside to discuss list
 comprehensions in Python. Here are a few resources to get you started:
 
@@ -210,10 +215,10 @@ using [`itertools.chain.from_iterable()`](https://docs.python.org/3/library/iter
 like
 
 ```python
-import itertools as itt
+from itertools import chain
 
 old_list = ...
-new_list = list(itt.chain.from_iterable(
+new_list = list(chain.from_iterable(
     transform(x)
     for x in old_list
 ))
@@ -221,9 +226,13 @@ new_list = list(itt.chain.from_iterable(
 
 While this may be a few extra lines (because it's broken up for readability), it
 has the advantage that it's only one *logical line* and can be used in more
-clever ways. We'll apply this template to our code to get a one-liner for
-instantiating our `nn.Sequential` (though notice it's again broken up onto
-multiple lines for readability):
+clever ways.
+
+## Bringing it All Together
+
+We'll apply this template to our code to get a one-liner for instantiating
+our `nn.Sequential` (though notice it's again broken up onto multiple lines for
+readability):
 
 ```python
 from itertools import chain
@@ -270,37 +279,16 @@ class MLP7(nn.Sequential):
         ))
 ```
 
-MLP7 is now a much more simple implementation that uses a few neat tricks
-to reduce error-prone logic. I hope you enjoy applying these patterns to your
-own models, and if you have any other ideas you'd like me to include here,
-please leave comment or get in touch!
+MLP7 is now a much more simple implementation that uses a few neat tricks to
+reduce error-prone logic. I hope you enjoy applying these patterns to your own
+models, and if you have any other ideas you'd like me to include here, please
+leave comment or get in touch!
 
 ---
 
-While we were originally aiming at reducing
-complexity, we can make the following improvement to parametrize the activation
-function using the [`class-resolver`](https://github.com/cthoyt/class-resolver)
-(which I'll describe in detail in a different post).
-
-```python
-from itertools import chain
-
-from class_resolver.contrib.torch import activation_resolver
-from more_itertools import pairwise
-from torch import nn
-
-class MLP8(nn.Sequential):
-    def __init__(
-        self, 
-        dims: list[int],
-        activation: None | str | nn.Module | type[nn.Module] = "relu",
-        activation_kwargs: None | dict[str, any] = None,
-    ):
-        super().__init__(*chain.from_iterable(
-            (
-                nn.Linear(in_features, out_features),
-                activation_resolver.make(activation, activation_kwargs),
-            )
-            for in_features, out_features in pairwise(dims)
-        ))
-```
+While we were originally aiming at reducing complexity, this model still has the
+issue that it contains a hard-coded reference to the ReLU non-linear activation
+function, which could be easily generalized to support alternate non-linear
+activation functions. In my [next post]({% post_url 2022-02-07-model-abstraction %}),
+I'll demonstrate the thought process behind this and the ultimate solution
+using the [`class-resolver`](https://github.com/cthoyt/class-resolver).
