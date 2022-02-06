@@ -3,7 +3,7 @@ layout: post
 title: Abstracting the parameters of a Machine Learning Model
 date: 2022-02-07 16:45:00 +0100
 author: Charles Tapley Hoyt
-tags: programming machine-learning deep-earning
+tags: programming machine-learning deep-learning python
 ---
 As a follow-up to my [previous post]({% post_url 2022-02-06-model-refactoring %})
 on refactoring and improving a machine learning model implemented with

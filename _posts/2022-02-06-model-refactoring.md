@@ -3,7 +3,7 @@ layout: post
 title: Refactoring a Machine Learning Model
 date: 2022-02-06 16:45:00 +0100
 author: Charles Tapley Hoyt
-tags: programming machine-learning deep-earning
+tags: programming machine-learning deep-learning python
 ---
 This blog post is a tutorial that will take you from a naive implementation of a
 [multilayer perceptron (MLP)](https://en.wikipedia.org/wiki/Multilayer_perceptron)
