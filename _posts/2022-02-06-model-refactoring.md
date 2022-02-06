@@ -59,6 +59,8 @@ class MLP1(nn.Module):
         return rv
 ```
 
+## Incremental Improvements
+
 MLP1 uses the dreaded `range(len(...))` pattern, which can almost always be
 replaced with direct iteration. However, in this case, it uses the index to get
 the next element with it. Luckily, `more_itertools` has a function
@@ -169,6 +171,8 @@ class MLP5(nn.Module):
         return self.layers(x)
 ```
 
+## An Aside on List Comprehensions
+
 As we prepare to refactor MLP5, we'll take a short aside to discuss list
 comprehensions in Python. Here are a few resources to get you started:
 
@@ -221,7 +225,11 @@ new_list = list(chain.from_iterable(
 
 While this may be a few extra lines (because it's broken up for readability), it
 has the advantage that it's only one *logical line* and can be used in more
-clever ways. We'll apply this template to our code to get a one-liner for
+clever ways.
+
+## Bringing it All Together
+
+We'll apply this template to our code to get a one-liner for
 instantiating our `nn.Sequential` (though notice it's again broken up onto
 multiple lines for readability):
 

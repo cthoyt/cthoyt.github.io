@@ -28,6 +28,8 @@ class MLP7(nn.Sequential):
         ))
 ```
 
+## Incremental Improvements 
+
 This MLP uses a
 hard-coded [rectified linear unit](https://en.wikipedia.org/wiki/Rectifier_(neural_networks))
 as the non-linear activation function between layers. We can initially
@@ -89,9 +91,9 @@ class MLP9(nn.Sequential):
         ))
 ```
 
-Unfortuntaly, the approach in MLP9 rigid because it requires pre-instantiation
+Unfortunately, the approach in MLP9 rigid because it requires pre-instantiation
 of the activations. If we needed to vary the arguments to the `nn.HardTanh`
-class (i.e., the mininum and maximum values), the previous approach wouldn't
+class (i.e., the minimum and maximum values), the previous approach wouldn't
 work. We can change the implementation to lookup on the class *before
 instantiation* then optionally pass some arguments:
 
@@ -137,6 +139,8 @@ practical issues:
    (error-prone) in any place that creates an MLP
 5. you have to re-write this logic for all of your classes
 
+## The `class-resolver`
+
 Before showing MLP11, the final solution, I want to first describe the
 [`class-resolver`](https://github.com/cthoyt/class-resolver) package. Its job is
 to make it easy to generate a dictionary-like object that you can use to look up
@@ -172,6 +176,8 @@ assert nn.ReLU == activation_resolver.lookup("ReLU")
 # Class-based lookup
 assert nn.ReLU == activation_resolver.lookup(nn.ReLU)
 ```
+
+## Bringing it All Together
 
 Let's apply that to MLP10 and make our final MLP11:
 
