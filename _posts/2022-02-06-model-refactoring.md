@@ -33,7 +33,7 @@ models - it's just about the best ways to implement them. I'm also going to
 commit the sin of omitting docstrings and a lot of type annotations, since most
 of the MLP should be pretty obvious.
 
-Let's start with a naive implementation, that reflects a lot of bad habits from
+Let's start with a naive implementation, that reflects some old habits from
 C or Java programming:
 
 ```python
