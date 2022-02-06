@@ -30,13 +30,23 @@ The following is a list of my close, consistent collaborators:
 
 ## Funding
 
+<ul>
 {% for entry in site.data.funding %}
-<div>
+<li>
 <strong>{{ entry.funder }} {{ entry.name }} ({{ entry.abbreviation }})</strong>
 {% if entry.award %}{{ entry.award }}{% endif %}
 {% if entry.pi %}(PI: {{ entry.pi }}){% endif %}
-</div>
+</li>
 {% endfor %}
+</ul>
+
+## Disclosures / Conflicts of Interest
+
+<ul>
+{% for entry in site.data.coi %}
+<li>{{ entry.description }}</li>
+{% endfor %}
+</ul>
 
 ## Events
 
