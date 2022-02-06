@@ -1,5 +1,50 @@
+- name: 13th International SWAT4HCLS Conference
+  link: http://www.swat4ls.org/
+  online: true
+  start:
+    day: 10
+    month: January
+    year: 2022
+  end:
+    day: 13
+    month: January
+    year: 2022
+   
+- name: Connected Data World Workshop on Graph Machine Learning
+  link: https://2021.connected-data.world/
+  online: true
+  date:
+    day: 1
+    month: December
+    year: 2021
+
+- name: 6th Disease Maps Community Meeting
+  link: https://disease-maps.org/DMCM2021
+  online: true
+  start:
+    day: 29
+    month: November
+    year: 2021
+  end:
+    day: 30
+    month: November
+    year: 2021
+
+- name: RDKit User Group Meeting 2021
+  link: https://github.com/rdkit/UGM_2021
+  online: true
+  start:
+    day: 14
+    month: October
+    year: 2021
+  end:
+    day: 15
+    month: October
+    year: 2021
+
 - name: 4th Session of the International Society of Biocuration 2021 Virtual Conference
   online: true
+  link: https://www.biocuration.org/14th-annual-biocuration-conference-virtual/
   poster: https://f1000research.com/posters/10-1005
   date:
     day: 5
@@ -32,6 +77,7 @@
 
 - name: 3rd Session of the International Society of Biocuration 2021 Virtual Conference
   online: true
+  link: https://www.biocuration.org/14th-annual-biocuration-conference-virtual/
   date:
     day: 17
     month: August

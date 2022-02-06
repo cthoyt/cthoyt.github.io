@@ -13,12 +13,24 @@ permalink: /community/
 {% endfor %}
 </ul>
 
+## Collaborators
+
+The following is a list of my close, consistent collaborators:
+
+{% for entry in site.data.collaborators %}
+<div style="padding-bottom: 10px;">
+<img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="float: left; max-height: 40px; max-width: 40px; margin-right: 15px" />
+{{ entry.name }}
+</div>
+{% endfor %}
+
 ## Events
 
 <ol reversed>
 {% for entry in site.data.events %}
     <li>
-    <a href="{{ entry.link }}">{{ entry.name }}</a> {% if entry.online %}(online) {% else %}in {{ entry.location.city }}, {{ entry.location.country }}{% endif %}
+    {% if entry.link %}<a href="{{ entry.link }}">{{ entry.name }}</a>{% else %}{{ entry.name }}{% endif %}
+    {% if entry.online %}(online) {% else %}in {{ entry.location.city }}, {{ entry.location.country }}{% endif %}
     {% if entry.date %}
     on {{ entry.date.month }} {{ entry.date.day }}, {{ entry.date.year }}
     {% elsif entry.start.month == entry.end.month %}
