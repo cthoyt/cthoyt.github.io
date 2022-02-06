@@ -6,9 +6,10 @@ author: Charles Tapley Hoyt
 tags: programming machine-learning deep-earning
 ---
 This blog post is a tutorial that will take you from a naive implementation of a
-[multilayer perceptron](https://en.wikipedia.org/wiki/Multilayer_perceptron) in
-PyTorch to an enlightened implementation that simultaneously leverages the power
-of PyTorch, Python's builtins, and some powerful third party Python packages.
+[multilayer perceptron (MLP)](https://en.wikipedia.org/wiki/Multilayer_perceptron)
+in PyTorch to an enlightened implementation that simultaneously leverages the
+power of [PyTorch](https://pytorch.org), Python's built-ins, and some powerful
+third party Python packages.
 
 This tutorial is going to assume the following imports for all code blocks:
 
@@ -229,9 +230,9 @@ clever ways.
 
 ## Bringing it All Together
 
-We'll apply this template to our code to get a one-liner for
-instantiating our `nn.Sequential` (though notice it's again broken up onto
-multiple lines for readability):
+We'll apply this template to our code to get a one-liner for instantiating
+our `nn.Sequential` (though notice it's again broken up onto multiple lines for
+readability):
 
 ```python
 from itertools import chain
@@ -288,6 +289,6 @@ leave comment or get in touch!
 While we were originally aiming at reducing complexity, this model still has the
 issue that it contains a hard-coded reference to the ReLU non-linear activation
 function, which could be easily generalized to support alternate non-linear
-activation functions. In the next post, I'll demonstrate the thought process
-behind this and the ultimate solution using
-the [`class-resolver`](https://github.com/cthoyt/class-resolver).
+activation functions. In my [next post]({% post_url 2022-02-07-model-abstraction %}),
+I'll demonstrate the thought process behind this and the ultimate solution
+using the [`class-resolver`](https://github.com/cthoyt/class-resolver).

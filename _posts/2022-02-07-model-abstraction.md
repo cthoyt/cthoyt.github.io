@@ -5,10 +5,13 @@ date: 2022-02-07 16:45:00 +0100
 author: Charles Tapley Hoyt
 tags: programming machine-learning deep-earning
 ---
-This blog post is a tutorial that will take you illustrate how to generalize the
-implementation of a [multilayer perceptron](https://en.wikipedia.org/wiki/Multilayer_perceptron)
+As a follow-up to my [previous post]({% post_url 2022-02-06-model-refactoring %})
+on refactoring and improving a machine learning model implemented with
+[PyTorch](https://pytorch.org), this post will be a tutorial on how to
+generalize the implementation of a [multilayer perceptron (MLP)](https://en.wikipedia.org/wiki/Multilayer_perceptron)
 
-We'll pick up with the final model from my previous post:
+We'll pick up with the seventh (final) model version of the MLP from my
+previous post:
 
 ```python
 from itertools import chain
@@ -28,7 +31,7 @@ class MLP7(nn.Sequential):
         ))
 ```
 
-## Incremental Improvements 
+## Incremental Improvements
 
 This MLP uses a
 hard-coded [rectified linear unit](https://en.wikipedia.org/wiki/Rectifier_(neural_networks))
@@ -154,7 +157,8 @@ things for you:
 3. It keeps track of a default value to grab when you pass `None`
 4. It allows for classes and instances to be passed through
 
-Here's a short demo of how it works:
+After making a `ClassResolver` instance, you can use
+the `ClassResolver.lookup()` function to get the class you need:
 
 ```python
 from class_resolver import ClassResolver
@@ -175,6 +179,27 @@ assert nn.ReLU == activation_resolver.lookup("ReLU")
 
 # Class-based lookup
 assert nn.ReLU == activation_resolver.lookup(nn.ReLU)
+```
+
+Built on top of the `ClassResolver.lookup()` function is the
+`ClassResolver.make()` function, which first looks up the class, then gives you
+an instance of it (optionally using keyword arguments you pass).
+
+```python
+# Default instantiation
+assert nn.ReLU() == activation_resolver.make(None)
+
+# Name-based instantiation
+assert nn.ReLU() == activation_resolver.make("relu")
+assert nn.ReLU() == activation_resolver.make("ReLU")
+
+# Class-based instantiation
+assert nn.ReLU() == activation_resolver.make(nn.ReLU)
+
+# Class-based instantiation w/ keyword arguments
+assert nn.Hardtanh(0.0, 6.0) == activation_resolver.make("hardtanh", {
+    "min_val": 0.0, "max_value": 6.0
+})
 ```
 
 ## Bringing it All Together
