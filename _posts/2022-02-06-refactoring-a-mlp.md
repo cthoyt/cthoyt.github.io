@@ -48,8 +48,7 @@ class MLP1(nn.Module):
         layers = []
         for i in range(len(dims) - 1):
             in_features, out_features = dims[i], dims[i + 1]
-            layer = nn.Linear(in_features, out_features)
-            layers.append(layer)
+            layers.append(nn.Linear(in_features, out_features))
         self.layers = nn.ModuleList(layers)
 
     def forward(self, x: torch.FloatTensor) -> torch.FloatTensor:
@@ -77,9 +76,8 @@ class MLP2(nn.Module):
     def __init__(self, dims: list[int]):
         super().__init__()
         layers = []
-        for in_features, out_features in pairwise(dims):
-            layer = nn.Linear(in_features, out_features)
-            layers.append(layer)
+        for in_features, out_features in pairwise(dims):  # this line changed
+            layers.append(nn.Linear(in_features, out_features))
         self.layers = nn.ModuleList(layers)
 
     def forward(self, x: torch.FloatTensor) -> torch.FloatTensor:
@@ -90,7 +88,9 @@ class MLP2(nn.Module):
         return rv
 ```
 
-The application of `F.relu` in `forward()` is suspect for a few reasons:
+The application
+of [`F.relu`](https://pytorch.org/docs/stable/generated/torch.nn.functional.relu.html)
+in `forward()` is suspect for a few reasons:
 
 1. Because it lives as a hard-coded call in `forward()`, there's no way to make
    it into a hyper-parameter that can be chosen by a user
@@ -112,7 +112,7 @@ class MLP3(nn.Module):
         layers = []
         for in_features, out_features in pairwise(dims):
             layers.append(nn.Linear(in_features, out_features))
-            layers.append(nn.ReLU())
+            layers.append(nn.ReLU())  # this line changed
         self.layers = nn.ModuleList(layers)
 
     def forward(self, x: torch.FloatTensor) -> torch.FloatTensor:
@@ -138,7 +138,7 @@ class MLP4(nn.Module):
         for in_features, out_features in pairwise(dims):
             layers.append(nn.Linear(in_features, out_features))
             layers.append(nn.ReLU())
-        self.layers = nn.Sequential(*layers)
+        self.layers = nn.Sequential(*layers)  # this line changed
 
     def forward(self, x: torch.FloatTensor) -> torch.FloatTensor:
         return self.layers(x)
@@ -169,7 +169,14 @@ class MLP5(nn.Module):
         return self.layers(x)
 ```
 
-Anytime we see a pattern like
+As we prepare to refactor MLP5, we'll take a short aside to discuss list
+comprehensions in Python. Here are a few resources to get you started:
+
+1. [Ned Batchelder - Loop like a native: while, for, iterators, generators](https://www.youtube.com/watch?v=EnSu9hHGq5o&list=PLPFmTfhIBiumfYT3rsa35fHJxabB78er1&index=4&t=1s)
+2. [Trey Hunner - Comprehensible Comprehensions](https://www.youtube.com/watch?v=ei71YpmfRX4&list=PLPFmTfhIBiumfYT3rsa35fHJxabB78er1&index=6)
+
+The minimum amount of information you need to know for this tutorial is that
+anytime we see code that looks like
 
 ```python
 old_list = ...
@@ -188,7 +195,8 @@ new_list = [
 ]
 ```
 
-There's an analogous pattern for anytime we see something like
+There's an analogous pattern for when we're successively extending a list, like
+how MLP5 looks. If we see code that looks like
 
 ```python
 old_list = ...
@@ -197,6 +205,7 @@ for x in old_list:
     new_list.extend(transform(x))
 ```
 
+we can transform it into something more elegant
 using [`itertools.chain.from_iterable()`](https://docs.python.org/3/library/itertools.html#itertools.chain.from_iterable)
 like
 
@@ -210,9 +219,11 @@ new_list = list(itt.chain.from_iterable(
 ))
 ```
 
-We'll apply this template to our code to get a one-liner for instantiating
-our `nn.Sequential` (though notice it's broken up onto multiple lines for
-readability):
+While this may be a few extra lines (because it's broken up for readability), it
+has the advantage that it's only one *logical line* and can be used in more
+clever ways. We'll apply this template to our code to get a one-liner for
+instantiating our `nn.Sequential` (though notice it's again broken up onto
+multiple lines for readability):
 
 ```python
 from itertools import chain
@@ -239,7 +250,7 @@ class MLP6(nn.Module):
 
 Finally, since we're now just creating a module that wraps the exact
 functionality of `nn.Sequential`, it's possible to directly
-subclass `nn.Sequential`:
+subclass `nn.Sequential`. We'll refactor on MLP6 to get our final result:
 
 ```python
 from itertools import chain
@@ -258,6 +269,11 @@ class MLP7(nn.Sequential):
             for in_features, out_features in pairwise(dims)
         ))
 ```
+
+MLP7 is now a much more simple implementation that uses a few neat tricks
+to reduce error-prone logic. I hope you enjoy applying these patterns to your
+own models, and if you have any other ideas you'd like me to include here,
+please leave comment or get in touch!
 
 ---
 
