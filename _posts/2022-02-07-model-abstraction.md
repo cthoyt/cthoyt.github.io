@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Abstracting the parameters of a Machine Learning Model
-date: 2022-02-07 16:45:00 +0100
+date: 2022-02-07 9:00:00 +0100
 author: Charles Tapley Hoyt
 tags: programming machine-learning deep-learning python
 ---
@@ -9,6 +9,8 @@ As a follow-up to my [previous post]({% post_url 2022-02-06-model-refactoring %}
 on refactoring and improving a machine learning model implemented with
 [PyTorch](https://pytorch.org), this post will be a tutorial on how to
 generalize the implementation of a [multilayer perceptron (MLP)](https://en.wikipedia.org/wiki/Multilayer_perceptron)
+to use one of several potential non-linear activation functions in an elegant
+way.
 
 We'll pick up with the seventh (final) model version of the MLP from my
 previous post:
