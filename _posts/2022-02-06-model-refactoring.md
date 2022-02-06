@@ -196,7 +196,7 @@ new_list = [
 ```
 
 There's an analogous pattern for when we're successively extending a list, like
-how MLP5 looks. If we see code that looks like
+what we did when writing MLP5. If we see code that looks like
 
 ```python
 old_list = ...
