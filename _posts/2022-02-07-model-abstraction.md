@@ -1,3 +1,10 @@
+---
+layout: post
+title: Abstracting the parameters of a Machine Learning Model
+date: 2022-02-07 16:45:00 +0100
+author: Charles Tapley Hoyt
+tags: programming machine-learning deep-earning
+---
 This blog post is a tutorial that will take you illustrate how to generalize the
 implementation of a [multilayer perceptron](https://en.wikipedia.org/wiki/Multilayer_perceptron)
 
@@ -21,7 +28,8 @@ class MLP(nn.Sequential):
         ))
 ```
 
-This MLP uses a hard-coded [rectified linear unit](https://en.wikipedia.org/wiki/Rectifier_(neural_networks))
+This MLP uses a
+hard-coded [rectified linear unit](https://en.wikipedia.org/wiki/Rectifier_(neural_networks))
 as the non-linear activation function between layers. We can generalize this MLP
 to use a variety of non-linear activation functions by adding an argument to its
 `__init__()` function like in:
@@ -179,7 +187,6 @@ class MLP(nn.Sequential):
             for in_features, out_features in pairwise(dims)
         ))
 ```
-
 
 Now, you can instantiate the MLP with any of the following:
 
