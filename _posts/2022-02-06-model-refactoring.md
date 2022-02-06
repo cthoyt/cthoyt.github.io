@@ -210,10 +210,10 @@ using [`itertools.chain.from_iterable()`](https://docs.python.org/3/library/iter
 like
 
 ```python
-import itertools as itt
+from itertools import chain
 
 old_list = ...
-new_list = list(itt.chain.from_iterable(
+new_list = list(chain.from_iterable(
     transform(x)
     for x in old_list
 ))
