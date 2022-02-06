@@ -19,8 +19,12 @@ The following is a list of my close, consistent collaborators:
 
 {% for entry in site.data.collaborators %}
 <div style="padding-bottom: 10px;">
-<img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="float: left; max-height: 40px; max-width: 40px; margin-right: 15px" />
-{{ entry.name }}
+<div style="width: 160px; text-align: center; display: inline-block; float: left; margin-right: 15px;">
+<img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="max-width: 160px; max-height: 45px;" />
+</div>
+<strong>{{ entry.name }}</strong>
+<br />
+{{ entry.location }}
 </div>
 {% endfor %}
 

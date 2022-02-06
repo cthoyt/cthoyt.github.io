@@ -21,18 +21,6 @@
     day: 13
     month: January
     year: 2022
-
-- name: 13th International SWAT4HCLS Conference
-  link: http://www.swat4ls.org/
-  online: true
-  start:
-    day: 10
-    month: January
-    year: 2022
-  end:
-    day: 13
-    month: January
-    year: 2022
    
 - name: Connected Data World Workshop on Graph Machine Learning
   link: https://2021.connected-data.world/
