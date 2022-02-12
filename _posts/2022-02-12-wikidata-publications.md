@@ -57,5 +57,7 @@ resources.
 ### 4. Using
 
 1. Navigate to your Scholia curation
-   page `https://scholia.toolforge.org/author/<your Q number>/curation`. Mine
-   is [https://scholia.toolforge.org/author/Q47475003/curation].
+   page `https://scholia.toolforge.org/author/<your Q number>/curation#missing-author-resolving`.
+   You can follow
+   [this link](https://scholia.toolforge.org/author/Q47475003/curation#missing-author-resolving)
+   to see mine and make sure you're in the right place.
