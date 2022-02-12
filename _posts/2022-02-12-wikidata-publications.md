@@ -96,11 +96,12 @@ resources.
    ![](/img/wikidata-publications/scholia-interface.png)
 4. This will bring you to
    the [Author Disambiguator](https://author-disambiguator.toolforge.org) page.
-   Click the checkboxes on the publications that are yours (1), or use the boxes to
-   check entire groups (2).
+   Click the checkboxes on the publications that are yours (1), or use the boxes
+   to check entire groups (2).
 
    ![](/img/wikidata-publications/select.png)
-5. Select the radio box corresponding to your Wikidata entry (1), then click
-   _Link Selected Works to Author_ (2).
+5. Scroll down past all the check boxes to the section labeled
+   _Potential Author Items_. Select the radio box corresponding to your Wikidata
+   entry (1), then click _Link Selected Works to Author_ (2).
 
    ![](/img/wikidata-publications/finish.png)
