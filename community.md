@@ -30,13 +30,13 @@ The following is a list of my close, consistent collaborators:
 {% endif %}
 {% endfor %}
 
-### Past Collaborators
+My past collaborators include:
 
 <ul>
 {% for entry in site.data.collaborators %}
-{% if not entry.current %}
+{% unless entry.current %}
 <li>{{ entry.name }}</li>
-{% endif %}
+{% endunless %}
 {% endfor %}
 </ul>
 
