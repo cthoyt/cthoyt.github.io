@@ -57,7 +57,7 @@ This will now parse your EndNote XML file and do its best to populate Wikidata
 with all the DOIs, PubMed identifiers, PMC identifiers, arXiv identifiers, PDF
 links, and other references.
 
-## 2. Update your Wikidata profile
+## Update your Wikidata entry
 
 This tutorial already assumes you've created a Wikidata entry. If you haven't
 done this already, go back and read
@@ -75,7 +75,7 @@ direct string matching between this list of synonyms and what the Wikidata
 Integrator was able to pull from CrossRef, EuropePMC, and other metadata
 resources.
 
-## 3. Curation interface
+## Curate Wikidata using the Author Disambiguator
 
 1. Follow
    [this link](https://author-disambiguator.toolforge.org/names_oauth.php?action=authorize)
