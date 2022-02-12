@@ -10,23 +10,32 @@ scholarly works (e.g., pre-prints, publications, presentations) on Wikidata
 using [Scholia](https://scholia.toolforge.org/) and
 the [Author Disambiguator](https://author-disambiguator.toolforge.org) tool.
 
-## 1. Ensure content is available
+## Ensure content is available
 
-### 1A. Get content in EndNote XML
+While Wikidata is full of useful scholarly information, it's up to the community
+to include new content. Therefore, before we go about curating links between
+your Wikidata entry and your publications, we first have to ensure there are
+Wikidata entries for your publications. There are several ways to do this, but
+this tutorial will focus on getting the list of your publications from your
+citation manager.
 
-[Mendeley](https://www.mendeley.com) is a citation manager that can export
-EndNote XML documents.
+This tutorial will assume you're using [Mendeley](https://www.mendeley.com), a
+citation manager that can export EndNote XML documents. This tutorial might be
+later extended to include an example with [Zotero](https://www.zotero.org/),
+which can also export EndNote XML documents. After opening the application,
+follow these instructions:
 
-![](/img/wikidata-publications/mendley.png)
+![](/img/wikidata-publications/mendeley.png)
 
-1. Select your publications
+1. Select the publications you want to put into Wikidata
 2. Right click on one of them
 3. Select "export"
 4. Choose "EndNote XML" as the filetype
 
-### 1B. Wikidata Integrator
+## Uploading to Wikidata
 
-1. Create an account on [Wikidata](https://www.wikidata.org).
+1. Create an account on [Wikidata](https://www.wikidata.org). Keep in mind this
+   is _not_ the same as the Wikidata entry about you.
 2. Store your Wikidata credentials in a configuration file
    at `~/.config/wikidata.ini` (where `~` means your home directory). It should
    look like:
@@ -41,7 +50,7 @@ EndNote XML documents.
 
    ```shell
    $ pip install citation-url[endnote]
-   $ python -m citation_url.endnote <PATH TO YOUR ENDNOTE FILE>
+   $ python -m citation_url.endnote <LOCAL FILE PATH TO YOUR ENDNOTE FILE>
    ```
 
 This will now parse your EndNote XML file and do its best to populate Wikidata
@@ -68,15 +77,21 @@ resources.
 
 ## 3. Curation interface
 
-1. Start by navigating to your Scholia curation by replacing `<YOUR Q NUMBER>`
+1. Follow
+   [this link](https://author-disambiguator.toolforge.org/names_oauth.php?action=authorize)
+   to sign in to the Author Disambiguator tool using your Wikidata
+   username/password. We'll need this for later steps.
+2. [Scholia](https://scholia.toolforge.org) is a frontend for navigating
+   scholarly data within Wikidata. Navigating to your Scholia curation by
+   replacing `<YOUR Q NUMBER>`
    in `https://scholia.toolforge.org/author/<YOUR Q NUMBER>/curation#missing-author-resolving`
-   with your Wikidata identifier. It's starts with a Q followed by some numbers
+   with your Wikidata identifier. It starts with a Q followed by some numbers
    coming directly after the title on your page. For example, mine
    is `Q47475003`. You can
    follow [this link](https://scholia.toolforge.org/author/Q47475003/curation#missing-author-resolving)
    to see my curation page on Scholia as an example to make sure you're in the
    right place for yours.
-2. Click the link next to the specific text string you want to curate:
+3. Click the link next to the specific text string you want to curate:
 
    ![](/img/wikidata-publications/scholia-interface.png)
 4. This will bring you to
@@ -86,8 +101,8 @@ resources.
    properly (sorry). Remember, your Wikidata account is not the same as the
    Wikidata entry about you.
 5. Select which publication(s) (or use the boxes to check entire groups) are in
-   fact yours
-6. Select the radio box corresponding to your Wikidata entry (1), then click "
-   Link Selected Works to Author" (2)
+   fact yours.
+6. Select the radio box corresponding to your Wikidata entry (1), then click
+   _Link Selected Works to Author_ (2).
 
    ![](/img/wikidata-publications/scholia-interface.png)
