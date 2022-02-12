@@ -105,3 +105,6 @@ resources.
    entry (1), then click _Link Selected Works to Author_ (2).
 
    ![](/img/wikidata-publications/finish.png)
+6. A new window will appear so you can track the status of the job, but you can
+   close it and it will finish in the background. Give a few minutes, then your
+   profile on Scholia will be updated.
