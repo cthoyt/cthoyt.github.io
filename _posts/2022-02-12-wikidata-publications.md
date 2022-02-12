@@ -1,9 +1,21 @@
-## 1. Get content in EndNote XML
+---
+layout: post
+title: Curating Publications on Wikidata
+date: 2022-02-12 19:10:00 +0100
+author: Charles Tapley Hoyt
+tags: bibliometrics
+---
+This blog post is a tutorial on how to curate the links between a researcher and
+scholarly works (e.g., pre-prints, publications, presentations) on Wikidata
+using [Scholia](https://scholia.toolforge.org/) and
+the [Author Disambiguator](https://author-disambiguator.toolforge.org) tool.
 
-### Mendeley
+## 1. Ensure content is available
 
-[Mendeley](https://www.mendeley.com) is a less open citation manager owned by
-Elsevier.
+### 1A. Get content in EndNote XML
+
+[Mendeley](https://www.mendeley.com) is a citation manager that can export
+EndNote XML documents.
 
 ![](/img/wikidata-publications/mendley.png)
 
@@ -12,7 +24,7 @@ Elsevier.
 3. Select "export"
 4. Choose "EndNote XML" as the filetype
 
-## 2. Wikidata Integrator
+### 1B. Wikidata Integrator
 
 1. Create an account on [Wikidata](https://www.wikidata.org).
 2. Store your Wikidata credentials in a configuration file
@@ -36,7 +48,7 @@ This will now parse your EndNote XML file and do its best to populate Wikidata
 with all the DOIs, PubMed identifiers, PMC identifiers, arXiv identifiers, PDF
 links, and other references.
 
-## 3. Update your Wikidata profile
+## 2. Update your Wikidata profile
 
 This tutorial already assumes you've created a Wikidata entry. If you haven't
 done this already, go back and read
@@ -54,7 +66,7 @@ direct string matching between this list of synonyms and what the Wikidata
 Integrator was able to pull from CrossRef, EuropePMC, and other metadata
 resources.
 
-## 4. Curation interface
+## 3. Curation interface
 
 1. Start by navigating to your Scholia curation by replacing `<YOUR Q NUMBER>`
    in `https://scholia.toolforge.org/author/<YOUR Q NUMBER>/curation#missing-author-resolving`
@@ -65,7 +77,7 @@ resources.
    to see my curation page on Scholia as an example to make sure you're in the
    right place for yours.
 2. Click the link next to the specific text string you want to curate:
-   
+
    ![](/img/wikidata-publications/scholia-interface.png)
 4. This will bring you to
    the [Author Disambiguator](https://author-disambiguator.toolforge.org) page.
