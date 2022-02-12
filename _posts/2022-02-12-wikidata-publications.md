@@ -96,13 +96,9 @@ resources.
    ![](/img/wikidata-publications/scholia-interface.png)
 4. This will bring you to
    the [Author Disambiguator](https://author-disambiguator.toolforge.org) page.
-   If it prompts you to sign in to Oauth2 with Wikidata, just follow the
-   prompts. You might have to go back to Step 1 if it doesn't redirect you
-   properly (sorry). Remember, your Wikidata account is not the same as the
-   Wikidata entry about you.
-5. Select which publication(s) (or use the boxes to check entire groups) are in
-   fact yours.
+   Click the checkboxes on the publications that are yours, or use the boxes to
+   check entire groups.
 6. Select the radio box corresponding to your Wikidata entry (1), then click
    _Link Selected Works to Author_ (2).
 
-   ![](/img/wikidata-publications/scholia-interface.png)
+   ![](/img/wikidata-publications/finish.png)
