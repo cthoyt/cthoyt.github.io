@@ -18,6 +18,7 @@ permalink: /community/
 The following is a list of my close, consistent collaborators:
 
 {% for entry in site.data.collaborators %}
+{% if entry.current %}
 <div style="padding-bottom: 10px;">
 <div style="width: 160px; text-align: center; display: inline-block; float: left; margin-right: 15px;">
 <img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="max-width: 160px; max-height: 45px;" />
@@ -26,7 +27,18 @@ The following is a list of my close, consistent collaborators:
 <br />
 {{ entry.location }}
 </div>
+{% endif %}
 {% endfor %}
+
+### Past Collaborators
+
+<ul>
+{% for entry in site.data.collaborators %}
+{% if not entry.current %}
+<li>{{ entry.name }}</li>
+{% endif %}
+{% endfor %}
+</ul>
 
 ## Funding
 
