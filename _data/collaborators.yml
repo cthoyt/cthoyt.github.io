@@ -8,10 +8,15 @@
   location: Richland, WA, USA
   current: true
 
+- name: Fraunhofer IAIS
+  logo: https://www.iais.fraunhofer.de/content/dam/iais/iais.svg
+  location: Dresden, Germany
+  current: true
+
 - name: Fraunhofer Center for Machine Learning
   logo: https://www.fzml.fraunhofer.de/content/dam/iais/fzml/images/2_logos/19_ccit_web.svg
   location: Sankt Augustin, Germany
-  current: true
+  current: false
 
 - name: Ludwig-Maximilians-Universität München
   logo: /img/logos/lmu_logo.jpg
@@ -22,6 +27,16 @@
   logo: https://upload.wikimedia.org/wikipedia/de/e/ee/AstraZeneca_logo.svg
   location: Göteborg, Sweden
   current: true
+
+- name: Mila
+  logo: https://mila.quebec/wp-content/themes/mila-clevercourse-v2/images/logos/svg/mila-purple.svg
+  location: Montreal, QC, Canada
+  current: true
+
+- name: University of Bonn
+  logo: https://www.uni-bonn.de/en/++theme++unibonn.theme/images/logos/logo_desktop.svg
+  location: Bonn, Germany
+  current: false
 
 - name: University of California, San Diego
   logo: https://brand.ucsd.edu/_images/logos-and-brand-elements/university-logo/ucsd-brand-logo-colors.svg
