@@ -10,7 +10,22 @@ knowledge graph embedding models in the link prediction task. While they are rep
 ($\\text{MR} \\in [1,\\infty)$ and $\\text{MRR} \\in (0,1]$, their deep theoretical connection can be elegantly
 described through the lens of [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means). This blog post
 describes ideas [Max Berrendorf](https://github.com/mberr) shared with me that I recently implemented in
-[PyKEEN](https://github.com/pykeen/).
+[PyKEEN](https://github.com/pykeen/) and later wrote up as a [full manuscript](https://arxiv.org/abs/2203.07544).
+
+If you want to cite some of the ideas in this post, you can use:
+
+```bibtex
+@article{hoyt2022metrics,
+    archivePrefix = {arXiv},
+    arxivId = {2203.07544},
+    author = {Hoyt, Charles Tapley and Berrendorf, Max and Gaklin, Mikhail and Tresp, Volker and Gyori, Benjamin M.},
+    eprint = {2203.07544},
+    month = {mar},
+    title = {{A Unified Framework for Rank-based Evaluation Metrics for Link Prediction in Knowledge Graphs}},
+    url = {http://arxiv.org/abs/2203.07544},
+    year = {2022}
+}
+```
 
 ## The Formulation of the Link Prediction Task
 
