@@ -1,0 +1,18 @@
+- funder: DARPA
+  name: Young Faculty Award
+  abbreviation: YFA
+  pi: Benjamin Gyori
+  award: W911NF2010255
+  personal_start:
+    year: 2021
+
+- name: Automating Scientific Knowledge Extraction
+  funder: DARPA
+  abbreviation: ASKE
+  award: HR00111990009
+  project_end:
+    year: 2022
+  personal_start:
+    year: 2021
+  personal_end:
+    year: 2022

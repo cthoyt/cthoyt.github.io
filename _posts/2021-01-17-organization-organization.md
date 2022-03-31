@@ -64,6 +64,8 @@ Typically, organizations have certain pieces of information associated with them
   school, faculty, college, university, or research institution. It's best to be as specific as possible. If you are
   describing a department that is part of a faculty in a university (see the BiGCaT example above), it doesn't make
   sense to be redundant and also write that it is a part of the University.
+- [field of work](https://www.wikidata.org/wiki/Property:P101) - what topics do your organization work on / research?
+  This can be things like cancer, machine learning, etc.
 
 Leadership and organizer links:
 
@@ -71,6 +73,7 @@ Leadership and organizer links:
   themselves have a Wikidata page. For a department, this is equivalent to the department chair/head.
 - [chief executive officer](https://www.wikidata.org/wiki/Property:P169) - who is the CEO of a business?
 - [founded by](https://www.wikidata.org/wiki/Property:P112) - who founded a business?
+- [director / manager](https://www.wikidata.org/wiki/Property:P1037) - who is the PI of the lab?
 
 External Account Links:
 

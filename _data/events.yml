@@ -1,3 +1,16 @@
+- name: "Machine-Actionable Data Interoperability for Chemical Sciences (MADICES)"
+  link: https://madices.github.io/
+  talk: https://docs.google.com/presentation/d/1D0HIX41IgVdTQYKlakWcvlZvOktX23EqbLcs3LmI7mg/edit?usp=sharing
+  online: true
+  start:
+    day: 7
+    month: February
+    year: 2022
+  end:
+    day: 9
+    month: February
+    year: 2022
+
 - name: 13th International SWAT4HCLS Conference
   link: http://www.swat4ls.org/
   online: true

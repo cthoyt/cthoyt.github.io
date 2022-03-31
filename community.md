@@ -18,11 +18,47 @@ permalink: /community/
 The following is a list of my close, consistent collaborators:
 
 {% for entry in site.data.collaborators %}
+{% if entry.current %}
 <div style="padding-bottom: 10px;">
-<img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="float: left; max-height: 40px; max-width: 40px; margin-right: 15px" />
-{{ entry.name }}
+<div style="width: 160px; text-align: center; display: inline-block; float: left; margin-right: 15px;">
+<img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="max-width: 160px; max-height: 45px;" />
 </div>
+<strong>{{ entry.name }}</strong>
+<br />
+{{ entry.location }}
+</div>
+{% endif %}
 {% endfor %}
+
+My past collaborators include:
+
+<ul>
+{% for entry in site.data.collaborators %}
+{% unless entry.current %}
+<li>{{ entry.name }}</li>
+{% endunless %}
+{% endfor %}
+</ul>
+
+## Funding
+
+<ul>
+{% for entry in site.data.funding %}
+<li>
+<strong>{{ entry.funder }} {{ entry.name }} ({{ entry.abbreviation }})</strong>
+{% if entry.award %}{{ entry.award }}{% endif %}
+{% if entry.pi %}(PI: {{ entry.pi }}){% endif %}
+</li>
+{% endfor %}
+</ul>
+
+## Disclosures / Conflicts of Interest
+
+<ul>
+{% for entry in site.data.coi %}
+<li>{{ entry.description }}</li>
+{% endfor %}
+</ul>
 
 ## Events
 

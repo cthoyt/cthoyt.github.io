@@ -23,7 +23,7 @@ url: "https://cthoyt.com"
 
 google_analytics: UA-166029785-1
 
-paginate: true
+paginate: 5
 paginate_path: "/blog/page:num/"
 show_excerpts: true
 
