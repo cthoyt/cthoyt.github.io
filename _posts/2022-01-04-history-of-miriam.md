@@ -29,9 +29,8 @@ stable URIs in the form of `https://identifiers.org/<prefix>:<identifier>` (Juty
 and later began coordination with the similar Name-to-Thing (N2T) service (Wimalaratne *et al.*, 2018).
 The proliferation of biomedical ontologies supporting  the standardization of
 biomedical terminologies, thesauri, and taxonomies led to the development of the
-Open Biomedical Ontologies (OBO) Foundry (Smith *et al.*, 2007)
-
-to coordinate their evolution and support their integration. Most are modeled,
+Open Biomedical Ontologies (OBO) Foundry (Smith *et al.*, 2007) to coordinate
+their evolution and support their integration. Most are modeled,
 updated, and maintained using semantic web technologies such as the web ontology
 language (OWL) that relies on URIs, the Protégé editor (Musen *et al.*, 2015),
 and the ROBOT tool (Jackson *et al.*, 2019). In order to
