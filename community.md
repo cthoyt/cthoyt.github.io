@@ -13,6 +13,16 @@ permalink: /community/
 {% endfor %}
 </ul>
 
+## Service
+
+<ul>
+{% for entry in site.data.service %}
+    <li>
+    {{ entry.name }}
+    </li>
+{% endfor %}
+</ul>
+
 ## Collaborators
 
 The following is a list of my close, consistent collaborators:
