@@ -7,6 +7,16 @@
     month: September
     year: 2022
 
+- name: "Closing the Semantic Gap: Identifying Missing Mappings and Merging Equivalent
+Concepts to Support Knowledge Graph Assembly"
+  url: https://bit.ly/sorger-lab-biomappings
+  venue: Sorger Lab Meeting
+  online: true
+  date:
+    day: 1
+    month: August
+    year: 2022
+
 - name: Knowledge Graph Embedding with PyKEEN in 2022
   url: https://bit.ly/pykeen-kgc2022
   venue: Knowledge Graph Conference (KGC 2022)
