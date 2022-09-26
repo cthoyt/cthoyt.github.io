@@ -1,3 +1,8 @@
+- name: ISB 2023 Organizing Committee
+  wikidata: Q111430238
+  url: https://bioregistry.io/wikidata:Q111430238?provider=scholia
+- name: ICBO 2022 Workshop on Ontology Tools Co-organizer
+  url: https://icbo-conference.github.io/icbo2022/workshops-and-tutorials/#workshop-on-ontology-tools-and-workflows
 - name: ICBO 2022 Program Committee
   url: https://icbo-conference.github.io/icbo2022/program-committee
 - name: ISMB 2022 Program Committee (Bio-Ontologies/BOSC joint session)
@@ -5,6 +10,3 @@
 - name: ISB 2022 Organizing Committee
   url: https://bioregistry.io/wikidata:Q109407979?provider=scholia
   wikidata: Q109407979
-- name: ISB 2023 Organizing Committee
-  wikidata: Q111430238
-  url: https://bioregistry.io/wikidata:Q111430238?provider=scholia
