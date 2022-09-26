@@ -1,3 +1,12 @@
+- talk: https://bit.ly/icbo2022-cth
+  name: International Conference on Biomedical Ontology (ICBO) 2022
+  link: https://icbo-conference.github.io/icbo2022/
+  online: true
+  date:
+    day: 26
+    month: September
+    year: 2022
+
 - talk: https://bit.ly/pykeen-kgc2022
   name: Knowledge Graph Conference (KGC 2022)
   link: https://www.knowledgegraph.tech/kgc-2022/

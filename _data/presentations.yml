@@ -1,3 +1,12 @@
+- name: The Bioregistry, CURIEs, and OBO Community Health
+  url: https://icbo-conference.github.io/icbo2022/
+  venue: International Conference on Biomedical Ontology (ICBO) 2022
+  online: true
+  date:
+    day: 26
+    month: September
+    year: 2022
+
 - name: Axiomatizing Chemical Roles
   url: https://docs.google.com/presentation/d/1aERfoEoTB8mWjVE0BWTJet-Ek5Y_xhESf6Z82R0U30w/edit?usp=sharing
   venue: Ontologies4Chem Online Workshop
