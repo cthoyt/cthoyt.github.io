@@ -8,6 +8,8 @@
         organization:
           name: Coronawhy
           url: https://www.coronawhy.org
+        city: Remote
+        country: Remote
       start:
         month: June
         year: 2020
@@ -248,7 +250,8 @@
         month: March
         year: 2019
       end:
-        month: December 2019
+        month: December
+        year: 2019
       description: Application of network representation learning to drug repositioning
     - name: Student Research Assistant
       location:
@@ -264,7 +267,8 @@
         city: Sankt Augustin
         country: Germany
       start:
-        month: July 2018
+        month: July
+        year: 2018
       end:
         month: March
         year: 2019
@@ -390,7 +394,7 @@
       end:
         month: August
         year: 2019
-      description: Curation of
+      description: Curation of mechanistic knowledge related to the role of protein aggregation in neurodegenerative diseases
 
 - name: Keerthika Lohanadan
   github: KeerthikaL
