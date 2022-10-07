@@ -87,3 +87,7 @@ because they are perceived to be more trustworthy. There are several reasons why
 this is not true (e.g., you could use an outdated address, spoof it, etc.) but
 ultimately this serves to distract from adopting more sustainable ways of
 identifying authors and reviewers like with ORCID.
+
+## Relevant Twitter Threads
+
+- https://twitter.com/travisdrake/status/1577970169951010817
