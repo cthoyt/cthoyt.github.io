@@ -1,14 +1,28 @@
 - funder: DARPA
+  award: HR00112220036
+  name: Automating Scientific Knowledge Extraction and Modeling
+  abbreviation: ASKEM
+  pi: Benjamin M. Gyori
+  project_start:
+    year: 2022
+  url: https://www.darpa.mil/news-events/2021-12-06
+  personal_start:
+    year: 2022
+
+- funder: DARPA
   name: Young Faculty Award
   abbreviation: YFA
-  pi: Benjamin Gyori
+  pi: Benjamin M. Gyori
   award: W911NF2010255
+  url: https://govtribe.com/award/federal-grant-award/project-grant-w911nf2010255
   personal_start:
     year: 2021
 
 - name: Automating Scientific Knowledge Extraction
   funder: DARPA
   abbreviation: ASKE
+  pi: Benjamin M. Gyori
+  url: https://govtribe.com/award/federal-contract-award/other-transaction-idv-hr00111990009
   award: HR00111990009
   project_end:
     year: 2022

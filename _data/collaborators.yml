@@ -2,16 +2,25 @@
   logo: https://i.pinimg.com/originals/0a/0d/da/0a0dda7933e3d66a17a109e723cf74be.png
   location: Boston, MA, USA
   current: true
+  contact: Olga Vitek
 
 - name: Pacific Northwest National Laboratory
   logo: https://upload.wikimedia.org/wikipedia/en/1/17/Pacific_Northwest_National_Laboratory_logo.svg
   location: Richland, WA, USA
   current: true
+  contact: Jeremy Zucker
+
+- name: Fraunhofer SCAI
+  logo: https://www.scai.fraunhofer.de/content/dam/scai/scai_logo.svg
+  location: Sankt Augustin, Germany
+  current: false
+  contact: Daniel Domingo-Fernández
 
 - name: Fraunhofer IAIS
   logo: https://www.iais.fraunhofer.de/content/dam/iais/iais.svg
   location: Dresden, Germany
-  current: true
+  current: false
+  contact: Mehdi Ali
 
 - name: Fraunhofer Center for Machine Learning
   logo: https://www.fzml.fraunhofer.de/content/dam/iais/fzml/images/2_logos/19_ccit_web.svg
@@ -22,16 +31,25 @@
   logo: /img/logos/lmu_logo.jpg
   location: München, Germany
   current: true
+  contat: Max Berrendorf
 
-- name: AstraZeneca
+- name: AstraZeneca - Molecular AI
   logo: https://upload.wikimedia.org/wikipedia/de/e/ee/AstraZeneca_logo.svg
   location: Göteborg, Sweden
-  current: true
+  current: false
+  contact: Benedek Rozemberczki
+
+- name: AstraZeneca - BIKG
+  logo: https://upload.wikimedia.org/wikipedia/de/e/ee/AstraZeneca_logo.svg
+  location: Göteborg, Sweden
+  current: false
+  contact: Stephen Bonner
 
 - name: Mila
   logo: https://mila.quebec/wp-content/themes/mila-clevercourse-v2/images/logos/svg/mila-purple.svg
   location: Montreal, QC, Canada
   current: true
+  contact: Mikhail Galkin
 
 - name: University of Bonn
   logo: https://www.uni-bonn.de/en/++theme++unibonn.theme/images/logos/logo_desktop.svg

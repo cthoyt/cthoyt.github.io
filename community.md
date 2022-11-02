@@ -18,7 +18,7 @@ permalink: /community/
 <ul>
 {% for entry in site.data.service %}
     <li>
-    {{ entry.name }}
+        <a href="{{ entry.url }}">{{ entry.name }}</a>
     </li>
 {% endfor %}
 </ul>
@@ -40,7 +40,7 @@ The following is a list of my close, consistent collaborators:
 {% endif %}
 {% endfor %}
 
-My past collaborators include:
+My past/sporadic collaborators include:
 
 <ul>
 {% for entry in site.data.collaborators %}
@@ -52,15 +52,28 @@ My past collaborators include:
 
 ## Funding
 
-<ul>
+<table>
+<thead>
+<tr>
+    <th scope="col"></th>
+    <th scope="col">Name</th>
+    <th scope="col">Funder</th>
+    <th scope="col">Award</th>
+    <th scope="col">PI</th>
+</tr>
+</thead>
+<tbody>
 {% for entry in site.data.funding %}
-<li>
-<strong>{{ entry.funder }} {{ entry.name }} ({{ entry.abbreviation }})</strong>
-{% if entry.award %}{{ entry.award }}{% endif %}
-{% if entry.pi %}(PI: {{ entry.pi }}){% endif %}
-</li>
+<tr>
+    <th scope="row">{{ entry.abbreviation }}</th>
+    <td><a href="{{ entry.url }}">{{ entry.name }}</a></td>
+    <td>{{ entry.funder }}</td>
+    <td>{% if entry.award %}{{ entry.award }}{% endif %}</td>
+    <td>{% if entry.pi %}{{ entry.pi }}{% endif %}</td>
+</tr>
 {% endfor %}
-</ul>
+</tbody>
+</table>
 
 ## Disclosures / Conflicts of Interest
 

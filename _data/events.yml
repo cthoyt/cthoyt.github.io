@@ -1,3 +1,30 @@
+- talk: https://bit.ly/icbo2022-cth
+  name: International Conference on Biomedical Ontology (ICBO) 2022
+  link: https://icbo-conference.github.io/icbo2022/
+  online: true
+  date:
+    day: 26
+    month: September
+    year: 2022
+
+- talk: https://bit.ly/pykeen-kgc2022
+  name: Knowledge Graph Conference (KGC 2022)
+  link: https://www.knowledgegraph.tech/kgc-2022/
+  online: true
+  date:
+    day: 5
+    month: May
+    year: 2022
+
+- link: https://graph-learning-benchmarks.github.io/glb2022
+  talk: https://bit.ly/glb2022-ranking-metrics
+  name: Graph Learning Benchmarks (GLB 2022)
+  online: true
+  date:
+    day: 26
+    month: April
+    year: 2022
+
 - name: 15th International Biocuration Conference
   link: https://www.biocuration.org/15th-annual-biocuration-conference-virtual/
   online: true
