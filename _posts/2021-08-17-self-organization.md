@@ -24,10 +24,17 @@ awards, affiliations, employers, and the relationships between them that make it
 information.
 
 Anyone can edit Wikidata, meaning you can create an entry for your curmudgeonly PI who wouldn't be caught dead making a
-profile on this new thing called "the internet". Even better, there are several people in the bibliometrics community
-who have created bots for importing and aligning information from external sources that make the entries that you supply
-so much more rich overnight (e.g., some bots automatically translate the descriptions of pages into new languages, some
-import publication metadata, some align identifiers with external resources).
+profile on this new thing called "the internet". There are three *notability* criteria for [what's allowed](https://www.wikidata.org/wiki/Wikidata:Notability)
+to be added as an item in  Wikidata:
+
+1. References another Wikimedia commmons page
+2. References a clearly defined entity/concept that has meaningful external provenance
+3. Fulfills a structural need to make statements in other items more useful
+
+Adding researchers usually fits one or both of criteria 2 or 3. Further, there are several people in the
+bibliometrics community who have created bots for importing and aligning information from external sources that make
+the entries that you supply so much more rich overnight (e.g., some bots automatically translate the descriptions of
+pages into new languages, some import publication metadata, some align identifiers with external resources).
 
 Let's get to it.
 
