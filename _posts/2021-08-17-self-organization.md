@@ -197,4 +197,5 @@ mine (though I keep it pretty up-to-date and it's likely empty):
 ---
 
 There's quite a bit more with respect to getting papers and associations between researchers and events like
-conferences, but this is already a great place to start.
+conferences, but this is already a great place to start. See the next post in the series on
+[curating your papers in Wikidata]({% post_url 2022-02-12-wikidata-publications %}).
