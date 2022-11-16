@@ -12,8 +12,8 @@ can also use Wikidata to improve the profiles of your co-workers and collaborato
 
 There are several _other_ places besides Wikidata for putting your scholarly profile. The first (and worst) is by making
 a resume in an awful Word document or PDF. Much like what ends up in english prose in scientific texts, this is where
-knowledge goes to die. The next less bad is to put it in a closed repository like [LinkedIn](https://www.linkedin.com)
-, [ResearchGate](https://www.researchgate.net), [Scopus](https://www.scopus.com), [Loop](https://loop.frontiersin.org/),
+knowledge goes to die. The next less bad is to put it in a closed repository like [LinkedIn](https://www.linkedin.com),
+[ResearchGate](https://www.researchgate.net), [Scopus](https://www.scopus.com), [Loop](https://loop.frontiersin.org/),
 or one of many others. These might be nice, but don't forget they're companies and do not want people to be able to use
 their troves without paying up. The runner-up is [ORCID](https://orcid.org), which is absolutely amazing for providing
 persistent identifiers to individuals, linking published work in high-profile repositories like PubMed, and in some
@@ -25,7 +25,7 @@ information.
 
 Anyone can edit Wikidata, meaning you can create an entry for your curmudgeonly PI who wouldn't be caught dead making a
 profile on this new thing called "the internet". There are three *notability* criteria for [what's allowed](https://www.wikidata.org/wiki/Wikidata:Notability)
-to be added as an item in  Wikidata:
+to be added as an item in Wikidata:
 
 1. References another Wikimedia commmons page
 2. References a clearly defined entity/concept that has meaningful external provenance
@@ -114,18 +114,18 @@ whistles.
 
 Affiliations:
 
-- [educated at](https://www.wikidata.org/wiki/Property:P69) - links a person to the institutions at which they earned
+- [educated at (P69)](https://www.wikidata.org/wiki/Property:P69) - links a person to the institutions at which they earned
   their bachelor's, master's, or doctoral degrees, as well as any other education.
-- [employer](https://www.wikidata.org/wiki/Property:P108) - the top-level organization that you're associated with. For
-  me at the moment, that's Harvard Medical School. For specific departments or teams within the organization, you can
+- [employer (P108)](https://www.wikidata.org/wiki/Property:P108) - the top-level organization that you're associated with. For
+  me at the moment, that's [Harvard Medical School](https://www.wikidata.org/wiki/Q49121). For specific departments or teams within the organization, you can
   use the "affiliation" property.
-- [affiliation](https://www.wikidata.org/wiki/Property:P1416) - useful for subdivisions inside organizations. For
+- [affiliation (P1416)](https://www.wikidata.org/wiki/Property:P1416) - useful for subdivisions inside organizations. For
   example, while I am employed by Harvard Medical School, I am appointed as a postdoc in
   the [Laboratory of Systems Pharmacology](https://www.wikidata.org/wiki/Q107380113), which itself has information about
   its membership within the [Harvard Program in Therapeutic Science](https://www.wikidata.org/wiki/Q107392274).
-- [member of](https://www.wikidata.org/wiki/Property:P463) - any professional societies, working groups, or other
+- [member of (P463)](https://www.wikidata.org/wiki/Property:P463) - any professional societies, working groups, or other
   organizations. For example, I belong to the [American Chemical Society](https://www.wikidata.org/wiki/Q247556).
-- [doctoral advisor](https://www.wikidata.org/wiki/Property:P184) - useful for building up academic trees. I asked my
+- [doctoral advisor (P184)](https://www.wikidata.org/wiki/Property:P184) - useful for building up academic trees. I asked my
   doctoral advisor about his doctoral advisor and actually ended up emailing him to find out some more information about
   my academic lineage. It turns out that there's a lot of information in the Academic Tree website that gets propagated
   through to Wikidata already by bots. After I added a few missing links, I found out that I am in the lineage
@@ -134,13 +134,13 @@ Affiliations:
 
 Accomplishments:
 
-- [academic degree](https://www.wikidata.org/wiki/Property:P512) - the highest academic degree obtained (
-  e.g., [Doctor of Philosophy](https://www.wikidata.org/wiki/Q752297)). Using the "qualifiers", it's also possible to
+- [academic degree (P512)](https://www.wikidata.org/wiki/Property:P512) - the highest academic degree obtained
+  (e.g., [Doctor of Philosophy](https://www.wikidata.org/wiki/Q752297)). Using the "qualifiers", it's also possible to
   add information about the doctoral advisor, when the degree was received, the opponents during the disputation (i.e.,
   the examination committee)
-- [academic thesis](https://www.wikidata.org/wiki/Property:P1026) - make an entry for your master's or PhD thesis, and
+- [academic thesis (P1026)](https://www.wikidata.org/wiki/Property:P1026) - make an entry for your master's or PhD thesis, and
   link them to you this way!
-- [award received](https://www.wikidata.org/wiki/Property:P166) - make an entry for the awards you've received, then
+- [award received (P166)](https://www.wikidata.org/wiki/Property:P166) - make an entry for the awards you've received, then
   connect them here.
 
 Some of the affiliations and accomplishments will require going even deeper into your curation and making additional
@@ -149,15 +149,16 @@ academic thesis.
 
 General External Account Links:
 
-- [GitHub username](https://www.wikidata.org/wiki/Property:P2037)
-- [LinkedIn personal profile ID](https://www.wikidata.org/wiki/Property:P6634)
-- [Twitter username](https://www.wikidata.org/wiki/Property:P2002)
+- [GitHub username (P2037)](https://www.wikidata.org/wiki/Property:P2037)
+- [LinkedIn personal profile ID (P6634)](https://www.wikidata.org/wiki/Property:P6634)
+- [Twitter username (P2002)](https://www.wikidata.org/wiki/Property:P2002)
+- [Mastodon address (P4033)](https://www.wikidata.org/wiki/Property:P4033)
 
 Academic External Account Links:
 
-- [ORCID ID](https://www.wikidata.org/wiki/Property:P496)
-- [Google scholar author ID](https://www.wikidata.org/wiki/Property:P1960)
-- [DBLP author ID](https://www.wikidata.org/wiki/Property:P2456)
+- [ORCID ID (P496)](https://www.wikidata.org/wiki/Property:P496)
+- [Google scholar author ID (P1960)](https://www.wikidata.org/wiki/Property:P1960)
+- [DBLP author ID (P2456)](https://www.wikidata.org/wiki/Property:P2456)
 
 The ORCID identifier is definitely the most important, but Google and DBLP often pre-index researchers even if they have
 not got an ORCID, so this might be the best you can do for some researchers.
