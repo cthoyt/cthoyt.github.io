@@ -15,7 +15,7 @@ a common issue that hampers reproducibility: hard-coded configuration to a local
 and reproducible.
 
 While the original blog post pointed to
-code [PatWalters/comparing_classifier](https://github.com/PatWalters/comparing_classifier), there's an updated version
+code [PatWalters/comparing_classifiers](https://github.com/PatWalters/comparing_classifiers), there's an updated version
 at [PatWalters/jcamd_model_comparison](https://github.com/PatWalters/jcamd_model_comparison)
 that includes the code that queries ChEMBL (among other things).
 The [original notebook](https://nbviewer.jupyter.org/github/PatWalters/jcamd_model_comparison/blob/92cc912f24dcac5cad0c52143b67b8c2c124c11e/jcamd_model_comparison.ipynb)
