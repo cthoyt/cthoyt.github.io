@@ -7,7 +7,7 @@ tags: bioregistry
 ---
 The [Global Biodata Coalition](https://globalbiodata.org) released a list of [*Global Core Biodata
 Resources (GCBRs)*](https://globalbiodata.org/scientific-activities/global-core-biodata-resources) in December 2022,
-comprising 37 life sciences that they considered as having significant importance (selected following
+comprising 37 life science databases that they considered as having significant importance (selected following
 this [procedure](https://doi.org/10.5281/zenodo.5845116)). While the [the Bioregistry](https://bioregistry.io)
 does not generally cover databases, many notable databases have one or more associated semantic spaces that are relevant
 for inclusion. Accordingly, 33 of 37 of the GCBRs (that's 89%) have one or more directly-related prefixes in the
