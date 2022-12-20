@@ -1,3 +1,72 @@
+- talk: https://bit.ly/icbo2022-cth
+  name: International Conference on Biomedical Ontology (ICBO) 2022
+  link: https://icbo-conference.github.io/icbo2022/
+  online: true
+  date:
+    day: 26
+    month: September
+    year: 2022
+
+- talk: https://bit.ly/pykeen-kgc2022
+  name: Knowledge Graph Conference (KGC 2022)
+  link: https://www.knowledgegraph.tech/kgc-2022/
+  online: true
+  date:
+    day: 5
+    month: May
+    year: 2022
+
+- link: https://graph-learning-benchmarks.github.io/glb2022
+  talk: https://bit.ly/glb2022-ranking-metrics
+  name: Graph Learning Benchmarks (GLB 2022)
+  online: true
+  date:
+    day: 26
+    month: April
+    year: 2022
+
+- name: 15th International Biocuration Conference
+  link: https://www.biocuration.org/15th-annual-biocuration-conference-virtual/
+  online: true
+  wikidata: Q109407979
+  start:
+    day: 7
+    month: April
+    year: 2022
+
+- name: "Machine-Actionable Data Interoperability for Chemical Sciences (MADICES)"
+  link: https://madices.github.io/
+  talk: https://docs.google.com/presentation/d/1D0HIX41IgVdTQYKlakWcvlZvOktX23EqbLcs3LmI7mg/edit?usp=sharing
+  online: true
+  start:
+    day: 7
+    month: February
+    year: 2022
+  end:
+    day: 9
+    month: February
+    year: 2022
+
+- name: 13th International SWAT4HCLS Conference
+  link: http://www.swat4ls.org/
+  online: true
+  start:
+    day: 10
+    month: January
+    year: 2022
+  end:
+    day: 13
+    month: January
+    year: 2022
+   
+- name: Connected Data World Workshop on Graph Machine Learning
+  link: https://2021.connected-data.world/
+  online: true
+  date:
+    day: 1
+    month: December
+    year: 2021
+
 - name: 6th Disease Maps Community Meeting
   link: https://disease-maps.org/DMCM2021
   online: true
@@ -8,7 +77,7 @@
   end:
     day: 30
     month: November
-    year: 2020
+    year: 2021
 
 - name: RDKit User Group Meeting 2021
   link: https://github.com/rdkit/UGM_2021

@@ -1,4 +1,6 @@
 - name: PyBEL
+  pypi: pybel
+  language: python
   github: pybel/pybel
   role: creator, maintainer
   description: Compiler for the Biological Expression Language
@@ -6,54 +8,73 @@
   wikidata: Q96470799
 
 - name: Bio2BEL
+  pypi: bio2bel
+  language: python
   github: bio2bel/bio2bel
   role: creator, maintainer
   description: Framework for reproducible data integration in BEL
   logo: https://github.com/bio2bel/bio2bel-art/raw/master/bio2bel-logo-100.png
 
 - name: BEL Commons
+  pypi: bel-commons
+  language: python
   github: bel-commons/bel-commons
   role: creator, maintainer
   description: Interactive exploration of networks encoded in the BEL
   logo: https://github.com/pybel/pybel-art/raw/master/BEL%20Commons/BELcommons-square-100.png
 
 - name: PyOBO
+  pypi: pyobo
+  language: python
   github: pyobo/pyobo
   role: creator, maintainer
   description: Harmonization of biological ontologies and controlled vocabularies
   logo: /img/logos/pyobo.png
 
 - name: GuiltyTargets
+  pypi: guiltytargets
+  language: python
   github: guiltytargets/guiltytargets
   role: advisor, maintainer
   description: Target prioritization framework using gene expression and network representation learning
   logo: /img/logos/guiltytargets.png
 
 - name: PyKEEN
+  pypi: pykeen
+  language: python
   github: pykeen/pykeen
-  role: maintainer (core team member)
+  role: maintainer
   description: The most expansive knowledge graph embedding framework to date
   logo: https://raw.githubusercontent.com/pykeen/pykeen/master/docs/source/logo.png
+  wikidata: http://www.wikidata.org/entity/Q96631404
 
 - name: ComPath
+  pypi: compath
+  language: python
   github: ComPath/ComPath
   role: contributor (core team member)
   description: Platform and web application for integrating and curating pathway databases
   logo: https://avatars0.githubusercontent.com/u/36850400?s=200&v=4
 
 - name: PathMe
+  pypi: pathme
+  language: python
   github: PathwayMerger/PathMe
   role: contributor (core team member)
   description: Web application for exploration of pathway databases
   logo: https://avatars0.githubusercontent.com/u/46240301?s=200&v=4
 
 - name: Pathway Forte
+  pypi: pathway-forte
+  language: python
   github: PathwayMerger/PathMe
   role: contributor (core team member)
   description: Benchmarking pathway databases in functional enrichment analysis and prediction methods
   logo: https://avatars3.githubusercontent.com/u/49114317?s=200&
 
 - name: RatVec
+  pypi: ratvec
+  language: python
   github: ratvec/ratvec
   role: contributor
   description: Sequence-based representation learning
@@ -61,36 +82,62 @@
 
 - name: PS4DR
   github: ps4dr/ps4dr
+  language: r
   role: advisor
   description: Drug repositioning based on bioactivity pattern matching and GWAS
   logo: https://avatars0.githubusercontent.com/u/51780347?s=200&v=4
 
 - name: SeffNet
   github: seffnet/seffnet
+  language: python
   role: advisor, maintainer
   description: Drug repositioning framework based on network representation learning
   logo: https://avatars0.githubusercontent.com/u/53968086?s=200&v=4
 
 - name: CLEP
+  language: python
+  pypi: clep
   github: hybrid-kg/clep
   role: advisor
   description: Patient stratification framework based on network representation learning
   logo: /img/logos/clep.jpg
 
 - name: BEL2SCM
+  pypi: bel2scm
+  language: python
   github: bel2scm/bel2scm
   role: contributor (core team member)
   description: Generation of structural causal models (SCMs) from BEL graphs
   logo: https://avatars3.githubusercontent.com/u/67915215?s=200
 
 - name: y0
+  pypi: y0
+  language: python
   github: y0-causal-inference/y0
   role: maintainer (core team member)
   description: Representation and manipulating probabilistic expressions
   logo: /img/logos/y0.png
 
 - name: STonKGs
+  pypi: stonkgs
+  language: python
   github: stonkgs/stonkgs
-  role: advisor
+  role: advisor, contributor
   description: Multimodal Transformers for biomedical text and Knowledge Graph data
   logo: https://avatars.githubusercontent.com/u/81307925?s=200&v=4
+
+- name: ChemicalX
+  pypi: chemicalx
+  language: python
+  github: AstraZeneca/chemicalx
+  role: contributor (core team member)
+  description: A deep learning library for drug-drug interaction, polypharmacy side effect, and synergy prediction.
+  logo: https://github.com/AstraZeneca/chemicalx/raw/main/images/chemicalx_logo.jpg?sanitize=true
+
+- name: RexMex
+  pypi: rexmex
+  language: python
+  github: AstraZeneca/rexmex
+  role: contributor
+  description: A library implementing a comprehensive collection of metrics for the evaluation of recommender systems.
+  logo: https://github.com/AstraZeneca/rexmex/raw/main/rexmex_small.jpg?raw=true?sanitize=true

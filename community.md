@@ -13,6 +13,76 @@ permalink: /community/
 {% endfor %}
 </ul>
 
+## Service
+
+<ul>
+{% for entry in site.data.service %}
+    <li>
+        <a href="{{ entry.url }}">{{ entry.name }}</a>
+    </li>
+{% endfor %}
+</ul>
+
+## Collaborators
+
+The following is a list of my close, consistent collaborators:
+
+{% for entry in site.data.collaborators %}
+{% if entry.current %}
+<div style="padding-bottom: 10px;">
+<div style="width: 160px; text-align: center; display: inline-block; float: left; margin-right: 15px;">
+<img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="max-width: 160px; max-height: 45px;" />
+</div>
+<strong>{{ entry.name }}</strong>
+<br />
+{{ entry.location }}
+</div>
+{% endif %}
+{% endfor %}
+
+My past/sporadic collaborators include:
+
+<ul>
+{% for entry in site.data.collaborators %}
+{% unless entry.current %}
+<li>{{ entry.name }}</li>
+{% endunless %}
+{% endfor %}
+</ul>
+
+## Funding
+
+<table>
+<thead>
+<tr>
+    <th scope="col"></th>
+    <th scope="col">Name</th>
+    <th scope="col">Funder</th>
+    <th scope="col">Award</th>
+    <th scope="col">PI</th>
+</tr>
+</thead>
+<tbody>
+{% for entry in site.data.funding %}
+<tr>
+    <th scope="row">{{ entry.abbreviation }}</th>
+    <td><a href="{{ entry.url }}">{{ entry.name }}</a></td>
+    <td>{{ entry.funder }}</td>
+    <td>{% if entry.award %}{{ entry.award }}{% endif %}</td>
+    <td>{% if entry.pi %}{{ entry.pi }}{% endif %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+## Disclosures / Conflicts of Interest
+
+<ul>
+{% for entry in site.data.coi %}
+<li>{{ entry.description }}</li>
+{% endfor %}
+</ul>
+
 ## Events
 
 <ol reversed>

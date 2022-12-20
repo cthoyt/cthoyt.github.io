@@ -13,3 +13,4 @@ at <a href="https://orcid.org/0000-0003-4423-4370"><img alt="ORCID logo"
 src="/img/logos/orcid-icon.svg" width="16" height="16" />
 https://orcid.org/0000-0003-4423-4370</a>. Content on this site is licensed
 as [CC BY 4.0](https://github.com/cthoyt/cthoyt.github.io/blob/master/LICENSE).
+See also my [family recipe blog](/recipes).
