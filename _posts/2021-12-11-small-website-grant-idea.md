@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A call for funding to support the longevity of small life science informatics resources
+title: Long-term Funding for Small Biomedical Databases
 date: 2022-12-20 14:26:00 +0100
 author: Charles Tapley Hoyt
 tags: semantics
