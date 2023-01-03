@@ -88,7 +88,7 @@ and combination with other curations.
 
 ---
 
-Stay tuned for the upcoming [INDRA 2 paper that outlines how curations can be
+Stay tuned for the upcoming INDRA 2 paper that outlines how curations can be
 used to assess the quality of each statement (at each level of hierarchical
 abstraction, too) as well as the INDRA Database paper describing this resource.
 We're currently working on
