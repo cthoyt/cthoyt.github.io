@@ -9,15 +9,12 @@ minima:
     twitter: cthoyt
     github: cthoyt
     linkedin: cthoyt
-    keybase: cthoyt
-    gitlab:
-      - username: cthoyt
-        instance: gitlab.com
+    #    gitlab:
+    #      - username: cthoyt
+    #        instance: gitlab.com
     mastodon:
       - username: cthoyt
         instance: scholar.social
-      - username: cthoyt
-        instance: mastodon.social
 
 url: "https://cthoyt.com"
 
