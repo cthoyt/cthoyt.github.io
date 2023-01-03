@@ -46,4 +46,5 @@ in more detail (illustrated through the [Bioregistry](https://bioregistry.io) re
 towards both creating new sustainable resources as well as revitalizing existing ones.
 
 ---
-Please let me know if you'll be in Padua for the conference! I'd love to catch up.
+Later, I will update this post with a link to the slides for the related talk. Please let me know if you'll be in Padua
+for the conference! I'd love to catch up.
