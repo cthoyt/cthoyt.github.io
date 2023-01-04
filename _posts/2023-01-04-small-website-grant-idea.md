@@ -134,8 +134,6 @@ Report](https://biopragmatics.github.io/bioregistry/health/) that checks on a we
 still resolve and how many URI format strings still resolve. The results were bleak - only about 27% (as of today) do.
 This isn't an indictment of the badness of the Bioregistry or the registries that it imports and aligns either - it's
 true that sometimes the URLs for sites change, but this number reflects the more general problem that most just go away.
-I also want to S/O to Michel Dumontier's group at Maastricht that has also been thinking about the
-same sort of thing, and we're working towards collaborating on a more detailed assessment.
 
 ## The Results
 
