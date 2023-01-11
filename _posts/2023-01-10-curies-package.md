@@ -7,7 +7,7 @@ tags: semantic-web curies prefixes iris uris python
 ---
 The semantic web and ontology communities needed a reusable Python package for converting between uniform resource
 identifiers (URIs) and compact URIs (CURIEs) that is reliable, idiomatic, generic, and performant. This post describes
-the [`curies`](https://github.com/cthoyt/curies) Python package that I wrote to fill this need.
+the [`curies`](https://github.com/cthoyt/curies) Python package that fills this need.
 
 After installing with `pip install curies` or checking out the code on [GitHub](https://github.com/cthoyt/curies) and
 installing a local copy, you can directly jump in to using the `curies` package. Its main data structure is
@@ -34,7 +34,7 @@ converter = Converter.from_prefix_map(prefix_map)
 ```
 
 The `Converter` class indexes the prefix map using a [trie](https://en.wikipedia.org/wiki/Trie) data structure, which
-makes search of the beginning of sequences (such as strings) efficient. My implementation builds on the implementation
+makes search of the beginning of sequences (such as strings) efficient. The `curies` implementation builds on the implementation
 of this data structure in the [`PyTrie`](https://github.com/gsakkis/pytrie/) package.
 
 ## Conversion
@@ -103,14 +103,17 @@ and it's desired to use local data.
 
 ```python
 import bioregistry
+from curies import Converter
 
-converter = bioregistry.get_converter()
+converter: Converter = bioregistry.get_converter()
 ```
 
 ### Loading from `prefixmaps`
 
 The [`prefixmaps`](https://github.com/linkml/prefixmaps) Python package keeps various prefix maps under version control
-that also has first-class support for the `curies` package.
+that also has partial support for the `curies` package using the *extended prefix map* data structure
+(as opposed to a prefix map, this includes synonyms).
+See [`Converter.from_extended_prefix_map`](https://curies.readthedocs.io/en/latest/api/curies.Converter.html#curies.Converter.from_extended_prefix_map) for more information on how to use this data structure.
 
 ```python
 from prefixmaps import load_context
