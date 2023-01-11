@@ -10,7 +10,7 @@ identifiers (URIs) and compact URIs (CURIEs) that is reliable, idiomatic, generi
 the [`curies`](https://github.com/cthoyt/curies) Python package that I wrote to fill this need.
 
 After installing with `pip install curies` or checking out the code on [GitHub](https://github.com/cthoyt/curies) and
-installing a local copy, you can directly jump in to using the code. The main data structure in the `curies` package is
+installing a local copy, you can directly jump in to using the `curies` package. Its main data structure is
 [`curies.Converter`](https://curies.readthedocs.io/en/latest/api/curies.Converter.html#converter).
 It can be instantiated with various class methods corresponding to data in one of several formats.
 
