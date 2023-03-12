@@ -67,7 +67,7 @@ that appear in the Bioregistry:
 | [omia](https://bioregistry.io/omia)                       | Online Mendelian Inheritance in Animals         | biocontext    | `http://purl.obolibrary.org/obo/OMIA_`      |
 | [omim](https://bioregistry.io/omim)                       | Online Mendelian Inheritance in Man             | biocontext    | `http://purl.obolibrary.org/obo/OMIM_`      |
 | [pride](https://bioregistry.io/pride)                     | PRIDE Controlled Vocabulary                     | curated       | `http://purl.obolibrary.org/obo/PRIDE_`     |
-| [reo](https://bioregistry.io/reo)                         | Reagent Ontology                                | curated       | `http://purl.obolibrary.org/obo/REO_$11`    |
+| [reo](https://bioregistry.io/reo)                         | Reagent Ontology                                | curated       | `http://purl.obolibrary.org/obo/REO_`       |
 | [roleo](https://bioregistry.io/roleo)                     | Role Ontology                                   | curated       | `http://purl.obolibrary.org/obo/RoleO_`     |
 | [soybase](https://bioregistry.io/soybase)                 | SoyBase                                         | prefixcommons | `http://purl.obolibrary.org/obo/`           |
 | [uniprot.isoform](https://bioregistry.io/uniprot.isoform) | UniProt Isoform                                 | extra         | `http://purl.obolibrary.org/obo/UniProtKB_` |
