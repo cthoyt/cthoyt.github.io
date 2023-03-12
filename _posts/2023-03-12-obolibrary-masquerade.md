@@ -134,7 +134,7 @@ Based on the table above, there are several situations in which an OBO PURL appe
 3. Ontologies are/were intended to be submitted to the OBO Foundry. For example, this includes:
     - The Academic Event Ontology (AEON) is still a work in progress and will be submitted to the OBO Foundry
     - The Reagent Ontology (REO) was abandoned and never submitted to the OBO Foundry
-4. Ontologies that are part of the OBO Foundry, but do not themselves use OBO PURLs (e.g., EFO)
+4. Ontologies that closely used by the OBO Foundry ecosystem, and are somtimes mistaken for being in it (e.g., EFO)
 5. Not all ontologies, controlled vocabularies, or other semantic spaces have associated PURLs. Several registries
    (e.g., Prefix Commons, BioContext, BioLink Model) have "made up" OBO PURLs for non-OBO Foundry resources because of
    their use case-specific preferences.
