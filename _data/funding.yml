@@ -1,3 +1,15 @@
+- funder: Defense Threat Reduction Agency (DTRA)
+  award: FP00012844
+  name: Rapid Assessment of Platform Technologies to Expedite Response
+  abbreviation: RAPTER
+  pi: Benjamin M. Gyori
+  project_start:
+    year: 2023
+  url: https://discover.lanl.gov/news/1027-vaccine-development
+  personal_start:
+    year: 2023
+
+
 - funder: DARPA
   award: HR00112220036
   name: Automating Scientific Knowledge Extraction and Modeling

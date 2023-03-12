@@ -86,7 +86,7 @@ conib_graph = conib.get_graph()
 conib_graph.summarize()
 ```
 
-### HemeKG
+### HemeKG [![DOI](https://zenodo.org/badge/202482655.svg)](https://zenodo.org/badge/latestdoi/202482655)
 
 The Heme Knowledge Graph (HemeKG) encodes heme pathogenicity and pathway dysregulation
 in the context of hemolytic disorders. It was published by Humayun *et al.* in
@@ -181,24 +181,34 @@ it to one of many services that PyBEL interacts with.
 
 ### Upload to BEL Commons
 
-BEL Commons is a free, open-source platform for hosting BEL content. Because it was originally developed and
-published in an academic capacity at Fraunhofer, they host a [public instance](https://bel-commons-dev.scai.fraunhofer.de).
+BEL Commons is a free, open-source platform for hosting BEL content. It includes the ability to interactively
+explore nodes, edges, and networks along with their associated metadata as well as enrich them with content from
+Bio2BEL.
+
+> **Warning**
+> BEL Commons was originally developed and published in an academic capacity at Fraunhofer.
+> While they hosted a [public instance](https://bel-commons-dev.scai.fraunhofer.de) to support its original
+> publication, it was permanently shut down in 2020.
 
 ```python
 import covid19kg
 graph = covid19kg.get_graph()
 
 import pybel
-pybel.to_bel_commons(graph, host='https://bel-commons-dev.scai.fraunhofer.de', user='...', password='...')
+pybel.to_bel_commons(graph, host='...', user='...', password='...')
 ```
 
-The public instance of BEL Commons is only supported by Fraunhofer out of posterity. If you would like to host
-your own instance of BEL Commons, it can be downloaded from GitHub ([bel-commons/bel-commons](https://github.com/bel-commons/bel-commons))
+If you would like to host your own instance of BEL Commons, it can be downloaded from GitHub ([bel-commons/bel-commons](https://github.com/bel-commons/bel-commons))
 and hosted easily with Docker. If you are hosting your own instance, all you have to do is use the `host` keyword.
-Otherwise, it defaults to the server hosted by Fraunhofer. See the [pybel.to_bel_commons()](https://pybel.readthedocs.io/en/latest/reference/io.html#module-pybel.io.bel_commons_client)
+See the [pybel.to_bel_commons()](https://pybel.readthedocs.io/en/latest/reference/io.html#module-pybel.io.bel_commons_client)
 documentation.
 
 ### Upload to BioDati Studio
+
+> **Warning**
+> After a relatively short stint, BioDati was shut down some time in 2021, likely coinciding with
+> the departure of William Hayes to go to Sage Therapeutics. Therefore, this section corresponds
+> to infrastructure that no longer exists, but it will remain in this post for posterity.
 
 BioDati is a paid, closed-source platform for hosting BEL content. However, they do have a demo instance running at
 https://studio.demo.biodati.com with which the examples in this module will be described.
