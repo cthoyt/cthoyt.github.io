@@ -5,6 +5,9 @@ date: 2023-03-12 00:11:23 +0100
 author: Charles Tapley Hoyt
 tags: bioregistry obo ontologies
 ---
+Several controlled vocabularies and ontologies that aren't themselves [OBO Foundry](https://obofoundry.org/) ontologies
+use unsanctioned OBO PURLs. This post is about how to use [the Bioregistry](https://bioregistry.io/) to identify which
+resources are doing this and to give some insight into how we arrived in this situation.
 
 ## Background on the OBO Foundry
 
@@ -86,8 +89,7 @@ It's worth noting that there are probably *lots* more resources doing this, e.g.
 in [BioPortal](https://bioportal.bioontology.org/), but have not been included in the Bioregistry because of their lack
 of notability, utility, or reuse.
 
-<details>
-<summary>Here's the Python code to find these</summary>
+<details><summary>Here's the code that generated the table (before minor modifications)</summary>
 
 ```python
 import bioregistry
