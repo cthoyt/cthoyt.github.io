@@ -2,7 +2,7 @@
 layout: home
 ---
 <img src="/img/headshot.png" alt="Charles Tapley Hoyt" align="left" height="60" style="margin-right: 10px"/>
-My name is Charles Tapley Hoyt. I'm a Postdoctoral Research Fellow at Harvard Medical School 
+My name is Charles Tapley Hoyt (he/his). I'm a Research Fellow at Harvard Medical School 
 working remotely from Germany. I'm working in bio/cheminformatics - more specifically using 
 biological knowledge graphs to generate testable hypotheses for drug discovery and 
 precision medicine.
