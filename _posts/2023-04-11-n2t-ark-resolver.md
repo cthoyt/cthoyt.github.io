@@ -7,17 +7,18 @@ tags: curies arks n2t pids
 ---
 [Archival Resource Keys (ARKs)](https://arks.org/) are flavor of persistent identifiers
 like DOIs, URNs, and Handles that have the benefit of being free, flexible with what
-metadata gets attached, and natively able to resolve to web pages. [Names to Things (N2T)](https://n2t.net)
+metadata gets attached, and natively able to resolve to web pages. [Name-to-Thing (N2T)](https://n2t.net)
 implements a resolver for a variety of ARKs, so this blog post is about how that resolver can be
 re-implemented with the [`curies`](https://github.com/cthoyt/curies/) Python package.
 
 In a lot of ways, ARKs look and act like CURIEs. For example, `ark:/53355/cl010277627` could be interpreted
 as having the prefix `ark` and the local unique identifier `/53355/cl010277627`. The first part of each ARK
-between the first two slashes coresponds to the provider. In this example, `53355` corresponds to the
-[Louvre](https://www.louvre.fr/en) museum in Paris, France.
+between the first two slashes corresponds to the provider. In this example, `53355` corresponds to the
+[Louvre](https://www.louvre.fr/en) museum in Paris, France and `cl010277627` is the local unique identifier
+corresponding to the Vénus de Milo statue.
 
-However, I might have just committed ARK blasphemy. It appears that the prefix and provider code stay grouped
-together in the front half like `ark:/53355/` and then the back half `cl010277627` represents the local unique
+However, I might have just committed ARK blasphemy. In N2T, it appears that the ARK prefix and provider code stay
+grouped together in the front half like `ark:/53355/` and then the back half `cl010277627` represents the local unique
 identifier. This is very similar to the two-layer identifiers in DOI and the arbitrary number of layer identifiers in
 OID.
 
@@ -95,3 +96,8 @@ cd n2t-ark-resolver
 python -m pip install -r requirements.txt
 python wsgi.py
 ```
+
+---
+Update: since posting this, I have heard from John Kunze that the ARK format is currently being updated to look more
+like URNs and therefore not have the slash after `ark:/` anymore. If/when that happens, there are only a few bits of
+string pre-processing in this script that need to be updated to keep everything running.
