@@ -79,7 +79,7 @@ The two tricks here are:
 1. We want to remove the redundant `ark:/` then interpret the ARK provider code as the prefix and the rest as the local
    unique identifier. However, we still want to be able to write URLs in our resolver that have the `ark:/` prefix.
    Luckily, Flask has the facility to define a default `url_prefix` before a given blueprint that we invoke directly.
-2. Unlike CURIEs that use a colon `:` as the delimiter between the prefix and local unique identifier, AKRs use a
+2. Unlike CURIEs that use a colon `:` as the delimiter between the prefix and local unique identifier, ARKs use a
    slash `/`. We can also set this in the Converter's settings.
 
 Now, all we need to do is instantiate the app and serve it with any WSGI tool like Gunicorn, Uvicorn, or Flask's
