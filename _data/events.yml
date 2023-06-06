@@ -1,4 +1,11 @@
-- talk: https://docs.google.com/presentation/d/1hEryoMNyp8gwt2pvPy2ErKaw_QPvnWOmzPT0Sn4Yl4s/edit?usp=sharing
+- talk:
+    invited: false
+    name: "Promoting the longevity of curated scientific resources through open code, open data, and public infrastructure"
+    url: https://docs.google.com/presentation/d/1hEryoMNyp8gwt2pvPy2ErKaw_QPvnWOmzPT0Sn4Yl4s/edit?usp=sharing
+    date:
+      day: 26
+      month: April
+      year: 2023
   name: Biocuration 2023
   link: https://biocuration2023.github.io/
   wikidata: Q111430238
@@ -11,7 +18,10 @@
     month: April
     year: 2023
 
-- talk: https://docs.google.com/presentation/d/1oKxBzSCZGuFlIhw6jAXw00xgEGs7KgmaVR54NEdPprw/edit?usp=sharing
+- talk:
+    invited: true
+    name: Using dashboards to monitor ontology standardisation and community activity
+    url: https://docs.google.com/presentation/d/1oKxBzSCZGuFlIhw6jAXw00xgEGs7KgmaVR54NEdPprw/edit?usp=sharing
   name: Ontology Summit 2023
   link: https://ontologforum.org/index.php/ConferenceCall_2023_02_15
   online: true
@@ -23,7 +33,10 @@
 - name: 2022 Workshop on Prefixes, CURIEs, and IRIs
   link: https://biopragmatics.github.io/workshops/WPCI2022.html
   online: true
-  talk: https://docs.google.com/presentation/d/1Vq-tdq_PYSmKydKXEABElgt3oqYs_ridquHDLeUFL1A/edit?usp=sharing
+  talk:
+    name: Introduction to WPCI 2022
+    invited: true
+    url: https://docs.google.com/presentation/d/1Vq-tdq_PYSmKydKXEABElgt3oqYs_ridquHDLeUFL1A/edit?usp=sharing
   date:
     day: 5
     month: December
@@ -53,17 +66,17 @@
     month: September
     year: 2022
 
-- talk:
-    name: "Closing the Semantic Gap: Identifying Missing Mappings and Merging Equivalent
-Concepts to Support Knowledge Graph Assembly"
-    url: https://bit.ly/sorger-lab-biomappings
-    invited: false
-  name: Sorger Lab Meeting
-  online: true
-  date:
-    day: 1
-    month: August
-    year: 2022
+#- talk:
+#    name: "Closing the Semantic Gap: Identifying Missing Mappings and Merging Equivalent
+#Concepts to Support Knowledge Graph Assembly"
+#    url: https://bit.ly/sorger-lab-biomappings
+#    invited: false
+#  name: Sorger Lab Meeting
+#  online: true
+#  date:
+#    day: 1
+#    month: August
+#    year: 2022
 
 - talk:
     name: Knowledge Graph Embedding with PyKEEN in 2022
@@ -100,7 +113,14 @@ Concepts to Support Knowledge Graph Assembly"
 
 - name: "Machine-Actionable Data Interoperability for Chemical Sciences (MADICES)"
   link: https://madices.github.io/
-  talk: https://docs.google.com/presentation/d/1D0HIX41IgVdTQYKlakWcvlZvOktX23EqbLcs3LmI7mg/edit?usp=sharing
+  talk:
+    invited: true
+    name: "The Biopragmatics Stack: Biomedical and Chemical Semantics for Humans"
+    url: https://docs.google.com/presentation/d/1D0HIX41IgVdTQYKlakWcvlZvOktX23EqbLcs3LmI7mg/edit?usp=sharing
+    date:
+      day: 8
+      month: February
+      year: 2022
   online: true
   start:
     day: 7
@@ -146,7 +166,10 @@ Concepts to Support Knowledge Graph Assembly"
 - name: 2021 Workshop on Prefixes, CURIEs, and IRIs
   link: https://biopragmatics.github.io/workshops/WPCI2021.html
   online: true
-  talk: https://bit.ly/WPCI2021
+  talk:
+    name: Introduction to WPCI 2021
+    url: https://bit.ly/WPCI2021
+    invited: true
   date:
     day: 29
     month: October
@@ -191,7 +214,14 @@ Concepts to Support Knowledge Graph Assembly"
 
 - name: 12th International Conference on Biomedical Ontologies
   wikidata: Q108555471
-  talk: https://www.youtube.com/watch?v=9Pf5wr8JxCQ&t=1s
+  talk:
+    name: "The Bioregistry: A Metaregistry for Biomedical Entities"
+    invited: false
+    url: https://www.youtube.com/watch?v=9Pf5wr8JxCQ&t=1s
+    date:
+      day: 17
+      month: September
+      year: 2021
   link: https://icbo2021.inf.unibz.it/
   online: true
   start:
@@ -211,7 +241,7 @@ Concepts to Support Knowledge Graph Assembly"
     month: August
     year: 2021
 
-- name: AstraZeneca Seminar
+- name: AstraZeneca
   talk:
     url: https://bit.ly/3wvP8yq
     name: Perspectives on Knowledge Graph Embedding Models in/out of Biomedicine
@@ -275,7 +305,7 @@ Concepts to Support Knowledge Graph Assembly"
     url: https://youtu.be/rHhuVBpoKdI
     invited: true
   online: true
-  name: CoronaWhy Seminar
+  name: CoronaWhy
   date:
     day: 6
     month: May
@@ -326,7 +356,9 @@ Concepts to Support Knowledge Graph Assembly"
 
 - name: 4th Disease Maps Community Meeting
   wikidata: Q70206378
-  poster: https://doi.org/10.6084/m9.figshare.9917753.v3
+  poster:
+    name: Maintenance and Enrichment of Disease Maps in Biological Expression Language
+    url: https://doi.org/10.6084/m9.figshare.9917753.v3
   location:
     city: Seville
     country: Spain
@@ -344,7 +376,7 @@ Concepts to Support Knowledge Graph Assembly"
     name: Generation and Application of Biomedical Knowledge Graphs
     url:  https://docs.google.com/presentation/d/11CG_Q3JrsqqKsDhl8uXP_TZzcyALhcVLvoP_pDmQ5JA/edit?usp=sharing
     invited: true
-  name: Harvard Medical School Seminar
+  name: Harvard Medical School
   location:
     city: Boston
     country: USA
@@ -355,7 +387,9 @@ Concepts to Support Knowledge Graph Assembly"
 
 - name: The Eighth Joint Sheffield Conference on Chemoinformatics
   wikidata: Q64682140
-  poster: https://doi.org/10.6084/m9.figshare.8288822.v2
+  poster:
+    name: Identifying Drug Repositioning Candidates using Representation Learning on Heterogeneous Networks
+    url: https://doi.org/10.6084/m9.figshare.8288822.v2
   location:
     city: Sheffield
     country: United Kingdom
@@ -398,7 +432,7 @@ Concepts to Support Knowledge Graph Assembly"
     year: 2018
   link: http://mldd.esat.kuleuven.be
 
-- name: OpenBEL Community Meeting 2018
+- name: OpenBEL Community Meeting
   talk:
     name: The PyBEL Ecosystem in 2018
     invited: true
@@ -418,7 +452,12 @@ Concepts to Support Knowledge Graph Assembly"
     url: https://doi.org/10.6084/m9.figshare.6231701.v1
   talk:
     name: From Knowledge Assembly to Hypothesis Generation
+    invited: false
     url: https://docs.google.com/presentation/d/1_3j8H4f9pQ1m2ZQrF2QNfQNLh5SGqaodnl4AlaAST6w/edit?usp=sharing
+    date:
+      day: 22
+      month: April
+      year: 2018
   location:
     city: Boston
     country: USA
@@ -434,7 +473,9 @@ Concepts to Support Knowledge Graph Assembly"
 
 - name: 3rd European Conference on Translational Bioinformatics
   wikidata: Q70206979
-  poster: https://doi.org/10.6084/m9.figshare.6163775.v3
+  poster:
+    name: "The Human Brain Pharmacome: An Overview"
+    url: https://doi.org/10.6084/m9.figshare.6163775.v3
   location:
     city: Barcelona
     country: Spain
@@ -491,7 +532,9 @@ Concepts to Support Knowledge Graph Assembly"
 - name: Research, Innovation and Scholarship Expo 2015
   wikidata: Q104906797
   link: https://www.northeastern.edu/rise
-  poster: https://docs.google.com/presentation/d/1FU8lWGw6x4y9A_qB9rmxSaRRKiC0V3403EJETVGYMzk/edit?usp=sharing
+  poster:
+    name: Gene Set Analysis using Phenotypic Screening Data
+    url: https://docs.google.com/presentation/d/1FU8lWGw6x4y9A_qB9rmxSaRRKiC0V3403EJETVGYMzk/edit?usp=sharing
   location:
     venue: Northeastern University
     city: Boston
