@@ -52,11 +52,16 @@
     year: 2022
   role: Participant
 
+- name: Interdisciplinary Research Award
+  funder: Fraunhofer Center for Machine Learning
+  pi: Martin Hofmann-Apitius
+  money: "\\$40K 2019 (3 months)"
+  role: Key person. Co-wrote proposal. Responsible for design and implementation of research plan.
+
 - name: PYBEL2NDEX
   funder: University of California, San Diego
   pi: Martin Hofmann-Apitius
   money: "\\$28K 2018 (6 months)"
   role: Key person. Wrote proposal. Responsible for design and implementation of research plan.
 
-#- fraunhofer center for machine learning
 #- PMI contract
