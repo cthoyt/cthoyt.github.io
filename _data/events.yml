@@ -1,3 +1,16 @@
+- talk: https://docs.google.com/presentation/d/1hEryoMNyp8gwt2pvPy2ErKaw_QPvnWOmzPT0Sn4Yl4s/edit?usp=sharing
+  name: Biocuration 2023
+  link: https://biocuration2023.github.io/
+  wikidata: Q111430238
+  start:
+    day: 23
+    month: April
+    year: 2023
+  end:
+    day: 26
+    month: April
+    year: 2023
+
 - talk: https://docs.google.com/presentation/d/1oKxBzSCZGuFlIhw6jAXw00xgEGs7KgmaVR54NEdPprw/edit?usp=sharing
   name: Ontology Summit 2023
   link: https://ontologforum.org/index.php/ConferenceCall_2023_02_15
@@ -7,8 +20,20 @@
     month: February
     year: 2023
 
-- talk: https://bit.ly/icbo2022-cth
-  name: International Conference on Biomedical Ontology (ICBO) 2022
+- name: 2022 Workshop on Prefixes, CURIEs, and IRIs
+  link: https://biopragmatics.github.io/workshops/WPCI2022.html
+  online: true
+  talk: https://docs.google.com/presentation/d/1Vq-tdq_PYSmKydKXEABElgt3oqYs_ridquHDLeUFL1A/edit?usp=sharing
+  date:
+    day: 5
+    month: December
+    year: 2022
+
+- talk:
+    name: The Bioregistry, CURIEs, and OBO Community Health
+    url: https://bit.ly/icbo2022-cth
+    invited: true
+  name: International Conference on Biomedical Ontology (ICBO)
   link: https://icbo-conference.github.io/icbo2022/
   online: true
   date:
@@ -16,7 +41,34 @@
     month: September
     year: 2022
 
-- talk: https://bit.ly/pykeen-kgc2022
+- talk:
+    name: Axiomatizing Chemical Roles
+    url: https://bit.ly/ontologies4chem-crog
+    invited: true
+  name: Ontologies4Chem Workshop 2022
+  link: https://docs.google.com/document/d/1k65sACzXh8Tt-0XV7MAwo2pPaN4YnM2BhFZRJG8fibU/edit?usp=sharing
+  online: true
+  date:
+    day: 7
+    month: September
+    year: 2022
+
+- talk:
+    name: "Closing the Semantic Gap: Identifying Missing Mappings and Merging Equivalent
+Concepts to Support Knowledge Graph Assembly"
+    url: https://bit.ly/sorger-lab-biomappings
+    invited: false
+  name: Sorger Lab Meeting
+  online: true
+  date:
+    day: 1
+    month: August
+    year: 2022
+
+- talk:
+    name: Knowledge Graph Embedding with PyKEEN in 2022
+    invited: true
+    url: https://bit.ly/pykeen-kgc2022
   name: Knowledge Graph Conference (KGC 2022)
   link: https://www.knowledgegraph.tech/kgc-2022/
   online: true
@@ -26,7 +78,10 @@
     year: 2022
 
 - link: https://graph-learning-benchmarks.github.io/glb2022
-  talk: https://bit.ly/glb2022-ranking-metrics
+  talk:
+    name: "A Unified Framework for Rank-based Evaluation Metrics for Link Prediction in Knowledge Graphs"
+    url: https://bit.ly/glb2022-ranking-metrics
+    invited: false
   name: Graph Learning Benchmarks (GLB 2022)
   online: true
   date:
@@ -88,6 +143,15 @@
     month: November
     year: 2021
 
+- name: 2021 Workshop on Prefixes, CURIEs, and IRIs
+  link: https://biopragmatics.github.io/workshops/WPCI2021.html
+  online: true
+  talk: https://bit.ly/WPCI2021
+  date:
+    day: 29
+    month: October
+    year: 2021
+
 - name: RDKit User Group Meeting 2021
   link: https://github.com/rdkit/UGM_2021
   online: true
@@ -103,7 +167,10 @@
 - name: 4th Session of the International Society of Biocuration 2021 Virtual Conference
   online: true
   link: https://www.biocuration.org/14th-annual-biocuration-conference-virtual/
-  poster: https://f1000research.com/posters/10-1005
+  poster:
+    name: "Biomappings: Community Curation of Mappings between Biomedical Entities"
+    invited: false
+    url: https://f1000research.com/posters/10-1005
   date:
     day: 5
     month: October
@@ -111,7 +178,10 @@
 
 - name: Graph Machine Learning in Industry
   link: https://sites.google.com/view/graph-ml-in-industry/home
-  talk: https://www.youtube.com/watch?v=bLN1V5fZD2g&t=3665s
+  talk:
+    name: Current Issues in Theory, Reproducibility, and Utility of Graph Machine Learning in the Life Sciences
+    invited: true
+    url: https://www.youtube.com/watch?v=bLN1V5fZD2g&t=3665s
   wikidata: Q107633454
   online: true
   date:
@@ -141,6 +211,17 @@
     month: August
     year: 2021
 
+- name: AstraZeneca Seminar
+  talk:
+    url: https://bit.ly/3wvP8yq
+    name: Perspectives on Knowledge Graph Embedding Models in/out of Biomedicine
+    invited: true
+  online: true
+  date:
+    day: 6
+    month: April
+    year: 2021
+
 - name: INCOME Conference and Hackathon 2021
   wikidata: Q104905693
   online: true
@@ -154,6 +235,28 @@
     year: 2021
   link: https://www.integrative-pathway-models.de/meetings/income2021-conference-and-hackathon/index.html
 
+- talk:
+    name: Future Directions for WikiPathway Meta-curation
+    invited: true
+    url: https://docs.google.com/presentation/d/1C8T3XVOL8GiZ68WBXXSnI3SVjhd2aSBuVLXVPPGqKTw/edit?usp=sharing
+  name: WikiPathways Developers Conference Call
+  online: true
+  date:
+    day: 6
+    month: January
+    year: 2021
+
+- talk:
+    name: The Biological Expression Language and PyBEL in 2020
+    url: https://docs.google.com/presentation/d/18ntRMvO3Q9KTX87xoLOIgqAW3iiUvxJsfEmaFh1-52A/edit?usp=sharing
+    invited: true
+  name: COVID-19 Disease Map Community Meeting
+  online: true
+  date:
+    day: 10
+    month: July
+    year: 2020
+
 - name: 5th Disease Maps Community Meeting
   wikidata: Q104905357
   online: true
@@ -166,6 +269,17 @@
     month: October
     year: 2020
   link: https://disease-maps.org/DMCM2020
+
+- talk:
+    name: Introduction to the Biological Expression Language and the Rational Enrichment Workflow
+    url: https://youtu.be/rHhuVBpoKdI
+    invited: true
+  online: true
+  name: CoronaWhy Seminar
+  date:
+    day: 6
+    month: May
+    year: 2020
 
 - name: INCOME Hackathon 2020
   wikidata: Q104905930
@@ -197,6 +311,19 @@
     year: 2020
   link: http://www.biometrische-gesellschaft.de/arbeitsgruppen/statistische-methoden-i-d-bioinformatik/workshop2020.html
 
+- talk:
+    name: Applications of Knowledge Graphs in Drug Discovery
+    url: https://docs.google.com/presentation/d/1NQHQSD2EjOh-9XD6ffr2rDqs8AwOQ3wSBoie-e7-OXU/edit?usp=sharing
+    invited: true
+  name: Computational Drug Discovery Group, University of Leiden
+  location:
+    city: Leiden
+    country: Netherlands
+  date:
+    day: 5
+    month: November
+    year: 2019
+
 - name: 4th Disease Maps Community Meeting
   wikidata: Q70206378
   poster: https://doi.org/10.6084/m9.figshare.9917753.v3
@@ -212,6 +339,19 @@
     month: October
     year: 2019
   link: https://disease-maps.org/DMCM2019
+
+- talk:
+    name: Generation and Application of Biomedical Knowledge Graphs
+    url:  https://docs.google.com/presentation/d/11CG_Q3JrsqqKsDhl8uXP_TZzcyALhcVLvoP_pDmQ5JA/edit?usp=sharing
+    invited: true
+  name: Harvard Medical School Seminar
+  location:
+    city: Boston
+    country: USA
+  date:
+    day: 19
+    month: July
+    year: 2019
 
 - name: The Eighth Joint Sheffield Conference on Chemoinformatics
   wikidata: Q64682140
@@ -259,7 +399,10 @@
   link: http://mldd.esat.kuleuven.be
 
 - name: OpenBEL Community Meeting 2018
-  talk: https://docs.google.com/presentation/d/1Gsk8LxrVgrICproSgWZ3Gk4BXyOg-UwFlfzhVw5O0t8/edit?usp=sharing
+  talk:
+    name: The PyBEL Ecosystem in 2018
+    invited: true
+    url: https://docs.google.com/presentation/d/1Gsk8LxrVgrICproSgWZ3Gk4BXyOg-UwFlfzhVw5O0t8/edit?usp=sharing
   location:
     city: Boston
     country: USA
@@ -270,8 +413,12 @@
   link: http://bel.bio/conference
 
 - name: Bio-IT World
-  poster: https://doi.org/10.6084/m9.figshare.6231701.v1
-  talk: https://docs.google.com/presentation/d/1_3j8H4f9pQ1m2ZQrF2QNfQNLh5SGqaodnl4AlaAST6w/edit?usp=sharing
+  poster:
+    name: Knowledge Assembly in Systems and Networks Biology
+    url: https://doi.org/10.6084/m9.figshare.6231701.v1
+  talk:
+    name: From Knowledge Assembly to Hypothesis Generation
+    url: https://docs.google.com/presentation/d/1_3j8H4f9pQ1m2ZQrF2QNfQNLh5SGqaodnl4AlaAST6w/edit?usp=sharing
   location:
     city: Boston
     country: USA
