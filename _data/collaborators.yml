@@ -30,7 +30,7 @@
 - name: Ludwig-Maximilians-Universität München
   logo: /img/logos/lmu_logo.jpg
   location: München, Germany
-  current: true
+  current: false
   contat: Max Berrendorf
 
 - name: AstraZeneca - Molecular AI
@@ -48,7 +48,7 @@
 - name: Mila
   logo: https://mila.quebec/wp-content/themes/mila-clevercourse-v2/images/logos/svg/mila-purple.svg
   location: Montreal, QC, Canada
-  current: true
+  current: false
   contact: Mikhail Galkin
 
 - name: University of Bonn

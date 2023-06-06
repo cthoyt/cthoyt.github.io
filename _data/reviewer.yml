@@ -1,0 +1,15 @@
+journals:
+  - Bioinformatics
+  - Database
+  - BMC Bioinformatics
+  - Journal of Cheminformatics
+  - Journal of Biomedical Semantics
+  - eLife
+  - MATCH Communications in Mathematical and in Computer Chemistry
+articles:
+  - title: Research and Applications of Knowledge Graph Embedding Technique in Chemistry
+    editor: Boris Furtula
+    authors: C. Wang, Y. Yang, S. Li, J. Song, X. Nan
+    journal:
+      name: MATCH Communications in Mathematical and in Computer Chemistry
+      link: https://match.pmf.kg.ac.rs

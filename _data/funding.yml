@@ -8,7 +8,7 @@
   url: https://discover.lanl.gov/news/1027-vaccine-development
   personal_start:
     year: 2023
-
+  role: Grant Acquistion, Key Performer
 
 - funder: DARPA
   award: HR00112220036
@@ -20,6 +20,7 @@
   url: https://www.darpa.mil/news-events/2021-12-06
   personal_start:
     year: 2022
+  role: Key Performer
 
 - funder: DARPA
   name: Young Faculty Award
@@ -29,6 +30,7 @@
   url: https://govtribe.com/award/federal-grant-award/project-grant-w911nf2010255
   personal_start:
     year: 2021
+  role: Key Performer
 
 - name: Automating Scientific Knowledge Extraction
   funder: DARPA
@@ -42,3 +44,4 @@
     year: 2021
   personal_end:
     year: 2022
+  role: Supporting Performer

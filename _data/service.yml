@@ -1,12 +1,31 @@
-- name: ISB 2023 Organizing Committee
+- name: Biocuration 2023
   wikidata: Q111430238
   url: https://bioregistry.io/wikidata:Q111430238?provider=scholia
-- name: ICBO 2022 Workshop on Ontology Tools Co-organizer
+  role: Co-chair
+
+- name: 2022 Workshop on Prefixes, CURIEs, and IRIs
+  url: https://biopragmatics.github.io/workshops/WPCI2022.html
+  role: Organizer
+  wikidata: Q115620549
+
+- name: ICBO 2022 Workshop on Ontology Tools
   url: https://icbo-conference.github.io/icbo2022/workshops-and-tutorials/#workshop-on-ontology-tools-and-workflows
-- name: ICBO 2022 Program Committee
+  role: Co-organizer
+
+- name: ICBO 2022
   url: https://icbo-conference.github.io/icbo2022/program-committee
-- name: ISMB 2022 Program Committee (Bio-Ontologies/BOSC joint session)
-  url: https://www.iscb.org/ismb2022
-- name: ISB 2022 Organizing Committee
+  role: Program Committee
+
+- name: ISMB 2022 (Bio-Ontologies/BOSC joint session)
+  url: https://www.iscb.org/ismb2022-program/abstracts/bio-ontologies
+  role: Program Committee
+
+- name: Biocuration 2022
   url: https://bioregistry.io/wikidata:Q109407979?provider=scholia
   wikidata: Q109407979
+  role: Organizing Committee
+
+- name: 2021 Workshop on Prefixes, CURIEs, and IRIs
+  url: https://biopragmatics.github.io/workshops/WPCI2021.html
+  role: Organizer
+  wikidata: Q109302693
