@@ -13,7 +13,7 @@
   pypi: bio2bel
   language: python
   github: bio2bel/bio2bel
-  description: A framework for reproducible data integration in BEL
+  description: A framework for reproducible data integration in BEL and knowledge graph construction
   logo: https://github.com/bio2bel/bio2bel-art/raw/master/bio2bel-logo-100.png
   roles:
     - creator
@@ -29,25 +29,6 @@
   description: A web application for the interactive exploration of networks encoded in BEL
   logo: https://github.com/pybel/pybel-art/raw/master/BEL%20Commons/BELcommons-square-100.png
 
-- name: PyOBO
-  pypi: pyobo
-  language: python
-  github: pyobo/pyobo
-  roles:
-    - creator
-    - maintainer
-  description: Harmonization of biological ontologies and controlled vocabularies
-  logo: /img/logos/pyobo.png
-
-- name: GuiltyTargets
-  pypi: guiltytargets
-  language: python
-  github: guiltytargets/guiltytargets
-  roles:
-    - advisor
-    - maintainer
-  description: Target prioritization framework using gene expression and network representation learning
-  logo: /img/logos/guiltytargets.png
 
 - name: PyKEEN
   pypi: pykeen
@@ -60,35 +41,52 @@
   logo: https://raw.githubusercontent.com/pykeen/pykeen/master/docs/source/logo.png
   wikidata: http://www.wikidata.org/entity/Q96631404
 
-- name: ComPath
-  pypi: compath
+- name: SeMRA
+  github: biopragmatics/semra
   language: python
-  github: ComPath/ComPath
+  pypi: semra
   roles:
-    - contributor
-  description: Platform and web application for integrating and curating pathway databases
-  logo: https://avatars0.githubusercontent.com/u/36850400?s=200&v=4
-  skipcv: true
+    - creator
+    - maintainer
+  description: Automated assembly and inference of semantic mappings
 
-- name: PathMe
-  pypi: pathme
+- name: Bioontologies
+  github: biopragmatics/bioontologies
   language: python
-  github: PathwayMerger/PathMe
+  pypi: bioontologies
   roles:
-    - contributor
-  description: Web application for exploration of pathway databases
-  logo: https://avatars0.githubusercontent.com/u/46240301?s=200&v=4
-  skipcv: true
+    - creator
+    - maintainer
+  description: Access and processing of ontologies on top of ROBOT and OBO Graphs
 
-- name: Pathway Forte
-  pypi: pathway-forte
+- name: PyOBO
+  pypi: pyobo
   language: python
-  github: PathwayMerger/PathMe
+  github: pyobo/pyobo
   roles:
-    - contributor
-  description: Benchmarking pathway databases in functional enrichment analysis and prediction methods
-  logo: https://avatars3.githubusercontent.com/u/49114317?s=200&
-  skipcv: true
+    - creator
+    - maintainer
+  description: Harmonization of biological ontologies and controlled vocabularies
+  logo: /img/logos/pyobo.png
+
+- name: curies
+  github: cthoyt/curies
+  language: python
+  pypi: curies
+  roles:
+    - creator
+    - maintainer
+  description: Idiomatic conversion between URIs and compact URIs (CURIEs)
+
+- name: GuiltyTargets
+  pypi: guiltytargets
+  language: python
+  github: guiltytargets/guiltytargets
+  roles:
+    - advisor
+    - maintainer
+  description: Target prioritization framework using gene expression and network representation learning
+  logo: /img/logos/guiltytargets.png
 
 - name: RatVec
   pypi: ratvec
@@ -104,6 +102,7 @@
   language: r
   roles:
     - advisor
+    - contributor
   description: Drug repositioning based on bioactivity pattern matching and GWAS
   logo: https://avatars0.githubusercontent.com/u/51780347?s=200&v=4
 
@@ -113,7 +112,6 @@
   roles:
     - advisor
     - contributor
-    - maintainer
   description: Drug repositioning framework based on network representation learning
   logo: https://avatars0.githubusercontent.com/u/53968086?s=200&v=4
 
@@ -165,14 +163,44 @@
   description: A deep learning library for drug-drug interaction, polypharmacy side effect, and synergy prediction.
   logo: https://github.com/AstraZeneca/chemicalx/raw/main/images/chemicalx_logo.jpg?sanitize=true
 
-- name: RexMex
-  pypi: rexmex
+- name: ComPath
+  pypi: compath
   language: python
-  github: AstraZeneca/rexmex
+  github: ComPath/ComPath
   roles:
     - contributor
-  description: A library implementing a comprehensive collection of metrics for the evaluation of recommender systems.
-  logo: https://github.com/AstraZeneca/rexmex/raw/main/rexmex_small.jpg?raw=true?sanitize=true
+  description: Platform and web application for integrating and curating pathway databases
+  logo: https://avatars0.githubusercontent.com/u/36850400?s=200&v=4
+  skipcv: true
+
+- name: PathMe
+  pypi: pathme
+  language: python
+  github: PathwayMerger/PathMe
+  roles:
+    - contributor
+  description: Web application for exploration of pathway databases
+  logo: https://avatars0.githubusercontent.com/u/46240301?s=200&v=4
+  skipcv: true
+
+- name: Pathway Forte
+  pypi: pathway-forte
+  language: python
+  github: PathwayMerger/PathMe
+  roles:
+    - contributor
+  description: Benchmarking pathway databases in functional enrichment analysis and prediction methods
+  logo: https://avatars3.githubusercontent.com/u/49114317?s=200&
+  skipcv: true
+
+#- name: RexMex
+#  pypi: rexmex
+#  language: python
+#  github: AstraZeneca/rexmex
+#  roles:
+#    - contributor
+#  description: A library implementing a comprehensive collection of metrics for the evaluation of recommender systems.
+#  logo: https://github.com/AstraZeneca/rexmex/raw/main/rexmex_small.jpg?raw=true?sanitize=true
 
 - name: INDRA
   github: sorgerlab/indra
@@ -203,30 +231,3 @@
     - contributor
     - maintainer
   description: Biomedical named entity recognition and grounding using machine-learned disambiguation
-
-- name: SeMRA
-  github: biopragmatics/semra
-  language: python
-  pypi: semra
-  roles:
-    - creator
-    - maintainer
-  description: Automated assembly and inference of semantic mappings
-
-- name: Bioontologies
-  github: biopragmatics/bioontologies
-  language: python
-  pypi: bioontologies
-  roles:
-    - creator
-    - maintainer
-  description: Access and processing of ontologies on top of ROBOT and OBO Graphs
-
-- name: curies
-  github: cthoyt/curies
-  language: python
-  pypi: curies
-  roles:
-    - creator
-    - maintainer
-  description: Idiomatic conversion between URIs and compact URIs (CURIEs)

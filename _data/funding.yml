@@ -8,40 +8,55 @@
   url: https://discover.lanl.gov/news/1027-vaccine-development
   personal_start:
     year: 2023
-  role: Grant Acquistion, Key Performer
+  role: Key Person. Co-wrote proposal with PNNL collaborators. Responsible for design and implementation of research plan.
+  money: "\\$623K (subcontract) / \\$15M overall, 2022-2024 (18 months), Grant: HDTRA1242031"
+  current: true
 
-- funder: DARPA
+- funder: DARPA ASKEM Program
   award: HR00112220036
-  name: Automating Scientific Knowledge Extraction and Modeling
-  abbreviation: ASKEM
+  name: "MIRA: Modeling with an Intelligent Reasoning Assistant"
   pi: Benjamin M. Gyori
   project_start:
     year: 2022
   url: https://www.darpa.mil/news-events/2021-12-06
   personal_start:
     year: 2022
-  role: Key Performer
+  role: Participant
+  money: "\\$2.1M, 2022-2026 (42 months)"
+  current: true
 
 - funder: DARPA
-  name: Young Faculty Award
+  name: Young Faculty Award / DARPA Director’s Fellowship Award
   abbreviation: YFA
   pi: Benjamin M. Gyori
   award: W911NF2010255
   url: https://govtribe.com/award/federal-grant-award/project-grant-w911nf2010255
   personal_start:
     year: 2021
-  role: Key Performer
+  role: Participant
+  money: "\\$750K, 2020-2023 (36 months)"
+  current: true
 
-- name: Automating Scientific Knowledge Extraction
-  funder: DARPA
+- name: Ecosystem of Machine-maintained Models with Automated Assembly
+  funder: DARPA Automating Scientific Knowledge Extraction (ASKE) / Artificial Intelligence Exploration (AIE) program
   abbreviation: ASKE
   pi: Benjamin M. Gyori
   url: https://govtribe.com/award/federal-contract-award/other-transaction-idv-hr00111990009
   award: HR00111990009
+  money: "\\$2M, 2018-2020 (18 months + extension)"
   project_end:
     year: 2022
   personal_start:
     year: 2021
   personal_end:
     year: 2022
-  role: Supporting Performer
+  role: Participant
+
+- name: PYBEL2NDEX
+  funder: University of California, San Diego
+  pi: Martin Hofmann-Apitius
+  money: "\\$28K 2018 (6 months)"
+  role: Key person. Wrote proposal. Responsible for design and implementation of research plan.
+
+#- fraunhofer center for machine learning
+#- PMI contract
