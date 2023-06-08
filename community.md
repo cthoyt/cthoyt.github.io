@@ -18,7 +18,7 @@ permalink: /community/
 <ul>
 {% for entry in site.data.service %}
     <li>
-        <a href="{{ entry.url }}">{{ entry.name }}</a>
+        <a href="{{ entry.url }}">{{ entry.name }}</a> ({{ entry.role }})
     </li>
 {% endfor %}
 </ul>
@@ -98,10 +98,10 @@ My past/sporadic collaborators include:
     from {{ entry.start.month }} {{ entry.start.day }}-{{ entry.end.month }} {{ entry.end.day }}, {{ entry.year }}
     {% endif %}
     {% if entry.talk %}
-    and gave a <a href="{{ entry.talk }}">talk</a>
+    and gave a <a href="{{ entry.talk.url }}">talk</a>
     {% endif %}
     {% if entry.poster %}
-    and presented a <a href="{{ entry.poster }}">poster</a>
+    and presented a <a href="{{ entry.poster.url }}">poster</a>
     {% endif %}
     {% if entry.wikidata %}
     (<a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}"><img src="/img/logos/wikidata_logo.svg" height="16"/></a>)

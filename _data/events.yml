@@ -9,6 +9,9 @@
   name: Biocuration 2023
   link: https://biocuration2023.github.io/
   wikidata: Q111430238
+  location:
+    city: Padua
+    country: Italy
   start:
     day: 23
     month: April
@@ -19,12 +22,12 @@
     year: 2023
 
 - talk:
-    invited: true
+    invited: false
     name: Using dashboards to monitor ontology standardisation and community activity
     url: https://docs.google.com/presentation/d/1oKxBzSCZGuFlIhw6jAXw00xgEGs7KgmaVR54NEdPprw/edit?usp=sharing
   name: Ontology Summit 2023
   link: https://ontologforum.org/index.php/ConferenceCall_2023_02_15
-  online: true
+  online: false
   date:
     day: 15
     month: February
@@ -35,7 +38,7 @@
   online: true
   talk:
     name: Introduction to WPCI 2022
-    invited: true
+    invited: false
     url: https://docs.google.com/presentation/d/1Vq-tdq_PYSmKydKXEABElgt3oqYs_ridquHDLeUFL1A/edit?usp=sharing
   date:
     day: 5
@@ -45,7 +48,7 @@
 - talk:
     name: The Bioregistry, CURIEs, and OBO Community Health
     url: https://bit.ly/icbo2022-cth
-    invited: true
+    invited: false
   name: International Conference on Biomedical Ontology (ICBO)
   link: https://icbo-conference.github.io/icbo2022/
   online: true
@@ -169,7 +172,7 @@
   talk:
     name: Introduction to WPCI 2021
     url: https://bit.ly/WPCI2021
-    invited: true
+    invited: false
   date:
     day: 29
     month: October
@@ -267,7 +270,7 @@
 
 - talk:
     name: Future Directions for WikiPathway Meta-curation
-    invited: true
+    invited: false
     url: https://docs.google.com/presentation/d/1C8T3XVOL8GiZ68WBXXSnI3SVjhd2aSBuVLXVPPGqKTw/edit?usp=sharing
   name: WikiPathways Developers Conference Call
   online: true
@@ -279,7 +282,7 @@
 - talk:
     name: The Biological Expression Language and PyBEL in 2020
     url: https://docs.google.com/presentation/d/18ntRMvO3Q9KTX87xoLOIgqAW3iiUvxJsfEmaFh1-52A/edit?usp=sharing
-    invited: true
+    invited: false
   name: COVID-19 Disease Map Community Meeting
   online: true
   date:
@@ -435,7 +438,7 @@
 - name: OpenBEL Community Meeting
   talk:
     name: The PyBEL Ecosystem in 2018
-    invited: true
+    invited: false
     url: https://docs.google.com/presentation/d/1Gsk8LxrVgrICproSgWZ3Gk4BXyOg-UwFlfzhVw5O0t8/edit?usp=sharing
   location:
     city: Boston

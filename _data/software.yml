@@ -197,6 +197,7 @@
   roles:
     - contributor
   description: Automated knowledge assembly and modeling in biomedicine
+  logo: https://indralab.github.io/images/indra_logo.png
 
 - name: INDRA CoGEx
   github: bgyori/indra_cogex

@@ -8,12 +8,13 @@
   url: https://discover.lanl.gov/news/1027-vaccine-development
   personal_start:
     year: 2023
-  role: Key Person. Co-wrote proposal with PNNL collaborators. Responsible for design and implementation of research plan.
+  role: Participant. Co-wrote proposal with PNNL collaborators. Responsible for design and implementation of research plan. Lead developer of semantic and analytical technologies.
   money: "\\$623K (subcontract) / \\$15M overall, 2022-2024 (18 months), Grant: HDTRA1242031"
   current: true
 
 - funder: DARPA ASKEM Program
   award: HR00112220036
+  abbreviation: MIRA
   name: "MIRA: Modeling with an Intelligent Reasoning Assistant"
   pi: Benjamin M. Gyori
   project_start:
@@ -55,13 +56,16 @@
 - name: Interdisciplinary Research Award
   funder: Fraunhofer Center for Machine Learning
   pi: Martin Hofmann-Apitius
+  award: Internal
+  abbreviation: FML
   money: "\\$40K 2019 (3 months)"
-  role: Key person. Co-wrote proposal. Responsible for design and implementation of research plan.
+  role: Key person. Co-wrote proposal. Responsible for design and implementation of research plan including applications of PyKEEN in biomedicine.
 
 - name: PYBEL2NDEX
   funder: University of California, San Diego
   pi: Martin Hofmann-Apitius
+  award: Contract
   money: "\\$28K 2018 (6 months)"
-  role: Key person. Wrote proposal. Responsible for design and implementation of research plan.
+  role: Key person. Wrote proposal. Responsible for design and implementation of research plan for implementing interoperability between PyBEL and NDEx.
 
 #- PMI contract
