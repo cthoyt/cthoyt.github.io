@@ -7,7 +7,8 @@ tags: wikidata bibliometrics
 ---
 
 I was recently nominated for the International Society for
-Biocuration's [Excellence in Biocuration Early Career Award](https://www.biocuration.org/excellence-in-biocuration-early-career-award-2023/).
+Biocuration's [Excellence in Biocuration Early Career Award](https://www.biocuration.org/excellence-in-biocuration-early-career-award-2023/)
+(results will be announced on June 14<sup>th</sup>!). 
 This made me curious about how to model nominations and awards on Wikidata. In this post, I'll describe how to curate
 awards, nominations, recipients, and how to make SPARQL queries to get them.
 
