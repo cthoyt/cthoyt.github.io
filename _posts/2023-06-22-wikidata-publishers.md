@@ -31,7 +31,7 @@ Follow [this link](https://w.wiki/6ryy) to populate the Wikidata Query Service w
 Note that this query takes a while to run and may time out since there are on the scale of 100K
 journals.
 
-Journals might have multiple [International Standard Serial Numbes (ISSNs)](https://bioregistry.io/registry/issn)
+Journals might have multiple [International Standard Serial Numbers (ISSNs)](https://bioregistry.io/registry/issn)
 because a different one is assigned to the print and electronic versions of the journal, among other things.
 
 ## Publishers
@@ -81,6 +81,8 @@ WHERE
 }
 ORDER BY ?journalLabel
 ```
+
+Follow [this link](https://w.wiki/6rz5) to populate the Wikidata Query Service with this query. 
 
 Rather than using the Wikidata label service for the journal label, I more explicitly wrote it out
 to ensure that there is an english label, and to remove anything without an english label.
