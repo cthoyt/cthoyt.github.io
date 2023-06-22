@@ -9,6 +9,9 @@ tags: wikidata bibliometrics
 Today's short post is about three SPARQL queries I wrote to get bibliometric information
 about journals and publishers out of Wikidata.
 
+Each of the following queries can be readily copy-pasted into the
+[Wikidata Query Service](https://query.wikidata.org/) and run in the browser.
+
 ## Journals
 
 The following SPARQL query gets information about journals:
@@ -23,6 +26,10 @@ WHERE
 }
 GROUP BY ?journal ?journalLabel
 ```
+
+Follow [this link](https://w.wiki/6ryy) to populate the Wikidata Query Service with this query. 
+Note that this query takes a while to run and may time out since there are on the scale of 100K
+journals.
 
 Journals might have multiple [International Standard Serial Numbes (ISSNs)](https://bioregistry.io/registry/issn)
 because a different one is assigned to the print and electronic versions of the journal, among other things.
@@ -44,8 +51,18 @@ WHERE
 }
 ```
 
-Could consider adding a clause to make sure there's a "scientific journal" in the publisher to remove some irrelevant
-stuff
+Follow [this link](https://w.wiki/6ry$) to populate the Wikidata Query Service with this query. 
+This query returns the [Research Organization Registry (ROR)](https://bioregistry.io/registry/ror)
+identifier when available. This registry effectively subsumes the
+[Global Research Identifier Database (GRID)](https://bioregistry.io/registry/grid), which has since
+been shut down, but this might be helpful for integrating data that hasn't been updated.
+The [International Standard Name Identifier (ISNI)](https://bioregistry.io/registry/isni) is also
+included when available. Wikidata has several other nomenclature authorities such as
+[GND](https://bioregistry.io/registry/gnd), [VIAF](https://bioregistry.io/registry/viaf), RingGold,
+and others that are omitted for brevity (each has their own corresponding Wikidata property.).
+
+Later, I could consider adding a clause to make sure there's a "scientific journal"
+in the publisher to remove some irrelevant records.
 
 ## Connections between Journals and Publishers
 
