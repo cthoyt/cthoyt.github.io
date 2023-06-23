@@ -34,6 +34,32 @@ journals.
 Journals might have multiple [International Standard Serial Numbers (ISSNs)](https://bioregistry.io/registry/issn)
 because a different one is assigned to the print and electronic versions of the journal, among other things.
 
+Get the ISSN-L (the normalized/preferred) ISSN for each:
+
+```sparql
+SELECT ?journal ?journalLabel ?issn
+WHERE 
+{
+  ?journal wdt:P31 wd:Q5633421 .
+  OPTIONAL { ?journal wdt:P7363 ?issnl }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". } # Helps get the label in your language, if not, then en language
+}
+```
+
+Get a forward mapping from all ISSNs to ISSN-L. Note that these have been filtered to scientific journals (wd:Q5633421)
+
+
+```sparql
+SELECT ?issn ?issnl
+WHERE 
+{
+  ?journal wdt:P31 wd:Q5633421 ;
+           wdt:P7363 ?issnl ;
+           wdt:P236 ?issn .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". } # Helps get the label in your language, if not, then en language
+}
+```
+
 ## Publishers
 
 The following SPARQL query gets information about publishers:
