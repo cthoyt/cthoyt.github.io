@@ -97,7 +97,9 @@ WHERE {
 ORDER BY DESC(?year) ?awardLabel
 ```
 
-See this query in action at [https://w.wiki/6odW](https://w.wiki/6odW).
+See this query in action at [https://w.wiki/6odW](https://w.wiki/6odW) or the results embedded below.
+
+<iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20%3Faward%20%3FawardLabel%20%3Frecipient%20%3FrecipientLabel%20%3Fyear%20%0AWHERE%20%7B%20%0A%20%20%3Frecipient%20p%3AP166%20%3Faward_statement%20.%0A%20%20%3Faward_statement%20ps%3AP166%20%3Faward%20.%0A%20%20OPTIONAL%20%7B%20%0A%20%20%20%20%3Faward_statement%20pq%3AP585%20%3Fdate%20.%20%0A%20%20%20%20BIND%28year%28%3Fdate%29%20AS%20%3Fyear%29%0A%20%20%7D%0A%20%20%3Faward%20wdt%3AP1027%20wd%3AQ23809291%20.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%7D%0AORDER%20BY%20DESC%28%3Fyear%29%20%3FawardLabel" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
 
 At the time of writing, this only returned a paltry 9 rows, meaning more curation is necessary! Considering this award
 is about biocurators, we better get our act together 🙃. **Update June 4<sup>th</sup>, 2023:** I went back and curated the full catalog.
@@ -121,7 +123,9 @@ WHERE {
 ORDER BY DESC(?year) ?awardLabel
 ```
 
-See this query in action at [https://w.wiki/6odX](https://w.wiki/6odX).
+See this query in action at [https://w.wiki/6odX](https://w.wiki/6odX) or the results embedded below.
+
+<iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20%3Faward%20%3FawardLabel%20%3Fnominee%20%3FnomineeLabel%20%3Fyear%20%0AWHERE%20%7B%20%0A%20%20%3Fnominee%20p%3AP1411%20%3Faward_statement%20.%0A%20%20%3Faward_statement%20ps%3AP1411%20%3Faward%20.%0A%20%20OPTIONAL%20%7B%20%0A%20%20%20%20%3Faward_statement%20pq%3AP585%20%3Fdate%20.%20%0A%20%20%20%20BIND%28year%28%3Fdate%29%20AS%20%3Fyear%29%0A%20%20%7D%0A%20%20%3Faward%20wdt%3AP1027%20wd%3AQ23809291%20.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%7D%0AORDER%20BY%20DESC%28%3Fyear%29%20%3FawardLabel" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
 
 There are only 5 results at the time of writing, and these are for my fellow nominees for the Excellence in Biocuration
 Early Career Award that I recently curated! There's a lot of work to do here for keeping a history of the ISB's awards.
@@ -171,4 +175,4 @@ of awards in Wikidata.
 
 **Update June 4<sup>th</sup>, 2023:** I won the Excellence in Biocuration Early Career Award! Nico Matentzoglu won the
 Excellence in Biocuration Advanced Career Award and we are both excited to see that the community was interested to
-recognize people who work on fundamental underlying techonologies.
+recognize people who work on fundamental underlying technologies.
