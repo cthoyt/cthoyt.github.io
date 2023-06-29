@@ -44,7 +44,7 @@ others.
 {% endif %}
 </strong> <small style="color: #999">{{ entry.role }}</small>
 {% if entry contains "github" %}
-      <a href="https://github.com/in/{{ entry.github }}">
+      <a href="https://github.com/{{ entry.github }}">
       <img alt="GitHub logo" src="/img/logos/github-icon.svg" width="16" height="16" />
       </a>
 {% endif %}
