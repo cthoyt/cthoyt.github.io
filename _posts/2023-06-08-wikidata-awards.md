@@ -162,7 +162,7 @@ or *award received* using Wikidata's amazing curation interface that has search
 built in. It's recommended to add a [point in time (P585)](https://www.wikidata.org/wiki/Property:P585)
 annotation to make a distinction between different periods. Further, it's recommended to add a refernce
 using the [reference url (P854)](https://www.wikidata.org/wiki/Property:P854) property that pints
-to a webpate with an announcement about the nomination or award.
+to a webpage with an announcement about the nomination or award.
 
 ![](/img/wikidata_add_nominee_1.png)
 
