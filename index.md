@@ -2,9 +2,9 @@
 layout: home
 ---
 <img src="/img/headshot.png" alt="Charles Tapley Hoyt" align="left" height="60" style="margin-right: 10px"/>
-My name is Charles Tapley Hoyt (he/his). I'm a Research Fellow at Harvard Medical School 
-working remotely from Germany. I'm working in bio/cheminformatics - more specifically using 
-biological knowledge graphs to generate testable hypotheses for drug discovery and 
+My name is Charles Tapley Hoyt (he/his). I'm a {{ site.current.position }} in the {{ site.current.group }}
+at {{ site.current.institution }} working remotely from Germany. I'm working in bio/cheminformatics - 
+more specifically using biological knowledge graphs to generate testable hypotheses for drug discovery and 
 precision medicine.
 
 Here's some more details [about me](/about.md) and [my research](/research.md). You can download my [résumé](https://github.com/cthoyt/resume/raw/master/main.pdf) or [CV](https://github.com/cthoyt/resume/raw/master/cv.pdf) or see my ORCiD page
