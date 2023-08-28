@@ -115,7 +115,7 @@ about reproducibility before. The reality is that many computational scientists 
 mentors were not primarily trained as computational scientists themselves. Combine with the perverse incentive
 structure in academia, it's understandable how this can be left out from some publications. I experienced something similar in my
 doctoral studies, and had to bootstrap my own philosophy on reproducibility as well as the practical skills to achieve
-it. I also understand not everyone is in the position where the have the flexibility/freedom/initiative to do this.
+it. I also understand not everyone is in the position where they have the flexibility/freedom/initiative to do this.
 
 That all being said, we are now entering an era where progressive and newly minted PIs actually have training as
 computational scientists. The next paper in my queue for a reproducibility review is for
