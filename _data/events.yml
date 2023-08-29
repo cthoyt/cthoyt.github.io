@@ -1,5 +1,42 @@
 - talk:
     invited: false
+    name: "Improving the reproducibility of cheminformatics workflows with chembl-downloader"
+    url: https://bit.ly/cth-rdkit-ugm-2023
+    date:
+      day: 21
+      month: September
+      year: 2023
+  name: RDKit User Group Meeting 2023
+  link: https://github.com/rdkit/UGM_2023
+  location:
+    city: Mainz
+    country: Germany
+  start:
+    day: 20
+    month: September
+    year: 2023
+  end:
+    day: 22
+    month: September
+    year: 2023
+
+- talk:
+    invited: true
+    name: "Democratizing Biocuration, or, How I Learned to Love the Drive-by Curation"
+    url: https://docs.google.com/presentation/d/1D6P-1hQefXU_yRODSJkOFLH3tPxsk9Abi20ycA0xKWU/edit?usp=sharing
+    date:
+      day: 18
+      month: October
+      year: 2023
+  online: true
+  name: International Society of Biocuration Annual General Meeting
+  date:
+    day: 18
+    month: October
+    year: 2023
+
+- talk:
+    invited: false
     name: "Promoting the longevity of curated scientific resources through open code, open data, and public infrastructure"
     url: https://docs.google.com/presentation/d/1hEryoMNyp8gwt2pvPy2ErKaw_QPvnWOmzPT0Sn4Yl4s/edit?usp=sharing
     date:
@@ -69,17 +106,18 @@
     month: September
     year: 2022
 
-#- talk:
-#    name: "Closing the Semantic Gap: Identifying Missing Mappings and Merging Equivalent
-#Concepts to Support Knowledge Graph Assembly"
-#    url: https://bit.ly/sorger-lab-biomappings
-#    invited: false
-#  name: Sorger Lab Meeting
-#  online: true
-#  date:
-#    day: 1
-#    month: August
-#    year: 2022
+- talk:
+    name: "Closing the Semantic Gap: Identifying Missing Mappings and Merging Equivalent
+Concepts to Support Knowledge Graph Assembly"
+    url: https://bit.ly/sorger-lab-biomappings
+    invited: false
+  name: Sorger Lab Meeting
+  online: true
+  public: false
+  date:
+    day: 1
+    month: August
+    year: 2022
 
 - talk:
     name: Knowledge Graph Embedding with PyKEEN in 2022
