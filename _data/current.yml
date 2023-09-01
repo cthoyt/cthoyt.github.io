@@ -1,3 +1,5 @@
 position: Senior Scientist
 institution: Northeastern University
-group: Gyori Lab
+group:
+  name: Gyori Lab
+  link: https://gyorilab.github.io
