@@ -140,6 +140,6 @@ true that sometimes the URLs for sites change, but this number reflects the more
 Unfortunately, the ISB EC didn't accept the proposal. I didn't get very direct feedback as to why, but I think the
 general concept of funding research was problematic for one reason or another for their organizational structure. I'm
 not discouraged, I still think this is important and will continue to write and re-write this proposal until it finally
-convinces the right funding body. I'll also be touching on this point at my (hopefully accepted abstract) for
-Biocuration 2023 that I posted about yesterday. Please let me know if you've got any other arguments supporting doing
-this that I can include!
+convinces the right funding body. I'll also be touching on this point at my (~hopefully~ accepted abstract) for
+Biocuration 2023 that I [posted about yesterday]({% post_url 2023-01-03-biocuration2023-abstract %}). Please let me know
+if you've got any other arguments supporting doing this that I can include!

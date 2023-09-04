@@ -5,6 +5,7 @@ date: 2023-01-03 11:28:00 -0500
 author: Charles Tapley Hoyt
 tags: biocuration philosophy
 ---
+
 The [16th Annual International Biocuration Conference (Biocuration 2023)](https://biocuration2023.github.io)
 is taking place in Padua, Italy from April 24-26<sup>th</sup>, 2023. While I'm serving as a co-chair of the conference,
 I also think this is a great venue to communicate some of my thoughts on longevity and sustainability that have been
@@ -45,6 +46,10 @@ This talk will provide a perspective on how existing resources relate to our mod
 in more detail (illustrated through the [Bioregistry](https://bioregistry.io) resource), and provide a practical path
 towards both creating new sustainable resources as well as revitalizing existing ones.
 
----
-Later, I will update this post with a link to the slides for the related talk. Please let me know if you'll be in Padua
-for the conference! I'd love to catch up.
+## Recording
+
+My talk was accepted! You can check
+the [slides](https://docs.google.com/presentation/d/1hEryoMNyp8gwt2pvPy2ErKaw_QPvnWOmzPT0Sn4Yl4s/edit?usp=sharing)
+or watch the video recording:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kuJsl-rRjZY?si=US80bj-1FOHuA5Yr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
