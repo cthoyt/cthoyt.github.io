@@ -40,7 +40,7 @@ $ docker run \
     --detach \
     -e POSTGRES_PASSWORD=biolookup \
     -e PGDATA=/var/lib/postgresql/pgdata \
-    --shm-size 1gb
+    --shm-size 1gb \
     postgres
 ```
 

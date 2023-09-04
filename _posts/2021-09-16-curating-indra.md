@@ -2,8 +2,9 @@
 layout: post
 title: How to Curate the INDRA Database
 date: 2021-09-16 13:30:00 +0100
+modified_date: 2023-01-02 15:06:00 -0500
 author: Charles Tapley Hoyt
-tags: nlp indra
+tags: nlp indra biocuration
 ---
 With the recent paper on Gilda and approaching INDRA 2 and INDRA database papers
 coming up, I've put together a visual guide on how to curate statements extracted
@@ -95,3 +96,5 @@ We're currently working on
 downloading curations from the INDRA Database and for use with the
 INDRA assemble corpus utility
 [`indra.tools.assemble_corpus.filter_by_curation()`](https://github.com/sorgerlab/indra/blob/bc39dae6849b1fd484d83eabb3d2afee963a6298/indra/tools/assemble_corpus.py#L1669).
+
+**Update** Here's the INDRA 2 preprint:[doi:10.1101/2022.08.30.505688](https://doi.org/10.1101/2022.08.30.505688)

@@ -65,7 +65,8 @@ their second round of venture capital funding. I also joined CoronaWhy to advise
 on the same topics and reproducibility in computational science.
 
 In 2021, I joined the Laboratory of Systems Pharmacology at Harvard Medical School to 
-continue my academic work.
+continue my academic work. In summer 2023, I moved from Harvard to Northeastern University
+to continue working under Ben Gyori.
 
 I'm also a real person, too! I love making music, watching movies/TV, running,
 and traveling. I've been to 30 countries so far and tried beer in almost all
@@ -76,8 +77,8 @@ of them. I have yet to enjoy it.
 For any content requiring a short bio (~1 paragraph), you can use the following text and
 [this photo](https://commons.wikimedia.org/wiki/File:Charles_Tapley_Hoyt_2019.jpg).
 
-> Dr. Charles Tapley Hoyt is a Postdoctoral Research Fellow in the Laboratory of Systems
-Pharmacology at Harvard Medical School based out of Germany. He received his Ph.D. in Computational
+> Dr. Charles Tapley Hoyt is a {{ site.current.position }} in the {{ site.current.grop }}
+at {{ site.current.group }} based out of Germany. He received his Ph.D. in Computational
 Life Sciences from the University of Bonn. His research interests cover the interface of
 biocuration, knowledge graphs, and machine learning with systems biology, networks biology, and 
 drug discovery. He is an advocate of open source software, reproducibility, and

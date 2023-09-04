@@ -174,7 +174,7 @@ pushback. However, everyone who has gone through the process with me has come ou
 they did it. It's important that when you start enforcing coding rules on other people that you are a resource
 for them - when somebody is frustrated by a flake8 error code they have never seen, they will likely forget how
 to use Google. They will probably ask you for help. You have to resist the urge to send [lmgtfy](https://lmgtfy.com)
-links to them and be patient. Becuase eventually, they will do it on their own, and spread the gospel of `flake8`.
+links to them and be patient. Because eventually, they will do it on their own, and spread the gospel of `flake8`.
 
 While a good arsenal of `flake8` plugins provides a solid foundation, it's not all that needs to be done to make
 your code readable and look good. Just like with reading and speaking, the best way to develop a sense of style

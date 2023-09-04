@@ -1,3 +1,43 @@
+- name: Bioregistry
+  role: creator, maintainer
+  github: bioregistry/bioregistry
+  description: An integrative meta-registry of biological databases, ontologies, and nomenclatures.
+  logo: /img/logos/bioregistry.png
+  url: https://bioregistry.io
+
+- name: Biomappings
+  github: biopragmatics/biomappings
+  role: creator, maintainer
+  description: Predicted and curated mappings between named biological entities
+  zenodo: 4328920
+  logo: https://avatars1.githubusercontent.com/u/69258560?s=200
+  url: https://biopragmatics.github.io/biomappings
+
+- name: Biolookup
+  role: creator, maintainer
+  description: Comprehensive database of identifiers, names, synonyms, cross-references, properties, and relations for biomedical entities
+  github: biopragmatics/biolookup
+  url: http://biolookup.io
+  logo: https://github.com/biopragmatics/biolookup/raw/main/src/biolookup/app/static/logo.svg
+
+- name: Bioversions
+  github: biopragmatics/bioversions
+  role: creator, maintainer
+  zenodo: 4320054
+  description: Automated tracking of the current version for each biological database?
+  logo: /img/logos/bioversions.png
+
+- name: OBO Database Ingest
+  role: creator, maintainer
+  description: Conversion of biomedical databases into ontologies
+  github: biopragmatics/obo-db-ingest
+
+- name: Chemical Roles Graph
+  role: creator, maintainer
+  github: chemical-roles/chemical-roles
+  description: Connecting roles in the ChEBI ontology to their targets
+  logo: https://github.com/chemical-roles/chemical-roles/raw/master/art/CRoG-square-100.png
+
 - name: CONSO
   github: pharmacome/conso
   role: creator, maintainer
@@ -10,46 +50,22 @@
   description: Curated knowledge graphs describing neurodegeneration in BEL
   logo: https://camo.githubusercontent.com/5efad183dee6f10de91d2cafa5e049aaba472f61/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f652f32504143582d3176535965385341384a31756c4c524671466a5832626e655f4c2d356678622d794846636a3142324a594c6b734a533930717a3879327377505a504e537277395a6a33746c6a725a696b62354b574f672f7075623f773d31353026683d313530
 
-- name: NeuroMMSig
-  github: neurommsig
+- name: ComPath
+  language: python
+  github: ComPath/ComPath
+  url: https://compath.scai.fraunhofer.de/
   role: contributor
-  description: Multimodal Mechanistic Signatures for Neurodegenerative Diseases
-  logo: https://avatars0.githubusercontent.com/u/46446084?s=200&v=4
+  description: A data integration pipeline, manually curated dataset of mappings between pathway databases, and web application for integrative analysis of pathways
+  logo: https://avatars0.githubusercontent.com/u/36850400?s=200&v=4
 
-- name: Biomappings
-  github: biopragmatics/biomappings
-  role: creator, maintainer
-  description: Predicted and curated mappings between named biological entities
-  zenodo: 4328920
-  logo: https://avatars1.githubusercontent.com/u/69258560?s=200
-
-- name: Bioversions
-  github: biopragmatics/bioversions
-  role: creator, maintainer
-  zenodo: 4320054
-  description: What's the current version for each biological database?
-  logo: /img/logos/bioversions.png
-
-- name: Bioregistry
-  role: creator, maintainer
-  github: bioregistry/bioregistry
-  description: An integrative meta-registry of biological databases, ontologies, and nomenclatures.
-  logo: /img/logos/bioregistry.png
-
-- name: Ooh Na Na
-  role: creator, maintainer
-  description: Comprehensive metadatabase of identifiers and names for biological entities
-  zenodo: 3866538
-  logo: /img/logos/ooh_na_na.png
-
-- name: Inspector Javert's Xref Database
-  role: creator, maintainer
-  description: Comprehensive metadatabase of cross-references between databases of biological entities
-  zenodo: 3757266
-  logo: /img/logos/javert.png
-
-- name: Chemical Roles Graph
-  role: creator, maintainer
-  github: chemical-roles/chemical-roles
-  description: Connecting roles in the ChEBI ontology to their targets
-  logo: https://github.com/chemical-roles/chemical-roles/raw/master/art/CRoG-square-100.png
+#- name: Ooh Na Na
+#  role: creator, maintainer
+#  description: Comprehensive metadatabase of identifiers and names for biological entities
+#  zenodo: 3866538
+#  logo: /img/logos/ooh_na_na.png
+#
+#- name: Inspector Javert's Xref Database
+#  role: creator, maintainer
+#  description: Comprehensive metadatabase of cross-references between databases of biological entities
+#  zenodo: 3757266
+#  logo: /img/logos/javert.png

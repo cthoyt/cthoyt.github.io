@@ -13,6 +13,16 @@ permalink: /community/
 {% endfor %}
 </ul>
 
+## Service
+
+<ul>
+{% for entry in site.data.service %}
+    <li>
+        <a href="{{ entry.url }}">{{ entry.name }}</a> ({{ entry.role }})
+    </li>
+{% endfor %}
+</ul>
+
 ## Collaborators
 
 The following is a list of my close, consistent collaborators:
@@ -30,7 +40,7 @@ The following is a list of my close, consistent collaborators:
 {% endif %}
 {% endfor %}
 
-My past collaborators include:
+My past/sporadic collaborators include:
 
 <ul>
 {% for entry in site.data.collaborators %}
@@ -42,15 +52,28 @@ My past collaborators include:
 
 ## Funding
 
-<ul>
+<table>
+<thead>
+<tr>
+    <th scope="col"></th>
+    <th scope="col">Name</th>
+    <th scope="col">Funder</th>
+    <th scope="col">Award</th>
+    <th scope="col">PI</th>
+</tr>
+</thead>
+<tbody>
 {% for entry in site.data.funding %}
-<li>
-<strong>{{ entry.funder }} {{ entry.name }} ({{ entry.abbreviation }})</strong>
-{% if entry.award %}{{ entry.award }}{% endif %}
-{% if entry.pi %}(PI: {{ entry.pi }}){% endif %}
-</li>
+<tr>
+    <th scope="row">{{ entry.abbreviation }}</th>
+    <td><a href="{{ entry.url }}">{{ entry.name }}</a></td>
+    <td>{{ entry.funder }}</td>
+    <td>{% if entry.award %}{{ entry.award }}{% endif %}</td>
+    <td>{% if entry.pi %}{{ entry.pi }}{% endif %}</td>
+</tr>
 {% endfor %}
-</ul>
+</tbody>
+</table>
 
 ## Disclosures / Conflicts of Interest
 
@@ -75,10 +98,10 @@ My past collaborators include:
     from {{ entry.start.month }} {{ entry.start.day }}-{{ entry.end.month }} {{ entry.end.day }}, {{ entry.year }}
     {% endif %}
     {% if entry.talk %}
-    and gave a <a href="{{ entry.talk }}">talk</a>
+    and gave a <a href="{{ entry.talk.url }}">talk</a>
     {% endif %}
     {% if entry.poster %}
-    and presented a <a href="{{ entry.poster }}">poster</a>
+    and presented a <a href="{{ entry.poster.url }}">poster</a>
     {% endif %}
     {% if entry.wikidata %}
     (<a href="https://scholia.toolforge.org/event/{{ entry.wikidata }}"><img src="/img/logos/wikidata_logo.svg" height="16"/></a>)

@@ -95,15 +95,25 @@ machine learning tasks such as subgroup identification and survival analysis.
 
 ## Presentations
 
-<ul>
-{% for entry in site.data.presentations %}
+<ol reversed>
+{% for entry in site.data.events %}
+    {% if entry.talk %}
     <li>
-    <a href="{{ entry.url }}">{{ entry.name }}</a>
-    at {{ entry.venue }} {% if entry.online %}(online) {% else %}in {{ entry.location.city }}, {{ entry.location.country }}{% endif %} on {{ entry.date.month }} 
+    <a href="{{ entry.talk.url }}">{{ entry.talk.name }}</a>{% if entry.talk.invited %} (invited){% endif %}
+    at {{ entry.name }}
+    {% comment %}
+ {% if entry.online %}(online) {% else %}in {{ entry.location.city }}, {{ entry.location.country }}{% endif %} on {{ entry.date.month }} 
     {{ entry.date.day }}, {{ entry.date.year }}
+    {% endcomment %}
     </li>
+    {% endif %}
+    {% if entry.poster %}
+    <li>
+    <a href="{{ entry.poster.url }}">{{ entry.poster.name }}</a> (poster) at {{ entry.name }}
+    </li>  
+    {% endif %}
 {% endfor %}
-</ul>
+</ol>
 
 ## Publications
 
