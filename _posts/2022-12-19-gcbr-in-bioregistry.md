@@ -246,7 +246,7 @@ that contains the list of prefixes mentioned here.
 
 Serendipitously, the scientific program committee of
 the [16th Annual International Biocuration Conference (Biocuration 2023)](https://biocuration2023.github.io) has invited
-the Executive Director of the Global Biodata Coalition, Guy Cochrane, to give a keynote presentation at the conference.
+the Executive Director of the Global Biodata Coalition, Guy Cochrane, to give a [keynote presentation](https://www.youtube.com/watch?v=Dp952i6T9aI) at the conference.
 This will be very timely, and I'm looking forwards to meeting him in person and chatting about this. If you're a reader
 of my blog, you're likely a creator, user, or both of resources like the one in the GCBR list. I'd suggest you consider
 [submitting an abstract](https://biocuration2023.github.io/abstracts) for the conference and meeting me in Padua in
