@@ -1,4 +1,19 @@
 - talk:
+    invited: true
+    name: "Democratizing Biocuration, or, How I Learned to Love the Drive-by Curation"
+    url: https://docs.google.com/presentation/d/1D6P-1hQefXU_yRODSJkOFLH3tPxsk9Abi20ycA0xKWU/edit?usp=sharing
+    date:
+      day: 18
+      month: October
+      year: 2023
+  online: true
+  name: International Society of Biocuration Annual General Meeting
+  date:
+    day: 18
+    month: October
+    year: 2023
+
+- talk:
     invited: false
     name: "Improving the reproducibility of cheminformatics workflows with chembl-downloader"
     url: https://bit.ly/cth-rdkit-ugm-2023
@@ -22,17 +37,34 @@
 
 - talk:
     invited: true
-    name: "Democratizing Biocuration, or, How I Learned to Love the Drive-by Curation"
-    url: https://docs.google.com/presentation/d/1D6P-1hQefXU_yRODSJkOFLH3tPxsk9Abi20ycA0xKWU/edit?usp=sharing
+    name: "Improving ontology interoperability with Biomappings"
+    url: https://bit.ly/obo-academy-biomappings
     date:
-      day: 18
-      month: October
+      day: 19
+      month: September
       year: 2023
+  name: OBO Academy - Monarch Training Series
+  link: https://oboacademy.github.io/obook/courses/monarch-obo-training/
   online: true
-  name: International Society of Biocuration Annual General Meeting
   date:
-    day: 18
-    month: October
+    day: 19
+    month: September
+    year: 2023
+
+- talk:
+    invited: true
+    name: "Modern prefix management with the Bioregistry and `curies`"
+    url: https://docs.google.com/presentation/d/1Hyi9t_wwoMAFskWtDBMHGpAw7ZwTQx-3RKrFdTFYB88/edit?usp=sharing
+    date:
+      day: 5
+      month: September
+      year: 2023
+  name: OBO Academy - Monarch Training Series
+  link: https://oboacademy.github.io/obook/courses/monarch-obo-training/
+  online: true
+  date:
+    day: 5
+    month: September
     year: 2023
 
 - talk:
