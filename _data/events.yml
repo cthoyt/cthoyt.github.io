@@ -15,6 +15,26 @@
 
 - talk:
     invited: false
+    name: "Standardization of chemical prefixes, CURIEs, URIs, and semantic mappings"
+    url: https://bit.ly/ontologies4chem2023-cth
+    date:
+      day: 12
+      month: October
+      year: 2023
+  name: Ontologies4Chem Workshop 2023
+  link: https://docs.google.com/document/d/1EteBVVmyZEsv9Q55uvk2XjbZcPeSr8BB/edit?usp=sharing&ouid=102267574585791126574&rtpof=true&sd=true
+  online: true
+  start:
+    day: 11
+    month: October
+    year: 2023
+  end:
+    day: 12
+    month: October
+    year: 2023
+
+- talk:
+    invited: false
     name: "Improving the reproducibility of cheminformatics workflows with chembl-downloader"
     url: https://bit.ly/cth-rdkit-ugm-2023
     date:
