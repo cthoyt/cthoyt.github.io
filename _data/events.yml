@@ -1,5 +1,34 @@
 - talk:
     invited: true
+    name: "Machine-assisted integration of data and knowledge at scale to support biomedical discovery"
+    date:
+      day: 7
+      month: December
+      year: 2023
+  online: true
+  name: NIH BISTI Seminar
+  date:
+    day: 7
+    month: December
+    year: 2023
+
+- talk:
+    invited: false
+    name: "Introduction to WPCI 2023"
+    url: https://docs.google.com/presentation/d/1SJ-gyoctyX-WLkkULRkUDF25l5CmtZZG3xlWBegDRa8/edit?usp=sharing
+    date:
+      day: 27
+      month: November
+      year: 2023
+  online: true
+  name: Winter 2023 Workshop on Prefixes, CURIEs, and IRIs
+  date:
+    day: 27
+    month: November
+    year: 2023
+
+- talk:
+    invited: true
     name: "Democratizing Biocuration, or, How I Learned to Love the Drive-by Curation"
     url: https://docs.google.com/presentation/d/1D6P-1hQefXU_yRODSJkOFLH3tPxsk9Abi20ycA0xKWU/edit?usp=sharing
     date:

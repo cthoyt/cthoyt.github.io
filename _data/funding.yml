@@ -1,3 +1,16 @@
+- funder: Chan Zuckerberg Initiative (DTRA)
+  award: 2023-329850
+  name: Advancing Data Integration and Discovery in Biomedicine with the Bioregistry
+  pi: Benjamin M. Gyori
+  project_start:
+    year: 2023
+  url: https://discover.lanl.gov/news/1027-vaccine-development
+  personal_start:
+    year: 2023
+  role: Key person. Co-wrote proposal, responsible for design and implementation of research plan.
+  money: "\\$250K overall, 2023-2025 (24 months), Grant: 2023-329850"
+  current: true
+
 - funder: Defense Threat Reduction Agency (DTRA)
   award: FP00012844
   name: Rapid Assessment of Platform Technologies to Expedite Response

@@ -7,6 +7,8 @@ journals:
   - eLife
   - MATCH Communications in Mathematical and in Computer Chemistry
   - PeerJ
+grants:
+  - CZI Essential Open Source Software (EOSS) Cycle 6 (2023)
 articles:
   - title: Research and Applications of Knowledge Graph Embedding Technique in Chemistry
     editor: Boris Furtula
