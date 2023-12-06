@@ -81,7 +81,7 @@ For any content requiring a short bio (~1 paragraph), you can use the following 
 > Dr. Charles Tapley Hoyt received his Ph.D. in Computational Life Sciences from the University of Bonn in 2019.
 > His research interests cover the interface of biocuration, knowledge graphs, and machine learning with systems
 > biology, networks biology, and drug discovery. He currently works remotely from Germany as a
-> {{ site.data.current.position }} in the [{{ site.data.current.group.name }}]({{ site.data.current.group.link }}
+> {{ site.data.current.position }} in the [{{ site.data.current.group.name }}]({{ site.data.current.group.link }})
 > at {{ site.data.current.institution }}. He is an advocate of open source software, reproducibility, and
 > open science. His open source projects such as PyBEL and PyKEEN are used by several academic
 > and industrial groups.
