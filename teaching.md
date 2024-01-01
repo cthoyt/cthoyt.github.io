@@ -48,7 +48,7 @@ scientific or informatics curricula. I'm generating some resources to help fill 
 - [GitHub: Using Flask, Celery, and Docker](https://github.com/cthoyt/flask-celery-docker-demo)
 - [GitHub: Examples](https://github.com/cthoyt-teaches-reproducibility/)
 
-Here's my playlist of videos to help people to go from intermediate to 
-advanced Python programming: https://youtube.com/playlist?list=PLPFmTfhIBiumfYT3rsa35fHJxabB78er1&si=rLUBLi4UvAmDFn0_
+Here's my playlist of videos to help people to go from intermediate to
+advanced Python programming: <https://youtube.com/playlist?list=PLPFmTfhIBiumfYT3rsa35fHJxabB78er1&si=rLUBLi4UvAmDFn0_>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=0NkCF7VbhxbC_ZDn&amp;list=PLPFmTfhIBiumfYT3rsa35fHJxabB78er1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
