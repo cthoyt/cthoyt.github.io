@@ -3,6 +3,11 @@
   url: https://bioregistry.io/wikidata:Q23809291?provider=scholia
   role: Executive Committee
 
+- name: 2023 Workshop on Prefixes, CURIEs, and IRIs
+  url: https://biopragmatics.github.io/workshops/WPCI2023.html
+  role: Organizer
+  wikidata: Q123297997
+
 - name: Biocuration 2024
   wikidata: Q122167907
   url: https://bioregistry.io/wikidata:Q122167907?provider=scholia
