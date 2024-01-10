@@ -48,27 +48,27 @@ print(ScholarV1.schema_json(indent=2))
 
 ```json
 {
-  "title": "ScholarV1",
-  "description": "A model representing a researcher, who might have several IDs on different services.",
-  "type": "object",
-  "properties": {
-    "orcid": {
-      "title": "Orcid",
-      "type": "string"
-    },
-    "name": {
-      "title": "Name",
-      "type": "string"
-    },
-    "dblp": {
-      "title": "Dblp",
-      "type": "string"
-    }
-  },
-  "required": [
-    "orcid",
-    "name"
-  ]
+   "title": "ScholarV1",
+   "description": "A model representing a researcher, who might have several IDs on different services.",
+   "type": "object",
+   "properties": {
+      "orcid": {
+         "title": "Orcid",
+         "type": "string"
+      },
+      "name": {
+         "title": "Name",
+         "type": "string"
+      },
+      "dblp": {
+         "title": "Dblp",
+         "type": "string"
+      }
+   },
+   "required": [
+      "orcid",
+      "name"
+   ]
 }
 ```
 
@@ -137,7 +137,6 @@ print(ScholarV2.schema_json(indent=2))
   ]
 }
 ```
-
 </details>
 
 However, this was a lot of work. It would be nice if there were some database of all the semantic spaces
