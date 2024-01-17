@@ -1,6 +1,22 @@
 - talk:
     invited: true
+    name: "Assembly of Domain Knowledge at Scale in Biomedicine and Beyond"
+    url: https://bit.ly/cth-lsp-2024
+    date:
+      day: 19
+      month: January
+      year: 2024
+  online: true
+  name: Laboratory of Systems Pharmacology Meeting
+  date:
+    day: 19
+    month: January
+    year: 2024
+
+- talk:
+    invited: true
     name: "Machine-assisted integration of data and knowledge at scale to support biomedical discovery"
+    url: https://www.dropbox.com/scl/fi/phd98s1oql2knjp2v9lhq/2023-12-07_hoyt_gyori_nih_bisti.pdf?rlkey=qlorv5a1d79ofhhkatjpmj3tb&dl=0
     date:
       day: 7
       month: December
