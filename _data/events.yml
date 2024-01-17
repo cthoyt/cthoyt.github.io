@@ -7,7 +7,7 @@
       month: January
       year: 2024
   online: true
-  name: Laboratory of Systems Pharmacology Meeting
+  name: Harvard Medical School - Laboratory of Systems Pharmacology Meeting
   date:
     day: 19
     month: January
@@ -37,6 +37,7 @@
       month: November
       year: 2023
   online: true
+  wikidata: Q123297997
   name: Winter 2023 Workshop on Prefixes, CURIEs, and IRIs
   date:
     day: 27
@@ -208,7 +209,7 @@
 Concepts to Support Knowledge Graph Assembly"
     url: https://bit.ly/sorger-lab-biomappings
     invited: false
-  name: Sorger Lab Meeting
+  name: Harvard Medical School - Sorger Lab Meeting
   online: true
   public: false
   date:
