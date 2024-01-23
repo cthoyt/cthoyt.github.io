@@ -437,8 +437,8 @@ the Gene Ontology to do many more powerful things, such as axiomization,
 that just don't fit into a TSV-only world for curation.
 
 > [Use of OWL within the Gene Ontology](https://doi.org/10.1101/010090)
-Christopher J Mungall, Heiko Dietze, David Osumi-Sutherland.
-*bioRxiv*, 010090; DOI: `10.1101/010090 `
+> Christopher J Mungall, Heiko Dietze, David Osumi-Sutherland.
+> *bioRxiv*, 010090; DOI: `10.1101/010090 `
 
 He also gave two links to some previously developed tools that can help
 you get started with generating ontologies from tables:

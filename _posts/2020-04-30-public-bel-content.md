@@ -24,7 +24,7 @@ Along with their release of the OpenBEL Framework in 2012, Selventa published tw
 that showcased the range of biological phenomena that could be expressed in BEL with a slight focus on atherosclerosis.
 They were excitingly named the "Selventa Small Corpus" and "Selventa Large Corpus".
 
-Becuase Selventa dissolved in 2016 and the belframework.org domain expired in mid-2019, the files have been
+Because Selventa dissolved in 2016 and the belframework.org domain expired in mid-2019, the files have been
 updated and redistributed on GitHub at [cthoyt/selventa-knowledge](https://github.com/cthoyt/selventa-knowledge)
 under the Creative Commons Attribution-Non-Commercial-ShareAlike 3.0 Unported License, same as the original. It can
 be installed in Python directly with:
@@ -244,6 +244,6 @@ PyBEL has tons of other I/O formats, especially for analytical tools like [HiPat
 and others that aren't mentioned here, but can be found in its documentation [here](https://pybel.readthedocs.io/en/latest/reference/io.html).
 
 I hope you're able to find some of this content useful! If you know about any other publicly available BEL content,
-please let me know so I can update this post. All of my contact info is below. Or make a [pull request against
+please let me know, so I can update this post. All of my contact info is below. Or make a [pull request against
 this page](https://github.com/cthoyt/cthoyt.github.io/edit/master/_posts/2020-04-30-public-bel-content.md)
-directly. Or tweet at me [@cthoyt](https://twitter.com/cthoyt).
+directly.

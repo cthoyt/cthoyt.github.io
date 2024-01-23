@@ -16,7 +16,7 @@ between pathways appearing in these databases.
 Like many of my blog posts, this one was inspired by a tweet. After the following discussion,
 I thought it would be good to better organize the ideas and elaborate.
 
-<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/KEGG?src=hash&amp;ref_src=twsrc%5Etfw">#KEGG</a> provides a namespace of non-species-specific pathway terms that all of its species-specific pathways can map to. <a href="https://twitter.com/reactome?ref_src=twsrc%5Etfw">@reactome</a> could you provide the same?</p>&mdash; Charles Tapley Hoyt (@cthoyt) <a href="https://twitter.com/cthoyt/status/1344076052386238464?ref_src=twsrc%5Etfw">December 30, 2020</a></blockquote>
+<blockquote><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/KEGG">#KEGG</a> provides a namespace of non-species-specific pathway terms that all of its species-specific pathways can map to. <a href="https://twitter.com/reactome">@reactome</a> could you provide the same?</p>&mdash; Charles Tapley Hoyt (@cthoyt) <a href="https://twitter.com/cthoyt/status/1344076052386238464">December 30, 2020</a></blockquote>
 
 This blog post will follow apoptosis, one of the most ubiquitous pathways in biology that
 covers all manners of programed cell death. This blog post isn't about the nitty-gritty difference between

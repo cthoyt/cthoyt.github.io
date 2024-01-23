@@ -5,6 +5,7 @@ date: 2021-08-17 12:21:00 +0100
 author: Charles Tapley Hoyt
 tags: bibliometrics
 ---
+
 In a [previous post]({% post_url 2021-01-17-organization-organization %}), I described how to formalize the information
 about a research organization using Wikidata. This post follows the same theme, but about this time about a given
 researcher. Not only can you follow this post to make your own scientific profile easier to find and navigate, but you
@@ -24,7 +25,8 @@ awards, affiliations, employers, and the relationships between them that make it
 information.
 
 Anyone can edit Wikidata, meaning you can create an entry for your curmudgeonly PI who wouldn't be caught dead making a
-profile on this new thing called "the internet". There are three *notability* criteria for [what's allowed](https://www.wikidata.org/wiki/Wikidata:Notability)
+profile on this new thing called "the internet". There are three *notability* criteria
+for [what's allowed](https://www.wikidata.org/wiki/Wikidata:Notability)
 to be added as an item in Wikidata:
 
 1. References another Wikimedia commmons page
@@ -40,9 +42,9 @@ Let's get to it.
 
 ## Step 1: ORCID
 
-The ORCiD identifier is the single unambiguous identifier for each researcher. 
+The ORCiD identifier is the single unambiguous identifier for each researcher.
 
-<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">As unique as you are, the truth is your name probably isn’t all that unique. ORCID was founded specifically to help solve the problem of name ambiguity in research. Want to learn more? Start here! <a href="https://twitter.com/hashtag/openscience?src=hash&amp;ref_src=twsrc%5Etfw">#openscience</a> <a href="https://twitter.com/hashtag/openresearch?src=hash&amp;ref_src=twsrc%5Etfw">#openresearch</a> <a href="https://twitter.com/hashtag/namedisambiguity?src=hash&amp;ref_src=twsrc%5Etfw">#namedisambiguity</a><a href="https://t.co/Q2J1bVrolc">https://t.co/Q2J1bVrolc</a></p>&mdash; ORCID Organization (@ORCID_Org) <a href="https://twitter.com/ORCID_Org/status/1427578459258249245?ref_src=twsrc%5Etfw">August 17, 2021</a></blockquote>
+<blockquote><p lang="en" dir="ltr">As unique as you are, the truth is your name probably isn’t all that unique. ORCID was founded specifically to help solve the problem of name ambiguity in research. Want to learn more? Start here! <a href="https://twitter.com/hashtag/openscience">#openscience</a> <a href="https://twitter.com/hashtag/openresearch">#openresearch</a> <a href="https://twitter.com/hashtag/namedisambiguity">#namedisambiguity</a><a href="https://t.co/Q2J1bVrolc">https://t.co/Q2J1bVrolc</a></p>&mdash; ORCID Organization (@ORCID_Org) <a href="https://twitter.com/ORCID_Org/status/1427578459258249245?ref_src=twsrc%5Etfw">August 17, 2021</a></blockquote>
 
 If you don't have one, it only takes
 2 minutes to make one [here](https://orcid.org/register). ORCID profiles look like a bunch of sets of 4 numbers/letters
@@ -79,13 +81,22 @@ here's what it looks like:
 
 I'll reiterate the short summary I gave on Wikidata from my previous post:
 
-> Wikidata is an open, community-curated platform of knowledge. It stores entities, their relations to other entities, their relations to scalar values, and added context for each relationship. Typically, relationships have a subject, relation, and object and can be read like a simple sentence in the english language.
+> Wikidata is an open, community-curated platform of knowledge. It stores entities, their relations to other entities,
+> their relations to scalar values, and added context for each relationship. Typically, relationships have a subject,
+> relation, and object and can be read like a simple sentence in the english language.
 >
-> There are lots of working groups that maintain its ontology (i.e., the rules for how curation should be done) around certain domains, such representing organization structures. This means there are lots of tools already built in to Wikidata for potential curators like you and me to create rich pages for their organizations.
+> There are lots of working groups that maintain its ontology (i.e., the rules for how curation should be done) around
+> certain domains, such representing organization structures. This means there are lots of tools already built in to
+> Wikidata for potential curators like you and me to create rich pages for their organizations.
 >
-> One of the curation rules shared across all domains in Wikidata is that each entity should have a "type". This means on the page for [Albert Einstein](https://www.wikidata.org/wiki/Q937), there is a relationship stating he is an
+> One of the curation rules shared across all domains in Wikidata is that each entity should have a "type". This means
+> on the page for [Albert Einstein](https://www.wikidata.org/wiki/Q937), there is a relationship stating he is an
 [instance of](https://www.wikidata.org/wiki/Property:P31) a [human](https://www.wikidata.org/wiki/Q5). The "instance of"
-item on Wikidata is a special kind called a "property" and is one of the places where the ontology lives - there are specific rules for each property on how it should be used in a relationship, like what's allowed to be the subject and what's allowed to be the object. For"instance of", there are no rules about the subject. However, the object of the relationship where "instance of" is the property should be a "class" of thing. It wouldn't make sense for the type of another entity to be an instance of "Albert Einstein".
+> item on Wikidata is a special kind called a "property" and is one of the places where the ontology lives - there are
+> specific rules for each property on how it should be used in a relationship, like what's allowed to be the subject and
+> what's allowed to be the object. For"instance of", there are no rules about the subject. However, the object of the
+> relationship where "instance of" is the property should be a "class" of thing. It wouldn't make sense for the type of
+> another entity to be an instance of "Albert Einstein".
 
 One thing to note: use the Wikidata search bar to see if there's already a page for the person you're looking for!
 It's a big problem if there are duplicate entries on Wikidata. [Scholia](https://scholia.toolforge.org/) also
@@ -99,7 +110,8 @@ humans have certain pieces of information associated with them using the followi
 - [sex or gender](https://www.wikidata.org/wiki/Property:P21) - for humans, this can include: male, female,
   non-binary, intersex, transgender female, transgender male, and agender.
 - [country of citizenship](https://www.wikidata.org/wiki/Property:P27)
-- [native language](https://www.wikidata.org/wiki/Property:P103) - there are Wikidata entries for most (if not all) common languages
+- [native language](https://www.wikidata.org/wiki/Property:P103) - there are Wikidata entries for most (if not all)
+  common languages
 - [languages spoken, written or signed](https://www.wikidata.org/wiki/Property:P1412) - additional non-native languages.
   It doesn't have any information about levels, so I'm a bit hesitant about advertizing my B1 level of German!
 - [nickname](https://www.wikidata.org/wiki/Property:P1449) - a slightly more specific place to put a nickname than the
@@ -114,18 +126,23 @@ whistles.
 
 Affiliations:
 
-- [educated at (P69)](https://www.wikidata.org/wiki/Property:P69) - links a person to the institutions at which they earned
+- [educated at (P69)](https://www.wikidata.org/wiki/Property:P69) - links a person to the institutions at which they
+  earned
   their bachelor's, master's, or doctoral degrees, as well as any other education.
-- [employer (P108)](https://www.wikidata.org/wiki/Property:P108) - the top-level organization that you're associated with. For
-  me at the moment, that's [Harvard Medical School](https://www.wikidata.org/wiki/Q49121). For specific departments or teams within the organization, you can
+- [employer (P108)](https://www.wikidata.org/wiki/Property:P108) - the top-level organization that you're associated
+  with. For
+  me at the moment, that's [Harvard Medical School](https://www.wikidata.org/wiki/Q49121). For specific departments or
+  teams within the organization, you can
   use the "affiliation" property.
-- [affiliation (P1416)](https://www.wikidata.org/wiki/Property:P1416) - useful for subdivisions inside organizations. For
+- [affiliation (P1416)](https://www.wikidata.org/wiki/Property:P1416) - useful for subdivisions inside organizations.
+  For
   example, while I am employed by Harvard Medical School, I am appointed as a postdoc in
   the [Laboratory of Systems Pharmacology](https://www.wikidata.org/wiki/Q107380113), which itself has information about
   its membership within the [Harvard Program in Therapeutic Science](https://www.wikidata.org/wiki/Q107392274).
 - [member of (P463)](https://www.wikidata.org/wiki/Property:P463) - any professional societies, working groups, or other
   organizations. For example, I belong to the [American Chemical Society](https://www.wikidata.org/wiki/Q247556).
-- [doctoral advisor (P184)](https://www.wikidata.org/wiki/Property:P184) - useful for building up academic trees. I asked my
+- [doctoral advisor (P184)](https://www.wikidata.org/wiki/Property:P184) - useful for building up academic trees. I
+  asked my
   doctoral advisor about his doctoral advisor and actually ended up emailing him to find out some more information about
   my academic lineage. It turns out that there's a lot of information in the Academic Tree website that gets propagated
   through to Wikidata already by bots. After I added a few missing links, I found out that I am in the lineage
@@ -138,9 +155,11 @@ Accomplishments:
   (e.g., [Doctor of Philosophy](https://www.wikidata.org/wiki/Q752297)). Using the "qualifiers", it's also possible to
   add information about the doctoral advisor, when the degree was received, the opponents during the disputation (i.e.,
   the examination committee)
-- [academic thesis (P1026)](https://www.wikidata.org/wiki/Property:P1026) - make an entry for your master's or PhD thesis, and
+- [academic thesis (P1026)](https://www.wikidata.org/wiki/Property:P1026) - make an entry for your master's or PhD
+  thesis, and
   link them to you this way!
-- [award received (P166)](https://www.wikidata.org/wiki/Property:P166) - make an entry for the awards you've received, then
+- [award received (P166)](https://www.wikidata.org/wiki/Property:P166) - make an entry for the awards you've received,
+  then
   connect them here.
 
 Some of the affiliations and accomplishments will require going even deeper into your curation and making additional
@@ -191,7 +210,7 @@ One part that's really cool is the co-author graph:
 
 When you start off, there won't be much here. Luckily, it has a curation link that takes advantage of the synonyms on
 the Wikidata and helps connect papers that are already on Wikidata to the given researcher's page. Here's the link for
-mine (though I keep it pretty up-to-date and it's likely empty):
+mine (though I keep it pretty up-to-date, and it's likely empty):
 [https://scholia.toolforge.org/author/Q47475003/curation](https://scholia.toolforge.org/author/Q47475003/curation)
 
 ---
