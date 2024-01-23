@@ -5,6 +5,7 @@ date: 2020-05-12 00:00:00 -0800
 author: Charles Tapley Hoyt
 tags: ontology curation
 ---
+
 Everyone's talking about biomedical ontologies! Let's
 look at where most people go wrong and how to do it right.
 
@@ -25,20 +26,20 @@ Similarly, natural language processing (NLP) researchers find ontologies
 incredibly useful in named entity recognition because ontologies often contain
 preferred labels in many languages and synonyms for its terms. Software
 developers and end-users find ontologies useful for organizing and conveying
-information in a hierarchical manner. 
+information in a hierarchical manner.
 
 While it might be true that ontologies have the ability to support all of those
 uses, none accurately portray ontologies. The following table presents more
 appropriate vocabulary to describe each of these use cases:
 
-
-| Phrase | Definition |
-| ------ | ---------- |
-| Controlled Vocabulary | An enumerated set of entities |
-| Dictionary | An enumerated set of entities and their definitions |
-| Thesaurus | An enumerated set of entities and their synonyms |
-| Hierarchy | An enumerated set of entities with one parent for each |
-| Multi-Hierarchy | An enumerated set of entities with one or more parents for each |
+| Phrase                | Definition                                                      |
+|-----------------------|-----------------------------------------------------------------|
+| Semantic Space        | An enumerated set of entities                                   |
+| Controlled Vocabulary | An enumerated set of entities and their names                   |
+| Dictionary            | An enumerated set of entities and their definitions             |
+| Thesaurus             | An enumerated set of entities and their synonyms                |
+| Taxonomy / Hierarchy  | An enumerated set of entities with one parent for each          |
+| Multi-Hierarchy       | An enumerated set of entities with one or more parents for each |
 
 Database maintainers need controlled vocabularies to improve the utility of
 their databases, researchers can leverage dictionaries to learn the
@@ -104,7 +105,7 @@ their prefix, but make sure you don't cause a conflict or confusion with a
 previously existing one. You can search through
 registries like [Identifiers.org](https://identifiers.org), the OLS, or the
 [OBO Foundry](http://www.obofoundry.org/) (which, on a side
-note, don't exactly contain all of the same stuff) to check out the existing
+note, don't exactly contain all the same stuff) to check out the existing
 landscape.
 
 ### Pick a scheme for identifiers
@@ -147,9 +148,9 @@ schemes:
 
 My favorite is the MeSH style, because it allows for the most information to be
 conveyed succinctly. You should use numbers of width 6 or 7, even if you only
-plan on curating a few dozen or hundred terms.
+plan on curating a few dozen or a hundred terms.
 
-Please don't use the GO style identifiers, because this is creates a ton
+Please don't use the GO style identifiers, because this creates a ton
 of confusion.
 
 You should also write down what the regular expression that goes with your
@@ -170,11 +171,11 @@ best you don't curate it again.
 ## Curation
 
 It's time to start curating entries in your ontology. Most people go right to
-[Protégé](https://protege.stanford.edu/). 
+[Protégé](https://protege.stanford.edu/).
 
 _Don't_.
 
-Protégé is a really good way to get bogged down in the ivory tower that is
+Protégé is a perfect way to get bogged down in the ivory tower that is
 ontology. Instead, it's better to focus on the aspects of the ontology that I
 think are practically the most important. So in this guide, we're going to
 use a set of interconnected tab-separated values (TSV) documents. Why TSV?
@@ -182,7 +183,8 @@ Because comma-separated values (CSV) documents look awful and Excel sheets
 can't be diff'd / viewed in GitHub. However, I would accept the following
 alternative:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I propose we change CSV to Clown Separated Values since that tends to be about how well CSV parsers work. <a href="https://t.co/C8Uys3H9Kp">pic.twitter.com/C8Uys3H9Kp</a></p>&mdash; Kevin Jones 🏳️‍🌈 🧼👏 (@vcsjones) <a href="https://twitter.com/vcsjones/status/1170828523881271298?ref_src=twsrc%5Etfw">September 8, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">I propose we change CSV to Clown Separated Values since that tends to be about how well CSV parsers work. <a href="https://t.co/C8Uys3H9Kp">pic.twitter.com/C8Uys3H9Kp</a></p>&mdash; Kevin Jones 🏳️‍🌈 🧼👏 (@vcsjones) <a href="https://twitter.com/vcsjones/status/1170828523881271298?ref_src=twsrc%5Etfw">September 8, 2019</a></blockquote> 
 
 In a later post, I'll come back to how to programatically generate OWL,
 OBO, BEL, and other formats that are commonly used for ontologies from
@@ -325,7 +327,7 @@ following columns:
    If this isn't important to you, your life will probably be better by
    leaving it out
 
-Now that you've made all of the sheets, you can make sure that your
+Now that you've made all the sheets, you can make sure that your
 curators do their best job to fill out entries in each of them every time
 a new entity is added. It's also necessary to keep track of the uniqueness
 of entity identifiers as new ones are added. It's best if they're consecutive
@@ -377,13 +379,13 @@ validation scripts fail before merging them into master.
 Next, you should write scripts that export all of your content into common
 formats so others can consume it like OWL, OBO, BEL Namespace, etc.
 Additionally, it's nice to automatically build a website that displays all
-of the curated content and allows people to explore it. GitHub will even
+the curated content and allows people to explore it. GitHub will even
 host the site for free.
 
 These suggestions probably sound a bit abstract or scary if you're not a
 seasoned programmer, so in a later post, I'll provide you with a
 [cookiecutter](https://github.com/cookiecutter/cookiecutter) template
-repository with all of the files, scripts, and configuration that you
+repository with all the files, scripts, and configuration that you
 need to do this without any programming at all. An example of most of
 it in practice is the Curation of Neurodegeneration Supporting Ontology
 (CONSO) ([source code](https://github.com/pharmacome/conso);
@@ -416,8 +418,8 @@ legitimacy.
 
 Even with the best intentions, you will inevitably have to change some
 names over time. This is okay because your identifiers are persistent!
-However, you might have to retire entries. This might mean adding an
-additional column to *entities.tsv* with the date that a term is made
+However, you might have to retire entries. This might mean adding a
+column to *entities.tsv* with the date that a term is made
 obsolete.
 
 ### Upgrade to more powerful tooling
@@ -464,7 +466,7 @@ They'll be happy to get input on what they should do next, because, like I said
 before, these people love what they do. And there's nothing better than seeing
 that something you are proud of is useful for other people.
 
-Stay tuned for my next post where I'll give you the code I wrote to do all of
+Stay tuned for my next post where I'll give you the code I wrote to do all
 the things I recommended before. I'll put my money where my mouth is and
 present my ontology that led to building this curation environment and
 ultimately writing this post - the [Curation of Neurodegeneration Supporting
