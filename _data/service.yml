@@ -2,45 +2,55 @@
   wikidata: Q23809291
   url: https://bioregistry.io/wikidata:Q23809291?provider=scholia
   role: Executive Committee
+  type: organization
 
 - name: 2023 Workshop on Prefixes, CURIEs, and IRIs
   url: https://biopragmatics.github.io/workshops/WPCI2023.html
   role: Organizer
   wikidata: Q123297997
+  type: conference
 
 - name: Biocuration 2024
   wikidata: Q122167907
   url: https://bioregistry.io/wikidata:Q122167907?provider=scholia
   role: Organizing Committee
+  type: conference
 
 - name: Biocuration 2023
   wikidata: Q111430238
   url: https://bioregistry.io/wikidata:Q111430238?provider=scholia
   role: Co-chair
+  type: conference
 
 - name: 2022 Workshop on Prefixes, CURIEs, and IRIs
   url: https://biopragmatics.github.io/workshops/WPCI2022.html
   role: Organizer
   wikidata: Q115620549
+  type: conference
 
 - name: ICBO 2022 Workshop on Ontology Tools
   url: https://icbo-conference.github.io/icbo2022/workshops-and-tutorials/#workshop-on-ontology-tools-and-workflows
   role: Co-organizer
+  type: conference
 
 - name: ICBO 2022
   url: https://icbo-conference.github.io/icbo2022/program-committee
   role: Program Committee
+  type: conference
 
 - name: ISMB 2022 (Bio-Ontologies/BOSC joint session)
   url: https://www.iscb.org/ismb2022-program/abstracts/bio-ontologies
   role: Program Committee
+  type: conference
 
 - name: Biocuration 2022
   url: https://bioregistry.io/wikidata:Q109407979?provider=scholia
   wikidata: Q109407979
   role: Organizing Committee
+  type: conference
 
 - name: 2021 Workshop on Prefixes, CURIEs, and IRIs
   url: https://biopragmatics.github.io/workshops/WPCI2021.html
   role: Organizer
   wikidata: Q109302693
+  type: conference
