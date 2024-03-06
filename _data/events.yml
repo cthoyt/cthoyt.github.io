@@ -1,4 +1,26 @@
 - talk:
+    invited: false
+    name: "Assembly and Reasoning over Semantic Mappings at Scale"
+    url: https://bit.ly/biocuration2024-cth
+    date:
+      day: 7
+      month: March
+      year: 2024
+  name: Biocuration 2024
+  link: https://ibdc.rcb.res.in/biocuration2024/
+  location:
+    city: Faridabad
+    country: India
+  start:
+    day: 5
+    month: March
+    year: 2024
+  end:
+    day: 8
+    month: March
+    year: 2024
+
+- talk:
     invited: true
     name: "Assembly of Domain Knowledge at Scale in Biomedicine and Beyond"
     url: https://bit.ly/cth-lsp-2024
