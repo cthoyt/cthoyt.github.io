@@ -1,4 +1,25 @@
 - talk:
+    invited: true
+    name: "Assembly and inference over semantic mappings to support the NFDI Terminology Service"
+    url: https://bit.ly/semra4nfdi
+    date:
+      day: 9
+      month: April
+      year: 2024
+  name: TS4NFDI Community Workshop
+  location:
+    city: Hannover
+    country: Germany
+  start:
+    day: 8
+    month: April
+    year: 2024
+  end:
+    day: 9
+    month: April
+    year: 2024
+
+- talk:
     invited: false
     name: "Assembly and Reasoning over Semantic Mappings at Scale"
     url: https://bit.ly/biocuration2024-cth
