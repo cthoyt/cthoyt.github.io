@@ -325,6 +325,15 @@ charlie = Scholar(orcid="0000-0003-4423-4370", name="Charles Tapley Hoyt")
 assert charlie.orcid_url == 'https://orcid.org/0000-0003-4423-4370'
 ```
 
+### Similar Things
+
+I had originally planned to write about how this might fit in with [LinkML](https://linkml.io)
+
+I was originally going to try and to explain how this demo fits in with LinkML, a highly complex and sophistocated
+metamodeling language. I decided not to since I find it very hard to explain in a coherent way what LinkML does
+
+https://genomic.social/@Cmungall/111733218573035649
+
 ### Run the Demo
 
 The demo can be run by cloning the repository, installing its requirements, and
