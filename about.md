@@ -67,7 +67,9 @@ on the same topics and reproducibility in computational science.
 
 In 2021, I joined the Laboratory of Systems Pharmacology at Harvard Medical School to
 continue my academic work. In summer 2023, I moved from Harvard to Northeastern University
-to continue working under Ben Gyori.
+to continue working under Ben Gyori. 
+
+In Spring 2024, I began a sabbatical and will be returning for my next position in Fall 2024.
 
 I'm also a real person, too! I love making music, watching movies/TV, running,
 and traveling. I've been to 30 countries so far and tried beer in almost all

@@ -21,8 +21,8 @@ If you want to cite some of the ideas in this post, you can use:
     author = {Hoyt, Charles Tapley and Berrendorf, Max and Gaklin, Mikhail and Tresp, Volker and Gyori, Benjamin M.},
     eprint = {2203.07544},
     month = {mar},
-    title = {{A Unified Framework for Rank-based Evaluation Metrics for Link Prediction in Knowledge Graphs}},
-    url = {http://arxiv.org/abs/2203.07544},
+    title = {A Unified Framework for Rank-based Evaluation Metrics for Link Prediction in Knowledge Graphs},
+    url = {https://arxiv.org/abs/2203.07544},
     year = {2022}
 }
 ```
