@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Easier ORCID
-date: 2024-06-04 14:52:00 +0100
+date: 2024-06-08 14:33:00 +0100
 author: Charles Tapley Hoyt
 tags:
   - ORCID
