@@ -8,35 +8,143 @@ tags:
   - bibliometrics
 ---
 
-Open Researcher and Contributor Identifier (ORCID) is an invaluable resource that supports the unambiguous
-identification of researchers. However, its first party data dump is too complex, verbose, and unstandardized for many
-use cases. This post describes open source software I
-wrote ([`orcid_downloader`](https://github.com/cthoyt/orcid_downloader)) that automates downloading, processing, and
-exporting ORCID into a more usable form, which I put on [Zenodo](https://zenodo.org/doi/10.5281/zenodo.10137939) under
-the CC0 license.
+The [Open Researcher and Contributor Identifier (ORCID)](https://orcid.org/) database is an invaluable resource that
+supports the unambiguous identification of researchers. However,
+its [first party data dump](https://doi.org/10.23640/07243.24204912.v1) is too complex, verbose, and unstandardized for
+many use cases. This post describes [open source software I wrote](https://github.com/cthoyt/orcid_downloader) that
+automates downloading, processing, and exporting ORCID into a more usable form. I
+put [the results](https://zenodo.org/doi/10.5281/zenodo.10137939)
+on Zenodo under the CC0 license.
 
-Criticisms of ORCID
+## Challenges to Overcome
 
-1. ORCID is in XML, which makes it highly verbose and hard to understand. There exists some kind of JSON converter, but
-   it's in Java and I don't understand why ORCID doesn't also just make the export and put it on their FigShare along
-   with the XML products
-2. Main data product contains provenance information for all fields, which in theory is nice but not always necessary
-3. The "summary" file is 32 gigabytes compressed with tar gz! this makes it effectively impossible to get into the data
-   without processing it in full.
+ORCID currently contains on the scale of tens of million records, meaning that there isn't a reasonable way to access
+the data in bulk via its public API. As an alternative, ORCID dumps its public content once per year on FigShare. The
+most recent (2023) dump is available at [doi:10.23640/07243.24204912](https://doi.org/10.23640/07243.24204912.v1).
+Previous versions are deposited with under different DOIs:
 
-This Zenodo record
+- 2022 ORCID Public Data File (https://doi.org/10.23640/07243.21220892.v4)
+- 2021 ORCID Public Data File (https://doi.org/10.23640/07243.16750535.v1)
+- 2020 ORCID Public Data File (https://doi.org/10.23640/07243.13066970)
+- ...
 
-contains a derived version that is much more straightforwards, accessible, and smaller. So far, this includes employers,
-education, external identifiers, and publications linked to PubMed. It adds additional processing to ground employers
-and educational instutitions using the Research Organization Registry (ROR). It also does some minor string processing,
-such as standardization of education types (e.g., Bachelor of Science, Master of Science) and standardization of PubMed
-references.
+Unfortunately, this arrangement makes it difficult to automatically discover new versions without writing software that
+searches FigShare programmatically and has a heuristic for guessing which might be a newer record.
 
-The records.jsonl.gz file is a JSON Lines file where each row represents a single ORCID record in a simple, well-defined
-schema (see schema.json). The records_hq.jsonl.gz file is a subset of the full records file that only contains records
-that have at least one ROR-grounded employer, at least one ROR-grounded education, or at least one publication indexed
-in PubMed. The point of this subset is to remove ORCID records that are generally not possible to match up to any
-external information.
+Only making a yearly dump means that the derived artifacts can become out of date quickly. Other large
+databases like PubChem make monthly and nightly dumps on their FTP servers which are deleted when no longer relevant.
+For example, monthly dumps from more than a year ago can be safely deleted and nightly dumps only need to exist until
+they are replaced by the next one. Since ORCID is using FigShare as an archival system, this would be a disk
+space-intensive operation. Using the ORCID API or secondary data distribution via Wikidata could be good stopgaps
+for consumers who want the most recent data.
+
+ORCID distributes its data as XML. They also provide Java [software](https://github.com/ORCID/orcid-conversion-lib)
+to convert it to JSON, but since 2018 are pretty adamant about not running this software and distributing the JSON
+artifact themselves. This is unfortunate, since XML is hugely verbose both in terms of the way that data gets
+structure and the markup itself. Further, the data structure contains a huge amount of provenance information that
+isn't useful for many downstream consumers (both in terms of when things were updated, by whom, and which API endpoint
+could be used to update it further).
+An [example](https://github.com/ORCID/orcid-conversion-lib/blob/master/src/test/resources/test-conversionlib-record-2.1.json)
+from the JSON converter library also illustrates that converting from XML to JSON accomplish some obvious
+simplifications that most users would want.
+
+Another tricky thing about consuming the ORCID data is that the summary file that contains all the records is 32
+gigabytes compressed and has a very strange internal file structure. This means that you either have to uncompress it,
+which takes a long time with its tens of millions of files, or iterate through the file handles inside it. I also
+haven't figured out a good way to open a specific file inside the compressed archive beyond iterating through all the
+handles.
+
+## Solutions
+
+I wrote a Python package, [`orcid_downloader`](https://github.com/cthoyt/orcid_downloader) that can automatically
+download the right file from FigShare, iterate through the individual compressed XML files for each record, and process
+them. The main goal of this was also to create a simplified version of the ORCID data dump that is more
+straightforwards, accessible, and smaller. The results of this process are posted on Zenodo at
+[doi:10.5281/zenodo.10137939](https://zenodo.org/doi/10.5281/zenodo.10137939). It uses Zenodo's versioning system to
+make sure that all different versions (both from updates to the yearly dump or improvements to the processing pipeline)
+are all in the same Zenodo record.
+
+So far, this includes the name, aliases, external identifiers, employers, education, and publications linked to PubMed.
+Along the way, I realized that ORCID did not consistently ground educational institutions to the [Research Organization
+Registry (ROR)](https://ror.org) like it did for employers. I also had it double-check all groundings for employers,
+since these were incomplete. I also did some minor string processing,
+such as standardization of education types (e.g., Bachelor of Science, Master of Science), standardization of PubMed
+references, and standardization of aliases (e.g., pruning off titles like _Dr._)
+
+The [`records.jsonl.gz`](https://zenodo.org/records/11518845/files/records.jsonl.gz?download=1) file is a JSON Lines
+file where each row represents a single ORCID record in a simple, well-defined
+schema (see [`schema.json`](https://zenodo.org/records/11518845/files/schema.json?download=1)). Here are a few rows
+as example:
+
+```json lines
+{
+  "orcid": "0000-0001-5045-1000",
+  "name": "Patricio Sánchez Quinchuela",
+  "employments": [
+    {
+      "name": "Universidad de las Artes",
+      "start": 2021,
+      "role": "Especialista de Proyectos y docente",
+      "xrefs": {
+        "ror": "016drwn73"
+      }
+    },
+    {
+      "name": "Universidad Regional Amazónica IKIAM",
+      "start": 2019,
+      "end": 2021,
+      "role": "Director",
+      "xrefs": {
+        "ror": "05xedqd83"
+      }
+    }
+  ],
+  "educations": [
+    {
+      "name": "Universidad Nacional de Educación a Distancia Facultad de Ciencias Políticas y Sociología",
+      "start": 2020,
+      "role": "Doctorando del Programa de Sociología",
+      "xrefs": {
+        "ringgold": "223339"
+      }
+    }
+  ]
+}
+{
+  "orcid": "0000-0001-5101-6000",
+  "name": "Céline LEPERE"
+}
+{
+  "orcid": "0000-0001-5001-3000",
+  "name": "Vincent Nguyen",
+  "employments": [
+    {
+      "name": "Troy High School",
+      "start": 2020,
+      "role": "Student",
+      "xrefs": {
+        "ringgold": "289570"
+      }
+    }
+  ]
+}
+{
+  "orcid": "0000-0001-5002-1000",
+  "name": "Sameer Abbood",
+  "employments": [
+    {
+      "name": "University of Al-Ameed",
+      "role": "Doctor of Philosophy"
+    }
+  ]
+}
+```
+
+Many records in ORCID are relatively unhelpful, i.e., ones that only have a name and no other information. Therefore,
+I created a high-quality subset that only contains records with at least one ROR-grounded employer, at least one
+ROR-grounded education, or at least one publication indexed in PubMed. The point of this subset is to remove ORCID
+records that are generally not possible to match up to any external information. It is listed in the same Zenodo record
+as [`records_hq.jsonl.gz`](https://zenodo.org/records/11518845/files/records_hq.jsonl.gz?download=1).
 
 ## External Identifiers
 
@@ -144,9 +252,18 @@ WHERE { ?item wdt:P496 ?orcid }
 
 [OpenCheck](https://opencheck.is/) tried to create mappings between Twitter, GitHub, and ORCID using their APIs, but
 became defunct when Twitter shut off their public APIs.
+[OpenAlex](https://openalex.org/), [Microsoft Academic Graph](https://academic.microsoft.com/),
+[Open Academic Graph](https://www.microsoft.com/en-us/research/project/open-academic-graph/), and other
+bibliographic knowledge graphs all have to address this problem internally, as well.
 Other mapping resources probably exist, please let me know if you're aware of other ones!
 
 ## Affiliations
+
+ORCID breaks up affiliations into several blocks: educations, employments, invited positions, etc.
+I'm focusing on educations and employments here.
+
+Employments contained ROR references but educations didn't, and even when they're available, they're incomplete.
+So I used the PyOBO bridge to ROR and
 
 | Resource                                                  |     Count |
 |-----------------------------------------------------------|----------:|
@@ -206,9 +323,10 @@ There's a similar situation for employment.
 
 ## Authorship
 
-Authorships are extracted and standardized in the pubmeds.tsv.gz file, which contains an ORCID column and PubMed column
-that has been pre-sanitized to only contain local unique identifiers. This information is also available through the
-main records file.
+Authorships are extracted and standardized in
+the [`pubmeds.tsv.gz`](https://zenodo.org/records/11518845/files/pubmeds.tsv.gz?download=1) file, which contains an
+ORCID column and PubMed column that has been pre-sanitized to only contain local unique identifiers. This information is
+also available through the main records file.
 
 Some things to deal with:
 
@@ -242,5 +360,43 @@ url = "..."
 grounder = Grounder(url)
 results = grounder.ground("Charles Tapley Hoyt")
 ```
+
+## Ontology Artifact
+
+The file orcid.ttl.gz is an OWL-ready RDF file that can be opened in Protégé or used with the Ontology Development Kit.
+It can also be converted into OWL XML, OWL Functional Notation, or other OWL formats using ROBOT. This artifact can
+serve as a replacement for the ones generated by https://github.com/cthoyt/orcidio, which was a smaller-scale way of
+turning ORCID records for contributors to OBO Foundry Ontologies into a small OWL file. Now, the export here contains
+all ORCID records with names.
+
+```turtle
+@prefix orcid: <https://orcid.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix human: <http://purl.obolibrary.org/obo/NCBITaxon_9606> .
+
+human: a owl:Class ;
+    rdfs:label "Homo sapiens"^^xsd:string .
+
+orcid:0000-0001-5000-5000 a human: ; 
+   rdfs:label: "Joel Adam Gordon"^^xsd:string ; 
+   oboInOwl:hasExactSynonym "Joel Gordon"^^xsd:string .
+
+orcid:0000-0001-5099-6000 a human: ; 
+   rdfs:label: "Debashis Bhowmick"^^xsd:string ;
+   oboInOwl:hasExactSynonym "Bhowmick D. S."^^xsd:string ;
+   oboInOwl:hasExactSynonym "D. S. Bhowmick"^^xsd:string ;
+   oboInOwl:hasExactSynonym "Debashis S Bhowmick"^^xsd:string ;
+   skos:exactMatch "scopus:57214299968" .
+
+orcid:0000-0001-5084-9000 a human: ; 
+   rdfs:label: "Luana Licata"^^xsd:string ;
+   skos:exactMatch "loop:1172627"^^xsd:string ;
+   skos:exactMatch "scopus:6603618518" .
+```
+
+## Code
 
 It is automatically generated with code in https://github.com/cthoyt/orcid_downloader.
