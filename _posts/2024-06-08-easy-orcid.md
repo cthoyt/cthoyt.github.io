@@ -425,8 +425,10 @@ orcid:0000-0001-5099-6000 a human: ;
 orcid:0000-0001-5084-9000 a human: ; 
    rdfs:label: "Luana Licata"^^xsd:string ;
    skos:exactMatch "loop:1172627"^^xsd:string ;
-   skos:exactMatch "scopus:6603618518" .
+   skos:exactMatch "scopus:6603618518"^^xsd:string .
 ```
+
+It's still TBD on the best way to encode the cross-references.
 
 ## Code
 
