@@ -29,7 +29,8 @@ Previous versions are deposited with under different DOIs:
 - ...
 
 Unfortunately, this arrangement makes it difficult to automatically discover new versions without writing software that
-searches FigShare programmatically and has a heuristic for guessing which might be a newer record.
+searches FigShare programmatically and has a heuristic for guessing which might be a newer record. I don't have a
+solution for this yet, but I can imagine one.
 
 Only making a yearly dump means that the derived artifacts can become out of date quickly. Other large
 databases like PubChem make monthly and nightly dumps on their FTP servers which are deleted when no longer relevant.
@@ -52,14 +53,24 @@ Another tricky thing about consuming the ORCID data is that the summary file tha
 gigabytes compressed and has a very strange internal file structure. This means that you either have to uncompress it,
 which takes a long time with its tens of millions of files, or iterate through the file handles inside it. I also
 haven't figured out a good way to open a specific file inside the compressed archive beyond iterating through all the
-handles.
+handles. The file names themselves are also difficult to guess because of the directory structure used.
 
 ## Solutions
 
 I wrote a Python package, [`orcid_downloader`](https://github.com/cthoyt/orcid_downloader) that can automatically
 download the right file from FigShare, iterate through the individual compressed XML files for each record, and process
-them. The main goal of this was also to create a simplified version of the ORCID data dump that is more
-straightforwards, accessible, and smaller. The results of this process are posted on Zenodo at
+them. The package can be used to iterate over records and process them in your own way like:
+
+```python
+import orcid_downloader
+
+for record in orcid_downloader.iter_records():
+    ...
+```
+
+The main goal of this was also to create a simplified version of the ORCID data dump that is more
+straightforwards, accessible, and smaller. I would imagine most people would be interested in just downloading the
+results instead of rebuilding them, so the results of this process are posted on Zenodo at
 [doi:10.5281/zenodo.10137939](https://zenodo.org/doi/10.5281/zenodo.10137939). It uses Zenodo's versioning system to
 make sure that all different versions (both from updates to the yearly dump or improvements to the processing pipeline)
 are all in the same Zenodo record.
@@ -140,9 +151,9 @@ as example:
 }
 ```
 
-Many records in ORCID are relatively unhelpful, i.e., ones that only have a name and no other information. Therefore,
-I created a high-quality subset that only contains records with at least one ROR-grounded employer, at least one
-ROR-grounded education, or at least one publication indexed in PubMed. The point of this subset is to remove ORCID
+Many records in ORCID are relatively unhelpful, i.e., ones that only have a name and no other (public) information.
+Therefore, I created a high-quality subset that only contains records with at least one ROR-grounded employer, at least
+one ROR-grounded education, or at least one publication indexed in PubMed. The point of this subset is to remove ORCID
 records that are generally not possible to match up to any external information. It is listed in the same Zenodo record
 as [`records_hq.jsonl.gz`](https://zenodo.org/records/11518845/files/records_hq.jsonl.gz?download=1).
 
@@ -260,10 +271,13 @@ Other mapping resources probably exist, please let me know if you're aware of ot
 ## Affiliations
 
 ORCID breaks up affiliations into several blocks: educations, employments, invited positions, etc.
-I'm focusing on educations and employments here.
+I'm focusing on educations and employments here. The processing code could be extended for the others later.
 
 Employments contained ROR references but educations didn't, and even when they're available, they're incomplete.
-So I used the PyOBO bridge to ROR and
+[PyOBO](https://github.com/biopragmatics/pyobo) has implemented a loader for ROR. Any resource loaded through PyOBO
+can also be used for named entity normalization through an interface to [Gilda](https://github.com/gyorilab/gilda).
+This allowed for grounding of a large number of missing education and employer entries. Here's the total number of
+cross-references made from educations and employments to ROR and other nomenclature authorities.
 
 | Resource                                                  |     Count |
 |-----------------------------------------------------------|----------:|
@@ -274,6 +288,39 @@ So I used the PyOBO bridge to ROR and
 | `lei`                                                     |     1,206 |
 
 ## Education Roles
+
+Both educations and employments also have associated roles. These do not use a controlled vocabulary, but there
+are a number of patterns that could be standardized. This task had to be split between education and employment entries.
+I just focused on education entries for now. The "role" field in each education entry corresponds to the degree.
+
+I started by looking for existing resources (both structured and unstructured) that have lists of degrees. Here
+are a few things I found:
+
+1. https://degree.studentnews.eu lists degrees conferred in the EU/Europe
+2. https://github.com/vivo-ontologies/academic-degree-ontology is an incomplete/abandoned
+   effort from 2020 to ontologize degree names
+3. Wikidata has a class for academic degree https://www.wikidata.org/wiki/Q189533. Its
+   `SPARQL query service <https://query.wikidata.org>`_ can be queried with the following,
+   though note that the Wikidata class hierarchy is broken in several places.
+
+   ```sparql
+      SELECT ?item ?itemLabel WHERE {
+         ?item wdt:P279* wd:Q189533 .
+         SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+       }
+   ```
+
+In the end, these were either incomplete or not organized well enough to directly use. It also turns out
+that people often conflate the degree (e.g., Master of Science) with the field that it's in (e.g., Chemistry) or
+include some combination (e.g., Master of Science in Chemistry). This meant that a lot of string processing and
+heuristics would be required on top of lexical approaches. Instead, I took the tried-and-true method of listing
+the strings by frequency and just curating from the top. The results are in
+https://github.com/cthoyt/orcid_downloader/blob/851af81d8aacebf2768bfc591080cbceab2047cc/src/orcid_downloader/standardize.py.
+Of course, this is incomplete in many ways, and could be extended to capture further cases. I also found that there
+are a huge number of Spanish and Portuguese entries that I needed help from my international friends to get the best
+translations (since the meaning is pretty subtle for many). Further, the results would be more useful as a proper
+ontology that could extend and replace VIVO's Academic Degree Ontology. I'll leave this for future work. Here's
+a summary of the most frequent roles that have been standardized so far:
 
 | Education Role                            |     Count |
 |-------------------------------------------|----------:|
@@ -298,29 +345,6 @@ So I used the PyOBO bridge to ROR and
 | Bachelor of Education                     |    17,376 |
 | Master of Engineering                     |    14,260 |
 
-1. https://degree.studentnews.eu lists degrees conferred in the EU/Europe
-2. https://github.com/vivo-ontologies/academic-degree-ontology is an incomplete/abandoned
-   effort from 2020 to ontologize degree names
-3. Wikidata has a class for academic degree https://www.wikidata.org/wiki/Q189533. Its
-   `SPARQL query service <https://query.wikidata.org>`_ can be queried with the following,
-   though note that the Wikidata class hierarchy is broken in several places.
-
-   ```sparql
-      SELECT ?item ?itemLabel WHERE {
-         ?item wdt:P279* wd:Q189533 .
-         SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
-       }
-   ```
-
-It's tricky to decide what's a different degree vs. just a degree in a certain discipline, for example,
-a bachelor of engineering is sometimes awarded for studying engineering but otherwise a bachelor of science might be
-awarded.
-
-Also, for education, people often put the discipline (e.g., just "Chemistry") instead of saying what degree level it
-was.
-
-There's a similar situation for employment.
-
 ## Authorship
 
 Authorships are extracted and standardized in
@@ -328,30 +352,26 @@ the [`pubmeds.tsv.gz`](https://zenodo.org/records/11518845/files/pubmeds.tsv.gz?
 ORCID column and PubMed column that has been pre-sanitized to only contain local unique identifiers. This information is
 also available through the main records file.
 
-Some things to deal with:
-
-1. The field that is labeled to contain a PubMed identifier contains a mix of local unique identifiers, valid Compact
-   URIs (CURIEs), invalid CURIEs, URIs, free text that's totally irrelevant. Needs custom processing.
-
-2023 statistics:
-
-- correct: 3,175,196 (99.85%)
-- needs processing: 2,832 (0.09%)
-- junk: 2,080 (0.07%)
-
-what was in here? a mashup of:
+While the field inside the XML data is supposed to contain local unique identifiers, there was a huge variety of what
+actually showed up there. This included local unique identifiers (i.e., `36402838`), local unique identifiers with junk
+attached (e.g., `36402838/`), valid Compact URIs (CURIEs), invalid CURIEs, URIs, free text that's totally irrelevant.
+Overall, there were 3,175,196 (99.85%) that were valid local unique identifiers, 2,832 (0.09%) that were able to be
+cleaned up, and 2,080 (0.07%) that were junk and couldn't be salvaged. Inside the junk were a few things:
 
 - DOIs
 - PMC identifiers,
-- a few stray strings that contain a combination of pubmed, PMC,
+- a few stray strings that contain a combination of pubmed, PMC, and DOIs
 - a lot with random text (keywords)
-- some `with full text citations
+- some with full text citations
+
+Later, other identifier types could be added in here too.
 
 ## Lexical Indexing
 
-It includes two pre-built Gilda indexes for named entity recognition (NER) and named entity normalization (NEN). One
-contains all records, and the second is filtered to high-quality records. The following Python code snipped can be used
-for grounding:
+One of the original goals of processing ORCID in bulk was to ground and disambiguate author lists in publications.
+Therefore, I made two pre-built Gilda indexes for named entity recognition (NER) and named entity normalization (NEN).
+One contains all records, and the second is filtered to high-quality records. The following Python code snippet can be
+used for grounding:
 
 ```python
 from gilda import Grounder
@@ -361,13 +381,24 @@ grounder = Grounder(url)
 results = grounder.ground("Charles Tapley Hoyt")
 ```
 
+The ORCID downloader also has its own extension that does a smarter job with caching and some clever name preprocessing
+
+```python
+import orcid_downloader
+
+results = orcid_downloader.ground_researcher("Charles Hoyt")
+```
+
 ## Ontology Artifact
 
-The file orcid.ttl.gz is an OWL-ready RDF file that can be opened in Protégé or used with the Ontology Development Kit.
-It can also be converted into OWL XML, OWL Functional Notation, or other OWL formats using ROBOT. This artifact can
-serve as a replacement for the ones generated by https://github.com/cthoyt/orcidio, which was a smaller-scale way of
-turning ORCID records for contributors to OBO Foundry Ontologies into a small OWL file. Now, the export here contains
-all ORCID records with names.
+The file [`orcid.ttl.gz`](https://zenodo.org/records/11518845/files/orcid.ttl.gz?download=1) is an OWL-ready RDF file
+that can be opened in [Protégé](https://protege.stanford.edu) or used with
+the [Ontology Development Kit](https://github.com/INCATools/ontology-development-kit).
+It can also be converted into OWL XML, OWL Functional Notation, or other OWL formats
+using [ROBOT](https://robot.obolibrary.org/). This artifact can serve as a replacement for the ones generated
+by [https://github.com/cthoyt/orcidio](https://github.com/cthoyt/orcidio),
+which was a smaller-scale way of turning ORCID records for contributors to [OBO Foundry](https://obofoundry.org/)
+ontologies into a small OWL file. Now, the export here contains all ORCID records with names.
 
 ```turtle
 @prefix orcid: <https://orcid.org/> .
@@ -399,4 +430,4 @@ orcid:0000-0001-5084-9000 a human: ;
 
 ## Code
 
-It is automatically generated with code in https://github.com/cthoyt/orcid_downloader.
+The artifacts described here were all automatically generated with code in https://github.com/cthoyt/orcid_downloader.
