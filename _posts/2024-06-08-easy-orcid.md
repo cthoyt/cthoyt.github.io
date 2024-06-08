@@ -431,3 +431,10 @@ orcid:0000-0001-5084-9000 a human: ;
 ## Code
 
 The artifacts described here were all automatically generated with code in https://github.com/cthoyt/orcid_downloader.
+
+---
+
+Like I mentioned a few times throughout, this is a work in progress. Doing practical data science is hard work, and
+there is a lot of room for improvement. I'm still recovering from burnout, so working at a slow pace only when I
+felt inspired also was fine for me. I know there are lots of things I would like to improve given more motivation,
+but that will have to wait for now.
