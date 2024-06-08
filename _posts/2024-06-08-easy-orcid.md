@@ -84,10 +84,10 @@ references, and standardization of aliases (e.g., pruning off titles like _Dr._)
 
 The [`records.jsonl.gz`](https://zenodo.org/records/11518845/files/records.jsonl.gz?download=1) file is a JSON Lines
 file where each row represents a single ORCID record in a simple, well-defined
-schema (see [`schema.json`](https://zenodo.org/records/11518845/files/schema.json?download=1)). Here are a few rows
-as example:
+schema (see [`schema.json`](https://zenodo.org/records/11518845/files/schema.json?download=1)). Here are a few rows (
+expanded for viewing comfort) as example:
 
-```json lines
+```
 {
   "orcid": "0000-0001-5045-1000",
   "name": "Patricio Sánchez Quinchuela",
