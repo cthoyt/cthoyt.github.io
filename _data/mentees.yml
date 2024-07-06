@@ -1,3 +1,23 @@
+- name: Aria Agarwal
+  github: AriaAgarwal
+  orcid: 0009-0008-1788-6318
+  linkedin: aria-agarwal-4a11b629a
+  roles:
+    - name: Undergraduate Research Assistant
+      location:
+        organization:
+          name: Northeastern
+          url: https://www.coronawhy.org
+        city: Boston
+        country: USA
+      start:
+        month: January
+        year: 2024
+      end:
+        month: May
+        year: 2024
+      description: Graph-based analytics of INDRA-CoGEx
+
 - name: Aman Choudhri
   linkedin: aman-choudhri
   github: aman527

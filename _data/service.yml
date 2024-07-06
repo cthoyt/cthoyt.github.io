@@ -4,6 +4,11 @@
   role: Executive Committee
   type: organization
 
+- name: ICBO 2024
+  url: https://icbo-conference.github.io/icbo2024/
+  role: Program Committee
+  type: conference
+
 - name: 2023 Workshop on Prefixes, CURIEs, and IRIs
   url: https://biopragmatics.github.io/workshops/WPCI2023.html
   role: Organizer
