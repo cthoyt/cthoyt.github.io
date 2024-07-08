@@ -2,7 +2,7 @@
 layout: home
 ---
 
-<img src="/img/headshot.png" alt="Charles Tapley Hoyt" align="left" height="60" style="margin-right: 10px"/>
+<img src="https://gravatar.com/avatar/c273141237471c14342e9f9eb77044a0?size=256" alt="Charles Tapley Hoyt" align="left" height="60" style="margin-right: 10px; border-radius: 50%;"/>
 My name is Charles Tapley Hoyt (he/his). 
 {%- if site.data.current.position -%}
 &nbsp;I'm a {{ site.data.current.position }}
