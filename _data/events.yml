@@ -1,12 +1,12 @@
 - talk:
     invited: true
     name: "Modern software development practice with Python"
-    url": https://docs.google.com/document/d/1vP7ZA29J0PEI3CsMm4iGPq4DQG1sEgBvqoucfPga8JI/edit?usp=sharing
+    url: https://docs.google.com/document/d/1vP7ZA29J0PEI3CsMm4iGPq4DQG1sEgBvqoucfPga8JI/edit?usp=sharing
     date:
       day: 7
       month: May
       year: 2024
-  name: May Institute 2024
+  name: May Institute
   location:
     city: Boston
     country: USA
@@ -284,12 +284,12 @@ Concepts to Support Knowledge Graph Assembly"
 - talk:
     invited: true
     name: "Modern Scientific Software Development Practice in Python"
-    url": https://www.youtube.com/watch?v=PSRdj6ysWUA
+    url: https://www.youtube.com/watch?v=PSRdj6ysWUA
     date:
       day: 20
       month: May
       year: 2022
-  name: May Institute 2022
+  name: May Institute
   online: true
   location:
     city: Boston
@@ -371,12 +371,12 @@ Concepts to Support Knowledge Graph Assembly"
 - talk:
     invited: true
     name: "Reusable Science in Python"
-    url": https://www.youtube.com/watch?v=f6brWkO9OiE
+    url: https://www.youtube.com/watch?v=f6brWkO9OiE
     date:
       day: 28
       month: July
       year: 2024
-  name: May Institute 2021
+  name: May Institute
   online: true
   location:
     city: Boston
