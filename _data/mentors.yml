@@ -1,9 +1,26 @@
-- name: Dr. Benjamin Gyori
+- name: Prof. Dr. Benjamin Gyori
   orcid: 0000-0001-9439-5346
   linkedin: benjamin-m-gyori-0519b630
   github: bgyori
   wikidata: Q61195994
   roles:
+    - name: Team Leader
+      location:
+        group:
+          name: Gyori Lab for Computational Biomedicine
+          url: https://gyorilab.github.io
+        institute:
+          name: Khoury College of Computer Sciences
+          url: https://www.khoury.northeastern.edu
+        organization:
+          name: Northeastern University
+          url: https://www.northeastern.edu
+      start:
+        month: August
+        year: 2023
+      end:
+        month: April
+        year: 2024
     - name: Team Leader
       location:
         group:
@@ -18,6 +35,9 @@
       start:
         month: February
         year: 2021
+      end:
+        month: July
+        year: 2023
 
 - name: Prof. Dr. Martin Hofmann-Apitius
   orcid: 0000-0001-9012-6720

@@ -1,5 +1,26 @@
 - talk:
     invited: true
+    name: "Modern software development practice with Python"
+    url": https://docs.google.com/document/d/1vP7ZA29J0PEI3CsMm4iGPq4DQG1sEgBvqoucfPga8JI/edit?usp=sharing
+    date:
+      day: 7
+      month: May
+      year: 2024
+  name: May Institute 2024
+  location:
+    city: Boston
+    country: USA
+  start:
+    day: 29
+    month: April
+    year: 2024
+  end:
+    day: 10
+    month: May
+    year: 2024
+
+- talk:
+    invited: true
     name: "Assembly and inference over semantic mappings to support the NFDI Terminology Service"
     url: https://bit.ly/semra4nfdi
     date:
@@ -261,6 +282,20 @@ Concepts to Support Knowledge Graph Assembly"
     year: 2022
 
 - talk:
+    invited: true
+    name: "Modern Scientific Software Development Practice in Python"
+    url": https://www.youtube.com/watch?v=PSRdj6ysWUA
+    date:
+      day: 20
+      month: May
+      year: 2022
+  name: May Institute 2022
+  online: true
+  location:
+    city: Boston
+    country: USA
+
+- talk:
     name: Knowledge Graph Embedding with PyKEEN in 2022
     invited: true
     url: https://bit.ly/pykeen-kgc2022
@@ -332,6 +367,20 @@ Concepts to Support Knowledge Graph Assembly"
     day: 1
     month: December
     year: 2021
+
+- talk:
+    invited: true
+    name: "Reusable Science in Python"
+    url": https://www.youtube.com/watch?v=f6brWkO9OiE
+    date:
+      day: 28
+      month: July
+      year: 2024
+  name: May Institute 2021
+  online: true
+  location:
+    city: Boston
+    country: USA
 
 - name: 6th Disease Maps Community Meeting
   link: https://disease-maps.org/DMCM2021

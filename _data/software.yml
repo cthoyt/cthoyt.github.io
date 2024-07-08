@@ -39,7 +39,7 @@
     - maintainer
   description: The most expansive knowledge graph embedding framework to date
   logo: https://raw.githubusercontent.com/pykeen/pykeen/master/docs/source/logo.png
-  wikidata: http://www.wikidata.org/entity/Q96631404
+  wikidata: Q96631404
 
 - name: SeMRA
   github: biopragmatics/semra
@@ -48,7 +48,9 @@
   roles:
     - creator
     - maintainer
+  logo: https://github.com/biopragmatics/semra/raw/main/docs/source/logo.png
   description: Automated assembly and inference of semantic mappings
+  wikidata: Q127259663
 
 - name: Bioontologies
   github: biopragmatics/bioontologies
@@ -70,7 +72,7 @@
   logo: /img/logos/pyobo.png
 
 - name: curies
-  github: cthoyt/curies
+  github: biopragmatics/curies
   language: python
   pypi: curies
   roles:

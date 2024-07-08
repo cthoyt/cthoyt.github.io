@@ -6,8 +6,11 @@
     - name: Undergraduate Research Assistant
       location:
         organization:
-          name: Northeastern
-          url: https://www.coronawhy.org
+          name: Northeastern University
+          url: https://www.northeastern.edu
+        group:
+          name: Gyori Lab for Computational Biomedicine
+          url: https://gyorilab.github.io/
         city: Boston
         country: USA
       start:
@@ -17,6 +20,29 @@
         month: May
         year: 2024
       description: Graph-based analytics of INDRA-CoGEx
+
+- name: Sara Taheri
+  github: srtaheri
+  orcid: 0000-0002-6554-9083
+  linkedin: sara-mtaheri
+  roles:
+    - name: Doctoral Student
+      location:
+        organization:
+          name: Northeastern University
+          url: https://www.northeastern.edu
+        group:
+          name: Olga Vitek Lab
+          url: https://olga-vitek-lab.khoury.northeastern.edu
+        city: Boston
+        country: USA
+      start:
+        month: July
+        year: 2023
+      end:
+        month: April
+        year: 2024
+      description: Software engineering for causal inference
 
 - name: Aman Choudhri
   linkedin: aman-choudhri

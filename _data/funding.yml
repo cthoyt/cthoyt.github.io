@@ -49,7 +49,6 @@
     year: 2021
   role: Participant
   money: "\\$750K, 2020-2023 (36 months)"
-  current: true
 
 - name: Ecosystem of Machine-maintained Models with Automated Assembly
   funder: DARPA Automating Scientific Knowledge Extraction (ASKE) / Artificial Intelligence Exploration (AIE) program
@@ -74,11 +73,16 @@
   money: "\\$40K 2019 (3 months)"
   role: Key person. Co-wrote proposal. Responsible for design and implementation of research plan including applications of PyKEEN in biomedicine.
 
+- name: Fraunhofer Service Contract
+  funder: Philip Morris International
+  pi: Martin Hofmann-Apitius
+  award: Contract
+  money: "€80K 2019-2020 (4 months)"
+  role: Participant. Co-responsible for design and implementation of visual analytics software for the Biological Expression Language.
+
 - name: PYBEL2NDEX
   funder: University of California, San Diego
   pi: Martin Hofmann-Apitius
   award: Contract
   money: "\\$28K 2018 (6 months)"
   role: Key person. Wrote proposal. Responsible for design and implementation of research plan for implementing interoperability between PyBEL and NDEx.
-
-#- PMI contract
