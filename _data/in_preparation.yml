@@ -1,3 +1,5 @@
 - name: "SeMRA: Assembly and Reasoning over Semantic Mappings at Scale for Biomedical Data Integration"
-- name: "Eliater: a Python package for estimating outcomes of perturbations in biomolecular networks"
 - name: "Improving reproducibility of cheminformatics workflows with `chembl-downloader`"
+  venue: "J. Chem. Inf"
+- name: "Causal inference with $Y_0$"
+  venue: "JOSS"
