@@ -21,9 +21,16 @@
   url: https://discover.lanl.gov/news/1027-vaccine-development
   personal_start:
     year: 2023
-  role: Participant. Co-wrote proposal with PNNL collaborators. Responsible for design and implementation of research plan. Lead developer of semantic and analytical technologies.
+  personal_end:
+    year: 2024
+    month: 4
+    day: 31
+  role: |
+    Participant. Co-wrote proposal with PNNL collaborators. 
+    Responsible for design and implementation of research plan. 
+    Lead developer of semantic and analytical technologies.
+    Note: left position before project completion.
   money: "\\$623K (subcontract) / \\$15M overall, 2022-2024 (18 months), Grant: HDTRA1242031"
-  current: true
 
 - funder: DARPA ASKEM Program
   award: HR00112220036
@@ -35,9 +42,15 @@
   url: https://www.darpa.mil/news-events/2021-12-06
   personal_start:
     year: 2022
-  role: Participant
+  personal_end:
+    year: 2024
+    month: 4
+    day: 31
+  role: |
+    Participant. 
+    Note: left position before project completion.
   money: "\\$2.1M, 2022-2026 (42 months)"
-  current: true
+  abandoned: true
 
 - funder: DARPA
   name: Young Faculty Award / DARPA Director’s Fellowship Award
@@ -63,7 +76,7 @@
     year: 2021
   personal_end:
     year: 2022
-  role: Participant
+  role: "Participant. Note: Joined in 2021"
 
 - name: Interdisciplinary Research Award
   funder: Fraunhofer Center for Machine Learning
@@ -78,7 +91,27 @@
   pi: Martin Hofmann-Apitius
   award: Contract
   money: "€80K 2019-2020 (4 months)"
-  role: Participant. Co-responsible for design and implementation of visual analytics software for the Biological Expression Language.
+  role: Key Person. Co-responsible for design and implementation of visual analytics software for the Biological Expression Language.
+
+- name: Human Brain Pharmacome
+  funder: Fraunhofer, under the MAVO Scheme
+  pi: Martin Hofmann-Apitius
+  money: "2018-2021 (4 years)"
+  project_start:
+    year: 2018
+    month: 2
+    day: 1
+  project_end:
+    year: 2021
+    month: 6
+  personal_end:
+    year: 2019
+    month: 12
+  role: |
+    Participant.
+    Lead project on Fraunhofer SCAI team.
+    Note: left position before project completion.
+  abandoned: true
 
 - name: PYBEL2NDEX
   funder: University of California, San Diego
@@ -86,3 +119,23 @@
   award: Contract
   money: "\\$28K 2018 (6 months)"
   role: Key person. Wrote proposal. Responsible for design and implementation of research plan for implementing interoperability between PyBEL and NDEx.
+
+- name: AETIONOMY
+  url: https://www.ihi.europa.eu/projects-results/project-factsheets/aetionomy
+  funder: European Union (EU), European Federation of Pharmaceutical Industries and Associations (EFPIA), and Innovative Health Initiative (IMI)
+  role: |
+    Participant. 
+    Note: Joined in 2016.
+  pi: Martin Hofmann-Apitius
+  project_start:
+    year: 2014
+    month: 1
+    day: 1
+  project_end:
+    year: 2018
+    month: 12
+    day: 31
+  personal_start:
+    year: 2016
+  award: "115568"
+  money: "€17.8M 2014-2018 (4 years)"
