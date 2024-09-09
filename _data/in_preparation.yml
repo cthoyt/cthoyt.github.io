@@ -1,5 +1,8 @@
 - name: "SeMRA: Assembly and Reasoning over Semantic Mappings at Scale for Biomedical Data Integration"
+  first: true
 - name: "Improving reproducibility of cheminformatics workflows with `chembl-downloader`"
   venue: "J. Chem. Inf"
+  first: true
 - name: "Causal inference with $Y_0$"
   venue: "JOSS"
+  first: true
