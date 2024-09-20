@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Programmatic Access to a Wordpress User List
-date: 2024-09-20 12:31:00 +0100
+date: 2024-09-20 12:31:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - Wordpress
