@@ -136,24 +136,24 @@ function export_pmp_members_to_csv() {
             mu.enddate
         FROM {$wpdb->users} u
         LEFT JOIN {$wpdb->prefix}pmpro_memberships_users mu ON u.ID = mu.user_id
-		LEFT JOIN {$wpdb->prefix}pmpro_membership_levels ml ON mu.membership_id = ml.id
-		LEFT JOIN {$wpdb->prefix}usermeta um_first_name ON u.ID = um_first_name.user_id 
+        LEFT JOIN {$wpdb->prefix}pmpro_membership_levels ml ON mu.membership_id = ml.id
+        LEFT JOIN {$wpdb->prefix}usermeta um_first_name ON u.ID = um_first_name.user_id 
             AND um_first_name.meta_key = 'first_name'
-		LEFT JOIN {$wpdb->prefix}usermeta um_last_name ON u.ID = um_last_name.user_id 
+        LEFT JOIN {$wpdb->prefix}usermeta um_last_name ON u.ID = um_last_name.user_id 
             AND um_last_name.meta_key = 'last_name'
         WHERE mu.membership_id IS NOT NULL
-		  AND (mu.enddate > CURDATE() OR mu.enddate IS NULL)
+            AND (mu.enddate > CURDATE() OR mu.enddate IS NULL)
     ");
 
     // Loop through results and write each row to the CSV
     foreach ($results as $row) {
         fputcsv($output, [
             $row->ID, 
-			$row->first_name,
-			$row->last_name,
+            $row->first_name,
+            $row->last_name,
             $row->user_email, 
             $row->membership_name, 
-			$row->startdate, 
+            $row->startdate, 
             $row->enddate
         ]);
     }
@@ -205,8 +205,8 @@ function send_pmp_members_csv_via_email() {
         SELECT u.ID, 
             u.user_login, 
             um_first_name.meta_value AS first_name, 
-		    um_last_name.meta_value AS last_name,
-		    u.user_email, 
+            um_last_name.meta_value AS last_name,
+            u.user_email, 
             ml.name as membership_name
             mu.startdate,
             mu.enddate,
@@ -215,7 +215,7 @@ function send_pmp_members_csv_via_email() {
         LEFT JOIN {$wpdb->prefix}pmpro_membership_levels ml ON mu.membership_id = ml.id
         LEFT JOIN {$wpdb->prefix}usermeta um_first_name ON u.ID = um_first_name.user_id 
             AND um_first_name.meta_key = 'first_name'
-		LEFT JOIN {$wpdb->prefix}usermeta um_last_name ON u.ID = um_last_name.user_id 
+        LEFT JOIN {$wpdb->prefix}usermeta um_last_name ON u.ID = um_last_name.user_id 
             AND um_last_name.meta_key = 'last_name'
         WHERE mu.membership_id IS NOT NULL
         AND (mu.enddate > CURDATE() OR mu.enddate IS NULL)
@@ -227,7 +227,7 @@ function send_pmp_members_csv_via_email() {
             $row->ID, 
             $row->user_login, 
             $row->first_name,
-			$row->last_name,
+            $row->last_name,
             $row->user_email, 
             $row->membership_name, 
             $row->startdate, 
