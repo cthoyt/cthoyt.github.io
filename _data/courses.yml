@@ -1,3 +1,51 @@
+- name: "Modern software development practice with Python"
+  type: Practical
+  role: Instructor
+  level: "N/A"
+  date:
+    day: 4
+    month: May
+    year: 2024
+  location:
+    university: Northeastern University
+    department: Computer Science / May Institute
+  description: "May Institute 2024"
+  period:
+    semester: Summer
+    year: 2024
+
+- name: "Modern Scientific Software Development Practice in Python"
+  type: Practical
+  role: Instructor
+  level: "N/A"
+  date:
+    day: 20
+    month: May
+    year: 2022
+  location:
+    university: Northeastern University
+    department: Computer Science / May Institute
+  description: "May Institute 2022"
+  period:
+    semester: Summer
+    year: 2022
+
+- name: "Reusable Science in Python"
+  type: Practical
+  role: Instructor
+  level: "N/A"
+  date:
+    day: 28
+    month: July
+    year: 2021
+  location:
+    university: Northeastern University
+    department: Computer Science / May Institute
+  description: "May Institute 2021"
+  period:
+    semester: Summer
+    year: 2021
+
 - name: Mechanism Enrichment Using NeuroMMSig
   level: Master's course
   type: Practical
