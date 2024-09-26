@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Some Haskell I Tried to Write
-date: 2024-09-27 12:49:00 +0200
+date: 2024-09-26 12:49:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - Haskell
