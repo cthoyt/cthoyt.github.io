@@ -3,13 +3,16 @@ layout: post
 title: A First Look at OpenCheck
 date: 2022-11-15 19:39:00 +0100
 author: Charles Tapley Hoyt
-tags: bibliometrics
+tags: 
+- bibliometrics
+- social media
 ---
 There has been legitimate concern about the future of Twitter over the last week due to its new ownership and
 management. This is pretty upsetting considering how great it's been to use to connect to and to follow other
-researchers. [OpenCheck](https://opencheck.is) is currently working to map Twitter handles
-to [ORCID identifiers](https://orcid.org) and capture the directed follow graph of researchers on Twitter in case the
-service becomes unusable in the near future. This post is about my initial exploration of the resource.
+researchers. [OpenCheck](https://web.archive.org/web/20241008073132/https://opencheck.is/) is currently
+working to map Twitter handles to [ORCID identifiers](https://orcid.org) and capture the directed follow graph of researchers
+on Twitter in case the service becomes unusable in the near future. This post is about my initial exploration
+of the resource. **Update in November 2024** - OpenCheck has been shut down.
 
 ## How It Works
 
