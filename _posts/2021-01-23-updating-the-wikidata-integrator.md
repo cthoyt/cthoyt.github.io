@@ -9,7 +9,7 @@ tags: bibliometrics wikidata
 topics, etc. that draws content from [Wikidata](https://www.wikidata.org). However, the content that's available in
 Wikidata depends on what has been manually curated by community members and what has been (semi-) automatically imported
 by scripts and bots. The [Wikidata Integrator](https://github.com/SuLab/WikidataIntegrator) from the
-[Su Lab](http://sulab.org) at Scripps automates the import of bibliometric information from
+[Su Lab](https://sulab.org) at Scripps automates the import of bibliometric information from
 [Crossref](https://www.crossref.org/) and [Europe PMC](https://europepmc.org/). This blog post is about how I added
 functionality to it to import from three prominent preprint servers in the natural sciences
 ([arXiv](https://arxiv.org/), [bioRxiv](https://www.biorxiv.org/), and [ChemRxiv](https://chemrxiv.org/)) that can serve

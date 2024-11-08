@@ -6,7 +6,7 @@ author: Charles Tapley Hoyt
 tags: code-with-me
 ---
 This post is about my personal code style guide that are beyond the enforcement
-of my [flake8 plugins](({% post_url 2020-04-25-how-to-code-with-me-flake8 %}))
+of my [flake8 plugins]({% post_url 2020-04-25-how-to-code-with-me-flake8 %})
 or [`black`](https://github.com/psf/black). I'll try and update it over time.
 
 ## Exit code blocks as early as possible
