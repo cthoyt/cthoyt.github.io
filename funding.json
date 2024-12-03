@@ -1,0 +1,77 @@
+{
+  "version": "v1.0.0",
+  "entity": {
+    "type": "individual",
+    "role": "maintainer",
+    "name": "Charles Tapley Hoyt",
+    "email": "cthoyt@gmail.com",
+    "description": "I'm a medicinal chemist now working in the informatics side of the life sciences that touches bioinformatics, cheminformatics, machine learning, and the semantic web.\n\nI have a passion for reproducible, reusable, useful science, and turn my research into tools that really are for others to use. Along the way, I've spun a lot of utilities and tools out into their own packages that are generally useful, even outside of my line of research.\n\nSponsorship is important to me for three reasons:\n\n    1. It's a nice way to show appreciation for things that I've built\n    2. It can help me justify continuing to spend my free time on maintaining open source software\n    3. It can give an avenue for industrial users of my software to pay for support and maintenance.",
+    "webpageUrl": {
+      "url": "https://cthoyt.com"
+    }
+  },
+  "projects": [
+    {
+      "guid": "biopragmatics",
+      "name": "Biopragmatics Stack",
+      "description": "A set of interconnected software components and curated data artifacts that support standardizing and processing biomedical data and knowledge.",
+      "webpageUrl": {
+        "url": "https://biopragmatics.github.io",
+        "wellKnown": "https://biopragmatics.github.io/.well-known/funding-manifest-urls"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/biopragmatics",
+        "wellKnown": "https://github.com/biopragmatics/biopragmatics.github.io/blob/master/.well-known/funding-manifest-urls"
+      },
+      "licenses": [
+        "spdx:MIT",
+        "spdx:CC0-1.0"
+      ],
+      "tags": [
+        "biology",
+        "chemistry",
+        "semantic-web",
+        "medicine",
+        "data-integration",
+        "knowledge-integration",
+        "persistent-identifiers",
+        "pids"
+      ]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "github-sponsors",
+        "type": "payment-provider",
+        "address": "https://github.com/sponsors/cthoyt",
+        "description": "Sponsor me through GitHub."
+      }
+    ],
+    "plans": [
+      {
+        "guid": "one-time",
+        "status": "active",
+        "name": "Buy me a drink",
+        "amount": 5.00,
+        "currency": "USD",
+        "frequency": "one-time",
+        "channels": [
+          "github-sponsors"
+        ]
+      },
+      {
+        "guid": "monthly",
+        "status": "active",
+        "name": "Monthly donation",
+        "amount": 0,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": [
+          "github-sponsors"
+        ]
+      }
+    ],
+    "history": []
+  }
+}
