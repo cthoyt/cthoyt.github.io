@@ -12,6 +12,33 @@
   },
   "projects": [
     {
+      "guid": "bioregistry",
+      "name": "Bioregistry",
+      "description": "A database of biomedical databases and ontologies that supports Findable, Accessible, Interoperable, and Reusable (FAIR) data.",
+      "webpageUrl": {
+        "url": "https://bioregistry.io",
+        "wellKnown": "https://bioregistry.io/.well-known/funding-manifest-urls"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/biopragmatics/bioregistry",
+        "wellKnown": "https://github.com/biopragmatics/bioregistry/blob/master/docs/.well-known/funding-manifest-urls"
+      },
+      "licenses": [
+        "spdx:MIT",
+        "spdx:CC0-1.0"
+      ],
+      "tags": [
+        "biology",
+        "chemistry",
+        "semantic-web",
+        "medicine",
+        "data-integration",
+        "knowledge-integration",
+        "persistent-identifiers",
+        "pids"
+      ]
+    },
+    {
       "guid": "biopragmatics",
       "name": "Biopragmatics Stack",
       "description": "A set of interconnected software components and curated data artifacts that support standardizing and processing biomedical data and knowledge.",
