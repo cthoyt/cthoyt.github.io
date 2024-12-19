@@ -21,7 +21,7 @@
       },
       "repositoryUrl": {
         "url": "https://github.com/biopragmatics/bioregistry",
-        "wellKnown": "https://github.com/biopragmatics/bioregistry/blob/master/docs/.well-known/funding-manifest-urls"
+        "wellKnown": "https://github.com/biopragmatics/bioregistry/raw/refs/heads/main/docs/.well-known/funding-manifest-urls"
       },
       "licenses": [
         "spdx:MIT",
@@ -48,7 +48,7 @@
       },
       "repositoryUrl": {
         "url": "https://github.com/biopragmatics",
-        "wellKnown": "https://github.com/biopragmatics/biopragmatics.github.io/blob/master/.well-known/funding-manifest-urls"
+        "wellKnown": "https://github.com/biopragmatics/biopragmatics.github.io/raw/refs/heads/master/.well-known/funding-manifest-urls"
       },
       "licenses": [
         "spdx:MIT",
