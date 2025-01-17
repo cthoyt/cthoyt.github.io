@@ -9,14 +9,16 @@ tags:
   - Environments
 ---
 
-[Graphviz](https://graphviz.org) is software for graph visualization written in C.
-[PyGraphviz](https://pypi.org/project/pygraphviz) provides a nice Python wrapper for it.
-The issue is that getting Python to know about the C headers changes every few months.
-I'll try and keep this blog post updated every time there are some changes.
+[Graphviz](https://graphviz.org) is software for graph visualization written in
+C. [PyGraphviz](https://pypi.org/project/pygraphviz) provides a nice Python
+wrapper for it. The issue is that getting Python to know about the C headers
+changes every few months. I'll try and keep this blog post updated every time
+there are some changes.
 
 # November 2024
 
-These days, `pip install graphviz` seemed to work but `uv pip install graphviz` gave the following:
+These days, `pip install graphviz` seemed to work but `uv pip install graphviz`
+gave the following:
 
 ```console
 $ uv pip install pygraphviz
@@ -106,13 +108,15 @@ Installed 1 package in 1ms
  + pygraphviz==1.14
 ```
 
-There's also talk of using `--global-option` to pass `-I/opt/homebrew/opt/graphviz/include` and 
-`-L/opt/homebrew/opt/graphviz/lib`, but I couldn't figure this out for `uv pip install`.
+There's also talk of using `--global-option` to pass
+`-I/opt/homebrew/opt/graphviz/include` and `-L/opt/homebrew/opt/graphviz/lib`,
+but I couldn't figure this out for `uv pip install`.
 
 # 2023 Era
 
-I was on Python 3.10 on a M2 Mac with macOS 13. `pygraphviz` didn't have a pre-built wheel for my
-systen so `python -m pip install pygraphviz`  gave the following error:
+I was on Python 3.10 on a M2 Mac with macOS 13. `pygraphviz` didn't have a
+pre-built wheel for my systen so `python -m pip install pygraphviz` gave the
+following error:
 
 ```console
 $ python -m pip install pygraphviz
@@ -127,7 +131,8 @@ clang -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic 
 ```
 
 I figured out based on the Homebrew troubleshooting in the docs
-(https://pygraphviz.github.io/documentation/stable/install.html#homebrew) that the following works:
+(https://pygraphviz.github.io/documentation/stable/install.html#homebrew) that
+the following works:
 
 ```shell
 python -m pip install --use-pep517 \

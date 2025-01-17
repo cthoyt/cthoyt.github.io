@@ -5,28 +5,29 @@ date: 2020-03-20 00:00:00 -0800
 author: Charles Tapley Hoyt
 tags: code-with-me
 ---
+
 We've all been there. You started a new branch from master. You had a very
-specific goal in mind, **The Original Goal**. You made a pull request (PR) to
-go with it, too, **The Original Pull Request**. But then, you had an idea! And
+specific goal in mind, **The Original Goal**. You made a pull request (PR) to go
+with it, too, **The Original Pull Request**. But then, you had an idea! And
 also, someone on your team asked you to solve another problem! Now the original
-code you wrote to address **The Original Goal**  relies on that code ... 
-and now you've got dozens of files changed, hundreds of lines of diff, and
-nobody (including you) can understand what you've done. Like I said, we've all
-been there. Here's what you can do to fix it:
+code you wrote to address **The Original Goal** relies on that code ... and now
+you've got dozens of files changed, hundreds of lines of diff, and nobody
+(including you) can understand what you've done. Like I said, we've all been
+there. Here's what you can do to fix it:
 
 ## 1. Stop and Relax
 
-Don't do anything rash. Git is a pain to use, and you're going to have to
-rely on it to keep a history for you of what you've done.
+Don't do anything rash. Git is a pain to use, and you're going to have to rely
+on it to keep a history for you of what you've done.
 
 ## 2. Summarize
 
-First, you're going to have to take a big step back. Write a summary of all
-the things you've done in **The Original Pull Request**. This should be about
-*what* the PR does and *why* it does it. Of course it could vary depending on
-the situation, but this summary shouldn't be about exactly how the PR does it,
-because the implementation details are likely what lead to this situation in
-the first place.
+First, you're going to have to take a big step back. Write a summary of all the
+things you've done in **The Original Pull Request**. This should be about _what_
+the PR does and _why_ it does it. Of course it could vary depending on the
+situation, but this summary shouldn't be about exactly how the PR does it,
+because the implementation details are likely what lead to this situation in the
+first place.
 
 Keep in mind that every PR has a box at the top that's used to describe what's
 in it. This is where you will put your summary.
@@ -34,63 +35,61 @@ in it. This is where you will put your summary.
 ## 3. Assessing Dependencies
 
 Of all the things that **The Original Pull Request**, some of them are
-self-contained, and some of them rely on each other. It was probably the
-case that to accomplish **The Original Goal**, you had to address lots of
-smaller goals. You probably also had to change lots of code and write new
-code too.
+self-contained, and some of them rely on each other. It was probably the case
+that to accomplish **The Original Goal**, you had to address lots of smaller
+goals. You probably also had to change lots of code and write new code too.
 
 Wouldn't it have been nice if all of these implementations were already done,
 because then you could have just solved **The Original Goal** directly by
 using/applying previous code. That's what we're going to aim for.
 
 But first, you need to figure out which things you did relied on which other
-ones, because you're going to break **The Original Pull Request** up until
-it exactly matches up to addressing **The Original Goal**.
-don't have any 
+ones, because you're going to break **The Original Pull Request** up until it
+exactly matches up to addressing **The Original Goal**. don't have any
 
 ## 4. The Break Up
 
-After you understand which parts of **The Original Pull Request** depend on
-each other, pick one independent part of the code that accomplishes one
-sub-goal. Since you're not doing this to be a martyr, and we all know git is
-too complicated to *Do It Right*, you're going to copy/paste the files that
-are related to this change to your desktop*.
+After you understand which parts of **The Original Pull Request** depend on each
+other, pick one independent part of the code that accomplishes one sub-goal.
+Since you're not doing this to be a martyr, and we all know git is too
+complicated to _Do It Right_, you're going to copy/paste the files that are
+related to this change to your desktop\*.
 
 ## 5. Escape the Madness
 
 Before continuing, you're going to make sure all of the code in your big messy
-branch for **The Original Pull Request** is committed and pushed. Even though
-we want to supersede what's there, it never hurts to keep track of your descent
+branch for **The Original Pull Request** is committed and pushed. Even though we
+want to supersede what's there, it never hurts to keep track of your descent
 into madness.
 
 After there's nothing lying around, switch back to master. If your team has
-taken good care of your repository, the master branch should be undisturbed
-by the chaos you've created in **The Original Pull Request**. Make a new branch
+taken good care of your repository, the master branch should be undisturbed by
+the chaos you've created in **The Original Pull Request**. Make a new branch
 from master, and name it appropriately for fixing the one sub-goal, from here
-out known as **The Sub-Goal** that you identified in Step 4. Now you
-can start updating the relevant files in your repository based on the files
-you copied to your desktop. I suggest you don't copy/paste the contents of the
-whole files, because you might have forgotten about something else you changed
-in them. After all, you're reading my guide because this was a mess.
+out known as **The Sub-Goal** that you identified in Step 4. Now you can start
+updating the relevant files in your repository based on the files you copied to
+your desktop. I suggest you don't copy/paste the contents of the whole files,
+because you might have forgotten about something else you changed in them. After
+all, you're reading my guide because this was a mess.
 
 ## 6. The New Pull Request
 
-Once you've finished making the new branch for your independent part of
-code that solves **The Sub-Goal**, you can make **The New Pull Request**.
+Once you've finished making the new branch for your independent part of code
+that solves **The Sub-Goal**, you can make **The New Pull Request**.
 
-You will now go through the entire process of writing a good summary of
-this branch for your co-developers, you will get their feedback, you
-will make updates, pass flake8, and so on. They will thank you for having
-code that accomplishes one thing, and can be described simply. They will
-thank you for not having too big of a diff, and for the things in the diff
-all being relevant and important. Then you can merge this branch into master.
+You will now go through the entire process of writing a good summary of this
+branch for your co-developers, you will get their feedback, you will make
+updates, pass flake8, and so on. They will thank you for having code that
+accomplishes one thing, and can be described simply. They will thank you for not
+having too big of a diff, and for the things in the diff all being relevant and
+important. Then you can merge this branch into master.
 
 ## 7. Newfound Wisdom
 
 Throughout transferring the code for **The New Pull Request** you have probably
 realized there are some things you did back in **The Original Pull Request**
-that you could do better, and made some updates in the code in **The New
-Pull Request** to reflect the wisdom you've gained along the way. That's great!
+that you could do better, and made some updates in the code in **The New Pull
+Request** to reflect the wisdom you've gained along the way. That's great!
 Congratulations!
 
 After your team has approved **The New Pull Request**, you can merge it into
@@ -102,25 +101,25 @@ that solved **The Sub-Goal** reflected here.
 
 This is the hard part. Now you have to switch back to the branch for **The
 Original Pull Request**. Now you have to update this branch from master. It's
-going to be hard because now you've probably made different changes in **The
-New Pull Request** than in **The Original Pull Request** so there will likely
-be conflicts.
+going to be hard because now you've probably made different changes in **The New
+Pull Request** than in **The Original Pull Request** so there will likely be
+conflicts.
 
 This is not a tutorial on how to solve merge conflicts. Use google to figure
 that out
 
-I can't understate: **do this part really well**. If you don't, then the
-history in the original branch will be even more incomprehensible, and you
-won't be able to tell if you lost any of your original work. Please, please,
-please do this well.
- 
-P.S. Like I said before, don't be a martyr. Use tools like GitHub Desktop
-and PyCharm to help you merge. I heard that the git CLI was *allegedly* created
-by Linus Torvalds to slow other developers down.
+I can't understate: **do this part really well**. If you don't, then the history
+in the original branch will be even more incomprehensible, and you won't be able
+to tell if you lost any of your original work. Please, please, please do this
+well.
 
-Why are we going through all of this pain, rather than just pushing your team
-to let you merge **The Original Pull Request**? The reason you have to do this
-is because now all of the changes that addressed **The Sub-Goal** are part of
+P.S. Like I said before, don't be a martyr. Use tools like GitHub Desktop and
+PyCharm to help you merge. I heard that the git CLI was _allegedly_ created by
+Linus Torvalds to slow other developers down.
+
+Why are we going through all of this pain, rather than just pushing your team to
+let you merge **The Original Pull Request**? The reason you have to do this is
+because now all of the changes that addressed **The Sub-Goal** are part of
 master, and are no longer part of the diff of **The Original Pull Request**.
 
 Now you're one step closer to your team being able to understand, review, and
@@ -130,45 +129,45 @@ eventually merge **The Original Pull Request**.
 
 This is the frustrating part. After you've gone through all of that work to
 split a tiny part of **The Original Pull Request** into a smaller, independent
-pull request, you're not done. You will probably have to repeat steps 4-8 a
-few times. You'll be tempted to throw away the branch for **The Original Pull
+pull request, you're not done. You will probably have to repeat steps 4-8 a few
+times. You'll be tempted to throw away the branch for **The Original Pull
 Request** and maybe start over.
 
 Don't do that.
 
-If you do, the same disorganization that lead to the mess of **The Original
-Pull Request** might just slip back into whatever you do next. Even worse,
-nobody else will be able to follow what you've done until now. 
+If you do, the same disorganization that lead to the mess of **The Original Pull
+Request** might just slip back into whatever you do next. Even worse, nobody
+else will be able to follow what you've done until now.
 
 So relax. This is going to take a few days. You're going to have to wait in
-between several iterations for feedback. That's good. You need feedback. I
-need feedback. We all need to practice getting it and giving it. Embrace the
-opportunity to have your team help you improve your code, gain wisdom, and
-make your contributions sustainable.
+between several iterations for feedback. That's good. You need feedback. I need
+feedback. We all need to practice getting it and giving it. Embrace the
+opportunity to have your team help you improve your code, gain wisdom, and make
+your contributions sustainable.
 
 ## Finishing Up
 
 Eventually after several iterations of 4-9, you will have excised all of the
 code that was important for **The Original Pull Request**, but not directly
-accomplishing **The Original Goal**. As you removed independent parts, new
-parts became independent themselves. Eventually, **The Original Pull Request**
-will indeed match up exactly to **The Original Goal**, then you will be able
-to come back to it for review and merging.
+accomplishing **The Original Goal**. As you removed independent parts, new parts
+became independent themselves. Eventually, **The Original Pull Request** will
+indeed match up exactly to **The Original Goal**, then you will be able to come
+back to it for review and merging.
 
-I understand this is a frustrating process. The purpose of these steps were
-to help you think through a large piece of work you've done. You should be
-proud that you've solved a complex problem with many intricate parts. It was
-a lot of extra work to break it into many pull requests, and it might have
-taken more of your time the first time working through this process, but in
-the future, this might help you to start with small tasks rather than
-addressing **The Original Goal** all at once. GitHub, for example, has an
-issue tracker that is very helpful for this. I imagine that each issue should
-correspond to a **Sub-Goal**, and that each should have exactly one PR that
-addresses it. **The Original Goal** also deserves its own issue that points to
-all of the issues for its sub-goals. Eventually you will address this with a
-beautiful PR as well. Happy coding!
+I understand this is a frustrating process. The purpose of these steps were to
+help you think through a large piece of work you've done. You should be proud
+that you've solved a complex problem with many intricate parts. It was a lot of
+extra work to break it into many pull requests, and it might have taken more of
+your time the first time working through this process, but in the future, this
+might help you to start with small tasks rather than addressing **The Original
+Goal** all at once. GitHub, for example, has an issue tracker that is very
+helpful for this. I imagine that each issue should correspond to a **Sub-Goal**,
+and that each should have exactly one PR that addresses it. **The Original
+Goal** also deserves its own issue that points to all of the issues for its
+sub-goals. Eventually you will address this with a beautiful PR as well. Happy
+coding!
 
-*If you're thinking, why don't I use cherry picking? If you know what cherry
+\*If you're thinking, why don't I use cherry picking? If you know what cherry
 picking is in the context of git (and also how to use it) then you probably
 won't have the issue that prompted this blog post. But also, you should go
 outside and pick some apples instead. Thanksgiving is never more than a few
@@ -179,21 +178,20 @@ hundred days away. It pays to be ready.
 It might be illustrative to see where an example of where this was done in
 practice, so I'll share some work I did with a text mining tool from Harvard
 Medical School, [Gilda](https://github.com/indralab/gilda). It's a simple yet
-powerful system for grounding of named entities based on dictionary lookup. 
-Unfortunately, it didn't include some dictionaries I wanted, and it didn't
-have a UI to go with its web API.
+powerful system for grounding of named entities based on dictionary lookup.
+Unfortunately, it didn't include some dictionaries I wanted, and it didn't have
+a UI to go with its web API.
 
 So I set out on figuring out how it generated dictionaries, where it stored
 them, and how it loaded them to make the web app. I ended up making several
 modifications to accomplish this goal, but it was a huge PR. I've definitely
-annoyed the author, [@bgyori](https://github.com/bgyori), with PRs that are
-too big before, which he was ultimately not able to understand or merge.
+annoyed the author, [@bgyori](https://github.com/bgyori), with PRs that are too
+big before, which he was ultimately not able to understand or merge.
 
 Keep in mind, in your team, your teammates might be obligated to help you
-because you're working towards a common goal, getting paid, etc. When you're
-in the open source world, nobody really owes you anything, so you it's in your
-best interest to make things as easy as possible on the package's
-maintainer(s).
+because you're working towards a common goal, getting paid, etc. When you're in
+the open source world, nobody really owes you anything, so you it's in your best
+interest to make things as easy as possible on the package's maintainer(s).
 
 So I made a few different pull requests that were all totally independent:
 
@@ -207,29 +205,29 @@ Maybe you're seeing a theme here. I was improving lots of different bits of
 Gilda so I could reuse the package in new code later. The next incremental
 increase was:
 
-- Refactor functionality from the GrounderInstance class into the Grounder
-  class [#16](https://github.com/indralab/gilda/pull/16)
+- Refactor functionality from the GrounderInstance class into the Grounder class
+  [#16](https://github.com/indralab/gilda/pull/16)
 
 And finally with these in place, I realized that adding a web interface was
-parallel to my original goal, but not the core. What was really important
-was that throughout all of the Gilda functionality, I could load my own
-synonym list (which I'd generate using the HPO, EFO, and DOID). I was
-able to address the UI with:
+parallel to my original goal, but not the core. What was really important was
+that throughout all of the Gilda functionality, I could load my own synonym list
+(which I'd generate using the HPO, EFO, and DOID). I was able to address the UI
+with:
 
 - Add minimimal UI to web interface
   [#19](https://github.com/indralab/gilda/pull/19)
 
-At the time of writing, we're still working through this PR. But all of it
-is leading up to the point where I can load my own files into this web
-interface. It will seem so obvious to Ben when I send this PR next (but after
-giving him some space... I did just bombard him with 5 PRs in a few days)
-what I am trying to accomplish and why.
+At the time of writing, we're still working through this PR. But all of it is
+leading up to the point where I can load my own files into this web interface.
+It will seem so obvious to Ben when I send this PR next (but after giving him
+some space... I did just bombard him with 5 PRs in a few days) what I am trying
+to accomplish and why.
 
 Want to see what happens when you try and do all of this in one PR? You will
 correctly guess that the PR is a total mess, impossible to understand, and
 riddled with questions that are really too big to answer when your head is
-already so far in the sand. Behold, in all its infamy, my failed PR from
-last summer ([#4](https://github.com/indralab/gilda/pull/4)). At this point,
-you can't even see what a mess it was from the linked web page but if you
-go back through the version history before I broke it into 5 smaller PRs
-(using the workflow described above) it was a monolith.
+already so far in the sand. Behold, in all its infamy, my failed PR from last
+summer ([#4](https://github.com/indralab/gilda/pull/4)). At this point, you
+can't even see what a mess it was from the linked web page but if you go back
+through the version history before I broke it into 5 smaller PRs (using the
+workflow described above) it was a monolith.

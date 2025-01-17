@@ -6,9 +6,10 @@ modified_date: 2023-01-02 15:06:00 -0500
 author: Charles Tapley Hoyt
 tags: nlp indra biocuration
 ---
+
 With the recent paper on Gilda and approaching INDRA 2 and INDRA database papers
-coming up, I've put together a visual guide on how to curate statements extracted
-by INDRA through the web interface at https://db.indra.bio.
+coming up, I've put together a visual guide on how to curate statements
+extracted by INDRA through the web interface at https://db.indra.bio.
 
 Navigate to the INDRA database portal using [this link](https://db.indra.bio).
 
@@ -37,15 +38,15 @@ it will ask you to pick from a list.
 ![Input search text](/img/indra_curation/05_input_text.png)
 
 In this example, I chose AKT1, which was pretty easy for Gilda to ground and
-didn't need me to check. It also reports the confidence in the grounding and
-the namespace to which it grounded in the box. Click the search button
-to get going to the next step!
+didn't need me to check. It also reports the confidence in the grounding and the
+namespace to which it grounded in the box. Click the search button to get going
+to the next step!
 
 ![Ground with Gilda](/img/indra_curation/06_ground_with_gilda.png)
 
-Now you will see the search results. On the left, it has many
-kinds of statements that INDRA models. They're hierarchical, meaning you
-can click on one to expand to more specific statement types.
+Now you will see the search results. On the left, it has many kinds of
+statements that INDRA models. They're hierarchical, meaning you can click on one
+to expand to more specific statement types.
 
 On the right are badges for the different sources that give evidence for each
 statement. The ones with the black text correspond to databases, like BioGRID,
@@ -59,18 +60,17 @@ this is because there are actually some more specific phosphorylation events
 contained in here as well!
 
 Open up the curation interface by pressing the pencil button next to the
-evidence you want to curate. Note that some sources, like BioPAX
-(from Pathway Commons) don't give evidence text, so these aren't appropriate
-for curation via the INDRA Database.
+evidence you want to curate. Note that some sources, like BioPAX (from Pathway
+Commons) don't give evidence text, so these aren't appropriate for curation via
+the INDRA Database.
 
 ![Navigate the hierarchical search results](/img/indra_curation/08_navigate_search_results.png)
 
 Now that the curation menu has come up, you can select one of several error
-types. Use your best judgement if a statement is really correct. Note that
-INDRA does synonym disambiguation, so the label for the statement may not match
-to the highlighted text. You can click the entity names in the statement header
-to open pages with more information about the entities, including their
-synonyms.
+types. Use your best judgement if a statement is really correct. Note that INDRA
+does synonym disambiguation, so the label for the statement may not match to the
+highlighted text. You can click the entity names in the statement header to open
+pages with more information about the entities, including their synonyms.
 
 ![Open the curation menu](/img/indra_curation/09_open_curation_menu.png)
 
@@ -93,8 +93,9 @@ used to assess the quality of each statement (at each level of hierarchical
 abstraction, too) as well as the INDRA Database paper describing this resource.
 We're currently working on
 [updating the API](https://github.com/indralab/indra_db/pull/187) for bulk
-downloading curations from the INDRA Database and for use with the
-INDRA assemble corpus utility
+downloading curations from the INDRA Database and for use with the INDRA
+assemble corpus utility
 [`indra.tools.assemble_corpus.filter_by_curation()`](https://github.com/sorgerlab/indra/blob/bc39dae6849b1fd484d83eabb3d2afee963a6298/indra/tools/assemble_corpus.py#L1669).
 
-**Update** Here's the INDRA 2 preprint:[doi:10.1101/2022.08.30.505688](https://doi.org/10.1101/2022.08.30.505688)
+**Update** Here's the INDRA 2
+preprint:[doi:10.1101/2022.08.30.505688](https://doi.org/10.1101/2022.08.30.505688)

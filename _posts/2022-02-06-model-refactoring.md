@@ -5,6 +5,7 @@ date: 2022-02-06 16:45:00 +0100
 author: Charles Tapley Hoyt
 tags: programming machine-learning deep-learning python
 ---
+
 This blog post is a tutorial that will take you from a naive implementation of a
 [multilayer perceptron (MLP)](https://en.wikipedia.org/wiki/Multilayer_perceptron)
 in PyTorch to an enlightened implementation that simultaneously leverages the
@@ -26,8 +27,8 @@ from torch.nn import functional as F
 2. [`more_itertools`](https://github.com/more-itertools/more-itertools) is a
    third-party extension to itertools, highly regarded in the Python community.
 3. You should already be familiar with [PyTorch](https://pytorch.org/) and
-   writing your own subclasses of `torch.nn.Module` by implementing your
-   own `__init__()` and `forward()` functions.
+   writing your own subclasses of `torch.nn.Module` by implementing your own
+   `__init__()` and `forward()` functions.
 
 This tutorial isn't really about the theory nor application of machine learning
 models - it's just about the best ways to implement them. I'm also going to
@@ -91,8 +92,8 @@ class MLP2(nn.Module):
         return rv
 ```
 
-The application
-of [`F.relu`](https://pytorch.org/docs/stable/generated/torch.nn.functional.relu.html)
+The application of
+[`F.relu`](https://pytorch.org/docs/stable/generated/torch.nn.functional.relu.html)
 in `forward()` is suspect for a few reasons:
 
 1. Because it lives as a hard-coded call in `forward()`, there's no way to make
@@ -100,8 +101,8 @@ in `forward()` is suspect for a few reasons:
 2. Because it's the functional form `F.relu` and not `nn.ReLU`, it can't be
    stacked with other layers
 
-MLP2 can be refactored to address both of those by using the modular
-form `nn.ReLU` in the layers after creating each `nn.Linear`.
+MLP2 can be refactored to address both of those by using the modular form
+`nn.ReLU` in the layers after creating each `nn.Linear`.
 
 ```python
 import torch
@@ -210,8 +211,8 @@ for x in old_list:
     new_list.extend(transform(x))
 ```
 
-we can transform it into something more elegant
-using [`itertools.chain.from_iterable()`](https://docs.python.org/3/library/itertools.html#itertools.chain.from_iterable)
+we can transform it into something more elegant using
+[`itertools.chain.from_iterable()`](https://docs.python.org/3/library/itertools.html#itertools.chain.from_iterable)
 like
 
 ```python
@@ -225,13 +226,13 @@ new_list = list(chain.from_iterable(
 ```
 
 While this may be a few extra lines (because it's broken up for readability), it
-has the advantage that it's only one *logical line* and can be used in more
+has the advantage that it's only one _logical line_ and can be used in more
 clever ways.
 
 ## Bringing it All Together
 
-We'll apply this template to our code to get a one-liner for instantiating
-our `nn.Sequential` (though notice it's again broken up onto multiple lines for
+We'll apply this template to our code to get a one-liner for instantiating our
+`nn.Sequential` (though notice it's again broken up onto multiple lines for
 readability):
 
 ```python
@@ -258,8 +259,8 @@ class MLP6(nn.Module):
 ```
 
 Finally, since we're now just creating a module that wraps the exact
-functionality of `nn.Sequential`, it's possible to directly
-subclass `nn.Sequential`. We'll refactor on MLP6 to get our final result:
+functionality of `nn.Sequential`, it's possible to directly subclass
+`nn.Sequential`. We'll refactor on MLP6 to get our final result:
 
 ```python
 from itertools import chain
@@ -289,6 +290,7 @@ leave comment or get in touch!
 While we were originally aiming at reducing complexity, this model still has the
 issue that it contains a hard-coded reference to the ReLU non-linear activation
 function, which could be easily generalized to support alternate non-linear
-activation functions. In my [next post]({% post_url 2022-02-06-model-abstraction %}),
-I'll demonstrate the thought process behind this and the ultimate solution
-using the [`class-resolver`](https://github.com/cthoyt/class-resolver).
+activation functions. In my [next
+post]({% post_url 2022-02-06-model-abstraction %}), I'll demonstrate the thought
+process behind this and the ultimate solution using the
+[`class-resolver`](https://github.com/cthoyt/class-resolver).

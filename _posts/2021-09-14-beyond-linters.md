@@ -5,9 +5,10 @@ date: 2021-09-14 00:18:00 +0100
 author: Charles Tapley Hoyt
 tags: code-with-me
 ---
+
 This post is about my personal code style guide that are beyond the enforcement
-of my [flake8 plugins]({% post_url 2020-04-25-how-to-code-with-me-flake8 %})
-or [`black`](https://github.com/psf/black). I'll try and update it over time.
+of my [flake8 plugins]({% post_url 2020-04-25-how-to-code-with-me-flake8 %}) or
+[`black`](https://github.com/psf/black). I'll try and update it over time.
 
 ## Exit code blocks as early as possible
 
@@ -21,9 +22,9 @@ else:
     raise ValueError
 ```
 
-It's better to raise the value error as quickly as possible, because then
-you can dedent the big code block. This is particularly good if you have lots
-of nested code blocks in conditionals, loops, etc.
+It's better to raise the value error as quickly as possible, because then you
+can dedent the big code block. This is particularly good if you have lots of
+nested code blocks in conditionals, loops, etc.
 
 ```python
 if not cond:
@@ -32,8 +33,8 @@ if not cond:
 ...  # big code block
 ```
 
-The same thing is true for `return` statements. The following code where
-a value is set then returned is bad:
+The same thing is true for `return` statements. The following code where a value
+is set then returned is bad:
 
 ```python
 if cond:
