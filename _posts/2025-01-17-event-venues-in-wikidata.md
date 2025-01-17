@@ -11,9 +11,9 @@ tags:
 
 I was working on making data about scholarly conferences more FAIR and a big
 question crossed my mind: what are all the conference venues? This post is about
-some queries I wrote for Wikidata, data issues I found, a few
-[drive-by curations](https://www.qeios.com/read/KBX9VO), and my ideas for the
-future.
+some queries I wrote for Wikidata, data issues I found, and a few
+[drive-by curations](https://www.qeios.com/read/KBX9VO) that I did while looking
+for an answer, and my ideas for the future.
 
 ## Querying Wikidata
 
@@ -27,8 +27,6 @@ comes with a high-level schematic diagram on how this class relates to
 performance arts spaces:
 
 ![](https://upload.wikimedia.org/wikipedia/commons/6/61/Core_classes_for_performing_arts_places_in_Wikidata.png)
-
-Considering that cinemas, theaters, clubs, and several other
 
 I used the following SPARQL query to retrieve all the subclasses and investigate
 which might be relevant for conferences.
