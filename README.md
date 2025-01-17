@@ -8,7 +8,8 @@ My personal website, served at https://cthoyt.com
 $ docker run --rm --volume="$PWD:/srv/jekyll" -p 4000:4000 -it jekyll/jekyll:4.2.0 jekyll serve
 ```
 
-Note that the 4.2.0 tag is important - 4.2.2 (latest, released ~2022) does not work.
+Note that the 4.2.0 tag is important - 4.2.2 (latest, released ~2022) does not
+work.
 
 ## Lint
 
@@ -23,5 +24,5 @@ CC BY 4.0
 ## File Explanations
 
 | File                         | Description                                                                                              |
-|------------------------------|----------------------------------------------------------------------------------------------------------|
+| ---------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [funding.json](funding.json) | A [funding manifest](https://floss.fund/funding-manifest/) for use with [FLOSS/fund](https://floss.fund) |
