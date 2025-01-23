@@ -18,22 +18,15 @@ a [proof-of-concept ontologization](https://w3id.org/biopragmatics/resources/cli
 ClinicalTrials.gov, and some insights into how this data can be integrated with other resources to address classical
 problems in drug discovery from a knowledge graph perspective.
 
-Table of contents:
+## Table of Contents
 
-1. Automatically downloading data using
-   [ `clinicaltrials-downloader`](https://github.com/cthoyt/clinicaltrials-downloader)
-2. Summary of content inside it, and share script. Look at fields:
-    - study types
-    - allocations
-    - phases
-    - interventions
-    - conditions
-3. Proposed classes for OBI
-4. Ontology artifacts with PyOBO and `obo-db-ingest`
-5. what's missing?
-
-Lots of clinical trials around the world,
-, here I'm focusing on clinical trials.gov
+1. [Automated download of ClinicalTrails.gov with `clinicaltrials-downloader`](#automated-download)
+2. [Summarizing ClincialTrials.gov study types, allocations, and phases](#summarization)
+3. [Example clinical studies](#example-clinical-studies)
+4. [Proposing an ontology meta-model](#proposing-an-ontology-meta-model)
+5. [Proof-of-concept ontology export of ClinicalTrials.gov](#proof-of-concept-ontology-export-of-clinicaltrialsgov)
+6. [Reflections and what's missing](#reflections-and-whats-missing)
+7. [What's this all useful for, anyway?](#whats-this-all-useful-for-anyway)
 
 ## Automated Download
 
@@ -144,7 +137,7 @@ Unsurprisingly, there is an attrition through the progression of phases, but it 
 expected. It might also be interesting to stratify this by year to see if trials are more likely to succeed as time goes
 on.
 
-### Specific Examples
+## Example Clinical Studies
 
 I generated a table containing example clinical trials for each study type, allocation, and phase.
 While there are many studies with more than one intervention and/or condition, this table only shows
@@ -169,13 +162,26 @@ trials with a single one of each to reduce complexity.
 | Randomized (Phase 3)       | [NCT00843687](https://bioregistry.io/clinicaltrials:NCT00843687) | A Comparison of the Pharmacokinetics and Safety of Long-acting Injectable [...] | [Schizophrenia](https://bioregistry.io/mesh:D012559)             | [risperidone](https://bioregistry.io/chebi:8871)                    | ![](https://bioregistry.io/chebi:8871?provider=chebi-img)   |
 | Randomized (Phase 4)       | [NCT03586687](https://bioregistry.io/clinicaltrials:NCT03586687) | Osteoarthritis Shoulder Injection Study                                         | [Osteoarthritis](https://bioregistry.io/mesh:D010003)            | [triamcinolone](https://bioregistry.io/chebi:9667)                  | ![](https://bioregistry.io/chebi:9667?provider=chebi-img)   |
 
-## Ontology Metamodel
+## Proposing an Ontology Meta-model
 
 <a href="https://docs.google.com/drawings/d/19BuWZ-C2iZkxDScxDy9WsAtLsItvkqT9bFtFaFkpbyA/edit?usp=sharing">
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vSCMXiTg3EjROweTq4RKOnqRyW-RMs7QOOiC3mhbSHa1eJtfK5ROWVRX7wh63f3m5AkAjQQ7u4VAsM-/pub?w=2628&amp;h=1629">
 </a>
 
-### Ontology Artifacts
+TODO:
+
+1. copy conversation from post [https://github.com/obi-ontology/obi/issues/1831](https://github.com/obi-ontology/obi/issues/1831)
+2. Talk about what's missing (more detailed ontologization of [expanded access types](https://clinicaltrials.gov/study-basics/glossary#expanded-access-type) and [expanded access status](https://clinicaltrials.gov/study-basics/glossary#expanded-access-status))
+   1. how to capture other parts Bjorn mentioned
+   2. Eligibility criteria, enrollment
+   3. statistical methods linked to STATO
+   4. outcomes linked to OBI:Assay
+   5. ontologization of groups/cohorts in observational studies, and [observational study models](https://clinicaltrials.gov/study-basics/glossary#observational-study-model) such as case-control, case-only, case-cross-over, ecologic or community studies, family-based, and other.
+   6. capturing of adverse events - this might be more of a data modeling that ontologization question
+   7. capturing the investigator, funder type, and sponsor for bibliometric purposes
+   8. capturing geolocations / institutions hosting parts of the trial
+
+## Proof-of-concept Ontology Export of ClinicalTrials.gov
 
 1. What is PyOBO
 2. What is obo-db-ingest
@@ -205,7 +211,7 @@ PyOBO source turns it into an ontology
 | properties | 2,080,891 |
 | terms      |   522,294 |
 
-## What's missing from a full knowledge dump
+## Reflections, and, what's missing?
 
 I worked on this in the scope of the DTRA RAPTER project but the code was tied
 up with a lot of internal infrastructure and wasn't made public, so some of the
@@ -221,7 +227,7 @@ ideas can be reused later like:
    be grounded to ontology terms or a more generic data model?
 5. Grounding all sponsors to ROR identifiers!
 
-## What's This all good for?
+## What's this all useful for, anyway?
 
 ### Integrating Chemical Hierarchies
 
@@ -351,7 +357,7 @@ effective when there exist good cellular or animal models for the disease.
 
 ## Further Reading
 
-- https://github.com/obi-ontology/obi/issues/1831
-- https://clinicaltrials.gov/about-site/about-ctg
-- https://clinicaltrials.gov/study-basics/learn-about-studies
-- https://clinicaltrials.gov/study-basics/glossary
+- [https://github.com/obi-ontology/obi/issues/1831]
+- [https://clinicaltrials.gov/about-site/about-ctg]
+- [https://clinicaltrials.gov/study-basics/learn-about-studies]
+- [https://clinicaltrials.gov/study-basics/glossary]
