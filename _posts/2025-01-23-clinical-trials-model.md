@@ -229,14 +229,16 @@ ideas can be reused later like:
 
 ## What's this all useful for, anyway?
 
-### Integrating Chemical Hierarchies
+TODO:
 
-#### Chemical Phase Assessment
+1. summarize knowledge graph integration, path queries, data integration
+
+### Chemical Phase Assessment
 
 ```mermaid
    graph LR
-     drug -- intervention in --> trial[Clinical Study] -- has maximum phase --> phase
-     drug -. has maximum phase .-> phase
+     drug -- intervention in --> trial[Clinical Study] -- has phase --> phase
+     drug -. has maximum phase (aggregated) .-> phase
 ```
 
 You can find out what's the maximum phase each intervention has appeared in.
@@ -254,22 +256,22 @@ Think of the priviliged substructures:
 
 However, a clinical trial database isn't enough to help us understand this.
 
-#### Global Chemical Space Assessment
+### Global Chemical Space Assessment
 
 ```mermaid
    graph LR
-     scaffold -- substructure of --> drug -- intervention in --> trial[Clinical Study] -- has maximum phase --> phase
-     scaffold -. has maximum phase .-> phase
+     scaffold -- substructure of --> drug -- intervention in --> trial[Clinical Study] -- has phase --> phase
+     scaffold -. has maximum phase (aggregated) .-> phase
 ```
 
 Checking what chemical space has been used. Substructure relations can be
 imported from ChEBI
 
-#### Disease-specific Chemical Space Assessment
+### Disease-specific Chemical Space Assessment
 
 ```mermaid
    graph LR
-     scaffold -- substructure of --> drug -- intervention in --> trial[Clinical Study] -- has maximum phase --> phase
+     scaffold -- substructure of --> drug -- intervention in --> trial[Clinical Study] -- has phase --> phase
      trial -- studies --> disease
      scaffold -. has maximum phase (aggregated) .-> phase
 ```
@@ -278,7 +280,7 @@ The graph diagram isn't great to show aggregation/filtering operations paired
 with graph queries, but you can also aggregate by the disease, so you can get
 information like "how far has each scaffold got in each/my disease area?"
 
-##
+### Disease Class
 
 This gets even more wild if you do a second aggregation over disease class,
 letting you aggregate to answer questions lie "how far has each scaffold got in
@@ -294,14 +296,22 @@ for all rare diseases, cancers, neurodegenerative dieases, etc.
      scaffold -. has maximum phase .-> phase
 ```
 
-## Vaccine Summaries
+### Vaccine Summaries
+
+```mermaid
+   graph LR
+     vaccineplatform[vaccine platform] -- platform for --> vaccine -- intervention in --> trial[Clinical Study] -- studies --> disease -- subclass of --> diseaseclass[disease class]
+     trial -- has phase --> phase
+     vaccineplatform -. has maximum phase .-> phase
+```
 
 1. in RAPTER, it was used to get a quick overview of which vaccine platforms had
    progressed to what degree in clinical trials
-2. business intelligence purposes - what scaffolds have been tested in which
-   area, and what failed
 
-## Target Identification
+Specifically, this can help summarize vaccine platforms like RNA vaccines, DNA vaccines, viral vector vaccines, etc.
+and their ability to treat subclasses of coronavirus diseases, ebola, and malaria.
+
+### Target Identification
 
 ```mermaid
 graph LR
@@ -328,7 +338,7 @@ INDRA)
 Knockdown, knockout, or overexpression studies are typicall run to confirm
 target hypotheses.
 
-## Mechanism of Action Deconvolution
+### Mechanism of Action Deconvolution
 
 ```mermaid
 graph LR
