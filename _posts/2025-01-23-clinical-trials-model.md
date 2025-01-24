@@ -518,7 +518,7 @@ Note that the aggregation over maximum phase is just an example - being able to
 query over a combination of one resource (here, ClinicalTrials.gov) and the
 hierarchy of another (here, ChEBI) is a more general and powerful concept.
 
-### Maximum Phase for a Substructure Aggregated by Disease
+### Maximum Phase for Pairs of Substructures and Diseases
 
 ```mermaid
    graph LR
@@ -534,7 +534,7 @@ the maximum phase that arsenic-containing drugs have been used in for each
 disease?_, or, more specifically, _what's the maximum phase that
 arsenic-containing drugs have been used in for malaria?_
 
-### Disease Class
+### Maximum Phase for Pairs of Substructures and Disease Classes
 
 ```mermaid
    graph LR
@@ -560,7 +560,7 @@ that I want to aggregate on, either by labeling the node in a property graph, or
 using yet another relationship to a node representing a grouping of my desired
 query terms.
 
-### Vaccine Summaries
+### Maximum Phase for Pairs of Vaccine Platforms and Disease Classes
 
 ```mermaid
    graph LR
@@ -569,14 +569,24 @@ query terms.
      vaccineplatform -. has maximum phase .-> phase
 ```
 
-1. in RAPTER, it was used to get a quick overview of which vaccine platforms had
-   progressed to what degree in clinical trials
+The original use case for a query like the one before was for the RAPTER
+project, where we were asked to summarize for each vaccine platform (e.g., RNA
+vaccines, DNA vaccines, viral vector vaccines) what was the maximum clinical
+trial phase for trials over COVID-19 and a few other classes of parasitic and
+bacterial infections. The diagram above has the same shape and flavor as the
+previous one with substructures, chemicals, and diseases except the type of
+relation and direction between a vaccine and a vaccine platform is different.
+Despite this, the query is effectively shaped the same.
 
-Specifically, this can help summarize vaccine platforms like RNA vaccines, DNA
-vaccines, viral vector vaccines, etc. and their ability to treat subclasses of
-coronavirus diseases, ebola, and malaria.
+### Phenotypic Drug Discovery Scenarios
 
-### Target Identification
+When there exists a good cellular model of disease or good model organisms, it's
+possible to eschew the typical target focus of a drug discovery campaign.
+However, during or after a phenotypic drug discovery, it's useful to uncover a
+deeper mechanistic context through a combination of target identification and
+mechanism of action deconvolution.
+
+#### Target Identification
 
 ```mermaid
 graph LR
@@ -584,24 +594,28 @@ graph LR
   disease -. has putative target .-> protein
 ```
 
-Target identification typically covers identifying important proteins in a given
-disease context whose modulation can result in a therapeutic effect.
+Target identification is typically the process of identifying a protein whose
+modulation in a given disease context can result in a therapeutic effect.
 
-When combining clinical trial information with chemical activity databases like
-ChEMBL, it's possible to generate hypotheses of important proteins in a disease
-area.
+If we have a successful clinical trial performed following a phenotypic drug
+discovery campaign, it might not be known what targets it modulates. Therefore,
+we can combine the clinical trial data with a chemical activity database like
+ChEMBL, so we can get all the targets for the chemical, then hypothesize that
+one or more of them are responsible for the drug's therapeutic effect.
 
-Databases like OpenTargets have several orthogonal resources for triaging target
-candidates.
+This is even more powerful when combining other databases like OpenTargets,
+which aggregates a wide variety of orthogonal evidence and provide workflows and
+resources for further triage and DisGeNet, which aggregates text mining
+co-occurrence evidence as a proxy for association, which can be useful when done
+at scale with the appropriate statistical adjustments.
 
-Knowledge driven approaches like DisGeNet use text mining approaches as a
-stand-in. When applied tt scale, automated approaches are also useful (re,
-INDRA)
+Finally, target identification hypotheses are testable, especially following a
+phenotypic drug discovery campaign with a good cellular model or model organism.
+Tool compounds that are specific modulators for the target or genomic
+experiments like knockdowns, knockouts, or over-expression can provide more
+confident confirmation of the target's viability.
 
-Knockdown, knockout, or overexpression studies are typicall run to confirm
-target hypotheses.
-
-### Mechanism of Action Deconvolution
+#### Mechanism of Action Deconvolution
 
 ```mermaid
 graph LR
@@ -609,26 +623,21 @@ graph LR
   drug -. has putative mechanism of action .-> protein
 ```
 
-The dual problem to target identification is mechanism of action deconvolution.
-This is a scenario where you know a drug works against a disease, but not why.
-It turns out that having a mechanistic hypothesis is not required for FDA
-approval!
+The dual problem to target identification is mechanism of action (MoA)
+deconvolution. After a successful clinical trial following a phenotypic drug
+discovery campaign, but not know the target that your drug modulates. You can
+get the target information by integrating parts of a database like OpenTargets
+or DisGeNet, then you will be able to use the path query to propose putative
+targets.
 
-Clinical trial inforamtion, combine with existing disease-target databases like
-DisGeNet can give a simple path-based method for hypothesis generation.
+MoA hypotheses are often easier to test than target identification hypotheses
+because they can be done in biochemical assays. However, there are lots of
+tricky targets (including ones that aren't proteins) where this isn't so
+straightforward.
 
-More sophistocated methods that take into account chemical similarity and
-protein similarity also exist.
-
-MoA hypotheses can be much more easily tested in biochemical assays.
-
-Why do we need this? Phenotypic drug discovery hype comes in cycles, and this is
-a nice way to bridge the gap to target-based drug discovery. It's particularly
-effective when there exist good cellular or animal models for the disease.
-
-## Further Reading
-
-- [https://github.com/obi-ontology/obi/issues/1831]
-- [https://clinicaltrials.gov/about-site/about-ctg]
-- [https://clinicaltrials.gov/study-basics/learn-about-studies]
-- [https://clinicaltrials.gov/study-basics/glossary]
+For both target identification and MoA, you might start imagining ways to take
+into account chemical similarity, protein similarity, and other hierarchical
+structures for more sophisticated queries. Thinking about this is why I've loved
+transitioning from a medicinal chemist in my early career to a
+chem/bioinformatician in my mid-career. I'll leave the last part as an exercise
+to the reader, or for someone who wants to pay for consultation ;)
