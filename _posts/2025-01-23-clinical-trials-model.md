@@ -358,21 +358,89 @@ and the exported artifacts are listed here:
 | OBO Graph JSON | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.json.gz |
 | Nodes          | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.tsv     |
 
+Here's what some OBO instances for clinical studies look like for each clinical
+study type:
+
+```
+[Instance]
+id: clinicaltrials:NCT00000102
+name: Congenital Adrenal Hyperplasia\: Calcium Channels as Therapeutic Targets
+property_value: clinicaltrials:has_intervention mesh:D009543 ! has intervention Nifedipine
+property_value: clinicaltrials:investigates_condition mesh:D000308 ! investigates condition Adrenocortical Hyperfunction
+property_value: clinicaltrials:investigates_condition mesh:D000312 ! investigates condition Adrenal Hyperplasia, Congenital
+property_value: clinicaltrials:investigates_condition mesh:D006965 ! investigates condition Hyperplasia
+property_value: clinicaltrials:investigates_condition mesh:D047808 ! investigates condition Adrenogenital Syndrome
+instance_of: interventional-clinical-trial
+
+[Instance]
+id: clinicaltrials:NCT00000104
+name: Does Lead Burden Alter Neuropsychological Development?
+property_value: clinicaltrials:investigates_condition mesh:D007855 ! investigates condition Lead Poisoning
+property_value: clinicaltrials:investigates_condition mesh:D011041 ! investigates condition Poisoning
+instance_of: observational-clinical-trial
+
+[Instance]
+id: clinicaltrials:NCT00000106
+name: 41.8 Degree Centigrade Whole Body Hyperthermia for the Treatment of Rheumatoid Diseases
+property_value: clinicaltrials:investigates_condition mesh:D003095 ! investigates condition Collagen Diseases
+property_value: clinicaltrials:investigates_condition mesh:D012216 ! investigates condition Rheumatic Diseases
+instance_of: randomized-interventional-clinical-trial
+
+[Instance]
+id: clinicaltrials:NCT00000250
+name: Cold Water Immersion Modulates Reinforcing Effects of Nitrous Oxide - 2
+property_value: clinicaltrials:has_intervention mesh:D009609 ! has intervention Nitrous Oxide
+property_value: clinicaltrials:investigates_condition mesh:D009293 ! investigates condition Opioid-Related Disorders
+property_value: clinicaltrials:investigates_condition mesh:D019966 ! investigates condition Substance-Related Disorders
+instance_of: non-randomized-interventional-clinical-trial
+
+[Instance]
+id: clinicaltrials:NCT00040625
+name: ALIMTA \(Pemetrexed\) Alone or in Combination With Cisplatin for Patients With Malignant Mesothelioma.
+property_value: clinicaltrials:has_intervention mesh:D000068437 ! has intervention Pemetrexed
+property_value: clinicaltrials:investigates_condition mesh:D000086002 ! investigates condition Mesothelioma, Malignant
+property_value: clinicaltrials:investigates_condition mesh:D008654 ! investigates condition Mesothelioma
+instance_of: expanded-access-study
+```
+
 ## Reflections, and, what's missing?
 
-I worked on this in the scope of the DTRA RAPTER project but the code was tied
-up with a lot of internal infrastructure and wasn't made public, so some of the
-ideas can be reused later like:
+I first became familiar with ClinicalTrials.gov and other clinical study
+registries while working on the
+[RAPTER project](https://globalbiodefense.com/2023/05/10/rapter-expediting-medical-countermeasure-response/),
+funded by the America Defense Threat Reduction Agency (DTRA) with the goal to
+integrate vaccine information and build computational tools to quicken the
+development of vaccines in response to future pandemics.
 
-1. using simple NER to correct the grounding of MeSH terms
-2. Mapping out of mesh to vocabularies that are better linked, such as ChEBI
-   (note that the examples I gave had already done this), DrugBank, ChEMBL, etc.
-   and DOID/MONDO for diseases
-3. Reasons for clinical trials failing and side effects measured, such as
-   reported in the VAERS database
-4. What are the primary, secondary, and other outcomes measured? Can these also
-   be grounded to ontology terms or a more generic data model?
-5. Grounding all sponsors to ROR identifiers!
+One of the key issues to overcome was the accuracy of the data within these
+resources. For example, ClinicalTrials.gov contains both a free-text and
+processed field for its conditions and interventions. In many cases,
+re-processing was required to ensure complete and accurate information. In my
+draft export of ClincalTrials.gov, I exclusively used the processed data fields,
+but a more careful conversion would require additional data science techniques.
+
+Similarly, for data from the World Health Organization and other clinical trial
+registries, full NER and relation extraction is required to identify
+interventions, conditions, and outcomes.
+
+Even when processed data is available, it's using MeSH identifiers, which are
+not readily integrable with other resources. That's why ontologies often curate
+MeSH cross-references themselves. I created the
+[Biomappings](https://github.com/biopragmatics/biomappings) project as a way to
+quickly predict and curate MeSH mappings to other chemical and disease
+vocabularies, such as
+[Chemical Entities of Biological Interest (ChEBI)](https://bioregistry.io/chebi)
+and the [Disease Ontology (DOID)](https://bioregistry.io/doid). I also built
+[SeMRA](https://github.com/biopragmatics/semra), a workflow for assembling and
+inferring mappings to best reuse existing mappings available from a wide variety
+of sources. These two approaches are crucial for making clinical study and trial
+information actionable in a data integration scenario.
+
+There's a lot of work to do in this space, but this is a nice first step. For
+me, exporting lots of resources in a standard ontology format makes it easy to
+load up a complete set of nodes when building knowledge graphs. As a coda, I
+will say a little bit about what I like to do with this kind of data once I have
+got it structured and integrated with other sources.
 
 ## What's this all useful for, anyway?
 
