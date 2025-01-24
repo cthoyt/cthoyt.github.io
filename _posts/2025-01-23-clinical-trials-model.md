@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Data Integration with Clinical Trials and Clinical Studies
+title: Data Modeling and Integration with Clinical Trials
 date: 2025-01-23 19:23:00 +0100
 author: Charles Tapley Hoyt
 tags:
@@ -21,13 +21,13 @@ of ClinicalTrials.gov, and some insights into how this data can be integrated
 with other resources to address classical problems in drug discovery from a
 knowledge graph perspective.
 
-## Table of Contents
+This is a long read, so here's a table of contents:
 
 1. [Automated download of ClinicalTrails.gov with `clinicaltrials-downloader`](#automated-download)
 2. [Summarizing ClincialTrials.gov study types, allocations, and phases](#summarization)
 3. [Example clinical studies](#example-clinical-studies)
 4. [Proposing an ontology meta-model](#proposing-an-ontology-meta-model)
-5. [Proof-of-concept ontology export of ClinicalTrials.gov](#proof-of-concept-ontology-export-of-clinicaltrialsgov)
+5. [Proof-of-concept ontology export of ClinicalTrials.gov using `pyobo`](#proof-of-concept-ontology-export-of-clinicaltrialsgov)
 6. [Reflections and what's missing](#reflections-and-whats-missing)
 7. [What's this all useful for, anyway?](#whats-this-all-useful-for-anyway)
 
@@ -104,21 +104,22 @@ values and `NA` entries, and sorts by most common.
 
 ### Phases
 
+The [phase](https://clinicaltrials.gov/study-basics/glossary#phase) primarily
+communicates the objective of a clinical trial (i.e., interventional study).
+Observational trials and expanded access studies therefore do not have phases.
+
 ![](https://www.hepb.org/assets/Uploads/_resampled/ResizedImageWzk2OSwzNzBd-Clinical-Trial-Process-FlowChart.png)
 
 Image above from the
 [Hepatitis B Foundation](https://www.hepb.org/research-and-programs/hepdeltaconnect/clinical-trials/).
 
-The [phase](https://clinicaltrials.gov/study-basics/glossary#phase) primarily
-communicates the objective of a clinical trial (i.e., interventional study).
-Observational trials and expanded access studies therefore do not have phases.
 There are six common phases appearing on ClinicalTrials.gov:
 
 - [Early Phase 1](https://clinicaltrials.gov/study-basics/glossary#early-phase-1-formerly-listed-as-phase-0)
   (formerly, Phase 0) - Assess oral bioavailability, pharmacokinetics (very
-  small group). This is not the same thing as pre-clinical trials, which are
-  often done with biochemical assays, cellular assays, and work with model
-  organisms.
+  small group; almost always left out of diagrams like the one above). This is
+  not the same thing as pre-clinical trials, which are often done with
+  biochemical assays, cellular assays, and work with model organisms.
 - [Phase 1](https://clinicaltrials.gov/study-basics/glossary#phase-1) - Assess
   safety in healthy volunteers (small group)
 - [Phase 2](https://clinicaltrials.gov/study-basics/glossary#phase-2) - Assess
@@ -350,13 +351,13 @@ A summary page can be found in the `obo-db-ingest` repository
 [here](https://github.com/biopragmatics/obo-db-ingest/tree/main/export/clinicaltrials)
 and the exported artifacts are listed here:
 
-| Artifact       | Download PURL                                                                  |
-| -------------- | ------------------------------------------------------------------------------ |
-| OBO            | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.obo.gz  |
-| OFN            | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.ofn.gz  |
-| OWL            | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.owl.gz  |
-| OBO Graph JSON | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.json.gz |
-| Nodes          | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.tsv     |
+| Artifact       | Download PURL                                                                                                                                                    |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OBO            | [https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.obo.gz](https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.obo.gz)   |
+| OFN            | [https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.ofn.gz](https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.ofn.gz)   |
+| OWL            | [https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.owl.gz](https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.owl.gz)   |
+| OBO Graph JSON | [https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.json.gz](https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.json.gz) |
+| Nodes          | [https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.tsv](https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.tsv)         |
 
 Here's what some OBO instances for clinical studies look like for each clinical
 study type:
@@ -421,7 +422,7 @@ but a more careful conversion would require additional data science techniques.
 
 Similarly, for data from the World Health Organization and other clinical trial
 registries, full NER and relation extraction is required to identify
-interventions, conditions, and outcomes.
+interventions, conditions, outcomes, and other fields.
 
 Even when processed data is available, it's using MeSH identifiers, which are
 not readily integrable with other resources. That's why ontologies often curate
@@ -436,6 +437,16 @@ inferring mappings to best reuse existing mappings available from a wide variety
 of sources. These two approaches are crucial for making clinical study and trial
 information actionable in a data integration scenario.
 
+I didn't even mention the PICO (patient/population, intervention, comparison and
+outcomes) data model - this is a whole other can of worms for a different
+discussion. I will try to come back to that if I get the chance to write up some
+of my work with Jeremy Zucker's team at PNNL on the
+[y0 Causal Reasoning Engine](https://github.com/y0-causal-inference/y0) and
+Judea Pearl-style causal inference applications in clinical study statistical
+analysis.
+
+---
+
 There's a lot of work to do in this space, but this is a nice first step. For
 me, exporting lots of resources in a standard ontology format makes it easy to
 load up a complete set of nodes when building knowledge graphs. As a coda, I
@@ -444,79 +455,117 @@ got it structured and integrated with other sources.
 
 ## What's this all useful for, anyway?
 
-TODO:
+My work in the past decade has focused on constructing and applying knowledge
+graphs to tasks in drug discovery. While a large part of this has incorporated
+machine learning, artificial intelligence, and causal inference, many problems
+can be formulated as queries over a graph-like data structure.
 
-1. summarize knowledge graph integration, path queries, data integration
+In this last section, I'm going to give a few examples of graph queries that can
+enable experts to explore and generate interesting, explainable, testable
+hypotheses. In practice, I have been using Neo4j and RDF as graph models with
+their respective Cypher and SPARQL query languages, but the case studies here
+will stay at a high level.
 
-### Chemical Phase Assessment
+### Maximum Phase for a Drug
 
 ```mermaid
    graph LR
-     drug -- intervention in --> trial[Clinical Study] -- has phase --> phase
+     drug[Drug] -- intervention in --> trial[Clinical Trial] -- has phase --> phase[Phase]
      drug -. has maximum phase (aggregated) .-> phase
 ```
 
-You can find out what's the maximum phase each intervention has appeared in.
-This is interesting because it's often the case that multiple trials use the
-same interventions. This is especially true in drug repositioning, where a drug
-might be useful for a similar disease. More generally, drugs of the same
-chemical class might also be useful for the same disease
+Because the same intervention may appear in multiple clinical trials, it's
+useful to know the maximum phase reached over all trials. If the maximum phase
+is four, then it can be concluded that the drug was approved for use. If the
+maximum phase is three (and they are all completed), then it can be concluded
+that the drug ultimately failed to be effective. Such drugs are can be good
+candidates for repositioning since the expensive safety studies have already
+been run.
 
-Think of the priviliged substructures:
-
-- the beta hydroxy lactone appearing in statins that enables their HMG-CoA
-  reductase inhibitor activity
-- sulfonamides for antibacterial properties due to their competitive inhibition
-  of dihydropteroate synthase
-
-However, a clinical trial database isn't enough to help us understand this.
-
-### Global Chemical Space Assessment
+### Maximum Phase for a Scaffold or Substructure
 
 ```mermaid
    graph LR
-     scaffold -- substructure of --> drug -- intervention in --> trial[Clinical Study] -- has phase --> phase
-     scaffold -. has maximum phase (aggregated) .-> phase
+     substructure[Substructure] -- substructure of --> drug[Drug] -- intervention in --> trial[Clinical Trial] -- has phase --> phase
+     substructure -. has maximum phase (aggregated) .-> phase
 ```
 
-Checking what chemical space has been used. Substructure relations can be
-imported from ChEBI
+For small molecule drugs, the principle of structure-activity relationship (SAR)
+states that there is often a high correlation between the chemical structure and
+its functional activity. Many similar drugs work because they share a privileged
+substructure. For example, the beta-hydroxy lactone appearing in statins enable
+their HMC-CoA reducatase inhibitor activity, which confers their ability to
+reduce LDL and risk of cardiovascular disease. Similarly, sulfonamides were a
+classic substructure used in first-generation antibacterials due to their
+competitive inhibition of dihydropteroate synthase, a key part of folate
+biosynthesis in most non-human, non-eukaryote organisms.
 
-### Disease-specific Chemical Space Assessment
+Ontologies like ChEBI contain relationships between these substructures (and
+scaffolds) and chemicals. By combining ChEBI and ClinicalTrials.gov in a single
+graph, the previous query that aggregated maximum phase over a specific chemical
+can be generalized to substructures. Further, the "substructure of" relationship
+is transitive, meaning that multiple substructure relations can be chained
+together to ask the same question at many levels of granularity.
+
+Ultimately, you can get results like _beta-hydroxy lactone have appeared in
+clinical trials of a maximum phase of 4_ and ask even more granular questions,
+like what is the maximum clinical phase for drugs with an arsenic atom as part
+of their structure (surprisingly, the answer is more than 0!). On the flip side,
+this can either identify opportunities for structures that haven't been in
+clinical trials, or beg the question of why they haven't so far.
+
+Note that the aggregation over maximum phase is just an example - being able to
+query over a combination of one resource (here, ClinicalTrials.gov) and the
+hierarchy of another (here, ChEBI) is a more general and powerful concept.
+
+### Maximum Phase for a Substructure Aggregated by Disease
 
 ```mermaid
    graph LR
-     scaffold -- substructure of --> drug -- intervention in --> trial[Clinical Study] -- has phase --> phase
-     trial -- studies --> disease
-     scaffold -. has maximum phase (aggregated) .-> phase
+     substructure[Substructure] -- substructure of --> drug[Drug] -- intervention in --> trial[Clinical Trial] -- studies --> disease[Disease]
+     trial -- has phase --> phase[Phase]
+     substructure -. has maximum phase (aggregated) .-> phase
 ```
 
-The graph diagram isn't great to show aggregation/filtering operations paired
-with graph queries, but you can also aggregate by the disease, so you can get
-information like "how far has each scaffold got in each/my disease area?"
+The previous query becomes even more powerful when extending the path from the
+clinical trial to a disease. Then, the aggregation operation can be done over
+the pair of the substructure and the disease to answer questions like _what's
+the maximum phase that arsenic-containing drugs have been used in for each
+disease?_, or, more specifically, _what's the maximum phase that
+arsenic-containing drugs have been used in for malaria?_
 
 ### Disease Class
 
-This gets even more wild if you do a second aggregation over disease class,
-letting you aggregate to answer questions lie "how far has each scaffold got in
-each high-level disease class?". Of course, the secret is in having a subclass
-structure that reflects something meaningful, and having a good way of deciding
-where to prune that hierarchy. Maybe, the question is something like aggregating
-for all rare diseases, cancers, neurodegenerative dieases, etc.
-
 ```mermaid
    graph LR
-     scaffold -- substructure of --> drug -- intervention in --> trial[Clinical Study] -- studies --> disease -- subclass of --> diseaseclass[disease class]
-     trial -- has maximum phase --> phase
-     scaffold -. has maximum phase .-> phase
+     substructure[Substructure] -- substructure of --> drug[Drug] -- intervention in --> trial[Clinical Trial] -- studies --> disease[Disease] -- subclass of --> diseaseclass[Disease Class]
+     trial -- has maximum phase --> phase[Phase]
+     substructure -. has maximum phase .-> phase
 ```
+
+The second case study extended the way we look at drugs by adding the
+hieararchical substructure relationships from ChEBI. If we want to aggregate
+diseases at a different granularity, we can do so by incorporating the subclass
+relationships from a resource like the Disease Ontology. Then, we can ask the
+previous question at a chosen level of granularity, like _what's the maximum
+phase that arsenic-containing drugs have been used in for each parasitic
+infectious disease?_
+
+It's a bit tricky to ask the open-ended question _what's the maximum phase that
+arsenic-containing drugs have been used in for each disease class?_ because it
+depends on the construction of the disease hierarchy. Other common aggregations
+here are for rare diseases, cancers, neurodegenerative diseases, etc. In
+practice, I usualy have an additional way of tagging the terms in the hierarchy
+that I want to aggregate on, either by labeling the node in a property graph, or
+using yet another relationship to a node representing a grouping of my desired
+query terms.
 
 ### Vaccine Summaries
 
 ```mermaid
    graph LR
-     vaccineplatform[vaccine platform] -- platform for --> vaccine -- intervention in --> trial[Clinical Study] -- studies --> disease -- subclass of --> diseaseclass[disease class]
-     trial -- has phase --> phase
+     vaccineplatform[Vaccine Platform] -- platform for --> vaccine[Vaccine] -- intervention in --> trial[Clinical Trial] -- studies --> disease[Disease] -- subclass of --> diseaseclass[Disease Class]
+     trial -- has phase --> phase[Phase]
      vaccineplatform -. has maximum phase .-> phase
 ```
 
@@ -531,9 +580,7 @@ coronavirus diseases, ebola, and malaria.
 
 ```mermaid
 graph LR
-  disease -- studied in --> trial[Clinical Study]
-  trial -- uses intervention --> drug
-  drug -- regulates --> protein
+  disease[Disease] -- studied in --> trial[Clinical Trial] -- uses intervention --> drug[Drug] -- regulates --> protein[Protein]
   disease -. has putative target .-> protein
 ```
 
@@ -558,9 +605,7 @@ target hypotheses.
 
 ```mermaid
 graph LR
-  drug -- intervention in --> trial[Clinical Study]
-  trial -- studies --> disease
-  disease -- has target --> protein
+  drug[Drug] -- intervention in --> trial[Clinical Trial] -- studies --> disease[Disease] -- has target --> protein[Protein]
   drug -. has putative mechanism of action .-> protein
 ```
 
