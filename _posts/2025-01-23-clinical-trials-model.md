@@ -10,13 +10,16 @@ tags:
   - OBI
 ---
 
-I've recently worked with clinical studies from [ClinicalTrials.gov](https://clinicaltrials.gov)
-and [other international registries](https://bioregistry.io/collection/0000012). This post is a review on
-how to access data, a proposal for how it can be modeled using
-the [Ontology for Biomedical Investigations (OBI)](https://obi-ontology.org/),
-a [proof-of-concept ontologization](https://w3id.org/biopragmatics/resources/clinicaltrials) of
-ClinicalTrials.gov, and some insights into how this data can be integrated with other resources to address classical
-problems in drug discovery from a knowledge graph perspective.
+I've recently worked with clinical studies from
+[ClinicalTrials.gov](https://clinicaltrials.gov) and
+[other international registries](https://bioregistry.io/collection/0000012).
+This post is a review on how to access data, a proposal for how it can be
+modeled using the
+[Ontology for Biomedical Investigations (OBI)](https://obi-ontology.org/), a
+[proof-of-concept ontologization](https://w3id.org/biopragmatics/resources/clinicaltrials)
+of ClinicalTrials.gov, and some insights into how this data can be integrated
+with other resources to address classical problems in drug discovery from a
+knowledge graph perspective.
 
 ## Table of Contents
 
@@ -58,35 +61,40 @@ studies_slim = get_studies_slim()
 
 ## Summarization
 
-I generated a few summary tables over the slim subset of ClinicalTrials.gov. Keep in mind that the
-data is updated daily, so these statistics reflect the state of the database in mid-January 2025.
-Of course, they can be updated anytime by passing `force=True` to the downloader function to update
-the local cache of the database.
+I generated a few summary tables over the slim subset of ClinicalTrials.gov.
+Keep in mind that the data is updated daily, so these statistics reflect the
+state of the database in mid-January 2025. Of course, they can be updated
+anytime by passing `force=True` to the downloader function to update the local
+cache of the database.
 
 ### Study Type and Allocation
 
 ClinicalTrials.gov contains three main study types:
 
 1. [interventional study](https://clinicaltrials.gov/study-basics/glossary#interventional-study-clinical-trial)
-   (i.e., clinical trial) - a study in which participants are assigned zero or more diagnostic, therapeutic, or other
-   types of interventions depending on the arm into which they are allocated
-2. [observational study](https://clinicaltrials.gov/study-basics/glossary#observational-study) - a study in
-   which participants are assessed for biomedical or health outcomes. They may receive interventions, but they are not
-   assigned like in interventional studies
-3. [expanded access](https://clinicaltrials.gov/study-basics/glossary#expanded-access) (i.e., compassionate use) - a
-   mechanism through which patients who are not participants in a clinical trial to receive access to
+   (i.e., clinical trial) - a study in which participants are assigned zero or
+   more diagnostic, therapeutic, or other types of interventions depending on
+   the arm into which they are allocated
+2. [observational study](https://clinicaltrials.gov/study-basics/glossary#observational-study) -
+   a study in which participants are assessed for biomedical or health outcomes.
+   They may receive interventions, but they are not assigned like in
+   interventional studies
+3. [expanded access](https://clinicaltrials.gov/study-basics/glossary#expanded-access)
+   (i.e., compassionate use) - a mechanism through which patients who are not
+   participants in a clinical trial to receive access to
    non-approved/experimental medicine.
 
-Interventional studies can be divided into two categories based on
-their [allocation](https://clinicaltrials.gov/study-basics/glossary#allocation) - the used to assign participants to an
-arm of a clinical study. They are [randomized](https://clinicaltrials.gov/study-basics/glossary#randomized-allocation)
+Interventional studies can be divided into two categories based on their
+[allocation](https://clinicaltrials.gov/study-basics/glossary#allocation) - the
+used to assign participants to an arm of a clinical study. They are
+[randomized](https://clinicaltrials.gov/study-basics/glossary#randomized-allocation)
 and non-randomized.
 
-The table below adjusts the internal labels for legibility, aggregates missing values and `NA` entries, and sorts
-by most common.
+The table below adjusts the internal labels for legibility, aggregates missing
+values and `NA` entries, and sorts by most common.
 
 | Study Type      | Allocation     |   Count |
-|-----------------|----------------|--------:|
+| --------------- | -------------- | ------: |
 | Interventional  | Randomized     | 261,643 |
 | Observational   |                | 120,775 |
 | Interventional  |                |  95,249 |
@@ -98,29 +106,37 @@ by most common.
 
 ![](https://www.hepb.org/assets/Uploads/_resampled/ResizedImageWzk2OSwzNzBd-Clinical-Trial-Process-FlowChart.png)
 
-Image above from
-the [Hepatitis B Foundation](https://www.hepb.org/research-and-programs/hepdeltaconnect/clinical-trials/).
+Image above from the
+[Hepatitis B Foundation](https://www.hepb.org/research-and-programs/hepdeltaconnect/clinical-trials/).
 
-The [phase](https://clinicaltrials.gov/study-basics/glossary#phase) primarily communicates the objective of a
-clinical trial (i.e., interventional study). Observational trials and expanded access studies therefore do not have
-phases. There are six common phases appearing on ClinicalTrials.gov:
+The [phase](https://clinicaltrials.gov/study-basics/glossary#phase) primarily
+communicates the objective of a clinical trial (i.e., interventional study).
+Observational trials and expanded access studies therefore do not have phases.
+There are six common phases appearing on ClinicalTrials.gov:
 
-- [Early Phase 1](https://clinicaltrials.gov/study-basics/glossary#early-phase-1-formerly-listed-as-phase-0) (formerly,
-  Phase 0) - Assess oral bioavailability, pharmacokinetics (very small group)
-- [Phase 1](https://clinicaltrials.gov/study-basics/glossary#phase-1) - Assess safety in healthy volunteers (small
-  group)
-- [Phase 2](https://clinicaltrials.gov/study-basics/glossary#phase-2) - Assess efficacy and side effects (medium group)
-- [Phase 3](https://clinicaltrials.gov/study-basics/glossary#phase-3) - Assess efficacy, effectiveness, and safety (
-  large group)
-- [Phase 4](https://clinicaltrials.gov/study-basics/glossary#phase-4) - Post-approval surveillance
-- [Phase Not Applicable (N/A)](https://clinicaltrials.gov/study-basics/glossary#phase-not-applicable) - Applied to
-  trials without phases, such as trials with devices or behavioral interventions
+- [Early Phase 1](https://clinicaltrials.gov/study-basics/glossary#early-phase-1-formerly-listed-as-phase-0)
+  (formerly, Phase 0) - Assess oral bioavailability, pharmacokinetics (very
+  small group). This is not the same thing as pre-clinical trials, which are
+  often done with biochemical assays, cellular assays, and work with model
+  organisms.
+- [Phase 1](https://clinicaltrials.gov/study-basics/glossary#phase-1) - Assess
+  safety in healthy volunteers (small group)
+- [Phase 2](https://clinicaltrials.gov/study-basics/glossary#phase-2) - Assess
+  efficacy and side effects (medium group)
+- [Phase 3](https://clinicaltrials.gov/study-basics/glossary#phase-3) - Assess
+  efficacy, effectiveness, and safety ( large group)
+- [Phase 4](https://clinicaltrials.gov/study-basics/glossary#phase-4) -
+  Post-approval surveillance
+- [Phase Not Applicable (N/A)](https://clinicaltrials.gov/study-basics/glossary#phase-not-applicable) -
+  Applied to trials without phases, such as trials with devices or behavioral
+  interventions
 
-The table below adjusts the internal clinical trial phases' labels for legibility, aggregates missing values and `NA`
-entries, and sorts by progression.
+The table below adjusts the internal clinical trial phases' labels for
+legibility, aggregates missing values and `NA` entries, and sorts by
+progression.
 
 | Phase          |   Count |
-|----------------|--------:|
+| -------------- | ------: |
 | 0              |   5,434 |
 | 1              |  44,195 |
 | 1, 2           |  15,219 |
@@ -130,21 +146,25 @@ entries, and sorts by progression.
 | 4              |  33,129 |
 | N/A or missing | 318,763 |
 
-Some trials are annotated with multiple phases, either 1/2 or 2/3. These could also be combined in a different
-way for "maximum clinical phase" aggregation operations.
+Some trials are annotated with multiple phases, either 1/2 or 2/3. These could
+also be combined in a different way for "maximum clinical phase" aggregation
+operations.
 
-Unsurprisingly, there is an attrition through the progression of phases, but it is not as stark as I would have
-expected. It might also be interesting to stratify this by year to see if trials are more likely to succeed as time goes
+Unsurprisingly, there is an attrition through the progression of phases, but it
+is not as stark as I would have expected. It might also be interesting to
+stratify this by year to see if trials are more likely to succeed as time goes
 on.
 
 ## Example Clinical Studies
 
-I generated a table containing example clinical trials for each study type, allocation, and phase.
-While there are many studies with more than one intervention and/or condition, this table only shows
-trials with a single one of each to reduce complexity.
+Having examples and doing spot-checks is always helpful when exploring new data,
+so I generated a table containing example clinical trials for each study type,
+allocation, and phase. While there are many studies with more than one
+intervention and/or condition, this table only shows trials with a single one of
+each to reduce complexity.
 
 | Study/Phase(s)             | NCT ID                                                           | Title                                                                           | Condition                                                        | Intervention                                                        | Structure                                                   |
-|----------------------------|------------------------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------|---------------------------------------------------------------------|-------------------------------------------------------------|
+| -------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------- |
 | Expanded Access            | [NCT01317953](https://bioregistry.io/clinicaltrials:NCT01317953) | Oral Green Tea Extract for Small Cell Lung Cancer                               | [Small Cell Lung Carcinoma](https://bioregistry.io/mesh:D055752) | [(-)-epigallocatechin 3-gallate](https://bioregistry.io/chebi:4806) | ![](https://bioregistry.io/chebi:4806?provider=chebi-img)   |
 | Observational              | [NCT03418987](https://bioregistry.io/clinicaltrials:NCT03418987) | The Vertebral Vector in a Horizontal Plane. A Simple Way to See in 3D.          | [Scoliosis](https://bioregistry.io/mesh:D012600)                 |                                                                     |                                                             |
 | Non-Randomized (Phase 0)   | [NCT01209533](https://bioregistry.io/clinicaltrials:NCT01209533) | Inhaled Iloprost in Mild Asthma                                                 | [Asthma](https://bioregistry.io/mesh:D001249)                    | [iloprost](https://bioregistry.io/chebi:63916)                      | ![](https://bioregistry.io/chebi:63916?provider=chebi-img)  |
@@ -164,52 +184,179 @@ trials with a single one of each to reduce complexity.
 
 ## Proposing an Ontology Meta-model
 
+Given my goal to create an ontology export of ClinicalTrials.gov, I had to start
+by making some modeling decisions. The first was that each clinical study in the
+resource is an _instance_. This meant that I had to start by finding the right
+_class_ for each, corresponding to the study types and allocations that I
+explored above.
+
+### Searching for Existing Ontology Classes
+
+The [Ontology for Biomedical Investigations (OBI)](https://obi-ontology.org) is
+a high quality ontology that contains terms for assays, devices, objectives, and
+other aspects of biomedical investigations. Therefore, I would ideally be able
+to find terms corresponding to the study types and allocations that I explored
+above already inside it.
+
+I used the
+[Ontology Lookup Service (OLS)](https://www.ebi.ac.uk/ols4/ontologies) to search
+for classes corresponding to the study types I explored above, but didn't find
+anything specific enough in OBI. However, I did note that _if_ there would be
+classes for clinical studies, then they would appear under its high-level class
+for [investigation (OBI:0000066)](https://bioregistry.io/obi:0000066)
+
+While searching in the OLS, I did find the following relevant classes, each with
+their own issues:
+
+1. The [Semantic Science Integrated Ontology (SIO)](https://bioregistry.io/sio)
+   has a term for clinical trial
+   ([SIO:001000](https://www.ebi.ac.uk/ols4/ontologies/sio/classes/http%253A%252F%252Fsemanticscience.org%252Fresource%252FSIO_001000)),
+   but SIO doesn't follow best practices from
+   [Open Biological and Biomedical Ontology (OBO) Foundry](https://obofoundry.org),
+   meaning that it is difficult to reuse and less trustworthy.
+2. The
+   [Ontology of Precision Medicine and Investigation (OPMI)](https://bioregistry.io/opmi)
+   has a term for clinical trial
+   ([OPMI:0004507](https://www.ebi.ac.uk/ols4/ontologies/opmi/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FOPMI_0004507?lang=en)).
+   I'm not comfortable reusing terms from this ontology for two main reasons:
+   1. It's use-case specific, and curated based on project-based needs, which
+      means that it's not a reliable resource.
+   2. It's not curated using modern ontology infrastructure, so I'm not sure
+      that I can trust it will be maintained.
+3. The [Informed Consent Ontology (ICO)](https://bioregistry.io/ico) also has a
+   term for clinical trial
+   ([ICO:0000065](https://www.ebi.ac.uk/ols4/ontologies/ico/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FICO_0000065?lang=en))
+   but I have the same reservations as for OPMI. There's an overlap of the same
+   authors with OPMI, so I have reservations to invest in reusing terms they
+   haven't been able to deduplicate themselves.
+4. [Eagle-I Resource Ontology (ERO)](https://obofoundry.org/ontology/ero) is an
+   OBO Foundry ontology that has a term
+   [clinical trial (ERO:0000016)](https://purl.obolibrary.org/obo/ERO_0000016)
+   which nicely subclasses OBI's investigation class, but ERO has been abandoned
+   and marked as deprecated in the OBO Foundry.
+5. The [Ontology for MicroRNA Target (OMIT)](https://bioregistry.io/omit)
+   haphazardly imported all of MeSH at some point and has a term
+   [Clinical Trial (OMIT:0016936)](https://www.ebi.ac.uk/ols4/ontologies/omit/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FOMIT_0016936).
+6. The [Clinical Trials Ontology (CTO)](https://bioregistry.io/registry/cto) is
+   an OBO Foundry ontology that nominally has the correct scope and has a term
+   [clinical trial (CTO:0000220)](https://purl.obolibrary.org/obo/CTO_0000220),
+   but there are potential issues with its design choices, and it was produced
+   by a group that has historically had difficulty maintaining its resources and
+   actively participating in the OBO community. Despite these issues making it
+   less suitable for reuse, the associated workshop proceeding
+   [CTO: a Community-Based Clinical Trial Ontology and its Applications in PubChemRDF and SCAIView](https://bioregistry.io/pmc:PMC9389640)
+   contains some interesting ideas.
+
+Honorable mentions from non-ontology resources, which are a not ideal from a
+modeling perspective to use as a parent class in an ontology:
+
+1. [BioLink model](https://bioregistry.io/biolink) has a term
+   [clinical trial (biolink:ClinicalTrial)](https://w3id.org/biolink/vocab/ClinicalTrial).
+2. SNOMED has a term
+   [Clinical trial (procedure) (SNOMED:110465008)](http://snomed.info/id/110465008),
+   but is not an ontology and is notorious for being a closed resource,
+   hampering reuse.
+3. NCIT has a term for
+   [Clinical Trial (NCIT:C71104)](https://bioregistry.io/NCIT:C71104), but it is
+   not curated an ontology (despite OBO Foundry having an OWL conversion of it).
+4. MeSH has a term
+   [Clinical Trials as Topic (mesh:D002986)](https://bioregistry.io/mesh:D002986).
+
+Despite all of what I could find, none of these terms were part of an ontology
+that I can trust. Further, most of them conflated interventional clinical
+studies, i.e., clinical trials, with all other clinical studies.
+
+Therefore, the next step was to get in touch with OBI and ask them to mint an
+authoritative term, that also can capture the nuance in clinical studies that is
+lost in the other resources. I did that in their issue tracker
+[obi-ontology/obi#1831](https://github.com/obi-ontology/obi/issues/1831). They
+were very receptive, we had a nice conversation that brought up several points,
+and they challenged me to go even further than just proposing the parent terms
+and begin to develop a standardized model.
+
+### A draft proposal
+
+The following diagram represents a draft proposal that includes several terms
+that OBI could mint as well as the kinds of relations between them. This is not
+a perfect proposal - its goal is to be a discussion piece for an upcoming OBI
+community call. There are still several parts missing and open questions.
+
 <a href="https://docs.google.com/drawings/d/19BuWZ-C2iZkxDScxDy9WsAtLsItvkqT9bFtFaFkpbyA/edit?usp=sharing">
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vSCMXiTg3EjROweTq4RKOnqRyW-RMs7QOOiC3mhbSHa1eJtfK5ROWVRX7wh63f3m5AkAjQQ7u4VAsM-/pub?w=2628&amp;h=1629">
 </a>
 
-TODO:
+Here are some missing parts to this model that could be added incrementally:
 
-1. copy conversation from post [https://github.com/obi-ontology/obi/issues/1831](https://github.com/obi-ontology/obi/issues/1831)
-2. Talk about what's missing (more detailed ontologization of [expanded access types](https://clinicaltrials.gov/study-basics/glossary#expanded-access-type) and [expanded access status](https://clinicaltrials.gov/study-basics/glossary#expanded-access-status))
-   1. how to capture other parts Bjorn mentioned
-   2. Eligibility criteria, enrollment
-   3. statistical methods linked to STATO
-   4. outcomes linked to OBI:Assay
-   5. ontologization of groups/cohorts in observational studies, and [observational study models](https://clinicaltrials.gov/study-basics/glossary#observational-study-model) such as case-control, case-only, case-cross-over, ecologic or community studies, family-based, and other.
-   6. capturing of adverse events - this might be more of a data modeling that ontologization question
-   7. capturing the investigator, funder type, and sponsor for bibliometric purposes
-   8. capturing geolocations / institutions hosting parts of the trial
+1. A more detailed categorization of expanded access studies based on the
+   [expanded access types](https://clinicaltrials.gov/study-basics/glossary#expanded-access-type)
+   and
+   [expanded access status](https://clinicaltrials.gov/study-basics/glossary#expanded-access-status)
+2. A more detailed categorization of observational studies based on the 1)
+   assembly of groups and cohorts and 2)
+   [observational study models](https://clinicaltrials.gov/study-basics/glossary#observational-study-model)
+   such as case-control, case-only, case-cross-over, ecologic or community
+   studies, and family-based.
+3. A model for eligibility criteria and enrollment
+4. A model for outcomes, linked to OBI's assay terms
+5. A model for investigators, funder types, and sponsors to support bibliometric
+   investigation
+6. A model for geolocation data associated with clinical study sites
+7. A model for capturing adverse events and reasons for trial cancellation/end.
+   In downstream applications, this could be used in tandem with the
+   [FDA's Adverse Event Reporting System (FAERS)](https://www.fda.gov/drugs/surveillance/fdas-adverse-event-reporting-system-faers)
+   and the
+   [Vaccine Adverse Event Reporting System (VAERS)](https://vaers.hhs.gov/).
+
+There is high potential for applying natural language processing methods to
+extract more detailed information from the unstructured parts of clinical study
+records. I've been focusing on ClincialTrials.gov as an example in this post,
+but other clinical trial registries comprise almost exclusively unstructured
+text.
 
 ## Proof-of-concept Ontology Export of ClinicalTrials.gov
 
-1. What is PyOBO
-2. What is obo-db-ingest
-3. What are PURLs
-4. Why it's useful to do this
-5. Licensing of ClinicalTrials.gov
-6. Link to ClinicalTrials.gov page on obo-db-ingest
-7. Summary statistics, in text (enough tables already)
+[PyOBO](https://github.com/biopragmatics/pyobo) is Python software package that
+implements an in-memory data structure for OBO/OWL ontologies as well as I/O
+operations. On top of this, it implements workflows for converting databases
+like HGNC, MeSH, and ChEMBL into OBO/OWL ontolgies. These workflows are careful
+to make good design decisions, reusing classes and relations from other OBO
+ontologies when possible. This is crucial for them to be readily integratable
+with other resources.
 
-PyOBO source turns it into an ontology
+The [`obo-db-ingest`](https://github.com/biopragmatics/obo-db-ingest) repository
+is responsible for automatically downloading new versions of the resources
+covered by PyOBO, converting them to OBO/OWL, archiving them to Zenodo, and
+assigning persistent URLs (PURLs) so the files can be accessed in a sustainable
+way. It's also careful to include licensing information such that anyone can
+download these resources in a ready-to-use format, whereas the underlying
+resources are often less easy to use directly.
 
-| Artifact       | Download PURL                                                                    |
-|----------------|----------------------------------------------------------------------------------|
-| OBO            | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.obo.gz    |
-| OFN            | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.ofn.gz    |
-| Nodes          | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.tsv       |
-| SSSOM          | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.sssom.tsv |
-| OWL            | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.owl.gz    |
-| OBO Graph JSON | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.json.gz   |
+As a proof-of-concept, I implemented a converter for ClinicalTrials.gov in PyOBO
+at
+[https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/clinicaltrials.py](https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/clinicaltrials.py).
+The draft converter uses temporary classes to represent the study types and
+allocations I'm proposing to OBI. It also mints some of its own relationships,
+which would ideally be encoded in either OBI or the Relation Ontology (RO) for
+maximum reusability.
 
-#### Summary
+The initial export contains more than 500K clinical studies; nearly one million
+literature references, and near two million relationships between trials,
+interventions, and conditions (there are still several places for expansion and
+improvement discussed below). The ClinicalTrials.gov data is licensed under an
+[equivalent to a public domain dedication](https://clinicaltrials.gov/about-site/terms-conditions#availability),
+so there are few restrictions on remixing and redistributing the data this way.
 
-| field      |     count |
-|------------|----------:|
-| mappings   |   879,540 |
-| parents    |   522,294 |
-| properties | 2,080,891 |
-| terms      |   522,294 |
+A summary page can be found in the `obo-db-ingest` repository
+[here](https://github.com/biopragmatics/obo-db-ingest/tree/main/export/clinicaltrials)
+and the exported artifacts are listed here:
+
+| Artifact       | Download PURL                                                                  |
+| -------------- | ------------------------------------------------------------------------------ |
+| OBO            | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.obo.gz  |
+| OFN            | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.ofn.gz  |
+| OWL            | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.owl.gz  |
+| OBO Graph JSON | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.json.gz |
+| Nodes          | https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.tsv     |
 
 ## Reflections, and, what's missing?
 
@@ -308,8 +455,9 @@ for all rare diseases, cancers, neurodegenerative dieases, etc.
 1. in RAPTER, it was used to get a quick overview of which vaccine platforms had
    progressed to what degree in clinical trials
 
-Specifically, this can help summarize vaccine platforms like RNA vaccines, DNA vaccines, viral vector vaccines, etc.
-and their ability to treat subclasses of coronavirus diseases, ebola, and malaria.
+Specifically, this can help summarize vaccine platforms like RNA vaccines, DNA
+vaccines, viral vector vaccines, etc. and their ability to treat subclasses of
+coronavirus diseases, ebola, and malaria.
 
 ### Target Identification
 
