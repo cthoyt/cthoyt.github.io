@@ -8,6 +8,13 @@ tags:
   - ClinicalTrials.gov
   - ontologies
   - OBI
+  - ChEBI
+  - Disease Ontology
+  - reproducibility
+  - data integration
+  - knowledge graphs
+  - graph database
+  - graph query
 ---
 
 I've recently worked with clinical studies from
