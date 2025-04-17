@@ -119,7 +119,7 @@ I wrote the following function to do a bit of exploring, based on the prefix.
 ```python
 import chembl_downloader
 
-def print_indications_with_prefix(prefix: str) -> "pd.DataFrame":
+def print_indications_with_prefix(prefix: str) -> None:
     sql = f"""\
         SELECT DISTINCT
             MOLECULE_DICTIONARY.chembl_id,
