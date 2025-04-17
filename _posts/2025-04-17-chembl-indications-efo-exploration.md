@@ -1,7 +1,7 @@
 ---
 layout: post
 title:
-  The `EFO_ID` column in ChEMBL's drug indications table isn't what you think
+  The EFO_ID column in ChEMBL's drug indications table isn't what you think it is
 date: 2025-04-17 18:42:00 +0200
 author: Charles Tapley Hoyt
 tags:
