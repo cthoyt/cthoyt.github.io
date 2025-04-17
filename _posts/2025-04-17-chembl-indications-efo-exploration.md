@@ -2,7 +2,7 @@
 layout: post
 title:
   The `EFO_ID` column in ChEMBL's drug indications table isn't what you think
-date: 2025-04-17 18:42:00 +0100
+date: 2025-04-17 18:42:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - ChEBI
@@ -78,6 +78,26 @@ Using a bit of SQL string processing to identify the prefixes and the
 bit more context about what the prefixes in CURIEs in the `EFO_ID` column
 represent.
 
+```python
+import bioregistry
+import chembl_downloader
+
+sql = """\
+SELECT prefix, count(prefix) as count
+FROM (
+    SELECT substr(efo_id, 0, instr(efo_id, ":")) as prefix
+    FROM DRUG_INDICATION
+)
+GROUP BY prefix
+HAVING count(prefix) > 0
+ORDER BY count(prefix) DESC
+"""
+
+df = chembl_downloader.query(sql)
+df["name"] = df["prefix"].map(bioregistry.get_name)
+df["homepage"] = df["prefix"].map(bioregistry.get_homepage)
+```
+
 | prefix   |  count | name                                     | homepage                                           |
 | -------- | -----: | ---------------------------------------- | -------------------------------------------------- |
 | EFO      | 37,603 | Experimental Factor Ontology             | http://www.ebi.ac.uk/efo                           |
@@ -99,7 +119,7 @@ I wrote the following function to do a bit of exploring, based on the prefix.
 ```python
 import chembl_downloader
 
-def print_indicatiosn_with_prefix(prefix: str) -> "pd.DataFrame":
+def print_indications_with_prefix(prefix: str) -> "pd.DataFrame":
     sql = f"""\
         SELECT DISTINCT
             MOLECULE_DICTIONARY.chembl_id,
