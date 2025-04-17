@@ -42,14 +42,13 @@ This is a long read, so here's a table of contents:
 
 Similar to [ChEMBL]({% post_url 2021-08-05-taming-chembl-sql %}),
 [DrugBank]({% post_url 2020-12-14-taming-drugbank %}), and
-[UMLS]({% post_url 2023-09-01-umls %}), I authored a Python package,
-that automates download and caching clinical studies
-from [ClinicalTrials.gov](https://clinicaltrials.gov). Its source code is
-available under the MIT license at
+[UMLS]({% post_url 2023-09-01-umls %}), I authored a Python package, that
+automates download and caching clinical studies from
+[ClinicalTrials.gov](https://clinicaltrials.gov). Its source code is available
+under the MIT license at
 [https://github.com/cthoyt/clinicaltrials-downloader](https://github.com/cthoyt/clinicaltrials-downloader),
-and it can be installed with `pip install clinicaltrials-downloader`.
-The package exposes two main functions for getting the raw,
-unprocessed data:
+and it can be installed with `pip install clinicaltrials-downloader`. The
+package exposes two main functions for getting the raw, unprocessed data:
 
 ```python
 from clinicaltrials_downloader import get_studies, get_studies_slim
@@ -70,8 +69,8 @@ local cache of the database.
 I generated a few summary tables over the slim subset of ClinicalTrials.gov
 using
 [this script](https://gist.github.com/cthoyt/12a3cb3c63ad68d73fe5a2f0d506526f).
-The tables can be regenerated with
-the following command, adding `--force` if you want to refresh the cache:
+The tables can be regenerated with the following command, adding `--force` if
+you want to refresh the cache:
 
 ```console
 $ uv run --script https://gist.githubusercontent.com/cthoyt/12a3cb3c63ad68d73fe5a2f0d506526f/raw/98bd3795ec02ebd2c8bb8746e3a3a5d23aeffd75/clinicaltrials-summary.py
