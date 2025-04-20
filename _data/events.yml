@@ -1,12 +1,4 @@
-- talk:
-    invited: false
-    name: Bioregistry Workshop at Biocuration 2025
-    url: https://doi.org/10.5281/zenodo.15184414
-    date:
-      day: 6
-      month: April
-      year: 2025
-  name: Biocuration 2025
+- name: Biocuration 2025
   link: https://www.stowers.org/events/biocuration2025
   location:
     city: Kansas City
@@ -17,6 +9,35 @@
     year: 2025
   end:
     day: 9
+    month: April
+    year: 2025
+
+- name: Hackathon @ Biocuration 2025
+  link: https://www.stowers.org/events/biocuration2025
+  location:
+    city: Kansas City
+    country: USA
+  date:
+    day: 6
+    month: April
+    year: 2025
+
+- talk:
+    invited: false
+    name: Bioregistry Workshop at Biocuration 2025
+    url: https://doi.org/10.5281/zenodo.15184414
+    date:
+      day: 6
+      month: April
+      year:
+        2025
+  name: Bioregistry Workshop @ Biocuration 2025
+  link: https://www.stowers.org/events/biocuration2025
+  location:
+    city: Kansas City
+    country: USA
+  date:
+    day: 6
     month: April
     year: 2025
 

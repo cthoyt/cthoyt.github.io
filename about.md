@@ -8,7 +8,7 @@ permalink: /about/
 
 I fell in love with chemistry in high school - back then it was about making
 things change color and/or explode. I was sold. My high school was down the
-street from Yale University and they let a few seniors enroll for a class there
+street from Yale University, and they let a few seniors enroll for a class there
 each semester. I took freshmen chemistry, which turned out to basically be an
 applied calculus class in thermodynamics and quantum mechanics. I didn't know
 calculus back then.
@@ -22,7 +22,7 @@ further motivated by the humanitarian nature of the work. I also became more
 interested in the biological aspects of the work.
 
 From there, I continued with medicinal chemistry in my first co-op (i.e.,
-full-time, 6 month internship between semesters) at GlaxoSmithKline. My
+full-time, 6-month internship between semesters) at GlaxoSmithKline. My
 co-workers took great interest in the co-ops and gave us the chance to learn
 about the other aspects of drug discovery programs, from target prioritization
 to validation to hit to lead. I was particularly interested in the computational
@@ -70,8 +70,9 @@ In 2021, I joined the Laboratory of Systems Pharmacology at Harvard Medical
 School to continue my academic work. In summer 2023, I moved from Harvard to
 Northeastern University to continue working under Ben Gyori.
 
-In Spring 2024, I began a sabbatical and will be returning for my next position
-in Fall 2024.
+Between Spring 2024 and Spring 2025, I took a career gap and will be returning
+to a research position in the Department of Chemistry at RWTH Aachen University
+in early Summer 2025, where I will begin building my own group.
 
 I'm also a real person, too! I love making music, watching movies/TV, running,
 and traveling. I've been to 30 countries so far and tried beer in almost all of
