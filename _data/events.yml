@@ -1,4 +1,45 @@
 - talk:
+    invited: false
+    name: Bioregistry Workshop at Biocuration 2025
+    url: https://doi.org/10.5281/zenodo.15184414
+    date:
+      day: 6
+      month: April
+      year: 2025
+  name: Biocuration 2025
+  link: https://www.stowers.org/events/biocuration2025
+  location:
+    city: Kansas City
+    country: USA
+  start:
+    day: 5
+    month: April
+    year: 2025
+  end:
+    day: 9
+    month: April
+    year: 2025
+
+- talk:
+    invited: false
+    name: Bioregistry and the NFDI in 2024
+    url: https://bit.ly/bioregistry-ontologies4chem-2024
+    date:
+      day: 9
+      month: December
+      year: 2024
+  name: 3rd Ontologies4Chem Workshop
+  online: true
+  start:
+    day: 9
+    month: December
+    year: 2024
+  end:
+    day: 11
+    month: October
+    year: 2024
+
+- talk:
     invited: true
     name: "Modern software development practice with Python"
     url: https://docs.google.com/document/d/1vP7ZA29J0PEI3CsMm4iGPq4DQG1sEgBvqoucfPga8JI/edit?usp=sharing

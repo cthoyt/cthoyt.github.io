@@ -9,10 +9,9 @@ site, you should make one, too.
 
 1. Still living in Germany
 2. Reading fantasy, science fiction, and literary fiction (on
-   [goodreads](https://goodreads.com/cthoyt) until the mastodon alternatives
+   [Goodreads](https://goodreads.com/cthoyt) until the Fediverse alternatives
    take off)
-3. Playing bass in a [rock band](https://linktr.ee/repsmonkeyjack)
-4. Getting back into running and bouldering
-5. Finishing up with my sabbatical and planning for my next research position
+3. Getting back into running and bouldering
+4. Starting a new position at RWTH Aachen in ~June 2025
 
-updated september 20<sup>th</sup>, 2024
+updated April 20<sup>th</sup>, 2025
