@@ -32,8 +32,12 @@ def square_root(x: int) -> float:
     ...
 
 # simple example to show how to write functions that consume functions
-def applies_int_to_float(x: int, func: Callable[[int], float]) -> float:
+def applies_int_to_float(func: Callable[[int], float], x: int) -> float:
     return func(x)
+
+
+>>> applies_int_to_float(square_root, 9)
+3.0
 ```
 
 However, if you want to get generic, you need to use a combination of
@@ -50,8 +54,12 @@ X = TypeVar("X")
 T = TypeVar("T")
 
 # simple example to show how to write functions that consume functions
-def applies_unary_function(x: X, func: Callable[[X], T]) -> T:
+def applies_unary_function(func: Callable[[X], T], x: X) -> T:
     return func(x)
+
+
+>>> applies_unary_function(square_root, 9)
+3.0
 ```
 
 If you want to make the input fully generic, you can use `ParamSpec` and
@@ -64,8 +72,12 @@ from typing import ParamSpec, TypeVar
 P = ParamSpec("P")
 T = TypeVar("T")
 
-def applies_unary_function(*args: P.args, func: Callable[P, T]) -> T:
-    return func(*args)
+def applies_unary_function_generic(func: Callable[P, T], *args: P.args, **kwargs: P.kwargs) -> T:
+    return func(*args, **kwargs)
+
+
+>>> applies_unary_function_generic(square_root, 9)
+3.0
 ```
 
 This gets even a bit more complicated if you want to type annotate a class that
