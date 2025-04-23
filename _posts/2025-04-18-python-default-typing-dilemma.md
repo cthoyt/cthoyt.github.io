@@ -18,9 +18,9 @@ posted the exploration in a
 GitHub.
 
 The motivation behind this comes from my work in biomedical data integration and
-the semantic web. I wrot the [`curies`](https://github.com/cthoyt/curies) Python
-package to provide a fully generic and reusable data model for representing
-pairs of prefixes and local unique identifiers via the
+the semantic web. I wrote the [`curies`](https://github.com/cthoyt/curies)
+Python package to provide a fully generic and reusable data model for
+representing pairs of prefixes and local unique identifiers via the
 [`curies.Reference`](https://curies.readthedocs.io/en/latest/api/curies.Reference.html)
 class.
 
@@ -47,7 +47,7 @@ example (which I also dumped in
 [https://github.com/cthoyt/python-typing-dilemma](https://github.com/cthoyt/python-typing-dilemma)).
 
 ```python
-from typing import Any, TypeVar, reveal_type, overload
+from typing import Any, TypeVar
 
 type Record = dict[str, Any]
 
