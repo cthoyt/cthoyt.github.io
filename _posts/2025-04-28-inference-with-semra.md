@@ -12,9 +12,11 @@ tags:
   - controlled vocabularies
 ---
 
-Assembling and inferring missing semantic mappings is a timely problem in biomedical
-data and knowledge integration. I've been developing the [Semantic Mapping Assembler and Reasoner (SeMRA)](https://github.com/biopragmatics/semra)
-as a generic toolkit for this. In this blog post, I highlight its inference capabilities.
+Assembling and inferring missing semantic mappings is a timely problem in
+biomedical data and knowledge integration. I've been developing the
+[Semantic Mapping Assembler and Reasoner (SeMRA)](https://github.com/biopragmatics/semra)
+as a generic toolkit for this. In this blog post, I highlight its inference
+capabilities.
 
 SeMRA implements the chaining and inference rules described in the
 [SSSOM](https://mapping-commons.github.io/sssom/chaining-rules/) specification.
@@ -55,7 +57,6 @@ r3 = Reference.from_curie("chembl.compound:CHEMBL459505", name="TALAROZOLE")
 m1 = Mapping(s=r1, p=EXACT_MATCH, o=r2)
 m2 = Mapping(s=r2, p=EXACT_MATCH, o=r3)
 
-# infers r1 -> exact match -> r3
 mappings = infer_chains([m1, m2])
 ```
 
@@ -111,3 +112,13 @@ graph LR
     A[cranioectodermal dysplasia<br/>doid:0050577] -- oboInOwl:hasDbXref --> B[Cranioectodermal Dysplasia<br/>mesh:C562966]
     A -. "skos:exactMatch<br/>(inferred)" .-> B
 ```
+
+---
+
+There's a lot more to say about semantic mappings - a good first place to look
+before getting into the guts of the code is the accompanying manuscript:
+
+> <a href="https://www.biorxiv.org/content/10.1101/2025.04.16.649126">Assembly
+> and reasoning over semantic mappings at scale for biomedical data
+> integration</a><br/>Hoyt, C. T., Karis K., and Gyori, B. M.<br/>_bioRxiv_,
+> 2025.04.16.649126
