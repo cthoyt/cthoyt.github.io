@@ -25,14 +25,11 @@ The first rule is
 from semra import Mapping, EXACT_MATCH, Reference
 from semra.inference import infer_reversible
 
-# infer reversible
-mapping = Mapping(
-   s=Reference(prefix="chebi", identifier="107635", name="2,3-diacetyloxybenzoic"),
-   p=EXACT_MATCH,
-   o=Reference(prefix="mesh", identifier="C011748", name="tosiben"),
-)
+r1 = Reference(prefix="chebi", identifier="107635", name="2,3-diacetyloxybenzoic")
+r2 = Reference(prefix="mesh", identifier="C011748", name="tosiben")
 
-# includes the mesh -> exact match-> chebi mapping with full provenance
+mapping = Mapping(s=r1, p=EXACT_MATCH, o=r2)
+
 mappings = infer_reversible([mapping])
 ```
 
