@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I wish I could unpack Callables in Python type annotations
+title: Inference over Semantic Mappings with SeMRA
 date: 2025-04-28 15:17:00 +0200
 author: Charles Tapley Hoyt
 tags:
