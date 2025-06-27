@@ -7,11 +7,12 @@ permalink: /now
 This is a [now page](https://www.nownownow.com/about), and if you have your own
 site, you should make one, too.
 
-1. Still living in Germany
+1. Living in Germany, preparing for my citizenship test
 2. Reading fantasy, science fiction, and literary fiction (on
    [Goodreads](https://goodreads.com/cthoyt) until the Fediverse alternatives
    take off)
-3. Getting back into running and bouldering
-4. Starting a new position at RWTH Aachen in ~June 2025
+3. Playing saxophone in the B4 Big Band Bonn
+4. Running and bouldering
+5. Building my own research group in the RWTH Aachen Institute of Inorganic Chemistry
 
-updated April 20<sup>th</sup>, 2025
+updated June 27<sup>th</sup>, 2025
