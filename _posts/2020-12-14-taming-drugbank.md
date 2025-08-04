@@ -7,7 +7,7 @@ tags: reproducibility
 ---
 
 If you're reading my blog, there's a pretty high chance you've used
-[DrugBank](https://go.drugbank.com/), a database of drug-target interations,
+[DrugBank](https://go.drugbank.com/), a database of drug-target interactions,
 drug-drug interactions, and other high-granularity information about
 clinically-studied chemicals. DrugBank has two major problems, though: its data
 are password-protected, and its license does not allow redistribution. Time to

@@ -10,7 +10,7 @@ The [Global Biodata Coalition](https://globalbiodata.org) released a list of
 [_Global Core Biodata Resources (GCBRs)_](https://globalbiodata.org/scientific-activities/global-core-biodata-resources)
 in December 2022, comprising 37 life science databases that they considered as
 having significant importance (selected following this
-[procedure](https://doi.org/10.5281/zenodo.5845116)). While the
+[procedure](https://doi.org/10.5281/zenodo.5845116)). While
 [the Bioregistry](https://bioregistry.io) does not generally cover databases,
 many notable databases have one or more associated semantic spaces that are
 relevant for inclusion. Accordingly, 33 of 37 of the GCBRs (that's 89%) have one
@@ -251,7 +251,7 @@ and a trait. Typically, there is a gene annotated to the SNP to make
 interpretation more simple, though this is no easy task. I'd suggest following
 Eric Faumann on Twitter ([@Eric_Fauman](https://twitter.com/Eric_Fauman)) (or
 Mastodon if/when he moves there, because I'm not a big Twitter fan anymore) for
-really interesting examples of this.
+interesting examples of this.
 
 Interestingly, through the process of writing this post, I realized GWAS Catalog
 assigns such as [GCST000858](https://www.ebi.ac.uk/gwas/studies/GCST000858)
