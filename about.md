@@ -87,10 +87,10 @@ text and
 > Dr. Charles Tapley Hoyt received his Ph.D. in Computational Life Sciences from
 > the University of Bonn in 2019. His research interests cover the interface of
 > biocuration, knowledge graphs, and machine learning with systems biology,
-> networks biology, and drug discovery. {% if site.data.current.position %}> He
-> currently works remotely from Germany as a {{ site.data.current.position }} in
+> networks biology, and drug discovery. {% if site.data.current.position %} He
+> currently works as a {{ site.data.current.position }} in
 > the [{{ site.data.current.group.name }}]({{ site.data.current.group.link }})
-> at {{ site.data.current.institution }}.{%- endif -%} He is an advocate of open
+> at {{ site.data.current.institution }}.{%- endif %} He is an advocate of open
 > source software, reproducibility, and open science. His open source projects
 > such as the Bioregistry, PyBEL, and PyKEEN are used by several academic and
 > industrial groups.
