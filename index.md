@@ -5,17 +5,16 @@ layout: home
 <img src="https://gravatar.com/avatar/c273141237471c14342e9f9eb77044a0?size=256" alt="Charles Tapley Hoyt" align="left" height="60" style="margin-right: 10px; border-radius: 50%;"/>
 My name is Charles Tapley Hoyt (he/his). 
 {%- if site.data.current.position -%}
-&nbsp;I'm a {{ site.data.current.position }}
+&nbsp;I'm a {{ site.data.current.position | downcase }}
 {% if site.data.current.group %}in the [{{ site.data.current.group.name }}]({{ site.data.current.group.link }})
-at {{ site.data.current.institution }}{% endif %}, working remotely from Germany.
-{%- endif -%}
-&nbsp;I’m working towards building a research group in the Institute of Inorganic Chemistry at RWTH Aachen
-University focused on software development, data standardization/FAIRification/integration, and 
+at {{ site.data.current.institution }}{% endif %}.
+{%- endif %}
+I’m working towards building my own research group focused on software development, data standardization/FAIRification/integration, and 
 applications of ML/AI in the chemical, biological, and health sciences - specifically in drug discovery and precision medicine.
 
 I’m interested in building academic collaborations that can lead to grant
 opportunities and securing project contracts for unmet business needs addressed
-by the semantic technologies and capabailities that I've developed and write
+by the semantic technologies and capabilities that I've developed and write
 about here.
 
 Here's some more details [about me](/about) and [my research](/research). You

@@ -13,6 +13,7 @@ site, you should make one, too.
    take off)
 3. Playing saxophone in the B4 Big Band Bonn
 4. Running and bouldering
-5. Building my own research group in the RWTH Aachen Institute of Inorganic Chemistry
+5. Building my own research group in the RWTH Aachen Institute of Inorganic
+   Chemistry
 
 updated June 27<sup>th</sup>, 2025
