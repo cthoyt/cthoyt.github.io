@@ -9,9 +9,11 @@ minima:
   social_links:
     github: cthoyt
     linkedin: cthoyt
-    #    gitlab:
-    #      - username: cthoyt
-    #        instance: gitlab.com
+    gitlab:
+      - username: cthoyt
+        instance: gitlab.com
+      - username: cthoyt
+        instance: git.rwth-aachen.de
     mastodon:
       - username: cthoyt
         instance: scholar.social
