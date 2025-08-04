@@ -71,8 +71,8 @@ embedding: list[float] = client.get_embedding(
 )
 ```
 
-The next step is to be able to calculate the (cosine) similarity between two terms, which
-can be done between the OBI term for _clinical trial_, and the
+The next step is to be able to calculate the (cosine) similarity between two
+terms, which can be done between the OBI term for _clinical trial_, and the
 [National Cancer Institute Thesaurus (NCIT)](https://bioregistry.io/ncit) term
 for clinical trial as a single floating point number:
 
@@ -90,8 +90,8 @@ similarity: float = client.get_embedding_similarity(
 
 ## Embeddings from PyOBO
 
-I think using an OpenAI model is a bit overkill for two reasons.
-First, there are smaller, non-large language models like
+I think using an OpenAI model is a bit overkill for two reasons. First, there
+are smaller, non-large language models like
 [BERT](https://huggingface.co/docs/transformers/en/model_doc/bert) that can get
 the same job done. Second, they're free to download and can be run on commodity
 hardware, versus needing to pay OpenAI for access to their embeddings.
@@ -134,9 +134,9 @@ lot of the good methodological and software engineering ideas I've
 had/encountered have gone into the [PyKEEN](https://github.com/pykeen/pykeen)
 Python software package. One of those ideas that jointly leverages text and
 knowledge graph embeddings is [NodePiece](https://arxiv.org/abs/2106.12144), the
-work of PyKEEN core developer Michael Galkin. A guide on using it with PyKEEN
-is [here](https://pykeen.readthedocs.io/en/stable/tutorial/inductive_lp.html),
-but there's a lot more research to present on this than fits in the postscript
-of a blog post or a software tutorial. Along with the last few years of my work
-on data integration, I haven't yet published my magnum opus on biomedical
-knowledge graph construction and applications with graph machine learning.
+work of PyKEEN core developer Michael Galkin. A guide on using it with PyKEEN is
+[here](https://pykeen.readthedocs.io/en/stable/tutorial/inductive_lp.html), but
+there's a lot more research to present on this than fits in the postscript of a
+blog post or a software tutorial. Along with the last few years of my work on
+data integration, I haven't yet published my magnum opus on biomedical knowledge
+graph construction and applications with graph machine learning.
