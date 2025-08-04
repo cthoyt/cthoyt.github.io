@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Text-based Embeddings of Ontology Terms
-date: 2025-08-05 9:32:00 +0200
+title: Text-based embeddings of ontology terms
+date: 2025-08-04 10:32:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - ontology
@@ -13,13 +13,13 @@ tags:
 ---
 
 The [Ontology Lookup Service (OLS)](https://www.ebi.ac.uk/ols4/) is now indexing
-dense embeddings for ontology terms that it constructs from term labels,
-synonyms, and descriptions using LLMs. I maintain a Python client library for
-the OLS (aptly named [`ols-client`](https://github.com/cthoyt/ols-client)) and
-was asked to implement a wrapper to the API endpoint that looks up those
-embeddings. This post is a demo of how to do that, and how I replicated the same
+dense embeddings for ontology terms constructed from term labels, synonyms, and
+descriptions using LLMs. I maintain a Python client library for the OLS
+([`ols-client`](https://github.com/cthoyt/ols-client)) and was recently asked to
+implement a wrapper to the OLS's API endpoint that exposes these embeddings.
+This post is a demo of how to use that code, and how I replicated the same
 embedding functionality with [PyOBO](https://github.com/biopragmatics/pyobo) to
-extend it to ontologies and databases not in OLS.
+arbitrarily extend it to ontologies and databases not in OLS.
 
 I've been [working on modeling clinical
 trials]({% post_url 2025-01-23-clinical-trials-data-modeling %}) in
