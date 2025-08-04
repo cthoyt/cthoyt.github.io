@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Text-based Embeddings of Ontology Terms
-date: 2025-08-05 12:17:00 +0200
+date: 2025-08-05 9:32:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - ontology
@@ -13,12 +13,13 @@ tags:
 ---
 
 The [Ontology Lookup Service (OLS)](https://www.ebi.ac.uk/ols4/) is now indexing
-dense embeddings for ontology terms that it constructs from entity labels,
+dense embeddings for ontology terms that it constructs from term labels,
 synonyms, and descriptions using LLMs. I maintain a Python client library for
 the OLS (aptly named [`ols-client`](https://github.com/cthoyt/ols-client)) and
-was asked to expose lookup to those embeddings. This post is a demo of how to do
-that, and how I replicated the same embedding functionality with
-[PyOBO](https://github.com/biopragmatics/pyobo).
+was asked to implement a wrapper to the API endpoint that looks up those
+embeddings. This post is a demo of how to do that, and how I replicated the same
+embedding functionality with [PyOBO](https://github.com/biopragmatics/pyobo) to
+extend it to ontologies and databases not in OLS.
 
 I've been [working on modeling clinical
 trials]({% post_url 2025-01-23-clinical-trials-data-modeling %}) in
@@ -26,7 +27,7 @@ collaboration with [Sebastian Duesing](https://github.com/sebastianduesing) at
 the [Ontology for Biomedical Investigations (OBI)](https://bioregistry.io/obi),
 so I'm going to use the OBI term for
 [clinical trial (OBI:0003699)](https://www.ebi.ac.uk/ols4/ontologies/obi/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FOBI_0003699)
-that we minted together as an example.
+that we recently minted together as an example.
 
 ## Embeddings from OLS
 
@@ -45,7 +46,15 @@ From a first glance, the results here have very high precision. This shouldn't
 be surprising, considering that labels, synonyms, and descriptions contain very
 high signal. Of course, there's room for arguing about the nuance of ontological
 differences, but this is a largely unhelpful discussion in my experience when
-the goal is to do ontology merging and data integration.
+the goal is to do ontology merging and data integration. In [my recent
+post]({% post_url 2025-01-23-clinical-trials-data-modeling %}) where I described
+the landscape of clinical trial modeling in the OBO Foundry and related
+biomedical ontologies, I actually had already curated several of these semantic
+mappings by hand, which I'm hoping to
+[add to OBI via SSSOM](https://github.com/obi-ontology/obi/issues/1893). Looking
+forward for the OLS, it would be great if there were a mini curation interface
+where these could be confirmed or rejected as exact mappings, and persist the
+resulting curations as SSSOM.
 
 There was [a request](https://github.com/cthoyt/ols-client/issues/9) to expose
 the embeddings via my OLS client package, which I solved with only a few lines
