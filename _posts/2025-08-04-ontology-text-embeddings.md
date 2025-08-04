@@ -128,11 +128,15 @@ free, only limited by memory contraints.
 
 ---
 
-Text embeddings aren't the end - I've been working for years on graph machine
-learning, and specifically knowledge graph embedding models. A lot of the
-methodological and software engineering ideas have gone into the
-[PyKEEN](https://github.com/pykeen/pykeen) library. I'm interested in ways to
-jointly leverage text- and graph embeddings, one of which is demonstrated with
-Michael Galkin's
-[NodePiece](https://pykeen.readthedocs.io/en/stable/tutorial/inductive_lp.html)
-model.
+Text embeddings aren't the end of the story - I've been working for several
+years on applications fo graph machine learning in biomedical applications. A
+lot of the good methodological and software engineering ideas I've
+had/encountered have gone into the [PyKEEN](https://github.com/pykeen/pykeen)
+Python software package. One of those ideas that jointly leverages text and
+knowledge graph embeddings is [NodePiece](https://arxiv.org/abs/2106.12144), the
+work of PyKEEN code contributor Michael Galkin. A guide on using it with PyKEEN
+is [here](https://pykeen.readthedocs.io/en/stable/tutorial/inductive_lp.html),
+but there's a lot more research to present on this than fits in the postscript
+of a blog post or a software tutorial. Along with the last few years of my work
+on data integration, I haven't yet published my magnum opus on biomedical
+knowledge graph construction and applications with graph machine learning.
