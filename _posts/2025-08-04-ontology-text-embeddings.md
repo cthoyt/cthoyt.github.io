@@ -106,7 +106,7 @@ which gives unified access to ontologies and databases that are ontology-like.
 It has functionality for getting the labels, synonyms, and descriptions for
 terms in both.
 
-Therefore, it was not difficult to
+It wasn't difficult to
 [re-implement the same functionality as the OLS in PyOBO](https://github.com/biopragmatics/pyobo/pull/412)
 such that it can be run locally on a larger variety of resources. Here's the
 same lookup for text embedding and similarity:
@@ -120,3 +120,19 @@ import pyobo
 >>> pyobo.get_text_embedding_similarity("OBI:0003699", "NCIT:C71104")
 0.24702128767967224
 ```
+
+This could be improved with the ability to do batch lookup, which is probably
+the way people would want to use this functionality. Even better, because of how
+ML is implemented on GPUs and related hardware, batching effectively comes for
+free, only limited by memory contraints.
+
+---
+
+Text embeddings aren't the end - I've been working for years on graph machine
+learning, and specifically knowledge graph embedding models. A lot of the
+methodological and software engineering ideas have gone into the
+[PyKEEN](https://github.com/pykeen/pykeen) library. I'm interested in ways to
+jointly leverage text- and graph embeddings, one of which is demonstrated with
+Michael Galkin's
+[NodePiece](https://pykeen.readthedocs.io/en/stable/tutorial/inductive_lp.html)
+model.
