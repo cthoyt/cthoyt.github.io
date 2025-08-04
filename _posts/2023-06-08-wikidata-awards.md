@@ -17,8 +17,8 @@ them.
 
 I'm going to use SPARQL with the
 [Wikidata Query Service](https://query.wikidata.org/) to see what's already in
-Wikidata. First, I want to find all of the awards that I've personally received
-using the [P166 (award received)](https://www.wikidata.org/wiki/Property:P166)
+Wikidata. First, I want to find all awards that I've personally received using
+the [P166 (award received)](https://www.wikidata.org/wiki/Property:P166)
 property. Note that the following query also takes advantage of Wikidata's
 reification so I can reach into the qualifiers of each statement to figure out
 when the award was given.

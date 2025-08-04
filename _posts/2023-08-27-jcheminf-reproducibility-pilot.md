@@ -88,7 +88,6 @@ accessed on August 27<sup>th</sup>, 2023.
    https://choosealicense.com.
 2. Does the repository contain a README file in its root?<br/> No. A minimal
    viable README file contains:
-
    - A short, one line description of the project
    - Information on how to download, install, and run the code locally
    - Brief documentation describing the single most important use case for the

@@ -40,12 +40,11 @@ co-authors from only four unique manuscripts including:
 
 The appearance of the BioCypher manuscript on this list was no surprising
 because we just preprinted it on _arXiv_. However, I very clearly remember
-carefully curating all of the co-authors of the the other papers. After more
-careful inspection, it turns out that I had indeed done this curation for the
-preprints of each of these articles, but the ones appearing on the list
-corresponded to duplicate Wikidata entries not for the preprints, but for the
-published papers. This lead me to a couple questions, which I don't have answers
-for yet:
+carefully curating all the co-authors of the other papers. After more careful
+inspection, it turns out that I had indeed done this curation for the preprints
+of each of these articles, but the ones appearing on the list corresponded to
+duplicate Wikidata entries not for the preprints, but for the published papers.
+This led me to a couple questions, which I don't have answers for yet:
 
 1. Should there two different entries for a preprint and a publication?
 2. What's even the right word for the dichotomy between a preprint and a
