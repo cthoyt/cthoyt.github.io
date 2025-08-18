@@ -14,22 +14,44 @@ tags:
   - biopragmatics
 ---
 
-The [Bioregistry](https://bioregistry.io/) started as a submodule of
-[PyOBO](https://github.com/biopragmatics/pyobo) in late 2019 to support parsing
+The [Bioregistry](https://bioregistry.io) is a database and toolchain
+for standardization of prefixes, CURIEs, and URIs that appear in linked (open) data.
+I originally wrote it in late 2019 as a submodule of
+[PyOBO](https://github.com/biopragmatics/pyobo) to support parsing
 database cross-references from OBO Foundry ontologies. Since then, it has
-shifted towards a community model
-
-## Statistics
-
-- how many contributors, issues, pull requests
-- how many prefixes, xxx
-
-This post is about meausring the impact
+shifted towards a community model and been adopted in many downstream projects. This
+post is an attempt to quantify its usage and impact.
 
 Why do this?
 
 1. Interest in making an application to GBCR
 2. Interested in applying to deNBI/ELIXIR germany
+
+## Statistics
+
+Community statistics:
+
+| Statistic            | Count | 
+|----------------------|------:|
+| Contributors         |    75 |
+| Open Issues          |   146 |
+| Closed Issues        |   471 |
+| Total Issues         |   617 | 
+| Open pull requests   |    13 |
+| Closed pull requests | 1,012 |
+| Total pull requests  | 1,025 |
+
+Content statistics:
+
+| Statistic                  | Count | 
+|----------------------------|------:|
+| Prefixes                   | 2,024 |
+| Prefix Synonyms            |   547 |
+| External positive mappings | 9,162 |
+| External negative mappings |   157 | 
+| Total external mappings    | 9,319 |
+| Collections                |    18 |
+| External Registries        |    33 |
 
 ## Website Usage
 
@@ -52,6 +74,9 @@ entities and want to provide external links, without having to maintain the
 links themselves.
 
 ![](/img/bioregistry-api-august-2025.png)
+
+I'm just getting this working, so it should also be able to better keep track of unique
+users (note it's just showing 1 so far) and their countries. Luckily, all of this is GDPR-compliant from the beginning.
 
 ## Code Usages
 
