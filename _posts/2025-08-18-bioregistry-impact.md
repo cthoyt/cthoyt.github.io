@@ -16,20 +16,80 @@ tags:
 
 The [Bioregistry](https://bioregistry.io) is a database and toolchain for
 standardization of prefixes, CURIEs, and URIs that appear in linked (open) data.
-I originally wrote it in late 2019 as a submodule of
-[PyOBO](https://github.com/biopragmatics/pyobo) to support parsing database
-cross-references from OBO Foundry ontologies. Since then, it has shifted towards
-a community model and been adopted in many downstream projects. This post is an
-attempt to quantify its usage and impact.
+While I created it in 2019 as a component of
+[PyOBO](https://github.com/biopragmatics/pyobo) in order to support parsing
+database cross-references appearing in biomedical ontologies, it has since
+become an independent project with a community-driven governance model and much
+broader applications. This post is a first attempt to quantify its usage and
+impact.
 
-Why do this?
+## What are usage and impact?
 
-1. Interest in making an application to GBCR
-2. Interested in applying to deNBI/ELIXIR germany
+For a foundational resource like the Bioregistry, there are two kinds of usage.
+First, direct usage encompasses when a workflow directly reuses the
+Bioregistry's data, software, or web application. For example,
 
-## Statistics
+1. the [SSSOM-py](https://github.com/mapping-commons/sssom-py) Python package
+   for interacting with semantic mappings uses the Bioregistry for supplying a
+   comprehensive default prefix map during parsing of SSSOM files.
+2. the [BridgeDB](https://www.bridgedb.org/) identifier mapping service uses the
+   Bioregistry Python package to test its source metadata are properly
+   standardized
+   ([see here](https://github.com/bridgedb/datasources/blob/a238b40b915c7f7a69052afecfdc59ad26211b41/scripts/align_bioregistry.py#L6))
+3. the [Protegé](https://github.com/protegeproject/protege/) ontology editor
+   uses the Bioregistry's API to look up information about prefixes
 
-Community statistics:
+Second, indirect usage encompasses any other data, software, web application,
+etc. that builds on direct usages. For example, any ontology that is edited
+using Protegé indirectly uses the Bioregistry, like the
+[Disease Ontology (DO)](https://github.com/DiseaseOntology/HumanDiseaseOntology).
+
+I consider usage to be a very good proxy for impact, especially when considering
+indirect usage. Allen Baron _et al._ recently published
+[The DO-KB Knowledgebase: a 20-year journey developing the disease open science ecosystem](https://doi.org/10.1093/nar/gkad1051),
+which made a quantification of DO's cumulative impact over the last decades. One
+area of this study focused on literature citations and resulted in the
+development of a
+[reusable, open-source software package](https://github.com/DiseaseOntology/DO.utils)
+for such analyses. I don't think anyone would disagree that the DO has had high
+impact.
+
+And since we're here, I think it's fair to say that because DO is built using
+tools that rely on the Bioregistry, that it's fair to claim that DO's (recent)
+impact is partly due to the Bioregistry.
+
+## Why quantify usage and impact?
+
+I think some of the main reasons for quantifying a project's usage and impact
+are to:
+
+1. justify its continued maintenance and improvement
+2. get credit for making something important
+3. use previous usage as examples for increased adoption
+4. get funding to continue maintaining and improving it
+
+At the moment, I am preparing to apply for the Bioregistry to be recognized by
+the Global Biodata Coalition as a
+[Global Core Biodata Resource (GCBR)](https://globalbiodata.org/what-we-do/global-core-biodata-resources/).
+I am also preparing an application on behalf of RWTH Aachen (my current
+affiliation) to join the
+[German Network for Bioinformatics Infrastructure (deNBI)](https://www.denbi.de),
+which will include offering the Bioregistry as key bioinformatics
+infrastructure. Both applications require quantitative evidence of the usage and
+impact of the proposed resource (often called key performance indicators (KPI)).
+
+## The Bioregistry in numbers
+
+There are two kinds of statistics I think are important to convey about the
+Bioregistry. The first is related to community involvement. I've carefully
+planned the governance structure of the project to be sustainable (based on
+[the open data, open code, and open infrastructure (O3) guidelines](https://doi.org/10.1038/s41597-024-03406-w)).
+This was successful in no small part due the way that there is a very low
+barrier for entry for small, external contributions (i.e., a
+[drive-by curation](https://doi.org/10.32388/KBX9VO)). Therefore, it makes sense
+to highlight the number of unique contributors there have been to the data/code
+of the project as well as the volume of contributions in the forms of issues,
+discussions, and pull requests:
 
 | Statistic            | Count |
 | -------------------- | ----: |
@@ -41,7 +101,8 @@ Community statistics:
 | Closed pull requests | 1,012 |
 | Total pull requests  | 1,025 |
 
-Content statistics:
+The second kind of statistic that's important describes the content of the
+resource itself.
 
 | Statistic                  | Count |
 | -------------------------- | ----: |
@@ -52,6 +113,15 @@ Content statistics:
 | Total external mappings    | 9,319 |
 | Collections                |    18 |
 | External Registries        |    33 |
+
+To give some context to these statistic, here's a chart that shows how the
+Bioregistry stacks up against other related resources. Keep in mind, the
+Bioregistry is also a meta-resource that incorporates their important parts,
+too. You can understand this chart by looking at the percentage in parentheses
+(like +146% over Identifiers.org) and thinking, wow, those numbers are bigger
+than 0%, which means the Bioregistry is much more comprehensive!
+
+![](https://raw.githubusercontent.com/biopragmatics/bioregistry/main/docs/img/bioregistry_coverage_bar.svg)
 
 ## Website Usage
 
