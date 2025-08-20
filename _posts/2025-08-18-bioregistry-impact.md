@@ -23,7 +23,7 @@ become an independent project with a community-driven governance model and much
 broader applications. This post is a first attempt to quantify its usage and
 impact.
 
-## What are usage and impact?
+## What are Usage and Impact?
 
 For a foundational resource like the Bioregistry, there are two kinds of usage.
 First, direct usage encompasses when a workflow directly reuses the
@@ -54,11 +54,14 @@ development of a
 for such analyses. I don't think anyone would disagree that the DO has had high
 impact.
 
-And since we're here, I think it's fair to say that because DO is built using
-tools that rely on the Bioregistry, that it's fair to claim that DO's (recent)
-impact is partly due to the Bioregistry.
+I think it's fair to say that because DO is built using tools that rely on the
+Bioregistry, that it's fair to claim that DO's (recent) impact is partly due to
+the Bioregistry. I think the Bioregistry is in the excellent position where
+there are a variety of direct and indirect usages, many of which are highly
+impactful, meaning that the Bioregistry can share (a bit) in their glory. Later
+in this post, I'll give a more quantitative justification for that statement.
 
-## Why quantify usage and impact?
+## Why Quantify Usage and Impact?
 
 I think some of the main reasons for quantifying a project's usage and impact
 are to:
@@ -71,14 +74,16 @@ are to:
 At the moment, I am preparing to apply for the Bioregistry to be recognized by
 the Global Biodata Coalition as a
 [Global Core Biodata Resource (GCBR)](https://globalbiodata.org/what-we-do/global-core-biodata-resources/).
-I am also preparing an application on behalf of RWTH Aachen (my current
-affiliation) to join the
+I am also preparing an application on behalf of current affiliation, RWTH Aachen
+University, to join the
 [German Network for Bioinformatics Infrastructure (deNBI)](https://www.denbi.de),
 which will include offering the Bioregistry as key bioinformatics
 infrastructure. Both applications require quantitative evidence of the usage and
-impact of the proposed resource (often called key performance indicators (KPI)).
+impact of the proposed resource. As a side note, these statistics are often
+called key performance indicators (KPI), because simple ideas need good three
+letter acronyms to be taken seriously.
 
-## The Bioregistry in numbers
+## The Bioregistry by the Numbers
 
 There are two kinds of statistics I think are important to convey about the
 Bioregistry. The first is related to community involvement. I've carefully
@@ -123,7 +128,14 @@ than 0%, which means the Bioregistry is much more comprehensive!
 
 ![](https://raw.githubusercontent.com/biopragmatics/bioregistry/main/docs/img/bioregistry_coverage_bar.svg)
 
-## Website Usage
+## Who uses the Bioregistry Website?
+
+The Bioregistry website exposes metadata about ontologies, databases, and other
+resources that mint identifiers. This enables biocurators, data stewards,
+librarians, and others interested in identifying appropriate ontologies for
+reuse in their resources, data management plans, etc. It also allows researchers
+who consume linked (open) data to find context about the kinds of prefixes,
+CURIEs, or URIs that appear.
 
 The following chart breaks down the nearly 4,400 unique users of the
 Bioregistry's website by country. It shows that the Bioregistry is having a
