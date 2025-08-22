@@ -3,4 +3,5 @@ serve:
   docker run --rm --volume="$PWD:/srv/jekyll" -p 4000:4000 -it jekyll/jekyll:4.2.0 jekyll serve
 
 format:
-  npx prettier --prose-wrap always --check "_posts/*.md" --write
+  npx prettier --prose-wrap always --write --check "*.md"
+  npx prettier --prose-wrap always --write --check "_posts/*.md"
