@@ -123,12 +123,14 @@ To give some context to these statistic, here's a chart that shows how the
 Bioregistry stacks up against other related resources. Keep in mind, the
 Bioregistry is also a meta-resource that incorporates their important parts,
 too. You can understand this chart by looking at the percentage in parentheses
-(like +146% over Identifiers.org) and thinking, wow, those numbers are bigger
-than 0%, which means the Bioregistry is much more comprehensive!
+(like +146% over Identifiers.org) and thinking, wow, those numbers are much
+bigger than 0%, which means the Bioregistry is much more comprehensive!
 
 ![](https://raw.githubusercontent.com/biopragmatics/bioregistry/main/docs/img/bioregistry_coverage_bar.svg)
 
-## Who uses the Bioregistry Website?
+## Direct Usage
+
+### Who uses the Bioregistry Website?
 
 The Bioregistry website exposes metadata about ontologies, databases, and other
 resources that mint identifiers. This enables biocurators, data stewards,
@@ -145,7 +147,7 @@ by getting in touch with the
 
 ![](/img/bioregistry-ui-august-2025.png)
 
-## API and Resolver Usage
+### API and Resolver Usage
 
 Many usages of the Bioregistry are in the form of the resolution of links like
 [https://bioregistry.io/chembl:CHEMBL4303805](https://bioregistry.io/chembl:CHEMBL4303805).
@@ -161,7 +163,7 @@ I'm just getting this working, so it should also be able to better keep track of
 unique users (note it's just showing 1 so far) and their countries. Luckily, all
 of this is GDPR-compliant from the beginning.
 
-## Code Usages
+### Code Usage
 
 The Bioregistry distributes a Python package that can be installed with
 `pip install bioregistry`. The following
@@ -175,6 +177,47 @@ identifies places where the `bioregistry` Python package is imported.
 A more detailed version of this is available
 [here](https://biopragmatics.github.io/bioregistry/usages).
 
-## Indirect Usages
+## Indirect Usage
+
+## Identifying Ontologies using the ODK
+
+https://github.com/biopragmatics/bioregistry/pull/1650
+
+This PR adds a script that surveys ODK usage on GitHub and proposes new
+Bioregistry prefixes for ontologies that aren't already listed.
+
+The script takes the following steps:
+
+    Search GitHub for ODK configurations in order to identify repositories containing ontologies
+    Filter out known false positives and low quality repositories (manually curated in the Python file)
+    Map repositories back to the Bioregistry, when possible
+    Otherwise, make stub entries in the Bioregistry for new prefixes
+
+After filtering, this left more than 140 ontologies. This lead to the curation
+of dozens of new prefixes. I left several for later, because some of them were
+in the weird space before they would have any usages, so they were not necessary
+for this analysis. But they could be useful prefixes in the future!
+
+## Rest
 
 The Bioregistry is a part of other software that supports modern biocuration.
+
+One way of doing this is to use Wikidata, which models software dependenceies.
+to some extent, I curated these myself. I also created
+
+<iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20DISTINCT%0A%3Fitem%20%3FshortName%20%3FitemLabel%20%3FitemDescription%20(GROUP_CONCAT(DISTINCT%20%3Ftype%3B%20separator%3D%22%7C%22)%20as%20%3Ftypes)%0AWHERE%20%7B%0A%20%20VALUES%20%3Fsoftware%20%7B%20wd%3AQ109302681%20wd%3AQ116738064%20%7D%0A%20%20%3Fitem%20(wdt%3AP1547%7Cwdt%3AP2283)%2B%20%3Fsoftware%20.%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP1813%20%3FshortName%20.%20%7D%0A%20%20%3Fitem%20wdt%3AP31%2Frdfs%3Alabel%20%3Ftype%20.%0A%20%20FILTER(lang(%3Ftype)%20%3D%20'en')%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%7D%0AGROUP%20BY%20%3Fitem%20%3FshortName%20%3FitemLabel%20%3FitemDescription%0A" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+
+the next step is then to do a literature analysis of each of these. In typical
+charlie fashion, creating this blog post took weeks because I decided that each
+piece of code I wrote was worthy of its own well-defined package
+
+## Journey before Destination
+
+- [pubmed-downloader](https://github.com/cthoyt/pubmed-downloader) for querying
+  PubMed in bulk
+- [wikidata-client](https://github.com/cthoyt/wikidata-client) for common
+  SPARQL-based query functionality on Wikidata
+- [quickstatements-client](https://github.com/cthoyt/quickstatements_client) for
+  automatically creating entities for Python packages and OBO Foundry ontologies
+- curated several new prefixes in the Bioregistry for ontologies that use the
+  ODK
