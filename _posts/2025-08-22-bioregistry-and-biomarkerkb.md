@@ -58,8 +58,8 @@ spaces created for BiomarkerKB:
 
 1. [`obci`](https://bioregistry.io/obci) for the Ontology for Biomarkers of
    Clinical Interest
-2. [`biomarkerkb`](https://bioregistry.io/biomarkerkb) for condition-specific
-   biomarkers
+2. [`biomarkerkb.biomarker`](https://bioregistry.io/biomarkerkb.biomarker) for
+   condition-specific biomarkers
 3. [`biomarkerkb.canonical`](https://bioregistry.io/biomarkerkb.canonical) for
    condition-agnostic biomarkers
 
