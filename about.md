@@ -70,13 +70,14 @@ In 2021, I joined the Laboratory of Systems Pharmacology at Harvard Medical
 School to continue my academic work. In summer 2023, I moved from Harvard to
 Northeastern University to continue working under Ben Gyori.
 
-Between Spring 2024 and Spring 2025, I took a career gap and will be returning
-to a research position in the Department of Chemistry at RWTH Aachen University
-in early Summer 2025, where I will begin building my own group.
+Between Spring 2024 and Spring 2025, I took a career gap then joined the
+Institute of Inorganic Chemistry at RWTH Aachen University in June 2025 where
+I'm working towards building my own group. In parallel, I am looking out for
+professorship opportunities in the Rhineland, near Bonn.
 
 I'm also a real person, too! I love making music, watching movies/TV, running,
-and traveling. I've been to 30 countries so far and tried beer in almost all of
-them. I have yet to enjoy it.
+and traveling. I've been to nearly 40 countries so far and tried beer in almost
+all of them. I have yet to enjoy it.
 
 ## Short Bio Text
 
