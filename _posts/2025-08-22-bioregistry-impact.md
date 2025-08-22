@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Measuring the impact of the Bioregistry
-date: 2025-08-18 13:20:00 +0200
+date: 2025-08-22 16:54:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - CURIE
