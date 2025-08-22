@@ -27,17 +27,19 @@ impact.
 
 For a foundational resource like the Bioregistry, there are two kinds of usage.
 First, direct usage encompasses when a workflow directly reuses the
-Bioregistry's data, software, or web application. For example,
+Bioregistry's data, software, or web application. For example:
 
-1. the [SSSOM-py](https://github.com/mapping-commons/sssom-py) Python package
+1. The [SSSOM-py](https://github.com/mapping-commons/sssom-py) Python package
    for interacting with semantic mappings uses the Bioregistry for supplying a
    comprehensive default prefix map during parsing of SSSOM files.
-2. the [BridgeDB](https://www.bridgedb.org/) identifier mapping service uses the
+2. The [BridgeDB](https://www.bridgedb.org/) identifier mapping service uses the
    Bioregistry Python package to test its source metadata are properly
    standardized
    ([see here](https://github.com/bridgedb/datasources/blob/a238b40b915c7f7a69052afecfdc59ad26211b41/scripts/align_bioregistry.py#L6))
-3. the [Protegé](https://github.com/protegeproject/protege/) ontology editor
-   uses the Bioregistry's API to look up information about prefixes
+3. The [Protegé](https://github.com/protegeproject/protege/) ontology editor
+   uses the Bioregistry's API to look up information about prefixes.
+4. [WikiPathways](https://www.wikipathways.org) uses the Bioregistry's
+   resolution service to linkify compact URIs ( CURIEs).
 
 Second, indirect usage encompasses any other data, software, web application,
 etc. that builds on direct usages. For example, any ontology that is edited
@@ -54,12 +56,13 @@ development of a
 for such analyses. I don't think anyone would disagree that the DO has had high
 impact.
 
-I think it's fair to say that because DO is built using tools that rely on the
-Bioregistry, that it's fair to claim that DO's (recent) impact is partly due to
-the Bioregistry. I think the Bioregistry is in the excellent position where
-there are a variety of direct and indirect usages, many of which are highly
-impactful, meaning that the Bioregistry can share (a bit) in their glory. Later
-in this post, I'll give a more quantitative justification for that statement.
+I think that because DO is built using tools that rely on the Bioregistry, it's
+fair to claim that DO's (recent) impact is partially due to the Bioregistry.
+
+The Bioregistry is in the excellent position where there are a variety of direct
+and indirect usages, many of which are highly impactful, meaning that the
+Bioregistry can share (a bit) in their glory. Later in this post, I'll give a
+more quantitative justification for that statement.
 
 ## Why Quantify Usage and Impact?
 
@@ -79,9 +82,8 @@ University, to join the
 [German Network for Bioinformatics Infrastructure (deNBI)](https://www.denbi.de),
 which will include offering the Bioregistry as key bioinformatics
 infrastructure. Both applications require quantitative evidence of the usage and
-impact of the proposed resource. As a side note, these statistics are often
-called key performance indicators (KPI), because simple ideas need good three
-letter acronyms to be taken seriously.
+impact of the proposed resource as part of their respective key performance
+indicators (KPIs).
 
 ## The Bioregistry by the Numbers
 
@@ -119,12 +121,13 @@ resource itself.
 | Collections                |    18 |
 | External Registries        |    33 |
 
-To give some context to these statistic, here's a chart that shows how the
-Bioregistry stacks up against other related resources. Keep in mind, the
-Bioregistry is also a meta-resource that incorporates their important parts,
-too. You can understand this chart by looking at the percentage in parentheses
-(like +146% over Identifiers.org) and thinking, wow, those numbers are much
-bigger than 0%, which means the Bioregistry is much more comprehensive!
+Note that this table is from mid-August 2025. Most of these numbers increase
+over time. To give some further context to these statistics, here's a chart that
+shows how the Bioregistry stacks up against other related resources. Keep in
+mind, the Bioregistry is also a meta-resource that incorporates their important
+parts, too. You can understand this chart by looking at the percentage in
+parentheses (like +146% over Identifiers.org) and think: wow, those numbers are
+much bigger than 0%, which means the Bioregistry is much more comprehensive!
 
 ![](https://raw.githubusercontent.com/biopragmatics/bioregistry/main/docs/img/bioregistry_coverage_bar.svg)
 
@@ -166,58 +169,128 @@ of this is GDPR-compliant from the beginning.
 ### Code Usage
 
 The Bioregistry distributes a Python package that can be installed with
-`pip install bioregistry`. The following
-[search query](https://github.com/search?q=%22import%20bioregistry%22%20OR%20%22from%20bioregistry%20import%22%20-user%3Acthoyt%20-user%3Asorgerlab%20-user%3Abiopragmatics%20-is%3Afork%20-user%3Apyobo%20-user%3Apybel%20-user%3Agyorilab&type=code)
-identifies places where the `bioregistry` Python package is imported.
+`pip install bioregistry`. I used
+[this query](https://github.com/search?q=%22import%20bioregistry%22%20OR%20%22from%20bioregistry%20import%22%20-user%3Acthoyt%20-user%3Asorgerlab%20-user%3Abiopragmatics%20-is%3Afork%20-user%3Apyobo%20-user%3Apybel%20-user%3Agyorilab&type=code)
+to search GitHub for places where the `bioregistry` Python package is imported
+and took detailed notes about their context (see details
+[here](https://biopragmatics.github.io/bioregistry/usages)).
+
+I found a large variety of usages across software packages, databases,
+ontologies, knowledge graphs, frameworks, and data models. Because the
+[LinkML](https://linkml.io/) modeling language's runtime indirectly depends on
+the Bioregistry, there are also dozens to hundreds of projects that indirectly
+use it. I also noted some usages from large organizations in the bioinformatics
+space, such as SciBite, Synapse, and the NFDI.
 
 <a href="https://docs.google.com/drawings/d/1TqjUc2lxgBaAKhOknYL2erxiqcswevVkhf3mu-7jNtE/edit?usp=sharing">
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vQmRTV8DxPfj0UL0i1dgkiFTgnhvI3mRQxt-sekL5tWCc8d4DLthv-48oBxXRisCdGUluovp4CXcEgN/pub?w=1440&amp;h=1080" />
 </a>
 
-A more detailed version of this is available
-[here](https://biopragmatics.github.io/bioregistry/usages).
-
 ## Indirect Usage
 
-## Identifying Ontologies using the ODK
+I used Wikidata as a backend to assess the indirect usage of the Bioregistry. I
+did this in a few steps:
 
-https://github.com/biopragmatics/bioregistry/pull/1650
+1. Make sure all direct usages have a Wikidata item that has a relationship to
+   the [Bioregistry Wikidata item](https://www.wikidata.org/wiki/Q109302681) via
+   the uses
+   [P1547 (depends on software)](https://www.wikidata.org/wiki/Property:P1547)
+   or [P2283 (uses)](https://www.wikidata.org/wiki/Property:P2283) predicates.
+2. Identify well-known usages of direct usages, make sure they have Wikidata
+   items, and are connected to them
+3. Automate querying Wikidata for all direct and indirect usages
+4. Search PubMed and quantify mentions of all direct and indirect usages
 
-This PR adds a script that surveys ODK usage on GitHub and proposes new
-Bioregistry prefixes for ontologies that aren't already listed.
+### Indirect Software Dependencies
 
-The script takes the following steps:
+I've been developing
+[quickstatements-client](https://github.com/cthoyt/quickstatements_client) for
+automating adding content to Wikidata. I added an extension to it that pulls
+metadata from the Python Package Index (PyPI) and adds Python software packages.
+It does this recursively for a given package and its dependencies while adding
+appropriate
+[P1547 (depends on software)](https://www.wikidata.org/wiki/Property:P1547)
+relations between them.
 
-    Search GitHub for ODK configurations in order to identify repositories containing ontologies
-    Filter out known false positives and low quality repositories (manually curated in the Python file)
-    Map repositories back to the Bioregistry, when possible
-    Otherwise, make stub entries in the Bioregistry for new prefixes
+Unfortunately, this workflow is still limited because it doesn't find depedent
+software. This could be solved by doing a bulk download of PyPI and a
+large-scale network analysis. It might also be possible to extract this
+information from GitHub. However, for now, this is a good first step.
 
-After filtering, this left more than 140 ontologies. This lead to the curation
-of dozens of new prefixes. I left several for later, because some of them were
-in the weird space before they would have any usages, so they were not necessary
-for this analysis. But they could be useful prefixes in the future!
+### Indirect Ontology Dependencies via ODK
 
-## Rest
+The Ontology Development Kit (ODK) uses the Bioregistry in several ways. It is
+used by many ontologies both in and out of the OBO Foundry. I
+[developed a workflow](https://github.com/biopragmatics/bioregistry/pull/1650)
+for identifying ODK usage by searching GitHub and iteratively filtering out
+false positives. This resulted in over 140 repositories, more than half of which
+could directly be mapped back to the Bioregistry, given it tracks the repository
+associated with each prefix.
 
-The Bioregistry is a part of other software that supports modern biocuration.
+I have previously used
+[quickstatements-client](https://github.com/cthoyt/quickstatements_client) for
+automatically adding records for OBO Foundry ontologies. In next steps, I will
+extend this for the other ontologies identified by this analysis and also map
+them back to the ODK using the
+[P1547 (depends on software)](https://www.wikidata.org/wiki/Property:P1547)
+relation.
 
-One way of doing this is to use Wikidata, which models software dependenceies.
-to some extent, I curated these myself. I also created
+As a side note, for repositories using the ODK that couldn't be mapped, I
+automated making stub curations in the Bioregistry, which lead to the curation
+of dozens of new prefixes.
+
+### Querying Wikidata
+
+There's a long tail of different ways to curate indirect usages of the
+Bioregistry. However, I believe that the largest cumulative impact for now will
+be though the lens of the ontologies built using it. After working through the
+scenarios above, I wrote a SPARQL query that recovers all direct and indirect
+dependencies (see live table below).
 
 <iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20DISTINCT%0A%3Fitem%20%3FshortName%20%3FitemLabel%20%3FitemDescription%20(GROUP_CONCAT(DISTINCT%20%3Ftype%3B%20separator%3D%22%7C%22)%20as%20%3Ftypes)%0AWHERE%20%7B%0A%20%20VALUES%20%3Fsoftware%20%7B%20wd%3AQ109302681%20wd%3AQ116738064%20%7D%0A%20%20%3Fitem%20(wdt%3AP1547%7Cwdt%3AP2283)%2B%20%3Fsoftware%20.%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP1813%20%3FshortName%20.%20%7D%0A%20%20%3Fitem%20wdt%3AP31%2Frdfs%3Alabel%20%3Ftype%20.%0A%20%20FILTER(lang(%3Ftype)%20%3D%20'en')%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%7D%0AGROUP%20BY%20%3Fitem%20%3FshortName%20%3FitemLabel%20%3FitemDescription%0A" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
 
-the next step is then to do a literature analysis of each of these. In typical
-charlie fashion, creating this blog post took weeks because I decided that each
-piece of code I wrote was worthy of its own well-defined package
+### Literature Analysis
 
-## Journey before Destination
+The final step was to analyze the literature for mentions of each of these
+direct and indirect dependencies. In typical Charlie fashion, I wanted to
+develop high-quality, modular, reusable software for doing this analysis, which
+lead to [pubmed-downloader](https://github.com/cthoyt/pubmed-downloader) for
+wrapping API-based and bulk queries to PubMed (in addition to bulk downloading
+and processing, but that's a story for a different blog post).
 
-- [pubmed-downloader](https://github.com/cthoyt/pubmed-downloader) for querying
-  PubMed in bulk
-- [wikidata-client](https://github.com/cthoyt/wikidata-client) for common
-  SPARQL-based query functionality on Wikidata
-- [quickstatements-client](https://github.com/cthoyt/quickstatements_client) for
-  automatically creating entities for Python packages and OBO Foundry ontologies
-- curated several new prefixes in the Bioregistry for ontologies that use the
-  ODK
+![](https://raw.githubusercontent.com/cthoyt/bioregistry-impact/refs/heads/main/data/output.png)
+
+This is pretty great, it shows there are potentially thousands of papers that
+mention software, ontologies, databases, etc. that either directly or indirectly
+use the Bioregistry. It also shows, unsurprisingly, that there's a power-law
+distribution in which is mentioned most in the literature.
+
+The code for the literature analysis is available in its
+[own repository](https://github.com/cthoyt/bioregistry-impact). Of course, there
+is still lots of room for improvement and optimization, such as:
+
+1. Making the image above nicer!
+2. Using synonyms for search
+3. Removing false positives
+4. Incorporating citation networks
+
+I'm interested to also make this work flow semi-automated to help assess the
+impact of other software/data resources, especially other key software that's
+supporting the OBO Foundry like
+[SSSOM-py](https://github.com/mapping-commons/sssom-py).
+
+---
+
+Parting thoughts: it does seem like the Bioregistry is having a meaningful
+impact as a relatively young project. However, it's still an uphill climb to get
+more direct recognition and adoption, which requires investing a lot of time in
+community building. This isn't easy for me as an early career researcher not
+only because of lack of time/funding but also because of my relative lack of
+authority in the community of scientists who would benefit most from the
+Bioregistry (which comes with time).
+
+I consider Chris Mungall and his group as the gold standard of being able to
+make large impact fast - they are known and trusted in the community, they have
+dedicated support staff that can focus on community management, they have many
+developers, and many projects where they can push their technologies. I'll get
+there eventually!
