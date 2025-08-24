@@ -32,7 +32,7 @@ Bioregistry's data, software, or web application. For example:
 1. The [SSSOM-py](https://github.com/mapping-commons/sssom-py) Python package
    for interacting with semantic mappings uses the Bioregistry for supplying a
    comprehensive default prefix map during parsing of SSSOM files.
-2. The [BridgeDB](https://www.bridgedb.org/) identifier mapping service uses the
+2. The [BridgeDb](https://www.bridgedb.org/) identifier mapping service uses the
    Bioregistry Python package to test its source metadata are properly
    standardized
    ([see here](https://github.com/bridgedb/datasources/blob/a238b40b915c7f7a69052afecfdc59ad26211b41/scripts/align_bioregistry.py#L6))
