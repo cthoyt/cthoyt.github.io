@@ -19,14 +19,23 @@ post, I use `chembl-downloader` to show how the number of compounds, assays,
 activities, and other entities in ChEMBL have changed over time.
 
 ChEMBL has made 37 releases so far. 35 of them have been major releases, and two
-have been minor releases (v22.1 and v24.1). While it only began bundling a
-SQLite dump of the database in version 19, Eloy Felix recently informed me that
-the team went back and constructed SQlite dumps for all previous versions, too.
+have been minor releases
+([v22.1](https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_22_1/)
+and
+[v24.1](https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_24_1/)).
+While it only began bundling a SQLite dump of the database
+[v19](https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_19/),
+Eloy Felix
+[recently informed me](https://github.com/cthoyt/chembl-downloader/issues/20)
+that the team constructed SQLite dumps for all previous versions, too.
 
 `chembl-downloader` automates downloading any version of ChEMBL's SQLite
 database, unpacking it from the TAR archive, connecting to it, making a SQL
 query, and returning the results as a Pandas DataFrame object with
-`chembl_downloader.query()` or `chembl_downloader.query_scalar()` like in:
+[`chembl_downloader.query()`](https://chembl-downloader.readthedocs.io/en/latest/api/chembl_downloader.query.html)
+or
+[`chembl_downloader.query_scalar()`](https://chembl-downloader.readthedocs.io/en/latest/api/chembl_downloader.query_scalar.html)
+like in:
 
 ```python
 import chembl_downloader
@@ -42,13 +51,15 @@ These functions can be used to write a loop and run the same SQL query over
 every version of ChEMBL with a few two caveats:
 
 1. to get _all_ versions of ChEMBL, it needs to include v22.1 and v22.2.
-   Therefore, you can use the `chembl.versions()` to get the list of all
-   versions, and iterate over that.
-2. SQLite does not allow for opening a compressed database (without paying for
-   an extension), so each version needs to be uncompressed. Unfortunately, my
-   laptop doesn't have enough hard disk space for this, so I wrote a CLI utility
-   that wraps the following analysis, which takes care of deleting old versions
-   after they're used.
+   Therefore, you can use the
+   [`chembl.versions()`](https://chembl-downloader.readthedocs.io/en/latest/api/chembl_downloader.versions.html)
+   to get the list of all versions, and iterate over that.
+2. SQLite does not allow for opening a compressed database
+   ([without paying for an extension](https://www.sqlite.org/zipvfs/doc/trunk/www/readme.wiki)),
+   so each version needs to be uncompressed. Unfortunately, my laptop doesn't
+   have enough hard disk space for this, so I wrote a CLI utility that wraps the
+   following analysis, which takes care of deleting old versions after they're
+   used.
 
 ## Results of Temporal Analysis
 
@@ -60,7 +71,7 @@ activities. I would also like to extend this to documents, drugs, and other
 elements that are summarized on the modern homepage. Here are the results:
 
 | Version | Date       | Compounds |    Assays | Activities | Named Compounds |
-|---------|------------|----------:|----------:|-----------:|----------------:|
+| ------- | ---------- | --------: | --------: | ---------: | --------------: |
 | 35      | 2024-12-01 | 2,496,335 | 1,740,546 | 21,123,501 |          42,231 |
 | 34      | 2024-03-28 | 2,431,025 | 1,644,390 | 20,772,701 |          42,387 |
 | 33      | 2023-05-31 | 2,399,743 | 1,610,596 | 20,334,684 |          41,923 |
@@ -110,34 +121,34 @@ are missing numbers there. I still need to go back and figure out what the table
 was called, then update the `chembl_downloader history` script with some special
 cases to use alternate SQL queries on those versions.
 
-The number of named compounds seems to have plateaued in v19 in 2014. This is strange,
-considering that ChEMBL links to many external resources like ChEBI that have nice
-preferred names that be imported. However, much like I found in a recent post
-about the EFO identifier column in ChEMBL's diseases table, the `pref_name`
-column in the compounds table might not actually mean what I guess it does.
+The number of named compounds seems to have plateaued in v19 in 2014. This is
+strange, considering that ChEMBL links to many external resources like ChEBI
+that have nice preferred names that be imported. However, much like I found in a
+recent post about the EFO identifier column in ChEMBL's diseases table, the
+`pref_name` column in the compounds table might not actually mean what I guess
+it does.
 
-There were a few suspicious places where the nuber of activities actually went down.
-Perhaps this was due to the correction of problematic data ingestion, duplication,
-or something else.
+There were a few suspicious places where the nuber of activities actually went
+down. Perhaps this was due to the correction of problematic data ingestion,
+duplication, or something else.
 
 This also lead me to doing a short analysis of taking the discrete derivative.
-This would allow for taking the histogram of inter-release times, looking at
-the change in productivity of adding new content. I didn't find anything
+This would allow for taking the histogram of inter-release times, looking at the
+change in productivity of adding new content. I didn't find anything
 interesting - the productivity has been about constant.
-
 
 ## Future Ideas
 
-I would love to extend this kind of temporal analysis with e.g., training a
-QSAR model for a given target and seeing how the results change over time
-(though, this is also affected by the issue wiht aggregating data from
-multiple assays). Maybe a different analysis is to quantify the variety of
-chemicals reported over time for a given target. Maybe some targets only get
-small exploration on the same old series and some targets get lots of new
-kinds of chemical space
+I would love to extend this kind of temporal analysis with e.g., training a QSAR
+model for a given target and seeing how the results change over time (though,
+this is also affected by the issue wiht aggregating data from multiple assays).
+Maybe a different analysis is to quantify the variety of chemicals reported over
+time for a given target. Maybe some targets only get small exploration on the
+same old series and some targets get lots of new kinds of chemical space
 
-- find reference to the re-analysis i did on pat walter's post in the chembl-downloader repo
-[](github.com/cthoyt/chembl-downloader/blob/main/notebooks/refresh-static-data.ipynb)
+- find reference to the re-analysis i did on pat walter's post in the
+  chembl-downloader repo
+  [](github.com/cthoyt/chembl-downloader/blob/main/notebooks/refresh-static-data.ipynb)
 
 Maybe doing an analysis of which kinds of targets are covered would also be
 interesting. are there any gaps that have been filled? what's still open?
