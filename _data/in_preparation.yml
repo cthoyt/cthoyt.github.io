@@ -1,3 +1,12 @@
-- name: "Assembly of coherent biomedical lexica"
+- name: "Assembly and application of coherent biomedical lexica"
   venue: "Database"
   first: true
+- name: "OmniPath: integrated knowledgebase for multi-omics analysis"
+  venue: "Nucleic Acids Research"
+  status: submitted
+- name: "VO: The Vaccine Ontology"
+  venue: "Scientific Data"
+  status: submitted
+- name: "More Rigorous Software Engineering Would Improve Reproducibility in Machine Learning Research"
+  venue: TMLR
+  last: true
