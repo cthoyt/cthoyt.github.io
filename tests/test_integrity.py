@@ -12,7 +12,7 @@ class TestIntegrity(unittest.TestCase):
         events = yaml.safe_load(EVENTS_PATH.read_text())
         for event in events:
             self.assertIn("name", event)
-            with self.subTest(name=event['name']):
+            with self.subTest(name=event["name"]):
                 talk = event.get("talk")
                 if talk:
                     self.assertIsInstance(talk, dict)
@@ -26,4 +26,3 @@ class TestIntegrity(unittest.TestCase):
                     self.assertIsInstance(poster, dict)
                     self.assertIn("name", poster)
                     self.assertIn("url", poster)
-
