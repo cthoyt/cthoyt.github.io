@@ -7,6 +7,8 @@
 - name: "VO: The Vaccine Ontology"
   venue: "Scientific Data"
   status: submitted
+  biorxiv: 2025.08.12.669998
 - name: "More Rigorous Software Engineering Would Improve Reproducibility in Machine Learning Research"
   venue: TMLR
   last: true
+  arxiv: 2502.00902
