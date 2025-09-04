@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Making RDF FAIR with the Bioregistry
+title: Validating the FAIRness of knowledge graphs and ontologies in RDF using the Bioregistry
 date: 2025-09-04 14:30:00 +0200
 author: Charles Tapley Hoyt
 tags:
