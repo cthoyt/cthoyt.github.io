@@ -27,7 +27,7 @@ by a nice user interface
 [here](https://nfdi4culture.de/resources/knowledge-graph#) for interactive
 querying in the browser.
 
-![](img/nfdi4culture-sparql.png)
+[![A screenshot of the NFDI4Culture SPARQL endpoint's web-based user interface](/img/nfdi4culture-sparql.png)](https://nfdi4culture.de/resources/knowledge-graph#)
 
 It has two example queries to
 [list all research data repositories](https://nfdi4culture.de/go/sparql-repositories-ta4)
