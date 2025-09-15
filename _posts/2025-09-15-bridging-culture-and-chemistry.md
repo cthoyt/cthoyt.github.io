@@ -8,6 +8,17 @@ tags:
   - sparql
 ---
 
+At the sixth NFDI4Chem consortium meeting,
+[Torsten Schrade](https://www.adwmainz.de/personen/mitarbeiterinnen/profil/torsten-schrade.html)
+from the NFDI4Culture consortium gave a lovely and whimsical talk entitled _A
+Data Alchemist's Journey through NFDI_ which explored ways that we might
+federate and jointly query both consortia's knowledge via their respective
+SPARQL endpoints. This post is about the steps I took to operationalize his toy
+example of connecting paintings depicting alchemists trying to make gold to
+experiments using gold as a reactant or catalyst, or more generally to
+accomplish this for any chemical or compound covered by the Iconclass
+vocabulary.
+
 ## Operationalizing Iconclass
 
 [Iconclass](https://iconclass.org) is a controlled vocabulary used to annotate
