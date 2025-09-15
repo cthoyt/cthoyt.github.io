@@ -10,8 +10,8 @@ tags:
 
 At the sixth NFDI4Chem consortium meeting,
 [Torsten Schrade](https://www.adwmainz.de/personen/mitarbeiterinnen/profil/torsten-schrade.html)
-from the NFDI4Culture consortium gave a lovely and whimsical talk entitled _A
-Data Alchemist's Journey through NFDI_ which explored ways that we might
+from the NFDI4Culture consortium gave a lovely and whimsical talk entitled [_A
+Data Alchemist's Journey through NFDI_](https://zenodo.org/records/17127336) which explored ways that we might
 federate and jointly query both consortia's knowledge via their respective
 SPARQL endpoints. He proposed a toy example in which he linked paintings
 depicting alchemists trying to make gold to compounds containing gold. This post
@@ -58,7 +58,36 @@ demonstrate the weirdness. This is important because PyOBO uses the Bioregistry
 for regular expression validation of identifiers internally, and without this
 update, the Iconclass source doesn't work!
 
+The following SPARQL query 
+
+```sparql
+PREFIX cto:      <https://nfdi4culture.de/ontology#>
+PREFIX iconclass:<https://iconclass.org/>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?concept ?resource (SAMPLE(?lbl) AS ?resourceLabel)
+WHERE {
+  ?resource cto:subjectConcept ?concept .
+  FILTER strstarts(str(?concept),str(iconclass:))
+  OPTIONAL { ?resource rdfs:label ?lbl }
+}
+LIMIT 15
+```
+
+I would like to see a bit more ontologization of Iconclass in the graph -
+first, to have labels for all Iconclass entities. Second, some instance
+definitions so I could do something more idiomatic than filtering by IRI
+prefix.
+
+
 ## Curating Semantic Mappings
+
+The next goal was to identify entries in Iconclass correspond to elements,
+compounds, laboratory equipment, or other terms relevant in the chemistry
+domain, and create mappings that can serve as a "semantic bridge" between
+disciplines.
+
+### First attempt: lexical matching
 
 The [Biomappings](github.com/biopragmatics/biomappings) project provides tools
 for predicting semantic mappings using lexical matching. It can quickly be used
@@ -76,6 +105,8 @@ if __name__ == "__main__":
 This usually works well for matching entities in resources curated as
 ontologies, but because Iconclass's labels aren't typical, it wasn't able to
 generate more than a handful of matches.
+
+## Second attempt: language models and embedding similarity
 
 This prompted me to take a different approach that relies on language models to
 generate embeddings, which are better able to capture the subtle differences in
@@ -104,9 +135,16 @@ if __name__ == "__main__":
     )
 ```
 
+### Curation
+
+- show screenshot of Biomappings
+- mention speed of curation
+
 ## Federated Queries
 
 - automate turning SSSOM into RDF
 - Making a federated query 3 ways between chem, culture, and the bridge that
   finds links between culture objects tagged with icon classes mapped to
   chemicals mapped to notebooks.
+
+use https://nfdi4culture.de/go/kg-query-iconclass-chemistry and 
