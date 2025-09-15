@@ -104,16 +104,17 @@ Some of the key takeaways from this table are:
 1. The feedback on `as` is a false positive - a look at
    https://www.w3.org/ns/activitystreams# shows that the W3 standard wants `as`
    to be the preferred prefix
-2. There's a whole group of URI spaces using `opengis.net` from the
+2. There are several true positive suggestions, like fixing the `ncit` prefix.
+3. There's a whole group of URI spaces using `opengis.net` from the
    [Open Geospatial Consortium](http://www.opengeospatial.org), dealing with
    geospatial data that could be registered in the Bioregistry
-3. There are a large number URI spaces from `openlinksw.com`, which correspond
+4. There are a large number URI spaces from `openlinksw.com`, which correspond
    to Virtuoso itself. These might be good to put in the Bioregistry, but are
    all very short, which means that there is high potential for overlap.
    However, there aren't any reported conflicts
-4. There are several `w3.org` standard prefixes that should be registered in the
+5. There are several `w3.org` standard prefixes that should be registered in the
    Bioregistry.
-5. There are several prefixes that I'm not familiar with that also use short
+6. There are several prefixes that I'm not familiar with that also use short
    acronyms, which makes me a bit hesitant to add in the Bioregistry. In these
    cases, I usually either don't add them because of lack of wide-spread use or
    add them using a less generic prefix.
