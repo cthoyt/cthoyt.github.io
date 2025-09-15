@@ -13,36 +13,45 @@ tags:
 
 Earlier this week at the sixth NFDI4Chem consortium meeting,
 [Torsten Schrade](https://www.adwmainz.de/personen/mitarbeiterinnen/profil/torsten-schrade.html)
-from the NFDI4Culture consortium gave a lovely and whimsical talk entitled _A Data
-Alchemist's Journey through NFDI_ which explored ways that we might federate and
-jointly query both consortia's knowledge via their respective SPARQL endpoints. This post
-is about the very first steps I took when looking into this new (to me) SPARQL endpoint, namely to
-identify what prefixes and semantic spaces are present,
-then [added a new CLI tool](https://github.com/biopragmatics/bioregistry/pull/1691) to
-[the Bioregistry](https://bioregistry.io) to do this reproducibly.
+from the NFDI4Culture consortium gave a lovely and whimsical talk entitled _A
+Data Alchemist's Journey through NFDI_ which explored ways that we might
+federate and jointly query both consortia's knowledge via their respective
+SPARQL endpoints. This post is about the very first steps I took when looking
+into this new (to me) SPARQL endpoint, namely to identify what prefixes and
+semantic spaces are present, then
+[added a new CLI tool](https://github.com/biopragmatics/bioregistry/pull/1691)
+to [the Bioregistry](https://bioregistry.io) to do this reproducibly.
 
-The NFDI4Culture's SPARQL endpoint can be found here:
-[https://nfdi4culture.de/sparql](https://nfdi4culture.de/sparql).
-Like most SPARQL endpoints, it implements a graphical interface for running SPARQL queries and displaying results:
+The NFDI4Culture's SPARQL endpoint `https://nfdi4culture.de/sparql` is wrapped
+by a nice user interface
+[here](https://nfdi4culture.de/resources/knowledge-graph#) for interactive
+querying in the browser.
 
 ![](img/nfdi4culture-sparql.png)
 
-There isn't a diagram of the data schema nor any example queries, so I'm a bit stuck at the moment.
-
-here's an example: https://nfdi4culture.de/go/sparql-data-portals
-
-However, it's based on Virtuoso, so there is a way to look at what are the default CURIE prefixes and
-URI prefixes by navigating to [here](https://nfdi4culture.de/sparql/?help=nsdecl).
+It has two example queries to
+[list all research data repositories](https://nfdi4culture.de/go/sparql-repositories-ta4)
+and to
+[list all research data portals](https://nfdi4culture.de/go/sparql-data-portals),
+but otherwise I'm a bit stuck to better understand its schema.
 
 ## Checking the Prefix Map
 
-In my previous post, I had generalized the notion of prefix map validation to incorporate
-prefix maps from either JSON-LD or in the beginning of turtle files. I extended this even
-further to extract the prefix map from the Virtuoso SPARQL endpoint page in
+However, the NFDI4Culture SPARQL endpoint based on Virtuoso, so there is a way
+to look at what are the default CURIE prefixes and URI prefixes by navigating to
+[here](https://nfdi4culture.de/sparql/?help=nsdecl).
+
+In my [previous post]({% post_url 2025-09-04-bioregistry-turtle-validation %}),
+I demonstrated generalizing the notion of prefix map validation to incorporate
+prefix maps from either JSON-LD or in the beginning of turtle files.
+
+I extended this even further to extract the prefix map from the Virtuoso SPARQL
+endpoint page in
 [biopragmatics/bioregistry#1691](https://github.com/biopragmatics/bioregistry/pull/1691).
-Note that this doesn't work for _all_ triple stores, it just works on Virtuoso because of the way that it provides a
-special page for showing the prefix map. I wasn't able to find a way to get it directly, so the implementation
-does HTML scraping and parsing.
+Note that this doesn't work for _all_ triple stores, it just works on Virtuoso
+because of the way that it provides a special page for showing the prefix map. I
+wasn't able to find a way to get it directly, so the implementation does HTML
+scraping and parsing.
 
 Here's how you can use the validator I wrote:
 
@@ -51,7 +60,7 @@ $ bioregistry validate virtuoso https://nfdi4culture.de/sparql --tablefmt github
 ```
 
 | prefix    | uri_prefix                                            | issue                     | solution                                                          |
-|-----------|-------------------------------------------------------|---------------------------|-------------------------------------------------------------------|
+| --------- | ----------------------------------------------------- | ------------------------- | ----------------------------------------------------------------- |
 | as        | https://www.w3.org/ns/activitystreams#                | unknown CURIE prefix      | Switch to CURIE prefix ac, inferred from URI prefix               |
 | bif       | http://www.openlinksw.com/schemas/bif#                | unknown CURIE prefix      |                                                                   |
 | dawgt     | http://www.w3.org/2001/sw/DataAccess/tests/test-dawg# | unknown CURIE prefix      |                                                                   |
@@ -92,22 +101,27 @@ $ bioregistry validate virtuoso https://nfdi4culture.de/sparql --tablefmt github
 
 Some of the key takeaways from this table are:
 
-1. The feedback on `as` is a false positive - a look at https://www.w3.org/ns/activitystreams# shows that the W3
-   standard wants `as` to be the preferred prefix
-2. There's a whole group of URI spaces using `opengis.net` from
-   the [Open Geospatial Consortium](http://www.opengeospatial.org), dealing with geospatial data that could be
-   registered in the Bioregistry
-3. There are a large number URI spaces from `openlinksw.com`, which correspond to Virtuoso itself. These might be good
-   to put in the Bioregistry, but are all very short, which means that there is high potential for overlap. However,
-   there aren't any reported conflicts
-4.
-
-1. this gives a whole set of related prefixes from OpenGIS, which is related to
-   physical location
+1. The feedback on `as` is a false positive - a look at
+   https://www.w3.org/ns/activitystreams# shows that the W3 standard wants `as`
+   to be the preferred prefix
+2. There's a whole group of URI spaces using `opengis.net` from the
+   [Open Geospatial Consortium](http://www.opengeospatial.org), dealing with
+   geospatial data that could be registered in the Bioregistry
+3. There are a large number URI spaces from `openlinksw.com`, which correspond
+   to Virtuoso itself. These might be good to put in the Bioregistry, but are
+   all very short, which means that there is high potential for overlap.
+   However, there aren't any reported conflicts
+4. There are several `w3.org` standard prefixes that should be registered in the
+   Bioregistry.
+5. There are several prefixes that I'm not familiar with that also use short
+   acronyms, which makes me a bit hesitant to add in the Bioregistry. In these
+   cases, I usually either don't add them because of lack of wide-spread use or
+   add them using a less generic prefix.
 
 ---
 
-Something I still want to implement is a generic workflow for identifying putative URI spaces
-in a given remote SPARQL endpoint. If there are only a small number of triples that can be exhaustively
-queried, then [this workflow](https://curies.readthedocs.io/en/latest/discovery.html) can be used. Otherwise,
-I am still considering different options.
+Something I still want to implement is a generic workflow for identifying
+putative URI spaces in a given remote SPARQL endpoint. If there are only a small
+number of triples that can be exhaustively queried, then
+[this workflow](https://curies.readthedocs.io/en/latest/discovery.html) can be
+used. Otherwise, I am still considering different options.
