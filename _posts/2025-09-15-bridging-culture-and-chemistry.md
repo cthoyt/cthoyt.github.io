@@ -135,6 +135,10 @@ if __name__ == "__main__":
     )
 ```
 
+## Third Attempt: NER
+
+embedding didn't work for chebi, so back to NER
+
 ### Curation
 
 - show screenshot of Biomappings
