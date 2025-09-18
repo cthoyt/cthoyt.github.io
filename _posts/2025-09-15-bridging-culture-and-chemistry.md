@@ -10,13 +10,14 @@ tags:
 
 At the sixth NFDI4Chem consortium meeting,
 [Torsten Schrade](https://www.adwmainz.de/personen/mitarbeiterinnen/profil/torsten-schrade.html)
-from the NFDI4Culture consortium gave a lovely and whimsical talk entitled [_A
-Data Alchemist's Journey through NFDI_](https://zenodo.org/records/17127336) which explored ways that we might
-federate and jointly query both consortia's knowledge via their respective
-SPARQL endpoints. He proposed a toy example in which he linked paintings
-depicting alchemists trying to make gold to compounds containing gold. This post
-is about the steps I took to automate his toy example and extend it arbitrarily
-to any chemicals or compounds represented in Iconclass.
+from the NFDI4Culture consortium gave a lovely and whimsical talk entitled
+[_A Data Alchemist's Journey through NFDI_](https://zenodo.org/records/17127336)
+which explored ways that we might federate and jointly query both consortia's
+knowledge via their respective SPARQL endpoints. He proposed a toy example in
+which he linked paintings depicting alchemists trying to make gold to compounds
+containing gold. This post is about the steps I took to automate his toy example
+and extend it arbitrarily to any chemicals or compounds represented in
+Iconclass.
 
 ## Part 1: The Semantic Lay of the Land
 
@@ -76,10 +77,9 @@ WHERE {
 LIMIT 15
 ```
 
-I would like to see a bit more ontologization of Iconclass in the graph -
-first, to have labels for all Iconclass entities. Second, some instance
-definitions, so I could do something more idiomatic than filtering by IRI
-prefix.
+I would like to see a bit more ontologization of Iconclass in the graph - first,
+to have labels for all Iconclass entities. Second, some instance definitions, so
+I could do something more idiomatic than filtering by IRI prefix.
 
 ## Part 2: Bridging the Semantic Gap
 
@@ -144,13 +144,12 @@ embedding didn't work for chebi, so back to NER
 
 ### Querying NFDI4Culture
 
-
 ### Querying NFDI4Chem
 
 The NFDI4Chem Consortium makes its knowledge graph queryable from SPARQL here:
-[https://search.nfdi4chem.de/sparql](https://search.nfdi4chem.de/sparql). I started
-with the following query to investigate which measurement processes from CHMO appear
-like NMR, mass spectrometry, X-ray diffraction, and microscopy.
+[https://search.nfdi4chem.de/sparql](https://search.nfdi4chem.de/sparql). I
+started with the following query to investigate which measurement processes from
+CHMO appear like NMR, mass spectrometry, X-ray diffraction, and microscopy.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
@@ -166,63 +165,96 @@ GROUP BY ?o ?label
 ORDER BY DESC(?count)
 ```
 
-While most of the
-techniques currently appearing in the NFDI4Chem knowledge graph are a bit too modern to be of (wide) interest in the cultural heritage
+While most of the techniques currently appearing in the NFDI4Chem knowledge
+graph are a bit too modern to be of (wide) interest in the cultural heritage
 world, the term for
 [scanning electron microscopy (CHMO:0000073)](http://purl.obolibrary.org/obo/CHMO_0000073)
-is a descendant of [microscopy (CHMO:0000067)](http://purl.obolibrary.org/obo/CHMO_0000067),
-and this is something that has a corresponding Iconclass (49E2512) for the depiction of a microscope which I curated
-earlier using
-Biomappings. You'd be correct in saying that I made a bit of a hop from the physical instrument of
-a [microscope (CHMO:0000953)](http://purl.obolibrary.org/obo/CHMO_0000953)
-and the process of [microscopy (CHMO:0000067)](http://purl.obolibrary.org/obo/CHMO_0000067), but please give me a bit of
-wiggle room, since we're trying to thread a very tricky needle to bridge culture and chemistry. Ontologically speaking,
-CHMO defines the process of microscopy as having a microscope as a [participant (BFO:0000057)](http://purl.obolibrary.org/obo/BFO_0000057).
+is a descendant of
+[microscopy (CHMO:0000067)](http://purl.obolibrary.org/obo/CHMO_0000067), and
+this is something that has a corresponding Iconclass (49E2512) for the depiction
+of a microscope which I curated earlier using Biomappings.
 
-After a bit of exploring, I was able to construct a query that returns all datas
+#### On the Impedance between Processes and Material Entities
+
+You'd be correct in saying that I made a bit of a hop from the physical
+instrument of a
+[microscope (CHMO:0000953)](http://purl.obolibrary.org/obo/CHMO_0000953) to the
+process of
+[microscopy (CHMO:0000067)](http://purl.obolibrary.org/obo/CHMO_0000067). Please
+give me a bit of wiggle room, since it's already hard enough to thread the
+needle between culture and chemistry. Luckily, CHMO uses a logical axiom on the
+definition of microscopy to denote that all microsopy has a microscope as a
+[participant (BFO:0000057)](http://purl.obolibrary.org/obo/BFO_0000057).
+
+While we'll need this axiom later to construct a more sophisticated SPARQL query
+that can resolve the impedance between the sense that I curated in the mappings
+and what appears in experimental data, it doesn't appear that the NFDI4Chem
+knowledge graph imports a reasoned version of CHMO that materializes this axiom
+as a triple `<CHMO:0000067, BFO:0000057, CHMO:0000953>`. This means that we'll
+have to inject this triple ourselves via federation later.
+
+#### Exploring Microscopy in NFDI4Chem
+
+After a bit of exploring, I was able to construct a query that returns all
+experimental results (`?experiment`) that were generated by microscopy, and the
+dataset/record where they were recorded. From my perspective, it was pretty
+difficult to navigate this, especially without examples and schematic diagrams.
 
 ```sparql
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX CHMO: <http://purl.obolibrary.org/obo/CHMO_>
+
 SELECT * WHERE {
   ?dataset prov:wasGeneratedBy/prov:used ?experiment .
-  ?experiment prov:wasGeneratedBy/rdf:type <http://purl.obolibrary.org/obo/CHMO_0000073> .
+  ?experiment prov:wasGeneratedBy/rdf:type CHMO:0000073 .
 }
 ```
 
-- **dataset**: https://doi.org/10.14272/YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073
-- **experiment**: https://doi.org/10.14272/YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073/spectrum
+One of the twelve records (as of September 18<sup>th</sup>, 2025) returned by
+this query was a scanning electron microscopy (SEM) dataset performed on a
+zirconium-containing molecule. The URI for the experiment,
+`https://doi.org/10.14272/YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073/spectrum`,
+does not resolve, but the dataset at
+[https://doi.org/10.14272/YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073](https://doi.org/10.14272/YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073)
+does. This URI makes me want to scream, though. It does not follow any good
+identifier practices prescribed by Julie McMurry _et al._ (2017) in
+[Identifiers for the 21<sup>st</sup> century](https://doi.org/10.1371/journal.pbio.2001414).
+Here's the image:
+
+![](data:image/png;base64,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)
 
 ## Part 3: Asking Multidisciplinary Questions
 
-Finally, you've arrived at the big conclusion. What can do by bridging the chemistry knowledge graph and
-culture knowledge graph? We can pull in nice pictures to Chemotion representing the experimental methods in a given
+Finally, you've arrived at the big conclusion. What can do by bridging the
+chemistry knowledge graph and culture knowledge graph? We can pull in nice
+pictures to Chemotion representing the experimental methods in a given
 electronic lab notebook!
 
-Is this the most practical query? No. But it's cool, and most importantly, it demonstrates
-that several different parts can be constructed to answer a question.
+Is this the most practical query? No. But it's cool, and most importantly, it
+demonstrates that several different parts can be constructed to answer a
+question.
 
 ```mermaid
 graph LR
     subgraph nfdi4culture [NFDI4Culture]
         painting[Painting] -- annotated with --> iconclass[Iconclass]
     end
-    
+
     subgraph biomappings [Biomappings]
         iconclass -- depicts (Biomappings) --> instrumentClass[Class of Instruments]
     end
-    
+
     subgraph nfdi4chem [NFDI4Chem]
         measurement[Measurement] -- appears in experiment --> experiment[Experiment]
     end
-    
+
     subgraph chmo [CHMO Ontology]
         instrument[Instrument] -- participates in (CHMO) --> measurement
         instrument -- is a (CHMO) --> instrumentClass
     end
 ```
-
 
 - automate turning SSSOM into RDF
 - Making a federated query 3 ways between chem, culture, and the bridge that
@@ -230,4 +262,3 @@ graph LR
   chemicals mapped to notebooks.
 
 use https://nfdi4culture.de/go/kg-query-iconclass-chemistry and
-
