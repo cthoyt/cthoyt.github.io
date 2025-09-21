@@ -67,10 +67,8 @@ version before I switched from Tox to Just:
 
 [`just`](https://github.com/casey/just) is a more generic tool for writing
 tasks, which is a much better fit than Makefiles - read the Just homepage for
-excellent arguments which I won't recapitulate here. Just is also writen Rust,
-making it much faster than Tox (which is implemented in Python).
-
-Here's what the previous Tox configuration looks like using just + uv:
+excellent arguments which I won't recapitulate here. Here's what the previous
+Tox configuration looks like using just + uv:
 
 ```justfile
 [doc("run unit and integration tests")]
