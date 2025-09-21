@@ -82,7 +82,7 @@ test:
 
 [doc("run `coverage` with a given subcommand")]
 @coverage command:
-    uvx --from coverage[toml] coverage {{command}}
+    uvx --from coverage[toml] coverage {% raw %}{{command}}{% endraw %}
 ```
 
 This can be run with `just test` after installing just (e.g.,
