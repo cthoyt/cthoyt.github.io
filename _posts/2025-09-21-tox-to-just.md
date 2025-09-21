@@ -154,4 +154,5 @@ There's a long-standing issue on their tracker
 [https://github.com/astral-sh/uv/issues/5903](astral-sh/uv#5903) that I'm sure
 will be addressed in the future, when they've made an excellent design for the
 developer experience. I'm looking forward to the future where I can write a
-follow-up post entitled _Switching from `just` + `uv` to just `uv`_ (wordplay intended).
+follow-up post entitled _Switching from `just` + `uv` to just `uv`_ (wordplay
+intended).
