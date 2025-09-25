@@ -21,11 +21,65 @@ Iconclass.
 
 ## Part 1: The Semantic Lay of the Land
 
+Since my primary goal is to integrate data across many services and perform a
+federated SPARQL query across the NFDI4Culture and NFDI4Chem knowledge graphs,
+the first step is to understand the landscape of the relevant ontologies,
+controlled vocabularies, and databases who entities will appear as uniform
+resource identifiers (URIs) or compact uniform resource identifiers (CURIEs) as
+well as understanding the URI and CURIE prefixes that are used to abbreviate
+references those entities for clarity. What this means in practice is that you
+might write a SPARQL query like:
+
+```sparql
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX CHMO: <http://purl.obolibrary.org/obo/CHMO_>
+PREFIX nfdi4chem.doi: <https://doi.org/10.14272/>
+
+SELECT * WHERE {
+  ?dataset prov:wasGeneratedBy/prov:used ?experiment .
+  ?experiment prov:wasGeneratedBy/rdf:type CHMO:0000073 .
+}
+```
+
+and get results like:
+
+| dataset                                               | experiment                                                     |
+| ----------------------------------------------------- | -------------------------------------------------------------- |
+| nfdi4chem.doi:YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073 | nfdi4chem.doi:YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073/spectrum |
+| nfdi4chem.doi:YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073 | nfdi4chem.doi:YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073/spectrum |
+| nfdi4chem.doi:ABCUGETYYULVMM-UHFFFAOYSA-N/CHMO0000073 | nfdi4chem.doi:ABCUGETYYULVMM-UHFFFAOYSA-N/CHMO0000073/spectrum |
+| nfdi4chem.doi:ABCUGETYYULVMM-UHFFFAOYSA-N/CHMO0000073 | nfdi4chem.doi:ABCUGETYYULVMM-UHFFFAOYSA-N/CHMO0000073/spectrum |
+| nfdi4chem.doi:UHTPHSRMILZXCX-UHFFFAOYSA-N/CHMO0000073 | nfdi4chem.doi:UHTPHSRMILZXCX-UHFFFAOYSA-N/CHMO0000073/spectrum |
+| nfdi4chem.doi:UHTPHSRMILZXCX-UHFFFAOYSA-N/CHMO0000073 | nfdi4chem.doi:UHTPHSRMILZXCX-UHFFFAOYSA-N/CHMO0000073/spectrum |
+| nfdi4chem.doi:ABCUGETYYULVMM-UHFFFAOYSA-N/CHMO0000073 | nfdi4chem.doi:ABCUGETYYULVMM-UHFFFAOYSA-N/CHMO0000073/spectrum |
+| nfdi4chem.doi:ABCUGETYYULVMM-UHFFFAOYSA-N/CHMO0000073 | nfdi4chem.doi:ABCUGETYYULVMM-UHFFFAOYSA-N/CHMO0000073/spectrum |
+| nfdi4chem.doi:YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073 | nfdi4chem.doi:YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073/spectrum |
+| nfdi4chem.doi:YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073 | nfdi4chem.doi:YJAIWVDPLYJOFU-UHFFFAOYSA-B/CHMO0000073/spectrum |
+| nfdi4chem.doi:UHTPHSRMILZXCX-UHFFFAOYSA-N/CHMO0000073 | nfdi4chem.doi:UHTPHSRMILZXCX-UHFFFAOYSA-N/CHMO0000073/spectrum |
+| nfdi4chem.doi:UHTPHSRMILZXCX-UHFFFAOYSA-N/CHMO0000073 | nfdi4chem.doi:UHTPHSRMILZXCX-UHFFFAOYSA-N/CHMO0000073/spectrum |
+
+and ask yourself the questions:
+
+- What are `prov`, `rdf`, `CHMO` and `nfdi4chem.doi`?
+- Where do they come from?
+- How am I ever going to be able to write my own SPARQL query, I couldn't have
+  come up with that!
+
+
 ### You have to start with the Bioregistry
+
+- what are the semantic spaces in the domain we care about?
+  - for culture, we already know this is Iconclass
+  - for chemistry, we know CHMO, OBI, and ChEBI are important ontologies
+  - how do we find more? The Bioregistry is a tool for discovering ontologies
+    and o
 
 - what is bioregistry
 - using it to find relevant ontologies
 - what ones did I choose?
+
+### Finding Chemical Vocabularies
 
 ### Operationalizing Iconclass
 
@@ -48,15 +102,43 @@ Iconclass identifiers implicitly contain the hierarchy:
 - [`iconclass:4`](https://bioregistry.io/iconclass:4) is used to annotate
   _Society, Civilization, Culture_
 
-Note that unlike an ontology, the hierarchy implied by Iconclass is merely
-organizational and isn't (formally) logical.
+Here's how its web browser looks:
 
 [![](/img/iconclass-alchemist.png)](https://bioregistry.io/iconclass:49E391)
 
-I added a source to PyOBO to ingest Iconclass in
+Iconclass doesn't appear to be curated like an ontology, so the hierarchy is
+often confusing to follow. I found it easier to understand the logic behind the
+hierarchy if you prepend "depiction of" or "depiction of something related to"
+in front of each label. This also makes up for some of the illogical
+hierarchical relations. Here's how I imagine the same hierarchy could be
+clarified with better labels:
+
+- [`iconclass:49E391`](https://bioregistry.io/iconclass:49E391) _depiction of an
+  alchemist at work_
+- [`iconclass:49E39`](https://bioregistry.io/iconclass:49E39) _depiction of
+  alchemy_
+- [`iconclass:49E3`](https://bioregistry.io/iconclass:49E3) _depiction of
+  something related to chemistry_
+- [`iconclass:49E`](https://bioregistry.io/iconclass:49E) _depiction of
+  something related to science or technology_
+- [`iconclass:49`](https://bioregistry.io/iconclass:49) _depiction of something
+  related to education, science, or learning_
+- [`iconclass:4`](https://bioregistry.io/iconclass:4) _depiction of something
+  related to society, civilization, or culture_
+
+Because Iconclass isn't curated as an ontology, there isn't an OWL or OBO file
+that can be used with standard tooling. However, some of the source data is
+available on GitHub at [iconclass/data](https://github.com/iconclass/data), so
+it's possible to write custom code that wrangles it into an ontology-like shape.
+I've actually done this for dozens of repositories already, and written
+[ PyOBO](https://github.com/biopragmatics/pyobo), a library of reusable tooling
+to support ingesting new resources across domains in an ontology-like shape.
+
+Accordingly, I added a source to PyOBO to ingest Iconclass in
 [biopragmatics/pyobo#433](https://github.com/biopragmatics/pyobo/pull/433). This
-enables it to generate ontology-like artifacts in the OWL and OBO formats, as
-well as gives access to the text mining utilities built on top of PyOBO.
+not only enables it to generate ontology-like artifacts in the OWL and OBO
+formats, but also gives access to the text mining utilities built on top of
+PyOBO.
 
 Along the way, I found that Iconclass has a lot more weird and irregular
 identifiers than I had earlier assumed. I was able to make an additional pull
@@ -66,22 +148,6 @@ to update the underlying regular expression pattern and add extra examples to
 demonstrate the weirdness. This is important because PyOBO uses the Bioregistry
 for regular expression validation of identifiers internally, and without this
 update, the Iconclass source doesn't work!
-
-The following SPARQL query
-
-```sparql
-PREFIX cto:      <https://nfdi4culture.de/ontology#>
-PREFIX iconclass:<https://iconclass.org/>
-PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
-
-SELECT ?concept ?resource (SAMPLE(?lbl) AS ?resourceLabel)
-WHERE {
-  ?resource cto:subjectConcept ?concept .
-  FILTER strstarts(str(?concept),str(iconclass:))
-  OPTIONAL { ?resource rdfs:label ?lbl }
-}
-LIMIT 15
-```
 
 I would like to see a bit more ontologization of Iconclass in the graph - first,
 to have labels for all Iconclass entities. Second, some instance definitions, so
@@ -148,10 +214,10 @@ embedding didn't work for chebi, so back to NER
 
 ## Interlude 1: Exploring New SPARQL Endpoints
 
-Before diving in fully federated queries across multiple sources, I want
-to warm up by making self-contained queries over the respective NFDI4Culture and NFDI4Chem
-knowledge graphs. Unfortunately, neither of them are well documented for what I want to do, so put on your pith helmet
-and get ready for some digital
+Before diving in fully federated queries across multiple sources, I want to warm
+up by making self-contained queries over the respective NFDI4Culture and
+NFDI4Chem knowledge graphs. Unfortunately, neither of them are well documented
+for what I want to do, so put on your pith helmet and get ready for some digital
 archaeology.
 
 ### Querying NFDI4Culture
@@ -160,8 +226,9 @@ The NFDI4Culture Consortium makes its knowledge graph queryable from SPARQL
 here:
 [https://nfdi4culture.de/resources/knowledge-graph.html](https://nfdi4culture.de/resources/knowledge-graph.html).
 Using the [example](https://nfdi4culture.de/go/kg-query-iconclass-chemistry)
-from Thorsten's talk as a starting point, and I wrote the following SPARQL query for
-Iconclasses, objects they are annotated to, and URLs for digital depictions of those objects.
+from Thorsten's talk as a starting point, and I wrote the following SPARQL query
+for Iconclasses, objects they are annotated to, and URLs for digital depictions
+of those objects.
 
 ```sparql
 PREFIX cto: <https://nfdi4culture.de/ontology#>
@@ -184,24 +251,25 @@ One record that was returned was
 from the [BildIndex der Kunst & Architektur](https://www.bildindex.de). Notably,
 this image depicts the eponymous professor with his
 [microscope (iconclass:49E2512)](https://bioregistry.io/iconclass:49E2512).
-BildIndex didn't give enough context for me to figure out who Professor Hoffman was (e.g., by connecting to Wikidata or
-other external resources that describe notable people),
-but it did say that the painting is in Bonn! Maybe I will go track it down in person to bring this blog post full
-circle.
+BildIndex didn't give enough context for me to figure out who Professor Hoffman
+was (e.g., by connecting to Wikidata or other external resources that describe
+notable people), but it did say that the painting is in Bonn! Maybe I will go
+track it down in person to bring this blog post full circle.
 
 ![](https://www.bildindex.de/bilder/m/fmla915_09)
 
 #### Minor Criticisms
 
 I immediately identified two issues with the NFDI4Culture knowledge graph:
-first, there are no English labels for
-resources. This is understandable given this is a German project and unlike in science,
-there isn't a huge pressure for internationalization, but it does reduce the value of the
-resource for anyone outside the Germanophone world. Second, even worse, there are no
-labels for Iconclass in German, English, nor any other language. Because I produced ontology
-artifacts for Iconclass (as described earlier in this post), I can get these labels in RDF
-by federating over my own OWL files, but I think that this would be an important addition
-to the NFDI4Culture knowledge graph to improve its own usability.
+first, there are no English labels for resources. This is understandable given
+this is a German project and unlike in science, there isn't a huge pressure for
+internationalization, but it does reduce the value of the resource for anyone
+outside the Germanophone world. Second, even worse, there are no labels for
+Iconclass in German, English, nor any other language. Because I produced
+ontology artifacts for Iconclass (as described earlier in this post), I can get
+these labels in RDF by federating over my own OWL files, but I think that this
+would be an important addition to the NFDI4Culture knowledge graph to improve
+its own usability.
 
 ### Querying NFDI4Chem
 
@@ -287,24 +355,25 @@ I wasn't able to construct a SPARQL query that returned it:
 
 ![](data:image/png;base64,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)
 
-### Querying 
-
+### Querying
 
 ## Interlude 2: Man, I'm Feeling Sanderson
 
 Or, "what the Wind Waker official strategy guide said before doing the last two
-dungeons before going to fight Ganondorf underwater", but that's too long. The point is,
+dungeons before going to fight Ganondorf underwater", but that's too long. The
+point is,
 
 There are a few other random things I think are worth giving as context before
 getting to the end of the story.
 
 ### Unpacking Axioms in an Ontology
 
-It's easy to get confused in the semantic web, ontologies, and RDF world. Ontologies
-are typically encoded using the OWL schema, which can be serialized to XML and RDF.
-However, this doesn't mean that it is RDF that represents the graph you might expect
-an ontology induces. For example, the existential restriction that all microscopy
-has a microscope as a participant is encoded in OWL like this:
+It's easy to get confused in the semantic web, ontologies, and RDF world.
+Ontologies are typically encoded using the OWL schema, which can be serialized
+to XML and RDF. However, this doesn't mean that it is RDF that represents the
+graph you might expect an ontology induces. For example, the existential
+restriction that all microscopy has a microscope as a participant is encoded in
+OWL like this:
 
 ```turtle
 CHMO:0000067 rdf:type owl:Class ;
@@ -315,8 +384,8 @@ CHMO:0000067 rdf:type owl:Class ;
         ] .
 ```
 
-This means if you want to get the aforementioned triple  `<CHMO:0000067, BFO:0000057, CHMO:0000953>`,
-you'll need the following SPARQL:
+This means if you want to get the aforementioned triple
+`<CHMO:0000067, BFO:0000057, CHMO:0000953>`, you'll need the following SPARQL:
 
 ```sparql
 SELECT ?s ?p ?o WHERE {
@@ -332,11 +401,9 @@ It could be worse!
 
 ### SSSOM, RDF, and SPARQL
 
-
 ```
-sssom serve 
+sssom serve
 ```
-
 
 ## Part 3: Asking Multidisciplinary Questions
 
