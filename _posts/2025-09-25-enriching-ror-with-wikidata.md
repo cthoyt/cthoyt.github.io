@@ -173,7 +173,7 @@ are a few examples:
 The point of all of this was to automate adding the missing NFDI consortia
 relationships to the parent NFDI organization in ROR, because I'm interested in
 creating queries over the organization landscape related to NFDI to support an
-uncoming section on Internationalization. And like most things in my work life,
+upcoming section on Internationalization. And like most things in my work life,
 I ended up cleaning some data and making upstream contributions along the way.
 Let's see how receptive ROR is to this! The triples are all
 [here](https://github.com/cthoyt/ror-wikidata-enrichment/blob/main/data/6-diff-suggestions.tsv)
@@ -184,4 +184,34 @@ and I can easily make them a different format for submission.
 Caveat: if you look into the data, you might notice that some of the entities
 don't have labels. I realized this is happening because I haven't updated my
 PyOBO importer to get the 2.0 data dump from ROR, and I'm stuck on old version
-1.36. This can be fixed independently of this workflow.
+1.36. This can be fixed independently of this workflow. Here's the rows related
+to the NFDI consortia that need new relations, which are all missing labels
+until I fix this.
+
+| subjectROR | subjectLabel | predicate | predicateLabel | objectROR | objectLabel                            |
+| ---------- | ------------ | --------- | -------------- | --------- | -------------------------------------- |
+| 00enhv193  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 02cxb1m07  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 03xrvbe74  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 020tty630  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 04ncnzm65  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 01f5dqg10  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 001jhv750  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 0310v3480  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 01d2qgg03  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 01k9z4a50  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 03a4sp974  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 05wwzbv21  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 0305k8y39  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 0238fds33  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 03f6sdf65  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 0033j3009  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 01vnkaz16  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 01v7r4v08  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 04dy2xw62  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 01xptp363  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 034pbpe12  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 05nfk7108  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 00r0qs524  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 00bb4nn95  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
+| 03fqpzb44  |              | P361      | part of        | 05qj6w324 | Nationale Forschungsdateninfrastruktur |
