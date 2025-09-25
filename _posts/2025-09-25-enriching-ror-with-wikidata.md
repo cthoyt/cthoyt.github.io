@@ -112,12 +112,22 @@ middle entities which don't get used. I don't know if the SPARQL engine is able
 to optimize on it, but it's cool. Maybe not so readable, but cool. The loop
 created a super-sized TSV with the predicate and labels added back.
 
+The workflow I implemented for this lives in
+[https://github.com/cthoyt/ror-wikidata-enrichment](https://github.com/cthoyt/ror-wikidata-enrichment).
+The data from Wikidata is in
+[this file](https://github.com/cthoyt/ror-wikidata-enrichment/blob/main/data/3-wikidata-ror-relations.tsv),
+licensed under CC0.
+
+Do you want this workflow to better reflect your organization? Check out my
+other blog post on how to curate data about your research organization:
+https://cthoyt.com/2021/01/17/organization-organization.html.
+
 ## Getting ROR
 
-I've previously written a source to
+I've previously implemented a source in
 [PyOBO](https://github.com/biopragmatics/pyobo) that wraps downloading and
 structuring ROR's data dump into a readily usable format, so getting ROR's
-triples was as easy as
+triples was as easy as:
 
 ```python
 import pyobo
@@ -132,7 +142,46 @@ annotations in the BFO ontology or from Wikidata itself (since I curated those
 into Wikidata years ago when we were preparing the (unpublished) relation
 ontology paper).
 
+I made an intermediate output of all of thet triples
+[here](https://github.com/cthoyt/ror-wikidata-enrichment/raw/refs/heads/main/data/4-ror-relations.tsv),
+licensed under CC0.
+
 ## Putting it all together
 
-While I'm glossing over a few steps, it was possible using the tools in PyOBO
-and the Bioregistry to get data in the right shape.
+While I'm glossing over a few steps that you can grok by reading
+[my python script](https://github.com/cthoyt/ror-wikidata-enrichment/blob/main/main.py),
+it was possible to finish getting the data in the right shape to compare with
+tools in PyOBO and
+[the Bioregistry](https://github.com/biopragmatics/bioregistry.)
+
+The final step was to take the difference between the Wikidata triples and the
+ROR triples, filter for triples that make sense within the ROR schema (which for
+now is just part of and has part relationships), and then dump the results out.
+There were around 67K records before filtering around 2.8K after filtering. Here
+are a few examples:
+
+| subjectROR | subjectLabel                                           | predicate | predicateLabel | objectROR | objectLabel                 |
+| ---------- | ------------------------------------------------------ | --------- | -------------- | --------- | --------------------------- |
+| 00k4nrj32  | Essex County Hospital                                  | P361      | part of        | 02wnqcb97 | National Health Service     |
+| 022efad20  | University of Gabès                                    | P527      | has part(s)    | 01hwc7828 | Institut des Régions Arides |
+| 04p4gjp18  | Center of Excellence on Hazardous Substance Management | P361      | part of        | 028wp3y58 | Chulalongkorn University    |
+| 04tnv7w23  | École Supérieure Polytechnique d'Antsiranana           | P361      | part of        | 00pd4qq98 | Université d’Antsiranana    |
+| 02f4ya153  | Barro Colorado Island                                  | P361      | part of        | 01pp8nd67 | Smithsonian Institution     |
+
+## Coda
+
+The point of all of this was to automate adding the missing NFDI consortia
+relationships to the parent NFDI organization in ROR, because I'm interested in
+creating queries over the organization landscape related to NFDI to support an
+uncoming section on Internationalization. And like most things in my work life,
+I ended up cleaning some data and making upstream contributions along the way.
+Let's see how receptive ROR is to this! The triples are all
+[here](https://github.com/cthoyt/ror-wikidata-enrichment/blob/main/data/6-diff-suggestions.tsv)
+and I can easily make them a different format for submission.
+
+---
+
+Caveat: if you look into the data, you might notice that some of the entities
+don't have labels. I realized this is happening because I haven't updated my
+PyOBO importer to get the 2.0 data dump from ROR, and I'm stuck on old version
+1.36. This can be fixed independently of this workflow.
