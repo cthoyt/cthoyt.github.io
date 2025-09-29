@@ -27,9 +27,8 @@ to ROR.
 ## Getting Wikidata
 
 In Wikidata, an entity can be annotated with a ROR identifier via property
-`P6782`. I wanted to write a SPARQL query for the
-[Wikidata Query Service](https://query.wikidata.org/) to retrieve all triples
-for which both the subject and object have and ROR identifier.
+`P6782`. I wanted to write a SPARQL query for the to retrieve all triples for
+which both the subject and object have and ROR identifier.
 
 ```sparql
 SELECT ?subject ?subjectROR ?subjectLabel ?predicate ?object ?objectROR ?objectLabel
@@ -41,9 +40,27 @@ SELECT ?subject ?subjectROR ?subjectLabel ?predicate ?object ?objectROR ?objectL
 }
 ```
 
-While I now know this query should return about 67K rows, at the time, I ran
-into the issue that it was too complicated and caused the Wikidata Query Service
-to timeout. The next step in any investigation with a blasphemous
+In the first version of this post, I ran the SPARQL queries against first-party
+[Wikidata Query Service (WQS)](https://query.wikidata.org/) (permalink to this
+query at [https://w.wiki/FUVA](https://w.wiki/FUVA)) and ran into timeout
+issues. This motivated the following section of this post on the exploration of
+the underlying triples and alternate query formulations below.
+
+However, both Egon ([here](https://mastodon.social/@egonw/115281836981009390))
+and Tiago
+([here](https://github.com/cthoyt/cthoyt.github.io/issues/78#issuecomment-3345745218))
+suggested I also try the University of Freiburg's QLever mirror of Wikidata
+available at
+[https://qlever.cs.uni-freiburg.de/wikidata](https://qlever.cs.uni-freiburg.de/wikidata)
+(permalink to this query at
+[https://qlever.cs.uni-freiburg.de/wikidata/Vz75fY](https://qlever.cs.uni-freiburg.de/wikidata/Vz75fY?exec=true)).
+
+QLever is blazingly fast and returns about 67K rows in only a few seconds. That
+all being said, I retained my exploration below for posterity.
+
+## Working around timeouts on the WQS
+
+The next step in any investigation with a blasphemous
 `?subject ?predicate ?object` pattern is to look into the predicates and try to
 cut them down. I set to reformulating the query to count the frequency of
 appearance of each predicate.
