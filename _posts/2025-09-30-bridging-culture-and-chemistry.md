@@ -422,7 +422,60 @@ I wasn't able to construct a SPARQL query that returned it:
 
 ![](data:image/png;base64,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)
 
-### Querying
+### Querying Mappings
+
+SSSOM can be converted to RDF, which means it can also be leveraged in SPARQL
+queries.
+
+https://github.com/vemonet/rdflib-endpoint wraps
+[RDFlib](https://github.com/RDFLib/rdflib),
+[FastAPI](https://fastapi.tiangolo.com/), and,
+[YASGUI](https://github.com/TriplyDB/Yasgui) to make it possible to quickly
+deploy a SPARQL endpoint around an RDF file that also comes with a frontend.
+
+In
+[mapping-commons/sssom-py#619](https://github.com/mapping-commons/sssom-py/pull/619),
+I contributed a wrapper around the first-party SSSOM python package and
+`rdflib-endpoint` so a given SSSOM file can be turned into a SPARQL endpoint
+with a single command
+
+```console
+$ sssom serve-rdf https://w3id.org/biopragmatics/biomappings/sssom/biomappings.sssom.tsv
+```
+
+Here's an example query that finds mappings using Iconclasses:
+
+```sparql
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX sssom: <https://w3id.org/sssom/>
+
+SELECT ?iconclass ?o ?justification
+WHERE {
+    ?iconclass skos:exactMatch ?o .
+    FILTER STARTSWITH(?iconclass, "https://iconclass.org/")
+}
+```
+
+It can also be expanded to use reifed information, like the mapping
+justification:
+
+```sparql
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX sssom: <https://w3id.org/sssom/>
+
+SELECT ?iconclass ?o ?justification
+WHERE {
+    [] a owl:Axiom ;
+        owl:annotatedSource ?iconclass ;
+        owl:annotatedProperty skos:exactMatch ;
+        owl:annotatedTarget ?o ;
+        sssom:mapping_justification ?justification .
+
+    FILTER STARTSWITH(?iconclass, "https://iconclass.org/")
+}
+```
 
 ## Interlude 2: Man, I'm Feeling Sanderson
 
@@ -465,12 +518,6 @@ SELECT ?s ?p ?o WHERE {
 ```
 
 It could be worse!
-
-### SSSOM, RDF, and SPARQL
-
-```
-sssom serve
-```
 
 ## Part 3: Asking Multidisciplinary Questions
 
