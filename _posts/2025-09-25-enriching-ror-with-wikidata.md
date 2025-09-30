@@ -136,7 +136,8 @@ The data from Wikidata is in
 licensed under CC0.
 
 Do you want this workflow to better reflect your organization? Check out my
-other blog post on [how to curate data about your research organization]({% post_url 2021-01-17-organization-organization %})
+other blog post on [how to curate data about your research
+organization]({% post_url 2021-01-17-organization-organization %})
 
 ## Getting ROR
 
