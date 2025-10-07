@@ -73,12 +73,12 @@ This immediately leads to a few questions:
 Besides the last question, the answer is the
 [Bioregistry](https://bioregistry.io): an open source, community-curated
 database of prefixes for ontologies, CVs, databases, and other resources that
-mint identifiers that might appear in SPARQL queries or in knowledge graphs.
-In the next few sections of this post, I'll explain how the Bioregistry answers
+mint identifiers that might appear in SPARQL queries or in knowledge graphs. In
+the next few sections of this post, I'll explain how the Bioregistry answers
 these questions.
 
-Caveat: despite its name, the Bioregistry is cross-disciplinary, and we're currently
-working on rebranding it to better reflect this.
+Caveat: despite its name, the Bioregistry is cross-disciplinary, and we're
+currently working on rebranding it to better reflect this.
 
 ### Resolving prefixes, CURIEs, and URIs with the Bioregistry
 
@@ -109,9 +109,10 @@ opportunity to get feedback on if the prefix and URI schema
 
 `rdfs`, `prov`, and `CHMO` are already in the Bioregistry, but there's nothing
 that reflects `nfdi4chem.doi`. This means there's an opportunity here to add a
-new prefix! I already chatted with the Chemotion team about this at the NFDI4Chem meeting
-and am keen to help them adopt [best practices in minting identifiers](https://doi.org/10.1371/journal.pbio.2001414), then get their
-resources registered in the Bioregistry.
+new prefix! I already chatted with the Chemotion team about this at the
+NFDI4Chem meeting and am keen to help them adopt
+[best practices in minting identifiers](https://doi.org/10.1371/journal.pbio.2001414),
+then get their resources registered in the Bioregistry.
 
 ## Part 2: Operationalization of Resources
 
@@ -179,8 +180,8 @@ to support ingesting new resources across domains in an ontology-like shape.
 Accordingly, I added a source to PyOBO to ingest Iconclass in
 [biopragmatics/pyobo#433](https://github.com/biopragmatics/pyobo/pull/433). This
 not only enables it to generate ontology-like artifacts in the OWL and OBO
-formats, but also gives access to the [text mining and FAIR mapping tools built on top of
-PyOBO](https://academic.oup.com/bioinformatics/article/39/4/btad130/7077133).
+formats, but also gives access to the
+[text mining and FAIR mapping tools built on top of PyOBO](https://academic.oup.com/bioinformatics/article/39/4/btad130/7077133).
 
 Along the way, I found that Iconclass has a lot more weird and irregular
 identifiers than I had earlier assumed. I was able to make an additional pull
@@ -199,21 +200,22 @@ I could do something more idiomatic than filtering by IRI prefix.
 
 The next goal was to identify entries in Iconclass correspond to elements,
 compounds, laboratory equipment, or other terms relevant in the chemistry
-domain, and create semantic mappings that can serve as a "semantic bridge" between
-disciplines.
+domain, and create semantic mappings that can serve as a "semantic bridge"
+between disciplines.
 
-This makes use of [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
-as a community standard for storing semantic mappings and giving access to standardized tooling
-for accessing, querying, and applying them.
+This makes use of
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
+as a community standard for storing semantic mappings and giving access to
+standardized tooling for accessing, querying, and applying them.
 
 ### First attempt: lexical matching
 
-The [Biomappings](https://github.com/biopragmatics/biomappings) project provides tools
-for predicting semantic mappings using lexical matching in SSSOM. Much like the Bioregistry,
-this has a bit of a nomenclature issue and is actually cross-disciplinary.
-Anyway, it can quickly be used
-to spin up a workflow for matching any two vocabularies available through PyOBO
-with a few lines. I gave it a try to match Iconclass to the
+The [Biomappings](https://github.com/biopragmatics/biomappings) project provides
+tools for predicting semantic mappings using lexical matching in SSSOM. Much
+like the Bioregistry, this has a bit of a nomenclature issue and is actually
+cross-disciplinary. Anyway, it can quickly be used to spin up a workflow for
+matching any two vocabularies available through PyOBO with a few lines. I gave
+it a try to match Iconclass to the
 [Chemical Methods Ontology (CHMO)](https://bioregistry.io/chmo):
 
 ```python
@@ -260,8 +262,11 @@ if __name__ == "__main__":
 ### Third Attempt: NER
 
 Embedding similarity worked well enough for mapping Iconclass records to CHMO
-and the [Ontology for Biomedical investigations (OBI)](https://bioregistry.io/registry/obi) (another ontology containing experimental equipment), but it didn't work at all for ChEBI because Iconclass records that
-mention chemicals typically have a large amount of other text.
+and the
+[Ontology for Biomedical investigations (OBI)](https://bioregistry.io/registry/obi)
+(another ontology containing experimental equipment), but it didn't work at all
+for ChEBI because Iconclass records that mention chemicals typically have a
+large amount of other text.
 
 This led me to reformulate mapping as a named entity recognition (NER) task, for
 which I implemented yet another new workflow in Biomappings:
@@ -282,10 +287,11 @@ if __name__ == "__main__":
 After all of this, I added a first set of curations to the Biomappings project
 in
 [biopragmatics/biomappings#205](https://github.com/biopragmatics/biomappings/pull/205)
-which are stored in SSSOM within the GitHub repository. Normally, I commit all predictions, but they are so noisy and numerous,
-that I only committed the curations since I focused on a small set that will
-support the bigger story here, and larger scale curation can be done for
-Iconclass to chemistry (and other domains) in a follow-up.
+which are stored in SSSOM within the GitHub repository. Normally, I commit all
+predictions, but they are so noisy and numerous, that I only committed the
+curations since I focused on a small set that will support the bigger story
+here, and larger scale curation can be done for Iconclass to chemistry (and
+other domains) in a follow-up.
 
 ## Interlude 1: Exploring New SPARQL Endpoints
 
@@ -348,10 +354,12 @@ its own usability.
 
 ### Querying NFDI4Chem
 
-Time to switch domains! The NFDI4Chem Consortium makes its knowledge graph queryable from SPARQL here:
+Time to switch domains! The NFDI4Chem Consortium makes its knowledge graph
+queryable from SPARQL here:
 [https://search.nfdi4chem.de/sparql](https://search.nfdi4chem.de/sparql). I
-started with the following SPARQL query to investigate which measurement processes from
-CHMO appear like NMR, mass spectrometry, X-ray diffraction, and microscopy.
+started with the following SPARQL query to investigate which measurement
+processes from CHMO appear like NMR, mass spectrometry, X-ray diffraction, and
+microscopy.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
@@ -424,14 +432,16 @@ SELECT ?s ?p ?o WHERE {
 }
 ```
 
-The NFDI4Chem knowledge graph doesn't actually import CHMO (nor any other ontologies at the moment)
-so in order to incorporate this into a larger query, we'd have to federate once again!
+The NFDI4Chem knowledge graph doesn't actually import CHMO (nor any other
+ontologies at the moment) so in order to incorporate this into a larger query,
+we'd have to federate once again!
 
 #### Exploring Microscopy in NFDI4Chem
 
-After a bit of exploring, I was able to construct a query (which you may remember from earlier in this post) that returns all
-experimental results (`?experiment`) that were generated by microscopy, and the
-dataset/record where they were recorded.
+After a bit of exploring, I was able to construct a query (which you may
+remember from earlier in this post) that returns all experimental results
+(`?experiment`) that were generated by microscopy, and the dataset/record where
+they were recorded.
 
 ```sparql
 PREFIX prov: <http://www.w3.org/ns/prov#>
@@ -463,26 +473,33 @@ I wasn't able to construct a SPARQL query that returned it:
 
 #### Minor Criticisms
 
-Given that the NFDI4Chem knowledge graph was only deployed in earnest a few weeks
-ago and one of its first demos was at the NFDI4Chem Consortium 6.0 Meeting, it's still lacking in documentation,
-examples, schematic diagrams, and other training materials to support people like me who want to navigate
-the knowledge graph and construct SPARQL queries - I have high hopes that this will be forthcoming.
+Given that the NFDI4Chem knowledge graph was only deployed in earnest a few
+weeks ago and one of its first demos was at the NFDI4Chem Consortium 6.0
+Meeting, it's still lacking in documentation, examples, schematic diagrams, and
+other training materials to support people like me who want to navigate the
+knowledge graph and construct SPARQL queries - I have high hopes that this will
+be forthcoming.
 
 ### Querying Mappings
 
 While SSSOM is usually stored in TSV, it has a specification for converting to
-RDF, which means that mappings encoded in SSSOM can be leveraged in SPARQL queries
-through federation.
+RDF, which means that mappings encoded in SSSOM can be leveraged in SPARQL
+queries through federation.
 
-However, there wasn't already a CLI tool for spinning
-up a lightweight SPARQL endpoint based on SSSOM, so I contributed one to [sssom-py](github.com/mapping-commons/sssom-py), the
-first-party SSSOM Python package, in [mapping-commons/sssom-py#619](https://github.com/mapping-commons/sssom-py/pull/619). It works
-by combining the built-in functionality to create an in-memory RDF cache using
-[RDFlib](https://github.com/RDFLib/rdflib) with Vincent Emonet's package [rdflib-endpoint](https://github.com/vemonet/rdflib-endpoint),
-which serves a web application based on [FastAPI](https://fastapi.tiangolo.com/) that has
-a SPARQL endpoint for an RDFlib graph and a user interface via [YASGUI](https://github.com/TriplyDB/Yasgui).
+However, there wasn't already a CLI tool for spinning up a lightweight SPARQL
+endpoint based on SSSOM, so I contributed one to
+[sssom-py](github.com/mapping-commons/sssom-py), the first-party SSSOM Python
+package, in
+[mapping-commons/sssom-py#619](https://github.com/mapping-commons/sssom-py/pull/619).
+It works by combining the built-in functionality to create an in-memory RDF
+cache using [RDFlib](https://github.com/RDFLib/rdflib) with Vincent Emonet's
+package [rdflib-endpoint](https://github.com/vemonet/rdflib-endpoint), which
+serves a web application based on [FastAPI](https://fastapi.tiangolo.com/) that
+has a SPARQL endpoint for an RDFlib graph and a user interface via
+[YASGUI](https://github.com/TriplyDB/Yasgui).
 
-Here's a one-liner to deploy the mappings from the Biomappings project, including the Iconclass mappings described earlier:
+Here's a one-liner to deploy the mappings from the Biomappings project,
+including the Iconclass mappings described earlier:
 
 ```console
 $ uv pip install sssom
@@ -523,10 +540,10 @@ WHERE {
 }
 ```
 
-These were some big interludes! Now is a great place for making a joke about either
-Brandon Sanderson books or the official Wind Waker strategy guide that said there's
-actually a lot of stuff to do before going to fight Ganondorf underwater. But, let's
-push forward.
+These were some big interludes! Now is a great place for making a joke about
+either Brandon Sanderson books or the official Wind Waker strategy guide that
+said there's actually a lot of stuff to do before going to fight Ganondorf
+underwater. But, let's push forward.
 
 ## Part 3: Asking Multidisciplinary Questions
 
@@ -559,10 +576,10 @@ graph LR
     end
 ```
 
-I'm going to be honest, this doesn't work yet, but I still want to put out this blog post.
-So I'm going to write down the ultimate SPARQL query that combines everything we talked about
-so far, with a bit of creativity when it comes to the availability of the SSSOM mappings
-and ontology RDF.
+I'm going to be honest, this doesn't work yet, but I still want to put out this
+blog post. So I'm going to write down the ultimate SPARQL query that combines
+everything we talked about so far, with a bit of creativity when it comes to the
+availability of the SSSOM mappings and ontology RDF.
 
 ```sparql
 PREFIX prov: <http://www.w3.org/ns/prov#>
@@ -580,10 +597,10 @@ SELECT ?dataset ?experiment ?instrument ?painting ?paintingLabel ?paintingURL
 WHERE {
     # This subquery connects datasets, experiments, and the
     # measurement processes using the NFDI4Chem knowledge graph
-    SERVICE <https://search.nfdi4chem.de/sparql> { 
+    SERVICE <https://search.nfdi4chem.de/sparql> {
         ?dataset prov:wasGeneratedBy/prov:used ?experiment .
         ?experiment prov:wasGeneratedBy/rdf:type ?measurmentProcess .
-    } 
+    }
 
     # This subquery connects measurement processes to the instruments
     # that participate (BFO:0000057) in them. It fictionally uses
