@@ -1,11 +1,15 @@
 ---
 layout: post
 title: Bridging NFDI's culture and chemistry knowledge graphs
-date: 2025-09-30 11:45:00 +0200
+date: 2025-10-08 01:18:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - knowledge graphs
   - sparql
+  - chemistry
+  - culture
+  - cultural heritage
+  - NFDI
 ---
 
 At the sixth NFDI4Chem consortium meeting,
