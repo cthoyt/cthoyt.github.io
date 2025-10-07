@@ -16,8 +16,8 @@ which explored ways that we might federate and jointly query both consortia's
 knowledge via their respective SPARQL endpoints. He proposed a toy example in
 which he linked paintings depicting alchemists trying to make gold to compounds
 containing gold. This post is about the steps I took to automate his toy example
-and extend it arbitrarily to any chemicals or compounds represented in
-Iconclass.
+and extend it to not only chemicals or compounds represented in Iconclass, but
+also equipment and devices.
 
 ## Part 1: The Semantic Lay of the Land
 
@@ -74,8 +74,10 @@ Besides the last question, the answer is the
 [Bioregistry](https://bioregistry.io): an open source, community-curated
 database of prefixes for ontologies, CVs, databases, and other resources that
 mint identifiers that might appear in SPARQL queries or in knowledge graphs.
+In the next few sections of this post, I'll explain how the Bioregistry answers
+these questions.
 
-Despite its name, the Bioregistry is cross-disciplinary, and we're currently
+Caveat: despite its name, the Bioregistry is cross-disciplinary, and we're currently
 working on rebranding it to better reflect this.
 
 ### Resolving prefixes, CURIEs, and URIs with the Bioregistry
@@ -107,7 +109,9 @@ opportunity to get feedback on if the prefix and URI schema
 
 `rdfs`, `prov`, and `CHMO` are already in the Bioregistry, but there's nothing
 that reflects `nfdi4chem.doi`. This means there's an opportunity here to add a
-new prefix! However, I'm not going to highlight doing that in this post.
+new prefix! I already chatted with the Chemotion team about this at the NFDI4Chem meeting
+and am keen to help them adopt [best practices in minting identifiers](https://doi.org/10.1371/journal.pbio.2001414), then get their
+resources registered in the Bioregistry.
 
 ## Part 2: Operationalization of Resources
 
@@ -175,8 +179,8 @@ to support ingesting new resources across domains in an ontology-like shape.
 Accordingly, I added a source to PyOBO to ingest Iconclass in
 [biopragmatics/pyobo#433](https://github.com/biopragmatics/pyobo/pull/433). This
 not only enables it to generate ontology-like artifacts in the OWL and OBO
-formats, but also gives access to the text mining utilities built on top of
-PyOBO.
+formats, but also gives access to the [text mining and FAIR mapping tools built on top of
+PyOBO](https://academic.oup.com/bioinformatics/article/39/4/btad130/7077133).
 
 Along the way, I found that Iconclass has a lot more weird and irregular
 identifiers than I had earlier assumed. I was able to make an additional pull
@@ -195,13 +199,19 @@ I could do something more idiomatic than filtering by IRI prefix.
 
 The next goal was to identify entries in Iconclass correspond to elements,
 compounds, laboratory equipment, or other terms relevant in the chemistry
-domain, and create mappings that can serve as a "semantic bridge" between
+domain, and create semantic mappings that can serve as a "semantic bridge" between
 disciplines.
+
+This makes use of [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
+as a community standard for storing semantic mappings and giving access to standardized tooling
+for accessing, querying, and applying them.
 
 ### First attempt: lexical matching
 
-The [Biomappings](github.com/biopragmatics/biomappings) project provides tools
-for predicting semantic mappings using lexical matching. It can quickly be used
+The [Biomappings](https://github.com/biopragmatics/biomappings) project provides tools
+for predicting semantic mappings using lexical matching in SSSOM. Much like the Bioregistry,
+this has a bit of a nomenclature issue and is actually cross-disciplinary.
+Anyway, it can quickly be used
 to spin up a workflow for matching any two vocabularies available through PyOBO
 with a few lines. I gave it a try to match Iconclass to the
 [Chemical Methods Ontology (CHMO)](https://bioregistry.io/chmo):
@@ -250,7 +260,7 @@ if __name__ == "__main__":
 ### Third Attempt: NER
 
 Embedding similarity worked well enough for mapping Iconclass records to CHMO
-and OBI, but it didn't work at all for ChEBI because Iconclass records that
+and the [Ontology for Biomedical investigations (OBI)](https://bioregistry.io/registry/obi) (another ontology containing experimental equipment), but it didn't work at all for ChEBI because Iconclass records that
 mention chemicals typically have a large amount of other text.
 
 This led me to reformulate mapping as a named entity recognition (NER) task, for
@@ -272,9 +282,7 @@ if __name__ == "__main__":
 After all of this, I added a first set of curations to the Biomappings project
 in
 [biopragmatics/biomappings#205](https://github.com/biopragmatics/biomappings/pull/205)
-which are stored in the
-[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
-format. Normally, I commit all predictions, but they are so noisy and numerous,
+which are stored in SSSOM within the GitHub repository. Normally, I commit all predictions, but they are so noisy and numerous,
 that I only committed the curations since I focused on a small set that will
 support the bigger story here, and larger scale curation can be done for
 Iconclass to chemistry (and other domains) in a follow-up.
@@ -340,9 +348,9 @@ its own usability.
 
 ### Querying NFDI4Chem
 
-The NFDI4Chem Consortium makes its knowledge graph queryable from SPARQL here:
+Time to switch domains! The NFDI4Chem Consortium makes its knowledge graph queryable from SPARQL here:
 [https://search.nfdi4chem.de/sparql](https://search.nfdi4chem.de/sparql). I
-started with the following query to investigate which measurement processes from
+started with the following SPARQL query to investigate which measurement processes from
 CHMO appear like NMR, mass spectrometry, X-ray diffraction, and microscopy.
 
 ```sparql
@@ -377,7 +385,7 @@ process of
 [microscopy (CHMO:0000067)](http://purl.obolibrary.org/obo/CHMO_0000067). Please
 give me a bit of wiggle room, since it's already hard enough to thread the
 needle between culture and chemistry. Luckily, CHMO uses a logical axiom on the
-definition of microscopy to denote that all microsopy has a microscope as a
+definition of microscopy to denote that all microscopy has a microscope as a
 [participant (BFO:0000057)](http://purl.obolibrary.org/obo/BFO_0000057).
 
 While we'll need this axiom later to construct a more sophisticated SPARQL query
@@ -387,12 +395,43 @@ knowledge graph imports a reasoned version of CHMO that materializes this axiom
 as a triple `<CHMO:0000067, BFO:0000057, CHMO:0000953>`. This means that we'll
 have to inject this triple ourselves via federation later.
 
+It's easy to get confused in the semantic web, ontologies, and RDF world.
+Ontologies are typically encoded using the OWL schema, which can be serialized
+to XML and RDF. However, this doesn't mean that it is RDF that represents the
+graph you might expect an ontology induces. For example, the existential
+restriction that all microscopy has a microscope as a participant is encoded in
+OWL like this:
+
+```turtle
+CHMO:0000067 rdf:type owl:Class ;
+    rdfs:subClassOf OBI:0000185 ,
+        [ rdf:type owl:Restriction ;
+          owl:onProperty BFO:0000057 ;
+          owl:someValuesFrom CHMO:0000953 .
+        ] .
+```
+
+This means if you want to get the aforementioned triple
+`<CHMO:0000067, BFO:0000057, CHMO:0000953>`, you'll need the following SPARQL:
+
+```sparql
+SELECT ?s ?p ?o WHERE {
+    ?s rdfs:subClassOf [
+        rdf:type owl:Restriction;
+        owl:onProperty ?p ;
+        owl:someValuesFrom ?o
+    ] .
+}
+```
+
+The NFDI4Chem knowledge graph doesn't actually import CHMO (nor any other ontologies at the moment)
+so in order to incorporate this into a larger query, we'd have to federate once again!
+
 #### Exploring Microscopy in NFDI4Chem
 
-After a bit of exploring, I was able to construct a query that returns all
+After a bit of exploring, I was able to construct a query (which you may remember from earlier in this post) that returns all
 experimental results (`?experiment`) that were generated by microscopy, and the
-dataset/record where they were recorded. From my perspective, it was pretty
-difficult to navigate this, especially without examples and schematic diagrams.
+dataset/record where they were recorded.
 
 ```sparql
 PREFIX prov: <http://www.w3.org/ns/prov#>
@@ -422,24 +461,31 @@ I wasn't able to construct a SPARQL query that returned it:
 
 ![](data:image/png;base64,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)
 
+#### Minor Criticisms
+
+Given that the NFDI4Chem knowledge graph was only deployed in earnest a few weeks
+ago and one of its first demos was at the NFDI4Chem Consortium 6.0 Meeting, it's still lacking in documentation,
+examples, schematic diagrams, and other training materials to support people like me who want to navigate
+the knowledge graph and construct SPARQL queries - I have high hopes that this will be forthcoming.
+
 ### Querying Mappings
 
-SSSOM can be converted to RDF, which means it can also be leveraged in SPARQL
-queries.
+While SSSOM is usually stored in TSV, it has a specification for converting to
+RDF, which means that mappings encoded in SSSOM can be leveraged in SPARQL queries
+through federation.
 
-https://github.com/vemonet/rdflib-endpoint wraps
-[RDFlib](https://github.com/RDFLib/rdflib),
-[FastAPI](https://fastapi.tiangolo.com/), and,
-[YASGUI](https://github.com/TriplyDB/Yasgui) to make it possible to quickly
-deploy a SPARQL endpoint around an RDF file that also comes with a frontend.
+However, there wasn't already a CLI tool for spinning
+up a lightweight SPARQL endpoint based on SSSOM, so I contributed one to [sssom-py](github.com/mapping-commons/sssom-py), the
+first-party SSSOM Python package, in [mapping-commons/sssom-py#619](https://github.com/mapping-commons/sssom-py/pull/619). It works
+by combining the built-in functionality to create an in-memory RDF cache using
+[RDFlib](https://github.com/RDFLib/rdflib) with Vincent Emonet's package [rdflib-endpoint](https://github.com/vemonet/rdflib-endpoint),
+which serves a web application based on [FastAPI](https://fastapi.tiangolo.com/) that has
+a SPARQL endpoint for an RDFlib graph and a user interface via [YASGUI](https://github.com/TriplyDB/Yasgui).
 
-In
-[mapping-commons/sssom-py#619](https://github.com/mapping-commons/sssom-py/pull/619),
-I contributed a wrapper around the first-party SSSOM python package and
-`rdflib-endpoint` so a given SSSOM file can be turned into a SPARQL endpoint
-with a single command
+Here's a one-liner to deploy the mappings from the Biomappings project, including the Iconclass mappings described earlier:
 
 ```console
+$ uv pip install sssom
 $ sssom serve-rdf https://w3id.org/biopragmatics/biomappings/sssom/biomappings.sssom.tsv
 ```
 
@@ -477,47 +523,10 @@ WHERE {
 }
 ```
 
-## Interlude 2: Man, I'm Feeling Sanderson
-
-Or, "what the Wind Waker official strategy guide said before doing the last two
-dungeons before going to fight Ganondorf underwater", but that's too long. The
-point is,
-
-There are a few other random things I think are worth giving as context before
-getting to the end of the story.
-
-### Unpacking Axioms in an Ontology
-
-It's easy to get confused in the semantic web, ontologies, and RDF world.
-Ontologies are typically encoded using the OWL schema, which can be serialized
-to XML and RDF. However, this doesn't mean that it is RDF that represents the
-graph you might expect an ontology induces. For example, the existential
-restriction that all microscopy has a microscope as a participant is encoded in
-OWL like this:
-
-```turtle
-CHMO:0000067 rdf:type owl:Class ;
-    rdfs:subClassOf OBI:0000185 ,
-        [ rdf:type owl:Restriction ;
-          owl:onProperty BFO:0000057 ;
-          owl:someValuesFrom CHMO:0000953 .
-        ] .
-```
-
-This means if you want to get the aforementioned triple
-`<CHMO:0000067, BFO:0000057, CHMO:0000953>`, you'll need the following SPARQL:
-
-```sparql
-SELECT ?s ?p ?o WHERE {
-    ?s rdfs:subClassOf [
-        rdf:type owl:Restriction;
-        owl:onProperty ?p ;
-        owl:someValuesFrom ?o .
-    ] .
-}
-```
-
-It could be worse!
+These were some big interludes! Now is a great place for making a joke about either
+Brandon Sanderson books or the official Wind Waker strategy guide that said there's
+actually a lot of stuff to do before going to fight Ganondorf underwater. But, let's
+push forward.
 
 ## Part 3: Asking Multidisciplinary Questions
 
@@ -550,8 +559,59 @@ graph LR
     end
 ```
 
-- Making a federated query 3 ways between chem, culture, and the bridge that
-  finds links between culture objects tagged with icon classes mapped to
-  chemicals mapped to notebooks.
+I'm going to be honest, this doesn't work yet, but I still want to put out this blog post.
+So I'm going to write down the ultimate SPARQL query that combines everything we talked about
+so far, with a bit of creativity when it comes to the availability of the SSSOM mappings
+and ontology RDF.
 
-use https://nfdi4culture.de/go/kg-query-iconclass-chemistry and
+```sparql
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX BFO: <http://purl.obolibrary.org/obo/BFO_>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX cto: <https://nfdi4culture.de/ontology#>
+PREFIX schema: <http://schema.org/image>
+PREFIX iconclass: <https://iconclass.org/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX CHMO: <http://purl.obolibrary.org/obo/CHMO_>
+
+SELECT ?dataset ?experiment ?instrument ?painting ?paintingLabel ?paintingURL
+WHERE {
+    # This subquery connects datasets, experiments, and the
+    # measurement processes using the NFDI4Chem knowledge graph
+    SERVICE <https://search.nfdi4chem.de/sparql> { 
+        ?dataset prov:wasGeneratedBy/prov:used ?experiment .
+        ?experiment prov:wasGeneratedBy/rdf:type ?measurmentProcess .
+    } 
+
+    # This subquery connects measurement processes to the instruments
+    # that participate (BFO:0000057) in them. It fictionally uses
+    # Ubergraph as a service, but this won't work because it doesn't
+    # yet incorporate CHMO
+    SERVICE <https://ubergraph.apps.renci.org/sparql> {
+        ?measurmentProcess rdfs:subClassOf [
+            rdf:type owl:Restriction;
+            owl:onProperty BFO:0000057 ;
+            owl:someValuesFrom ?instrument
+        ] .
+    }
+
+    # This subquery uses SSSOM from Biomappings to look up relationships
+    # between iconclasses and instruments. It fictionally imagines a
+    # Base4NFDI service that serves semantic mappings via SPARQL.
+    SERVICE <https://sssom.services.base4nfdi.de/sparql> {
+        ?iconclass skos:relatedMatch ?instrument .
+    }
+
+    # The final subquery connects iconclasses to paintings
+    # and their corresponding URLs for depiction via the
+    # NFDI4Culture knowledge graph
+    SERVICE <https://nfdi4culture.de/sparql> {
+        ?painting cto:subjectConcept ?iconclass ;
+                  schema:image ?paintingURL .
+        FILTER STRSTARTS(STR(?iconclass), STR(iconclass:))
+        OPTIONAL { ?painting rdfs:label ?paintingLabel }
+    }
+}
+```
