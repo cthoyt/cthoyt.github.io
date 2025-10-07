@@ -540,9 +540,9 @@ WHERE {
 }
 ```
 
-These were some big interludes! Now is a great place for making a joke about
-either Brandon Sanderson books or the official Wind Waker strategy guide that
-said there's actually a lot of stuff to do before going to fight Ganondorf
+These were some big interludes! Now would be a great time for making a joke
+about either Brandon Sanderson books or the official Wind Waker strategy guide
+that said there's actually a lot of stuff to do before going to fight Ganondorf
 underwater. But, let's push forward.
 
 ## Part 3: Asking Multidisciplinary Questions
@@ -677,9 +677,15 @@ scattered throughout Germany. I did give it a shot after the nightly activities
 were over and made a [screencast](https://www.youtube.com/watch?v=WMWaryo3w4s)
 of the steps in preparing Iconclass for PyOBO. Maybe you'll find it interesting
 watching me code - it's a relatively quiet video with no narration except the
-occasional exploitative (you've been warned). I got as far as the first attempt
-at generating semantic mappings from Iconclass to CHMO, OBI, and ChEBI.
+occasional expletive (you've been warned). I got as far as the first attempt at
+generating semantic mappings from Iconclass to CHMO, OBI, and ChEBI.
 
 As you might have guessed from reading, it actually ended up taking several
 weeks to make improvements to different pieces of software, to curate new data,
-and to write it all up. So it goes!
+and to write it all up. And, it's not even working yet. So it goes!
+
+---
+
+Double post-script, wow! If you're in the NFDI sphere and have ideas for other
+cross-disciplinary queries, please let me know. I am excited to extend this
+demonstration, especially to something more practical.
