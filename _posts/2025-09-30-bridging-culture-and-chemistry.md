@@ -548,13 +548,25 @@ underwater. But, let's push forward.
 ## Part 3: Asking Multidisciplinary Questions
 
 Finally, you've arrived at the big conclusion. What can do by bridging the
-chemistry knowledge graph and culture knowledge graph? We can pull in nice
-pictures to Chemotion representing the experimental methods in a given
-electronic lab notebook!
+chemistry knowledge graph and culture knowledge graph? We can connect datasets
+in Chemotion electronic laboratory notebooks (ELNs) that annotate the instrument
+used for generation with depictions of those instruments in cultural heritage
+objects like paintings.
 
-Is this the most practical query? No. But it's cool, and most importantly, it
-demonstrates that several different parts can be constructed to answer a
-question.
+Is this the most practical query? No. But it's cool, and more importantly, it
+demonstrates a few things:
+
+1. Even a mundane question might require federating many different resources
+2. NFDI has successfully built many detailed resources that support these
+   questions
+3. We're almost at the point where these questions can be operationalized
+4. Where the NFDI's semantic stack has gaps, I am ready to contribute my own
+   technologies. I'm very excited to have recently joined NFDI during summer
+   2026, and I'm looking forward to helping shape its semantics roadmap
+
+Here's an architectural diagram of the resources that are required for making
+the query I described, which highlights the boundaries between resources and the
+relationships that connect across them.
 
 ```mermaid
 graph LR
@@ -576,10 +588,22 @@ graph LR
     end
 ```
 
-I'm going to be honest, this doesn't work yet, but I still want to put out this
-blog post. So I'm going to write down the ultimate SPARQL query that combines
-everything we talked about so far, with a bit of creativity when it comes to the
-availability of the SSSOM mappings and ontology RDF.
+Finally, to tie up the whole post, here's what I imagine the SPARQL that would
+encode this query would look like. I say this in the conjunctive because this
+SPARQL won't actually run - it relies on the existence of two services that
+don't yet exist:
+
+1. An endpoint that serves semantic mappings, like I described above
+2. An endpoint that serves ontologies.
+
+I got creative here, and imagined that we might have a Base4NFDI service for
+mappings in the future. We could also extend the
+[Ubergraph](https://github.com/INCATools/ubergraph) to include CHMO to make this
+query work, or potentially incorporate an extension of this service into the
+Terminologies for NFDI (TS4NFDI).
+
+Without further ado, here's the query. There are notes inside it explaining what
+it's doing.
 
 ```sparql
 PREFIX prov: <http://www.w3.org/ns/prov#>
@@ -607,6 +631,10 @@ WHERE {
     # Ubergraph as a service, but this won't work because it doesn't
     # yet incorporate CHMO
     SERVICE <https://ubergraph.apps.renci.org/sparql> {
+        # this could be extended further to do variable
+        # hierchical traversal of measurement processes'
+        # and instruments' subclassess, but skipped for
+        # brevity
         ?measurmentProcess rdfs:subClassOf [
             rdf:type owl:Restriction;
             owl:onProperty BFO:0000057 ;
@@ -617,9 +645,12 @@ WHERE {
     # This subquery uses SSSOM from Biomappings to look up relationships
     # between iconclasses and instruments. It fictionally imagines a
     # Base4NFDI service that serves semantic mappings via SPARQL.
-    SERVICE <https://sssom.services.base4nfdi.de/sparql> {
+    SERVICE <https://mappings.services.base4nfdi.de/sparql> {
         ?iconclass skos:relatedMatch ?instrument .
     }
+
+    # Missing: variable-length hierarchical traversal of the
+    # iconclasses
 
     # The final subquery connects iconclasses to paintings
     # and their corresponding URLs for depiction via the
@@ -632,3 +663,23 @@ WHERE {
     }
 }
 ```
+
+---
+
+Like many of my favorite blog posts, this one was also something of a
+misadventure. After hearing Thorsten's talk, I whispered to Philip, who was
+sitting next to me, something like, _neat! I bet we could code that up tonight
+in an evening hacking session_.
+
+We didn't quite get around to that because the consortium meeting was also a
+great opportunity to socialize with our excellent colleagues who are typically
+scattered throughout Germany. I did give it a shot after the nightly activities
+were over and made a [screencast](https://www.youtube.com/watch?v=WMWaryo3w4s)
+of the steps in preparing Iconclass for PyOBO. Maybe you'll find it interesting
+watching me code - it's a relatively quiet video with no narration except the
+occasional exploitative (you've been warned). I got as far as the first attempt
+at generating semantic mappings from Iconclass to CHMO, OBI, and ChEBI.
+
+As you might have guessed from reading, it actually ended up taking several
+weeks to make improvements to different pieces of software, to curate new data,
+and to write it all up. So it goes!
