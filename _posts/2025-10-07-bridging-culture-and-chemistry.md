@@ -196,10 +196,6 @@ demonstrate the weirdness. This is important because PyOBO uses the Bioregistry
 for regular expression validation of identifiers internally, and without this
 update, the Iconclass source doesn't work!
 
-I would like to see a bit more ontologization of Iconclass in the graph - first,
-to have labels for all Iconclass entities. Second, some instance definitions, so
-I could do something more idiomatic than filtering by IRI prefix.
-
 ## Part 3: Bridging the Semantic Gap
 
 The next goal was to identify entries in Iconclass correspond to elements,
@@ -519,7 +515,7 @@ PREFIX sssom: <https://w3id.org/sssom/>
 
 SELECT ?iconclass ?o ?justification
 WHERE {
-    ?iconclass skos:exactMatch ?o .
+    ?iconclass skos:relatedMatch ?o .
     FILTER STARTSWITH(?iconclass, "https://iconclass.org/")
 }
 ```
@@ -536,7 +532,7 @@ SELECT ?iconclass ?o ?justification
 WHERE {
     [] a owl:Axiom ;
         owl:annotatedSource ?iconclass ;
-        owl:annotatedProperty skos:exactMatch ;
+        owl:annotatedProperty skos:relatedMatch ;
         owl:annotatedTarget ?o ;
         sssom:mapping_justification ?justification .
 
@@ -579,16 +575,19 @@ graph LR
     end
 
     subgraph biomappings [Biomappings]
-        iconclass -- depicts (Biomappings) --> instrumentClass[Class of Instruments]
-    end
-
-    subgraph nfdi4chem [NFDI4Chem]
-        measurement[Measurement] -- appears in experiment --> experiment[Experiment]
+        iconclass -. federation -.- iconclass2[Iconclass]
+        iconclass2 -- depicts (Biomappings) --> instrumentClass2[Class of Instruments]
     end
 
     subgraph chmo [CHMO Ontology]
-        instrument[Instrument] -- participates in (CHMO) --> measurement
-        instrument -- is a (CHMO) --> instrumentClass
+        instrumentClass2 -. federation -.- instrumentClass[Class of Instruments]
+        instrument[Instrument] -- participates in --> measurement[Measurement]
+        instrument -- is a --> instrumentClass
+    end
+
+    subgraph nfdi4chem [NFDI4Chem]
+        measurement-. federation -.- measurement2[Measurement]
+        measurement2[Measurement] -- appears in experiment --> experiment[Experiment]
     end
 ```
 
