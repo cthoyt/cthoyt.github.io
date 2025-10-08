@@ -549,7 +549,7 @@ about either Brandon Sanderson books or the official Wind Waker strategy guide
 that said there's actually a lot of stuff to do before going to fight Ganondorf
 underwater. But, let's push forward.
 
-## Part 3: Asking Multidisciplinary Questions
+## Part 4: Asking Multidisciplinary Questions
 
 Finally, you've arrived at the big conclusion. What can do by bridging the
 chemistry knowledge graph and culture knowledge graph? We can connect datasets
