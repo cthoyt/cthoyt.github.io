@@ -49,6 +49,15 @@ and an enzyme class.
 
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vQkR3OSIqN3GoYJvtNtzvUWIRLYHTyciQ-PdC9OeE72gyk_kZ0cSDpZZ1dc2zgYLi4ZBexP3iZtn0mV/pub?w=1542&amp;h=1116">
 
+```mermaid
+graph LR
+    gene["AKT1 (HGNC:391)"] -- "has gene product (RO:0002205)" --> protein["RAC-alpha serine/threonine-protein kinase (uniprot:P31749)"] -- "enables (RO:0002327)" --> activity["non-specific serine/threonine protein kinase (EC:2.7.11.1)"]
+    gene -- has gene product that enables --> activity
+```
+
+https://github.com/oborel/obo-relations/issues/873
+
+
 Related discussions:
 
 - https://github.com/oborel/obo-relations/issues/783
