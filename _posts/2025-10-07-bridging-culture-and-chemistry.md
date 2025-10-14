@@ -580,7 +580,7 @@ graph LR
     end
 
     subgraph chmo [CHMO Ontology]
-        instrumentClass[Class of Instruments] -. federation -.- instrumentClass2 
+        instrumentClass[Class of Instruments] -. federation -.- instrumentClass2
         instrument[Instrument] -- participates in --> measurement[Measurement]
         instrument -- is a --> instrumentClass
     end
