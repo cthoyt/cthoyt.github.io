@@ -395,7 +395,7 @@ graph LR
     gene -- " located in<br>(RO:0001025) " --> chr[Chromosome Region<br>CHR]
 ```
 
-Again as text:
+To briefly summarize this diagram:
 
 1. References to other model organism databases are modeled as orthology
    relationships
@@ -408,6 +408,9 @@ Again as text:
    measurements for a given gene are modeled with database cross-references
 6. I already mentioned in more detail above how enzymes, gene groups, and
    locations are annotated.
+
+The implementation of this logic can be found in the
+[PyOBO source module for HGNC](https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/hgnc/hgnc.py).
 
 ## What Was Skipped
 
@@ -427,3 +430,25 @@ on OMO issue tracker, specifically in
 While I don't offer an isomorphic (i.e., covers everything that's there)
 solution for ontologization of this part of the content, I do believe that the
 rest of my choices address the three big benefits I mentioned at the start.
+
+---
+
+Wow, this is my first ever double blog post. It took me a full day to write it,
+not to mention the years of work that went into the software ecosystem itself
+and the time put into improving the HGNC PyOBO source module in preparation for
+writing it. I am very happy to be reporting on this, and to see how it will
+positively impact the community.
+
+If you made it this far and are interested in collaborating to make your own
+resource accessible through PyOBO, please get in touch using my contact
+information at the bottom of the page or by opening an issue on the
+[PyOBO issue tracker](https://github.com/biopragmatics/pyobo/issues).
+
+I'm also open to collaboration through grant writing or contract/consulting work
+via my current employer (RWTH Aachen University) for extending and applying
+PyOBO and the wider [Biopragmatics Stack](https://biopragmatics.github.io) in
+new domains. This has been very successful in the
+[DARPA ASKEM](https://www.darpa.mil/research/programs/automating-scientific-knowledge-extraction-modeling)
+project,
+[DTRA RAPTER](https://www.lanl.gov/media/publications/1663/0125-ai-vaccines-drugs)
+project, and now in several DFG-funded German NFDI consortia.

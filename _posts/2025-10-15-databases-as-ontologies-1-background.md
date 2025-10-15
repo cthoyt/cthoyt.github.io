@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Databases as Ontologies Part 1 - Background
+title: Databases as Ontologies Part 1 - Background and Software
 date: 2025-10-14 10:14:00 +0200
 author: Charles Tapley Hoyt
 tags:
@@ -12,11 +12,11 @@ tags:
 This is the first of a two-part post about encoding databases as ontologies. In
 this post, I give a background on the problems in biocuration that led me to
 start encoding databases as ontologies, the
-[software](https://github.com/biopragmatics/pyobo) I have written to do so, and
+[software](https://github.com/biopragmatics/pyobo) I have written to do it, and
 the [repository](https://github.com/biopragmatics/obo-db-ingest) I have created
-to store the resulting artifacts. See also the [second
-part]({% post_url 2025-10-15-databases-as-ontologies-2-hgnc %}) which describes
-how I applied these tools to encode the
+to store the resulting artifacts in a FAIR, open, and sustainable way. See also
+the [second part]({% post_url 2025-10-15-databases-as-ontologies-2-hgnc %})
+which describes how I applied these tools to encode the
 [HGNC (HUGO Gene Nomenclature Committee)](http://www.genenames.org) database as
 an ontology.
 
@@ -275,8 +275,7 @@ the repository, such as the [KG Registry](https://kghub.org/kg-registry).
 
 ---
 
-See also the [second
-part]({% post_url 2025-10-15-databases-as-ontologies-2-hgnc %}) which describes
-how I applied these tools to encode the
-[HGNC (HUGO Gene Nomenclature Committee)](http://www.genenames.org) database as
-an ontology.
+This post continues in a [second
+part]({% post_url 2025-10-15-databases-as-ontologies-2-hgnc %}), where I
+describe how I implemented a more complex PyOBO source for the
+[HGNC (HUGO Gene Nomenclature Committee)](http://www.genenames.org) database.
