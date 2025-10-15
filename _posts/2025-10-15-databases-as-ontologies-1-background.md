@@ -15,9 +15,10 @@ start encoding databases as ontologies, the
 [software](https://github.com/biopragmatics/pyobo) I have written to do so, and
 the [repository](https://github.com/biopragmatics/obo-db-ingest) I have created
 to store the resulting artifacts. See also the [second
-part]({% post_url 2025-10-15-databases-as-ontologies-2-hgnc %}) about how I
-apply these tools to encode the
-[HGNC (HUGO Gene Nomenclature Committee) database](http://www.genenames.org).
+part]({% post_url 2025-10-15-databases-as-ontologies-2-hgnc %}) which describes
+how I applied these tools to encode the
+[HGNC (HUGO Gene Nomenclature Committee)](http://www.genenames.org) database as
+an ontology.
 
 ## Motivation for PyOBO
 
@@ -271,3 +272,11 @@ The script also outputs a
 [full manifest](https://github.com/biopragmatics/obo-db-ingest/raw/refs/heads/main/docs/_data/manifest.yml)
 that can be consumed by downstream resources that want to consume all content in
 the repository, such as the [KG Registry](https://kghub.org/kg-registry).
+
+---
+
+See also the [second
+part]({% post_url 2025-10-15-databases-as-ontologies-2-hgnc %}) which describes
+how I applied these tools to encode the
+[HGNC (HUGO Gene Nomenclature Committee)](http://www.genenames.org) database as
+an ontology.
