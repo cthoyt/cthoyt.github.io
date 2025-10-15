@@ -321,11 +321,59 @@ I don't want to bury the lede, so here's a link to the
 [PyOBO source script for HGNC](https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/hgnc/hgnc.py)
 that implements everything I'm about to describe.
 
-### Lexicalization
+### Lexicalization of an HGNC record
 
-Related discussions:
+Each record contains up to five lexical components, which are mapped to the
+ontology as follows:
 
-- https://github.com/information-artifact-ontology/ontology-metadata/pull/197#discussion_r2428235955
+| Key               | Cardinality  | Predicate                  | Synonym Type                         |
+| ----------------- | ------------ | -------------------------- | ------------------------------------ |
+| `symbol`          | one          | `rdfs:label`               | N/A                                  |
+| `name`            | one          | `dcterms:description`      | N/A                                  |
+| `alias symbol`    | zero or more | `oboInOwl:hasExactSynonym` | `OMO:0003016` (gene symbol synonym)  |
+| `alias_name`      | zero or more | `oboInOwl:hasExactSynonym` | `OMO:0003008` (previous name)        |
+| `previous_symbol` | zero or more | `oboInOwl:hasExactSynonym` | `OMO:0003015` (previous gene symbol) |
+
+The dichotomy of gene symbols (short form) and gene names (long form) creates an
+important design decision, see discussion
+[here](https://github.com/information-artifact-ontology/ontology-metadata/pull/197#discussion_r2428235955).
+An alternative to this lexicalization could be to mark the `name` as the primary
+label with `rdfs:label` and to use the `symbol` as an exact synonym with type
+[abbreviation `OMO:0003000`](https://bioregistry.io/OMO:0003000). However, using
+the gene symbol as the primary label is so ubiquitous that this seemed
+appropriate. Further, HGNC does not provide dedicated textual descriptions, and
+in their place, the name is often a reasonable alternative.
+
+Here's an example record in OBO flat file format to illustrate:
+
+```
+[Term]
+id: hgnc:100
+name: ASIC1
+def: "acid sensing ion channel subunit 1"
+synonym: "ACCN2" RELATED OMO:0003015 []
+synonym: "BNaC2" RELATED OMO:0003016 []
+synonym: "acid sensing (proton gated) ion channel 1" RELATED OMO:0003008 []
+synonym: "acid-sensing (proton-gated) ion channel 1" RELATED OMO:0003008 []
+synonym: "amiloride-sensitive cation channel 2, neuronal" RELATED OMO:0003008 []
+synonym: "hBNaC2" RELATED OMO:0003016 []
+```
+
+As an aside: the classes and properties needed to curate an ontology, or
+ontologize a database, aren't always available from the start. In many
+situations, this leads to making _ad hoc_ classes or properties to get the job
+done - I am not above this. Initially, I had created _ad hoc_ synonym types for
+gene symbol synonyms and previous gene symbols. Later, I
+[requested two new synonym types](https://github.com/information-artifact-ontology/ontology-metadata/pull/197)
+in the [OBO Metadata Ontology (OMO)](https://bioregistry.io/omo) to cover these
+use cases. This is actually a difficult step, because it requires justifying to
+the community why they are useful. In this case, I think it's clear, since all
+MODs make these kinds of synonyms, and I was able to give a good justification
+based on the fact that I also made similar _ad hoc_ synonym types for the PyOBO
+source for the Rat Genome Database (RGD). After doing the design work and making
+the pull request, I updated both the HGNC and RGD sources in PyOBO to reuse
+these terms in
+[biopragmatics/pyobo#447](https://github.com/biopragmatics/pyobo/pull/447).
 
 ### Logical Axioms
 
