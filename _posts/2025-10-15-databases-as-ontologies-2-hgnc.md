@@ -454,4 +454,5 @@ new domains. This has been previously successful in the
 [DARPA ASKEM](https://www.darpa.mil/research/programs/automating-scientific-knowledge-extraction-modeling)
 and
 [DTRA RAPTER](https://www.lanl.gov/media/publications/1663/0125-ai-vaccines-drugs)
-projects, and is now a key contribution to several of the DFG-funded German NFDI consortia.
+projects, and is now a key contribution to several of the DFG-funded German NFDI
+consortia.
