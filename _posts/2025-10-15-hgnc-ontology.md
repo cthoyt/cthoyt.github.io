@@ -45,7 +45,7 @@ names, synonyms, and descriptions.
 ```python
 import pyobo
 
->> > pyobo.get_name("credit:software")
+>>> pyobo.get_name("credit:software")
 "Software"
 ```
 
@@ -319,7 +319,8 @@ I see the following three major benefits in ontologizing HGNC:
 
 I don't want to bury the lede, so here's a link to the
 [PyOBO source script for HGNC](https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/hgnc/hgnc.py)
-that implements everything I'm about to describe.
+that implements everything I'm about to describe. Actionable feedback and pull
+requests are welcome if you have concrete ideas for improvement.
 
 ### Lexicalization of a Gene
 
@@ -439,6 +440,15 @@ which probably won't get accepted in a timely fashion. However, I was able to
 use the placeholder identifiers in the PyOBO source module even though they
 haven't yet been merged and released.
 
+As an aside: annotating locus types is not just a human gene problem, but all
+model organism databases (MODs) need to work on. I already have a
+[thread](https://github.com/biopragmatics/pyobo/issues/165) for taking a similar
+approach for FlyBase, but it would be great to do the same for MGI (mouse), RGD
+(rat), and other MODs for which PyOBO encodes a source. In general, it would be
+great to see the Alliance of Genome Resources (AGR) push their members towards
+adopting more shared semantics in the way they curate, especially for locus
+types.
+
 ### Chromosomal Locations
 
 The `location` field connects a gene to its chromosomal location by encoding the
@@ -447,8 +457,9 @@ this string field (`obo:hgnc#has_location`). In
 [biopragmatics/pyobo#451](https://github.com/biopragmatics/pyobo/pull/451), I
 adapted this to map the chromosomal location strings to classes in the
 [Chromosome Ontology (CHR)](https://bioregistry.io/chr) and use a combination of
-relations, based on the apparent values for the chromosomes. Note that this is a
-first attempt at ontologization, and the relations might need updating.
+well-established relations, based on the apparent values for the chromosomes.
+Note that this is a first attempt at ontologization, and the relations might
+need updating.
 
 #### Single Point Annotations
 
@@ -564,10 +575,10 @@ Here's a few observations I had on this:
 
 In general, these kinds of unmapped items are not blockers towards ontologizing
 a resource. It's generally valuable to include logging in a PyOBO source when
-there is content that is unhandled, since this can be upstreamed to the sources
-themselves.
+there is content that is unhandled, since this can be valuable feedback for the
+upstream resources themselves.
 
-### Inclusion in Gene Groups
+### Membership in Gene Groups
 
 HGNC has a secondary categorization of genes into gene groups (formerly called
 gene families). There's a variety of purposes for gene groups which themselves
@@ -578,7 +589,7 @@ relations between genes and gene sets. Instead, I have opted to use
 a mereological relation (i.e., a part-of relation) between an item and a
 collection.
 
-### Genes and EC Codes
+### Genes and Enzymes
 
 HGNC annotates genes with [Enzyme Commission (EC)](https://bioregistry.io/ec)
 codes. There's spirited discussion in the ontology world about how we should
@@ -625,15 +636,15 @@ the remaining logical axioms and semantic mapping types:
 
 ```mermaid
 graph LR
-    genegroup[Gene Group\nHGNC] -- " member of\n(RO:0002350) " --- gene[Gene]
-    geneclass[Gene Class\nSO] -- is a --- gene
-    gene -- " transcribed to\n(RO:0002511) " --> rna[RNA\nRNA Central, miRBase, snoRNABase]
-    gene -- " has gene product\n(RO:0002205) " --> protein[Protein\nUniProt]
-    gene -- " has exact match\n(skos:exactMatch) " --> external1[External\nNCBIGene, Ensembl, Orphanet, OMIM, RefSeq,...]
-    gene -- " has database cross-reference\n(oboInOwl:hasDbXref) " --> externa2[External\nCCDS,...]
-    gene -- " is orthologous to\n(RO:HOM0000017) " --> orthology[Orthologous Gene\nMGI, RGD]
-    gene -- " gene product is member of\n(RO:0002205 + RO:0002350) " --> enzyme[Enzyme\nEC]
-    gene -- " located in\n(RO:0001025) " --> chr[Chromosome Region\nCHR]
+    genegroup[Gene Group<br>HGNC] -- " member of<br>(RO:0002350) " --- gene[Gene]
+    geneclass[Gene Class<br>SO] -- is a --- gene
+    gene -- " transcribed to (RO:0002511) " --> rna[RNA<br>RNA Central, miRBase, snoRNABase]
+    gene -- " has gene product<br>(RO:0002205) " --> protein[Protein<br>UniProt]
+    gene -- " has exact match<br>(skos:exactMatch) " --> external1[External<br>NCBIGene, Ensembl, Orphanet, OMIM, RefSeq,...]
+    gene -- " has database cross-reference<br>(oboInOwl:hasDbXref) " --> externa2[External<br>CCDS,...]
+    gene -- " is orthologous to<br>(RO:HOM0000017) " --> orthology[Orthologous Gene<br>MGI, RGD]
+    gene -- " has gene product that enables<br>(RO:0002205 + RO:0002327) " --> enzyme[Enzyme<br>EC]
+    gene -- " located in<br>(RO:0001025) " --> chr[Chromosome Region<br>CHR]
 ```
 
 Again as text:
@@ -673,11 +684,3 @@ rest of my choices address the three big benefits I mentioned at the start.
 
 Normally, I end posts with a `---` post script, but I had a lot to say here, so
 here are a few parting thoughts.
-
-Annotating locus types is not just a human gene problem, but all model organism
-databases (MODs) need to work on. I already have a
-[thread](https://github.com/biopragmatics/pyobo/issues/165) for taking a similar
-approach for FlyBse, but it would be great to do the same for MGI (mouse), RGD
-(rat), and other MODs in the Alliance of Genome Resources ( AGR) to agree to
-doing this. In the meantime, maybe handing over ownership of SO to a steward who
-can maintain it would be valuable to the community.
