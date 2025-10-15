@@ -450,8 +450,8 @@ information at the bottom of the page or by opening an issue on the
 I'm also open to collaboration through grant writing or contract/consulting work
 via my current employer (RWTH Aachen University) for extending and applying
 PyOBO and the wider [Biopragmatics Stack](https://biopragmatics.github.io) in
-new domains. This has been very successful in the
+new domains. This has been previously successful in the
 [DARPA ASKEM](https://www.darpa.mil/research/programs/automating-scientific-knowledge-extraction-modeling)
-project,
+and
 [DTRA RAPTER](https://www.lanl.gov/media/publications/1663/0125-ai-vaccines-drugs)
-project, and now in several DFG-funded German NFDI consortia.
+projects, and is now a key contribution to several of the DFG-funded German NFDI consortia.
