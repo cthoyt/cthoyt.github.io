@@ -679,8 +679,3 @@ on OMO issue tracker, specifically in
 While I don't offer an isomorphic (i.e., covers everything that's there)
 solution for ontologization of this part of the content, I do believe that the
 rest of my choices address the three big benefits I mentioned at the start.
-
-## What's Next
-
-Normally, I end posts with a `---` post script, but I had a lot to say here, so
-here are a few parting thoughts.
