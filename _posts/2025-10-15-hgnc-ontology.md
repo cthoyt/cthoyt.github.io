@@ -10,7 +10,9 @@ tags:
   - HGNC
 ---
 
-This is a post about how I converted HGNC to OWL
+This post gives background on PyOBO, software I wrote that supports converting
+databases into ontologies, and the application to HGNC, the nomenclature of
+human genes.
 
 ## Prior Art
 
@@ -178,8 +180,8 @@ PyOBO implements several use case-specific exporters, such as exporting semantic
 mappings in the
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/),
 exporting synonyms and literal mappings in the
-[Simple Standard for Sharing Literal Mappings](https://github.com/cthoyt/ssslm),
-and nodes and edges files for import into the Neo4j graph database. It also
+[Simple Standard for Sharing Literal Mappings (SSSLM)](https://github.com/cthoyt/ssslm),
+and nodes/edges files for import into the Neo4j graph database. It also
 implements high-level workflows to support
 [named entity recognition (NER) and named entity normalization (NEN)](https://pyobo.readthedocs.io/en/latest/ner.html),
 and embedding entities using
@@ -210,25 +212,13 @@ ontology system.
 
 ### OBO Database Ingest
 
-Back in 2017, I started a project for converting biomedical databases into BEL,
-Bio2BEL. I made a big fuss about how the workflows were reusable and that anyone
-could run them. This was recieved relatively poorly.
-
-On the other hand, Daniel Himmelstein published Hetionet, which was effectively
-the first biomedical knowledge graph that integrated multiple different sources.
-He was very careful to use data that he was licensed to redistribute, and he
-made sure that there were many different artifacts of the final build available
-for reuse in a variety of places. Bio2BEL was never accepted, after years of
-review, and I had to give up and move on to new things.
-
-I didn't make that mistake again - the databases for almost all PyOBO sources
-are permissively licensed such that the data can be redistributed.
-
 The OBO Database Ingest (`obo-db-ingest`) is a
-[GitHub repository](https://github.com/biopragmatics/obo-db-ingest) is a
-repository that runs the scripts for each PyOBO source whose data are
-permissively licensd, and stores the OBO, OWL, OFN, OBO Graph JSON, SSSOM,
-SSSLM, and Neo4j files. It has a single Python script containing
+[GitHub repository](https://github.com/biopragmatics/obo-db-ingest) that runs
+the scripts for a subset of PyOBO sources whose data are permissively licensed,
+and stores the OBO, OWL, OFN, OBO Graph JSON, SSSOM, SSSLM, and Neo4j files
+(e.g, see the folder for
+[MeSH](https://github.com/biopragmatics/obo-db-ingest/tree/main/export/mesh#readme)).
+It has a single Python script containing
 [PEP 723-compliant](https://peps.python.org/pep-0723/) inline script metadata
 such that it is fully-self contained and can be run with `uv run`, assuming a
 Java runtime is available for ROBOT and OWLAPI.
@@ -251,25 +241,28 @@ method indeed has its limits, since `git` is not really meant to be a file
 storage system, especially for big files.
 
 Because of its simple structure, it's possible to assign persistent URLs (PURLs)
-to each resource, which abstracts away the physical infrastructure that's
-required for storing and serving files. PURLs are an often-requested feature by
-ontologies that would like to import and incorporate PyOBO sources. They also
-enable the ontologies to be incorporated into tools like the EBI's Ontology
-Lookup Service (OLS), for example, I've already done this for
-[MeSH](https://www.ebi.ac.uk/ols4/ontologies/mesh). The PURLs are all configured
-centrally in the
-[W3ID](https://github.com/perma-id/w3id.org/tree/master/biopragmatics) system.
-Here's what a few versioned PURLs look like:
+to each resource, configured by
+[W3ID](https://github.com/perma-id/w3id.org/tree/master/biopragmatics). PURLs
+abstract away the URL that points to a specific physical infrastructure required
+for storing and serving files, making it possible to be changed later, and
+therefore making resources more reliable to reference. As such, PURLs are an
+often-requested feature by ontologies that would like to import and incorporate
+PyOBO sources. They also enable the ontologies to be incorporated into tools
+like the EBI's Ontology Lookup Service (OLS), for example, I've already done
+this for [MeSH](https://www.ebi.ac.uk/ols4/ontologies/mesh).
 
-| Resource      | Version Type | Example Versioned PURL                                                         |
-| ------------- | ------------ | ------------------------------------------------------------------------------ |
-| Reactome      | Sequential   | https://w3id.org/biopragmatics/resources/reactome/83/reactome.obo              |
-| Interpro      | Major/Minor  | https://w3id.org/biopragmatics/resources/interpro/92.0/interpro.obo            |
-| DrugBank Salt | Semantic     | https://w3id.org/biopragmatics/resources/drugbank.salt/5.1.9/drugbank.salt.obo |
-| MeSH          | Year         | https://w3id.org/biopragmatics/resources/mesh/2023/mesh.obo.gz                 |
-| UniProt       | Year/Month   | https://w3id.org/biopragmatics/resources/uniprot/2022_05/uniprot.obo.gz        |
-| HGNC          | Date         | https://w3id.org/biopragmatics/resources/hgnc/2023-02-01/hgnc.obo              |
-| CGNC          | unversioned  | https://w3id.org/biopragmatics/resources/cgnc/cgnc.obo                         |
+Here's what a few PURLs look like for OBO files (replace the file extension with
+`.ofn`, `.sssom.tsv`, etc. to get other resources):
+
+| Resource                                                                       | Latest OBO PURL                                                          | Version Type | Example Versioned OBO PURL                                                     |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------ | ------------------------------------------------------------------------------ |
+| [Reactome](https://w3id.org/biopragmatics/resources/reactome#readme)           | https://w3id.org/biopragmatics/resources/reactome/reactome.obo           | Sequential   | https://w3id.org/biopragmatics/resources/reactome/83/reactome.obo              |
+| [Interpro](https://w3id.org/biopragmatics/resources/interpro#readme)           | https://w3id.org/biopragmatics/resources/interpro/interpro.obo           | Major/Minor  | https://w3id.org/biopragmatics/resources/interpro/92.0/interpro.obo            |
+| [DrugBank Salt](https://w3id.org/biopragmatics/resources/drugbank.salt#readme) | https://w3id.org/biopragmatics/resources/drugbank.salt/drugbank.salt.obo | Semantic     | https://w3id.org/biopragmatics/resources/drugbank.salt/5.1.9/drugbank.salt.obo |
+| [MeSH](https://w3id.org/biopragmatics/resources/mesh#readme)                   | https://w3id.org/biopragmatics/resources/mesh/mesh.obo.gz                | Year         | https://w3id.org/biopragmatics/resources/mesh/2023/mesh.obo.gz                 |
+| [UniProt](https://w3id.org/biopragmatics/resources/uniprot#readme)             | https://w3id.org/biopragmatics/resources/uniprot/uniprot.obo.gz          | Year/Month   | https://w3id.org/biopragmatics/resources/uniprot/2022_05/uniprot.obo.gz        |
+| [HGNC](https://w3id.org/biopragmatics/resources/hgnc#readme)                   | https://w3id.org/biopragmatics/resources/hgnc/hgnc.obo                   | Date         | https://w3id.org/biopragmatics/resources/hgnc/2023-02-01/hgnc.obo              |
+| [CGNC](https://w3id.org/biopragmatics/resources/cgnc#readme)                   | https://w3id.org/biopragmatics/resources/cgnc/cgnc.obo                   | unversioned  | N/A                                                                            |
 
 The script also outputs a
 [full manifest](https://github.com/biopragmatics/obo-db-ingest/raw/refs/heads/main/docs/_data/manifest.yml)
@@ -278,23 +271,44 @@ the repository, such as the [KG Registry](https://kghub.org/kg-registry).
 
 ## Ontologizing HGNC
 
-The HGNC (HUGO Gene Nomenclature Committee) assigns names and symbols to human
-genes
-
 While CRediT constituted a simple example that only contained names and
-descriptions, t
+descriptions for its identifiers, the goal of this post was to describe the
+design decisions take to ontologize a more complex resource: the
+[HGNC (HUGO Gene Nomenclature Committee) database](http://www.genenames.org).
 
-- why do we care about HGNC? it's ubiquitous in the literature and is therefore
-  the target for many biocuration efforts, such as in BEL, OmniPath, etc.
-- why do we want HGNC as OWL? to get access to other ontology tooling and to
-  make things work properly when referencing HGNC in existing ontologies. Also,
-  a lot of knowledge is already formulatable using RO, so take advantage of that
-  so it can be easily turned into KGs through ontologies as a common
-  intermediate.
+The HGNC assigns names, symbols, and numeric identifiers to human genes. Gene
+symbols like
+[AKT1](https://genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:391) are
+the primary names referenced in the biomedical literature (which are sometimes
+[misunderstood by Microsoft Excel](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7)).
+HGNC identifiers are used to unambiguously reference human genes in biocuration
+efforts like
+[DECIPHER](https://www.deciphergenomics.org/gene/AKT1/overview/clinical-info),
+[MedlinePlus](https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&query=AKT1),
+[GeneCards](http://www.genecards.org/cgi-bin/carddisp.pl?id_type=hgnc&id=391),
+and the
+[Alliance of Genome Resources](https://www.alliancegenome.org/gene/HGNC:391).
+They are also the targets of grounding human genes in manual literature curation
+workflows (like for BEL, BioPAX, SBML) and text mining workflows (like
+[INDRA](https://discovery.indra.bio)).
 
-Every resource requires some thought in converting.
+Here are the three big benefits from ontologizing HGNC:
 
-https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/hgnc/hgnc.py
+1. To help other ontology curation workflows more natively refer to genes. For
+   example, the [MONDO Disease Ontology](https://bioregistry.io/mondo) annotates
+   genes' relationships to disease (such as being a disease driver).
+2. HGNC has its own ad-hoc distribution format, and ontologizing HGNC enables
+   standardized tooling to consume and reuse it
+3. HGNC doesn't use any formal semantics - the fields and values it uses are
+   often ambiguous. Ontologizing HGNC is a chance for a single person (or group
+   of people) to do the hard work of understanding what the database maintainers
+   meant, then share that hard-earned knowledge with everyone who wants to
+   consume HGNC. I'll give a few examples of this later, including for the
+   `locus_type` and `locus_group`.
+
+I don't want to bury the lede, so here's a link to the
+[PyOBO source script for HGNC](https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/hgnc/hgnc.py)
+that implements everything I'm about to describe.
 
 ### Lexicalization
 
