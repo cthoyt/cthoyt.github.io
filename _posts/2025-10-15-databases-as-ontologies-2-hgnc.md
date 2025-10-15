@@ -17,10 +17,12 @@ background on how I started working on this problem and the software stack I
 developed along the way. In this post, I explain the philosophy and design about
 how I encoded the
 [HGNC (HUGO Gene Nomenclature Committee)](http://www.genenames.org) database as
-an ontology using PyOBO.
+an ontology using [PyOBO](https://github.com/biopragmatics/pyobo).
 
-While CRediT constituted a simple example that only contained names and
-descriptions for its identifiers, the goal of this post was to describe the
+While the previous post used
+[CRediT (Contributor Roles Taxonomy)](https://bioregistry.io/registry/credit) to
+demonstrate encoding as an ontology a simple resource that only contains names
+and descriptions for its identifiers, the goal of this post is to describe the
 design decisions take to ontologize a more complex resource: the
 [HGNC (HUGO Gene Nomenclature Committee) database](http://www.genenames.org).
 
@@ -72,8 +74,8 @@ requests are welcome if you have concrete ideas for improvement.
 
 ## Lexicalization of a Gene
 
-Each record contains up to five lexical components, which are mapped to the
-ontology as follows:
+Each record contains up to five lexical components (i.e., name, description,
+synonyms), which are mapped to the ontology as follows:
 
 | Key               | Cardinality  | Predicate                  | Synonym Type                         |
 | ----------------- | ------------ | -------------------------- | ------------------------------------ |
@@ -83,8 +85,9 @@ ontology as follows:
 | `alias_name`      | zero or more | `oboInOwl:hasExactSynonym` | `OMO:0003008` (previous name)        |
 | `previous_symbol` | zero or more | `oboInOwl:hasExactSynonym` | `OMO:0003015` (previous gene symbol) |
 
-The dichotomy of gene symbols (short form) and gene names (long form) creates an
-important design decision, see discussion
+The dichotomy of gene symbols (short form) and gene names (long form) requires a
+making the important design decision of which to use as the label. I chose to
+use the gene symbol because of its ubiquitous use, see discussion
 [here](https://github.com/information-artifact-ontology/ontology-metadata/pull/197#discussion_r2428235955).
 An alternative to this lexicalization could be to mark the `name` as the primary
 label with `rdfs:label` and to use the `symbol` as an exact synonym with type
