@@ -292,19 +292,30 @@ They are also the targets of grounding human genes in manual literature curation
 workflows (like for BEL, BioPAX, SBML) and text mining workflows (like
 [INDRA](https://discovery.indra.bio)).
 
-Here are the three big benefits from ontologizing HGNC:
+I see the following three major benefits in ontologizing HGNC:
 
-1. To help other ontology curation workflows more natively refer to genes. For
-   example, the [MONDO Disease Ontology](https://bioregistry.io/mondo) annotates
-   genes' relationships to disease (such as being a disease driver).
-2. HGNC has its own ad-hoc distribution format, and ontologizing HGNC enables
-   standardized tooling to consume and reuse it
-3. HGNC doesn't use any formal semantics - the fields and values it uses are
-   often ambiguous. Ontologizing HGNC is a chance for a single person (or group
-   of people) to do the hard work of understanding what the database maintainers
-   meant, then share that hard-earned knowledge with everyone who wants to
-   consume HGNC. I'll give a few examples of this later, including for the
-   `locus_type` and `locus_group`.
+1. To support the standardized reuse of HGNC terms within semantic web
+   applications and ontologies. While databases can create fields with
+   well-defined semantics where they place either numeric HGNC identifiers or
+   references to HGNC gene symbols, semantic web applications often require the
+   use of (consistent) URIs and ontologies further require consistent as
+   classes/individuals with the appropriate axioms. For example, the
+   [MONDO Disease Ontology](https://bioregistry.io/mondo) annotates genes'
+   relationships to disease (such as being a disease driver), but they are
+   forced to use workarounds to reference HGNC records, since they are not
+   encoded in an ontology.
+2. To support the standardized distribution of HGNC. HGNC has its own _ad hoc_
+   distribution formats (JSON, SQL, TSV). Ontologizing HGNC enables standard
+   tooling to consume and reuse the database.
+3. To support the standardized interpretation of HGNC. The content of HGNC does
+   not have formally defined semantics - for example, if you download the JSON
+   dump, how does one know what the `mane_select` key means, or what
+   `virus integration site` means in the `locus_type` field? Ontologizing HGNC
+   enables for a single person or small group to do the hard work of
+   understanding the meaning of the fields and values used in the source data,
+   then encode their hard-earned domain knowledge with formal semantics such
+   that everyone can understand it. I'll use the `locus_type` and `locus_group`
+   fields as an example to illustrate this.
 
 I don't want to bury the lede, so here's a link to the
 [PyOBO source script for HGNC](https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/hgnc/hgnc.py)
