@@ -29,22 +29,27 @@ What is PyOBO?
 PyOBO now contains a suite of 60+
 [sources](https://github.com/biopragmatics/pyobo/tree/main/src/pyobo/sources)
 for databases covering chemistry, biology, medicine, cultural heritage, the
-semantic web, and other disciplines. Each source implements automated, version-aware download and caching of data files
-from the database and transformation of the downloaded data into an OWL ontology within a concrete instance of
-an [abstract base class](https://pyobo.readthedocs.io/en/latest/api/pyobo.Obo.html) provided by PyOBO.
-Typically, resources make available tabular data in which each row corresponds
-to a record in the database that can either be transformed into a
-[class](https://www.w3.org/TR/owl-ref/#Class) or
-[named individual](https://www.w3.org/TR/owl-ref/#Individual) within an OWL ontology.
-The remaining columns can often be mapped into other annotation properties (i.e., metadata)
-or object properties (i.e., part of the logical definition). For example,
-the label can be mapped to an annotation property using `rdfs:label` and the species (if applicable)
-can be mapped to an object property using [`RO:0002162`](https://bioregistry.io/RO:0002162) (in taxon).
+semantic web, and other disciplines. Each source implements automated,
+version-aware download and caching of data files from the database and
+transformation of the downloaded data into an OWL ontology within a concrete
+instance of an
+[abstract base class](https://pyobo.readthedocs.io/en/latest/api/pyobo.Obo.html)
+provided by PyOBO. Typically, resources make available tabular data in which
+each row corresponds to a record in the database that can either be transformed
+into a [class](https://www.w3.org/TR/owl-ref/#Class) or
+[named individual](https://www.w3.org/TR/owl-ref/#Individual) within an OWL
+ontology. The remaining columns can often be mapped into other annotation
+properties (i.e., metadata) or object properties (i.e., part of the logical
+definition). For example, the label can be mapped to an annotation property
+using `rdfs:label` and the species (if applicable) can be mapped to an object
+property using [`RO:0002162`](https://bioregistry.io/RO:0002162) (in taxon).
 
 Below is a demonstration of a minimal implementation of a PyOBO source for the
-[CRediT (Contributor Roles Taxonomy)](https://bioregistry.io/credit). Note that this is a relatively simple
-source that only uses a subset of PyOBO's DSL for encoding ontology components. The live version of this
-is in the PyOBO repository [here](https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/credit.py).
+[CRediT (Contributor Roles Taxonomy)](https://bioregistry.io/credit). Note that
+this is a relatively simple source that only uses a subset of PyOBO's DSL for
+encoding ontology components. The live version of this is in the PyOBO
+repository
+[here](https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/credit.py).
 
 ```python
 from more_itertools import chunked
@@ -83,10 +88,11 @@ ontologies in the
 [OBO flat file format](https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html)
 and
 [OWL functional-style syntax (OFN)](https://www.w3.org/TR/owl2-syntax/#Class_Expressions).
-Through OFN, PyOBO wraps [OWLAPI](https://github.com/owlcs/owlapi) to enable conversion to
-OWL/XML, RDF/XML,
+Through OFN, PyOBO wraps [OWLAPI](https://github.com/owlcs/owlapi) to enable
+conversion to OWL/XML, RDF/XML,
 [OBO Graph JSON](https://github.com/geneontology/obographs/) and any other
 supported format.
+
 <!--Sidebar: it's a goal of mine to reimplement key parts of OWLAPI in Python (or Rust)
 since it's written in Java, which due to the language's waning popularity, poses a risk for OWLAPI's further
 maintenance and development.-->
@@ -100,7 +106,8 @@ ontology.write_obo("credit.obo")
 ontology.write_owl("credit.owl")  # enabled by OWLAPI
 ```
 
-Here's what the (abridged to only show a single term) OBO export looks like. Full exports in all formats can be found
+Here's what the (abridged to only show a single term) OBO export looks like.
+Full exports in all formats can be found
 [here](https://github.com/biopragmatics/obo-db-ingest/tree/main/export/credit#readme).
 
 ```
@@ -124,13 +131,12 @@ def: "Ideas; formulation or evolution of overarching research goals and aims."
 is_a: CRO:0000000
 ```
 
-PyOBO also
-implements several use case-specific exporters, such as exporting semantic
-mappings in the
+PyOBO also implements several use case-specific exporters, such as exporting
+semantic mappings in the
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/),
 exporting synonyms and literal mappings in the
-[Simple Standard for Sharing Literal Mappings](https://github.com/cthoyt/ssslm), and
-nodes and edges files for import into the Neo4j graph database.
+[Simple Standard for Sharing Literal Mappings](https://github.com/cthoyt/ssslm),
+and nodes and edges files for import into the Neo4j graph database.
 
 ```python
 import pyobo
@@ -141,11 +147,13 @@ import pyobo
 >> > text_embeddings_df = pyobo.get_text_embeddings_df("credit")
 ```
 
-PyOBO has a unified Python API that includes utilities for property lookup for entities (e.g., name, description),
-[named entity recognition (NER)
-named entity normalization (NEN)](https://pyobo.readthedocs.io/en/latest/ner.html), and embedding entities
-using [(medium) language models](https://pyobo.readthedocs.io/en/latest/api/pyobo.get_text_embeddings_df.html#pyobo.get_text_embeddings_df),
-or [graph machine learning](https://pyobo.readthedocs.io/en/latest/api/pyobo.get_graph_embeddings_df.html#pyobo.get_graph_embeddings_df).
+PyOBO has a unified Python API that includes utilities for property lookup for
+entities (e.g., name, description),
+[named entity recognition (NER) named entity normalization (NEN)](https://pyobo.readthedocs.io/en/latest/ner.html),
+and embedding entities using
+[(medium) language models](https://pyobo.readthedocs.io/en/latest/api/pyobo.get_text_embeddings_df.html#pyobo.get_text_embeddings_df),
+or
+[graph machine learning](https://pyobo.readthedocs.io/en/latest/api/pyobo.get_graph_embeddings_df.html#pyobo.get_graph_embeddings_df).
 
 PyOBO has a deep integration with
 [the Bioregistry](https://github.com/biopragmatics/bioregistry) in order to
