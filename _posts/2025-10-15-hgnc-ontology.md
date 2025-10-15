@@ -12,30 +12,73 @@ tags:
 
 This is a post about how I converted HGNC to OWL
 
-## Background
+## Prior Art
 
-### PyOBO
+### Motivation for PyOBO
 
-3. formats, need to move beyond OWLAPI/ROBOT since development is not accessible
-   outside java world, want to reuse parsers (similar to OAK)
+During my graduate studies, I was working with the
+[Biological Expression Language (BEL)](https://biological-expression-language.github.io),
+which curated causal, correlative, and associative relationships between
+chemicals, proteins, diseases, and other biological entities. At the time, BEL
+used a syntax similar to [CURIEs]({% post_url 2021-09-14-curies %}) for
+referencing entities that had a (pseudo-)prefix and a string label for an
+entity, which pointed to a BEL namespace file. Selventa had produced several
+namespace files in 2015 (e.g., for GO, DO, HGNC) before [going out of
+business]({% post_url 2020-04-28-history-of-bel %}), but, because the namespace
+files relied on names instead of identifiers, they quickly became out of date.
+Naturally, I wanted to renew the existing BEL namespace files and also create
+new ones for additional ontologies to support the curation I was doing.
 
-What is PyOBO?
+With Selventa's
+[_ad hoc_ scripts](https://github.com/OpenBEL/resource-generator) as
+inspiration, I set out on developing
+[PyOBO](https://github.com/biopragmatics/pyobo) to make unified access to both
+ontologies and ontology-like resources (e.g., databases), both for the purposes
+of making new BEL namespaces, but also for creating simple, unified access to
+their contents. Initially, PyOBO wrapped Daniel Himmelstein's
+[obonet](https://github.com/dhimmel/obonet) to read ontologies in the OBO flat
+file format and constructed caches for efficient querying of fields like the
+names, synonyms, and descriptions.
 
-- original motivation was to make name lookup accessible as part of the PyBEL
-  project, but now has much braoder use for automated acqusition and processing
-  of ontologies and ontology-like data.
-- simple access to ontologies and databases through unified format
+```python
+import pyobo
+
+>> > pyobo.get_name("credit:software")
+"Software"
+```
+
+Since, PyOBO has grown to have more detailed and opinionated processing
+workflows to handle the messy content curated across many ontologies, to be able
+to handle additional formats (despite OBO being the most approachable ontology
+format for outsiders, it also has the most issues associated with its
+serialization and parsing), and to implement an internal domain-specific
+language (DSL) for representing ontologies such that ontology-like resources
+could be converted into ontology files.
+
+### Databases as Ontologies
+
+The conversion of ontology-like resources into ontologies became increasingly
+more interesting to me, especially because of my parallel interests in automatic
+construction of knowledge graphs. I found that ontologies were a convenient
+target for standardizing relationships, e.g., using the
+[Relation Ontology (RO)](https://bioregistry.io/ro). Others were working on
+similar problems in parallel, such as the OBO community's
+[converter for the NCBI Taxonomy Database](https://github.com/obophenotype/ncbitaxon/).
+Notably, Chris Mungall gave a talk in 2021 entitled
+[Limits of ontologies: How should databases be represented in OBO?](https://doi.org/10.5281/zenodo.14661500)
+which organized thoughts and ongoing challenges, most of which are still
+relevant!
 
 PyOBO now contains a suite of 60+
 [sources](https://github.com/biopragmatics/pyobo/tree/main/src/pyobo/sources)
-for databases covering chemistry, biology, medicine, cultural heritage, the
+for resources covering chemistry, biology, medicine, cultural heritage, the
 semantic web, and other disciplines. Each source implements automated,
-version-aware download and caching of data files from the database and
+version-aware download and caching of data files from the resource and
 transformation of the downloaded data into an OWL ontology within a concrete
 instance of an
 [abstract base class](https://pyobo.readthedocs.io/en/latest/api/pyobo.Obo.html)
 provided by PyOBO. Typically, resources make available tabular data in which
-each row corresponds to a record in the database that can either be transformed
+each row corresponds to a record in the resource that can either be transformed
 into a [class](https://www.w3.org/TR/owl-ref/#Class) or
 [named individual](https://www.w3.org/TR/owl-ref/#Individual) within an OWL
 ontology. The remaining columns can often be mapped into other annotation
@@ -45,10 +88,11 @@ using `rdfs:label` and the species (if applicable) can be mapped to an object
 property using [`RO:0002162`](https://bioregistry.io/RO:0002162) (in taxon).
 
 Below is a demonstration of a minimal implementation of a PyOBO source for the
-[CRediT (Contributor Roles Taxonomy)](https://bioregistry.io/credit). Note that
-this is a relatively simple source that only uses a subset of PyOBO's DSL for
-encoding ontology components. The live version of this is in the PyOBO
-repository
+[CRediT (Contributor Roles Taxonomy)](https://bioregistry.io/credit), an
+informally constructed controlled vocabulary for describing how authors
+contributed to creative works. Note that the following is a relatively simple
+PyOBO source that only uses a subset of PyOBO's DSL for encoding ontology
+components. The full version of this script is available in the PyOBO repository
 [here](https://github.com/biopragmatics/pyobo/blob/main/src/pyobo/sources/credit.py).
 
 ```python
@@ -83,19 +127,18 @@ class CreditGetter(Obo):
                 yield term
 ```
 
-Each source inherits a fully automated workflow for converting resources into
-ontologies in the
+Each PyOBO source inherits a fully automated workflow for converting resources
+into ontologies in the
 [OBO flat file format](https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html)
 and
 [OWL functional-style syntax (OFN)](https://www.w3.org/TR/owl2-syntax/#Class_Expressions).
 Through OFN, PyOBO wraps [OWLAPI](https://github.com/owlcs/owlapi) to enable
 conversion to OWL/XML, RDF/XML,
 [OBO Graph JSON](https://github.com/geneontology/obographs/) and any other
-supported format.
-
-<!--Sidebar: it's a goal of mine to reimplement key parts of OWLAPI in Python (or Rust)
-since it's written in Java, which due to the language's waning popularity, poses a risk for OWLAPI's further
-maintenance and development.-->
+supported format. As an aside: it's a goal of mine to reimplement key parts of
+OWLAPI in Python (or Rust) since it's written in Java, which due to the
+language's waning popularity, poses a risk for OWLAPI's further maintenance and
+development.
 
 ```python
 from pyobo.sources.credit import CreditGetter
@@ -107,7 +150,7 @@ ontology.write_owl("credit.owl")  # enabled by OWLAPI
 ```
 
 Here's what the (abridged to only show a single term) OBO export looks like.
-Full exports in all formats can be found
+Full exports of CRediT in all formats (e.g., OFN, OBO, OWL/XML) can be found
 [here](https://github.com/biopragmatics/obo-db-ingest/tree/main/export/credit#readme).
 
 ```
@@ -131,27 +174,16 @@ def: "Ideas; formulation or evolution of overarching research goals and aims."
 is_a: CRO:0000000
 ```
 
-PyOBO also implements several use case-specific exporters, such as exporting
-semantic mappings in the
+PyOBO implements several use case-specific exporters, such as exporting semantic
+mappings in the
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/),
 exporting synonyms and literal mappings in the
 [Simple Standard for Sharing Literal Mappings](https://github.com/cthoyt/ssslm),
-and nodes and edges files for import into the Neo4j graph database.
-
-```python
-import pyobo
-
->> > pyobo.get_name("credit:software")
-"Software"
-
->> > text_embeddings_df = pyobo.get_text_embeddings_df("credit")
-```
-
-PyOBO has a unified Python API that includes utilities for property lookup for
-entities (e.g., name, description),
-[named entity recognition (NER) named entity normalization (NEN)](https://pyobo.readthedocs.io/en/latest/ner.html),
+and nodes and edges files for import into the Neo4j graph database. It also
+implements high-level workflows to support
+[named entity recognition (NER) and named entity normalization (NEN)](https://pyobo.readthedocs.io/en/latest/ner.html),
 and embedding entities using
-[(medium) language models](https://pyobo.readthedocs.io/en/latest/api/pyobo.get_text_embeddings_df.html#pyobo.get_text_embeddings_df),
+[(medium) language models](https://pyobo.readthedocs.io/en/latest/api/pyobo.get_text_embeddings_df.html#pyobo.get_text_embeddings_df)
 or
 [graph machine learning](https://pyobo.readthedocs.io/en/latest/api/pyobo.get_graph_embeddings_df.html#pyobo.get_graph_embeddings_df).
 
@@ -176,27 +208,81 @@ context of a company). For example, some pharmaceutical companies use the plugin
 system to implement sources for their compound registration system and internal
 ontology system.
 
-once you have ontology-format files, you get access to the tooling for
-ontologies, including the OLS https://www.ebi.ac.uk/ols4/ontologies/hgnc
-
 ### OBO Database Ingest
 
-OBO-db-ingest has the following:
+Back in 2017, I started a project for converting biomedical databases into BEL,
+Bio2BEL. I made a big fuss about how the workflows were reusable and that anyone
+could run them. This was recieved relatively poorly.
 
-- ontology and related artifacts from many resources
-- can be rerun using a single command w/ uv, no messing around
-- gives a full manifest that can be consumed by different resources, like
-  https://kghub.org/kg-registry/
-- ideally, would automate rerunning, but there's almost always something that
-  breaks. maybe the monolithic build can be split up into smaller ones based on
-  the frequency resources are updated / priority for having up-to-date
-- assigns PURLs for latest and for each version, but would still like to better
-  integrate with github releases or zenodo for archival, since git isn't great
-  for storing big files nor their diff over time
+On the other hand, Daniel Himmelstein published Hetionet, which was effectively
+the first biomedical knowledge graph that integrated multiple different sources.
+He was very careful to use data that he was licensed to redistribute, and he
+made sure that there were many different artifacts of the final build available
+for reuse in a variety of places. Bio2BEL was never accepted, after years of
+review, and I had to give up and move on to new things.
 
-https://github.com/biopragmatics/obo-db-ingest
+I didn't make that mistake again - the databases for almost all PyOBO sources
+are permissively licensed such that the data can be redistributed.
 
-## HGNC
+The OBO Database Ingest (`obo-db-ingest`) is a
+[GitHub repository](https://github.com/biopragmatics/obo-db-ingest) is a
+repository that runs the scripts for each PyOBO source whose data are
+permissively licensd, and stores the OBO, OWL, OFN, OBO Graph JSON, SSSOM,
+SSSLM, and Neo4j files. It has a single Python script containing
+[PEP 723-compliant](https://peps.python.org/pep-0723/) inline script metadata
+such that it is fully-self contained and can be run with `uv run`, assuming a
+Java runtime is available for ROBOT and OWLAPI.
+
+In theory, this script can be run on a chronological basis using GitHub Actions
+to keep the outputs up-to-date. However, in practice, usually one or more
+resources fail due to a combination of unreliable services (on the database's
+side) or issues where updates to the underlying data cause the scripts to fail.
+I'm still working on making this script and PyOBO's sources themselves more
+resilient to such failures! One stop-gap could be to have smaller workflows
+running on the most important resources that are updated frequently (e.g., HGNC
+updates monthly) versus other resources which are updated infrequently (e.g.,
+MeSH updates yearly). As an alternative, I often run this script locally, which
+usually takes less than an hour because PyOBO cleverly caches versions, and the
+script avoids duplicate work for data that hasn't been updated.
+
+The repository is structured such that there's a consistent location for the
+latest output of each PyOBO source as well as version-specific outputs. This
+method indeed has its limits, since `git` is not really meant to be a file
+storage system, especially for big files.
+
+Because of its simple structure, it's possible to assign persistent URLs (PURLs)
+to each resource, which abstracts away the physical infrastructure that's
+required for storing and serving files. PURLs are an often-requested feature by
+ontologies that would like to import and incorporate PyOBO sources. They also
+enable the ontologies to be incorporated into tools like the EBI's Ontology
+Lookup Service (OLS), for example, I've already done this for
+[MeSH](https://www.ebi.ac.uk/ols4/ontologies/mesh). The PURLs are all configured
+centrally in the
+[W3ID](https://github.com/perma-id/w3id.org/tree/master/biopragmatics) system.
+Here's what a few versioned PURLs look like:
+
+| Resource      | Version Type | Example Versioned PURL                                                         |
+| ------------- | ------------ | ------------------------------------------------------------------------------ |
+| Reactome      | Sequential   | https://w3id.org/biopragmatics/resources/reactome/83/reactome.obo              |
+| Interpro      | Major/Minor  | https://w3id.org/biopragmatics/resources/interpro/92.0/interpro.obo            |
+| DrugBank Salt | Semantic     | https://w3id.org/biopragmatics/resources/drugbank.salt/5.1.9/drugbank.salt.obo |
+| MeSH          | Year         | https://w3id.org/biopragmatics/resources/mesh/2023/mesh.obo.gz                 |
+| UniProt       | Year/Month   | https://w3id.org/biopragmatics/resources/uniprot/2022_05/uniprot.obo.gz        |
+| HGNC          | Date         | https://w3id.org/biopragmatics/resources/hgnc/2023-02-01/hgnc.obo              |
+| CGNC          | unversioned  | https://w3id.org/biopragmatics/resources/cgnc/cgnc.obo                         |
+
+The script also outputs a
+[full manifest](https://github.com/biopragmatics/obo-db-ingest/raw/refs/heads/main/docs/_data/manifest.yml)
+that can be consumed by downstream resources that want to consume all content in
+the repository, such as the [KG Registry](https://kghub.org/kg-registry).
+
+## Ontologizing HGNC
+
+The HGNC (HUGO Gene Nomenclature Committee) assigns names and symbols to human
+genes
+
+While CRediT constituted a simple example that only contained names and
+descriptions, t
 
 - why do we care about HGNC? it's ubiquitous in the literature and is therefore
   the target for many biocuration efforts, such as in BEL, OmniPath, etc.
