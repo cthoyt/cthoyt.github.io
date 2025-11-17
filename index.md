@@ -12,10 +12,12 @@ at {{ site.data.current.institution }}{% endif %}.
 I'm building my own research group focused on software development, data standardization/FAIRification/integration, and 
 applications of ML/AI in the chemical, biological, and health sciences - specifically in drug discovery and precision medicine.
 
-I'm interested in building academic collaborations that can lead to grant
-opportunities and securing project contracts for unmet business needs addressed
-by the semantic technologies and capabilities that I've developed and write
-about here.
+Through my position at RWTH Aachen University, I'm establishing academic
+collaborations through German, European, and international grants and developing
+project-based contracts for organizations with unmet business needs addressed by
+the semantic technologies and capabilities that I've developed and write about
+here. Privately, I offer consulting services and training for organizations
+interested in these topics.
 
 Here's some more details [about me](/about) and [my research](/research). You
 can download my [résumé](https://github.com/cthoyt/resume/raw/master/main.pdf)
