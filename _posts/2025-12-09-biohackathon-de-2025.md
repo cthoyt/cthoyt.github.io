@@ -23,6 +23,27 @@ Materials_ in order to improve the interoperability between
 [Bioschemas](https://bioschemas.org). This post gives a summary of the
 activities leading up to the hackathon and the results of our happy hacking.
 
+We had the following active participants throughout the week:
+
+- Nick Juty & Phil Reed (University of Manchester)
+- Leyla Jael Castro & Roman Baum (Deutsche Zentralbibliothek für Medizin; ZB
+  Med)
+- Petra Steiner (University of Darmstadt)
+- Oliver Knodel & Martin Voigt (Helmholtz-Zentrum Dresden-Rossendorf; HZDR)
+- Dilfuza Djamalova (Forschungszentrum Jülich; FZJ)
+- Jacobo Miranda (European Molecular Biology Laboratory; EMBL)
+
+I'd like to give a big s/o to Nick and Petra, who were our team leads and Phil
+for not only being the project's _de facto_ secretary but also hacking his heart
+out at the same time.
+
+We also had a few pop-ins including Alban Gaignard (Nantes University), Dimitris
+Panouris (SciLifeLab), and Harshita Gupta (SciLifeLab), who joined us on the
+first day to give background on their related work. Helena Schnitzer (FZJ)
+joined for some Bioschemas discussions, and Dominik Brilhaus
+(Heinrich-Heine-Universität Düsseldorf) who joined to share his perspective on
+preparing training materials in DataPLANT.
+
 We organized our work into three task streams:
 
 1. Training Material Interoperability
@@ -46,8 +67,23 @@ We organized our work into three task streams:
 
 ## Identifying and Indexing Ontologies, Controlled Vocabularies, and Schemas
 
-Put survey into Semantic Farm collection
-https://semantic.farm/collection/0000018
+We started the week off discussing best practices for identifiers:
+
+- Identifiers support the interoperability aspect of FAIR data
+- Linked (open) data - when different resources use the same identifiers, we can
+  automatically integrate them Knowledge Graphs and Federated SPARQL Queries
+- Resolve structured, machine-readable data to human-readable (and LLM-readable)
+  via the web
+
+The Semantic Farm ([https://semantic.farm](https://semantic.farm)) is:
+
+1. The most comprehensive database of CURIE prefixes, URI prefixes, identifier
+   standards, and metadata about (semantic web) identifiers
+2. Imports and aligns related efforts like Identifiers.org, Name-to-Thing,
+   BARTOC
+3. Open data, open code, and open infrastructure + well-defined governance to
+   enable community maintenance and support longevity
+4. Domain- and community-driven collections, subsets, and conflict resolution
 
 [Martin Voigt](https://orcid.org/0000-0001-5556-838X) contributed the prefix
 `amb` for the
@@ -71,3 +107,9 @@ using the Galaxy workflow management system. Below, I describe how we ingested
 transformed the training materials from GTN into a common format such they can
 be represented according to the DALIA Interchange Format (DIF) v1.3, the
 implicit data model expected by TeSS, and in Bioschemas-compliant RDF.
+
+Both before and during the hackathon, we contributed several other records for
+ontologies, controlled vocabularies, databases, and schemas to the Semantic
+Farm. Finally, we collated them in a
+[collection](https://semantic.farm/collection/0000018) such that they can be
+easily found and shared.
