@@ -15,7 +15,7 @@ Last week, I attended the
 [4<sup>th</sup> BioHackathon Germany](https://www.denbi.de/de-nbi-events/1840-4th-biohackathon-germany)
 hosted by the
 [German Network for Bioinformatics Infrastructure (de.NBI)](https://www.denbi.de).
-I participated in the track _On the Path to Machine-actionable Training
+I participated in the project _On the Path to Machine-actionable Training
 Materials_ in order to improve the interoperability between
 [DALIA](https://search.dalia.education/basic),
 [TeSS](https://tess.elixir-europe.org),
@@ -23,7 +23,13 @@ Materials_ in order to improve the interoperability between
 [Bioschemas](https://bioschemas.org). This post gives a summary of the
 activities leading up to the hackathon and the results of our happy hacking.
 
-We had the following active participants throughout the week:
+## Team and Goals
+
+![](/img/biohackathon2025/team.jpg)
+
+Our project,
+[On the Path to Machine-actionable Training Materials](https://www.denbi.de/de-nbi-events/1939-4th-biohackathon-germany-on-the-path-to-machine-actionable-training-materials),
+had the following active participants throughout the week:
 
 - Nick Juty & Phil Reed (University of Manchester)
 - Leyla Jael Castro & Roman Baum (Deutsche Zentralbibliothek für Medizin; ZB
@@ -33,39 +39,61 @@ We had the following active participants throughout the week:
 - Dilfuza Djamalova (Forschungszentrum Jülich; FZJ)
 - Jacobo Miranda (European Molecular Biology Laboratory; EMBL)
 
-I'd like to give a big s/o to Nick and Petra, who were our team leads and Phil
-for not only being the project's _de facto_ secretary but also hacking his heart
-out at the same time.
+Nick and Petra were our team leaders and Phil acted as the project's _de facto_
+secretary. On the first day of the hackathon, we were briefly joined by Alban
+Gaignard (Nantes University), Dimitris Panouris (SciLifeLab), and Harshita Gupta
+(SciLifeLab) to present their current related work. Similarly, Dominik Brilhaus
+(Heinrich-Heine-Universität Düsseldorf) joined on the first day to share his
+perspective from DataPLANT (the NFDI consortium for plants) as a training
+materials creator. Finally, Helena Schnitzer (FZJ) participated in some
+Bioschemas discussions through the week.
 
-We also had a few pop-ins including Alban Gaignard (Nantes University), Dimitris
-Panouris (SciLifeLab), and Harshita Gupta (SciLifeLab), who joined us on the
-first day to give background on their related work. Helena Schnitzer (FZJ)
-joined for some Bioschemas discussions, and Dominik Brilhaus
-(Heinrich-Heine-Universität Düsseldorf) who joined to share his perspective on
-preparing training materials in DataPLANT.
+## Goals
 
-We organized our work into three task streams:
+We categorized our work plan into three streams:
 
-1. Training Material Interoperability
-   - Identifying and indexing relevant ontologies, controlled vocabularies, and
-     schemas for learning materials and ( open) educational resources
-   - Curating mappings between ontologies and controlled vocabularies terms and
-     crosswalks between schemas. Specifically, we focused on curating crosswalks
-     between the representations of learning materials in the schemas from
-     MoDALIA and Schema.org
-   - Implemented in the OERbservatory Python package
-   - Demonstrated federation in the mTeSS-X platform
-2. Training Material Analysis
-   - Identify similar training materials to:
-   - Deduplicate and merge records across registries
-   - Connect training material producers, consolidate efforts
-3. Organization into Learning Paths
-   - Collect examples of learning paths
-   - Developed a schema that groups learning materials into a logical and
-     modular ordering
-   - Mock a schema by extending Schema.org
+1. [**Training Material Interoperability**](#training-material-interoperability) -
+   survey the landscape of relevant ontologies and schemas for annotating
+   learning materials, curate mappings/crosswalks, and develop a programmatic
+   toolbox
+2. [**Training Material Analysis**](#training-material-analysis) - analyze
+   training materials at scale to group similar training materials, reduce
+   redundancy, and semi-automatically construct learning paths
+3. [**Modeling Learning Paths**](#modeling-learning-paths) - collect use cases
+   and develop a (meta)data model for learning paths
 
-## Identifying and Indexing Ontologies, Controlled Vocabularies, and Schemas
+## Training Material Interoperability
+
+Interoperability is third pillar of the
+[FAIR data principles](https://www.nature.com/articles/sdata201618).
+
+Metadata describing training materials may be captured and stored in one of
+several data models including the DALIA Interchange Format (DIF) v1.3, the
+format implicitly defined by the TeSS API, and the Schemas.org Learning Material
+profile.
+
+A key step towards interoperability is to identify concepts/entities in a
+standard and unambiguous way. Let's unpack this:
+
+- Identifying and indexing relevant ontologies, controlled vocabularies, and
+  schemas for learning materials and (open) educational resources
+- Curating mappings between ontologies and controlled vocabularies terms and
+  crosswalks between schemas. Specifically, we focused on curating crosswalks
+  between the representations of learning materials in the schemas from MoDALIA
+  and Schema.org
+- Implemented in the OERbservatory Python package
+- Demonstrated federation in the mTeSS-X platform
+
+The standard identification of concepts and entities
+
+- ontologies and controlled vocabularies cover classes and individuals
+- databases like the
+  [Galaxy Training Network (GTN)](https://training.galaxyproject.org)
+- schemas like [OERSchema](https://semantic.farm/oerschema),
+  [Schema.org](https://semantic.farm/sdo), and
+  [MoDALIA](https://semantic.farm/modalia)
+
+such as academic disciplines,
 
 We started the week off discussing best practices for identifiers:
 
@@ -75,15 +103,53 @@ We started the week off discussing best practices for identifiers:
 - Resolve structured, machine-readable data to human-readable (and LLM-readable)
   via the web
 
-The Semantic Farm ([https://semantic.farm](https://semantic.farm)) is:
+Where do the identifiers come from? What are the ontologies, controlled
+vocabularies, databases, and schemas that mint them?
 
-1. The most comprehensive database of CURIE prefixes, URI prefixes, identifier
-   standards, and metadata about (semantic web) identifiers
-2. Imports and aligns related efforts like Identifiers.org, Name-to-Thing,
-   BARTOC
-3. Open data, open code, and open infrastructure + well-defined governance to
-   enable community maintenance and support longevity
-4. Domain- and community-driven collections, subsets, and conflict resolution
+### Indexing Ontologies and Schemas
+
+The Semantic Farm ([https://semantic.farm](https://semantic.farm)) is
+comprehensive database of metadata about resources that mint (persistent)
+identifiers (e.g., ontologies, databases, schemas) such as their preferred CURIE
+prefix for usage in SPARQL queries and other semantic web applications. It
+imports and aligns with other databases like
+[Identifiers.org](https://identifiers.org) (for the life sciences) and
+[BARTOC](https://bartoc.org) (for the digital humanities) to support
+interoperability and sustainability. It follows the
+[open data, open code, and open infrastructure (O3)](https://www.nature.com/articles/s41597-024-03406-w)
+guidelines and has well-defined governance to enable community maintenance and
+support longevity.
+
+Our first concrete goal for training material interoperability at the hackathon
+was to survey ontologies, controlled vocabularies, and other resources that mint
+(persistent) identifiers that might appear in the metadata describing a learning
+material. For example, TeSS uses the [EDAM Ontology](https://semantic.farm/edam)
+to annotate topics onto training materials. For the same purpose, DALIA uses the
+[Hochschulcampus Ressourcentypen](https://semantic.farm/kim.hcrt) (I'll say more
+on how we deal with the conflicting resources in the section below on mappings).
+
+Our second concrete goal was to survey schemas that are used in modeling open
+educational resources and training materials, for example,
+[Schema.org](https://semantic.farm/sdo),
+[OERSchema](https://semantic.farm/oerschema), and
+[MoDALIA](https://semantic.farm/modalia), which encodes the DALIA Interchange
+Format (DIF) v1.3.
+
+I gave a tutorial on how to search the Semantic Farm for ontologies, controlled
+vocabularies and other resources that mint (persistent) identifiers, and how to
+contribute any that are missing. In short, they can be contributed by filling
+out the
+[new prefix request template](https://github.com/biopragmatics/bioregistry/issues/new?template=new-prefix.yml)
+on GitHub. If you're interested to add a new entry, you can directly use the
+form, read the
+[contribution guidelines](https://github.com/biopragmatics/bioregistry/blob/main/docs/CONTRIBUTING.md#submitting-new-prefixes),
+or watch a
+[short YouTube tutorial](https://www.youtube.com/watch?v=e-I6rcV2_BE).
+
+While I had done some significant preparatory work before the hackathon by
+creating many new entries in the Semantic Farm, the team found and added several
+new and important entries to the Semantic Farm during the hackathon too. Here
+are two highlights:
 
 [Martin Voigt](https://orcid.org/0000-0001-5556-838X) contributed the prefix
 `amb` for the
@@ -108,8 +174,24 @@ transformed the training materials from GTN into a common format such they can
 be represented according to the DALIA Interchange Format (DIF) v1.3, the
 implicit data model expected by TeSS, and in Bioschemas-compliant RDF.
 
-Both before and during the hackathon, we contributed several other records for
-ontologies, controlled vocabularies, databases, and schemas to the Semantic
-Farm. Finally, we collated them in a
+Ultimately, we collated relevant ontologies, controlled vocabularies, schemas
+and other resources that mint (persistent) identifiers in a
 [collection](https://semantic.farm/collection/0000018) such that they can be
 easily found and shared.
+
+### Semantic Mappings and Crosswalks
+
+![](/img/biohackathon2025/overlaps.svg)
+
+## Training Material Analysis
+
+- Identify similar training materials to:
+- Deduplicate and merge records across registries
+- Connect training material producers, consolidate efforts
+
+## Modeling Learning Paths
+
+- Collect examples of learning paths
+  - Developed a schema that groups learning materials into a logical and modular
+    ordering
+  - Mock a schema by extending Schema.org
