@@ -183,6 +183,47 @@ easily found and shared.
 
 ![](/img/biohackathon2025/overlaps.svg)
 
+I alluded to the different resources used by TeSS and DALIA to annotate
+disciplines. The issue of partially overlapping ontologies, controlled
+vocabularies, and databaes is quite widespread, and can manifest in a few
+different ways. The figure above shows that redundancy can arise because of
+different focus within a domain (i.e., the chemistry example), different
+hierarchical specificity (i.e., the disease example), and due to massive generic
+resources having overlap across many domains (e.g., like UMLS, MeSH, NCIT).
+
+This is problematic when integrating learning materials from different sources,
+e.g., TeSS and DALIA, because two learning resources may be annotated with
+different terms describing the same discipline. Therefore, the solution is to
+create semantic mappings between these terms.
+
+I've worked for several years on the
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
+standard for storing semantic mappings, so this was naturally the target for our
+work. Further, I have been working on a domain-agnostic workflow for predicting
+semantic mappings with lexical matching and deploying a curation interface
+called [SSSOM Curator](github.com/cthoyt/sssom-curator/). I gave a tutorial for
+using SSSOM Curator to the team based on a previous tutorial I made (that can be
+found on YouTube [here](https://www.youtube.com/watch?v=FkXkOhT8gdc&t=293s)). We
+prepared predicted semantic mappings between several learning resource-related
+ontologies in
+[biopragmatics/biomappings#204](https://github.com/biopragmatics/biomappings/pull/204),
+but we didn't prioritize semantic mapping curation during the hackathon.
+
+![](/img/biohackathon2025/crosswalks.png)
+
+Where curating correspondences between concepts in ontology, controlled
+vocabularies, and databases is often called semantic mapping, curating
+correspondences between schemas and properties therein is often called
+crosswalks. We put a bigger emphasis on producing crosswalks between Schema.org
+and MoDALIA. This is actually a more complex problem due to the fact that
+correspondences between elements in schemas can be more sophistocated (e.g.,
+mapping between two fields for first and last names to a single name field), but
+there are at least a few places where properties can be mapped with SSSOM.
+
+An interesting lesson learned is that there's a lot of pushback on using SKOS
+relationships in SSSOM because the narrow and broader relations have the
+opposite direction that people expect.
+
 ## Training Material Analysis
 
 - Identify similar training materials to:
