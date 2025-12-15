@@ -314,26 +314,24 @@ trying, failing, and repeating. Therefore, I can confidently say that for
 practical reasons, implementing a new _de facto_ standard was the only realistic
 choice.
 
-#### The OERbservatory
+#### The OERbservatory Data Model
 
 ![](/img/biohackathon2025/oerbservatory-schematic.png)
 
 During the hackathon, we implemented the open source
 [OERbservatory](https://github.com/data-literacy-alliance/oerbservatory) Python
-package. It includes:
+package. I first want to talk about three major features that it includes:
 
 1. a unified, generic
    [object model](https://github.com/data-literacy-alliance/oerbservatory/blob/main/src/oerbservatory/model.py)
-   for open educational resources
+   for open educational resources that's effectively the union of the best parts
+   of DALIA, TeSS, Schema.org, and a few other data models we found
 2. import and export to two open educational resource and learning materials
-   data models - DALIA and TeSS
+   data models - DALIA and TeSS. We didn't have time during the hackathon to
+   implement import and export to Schema.org.
 3. import from three external learning material repositories -
    [OERhub](https://oerhub.at), [OERSI](https://oersi.org), and the
-   [Galaxy Training Network (GTN)](https://training.galaxyproject.org).
-4. a featurization workflow for open educational resources and learning
-   materials, based on either
-   [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or
-   [sentence transformers](https://sbert.net)
+   [Galaxy Training Network (GTN)](https://training.galaxyproject.org)
 
 Here's an excerpt of the object model, implemented using
 [Pydantic](https://github.com/pydantic/pydantic). Note that Pydantic uses a
@@ -367,21 +365,128 @@ class EducationalResource(BaseModel):
     ...
 ```
 
-Goals:
+#### OERbservatory as an Interoperability Hub between DALIA and TeSS
 
-1. consume all different schemas
-2. produce all different schemas
-3. have a well-defined intermediate format
-4. consume content that's not actually in a format (data science it up!)
+Before we even started working on the OERbservatory, we had implemented two
+packages for working with data in DALIA and TeSS:
 
-What we did:
+1. [data-literacy-alliance/dalia-dif](https://github.com/data-literacy-alliance/dalia-dif)
+   implements a parser for the DALIA DIF v1.3 tabular format, an internal
+   representation of the content (also using Pydantic), and an RDF serializer
+   (using on [pydantic-metamodel](https://github.com/cthoyt/pydantic-metamodel)
+2. [cthoyt/tess-downloader](https://github.com/cthoyt/tess-downloader)
+   implements an API client to TeSS and an internal representation of the
+   learning resource data model (using Pydantic)
 
-1. Improve tess-downloader package
-2. Improve DALIA DIF package
-3. Implement OERbservatory package to have a generic format that's a superset of
-   both, and operationalizes mappings between
+Because each of these packages already implemented an internal (lossless)
+representations of the data models for DALIA and TeSS, respectively, we only had
+to write code in the OERbservatory that mapped the fields between them to
+OERbservatory's data model.
 
-Implemented in the OERbservatory Python package
+This was a **big** milestone towards interoperability. We demonstrated its
+potential by programmatically downloading all learning materials from the ELIXIR
+TeSS instance's API and exporting them as DALIA RDF. Similarly, we converted all
+learning materials curated for DALIA into the TeSS JSON format. Later, I'll
+describe how we took this workflow one step further to implement syncing between
+DALIA and TeSS.
+
+Note that this mapping can't simply be expressed using SSSOM, SHACL, or other
+declarative languages, because it relies on more sophisticated logic. For
+example, topics annotated with ontology terms in the DALIA data model only store
+the URI reference, whereas topics annotated with ontology terms in the TeSS data
+model require both the URI reference and the term's label. Since we're encoding
+our crosswalks using a general purpose programming language, we have a larger
+toolkit available. Here, we could use
+[PyOBO](https://github.com/biopragmatics/pyobo), a generic package I've written
+for working with ontologies for looking up labels.
+
+Unfortunately, we did not have time to implement an importer/exporter for
+Schema.org. We deprioritized this because Schema.org it felt the least
+approachable due to the way its documentation is written, the complexity of its
+models, and prolific use of mixins. We considered if we could automatically
+generate Pydantic classes from Schema.org - and it turns out that
+[pydantic-schemaorg](https://github.com/lexiq-legal/pydantic_schemaorg) has
+already done it! Unfortunately, the code is not compatible with modern versions
+of Pydantic, and the project appears abandoned. We only had so much time at the
+hackathon, so forking/reviving/rewriting `pydantic-schemaorg` was left as a task
+for later.
+
+#### The OERbservatory as an Aggregator
+
+Besides open educational resources and learning materials that are encoded in
+the DALIA, TeSS, and Schema.org formats, there are many repositories of learning
+materials that do not conform to a well-defined schema. Prior to the hackathon,
+I had already explored the Austrian [OERhub](https://oerhub.at) and
+[Open Educational Resources Search Index (OERSI)](https://oersi.org/resources)
+and written importers into `dalia-dif`. At the hackathon, I reimplemented those
+importers using the newly formed OERbservatory unified, generic data model.
+
+On the Thursday morning of the BioHackathon, I had an excellent
+[mob programming](https://en.wikipedia.org/wiki/Team_programming#Mob_programming)
+session with [Dilfuza Djamalova](https://orcid.org/0009-0004-7782-2894) and
+[Jacobo Miranda](https://orcid.org/0009-0005-0673-021X) to import training
+materials from the
+[Galaxy Training Network (GTN)](https://training.galaxyproject.org). It turns
+out that there are already several open educational resources and learning
+materials that are automatically scraped and imported by TeSS. However, those
+importers are limited by TeSS's relatively rigid data model, which is bound to
+their database and can therefore not be easily evolved. Dilfuza and Jacobo had a
+few goals for our hacking:
+
+- There are fields in GTN that aren't yet captured by TeSS. They wanted to
+  implement those fields in OERbservatory, demonstrate their usage, then gently
+  nudge TeSS to evolve its data model to support their use cases
+- They wanted to index their content in DALIA, which becomes much easier if they
+  only have to maintain one importer in OERbservatory which can already export
+  to DALIA
+- GTN is part of the [DeKCD](https://github.com/dekcd) consortia, which wants to
+  deduplicate training material. Adding an importer here gives access to the
+  workflows we're building for reconciling different metadata curated in
+  different places about the same materials, and identifying similar materials
+  to reduce duplicate effort, and connect people working on the same kinds of
+  materials
+
+We implemented the GTN importer in
+[data-literacy-alliance/oerbservatory#8](https://github.com/data-literacy-alliance/oerbservatory/pull/8)
+which covers tutorials in GTN and later could be extended to slide decks. Along
+the way, we updated the main educational resource model in OERbservatory to
+include a few new fields, including status (which also is shared by TeSS- that
+now needs to be incorporated), the publication date, and the modified date. We
+did not make a complete mapping for all fields in GTN due to time constraints,
+so we implemented logging that summarizes fields that haven't yet been mapped
+(see the PR for examples of each). For example, the way that contributor
+information is incorporated into the API from the frontmatter in the source is
+interesting - it resolves the keys in the frontmatter to entries in
+[this YAML file](https://github.com/galaxyproject/training-material/blob/main/CONTRIBUTORS.yaml)
+in the GTN GitHub repository. We will want to think about the best way to map
+the authors into OERbservatory, and this also might be a time to extend the
+author list to include contributor role annotations.
+
+I was very excited that Dilfuza and Jacobo were motivated to work on this and
+contribute following the hackathon. We see if the OERbservatory is approachable
+enough for future external contributions! For example, Robert Hasse of
+NFDI4BIOIMAGE already proactively prepared a script that exports their
+consortium's training materials into the DALIA DIF v1.3 tabular format. I don't
+consider this a very approachable format, and I'm sure efforts like his could
+have been eased by using OERbservatory as a target. The next steps are to
+incorporate the DARIAH-CH and PSDI learning materials, which appeared on the
+schematic diagram for OERbservatory earlier. There are also a lot of other
+potential learning material repositories to scrape like Glittr.com. If you have
+a suggestion, you can drop it in the
+[OERbservatory issue tracker](https://github.com/data-literacy-alliance/oerbservatory/issues).
+Further, given that Martin Voigt was in the room during this hacking and
+discussion, and he is the maintainer for TeSS's scraper code, we already started
+formulating plans on how we might be able to deduplicate efforts.
+
+#### Federation of OERs
+
+5. a prototype synchronization workflow for mTeSS-X.
+6. a featurization workflow for open educational resources and learning
+   materials, based on either
+   [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or
+   [sentence transformers](https://sbert.net)
+
+governance?
 
 #### Technology Comparison
 
