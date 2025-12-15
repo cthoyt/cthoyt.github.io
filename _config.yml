@@ -22,8 +22,6 @@ url: "https://cthoyt.com"
 
 google_analytics: UA-166029785-1
 
-paginate: 5
-paginate_path: "/blog/page:num/"
 show_excerpts: true
 
 markdown: kramdown
@@ -32,4 +30,3 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-paginate
