@@ -108,18 +108,6 @@ vocabularies, databases, and schemas that mint them?
 
 ### Indexing Ontologies and Schemas
 
-The Semantic Farm ([https://semantic.farm](https://semantic.farm)) is
-comprehensive database of metadata about resources that mint (persistent)
-identifiers (e.g., ontologies, databases, schemas) such as their preferred CURIE
-prefix for usage in SPARQL queries and other semantic web applications. It
-imports and aligns with other databases like
-[Identifiers.org](https://identifiers.org) (for the life sciences) and
-[BARTOC](https://bartoc.org) (for the digital humanities) to support
-interoperability and sustainability. It follows the
-[open data, open code, and open infrastructure (O3)](https://www.nature.com/articles/s41597-024-03406-w)
-guidelines and has well-defined governance to enable community maintenance and
-support longevity.
-
 Our first concrete goal for training material interoperability at the hackathon
 was to survey ontologies, controlled vocabularies, and other resources that mint
 (persistent) identifiers that might appear in the metadata describing a learning
@@ -134,6 +122,21 @@ educational resources and training materials, for example,
 [OERSchema](https://semantic.farm/oerschema), and
 [MoDALIA](https://semantic.farm/modalia), which encodes the DALIA Interchange
 Format (DIF) v1.3.
+
+The Semantic Farm ([https://semantic.farm](https://semantic.farm)) is
+comprehensive database of metadata about resources that mint (persistent)
+identifiers (e.g., ontologies, controlled vocabularies, databases, schemas) such
+as their preferred CURIE prefix for usage in SPARQL queries and other semantic
+web applications. It imports and aligns with other databases like
+[Identifiers.org](https://identifiers.org) (for the life sciences) and
+[BARTOC](https://bartoc.org) (for the digital humanities) to support
+interoperability and sustainability. It follows the
+[open data, open code, and open infrastructure (O3)](https://www.nature.com/articles/s41597-024-03406-w)
+guidelines and has well-defined governance to enable community maintenance and
+support longevity.
+
+It's the perfect place to index all the learning material and open educational
+resource-related ontologies, controlled vocabularies, databases, and schemas.
 
 I gave a tutorial on how to search the Semantic Farm for ontologies, controlled
 vocabularies and other resources that mint (persistent) identifiers, and how to
@@ -185,7 +188,7 @@ easily found and shared.
 
 I alluded to the different resources used by TeSS and DALIA to annotate
 disciplines. The issue of partially overlapping ontologies, controlled
-vocabularies, and databaes is quite widespread, and can manifest in a few
+vocabularies, and database is quite widespread, and can manifest in a few
 different ways. The figure above shows that redundancy can arise because of
 different focus within a domain (i.e., the chemistry example), different
 hierarchical specificity (i.e., the disease example), and due to massive generic
@@ -207,28 +210,62 @@ found on YouTube [here](https://www.youtube.com/watch?v=FkXkOhT8gdc&t=293s)). We
 prepared predicted semantic mappings between several learning resource-related
 ontologies in
 [biopragmatics/biomappings#204](https://github.com/biopragmatics/biomappings/pull/204),
-but we didn't prioritize semantic mapping curation during the hackathon.
+but we didn't prioritize semantic mapping curation during the hackathon. Here's
+what they look like in the SSSOM Curator interface for Biomappings:
 
-![](/img/biohackathon2025/crosswalks.png)
+![](/img/biohackathon2025/sssom-curator-disciplines.png)
 
 Where curating correspondences between concepts in ontology, controlled
 vocabularies, and databases is often called semantic mapping, curating
 correspondences between schemas and properties therein is often called
 crosswalks. We put a bigger emphasis on producing crosswalks between Schema.org
 and MoDALIA. This is actually a more complex problem due to the fact that
-correspondences between elements in schemas can be more sophistocated (e.g.,
+correspondences between elements in schemas can be more sophisticated (e.g.,
 mapping between two fields for first and last names to a single name field), but
 there are at least a few places where properties can be mapped with SSSOM.
+
+![](/img/biohackathon2025/crosswalks.png)
 
 An interesting lesson learned is that there's a lot of pushback on using SKOS
 relationships in SSSOM because the narrow and broader relations have the
 opposite direction that people expect.
+
+### Operationalizing Mappings
+
+Goals:
+
+1. consume all different schemas
+2. produce all different schemas
+3. have a well-defined intermediate format
+4. consume content that's not actually in a format (data science it up!)
+
+What we did:
+
+1. Improve tess-downloader package
+2. Improve DALIA DIF package
+3. Implement OERbservatory package to have a generic format that's a superset of
+   both, and operationalizes mappings between
+
+Implemented in the OERbservatory Python package
+
+### Scaling Mappings
+
+1. implemented importer for Galaxy w/ Dilfuza and Jacobo
+2. implemented importer for OERSI (which itself is an aggregator) and OERhub
+3. create an extensible workflow for getting all content from all registered
+   sources and outputting to JSONL based on the Unified OER model. This is a
+   place where we could also export TeSS JSON or DALIA DIF v1.3 RDF
 
 ## Training Material Analysis
 
 - Identify similar training materials to:
 - Deduplicate and merge records across registries
 - Connect training material producers, consolidate efforts
+
+What we did:
+
+1. Implement workflow for making TF-IDF vectors and also sentence-embedding
+   vectors for training materials
 
 ## Modeling Learning Paths
 
