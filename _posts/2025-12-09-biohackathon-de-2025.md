@@ -66,20 +66,23 @@ We categorized our work plan into three streams:
 ## Training Material Interoperability
 
 Interoperability is third pillar of the
-[FAIR data principles](https://www.nature.com/articles/sdata201618).
-
-Metadata describing training materials may be captured and stored in one of
-several data models including the DALIA Interchange Format (DIF) v1.3, the
-format implicitly defined by the TeSS API, and the Schemas.org Learning Material
-profile.
+[FAIR data principles](https://www.nature.com/articles/sdata201618). Metadata
+describing training materials may be captured and stored in one of several data
+models including the DALIA Interchange Format (DIF) v1.3, the format implicitly
+defined by the TeSS API, and the Schemas.org Learning Material profile. Further,
+metadata records conforming to these data models are filled with references to
+terms in other ontologies, controlled vocabularies, databases, and other
+resources that mint (persistent) identifiers. Our overarching goal at the
+hackathon was to improve interoperability on both levels.
 
 ### Indexing Ontologies and Schemas
 
 Our first concrete goal for training material interoperability at the hackathon
-was to survey ontologies, controlled vocabularies, and other resources that mint
-(persistent) identifiers that might appear in the metadata describing a learning
-material. For example, TeSS uses the [EDAM Ontology](https://semantic.farm/edam)
-to annotate topics onto training materials. For the same purpose, DALIA uses the
+was to survey ontologies, controlled vocabularies, databases, and other
+resources that mint (persistent) identifiers that might appear in the metadata
+describing a learning material. For example, TeSS uses the
+[EDAM Ontology](https://semantic.farm/edam) to annotate topics onto training
+materials. For the same purpose, DALIA uses the
 [Hochschulcampus Ressourcentypen](https://semantic.farm/kim.hcrt) (I'll say more
 on how we deal with the conflicting resources in the section below on mappings).
 
@@ -395,7 +398,7 @@ model require both the URI reference and the term's label. Since we're encoding
 our crosswalks using a general purpose programming language, we have a larger
 toolkit available. Here, we could use
 [PyOBO](https://github.com/biopragmatics/pyobo), a generic package I've written
-for working with ontologies for looking up labels.
+for working with ontologies, for looking up labels.
 
 Unfortunately, we did not have time to implement an importer/exporter for
 Schema.org. We deprioritized this because Schema.org it felt the least
@@ -466,13 +469,16 @@ NFDI4BIOIMAGE already proactively prepared a script that exports their
 consortium's training materials into the DALIA DIF v1.3 tabular format. I don't
 consider this a very approachable format, and I'm sure efforts like his could
 have been eased by using OERbservatory as a target. The next steps are to
-incorporate the DARIAH-CH and PSDI learning materials, which appeared on the
-schematic diagram for OERbservatory earlier. There are also a lot of other
-potential learning material repositories to scrape like Glittr.com. If you have
-a suggestion, you can drop it in the
+incorporate the
+[Swiss Digital Research Infrastructure for Arts and Humanities (DARIAH-CH)](https://www.dariah.ch)
+and [Physical Sciences Data Infrastructure (PSDI)](https://www.psdi.ac.uk)
+learning materials, which appeared on the schematic diagram for OERbservatory
+earlier. There are also a lot of other potential learning material repositories
+to scrape like Glittr.com. If you have a suggestion, you can drop it in the
 [OERbservatory issue tracker](https://github.com/data-literacy-alliance/oerbservatory/issues).
 Further, given that Martin Voigt was in the room during this hacking and
-discussion, and he is the maintainer for TeSS's scraper code, we already started
+discussion, and he is the maintainer for TeSS's
+[scraper code](https://github.com/ElixirTeSS/TeSS_scrapers), we already started
 formulating plans on how we might be able to deduplicate efforts.
 
 ### Federation of Open Educational Resources and Learning Materials
@@ -639,11 +645,13 @@ worth sharing the results, most of which are adapted from Phil's repository in
 
 ### Proposed Data Model
 
-Our team proposed two new Bioschemas profiles and a small change to
-[one Bioschemas profile](https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE):
+Phil, Alban, and Leyla proposed two new Bioschemas profiles and a small change
+to
+[one Bioschemas profile](https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE)
+with the help of Nick and Roman:
 
 - `LearningPath`: inherits from `Course`
-- `LearningPathModule`: inherits from `Course` and `Syllabus` and `ListItem` and
+- `LearningPathModule`: inherits from `Course`, `Syllabus`, `ListItem`, and
   `ItemList`
 - `TrainingMaterial`: inherits from `LearningResource` and `ListItem`
 
@@ -688,7 +696,7 @@ classDiagram
 
 ### Concrete Example from Galaxy Training Network
 
-The team encoded the
+The team mocked encoding the
 [Introduction to Galaxy and Sequence analysis](https://tess.elixir-europe.org/learning_paths/introduction-to-galaxy-and-sequence-analysis-6384c0ed-3546-41cf-ac30-bff8680dd96c)
 learning path on TeSS in this new schema. This learning path has the following
 structure:
@@ -785,11 +793,13 @@ built-in RDF notions of lists and instead implemented their own formalism. I saw
 that this caused a lot of confusion for the team both during mocking and also
 during SPARQL querying.
 
-The next steps in terms of learning paths is to create a concrete implementation
-in OERbsevatory - we have the benefit that the Python programming language
-provides a much more ergonomic abstraction over lists and collections. There's a
-lot of content inside the Galaxy Training Network (GTN) that could be ingested
-into such a learning path.
+I think the next steps in terms of learning paths is to create a concrete
+implementation in OERbsevatory - we have the benefit that the Python programming
+language provides a much more ergonomic abstraction over lists and collections.
+There's a lot of content inside the Galaxy Training Network (GTN) that could be
+ingested into such a learning path. Towards this end, I gave a quick demo of
+Pydantic to the learning paths team and showed them how I typically go about
+data modeling.
 
 ---
 
