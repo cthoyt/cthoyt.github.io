@@ -23,7 +23,7 @@ Materials_ in order to improve the interoperability between
 [Schema.org](https://schema.org). This post gives a summary of the activities
 leading up to the hackathon and the results of our happy hacking.
 
-## Team and Goals
+## Team
 
 ![](/img/biohackathon2025/team.jpg)
 
@@ -552,21 +552,75 @@ about how to federate between many disparate TeSS instances.
 
 ## Training Material Analysis
 
-I did less on the second two streams of the hackathon
+Our team split into two for the analysis of training materials. The first team
+looked into algorithmic mechanisms for featurizing open educational resources
+and learning materials and applications of those features. The second team
+looked into using large language models (LLMs) for the automated construction of
+learning paths.
 
-6. a featurization workflow for open educational resources and learning
-   materials, based on either
-   [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or
-   [sentence transformers](https://sbert.net)
+### Featurization and Application
 
-- Identify similar training materials to:
-- Deduplicate and merge records across registries
-- Connect training material producers, consolidate efforts
+The first team looked into two techniques for featurizing (i.e., assigning dense
+vectors) to open educational resources and learning materials.
 
-What we did:
+The first and most interpretable technique was to concatenate free text fields
+and labels from structured fields from a learning resource and index the entire
+corpus (i.e., all learning resources) using the
+[term frequency-inverse document frequency (TF-IDF)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
+algorithm. This does a small amount of text preprocessing, calculates a word
+list for the entire corpus, then calculates for each word the likelihood of
+appearance in a given learning material versus the entire corpus. Then, each
+learning material is assigned a dense vector with values from $[0, 1]$ the
+length of the word list. Learning materials can be compared, e.g., using cosine
+similarity between their respective vectors.
 
-1. Implement workflow for making TF-IDF vectors and also sentence-embedding
-   vectors for training materials
+The second technique was to use the [sentence transformers](https://sbert.net)
+machine learning architecture, which relies on a pre-trained (not large)
+language model to accomplish a similar vectorization. Both methods run in less
+than a few minutes for the corpus of learning resources from DALIA, TeSS,
+OERHub, and OERSI. We also pre-calculated the all-by-all similarities and
+applied a cutoff of 0.7 to shorten the list. Both the TF-IDF and sentence
+transformers vector index and similarities are commit to the OERbservatory
+repository and are available
+[here](https://github.com/data-literacy-alliance/oerbservatory/tree/main/output).
+
+![](/img/biohackathon2025/similarities.png)
+
+After we had embeddings, Dilfuza began to investigate some of the following:
+
+1. Identify duplicates metadata records corresponding to the same learning
+   material resource, e.g., when two different platforms scraped the same
+   learning material
+2. Semi-automatically identify similar training materials both to improve
+   suggestions to learners, to connect the learning material creators, and to
+   help de-duplicate training material creation efforts
+
+We only managed to get this far in the last day of the hackathon, so there is
+still a lot more to do here! Originally, I had planned on also using these
+embeddings to train classifiers for key provenance metadata such as topic,
+target audience, and difficulty level, then to create a semi-automated curation
+workflow for enriching learning materials whose records were sparse with
+annotation. These will be next steps.
+
+### Automated Construction of Learning Paths
+
+Nick looked into using large language models (LLMs) to construct learning paths
+through machine-assisted dialog. This part is highly experimental so there isn't
+much to point to yet, but the idea was to take in a list of learning materials
+(either hard-coded or as a URL for the chat system to retrieve) and a prompt to
+ask the LLM ot collect similar materials base don objectives and keywords, then
+create a learning path based on difficult (which is infrequently annotated) and
+suggest a title.
+
+This workflow was used to produce three learning paths on the following topics
+that were each ordered, had reference links, a difficulty rating, a title, and
+provider:
+
+1. Sequencing and QC (10 items)
+2. Git and Version Control (6 items)
+3. Genome Annotation (8 items)
+
+More on this in future work!
 
 ## Modeling Learning Paths
 
