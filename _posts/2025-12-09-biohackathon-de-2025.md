@@ -54,8 +54,9 @@ We categorized our work plan into three streams:
 
 1. [**Training Material Interoperability**](#training-material-interoperability) -
    survey the landscape of relevant ontologies and schemas for annotating
-   learning materials, curate mappings/crosswalks, and develop a programmatic
-   toolbox
+   learning materials, curate mappings/crosswalks between existing data models,
+   develop a programmatic toolbox, and begin federating between training
+   material platforms
 2. [**Training Material Analysis**](#training-material-analysis) - analyze
    training materials at scale to group similar training materials, reduce
    redundancy, and semi-automatically construct learning paths
@@ -71,40 +72,6 @@ Metadata describing training materials may be captured and stored in one of
 several data models including the DALIA Interchange Format (DIF) v1.3, the
 format implicitly defined by the TeSS API, and the Schemas.org Learning Material
 profile.
-
-A key step towards interoperability is to identify concepts/entities in a
-standard and unambiguous way. Let's unpack this:
-
-- Identifying and indexing relevant ontologies, controlled vocabularies, and
-  schemas for learning materials and (open) educational resources
-- Curating mappings between ontologies and controlled vocabularies terms and
-  crosswalks between schemas. Specifically, we focused on curating crosswalks
-  between the representations of learning materials in the schemas from MoDALIA
-  and Schema.org
-- Implemented in the OERbservatory Python package
-- Demonstrated federation in the mTeSS-X platform
-
-The standard identification of concepts and entities
-
-- ontologies and controlled vocabularies cover classes and individuals
-- databases like the
-  [Galaxy Training Network (GTN)](https://training.galaxyproject.org)
-- schemas like [OERSchema](https://semantic.farm/oerschema),
-  [Schema.org](https://semantic.farm/sdo), and
-  [MoDALIA](https://semantic.farm/modalia)
-
-such as academic disciplines,
-
-We started the week off discussing best practices for identifiers:
-
-- Identifiers support the interoperability aspect of FAIR data
-- Linked (open) data - when different resources use the same identifiers, we can
-  automatically integrate them Knowledge Graphs and Federated SPARQL Queries
-- Resolve structured, machine-readable data to human-readable (and LLM-readable)
-  via the web
-
-Where do the identifiers come from? What are the ontologies, controlled
-vocabularies, databases, and schemas that mint them?
 
 ### Indexing Ontologies and Schemas
 
@@ -365,6 +332,36 @@ class EducationalResource(BaseModel):
     ...
 ```
 
+<details>
+<summary>Technology Comparison (content warning: programming culture wars)</summary>
+<p>
+DALIA and Schema.org built on top of semantic web principles. Records about
+learning materials encoded in these data models are stored in RDF and queryable
+via SPARQL. However, while powerful, SPARQL is a querying language that is
+inherently limited in its expressibility and utility. A general purpose
+programming language is more suited for building data science workflows, search
+engines, APIs, web interfaces, and other tools on top of open educational
+resource and learning material data. That's why we emphasized concretizing the
+crosswalks between DALIA, TeSS, and Schema.org in a software implementation.
+</p><p>
+We chose Python as the target language because of its ubiquity and ease of use.
+When the TeSS platform was initially developed in the early 2010s, the Ruby
+programming language and the Ruby on Rails framework were a popular choice for
+developing web applications. Unfortunately, the scientific Python stack and
+machine learning ecosystem led Python to being a clear winner for academics and
+scientists. This creates an issue that only a small number of academics are
+skilled in Ruby and can participate in the development of TeSS.
+</p><p>
+It was also crucial that we used Python such that our implementation was
+reusable. For example, the DALIA 1.0 platform was implemented using Django,
+which made it effectively impossible to reuse any of the underlying code
+outside, e.g., in a data science workflow. The same issue is also true for the
+TeSS implementation using Ruby-on-Rails. While these batteries-included
+frameworks can get a minimal web application running quickly, they generally
+lead developers towards writing code that isn't reusable.
+</p>
+</details>
+
 #### OERbservatory as an Interoperability Hub between DALIA and TeSS
 
 Before we even started working on the OERbservatory, we had implemented two
@@ -478,7 +475,7 @@ Further, given that Martin Voigt was in the room during this hacking and
 discussion, and he is the maintainer for TeSS's scraper code, we already started
 formulating plans on how we might be able to deduplicate efforts.
 
-#### Federation of Open Educational Resources and Learning Materials
+### Federation of Open Educational Resources and Learning Materials
 
 ![](/img/biohackathon2025/federation.svg)
 
@@ -519,6 +516,8 @@ The results in each space can be explored here:
 A full list of spaces can be found
 [here](https://pan-training.tesshub.hzdr.de/spaces).
 
+#### European Open Science Cloud
+
 The great specter looming over most NFDI-related projects is how to interface
 with the European Open Science Cloud (EOSC). At the surface, EOSC is a massive
 undertaking to democratize access to research infrastructure on the European
@@ -531,6 +530,8 @@ training materials registry using the
 [Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH)](https://www.openarchives.org/pmh/).
 Once TeSSHub can demonstrate federating its content through this mechanism, we
 can use as inspiration to make a generic implementation in OERbservatory.
+
+#### Governance and Provenance
 
 Now that it's possible to copy training materials from one platform to another,
 we have started to consider governance and provenance issues like:
@@ -549,34 +550,9 @@ I'm sure there will be many more questions along these lines. Luckily, the
 mTeSS-X group has already begun discussions on a smaller scale, since they care
 about how to federate between many disparate TeSS instances.
 
-#### Technology Comparison
-
-DALIA and Schema.org built on top of semantic web principles. Records about
-learning materials encoded in these data models are stored in RDF and queryable
-via SPARQL. However, while powerful, SPARQL is a querying language that is
-inherently limited in its expressibility and utility. A general purpose
-programming language is more suited for building data science workflows, search
-engines, APIs, web interfaces, and other tools on top of open educational
-resource and learning material data. That's why we emphasized concretizing the
-crosswalks between DALIA, TeSS, and Schema.org in a software implementation.
-
-We chose Python as the target language because of its ubiquity and ease of use.
-When the TeSS platform was initially developed in the early 2010s, the Ruby
-programming language and the Ruby on Rails framework were a popular choice for
-developing web applications. Unfortunately, the scientific Python stack and
-machine learning ecosystem led Python to being a clear winner for academics and
-scientists. This creates an issue that only a small number of academics are
-skilled in Ruby and can participate in the development of TeSS.
-
-It was also crucial that we used Python such that our implementation was
-reusable. For example, the DALIA 1.0 platform was implemented using Django,
-which made it effectively impossible to reuse any of the underlying code
-outside, e.g., in a data science workflow. The same issue is also true for the
-TeSS implementation using Ruby-on-Rails. While these batteries-included
-frameworks can get a minimal web application running quickly, they generally
-lead developers towards writing code that isn't reusable.
-
 ## Training Material Analysis
+
+I did less on the second two streams of the hackathon
 
 6. a featurization workflow for open educational resources and learning
    materials, based on either
@@ -594,7 +570,184 @@ What we did:
 
 ## Modeling Learning Paths
 
-- Collect examples of learning paths
-  - Developed a schema that groups learning materials into a logical and modular
-    ordering
-  - Mock a schema by extending Schema.org
+While there isn't a clear consensus on what a learning path is, a simple
+definition is that a learning path is a sequence of learning materials to
+consume to help a learner achieve a specific level of competence on a topic.
+TeSS implements a data model for learning paths based on this definition and the
+ELIXIR TeSS instance has
+[eleven examples](https://tess.elixir-europe.org/learning_paths). Our team had
+the goal to develop an extension Schemas.org (in Bioschemas) to capture learning
+paths.
+
+For transparency, I didn't actively participate in this track, but think it's
+worth sharing the results, most of which are adapted from Phil's repository in
+[BioSchemas/LearningPath-sandbox](https://github.com/BioSchemas/LearningPath-sandbox).
+
+### Proposed Data Model
+
+Our team proposed two new Bioschemas profiles and a small change to
+[one Bioschemas profile](https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE):
+
+- `LearningPath`: inherits from `Course`
+- `LearningPathModule`: inherits from `Course` and `Syllabus` and `ListItem` and
+  `ItemList`
+- `TrainingMaterial`: inherits from `LearningResource` and `ListItem`
+
+Here's a class diagram describing the proposed data model, where 🔺 is
+Schema.org type, 🟩 is Bioschemas profile, 🔵 is new profile:
+
+```mermaid
+classDiagram
+    direction TB
+    class Event["Event🔺"] {
+    }
+    class CourseInstance["CourseInstance🔺🟩"] {
+    }
+    class Course["Course🔺🟩"] {
+        syllabusSections
+    }
+    class new_LearningPath["new:LearningPath🔵"] {
+        Syllabus[] syllabusSections
+    }
+    class ListItem["ListItem🔺"] {
+        nextItem
+    }
+    class Syllabus["Syllabus🔺"] {
+    }
+    class new_LearningPathModule["new:LearningPathModule🔵"] {
+        ListItem[] itemListElement
+        LearningPathTopic nextItem
+    }
+    class LearningResource["LearningResource🔺"] {
+    }
+    class bio_TrainingMaterial["bio:TrainingMaterial🟩"] {
+    }
+    Course <|-- new_LearningPath
+    Course <|-- new_LearningPathModule
+    Syllabus <|-- new_LearningPathModule
+    ListItem <|-- new_LearningPathModule
+    LearningResource <|-- Course
+    LearningResource <|-- bio_TrainingMaterial
+    LearningResource <|-- Syllabus
+    Event <|-- CourseInstance
+```
+
+### Concrete Example from Galaxy Training Network
+
+The team encoded the
+[Introduction to Galaxy and Sequence analysis](https://tess.elixir-europe.org/learning_paths/introduction-to-galaxy-and-sequence-analysis-6384c0ed-3546-41cf-ac30-bff8680dd96c)
+learning path on TeSS in this new schema. This learning path has the following
+structure:
+
+1. **Module 1: Introduction to Galaxy**
+   1. A short introduction to Galaxy
+   2. Galaxy Basics for genomics
+2. **Module 2: Basics of Genome Sequence Analysis**
+   1. Quality Control
+   2. Mapping
+   3. An Introduction to Genome Assembly
+   4. Chloroplast genome assembly
+
+Here's a mockup of how this could look in RDF:
+
+```turtle
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/> .
+@prefix schema: <https://schema.org/> .
+
+ex:GA_learning_path a schema:Course ;
+    dct:conformsTo <https://bioschemas.org/profiles/LearningPath> ;
+    schema:courseCode "GSA101" ;
+    schema:description "This learning path aims to teach you the basics of Galaxy and analysis of sequencing data. " ;
+    schema:name "Introduction to Galaxy and Sequence analysis" ;
+    schema:provider ex:ExampleUniversity ;
+    schema:syllabusSections ex:Module_1,
+        ex:Module_2 .
+
+ex:Module_1 a schema:ItemList,
+        schema:ListItem,
+        schema:Syllabus ;
+    dct:conformsTo <https://bioschemas.org/profiles/LearningPathModule> ;
+    schema:itemListElement ex:TM11,
+        ex:TM12 ;
+    schema:name "Module 1: Introduction to Galaxy" ;
+    schema:nextItem ex:Module_2 ;
+    schema:teaches "Learn how to create a workflow" .
+
+ex:TM11 a schema:LearningResource,
+        schema:ListItem ;
+    dct:conformsTo <https://bioschemas.org/profiles/TrainingMaterial> ;
+    schema:description "What is Galaxy" ;
+    schema:name "(1.1) A short introduction to Galaxy" ;
+    schema:nextItem ex:TM12 ;
+    schema:url "https://tess.elixir-europe.org/materials/hands-on-for-a-short-introduction-to-galaxy-tutorial?lp=1%3A1" .
+```
+
+Here's the same thing from a graphical perspective:
+
+```mermaid
+graph TD
+    N1["Module 1: Introduction to Galaxy"]
+    N3["(1.2) Galaxy Basics for genomics"]
+    N1 -- itemListElement --> N3
+    N1["Module 1: Introduction to Galaxy"]
+    N2["(1.1) A short introduction to Galaxy"]
+    N1 -- itemListElement --> N2
+    N4["Module 2: Basics of Genome Sequence Analysis"]
+    N8["(2.4) Chloroplast genome assembly"]
+    N4 -- itemListElement --> N8
+    N2["(1.1) A short introduction to Galaxy"]
+    N3["(1.2) Galaxy Basics for genomics"]
+    N2 -- nextItem --> N3
+    N1["Module 1: Introduction to Galaxy"]
+    N4["Module 2: Basics of Genome Sequence Analysis"]
+    N1 -- nextItem --> N4
+    N7["(2.3) An Introduction to Genome Assembly"]
+    N8["(2.4) Chloroplast genome assembly"]
+    N7 -- nextItem --> N8
+    N4["Module 2: Basics of Genome Sequence Analysis"]
+    N5["(2.1) Quality Control"]
+    N4 -- itemListElement --> N5
+    N4["Module 2: Basics of Genome Sequence Analysis"]
+    N6["(2.2) Mapping"]
+    N4 -- itemListElement --> N6
+    N4["Module 2: Basics of Genome Sequence Analysis"]
+    N7["(2.3) An Introduction to Genome Assembly"]
+    N4 -- itemListElement --> N7
+    N6["(2.2) Mapping"]
+    N7["(2.3) An Introduction to Genome Assembly"]
+    N6 -- nextItem --> N7
+    N3["(1.2) Galaxy Basics for genomics"]
+    N5["(2.1) Quality Control"]
+    N3 -- nextItem --> N5
+    N5["(2.1) Quality Control"]
+    N6["(2.2) Mapping"]
+    N5 -- nextItem --> N6
+```
+
+Something that I became aware of while listening to discussions about learning
+path is the way that Schema.org models lists. I wonder why they don't use the
+built-in RDF notions of lists and instead implemented their own formalism. I saw
+that this caused a lot of confusion for the team both during mocking and also
+during SPARQL querying.
+
+The next steps in terms of learning paths is to create a concrete implementation
+in OERbsevatory - we have the benefit that the Python programming language
+provides a much more ergonomic abstraction over lists and collections. There's a
+lot of content inside the Galaxy Training Network (GTN) that could be ingested
+into such a learning path.
+
+---
+
+I really enjoyed the BioHackathon, and in general, I am very happy to be
+attending more events to network with other academics in Germany. It was totally
+exhausting, too, which is why I didn't manage to finish this in the week
+following the event.
+
+In other open educational resource and learning materials news, we pre-printed
+the first ac academic article describing a specific use case for DALIA on arXiv
+in September:
+[Teaching RDM in a smart advanced inorganic lab course and its provision in the DALIA platform](https://arxiv.org/abs/2509.18902).
+We're currently finalizing a second article fully dedicated towards describing
+the DALIA platform which I hope can go on the arXiv in early January. Stay
+tuned!
