@@ -478,43 +478,110 @@ Further, given that Martin Voigt was in the room during this hacking and
 discussion, and he is the maintainer for TeSS's scraper code, we already started
 formulating plans on how we might be able to deduplicate efforts.
 
-#### Federation of OERs
+#### Federation of Open Educational Resources and Learning Materials
 
-5. a prototype synchronization workflow for mTeSS-X.
+![](/img/biohackathon2025/federation.svg)
+
+The next step towards interoperability beyond the demonstration of converting
+between formats used by DALIA and TeSS was to demonstrate actually posting the
+content to the live services.
+
+While we are currently in the process of implementing submission of open
+educational resources and learning materials in DALIA, TeSS already has a
+web-based interface for
+[registering new learning materials](https://tess.elixir-europe.org/materials/new).
+TeSS doesn't have a documented API endpoint for posting learning materials, but
+luckily, Martin knew where it was and helped to figure out the correct way to
+pass credentials to use it. We managed this by a combination of reading the Ruby
+implementation of TeSS and good 'ol trial and error. In the end, we implemented
+posting learning materials in the TeSS-specific Python package in
+[cthoyt/tess-downloader#2](https://github.com/cthoyt/tess-downloader/pull/2).
+Then, it was only a matter of stringing together code that converts DALIA to
+OERbservatory, OERbservatory to TeSS, and then to upload to TeSS.
+
+In parallel, Martin worked on improving the devops behind the
+[PaNOSC TeSSHub](https://tesshub.hzdr.de) to enable quicky spinning up new TeSS
+instances that each have their own subdomain. He created a different subdomain
+for each of DALIA, OERSI, GTN/KCD, and OERhub. Finally, we wrote a script that
+uploaded all open educational resources and learning material from each source
+to the appropriate TeSS instance in
+[data-literacy-alliance/oerbservatory#3](https://github.com/data-literacy-alliance/oerbservatory/pull/3).
+The results in each space can be explored here:
+
+| Source    | Domain                                                           |
+| --------- | ---------------------------------------------------------------- |
+| DALIA     | [https://dalia.tesshub.hzdr.de](https://dalia.tesshub.hzdr.de)   |
+| OERhub    | [https://oerhub.tesshub.hzdr.de](https://oerhub.tesshub.hzdr.de) |
+| OERSI     | [https://oersi.tesshub.hzdr.de](https://oersi.tesshub.hzdr.de)   |
+| GTN/deKCD | [https://kcd.tesshub.hzdr.de](https://kcd.tesshub.hzdr.de)       |
+| PanOSC    | [https://panosc.tesshub.hzdr.de](https://panosc.tesshub.hzdr.de) |
+
+A full list of spaces can be found
+[here](https://pan-training.tesshub.hzdr.de/spaces).
+
+The great specter looming over most NFDI-related projects is how to interface
+with the European Open Science Cloud (EOSC). At the surface, EOSC is a massive
+undertaking to democratize access to research infrastructure on the European
+level. However, having just entered the NFDI bubble at the end of the summer, I
+have bene overwhelmed by the high pressure to participate in EOSC combine with
+the lack of funding and lack of direction on how to best go about doing that.
+All of that being said, Oliver Knödel spend the hackathon preparing the concept
+for how we could connect TeSSHub to the EOSC open educational resource and
+training materials registry using the
+[Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH)](https://www.openarchives.org/pmh/).
+Once TeSSHub can demonstrate federating its content through this mechanism, we
+can use as inspiration to make a generic implementation in OERbservatory.
+
+Now that it's possible to copy training materials from one platform to another,
+we have started to consider governance and provenance issues like:
+
+- If a training material originally curated in DALIA is displayed in TeSS, how
+  is that attributed? We will have to carefully consider how metadata records
+  about learning resources are identified, and how those identifiers are passed
+  around during interchange/syncing.
+- If a training material originally from TeSS is enriched in the DALIA platform,
+  should that information flow back to TeSS, and how? We will have to carefully
+  consider how information is deduplicated and reconciled
+- How do we implement technical systems that can keep many federated platforms
+  up-to-date with each other?
+
+I'm sure there will be many more questions along these lines. Luckily, the
+mTeSS-X group has already begun discussions on a smaller scale, since they care
+about how to federate between many disparate TeSS instances.
+
+#### Technology Comparison
+
+DALIA and Schema.org built on top of semantic web principles. Records about
+learning materials encoded in these data models are stored in RDF and queryable
+via SPARQL. However, while powerful, SPARQL is a querying language that is
+inherently limited in its expressibility and utility. A general purpose
+programming language is more suited for building data science workflows, search
+engines, APIs, web interfaces, and other tools on top of open educational
+resource and learning material data. That's why we emphasized concretizing the
+crosswalks between DALIA, TeSS, and Schema.org in a software implementation.
+
+We chose Python as the target language because of its ubiquity and ease of use.
+When the TeSS platform was initially developed in the early 2010s, the Ruby
+programming language and the Ruby on Rails framework were a popular choice for
+developing web applications. Unfortunately, the scientific Python stack and
+machine learning ecosystem led Python to being a clear winner for academics and
+scientists. This creates an issue that only a small number of academics are
+skilled in Ruby and can participate in the development of TeSS.
+
+It was also crucial that we used Python such that our implementation was
+reusable. For example, the DALIA 1.0 platform was implemented using Django,
+which made it effectively impossible to reuse any of the underlying code
+outside, e.g., in a data science workflow. The same issue is also true for the
+TeSS implementation using Ruby-on-Rails. While these batteries-included
+frameworks can get a minimal web application running quickly, they generally
+lead developers towards writing code that isn't reusable.
+
+## Training Material Analysis
+
 6. a featurization workflow for open educational resources and learning
    materials, based on either
    [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or
    [sentence transformers](https://sbert.net)
-
-governance?
-
-#### Technology Comparison
-
-Open educational resources and learning materials stored in data models (e.g.,
-DALIA, Schema.org) based on semantic web principles can be queried by SPARQL.
-However, while powerful, SPARQL is inherently limited in its expressivity
-compared to general purpose programming languages, which are better suited for
-building data science workflows, search engines, APIs, web interfaces, and other
-tools. Therefore, our goal was to concretize the abstract crosswalks between
-DALIA, TeSS, and Schema.org in a Python software package.
-
-We chose Python because of its ubiquity and ease of use. Unfortunately, the TeSS
-platform is implemented in the Ruby programming language. This was a popular
-choice in the early 2010s because of the powerful Ruby on Rails framework, but
-it is not the choice programming language of scientists, making it challenging
-to collaboratively develop TeSS, since only a small number of academic
-scientists are skilled in Ruby. Therefore, we chose Python, to meet academic
-scientists where they are.
-
-### Scaling Mappings
-
-1. implemented importer for Galaxy w/ Dilfuza and Jacobo
-2. implemented importer for OERSI (which itself is an aggregator) and OERhub
-3. create an extensible workflow for getting all content from all registered
-   sources and outputting to JSONL based on the Unified OER model. This is a
-   place where we could also export TeSS JSON or DALIA DIF v1.3 RDF
-
-## Training Material Analysis
 
 - Identify similar training materials to:
 - Deduplicate and merge records across registries
