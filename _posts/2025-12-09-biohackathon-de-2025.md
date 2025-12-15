@@ -11,7 +11,7 @@ tags:
   - URIs
 ---
 
-Last week, I attended the
+I recently attended the
 [4<sup>th</sup> BioHackathon Germany](https://www.denbi.de/de-nbi-events/1840-4th-biohackathon-germany)
 hosted by the
 [German Network for Bioinformatics Infrastructure (de.NBI)](https://www.denbi.de).
@@ -20,8 +20,8 @@ Materials_ in order to improve the interoperability between
 [DALIA](https://search.dalia.education/basic),
 [TeSS](https://tess.elixir-europe.org),
 [mTeSS-X](https://elixirtess.github.io/mTeSS-X), and
-[Bioschemas](https://bioschemas.org). This post gives a summary of the
-activities leading up to the hackathon and the results of our happy hacking.
+[Schema.org](https://schema.org). This post gives a summary of the activities
+leading up to the hackathon and the results of our happy hacking.
 
 ## Team and Goals
 
@@ -46,7 +46,7 @@ Gaignard (Nantes University), Dimitris Panouris (SciLifeLab), and Harshita Gupta
 (Heinrich-Heine-Universität Düsseldorf) joined on the first day to share his
 perspective from DataPLANT (the NFDI consortium for plants) as a training
 materials creator. Finally, Helena Schnitzer (FZJ) participated in some
-Bioschemas discussions through the week.
+Schema.org discussions through the week.
 
 ## Goals
 
@@ -175,7 +175,7 @@ This resource contains multi- and cross-disciplinary training materials for
 using the Galaxy workflow management system. Below, I describe how we ingested
 transformed the training materials from GTN into a common format such they can
 be represented according to the DALIA Interchange Format (DIF) v1.3, the
-implicit data model expected by TeSS, and in Bioschemas-compliant RDF.
+implicit data model expected by TeSS, and in Schema.org-compliant RDF.
 
 Ultimately, we collated relevant ontologies, controlled vocabularies, schemas
 and other resources that mint (persistent) identifiers in a
@@ -195,7 +195,7 @@ hierarchical specificity (i.e., the disease example), and due to massive generic
 resources having overlap across many domains (e.g., like UMLS, MeSH, NCIT).
 
 This is problematic when integrating learning materials from different sources,
-e.g., TeSS and DALIA, because two learning resources may be annotated with
+e.g., TeSS and DALIA, because two learning materials may be annotated with
 different terms describing the same discipline. Therefore, the solution is to
 create semantic mappings between these terms.
 
@@ -207,7 +207,7 @@ semantic mappings with lexical matching and deploying a curation interface
 called [SSSOM Curator](github.com/cthoyt/sssom-curator/). I gave a tutorial for
 using SSSOM Curator to the team based on a previous tutorial I made (that can be
 found on YouTube [here](https://www.youtube.com/watch?v=FkXkOhT8gdc&t=293s)). We
-prepared predicted semantic mappings between several learning resource-related
+prepared predicted semantic mappings between several learning material-related
 ontologies in
 [biopragmatics/biomappings#204](https://github.com/biopragmatics/biomappings/pull/204),
 but we didn't prioritize semantic mapping curation during the hackathon. Here's
@@ -226,11 +226,146 @@ there are at least a few places where properties can be mapped with SSSOM.
 
 ![](/img/biohackathon2025/crosswalks.png)
 
-An interesting lesson learned is that there's a lot of pushback on using SKOS
-relationships in SSSOM because the narrow and broader relations have the
-opposite direction that people expect.
+An interesting lesson learned is that some curators find using SKOS
+relationships challenging because the narrow and broader relations have the
+opposite direction than what they would expect. For example,
+`X skos:narrowMatch Y` means that X is narrower than Y, not X has a narrow match
+Y. Many vocabularies use a verb as part of the predicate to reduce this
+confusion - I'm sure if it were `X skos:isNarrowMatchFor Y`, then this would not
+have been a problem. Deep down, the real issue is that transparent identifiers
+(i.e., human-readable ones) are bad, since they can't be changed over time. See
+the excellent article,
+[Identifiers for the 21<sup>st</sup> century](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2001414),
+by McMurry _et al._ (2017) for a more detailed discussion on what makes a good
+identifier.
 
-### Operationalizing Mappings
+### Operationalizing Crosswalks
+
+The next step was to translate the abstract crosswalks between DALIA, TeSS, and
+Schema.org into a concrete implementation using a general purpose programming
+language (i.e., Python).
+
+#### The Scaling Problem
+
+Given that we only focused on these three data models, it's not unrealistic to
+produce a DALIA-TeSS crosswalk, TeSS-Schema.org crosswalk, and DALIA-Schema.org
+crosswalk. However, this approach does not scale well - in general, it requires
+curating and implementing ${N}\choose{2}$ crosswalks with $N$ being the number
+of schemas.
+
+An alternative is to use a hub-and-spoke model, in which one data model is
+targeted as the intermediary used for interchange and storage. This reduces the
+burden on curators of crosswalks, as they only have to curate a single crosswalk
+for any given data model into the intermediary. Similarly, it reduces the burden
+on code maintainers as only a single crosswalk has to be implemented.
+
+The challenge with open educational resources and learning materials is that no
+existing data model is sufficient to cover the (most important) aspects of all
+other data models. This motivated us to implement a unified, generic data model
+for learning materials to serve as the interoperability hub between DALIA, TeSS,
+Schema.org, and other data models.
+
+```mermaid
+graph TD
+    subgraph alltoall ["All-to-All (complex, burdensome)"]
+        dalia[DALIA] <--> tess[TeSS]
+        dalia <--> schema[Schema.org]
+        dalia <--> oerschema[OERschema]
+        dalia <--> amb["Allgemeines Metadatenprofil für Bildungsressourcen (AMB)"]
+        dalia <--> lrmi["Learning Resource Metadata Initiative (LRMI)"]
+        dalia <--> erudite[ERuDIte]
+        tess <--> schema
+        tess <--> oerschema
+        tess <--> amb
+        tess <--> lrmi
+        tess <--> erudite
+        schema <--> oerschema
+        schema <--> amb
+        schema <--> lrmi
+        schema <--> erudite
+        oerschema <--> amb
+        oerschema <--> lrmi
+        oerschema <--> erudite
+        amb <--> lrmi
+        amb <--> erudite
+        lrmi <--> erudite
+    end
+
+    subgraph hub ["Hub-and-Spoke (maintainable, extensible)"]
+        direction TB
+        hubn[Unified OER Data Model] <--> daliaspoke[DALIA]
+        hubn[Unified OER Data Model] <--> tessspoke[TeSS]
+        hubn[Unified OER Data Model] <--> schemaspoke[Schema.org]
+        hubn[Unified OER Data Model] <--> oerschemaspoke[OERschema]
+        hubn[Unified OER Data Model] <--> ambspoke["Allgemeines Metadatenprofil für Bildungsressourcen (AMB)"]
+        hubn[Unified OER Data Model] <--> lrmispoke["Learning Resource Metadata Initiative (LRMI)"]
+        hubn[Unified OER Data Model] <--> eruditespoke[ERuDIte]
+    end
+
+    alltoall --> hub
+```
+
+The famous XKCD comic, [Standards (https://xkcd.com/927)](https://xkcd.com/927),
+proselytizes that any proposal of a unified standard that covers everyone's use
+cases is doomed to be an $N+1$ competing standard. While I'm doing my best to
+present the work done in preparation for the hackathon and at the hackathon in a
+linear way, the truth is that most steps also included discussion, hacking,
+trying, failing, and repeating. Therefore, I can confidently say that for
+practical reasons, implementing a new _de facto_ standard was the only realistic
+choice.
+
+#### The OERbservatory
+
+![](/img/biohackathon2025/oerbservatory-schematic.png)
+
+During the hackathon, we implemented the open source
+[OERbservatory](https://github.com/data-literacy-alliance/oerbservatory) Python
+package. It includes:
+
+1. a unified, generic
+   [object model](https://github.com/data-literacy-alliance/oerbservatory/blob/main/src/oerbservatory/model.py)
+   for open educational resources
+2. import and export to two open educational resource and learning materials
+   data models - DALIA and TeSS
+3. import from three external learning material repositories -
+   [OERhub](https://oerhub.at), [OERSI](https://oersi.org), and the
+   [Galaxy Training Network (GTN)](https://training.galaxyproject.org).
+4. a featurization workflow for open educational resources and learning
+   materials, based on either
+   [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or
+   [sentence transformers](https://sbert.net)
+
+Here's an excerpt of the object model, implemented using
+[Pydantic](https://github.com/pydantic/pydantic). Note that Pydantic uses a
+combination of Python's type system and type annotations to express constraints
+and rules, similarly to how SHACL does. However, we get the benefit of Python
+type checking and the Python runtime to check that we've encoded this all
+correctly. Finally, all Pydantic models can be serialized and deserialized from
+JSON.
+
+```python
+class EducationalResource(BaseModel):
+    """Represents an educational resource."""
+
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+    reference: Reference | None = Field(
+        None,
+        description="The primary reference for this learning material",
+        examples=[Reference(prefix="dalia", identifier="")]
+    )
+    title: InternationalizedStr = Field(..., description="The title of the learning material")
+    authors: list[Author | Organization] = Field(
+        default_factory=list,
+        description="An ordered list of authors (i.e., persons or organizations) of the learning material",
+        examples=[
+            Author(name="Charles Tapley Hoyt", orcid="0000-0003-4423-4370"),
+            Organization(name="NFDI", ror="05qj6w324"),
+        ],
+        min_len=1,
+    )
+    ...
+```
 
 Goals:
 
@@ -247,6 +382,24 @@ What we did:
    both, and operationalizes mappings between
 
 Implemented in the OERbservatory Python package
+
+#### Technology Comparison
+
+Open educational resources and learning materials stored in data models (e.g.,
+DALIA, Schema.org) based on semantic web principles can be queried by SPARQL.
+However, while powerful, SPARQL is inherently limited in its expressivity
+compared to general purpose programming languages, which are better suited for
+building data science workflows, search engines, APIs, web interfaces, and other
+tools. Therefore, our goal was to concretize the abstract crosswalks between
+DALIA, TeSS, and Schema.org in a Python software package.
+
+We chose Python because of its ubiquity and ease of use. Unfortunately, the TeSS
+platform is implemented in the Ruby programming language. This was a popular
+choice in the early 2010s because of the powerful Ruby on Rails framework, but
+it is not the choice programming language of scientists, making it challenging
+to collaboratively develop TeSS, since only a small number of academic
+scientists are skilled in Ruby. Therefore, we chose Python, to meet academic
+scientists where they are.
 
 ### Scaling Mappings
 
