@@ -562,7 +562,7 @@ demonstrates a few things:
 3. We're almost at the point where these questions can be operationalized
 4. Where the NFDI's semantic stack has gaps, I am ready to contribute my own
    technologies. I'm very excited to have recently joined NFDI during summer
-   2026, and I'm looking forward to helping shape its semantics roadmap
+   2025, and I'm looking forward to helping shape its semantics roadmap
 
 Here's an architectural diagram of the resources that are required for making
 the query I described, which highlights the boundaries between resources and the
