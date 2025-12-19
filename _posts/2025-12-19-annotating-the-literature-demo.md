@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Annotating the Literature with SSSLM and PyOBO
+title: Annotating the Literature with Named Entity Recognition
 date: 2025-12-19 10:01:00 +0100
 author: Charles Tapley Hoyt
 tags:
@@ -19,9 +19,9 @@ Annotating the literature with mentions of key concepts from a given domain is
 often the first step towards extracting more substantial structured knowledge.
 This can be challenging, as it typically encompasses acquiring and processing
 the relevant literature and ontologies then installing and applying
-difficult-to-use natural language processing (NLP) workflows. This post
-highlights software components I've implemented to simplify this workflow. I
-demonstrate it by annotating the biomedical literature available through
+difficult-to-use named entity recognition (NER) workflows. This post highlights
+software components I've implemented to simplify this workflow. I demonstrate it
+by annotating the biomedical literature available through
 [PubMed](https://pubmed.ncbi.nlm.nih.gov/) with
 [Medical Subject Headings (MeSH)](https://semantic.farm/mesh) terms, and also
 comment on how this can be generalized to other natural sciences, engineering,
@@ -35,12 +35,12 @@ components:
    around PubMed's API and around bulk download and processing of the source
    data. While this resource only contains biomedical text, its place in the
    workflow can be replaced with any other text source.
-2. [**SSSLM**](https://github.com/cthoyt/ssslm) provides a wrapper around named
-   entity recognition (NER) methods such as
-   [Gilda](https://github.com/gyorilab/gilda) and
+2. [**SSSLM**](https://github.com/cthoyt/ssslm) provides a wrapper around NER
+   methods such as [Gilda](https://github.com/gyorilab/gilda) and
    [spaCy](https://github.com/explosion/spaCy). SSSLM uses a pared-down version
-   of Gilda as its default NER tool as it's fast, interpretable, and easy to
-   install. SSSLM and the methods it wraps are fully domain-agnostic.
+   of Gilda as its default NER tool because Gilda is fast, interpretable, and
+   easy to install (after removing some parts). SSSLM and the methods it wraps
+   are fully domain-agnostic.
 3. [**PyOBO**](https://github.com/biopragmatics/pyobo) provides a wrapper around
    fetching and processing ontologies, controlled vocabularies, databases, and
    other resources that can be used as a dictionary. It also has a high-level
@@ -111,10 +111,10 @@ for article in pubmed_downloader.get_articles(pubmed_ids, error_strategy="skip",
     )
 ```
 
-## Final Thoughts
+## Parting Thoughts
 
-Normally I post final thoughts at the bottom of each post, but since the results
-take up a lot of space, I'll put them here.
+Normally I post parting thoughts at the bottom of each post, but since the
+results take up a lot of space, I'll put them here.
 
 There are many directions to take these tools. The first might be to use a
 subset of MeSH that's most appropriate for the annotation task. For example, if
@@ -134,7 +134,7 @@ Other domains can be directly used. For example, in the energy domain, the
 [Open Energy Ontology](https://semantic.farm/oeo) can be used with
 `pyobo.get_grounder("oeo")`. In general, the
 [Semantic Farm](https://semantic.farm) can be used to find ontologies from other
-domains. Within the NFDI, there are
+domains. Within the [NFDI](https://www.nfdi.de/?lang=en), there are
 [collections](https://semantic.farm/collection/) for each NFDI consortia that
 contain lists of relevant ontologies, controlled vocabularies, databases, and
 other resources that mint identifiers.
