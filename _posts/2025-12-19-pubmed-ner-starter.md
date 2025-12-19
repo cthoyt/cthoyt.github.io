@@ -111,6 +111,38 @@ for article in pubmed_downloader.get_articles(pubmed_ids, error_strategy="skip",
     )
 ```
 
+## Final Thoughts
+
+Normally I post final thoughts at the bottom of each post, but since the results
+take up a lot of space, I'll put them here.
+
+There are many directions to take these tools. The first might be to use a
+subset of MeSH that's most appropriate for the annotation task. For example, if
+we just wanted to see diseases, then it only makes sense to use the MeSH Disease
+branch. Similarly, there are many other ontologies, controlled vocabularies, and
+databases in the diseases space such as MONDO, DOID, SNOMED-CT, and many more.
+These can be incorporated into the grounder with
+`pyobo.get_grounder(["mesh", "mondo", "doid", "snomedct])`, but will lead to
+redundancy issues. I've previously published
+[SeMRA](https://github.com/biopragmatics/semra) where I addressed mapping
+between equivalent entities, but am currently working on using these results to
+assemble coherent and comprehensive lexica that can be easily reused by SSSLM in
+the [Biolexica project](https://github.com/biopragmatics/biolexica) (which will
+also get renamed to be domain-agnostic).
+
+Other domains can be directly used. For example, in the energy domain, the
+[Open Energy Ontology](https://semantic.farm/oeo) can be used with
+`pyobo.get_grounder("oeo")`. In general, the
+[Semantic Farm](https://semantic.farm) can be used to find ontologies from other
+domains. Within the NFDI, there are
+[collections](https://semantic.farm/collection/) for each NFDI consortia that
+contain lists of relevant ontologies, controlled vocabularies, databases, and
+other resources that mint identifiers.
+
+I hope this was a helpful introduction! If you've got questions about these
+workflows or want to see a demo on your favorite literature source/ontology/NER
+method, post an issue to the relevant package's issue tracker.
+
 ## Results
 
 **Investigation of intake pattern of SGLT2 inhibitors among shift workers with
@@ -425,32 +457,3 @@ Diabetes Prevention Program**
 | 1093  | 1097 | [mesh:D012306](https://semantic.farm/mesh:D012306) | Risk                        | 0.762 |
 | 1159  | 1170 | [mesh:D012307](https://semantic.farm/mesh:D012307) | Risk Factors                | 0.54  |
 | 1192  | 1203 | [mesh:D011153](https://semantic.farm/mesh:D011153) | Population                  | 0.762 |
-
----
-
-There are many directions to take these tools. The first might be to use a
-subset of MeSH that's most appropriate for the annotation task. For example, if
-we just wanted to see diseases, then it only makes sense to use the MeSH Disease
-branch. Similarly, there are many other ontologies, controlled vocabularies, and
-databases in the diseases space such as MONDO, DOID, SNOMED-CT, and many more.
-These can be incorporated into the grounder with
-`pyobo.get_grounder(["mesh", "mondo", "doid", "snomedct])`, but will lead to
-redundancy issues. I've previously published
-[SeMRA](https://github.com/biopragmatics/semra) where I addressed mapping
-between equivalent entities, but am currently working on using these results to
-assemble coherent and comprehensive lexica that can be easily reused by SSSLM in
-the [Biolexica project](https://github.com/biopragmatics/biolexica) (which will
-also get renamed to be domain-agnostic).
-
-Other domains can be directly used. For example, in the energy domain, the
-[Open Energy Ontology](https://semantic.farm/oeo) can be used with
-`pyobo.get_grounder("oeo")`. In general, the
-[Semantic Farm](https://semantic.farm) can be used to find ontologies from other
-domains. Within the NFDI, there are
-[collections](https://semantic.farm/collection/) for each NFDI consortia that
-contain lists of relevant ontologies, controlled vocabularies, databases, and
-other resources that mint identifiers.
-
-I hope this was a helpful introduction! If you've got questions about these
-workflows or want to see a demo on your favorite literature source/ontology/NER
-method, post an issue to the relevant package's issue tracker.
