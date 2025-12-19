@@ -31,19 +31,20 @@ I've been building software for the last ten years that simplifies and
 democratizes access to these resources. Here, I'm going to highlight three
 components:
 
-1. [`pubmed-downloader`](https://pubmed.ncbi.nlm.nih.gov/) provides a wrapper
+1. [**PubMed Downloader**](https://pubmed.ncbi.nlm.nih.gov/) provides a wrapper
    around PubMed's API and around bulk download and processing of the source
    data. While this resource only contains biomedical text, its place in the
-   workflow can be replaced with any other text source
-2. [`ssslm`](https://github.com/cthoyt/ssslm) provides a wrapper around named
+   workflow can be replaced with any other text source.
+2. [**SSSLM**](https://github.com/cthoyt/ssslm) provides a wrapper around named
    entity recognition (NER) methods such as
-   [`gilda`](https://github.com/gyorilab/gilda) and
-   [`spacy`](https://github.com/explosion/spaCy). SSSLM uses a pared-down
-   version of Gilda as its default NER tool as it's fast, interpretable, and
-   easy to install. SSSLM and the methods it wraps are fully domain-agnostic.
-3. `pyobo` provides a wrapper around fetching and processing ontologies,
-   controlled vocabularies, databases, and other resources that can be used as a
-   dictionary. It also has a high-level workflow,
+   [Gilda](https://github.com/gyorilab/gilda) and
+   [spaCy](https://github.com/explosion/spaCy). SSSLM uses a pared-down version
+   of Gilda as its default NER tool as it's fast, interpretable, and easy to
+   install. SSSLM and the methods it wraps are fully domain-agnostic.
+3. [**PyOBO**](https://github.com/biopragmatics/pyobo) provides a wrapper around
+   fetching and processing ontologies, controlled vocabularies, databases, and
+   other resources that can be used as a dictionary. It also has a high-level
+   workflow,
    [`pyobo.get_grounder()`](https://pyobo.readthedocs.io/en/latest/api/pyobo.get_grounder.html)
    for getting content into `ssslm`. It's built on the
    [Semantic Farm](https://semantic.farm) (previously called the Bioregistry) to
@@ -51,15 +52,15 @@ components:
 
 ## Demonstration
 
-The following is a demonstration on how to get the abstracts of articles from
+The following is a demonstration on how to get the abstracts of 5 articles from
 PubMed, perform named entity recognition (NER) using Medical Subject Headings
-(MeSH), and output the results as a table. This script can be run with `uv run`
-as it includes [PEP-723](https://peps.python.org/pep-0723/)-compliant metadata
-that includes its dependencies. The results are copied below.
+(MeSH), output the results (below). Note that the following code can be run as a
+script using `uv run`, as it makes explicit its dependencies as
+[PEP-723](https://peps.python.org/pep-0723/) inline metadata .
 
 ```python
 # /// script
-# requires-python = ">=3.13"
+# requires-python = ">=3.12"
 # dependencies = [
 #     "click>=8.3.1",
 #     "pubmed-downloader>=0.0.12",
@@ -75,13 +76,10 @@ from tabulate import tabulate
 
 # get a grounder loaded up with a specific version of MeSH.
 # if you don't specify a version, the latest will be used.
-# get a grounder loaded up with a specific version of MeSH
 grounder: ssslm.Grounder = pyobo.get_grounder("mesh", versions="2018")
 
-# get ten PubMed identifiers about diabetes. note that the
-# PubMed API has been horrifically slow lately, so either
-# be patient or consider processing PubMed in bulk, which
-# is also slow, but more consistent
+# get 5 PubMed identifiers about diabetes. note that the
+# PubMed API has been horrifically slow lately, so please be patient
 pubmed_ids: list[str] = pubmed_downloader.search("diabetes", backend="api", retmax=5)
 click.echo(f"got {len(pubmed_ids)} pubmed IDs")
 
@@ -107,7 +105,8 @@ for article in pubmed_downloader.get_articles(pubmed_ids, error_strategy="skip",
     table = tabulate(rows, headers=headers, tablefmt="github")
 
     click.echo(
-        f"**{article.title.rstrip()}** ([pubmed:{article.pubmed}](https://semantic.farm/pubmed:{article.pubmed}))"
+        f"**{article.title.rstrip().rstrip('.')}** "
+        f"([pubmed:{article.pubmed}](https://semantic.farm/pubmed:{article.pubmed}))"
         f"\n\n> {abstract}\n\n{table}\n\n"
     )
 ```
@@ -115,7 +114,7 @@ for article in pubmed_downloader.get_articles(pubmed_ids, error_strategy="skip",
 ## Results
 
 **Investigation of intake pattern of SGLT2 inhibitors among shift workers with
-diabetes: a crossover study.**
+diabetes: a crossover study**
 ([pubmed:41413602](https://semantic.farm/pubmed:41413602))
 
 > Shift workers experience regular changes in their waking hours due to
@@ -165,7 +164,7 @@ diabetes: a crossover study.**
 | 1524  | 1537 | [mesh:D001786](https://semantic.farm/mesh:D001786)       | Blood Glucose                           | 0.762 |
 | 1554  | 1561 | [mesh:D009274](https://semantic.farm/mesh:D009274)       | Occupational Groups                     | 0.54  |
 
-**Men's health needs assessment in the Toledo District of Southern Belize.**
+**Men's health needs assessment in the Toledo District of Southern Belize**
 ([pubmed:41413521](https://semantic.farm/pubmed:41413521))
 
 > Belize is a small country in Central America with a growing burden of
@@ -252,7 +251,7 @@ diabetes: a crossover study.**
 
 **Risk factors of ventilator-associated pneumonia in patients with acute
 exacerbation of chronic obstructive pulmonary disease: a meta-analysis and
-systematic review.** ([pubmed:41413500](https://semantic.farm/pubmed:41413500))
+systematic review** ([pubmed:41413500](https://semantic.farm/pubmed:41413500))
 
 > This meta-analysis aimed to identify risk factors for ventilator-associated
 > pneumonia (VAP) in patients with Acute exacerbations of Chronic obstructive
@@ -317,7 +316,7 @@ systematic review.** ([pubmed:41413500](https://semantic.farm/pubmed:41413500))
 | 2005  | 2027 | [mesh:D012121](https://semantic.farm/mesh:D012121) | Respiration, Artificial                | 0.54  |
 
 **Randomized trial assessing transverse supraumbilical incisions for cesarean
-sections in morbid obese women with pannus.**
+sections in morbid obese women with pannus**
 ([pubmed:41413498](https://semantic.farm/pubmed:41413498))
 
 > BACKGROUND AND OBJECTIVE: The high prevalence of Morbidly obese Egyptian
@@ -381,7 +380,7 @@ sections in morbid obese women with pannus.**
 
 **Associations of Perfluoroalkyl and Polyfluoroalkyl Substances With
 Cardiovascular Disease Incidence in Adults With Prediabetes: Findings From the
-Diabetes Prevention Program.**
+Diabetes Prevention Program**
 ([pubmed:41413398](https://semantic.farm/pubmed:41413398))
 
 > Perfluoroalkyl and polyfluoroalkyl substances (PFAS) are persistent,
