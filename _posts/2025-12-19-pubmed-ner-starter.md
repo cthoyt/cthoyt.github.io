@@ -442,6 +442,15 @@ assemble coherent and comprehensive lexica that can be easily reused by SSSLM in
 the [Biolexica project](https://github.com/biopragmatics/biolexica) (which will
 also get renamed to be domain-agnostic).
 
+Other domains can be directly used. For example, in the energy domain, the
+[Open Energy Ontology](https://semantic.farm/oeo) can be used with
+`pyobo.get_grounder("oeo")`. In general, the
+[Semantic Farm](https://semantic.farm) can be used to find ontologies from other
+domains. Within the NFDI, there are
+[collections](https://semantic.farm/collection/) for each NFDI consortia that
+contain lists of relevant ontologies, controlled vocabularies, databases, and
+other resources that mint identifiers.
+
 I hope this was a helpful introduction! If you've got questions about these
 workflows or want to see a demo on your favorite literature source/ontology/NER
 method, post an issue to the relevant package's issue tracker.
