@@ -16,8 +16,8 @@ Through my position at RWTH Aachen University, I'm establishing academic
 collaborations through German, European, and international grants and developing
 project-based contracts for organizations with unmet business needs addressed by
 the semantic technologies and capabilities that I've developed and write about
-here. Privately, I offer consulting services and training for organizations
-interested in these topics.
+here. Privately, I can offer consulting services, speaking engagements, and
+training for organizations interested in these topics.
 
 Here's some more details [about me](/about) and [my research](/research). You
 can download my [résumé](https://github.com/cthoyt/resume/raw/master/main.pdf)
