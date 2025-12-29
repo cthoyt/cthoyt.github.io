@@ -26,29 +26,13 @@ permalink: /community/
 
 ## Collaborators
 
-The following is a list of my close, consistent collaborators:
-
-{% for entry in site.data.collaborators %} {% if entry.current %}
-
-<div style="padding-bottom: 10px;">
-<div style="width: 160px; text-align: center; display: inline-block; float: left; margin-right: 15px;">
-<img src="{{ entry.logo }}" alt="{{ entry.name }} Logo" style="max-width: 160px; max-height: 45px;" />
-</div>
-<strong>{{ entry.name }}</strong>
-<br />
-{{ entry.location }}
-</div>
-{% endif %}
-{% endfor %}
-
-My past/sporadic collaborators include:
+The following is an incomplete list that highlights previous
+and current collaborators:
 
 <ul>
-{% for entry in site.data.collaborators %}
-{% unless entry.current %}
-<li>{{ entry.name }}</li>
-{% endunless %}
-{% endfor %}
+{%- for entry in site.data.collaborators %}
+<li>{{ entry.name }} ({{ entry.location }})</li>
+{%- endfor %}
 </ul>
 
 ## Funding
