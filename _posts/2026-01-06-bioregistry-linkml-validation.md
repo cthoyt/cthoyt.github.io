@@ -11,17 +11,21 @@ tags:
   - URIs
 ---
 
-[LinkML](https://linkml.io) enables defining data models and data schemas
-in YAML informed by semantic web best practices. As such, each definition
-includes a prefix map. Similarly to my previous posts on validating the
-prefix maps appearing in [Turtle files]({% post_url 2025-09-04-bioregistry-turtle-validation %}) and [in unfamiliar SPARQL endpoints]({% post_url 2025-09-11-nfdi4culture-prefix-validation %}),
-this post showcases describes a new extension to [the Bioregistry](https://github.com/biopragmatics/bioregistry)
-that validates prefix maps in LinkML definitions.
+[LinkML](https://linkml.io) enables defining data models and data schemas in
+YAML informed by semantic web best practices. As such, each definition includes
+a prefix map. Similarly to my previous posts on validating the prefix maps
+appearing in [Turtle
+files]({% post_url 2025-09-04-bioregistry-turtle-validation %}) and [in
+unfamiliar SPARQL
+endpoints]({% post_url 2025-09-11-nfdi4culture-prefix-validation %}), this post
+showcases describes a new extension to
+[the Bioregistry](https://github.com/biopragmatics/bioregistry) that validates
+prefix maps in LinkML definitions.
 
 Here's an abridged excerpt of a LinkML
 [definition](https://github.com/HendrikBorgelt/CatCore/blob/main/src/catcore/schema/catcore.yaml)
-borrowed from [CatCore](https://github.com/HendrikBorgelt/CatCore), a data model under
-development by NFDI4Cat, the NFDI consortium interested in catalysis:
+borrowed from [CatCore](https://github.com/HendrikBorgelt/CatCore), a data model
+under development by NFDI4Cat, the NFDI consortium interested in catalysis:
 
 ```yaml
 id: https://w3id.org/nfdi4cat/catcore
@@ -46,10 +50,12 @@ prefixes:
 default_prefix: catcore
 ```
 
-In [biopragmatics/bioregistry#1786](https://github.com/biopragmatics/bioregistry/pull/1786),
-I implemented the `bioregistry validate linkml` command. It can be used to check the prefix map in
-this file and give feedback on non-standard CURIE prefix usage, unknown CURIE
-prefixes, etc. while giving suggestions for fixes, when possible.
+In
+[biopragmatics/bioregistry#1786](https://github.com/biopragmatics/bioregistry/pull/1786),
+I implemented the `bioregistry validate linkml` command. It can be used to check
+the prefix map in this file and give feedback on non-standard CURIE prefix
+usage, unknown CURIE prefixes, etc. while giving suggestions for fixes, when
+possible.
 
 Running the command on the file that contains the example prefixes from above
 gives the following output:
@@ -68,13 +74,25 @@ $ bioregistry validate linkml --tablefmt github --use-preferred https://github.c
 | AFRL    | http://purl.allotrope.org/ontologies/role#AFRL_   | unknown CURIE prefix      |                                 |
 | SIO     | http://semanticscience.org/resource/SIO_          | non-standard CURIE prefix | Switch to preferred prefix: sio |
 
-Curation feedback is not absolute - it's always possible that the Bioregistry
-is missing key content. Luckily, it conforms to the [open data, open code, open infrastructure (O3)](https://www.nature.com/articles/s41597-024-03406-w) guidelines,
-so it's easy for anyone to perform a [drive-by curation](https://doi.org/10.32388/KBX9VO) to fix any minor issues.
-Based on the output above, I made improvements to the Bioregistry in 
-[biopragmatics/bioregistry#1788](https://github.com/biopragmatics/bioregistry/pull/1788) to add four new prefixes
-for the Allotrope semantic spaces and add `SIO` (stylized with capital letters) as the "preferred prefix" for
-the [Semantic Science Integrated Ontology](https://semantic.farm/sio).
+Curation feedback is not absolute - it's always possible that the Bioregistry is
+missing key content. Luckily, it conforms to the
+[open data, open code, open infrastructure (O3)](https://www.nature.com/articles/s41597-024-03406-w)
+guidelines, so it's easy for anyone to perform a
+[drive-by curation](https://doi.org/10.32388/KBX9VO) to fix any minor issues.
+The Bioregistry has public, well-defined
+[curation guidelines](https://github.com/biopragmatics/bioregistry?tab=contributing-ov-file),
+[code of conduct](https://github.com/biopragmatics/bioregistry?tab=coc-ov-file),
+and
+[project governance](https://github.com/biopragmatics/bioregistry/blob/main/docs/GOVERNANCE.md)
+to support making curation contributions. Alternatively, the
+[issue tracker](github.com/biopragmatics/bioregistry/issues) allows
+non-technical users to post requests that the Bioregistry team can follow up on.
+
+Based on the output above, I made improvements to the Bioregistry in
+[biopragmatics/bioregistry#1788](https://github.com/biopragmatics/bioregistry/pull/1788)
+to add four new prefixes for the Allotrope semantic spaces and add `SIO`
+(stylized with capital letters) as the "preferred prefix" for the
+[Semantic Science Integrated Ontology](https://semantic.farm/sio).
 
 Note that LinkML is developed by members of the OBO Community, and therefore,
 its prefixes often skew towards OBO community preferences. Therefore, you might
