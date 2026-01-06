@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Validating Prefix Maps in LinkML Schemas
-date: 2026-01-05 10:36:00 -0500
+date: 2026-01-06 10:36:00 +0100
 author: Charles Tapley Hoyt
 tags:
   - LinkML
