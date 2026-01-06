@@ -26,8 +26,8 @@ permalink: /community/
 
 ## Collaborators
 
-The following is an incomplete list that highlights previous
-and current collaborators:
+The following is an incomplete list that highlights previous and current
+collaborators:
 
 <ul>
 {%- for entry in site.data.collaborators %}
