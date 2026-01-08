@@ -18,7 +18,7 @@ in Limburg an der Lahn, I proposed an initial crosswalk between the
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom)
 and the [Wikidata](https://www.wikidata.org) semantic mapping data model. This
 post describes the motivation for this proposal and the concrete implementation
-I've developed.
+I've developed in [`sssom-pydantic`](https://github.com/cthoyt/sssom-pydantic).
 
 This work is part of the NFDI's
 [Ontology Harmonization and Mapping Working Group](https://github.com/nfdi-de/section-metadata-wg-onto),
@@ -151,6 +151,9 @@ Along the way to this PR, I made improvements to the wikidata-client in
 [cthoyt/wikidata-client#2](https://github.com/cthoyt/wikidata-client/pull/2) to
 add high-level functionality for looking up multiple Wikidata records based on
 values for a property (e.g., to support ORCID lookup in bulk).
+
+All other changes were made in `sssom-pydantic` in
+[cthoyt/sssom-pydantic#32](https://github.com/cthoyt/sssom-pydantic/pull/32).
 
 The other key challenge was to avoid adding duplicate information to Wikidata -
 unlike a simple triple store, we could accidentally end up with duplicate
