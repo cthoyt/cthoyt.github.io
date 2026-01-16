@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Semantic Mappings Enable Automated Assembly 
+title: Semantic Mappings Enable Automated Assembly
 date: 2026-01-16 11:42:00 +0100
 author: Charles Tapley Hoyt
 tags:
@@ -181,10 +181,12 @@ semantic mapping repository like
 
 There are _many_ examples of manually constructed workflows that do this
 process. While these work (e.g., [Hetionet](https://het.io) was one of the
-best), they are brittle towards expansion and hard to work with. I have
-implemented this workflow as part of the
-[Semantic Reasoner and Assembler](https://github.com/biopragmatics/semra), but
-describing how it works will be part of a future post.
+best), they are brittle towards expansion to new datasets and mappings, and
+often hard to keep up-to-date. My goal has been to implement a fully generic and
+automated version of this workflow, which I did as part of the
+[Semantic Reasoner and Assembler](https://github.com/biopragmatics/semra).
+However, describing how it works on a technical level will be part of a future
+post.
 
 ### Lexicon Assembly
 
