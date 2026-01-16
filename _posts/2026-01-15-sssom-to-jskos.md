@@ -18,7 +18,8 @@ classifications, and other semantic artifacts. Like the
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/),
 it can also encode semantic mappings. This post is about developing and
 implementing a crosswalk between them in the
-[sssom-pydantic](https://github.com/cthoyt/sssom-pydantic/pull/26) Python package.
+[sssom-pydantic](https://github.com/cthoyt/sssom-pydantic/pull/26) Python
+package.
 
 ## Background on JSKOS
 
@@ -56,7 +57,7 @@ term for the chemical [ammeline](https://en.wikipedia.org/wiki/Ammeline):
         "member_set": [{ "uri": "http://id.nlm.nih.gov/mesh/C000089" }]
       },
       "object_bundle": {
-        "member_set": [ {"uri": "http://purl.obolibrary.org/obo/CHEBI_28646"} ]
+        "member_set": [{ "uri": "http://purl.obolibrary.org/obo/CHEBI_28646" }]
       },
       "justification": "https://w3id.org/semapv/vocab/ManualMappingCuration"
     }
@@ -124,3 +125,15 @@ idiomatic Python API). Once `sssom-js` implements a TSV exporter, I will have a
 high-quality oracle against which to test my implementation. These first steps
 were implemented in
 [cthoyt/sssom-pydantic#26](https://github.com/cthoyt/sssom-pydantic/pull/26).
+
+Here's what this looks like in Python:
+
+```python
+import sssom_pydantic
+from sssom_pydantic.contrib.jskos_export import to_jskos
+
+url = "https://w3id.org/biopragmatics/biomappings/sssom/biomappings.sssom.tsv"
+mappings, converter, metadata = sssom_pydantic.read(url)
+
+jskos_concept = to_jskos(mappings, converter=converter, metadata=metadata)
+```
