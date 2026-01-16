@@ -17,8 +17,8 @@ is a JSON-based data model for representing terminologies, thesauri,
 classifications, and other semantic artifacts. Like the
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/),
 it can also encode semantic mappings. This post is about developing and
-implementing a crosswalk between them in
-[sssom-pydantic](https://github.com/cthoyt/sssom-pydantic/pull/26).
+implementing a crosswalk between them in the
+[sssom-pydantic](https://github.com/cthoyt/sssom-pydantic/pull/26) Python package.
 
 ## Background on JSKOS
 
