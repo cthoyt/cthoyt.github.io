@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Automated Assembly Requires Semantic Mappings
+title: Semantic Mappings Enable Automated Assembly 
 date: 2026-01-16 11:42:00 +0100
 author: Charles Tapley Hoyt
 tags:
