@@ -47,28 +47,16 @@ term for the chemical [ammeline](https://en.wikipedia.org/wiki/Ammeline):
 
 ```json
 {
-  "license": [
-    {
-      "uri": "https://spdx.org/licenses/CC0-1.0"
-    }
-  ],
+  "license": [{ "uri": "https://spdx.org/licenses/CC0-1.0" }],
   "uri": "https://w3id.org/biopragmatics/biomappings/sssom/biomappings.sssom.tsv",
   "mappings": [
     {
       "type": ["http://www.w3.org/2004/02/skos/core#exactMatch"],
       "subject_bundle": {
-        "member_set": [
-          {
-            "uri": "http://id.nlm.nih.gov/mesh/C000089"
-          }
-        ]
+        "member_set": [{ "uri": "http://id.nlm.nih.gov/mesh/C000089" }]
       },
       "object_bundle": {
-        "member_set": [
-          {
-            "uri": "http://purl.obolibrary.org/obo/CHEBI_28646"
-          }
-        ]
+        "member_set": [ {"uri": "http://purl.obolibrary.org/obo/CHEBI_28646"} ]
       },
       "justification": "https://w3id.org/semapv/vocab/ManualMappingCuration"
     }
