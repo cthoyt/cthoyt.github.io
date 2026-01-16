@@ -72,6 +72,34 @@ term for the chemical [ammeline](https://en.wikipedia.org/wiki/Ammeline):
 
 ## Interoperability between SSSOM and JSKOS
 
+Given the overlapping ability of the
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
+and JSKOS to represent semantic mappings, the JSKOS and SSSOM teams developed a
+[crosswalk](https://github.com/gbv/jskos/issues/108) between JSKOS and SSSOM.
+Along the way, the SSSOM and JSKOS data models evolved to incorporate good ideas
+from the other, for example, the addition of a
+[mapping identifier](https://github.com/mapping-commons/sssom/issues/359) to
+SSSOM records to allow for referencing the SSSOM mapping itself.
+
+The crosswalk is not (yet) lossless, for example, JSKOS does not yet have a
+mechanism to express
+[information about lexical and other automated mappings](https://github.com/gbv/jskos/issues/152).
+However, lossless conversion between data models isn't always possible, nor is
+it always necessary.
+
+While they are both generally applicable
+
+considering the different scopes in which they are developed and used - JSKOS is
+developed primarily within the digital humanities and SSSOM is developed within
+the life sciences, though both are generally applicable to any domain.
+
+## Technical Implementation
+
+The [sssom-js](https://github.com/gbv/sssom-js) Javascript package contained the
+first SSSOM to JSKOS converter and has an
+[open issue](https://github.com/gbv/sssom-js/issues/5) for conversion back to
+SSSOM (TSV). This implementation is produced by the JSKOS team, meaning
+
 - Added wrapper around sssom-js in
   https://github.com/cthoyt/sssom-pydantic/pull/26
 
