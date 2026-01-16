@@ -12,13 +12,19 @@ tags:
   - JSKOS
 ---
 
-## Background on JSKOS
-
 [JSKOS (JSON for Knowledge Organization Systems)](https://gbv.github.io/jskos/)
 is a JSON-based data model for representing terminologies, thesauri,
-classifications, and other semantic artifacts. It implements the Simple
-Knowledge Organization System (SKOS) data model and extends it with a data model
-inspired by Wikidata with the following types:
+classifications, and other semantic artifacts. Like the
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/),
+it can also encode semantic mappings. This post is about developing and
+implementing a crosswalk between them in
+[sssom-pydantic](https://github.com/cthoyt/sssom-pydantic/pull/26).
+
+## Background on JSKOS
+
+At its core, JSKOS implements the Simple Knowledge Organization System (SKOS)
+data model and extends it with a data model inspired by Wikidata with the
+following types:
 
 ![](https://gbv.github.io/jskos/types.svg)
 
@@ -70,6 +76,10 @@ term for the chemical [ammeline](https://en.wikipedia.org/wiki/Ammeline):
 }
 ```
 
+Notably, JSKOS is baked into the [Cocoda](https://coli-conc.gbv.de/cocoda/)
+mapping editor, which is being widely adopted in the humanities consortia of the
+NFDI.
+
 ## Interoperability between SSSOM and JSKOS
 
 Given the overlapping ability of the
@@ -85,30 +95,44 @@ The crosswalk is not (yet) lossless, for example, JSKOS does not yet have a
 mechanism to express
 [information about lexical and other automated mappings](https://github.com/gbv/jskos/issues/152).
 However, lossless conversion between data models isn't always possible, nor is
-it always necessary.
-
-While they are both generally applicable
-
-considering the different scopes in which they are developed and used - JSKOS is
-developed primarily within the digital humanities and SSSOM is developed within
-the life sciences, though both are generally applicable to any domain.
+it always necessary, considering the different domains for which JSKOS and SSSOM
+were developed. That JSKOS was developed by researchers in the digital
+humanities and SSSOM was developed by researchers in the life and natural
+sciences can contextualize some of their discrepancies.
 
 ## Technical Implementation
 
-The [sssom-js](https://github.com/gbv/sssom-js) Javascript package contained the
+The [sssom-js](https://github.com/gbv/sssom-js) JavaScript package contains the
 first SSSOM to JSKOS converter and has an
 [open issue](https://github.com/gbv/sssom-js/issues/5) for conversion back to
-SSSOM (TSV). This implementation is produced by the JSKOS team, meaning
+SSSOM (TSV). It was developed by the JSKOS team, meaning that I have high
+confidence that the implemenation of the crosswalk is accurate.
 
-- Added wrapper around sssom-js in
-  https://github.com/cthoyt/sssom-pydantic/pull/26
+While it can be invoked from the command line using `npx` like in
+`npx sssom-js --from tsv --to jskos --output output.json input.sssom.tsv`, it
+can also be explored in the first-party SSSOM Validation and Transformation
+[website](https://gbv.github.io/sssom-js/).
 
-## Motivation for SSSOM-JSKOS interoperability
+![](/img/sssom-js-validator.png)
 
-- NFDI has the JSKOS stack, such as [Cocoda](https://coli-conc.gbv.de/cocoda/)
-- https://gbv.github.io/jskos/#mapping
--
+Originally, my plan was to implement SSSOM to JSKOS export in the
+[sssom-pydantic](https://github.com/cthoyt/sssom-pydantic) so it can be easily
+incorporated into other SSSOM-aware applications like
+[SSSOM Curator](https://github.com/cthoyt/sssom-curator/) and the
+[Semantic Mapping Reasoner and Assembler](https://github.com/biopragmatics/semra).
 
-## Results / TODO
+I started by implementing an object model for JSKOS in Python using Pydantic in
+[a dedicated package](https://github.com/cthoyt/jskos). This actually turned out
+to be very difficult to get to work in general because the JSKOS data model is
+hierarchical and does not always contain fields that make it possible to
+discriminate between which class a given arbitrary JSON object follows. This
+makes it difficult to use Pydantic's
+[nested discriminated unions](https://docs.pydantic.dev/latest/concepts/unions/#nested-discriminated-unions)
+feature, so I had to implement a custom solution.
 
-- Worked on JSKOS package in github.com/cthoyt/jskos, reuse text from there
+Ultimately, I scrapped the idea of re-implementing the crosswalk myself (for
+now) and instead defer to the `sssom-js` implementation (while wrapping it in an
+idiomatic Python API). Once `sssom-js` implements a TSV exporter, I will have a
+high-quality oracle against which to test my implementation. These first steps
+were implemented in
+[cthoyt/sssom-pydantic#26](https://github.com/cthoyt/sssom-pydantic/pull/26).
