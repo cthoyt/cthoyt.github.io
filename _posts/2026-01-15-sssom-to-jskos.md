@@ -14,24 +14,30 @@ tags:
 
 ## Background on JSKOS
 
-[JSKOS (JSON for Knowledge Organization Systems)](https://gbv.github.io/jskos/) is a JSON-based data model for
-representing
-terminologies, thesauri, classifications, and other semantic artifacts. It implements the
-Simple Knowledge Organization System (SKOS) data model and extends it with a data model
+[JSKOS (JSON for Knowledge Organization Systems)](https://gbv.github.io/jskos/)
+is a JSON-based data model for representing terminologies, thesauri,
+classifications, and other semantic artifacts. It implements the Simple
+Knowledge Organization System (SKOS) data model and extends it with a data model
 inspired by Wikidata with the following types:
 
 ![](https://gbv.github.io/jskos/types.svg)
 
 JSKOS enables representing semantic mappings two ways:
 
-1. using the `narrower`, `broader`, and `related` slots in the [Concept](https://gbv.github.io/jskos/#concept) class
-   that correspond to SKOS relations `skos:narrowMatch`, `skos:broadMatch`, and `skos:relatedMatch`
-2. using the `mappings` slot in the [Concept](https://gbv.github.io/jskos/#concept) class, which accepts a list of more
-   generic [`Mapping`](https://gbv.github.io/jskos/#mapping) objects
+1. using the `narrower`, `broader`, and `related` slots in the
+   [Concept](https://gbv.github.io/jskos/#concept) class that correspond to SKOS
+   relations `skos:narrowMatch`, `skos:broadMatch`, and `skos:relatedMatch`
+2. using the `mappings` slot in the
+   [Concept](https://gbv.github.io/jskos/#concept) class, which accepts a list
+   of instances of the more generic
+   [Mapping](https://gbv.github.io/jskos/#mapping) class
 
-Here's how JSKOS represents an exact match from the [Biomappings](https://github.com/biopragmatics/biomappings)
-community curated mappings database between a [Medical Subject Headings (MeSH)](https://semantic.farm/mesh) term and
-[Chemical Entities of Biological Interest (ChEBI) ontology](https://semantic.farm/chebi) term for the chemical [ammeline](https://en.wikipedia.org/wiki/Ammeline):
+Here's how JSKOS represents an exact match from the
+[Biomappings](https://github.com/biopragmatics/biomappings) community curated
+mappings database between a
+[Medical Subject Headings (MeSH)](https://semantic.farm/mesh) term and
+[Chemical Entities of Biological Interest (ChEBI) ontology](https://semantic.farm/chebi)
+term for the chemical [ammeline](https://en.wikipedia.org/wiki/Ammeline):
 
 ```json
 {
@@ -43,9 +49,7 @@ community curated mappings database between a [Medical Subject Headings (MeSH)](
   "uri": "https://w3id.org/biopragmatics/biomappings/sssom/biomappings.sssom.tsv",
   "mappings": [
     {
-      "type": [
-        "http://www.w3.org/2004/02/skos/core#exactMatch"
-      ],
+      "type": ["http://www.w3.org/2004/02/skos/core#exactMatch"],
       "subject_bundle": {
         "member_set": [
           {
@@ -68,8 +72,8 @@ community curated mappings database between a [Medical Subject Headings (MeSH)](
 
 ## Interoperability between SSSOM and JSKOS
 
-
-- Added wrapper around sssom-js in https://github.com/cthoyt/sssom-pydantic/pull/26
+- Added wrapper around sssom-js in
+  https://github.com/cthoyt/sssom-pydantic/pull/26
 
 ## Motivation for SSSOM-JSKOS interoperability
 
