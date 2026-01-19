@@ -15,27 +15,89 @@ Semantic mappings are hard.
 
 ### Proliferation of Formats
 
-Getting semantic mappings is hard because there are a lot of competing data
-models and serialization formats. For example:
+The first major challenge with semantic mappings is the variety of forms they
+can take. This both includes different data models and serializations of those
+models. Let's start with a lightning review (please let me know if I missed
+something):
 
-1. OWL as a data model can encode semantic mappings in a variety of ways, such
-   as using the equivalence (built in) or by using arbitary annotation
-   properties (e.g., for skos or OIO)
-2. OBO ontology has an `xref` field, a way to add arbitrary anntoation
-   properties (e.g., for skos exact match)
-3. SSSOM is the best
-4. JSKOS, see [previous post]({% post_url 2026-01-15-sssom-to-jskos %})
-5. arbitrary RDF that encodes triples, e.g., using skos predicates
-6. [Expressive and Declarative Ontology Alignment Language (EDOAL)](https://moex.gitlabpages.inria.fr/alignapi/edoal.html)
-7. OntoPortal has its own data model , see [previous
-   post]({% post_url 2025-11-23-sssom-from-bioportal %})
-8. Wikidata has its own thing going on, see [previous
-   post]({% post_url 2026-01-07-sssom-to-wikidata %})
-9. a long tail of informal standards in TSV, Excel, etc.
+[Simple Knowledge Organization System (SKOS)](https://www.w3.org/TR/skos-reference)
+is a data model for RDF to represent controlled vocabularies, taxonomies,
+dictionaries, thesauri, and other semantic artifacts. It defines several
+semantic mapping predicates including for broad matches, narrow matches, close
+matches, related matches, and exact matches.
 
-![](/img/mappings-are-hard/formats.png)
+[JSKOS (JSON for Knowledge Organization Systems)](https://gbv.github.io/jskos/#mapping),
+a JSON-based extension of the SKOS data model. I recently wrote a post about
+converting between [SSSOM and JSKOS]({% post_url 2026-01-15-sssom-to-jskos %}).
 
-### Scattered and partially overlapping
+The [Web Ontology Language (OWL)](https://www.w3.org/TR/owl2-syntax/) is
+primarily used for ontologies. It has first-class language support for encoding
+equivalences between classes, properties, or individuals. Other semantic
+mappings can be encoded as annotation properties on classes, properties, or
+individuals, e.g., using SKOS predicates.
+
+The
+[OBO Flat File Format](https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html)
+is a simplified version of OWL with macros most useful for curating biomedical
+ontologies. It has the same abilities as OWL, but also the `xref` macro which
+corresponds to `oboInOwl:hasDbXref` relations, which are by nature imprecise and
+therefore used in a variety of ways.
+
+The
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
+is a fit-for-purpose format for semantic mappings between classes, properties,
+or individuals. SSSOM guides curators towards inputting key metadata that are
+typically missing from other formalisms and is gaining wider community adoption.
+Importantly, SSSOM integrates into ontology curation workflows, especially for
+[Ontology Development Kit (ODK)](https://incatools.github.io/ontology-development-kit)
+users.
+
+The
+[Expressive and Declarative Ontology Alignment Language (EDOAL)](https://moex.gitlabpages.inria.fr/alignapi/edoal.html)
+lives in a similar space to SSSOM, but IMO was much less approachable (c.f.
+XML + Java), and has not seen a lot of traction in the biomedical space.
+
+[OntoPortal](https://ontoportal.org/) has its own data model for semantic
+mappings that has low metadata precision. I recently wrote a post on converting
+[OntoPortal to SSSOM]({% post_url 2025-11-23-sssom-from-bioportal %})
+
+[Wikidata](https://www.wikidata.org) has its own data model for semantic
+mappings that include higher precision metadata. I recently wrote a post on
+converting between own thing going on, see [SSSOM and
+Wikidata]({% post_url 2026-01-07-sssom-to-wikidata %})
+
+Finally, there's a long tail of mappings that live in poorly annotated CSV, TSV,
+Excel, and other formats. Similarly, mappings can live in plain RDF files, e.g.,
+encoded with SKOS predicates, but without high precision metadata.
+
+### Scattered and Partially Overlapping
+
+Semantic mappings are not centralized, meaning that multiple sources of semantic
+mappings often need to be integrated to fully map between two vocabularies.
+Using [Medical Subject Headings (MeSH)](https://semantic.farm/mesh) and the
+[Human Phenotype Ontology (HPO)](https://semantic.farm/hpo) as an example, we
+can see the following:
+
+1. MeSH doesn't maintain any mappings to HPO
+2. HPO maintains some mappings as primary mappings
+3. UMLS maintains some mappings as secondary mappings (suggested by HPO)
+4. [Biomappings](https://github.com/biopragmatics/biomappings) maintains some
+   community-curated mappings as secondary mappings
+
+[![](/img/mappings-are-hard/scattered.png)](https://github.com/biopragmatics/semra/blob/main/notebooks/umls-inference-analysis.ipynb)
+
+This actually might not be the best example - it would have been better to show
+a pair of resources that both partially map to the other. When I first made this
+chart, I had to engineer the UMLS inference by hand. This led to the development
+of the
+[Semantic Mapping Reasoner and Assembler (SeMRA)](https://github.com/biopragmatics/semra)
+Python package which does this in general and at scale. The fact that there were
+missing mappings that even UMLS inference couldn't retrieve led to establishing
+the [Biomappings](https://github.com/biopragmatics/biomappings) project for
+prediction and semi-automated curation of semantic mappings. The underlying
+technology stack from Biomappings eventually got spun out to
+[SSSOM Curator](https://github.com/cthoyt/sssom-curator) and is now fully
+domain-agnostic.
 
 ### Different Precision
 
