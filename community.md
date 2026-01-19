@@ -14,6 +14,10 @@ permalink: /community/
 {% endfor %}
 </ul>
 
+## Mentorship
+
+See [here](/mentorship/) for a list of my past and current mentors and mentees.
+
 ## Service
 
 <ul>
