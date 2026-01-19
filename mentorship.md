@@ -2,6 +2,7 @@
 layout: page
 title: Mentorship
 permalink: /mentorship/
+exclude_header: true
 ---
 
 Mentorship is so much more than being a supervisor or a boss. As scientists, we
