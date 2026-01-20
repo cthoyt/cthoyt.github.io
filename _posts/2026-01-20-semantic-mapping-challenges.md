@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Challenges with Semantic Mappings
-date: 2026-01-16 11:42:00 +0100
+date: 2026-01-20 11:42:00 +0100
 author: Charles Tapley Hoyt
 tags:
   - SSSOM
