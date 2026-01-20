@@ -9,10 +9,12 @@ tags:
   - knowledge graphs
 ---
 
-This post is a mega dump on what makes semantic mappings hard, both on a
-technical, philosophical, and practical level.
-
-[starting on slide 7](https://docs.google.com/presentation/d/1stuJbkSbvphYs8fYyj6JJX1JzYvxS4_lernmRovIWTU/edit?slide=id.g2bf67b64f65_0_764#slide=id.g2bf67b64f65_0_764)
+There are many challenges associated with the curation, publication,
+acquisition, and usage of semantic mappings. This post examines their
+philosophical, technical, and practical implications, highlights existing
+solutions, and describes opportunities for next steps for the community of
+curators, semantic engineers, software developers, and data scientists who make
+and use semantic mappings.
 
 ### Proliferation of Formats
 
@@ -189,7 +191,7 @@ described:
 This problem is particularly bad in disease modeling. Here are only a few
 examples (of many more) that illustrate this:
 
-- the [Ontology for General Medical Science [OGMS]](https://semantic.farm/ogms)
+- the [Ontology for General Medical Science (OGMS)](https://semantic.farm/ogms)
   term for
   [disease (OGMS:0000031)](http://purl.obolibrary.org/obo/OGMS_0000031), the
   [Experimental Factor Ontology (EFO)](https://semantic.farm/efo) term for
@@ -227,55 +229,84 @@ lower levels of accuracy and precision must be merged. In practice, I have
 merged triples using conflicting senses for diseases in a useful way, without
 issue.
 
+### Interpretation is Important
 
-### The Need for Inference
+While the last few examples were cautionary tales for when things (probably)
+shouldn't be mapped, the next examples are about when things (probably) should
+be mapped.
 
-linguists get really tripped up here. mapping of logical definition -> use OWL
-exact match mapping of meaning -> use SKOS, even if definitions/labels don't
-really match, this can be chalked up to imprecision of language.
+#### Definitions
 
-Here are three different vocabularies' terms for _protein_ and their
-definitions. Even though we know that the intent was to represent the same
-thing, the definitions are not exactly compatible. This means as a semantic
-mapping curator, we have two options: we can either use our prior knowledge that
-we know what a protein is, and this is the way they decided to represent it, or
-we can take the definition very, very seriously and say that these are mutually
-incompatible. I think that the latter is really unconstructive, since this
-effectively means you won't ever be able to map anything. If you want to go down
-the second route to decide if things are then same, rather than relying on human
-language, ontologies provide the ability to make logical definitions. For
-example, the cell ontology (CL) does this really well. However, this also has a
-caveat, that to make mappings based on logical definitions, then the different
-modelers have to agree on the same modeling paradigm. As far as I know, there
-aren't any groups out there that use the same modeling paradigm that haven't
-just combine forces to work on the same resource. So we're stuck back at option
-1 either way.
+Here are three vocabularies' terms for proteins and their textual definitions
+(though, many more contain their own term for proteins):
 
-| Entity                                                       | Description                                                                                                                                             |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [wikidata:Q8054](https://www.wikidata.org/wiki/Q8054)        | biomolecule or biomolecule complex largely consisting of chains of amino acid residues                                                                  |
-| [SIO:010043](http://semanticscience.org/resource/SIO_010043) | A protein is an organic polymer that is composed of one or more linear polymers of amino acids.                                                         |
-| [PR:000000001](http://purl.obolibrary.org/obo/PR_000000001)  | An amino acid chain that is canonically produced _de novo_ by ribosome-mediated translation of a genetically-encoded mRNA, and any derivatives thereof. |
+| Entity                                                       | Label   | Description                                                                                                                                             |
+| ------------------------------------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [wikidata:Q8054](https://www.wikidata.org/wiki/Q8054)        | protein | biomolecule or biomolecule complex largely consisting of chains of amino acid residues                                                                  |
+| [SIO:010043](http://semanticscience.org/resource/SIO_010043) | protein | A protein is an organic polymer that is composed of one or more linear polymers of amino acids.                                                         |
+| [PR:000000001](http://purl.obolibrary.org/obo/PR_000000001)  | protein | An amino acid chain that is canonically produced _de novo_ by ribosome-mediated translation of a genetically-encoded mRNA, and any derivatives thereof. |
 
-### Context-dependent interpretation
+As semantic mapping curator, we have two options:
 
-A gene is a region of a chromosome that encodes a transcript.
+1. We can reasonably assume that the intent from all three resources was to
+   represent the same thing, despite the definitions being quite different. This
+   assumption can be built on our prior knowledge about what a protein is, why
+   Wikidata, SIO, and PR exist, and then infer the intent of the term's
+   definition's author
+2. We can make a very literal reading of the definition and conclude that these
+   three terms represent very different things
 
-[SO:0000704](http://purl.obolibrary.org/obo/SO_0000704) A protein is a chain of
-amino acids
+I think that the latter is really unconstructive for several reasons, but I have
+worked with colleagues, especially from the linguistics background, who take
+this approach. First, this is unconstructive because it means you'll probably
+never map anything.
 
-[PR:000000001](http://purl.obolibrary.org/obo/PR_000000001)
+Second, if you want to be rigorous, use an ontology formalism with proper
+logical definitions. For example, the
+[Cell Ontology (CL)](https://semantic.farm/cl) exhaustively defines its cells
+using appropriate logical axioms. However, this also has a caveat, that to make
+mappings based on logical definitions, then the different modelers have to agree
+on the same axioms and same modeling paradigm. As far as I know, there aren't
+any groups out there that use the same modeling paradigm that haven't just
+combine forces to work on the same resource. So we're stuck back at option 1
+either way :)
 
-Genes represent a combination of the physical region on a chromosome and the
-information contained within
+#### Context Sometimes Matters
 
-When assembling mechanistic biological knowledge into pathways.
+In contrast to the discussion about mapping phenotypes and diseases, there are
+context-dependent reasons to make semantic mappings, which can be illustrated in
+biomedicine using genes and proteins. Let's start with some definitions:
 
-Some mappings may be context-dependent. For example, many knowledge graphs
-simplify the complexities of the central dogma of biology and consider genes and
-gene products (such as proteins) to be equivalent. However,
+1. [SO:0000704](http://purl.obolibrary.org/obo/SO_0000704) A gene is a region of
+   a chromosome that encodes a transcript
+2. [PR:000000001](http://purl.obolibrary.org/obo/PR_000000001) A protein is a
+   chain of amino acids
+
+The biomedical literature often uses gene symbols to discuss the proteins they
+encode. While this isn't precise, it's still useful in many cases. Therefore,
+when reading the COVID-19 literature, you will likely see discussion of the
+IL6-STAT cascade, where IL6 is the HGNC gene symbol for the Interleukin 6
+protein. Most of the time, the HGNC approved gene symbol is an initialism or
+other abbreviation of the protein, but this isn't always the case.
+
+Similar to the literature, many pathway databases that accumulate knowledge
+about the processes and reactions in which proteins take part actually use gene
+symbols (or other gene identifiers) to curate proteins.
 
 ![](/img/mappings-are-hard/context-dependent.svg)
+
+The take-home message here is that genes and proteins are indeed not the same
+thing, but in some contexts, it's useful to map between them. There's also a
+compromise - the [Relation Ontology (RO)](https://semantic.farm/ro) has a
+predicate [has gene product (RO:0002205)](https://semantic.farm/RO:0002205) that
+explicitly models the relationship between IL6 and Interleukin 6, which can then
+be automatically inferred to mean a less precise mapping for certain scenarios
+(SeMRA implements this).
+
+Outside of biomedicine, I have also heard that context-specific mappings are
+very important in the digital humanities. As I'm better understanding the use
+cases of colleagues in other NFDI Consortia that focus on the digital
+humanities, I will try and update this section to have alternate perspectives.
 
 ### Evidence
 
@@ -295,9 +326,10 @@ capturing simple evidences (blue).
 
 #### Provenance for Inferences
 
-But, the purple one requires a more detailed metadata model that simply doesn't
-fit in the SSSOM paradigm (and it shouldn't be hacked in, either). I proposed a
-more detailed data model for capturing how inference is done in
+The purple evidence from the figure in the last section requires a more detailed
+data model to represent provenance for inferred semantic mappings that simply
+doesn't fit in the SSSOM paradigm (and it shouldn't be hacked in, either). I
+proposed a more detailed data model for capturing how inference is done in
 [Assembly and reasoning over semantic mappings at scale for biomedical data integration](https://doi.org/10.1093/bioinformatics/btaf542)
 and provided a reference implementation in the
 [Semantic Reasoning Mapper and Reasoner (SeMRA)](https://github.com/biopragmatics/semra)
@@ -328,7 +360,19 @@ package I helped develop and maintain).
 An open challenge is that we neither have support from data modeling formalisms
 (e.g., ontologies in OWL, knowledge graphs in RDF or Neo4j) to encode negative
 knowledge (in this case negative mappings) nor tooling support. This means that
-when we output SSSOM to RDF, we use our own formalism, which won't be
-correctly recognized by any other tooling that wasn't developed with SSSOM in
-mind. I'm keeping notes about this in a separate [post about negative
+when we output SSSOM to RDF, we use our own formalism, which won't be correctly
+recognized by any other tooling that wasn't developed with SSSOM in mind. I'm
+keeping notes about this in a separate [post about negative
 knowledge]({% post_url 2025-10-09-negative-rdf %}) that I update periodically.
+
+---
+
+Despite the challenges, I think that the mapping world is actually getting quite
+mature. I am currently working with NFDI and RDA colleagues to further unify the
+SSSOM and JSKOS worlds, especially given that the
+[Cocoda](https://coli-conc.gbv.de/cocoda/) mapping curation tool solved many of
+these problems (from the digital humanities perspective) many years ago, and we
+simply were unaware of it.
+
+I hope this post can continue as a living document - if I missed something,
+please let me know and I will update the post to include it!
