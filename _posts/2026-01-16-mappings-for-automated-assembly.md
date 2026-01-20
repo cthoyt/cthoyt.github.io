@@ -76,7 +76,7 @@ In medicine and epidemiology, there are many resources describing diseases,
 transmission, response, adverse outcomes, and other facets. Particularly during
 the COVID-19 pandemic, many independent controlled vocabularies were constructed
 to model information at various levels of specificity. The figure shows the
-hierarchical relationships betwee the
+hierarchical relationships between the
 [Disease Ontology (DOID)](https://semantic.farm/doid), the
 [Infectious Disease Ontology (IDO)](https://semantic.farm/ido), the
 [Viral Infectious Disease Ontology (VIDO)](https://semantic.farm/vido), the
@@ -199,10 +199,10 @@ annotate the literature with relationships that eventually become part of
 databases that are used to construct knowledge graphs.
 
 However, much like knowledge, synonyms for the same concept might be spread over
-multiple different resources. Therefore, we semantic mappings can be used to
-group multiple terms together and pool all of their synonyms, which both
-improves recall and reduces the number of duplicate groundings that might be
-given for a given part of text.
+multiple different resources. Therefore, semantic mappings can be used to group
+multiple terms together and pool all of their synonyms, which both improves
+recall and reduces the number of duplicate groundings that might be given for a
+given part of text.
 
 ![](/img/mappings-automated-assembly/synonyms-assembly.svg)
 
