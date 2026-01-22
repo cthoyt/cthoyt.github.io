@@ -86,24 +86,30 @@ private and proprietary to the project partner.
 Some or all of the following steps might apply for technology transfer:
 
 1. **Initial Delivery** When bringing my technology to a project partner, a
-   typical first step is to rely on public hosting infrastructure such as GitHub
-   for source code, the Python Package Index (PyPI) for hosting releases, and
-   DockerHub for hosting containers along with appropriate usage of lock files,
-   SBOMs, and other reproducibility/auditing tools.
+   typical first step is to rely on public hosting infrastructure such as:
+   - GitHub for source code
+   - Python Package Index (PyPI) for software releases
+   - DockerHub for containers
+
+   Project management workflows such as lock files and software bill of
+   materials (SBOMs) are also key during this step to enable reproducibility and
+   auditability.
+
 2. **Internalization** Depending on project partners' needs, a second step is to
    enable the project partner's team to maintain internal forks of relevant
    components, use an internal package index (e.g., Warehouse, Artifactory), and
-   an internal container host (e.g., GitHub, Amazon ECR).
-3. **Handoff** In general, I strive to keep my code elegant and well documented,
-   and am happy to produce additional training materials, give trainings, etc.
-   to support technology transfer.
+   an internal container registry (e.g., GitHub, Amazon ECR).
+3. **Handoff** In general, I strive to keep my code elegant and well documented.
+   I am happy to produce additional documentation and training materials as well
+   as give trainings, workshops, or other relevant presentations to support
+   technology transfer.
 4. **Support** Alternatively, some partners opt for medium- or long-term service
-   contracts.
+   contracts instead of, or after handoff.
 
 #### Summary
 
 In practice, this model allows project partners to benefit from a continuously
 improving open-source foundation while retaining full control over proprietary
 data, integrations, and business logic. Licensing, contribution boundaries, and
-handoff expectations are discussed explicitly at project outset and can be
-adapted to partner requirements.
+handoff expectations are discussed explicitly at project outset, documented as
+part of the engagement, and can be adapted to partner requirements.
