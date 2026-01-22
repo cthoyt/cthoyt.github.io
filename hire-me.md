@@ -34,65 +34,76 @@ of a project that would be run through the university.
 
 ### Technology Transfer
 
-#### What I Bring With Me
+#### Prior Art
 
-I maintain a comprehensive set of
+I bring to projects a mature ecosystem of
 [free/libre and open-source software (FLOSS)](https://www.gnu.org/philosophy/floss-and-foss.en.html)
 packages for the standardization, integration, and analysis of data and
-knowledge. These are typically licensed using business-friendly
+knowledge. These components are typically licensed under business-friendly,
+permissive,
 [Open Source Initiative (OSI)](https://opensource.org/licenses)-approved
-licenses such as the MIT and Apache 2.0 license. Until now, I have avoided using
-[copyleft licenses](https://www.gnu.org/licenses/copyleft.en.html) to reduce
-issues with private/internal/proprietary forks.
+licenses such as MIT or Apache 2.0.
 
-For example, the [Biopragmatics Stack](https://github.com/biopragmatics)
-packages these components for use in the generation and application of
-biomedical knowledge graphs, e.g., in early stage drug discovery. Have a look at
-my [blog](..) for insight into various components of the Biopragmatics Stack and
-related, domain-agnostic tooling that I develop and maintain.
+I intentionally avoid using
+[copyleft licenses](https://www.gnu.org/licenses/copyleft.en.html) in this
+ecosystem in order to reduce friction for organizations that require internal,
+proprietary, or private extensions.
+
+For example, the [Biopragmatics Stack](https://github.com/biopragmatics) exposes
+high-level components for use in the generation and application of biomedical
+knowledge graphs, e.g., in early-stage drug discovery. My [blog](..) provides
+more context on various components of the Biopragmatics Stack and related,
+domain-agnostic tooling that I develop and maintain.
 
 #### Open Source vs. Internal
 
+**My guiding principle:** generic improvements are open; partner-specific work
+remain private.
+
 I expect that during projects, whether public or private, I will maintain and
 make (generic) extensions to components as open source contributions to the
-appropriate public repositories. For example, if a project requires the addition
-of a new public database to [PyOBO](https://github.com/biopragmatics/pyobo),
-then I would directly incorporate it into the public PyOBO repository.
+appropriate public repositories. I maintain ownership over all such open source
+contributions, which are in turn made available under their respective
+open-source licenses.
+
+For example, if a project requires the addition of a new public database to
+[PyOBO](https://github.com/biopragmatics/pyobo), then I would directly
+incorporate it into the public PyOBO repository.
 
 Conversely, if a project requires the addition of an internal, proprietary, or
-otherwise private database to PyOBO, then I would incorporate it into PyOBO via
-PyOBO's plugin interface. The resulting code that implements the plugin would
-remain internal and proprietary to the project partner.
+otherwise private database to PyOBO, then I would write an extension to PyOBO
+via its plugin interface that remains private and proprietary to the project
+partner. Many components of my software ecosystem support extensions through a
+plugin interface such that they can be extended without modifying the underlying
+functionality.
 
-In general, the various components of my software stack are pluggable in this
-manner such that they can be extended without modifying the underlying public
-codebase.
-
-I find that the value I can bring to project partners is the experience and
-knowledge of how to use existing software, the ability to extend it, and most
-importantly, the ability to create custom workflows that fit the business needs
-of project partners. As such, code that works with internal data, integrates
-with internal systems, or accomplishes business-driven objectives is
-interal/proprietary by default.
+By default, workflows that implement the partner-specific business needs that
+directly interface with their data, systems, and other infrastructure remain
+private and proprietary to the project partner.
 
 #### Technology Transfer
 
-When bringing my technology to a project partner, a typical first step is to
-rely on public hosting infrastructure such as GitHub for source code, the Python
-Package Index (PyPI) for hosting releases, and DockerHub for hosting containers
-along with appropriate usage of lock files, SBOMs, and other
-reproducibility/auditing tools.
+Some or all of the following steps might apply for technology transfer:
 
-Depending on project partners' needs, a second step is to enable the project
-partner's team to maintain internal forks of relevant components, use an
-internal package index (e.g., Warehouse, Artifactory), and an internal container
-host (e.g., GitHub, Amazon ECR). In general, I strive to keep my code elegant
-and well documented, and am happy to produce additional training materials, give
-trainings, etc. to support technology transfer. Alternatively, some partners opt
-for medium- or long-term service contracts.
+1. **Initial Delivery** When bringing my technology to a project partner, a
+   typical first step is to rely on public hosting infrastructure such as GitHub
+   for source code, the Python Package Index (PyPI) for hosting releases, and
+   DockerHub for hosting containers along with appropriate usage of lock files,
+   SBOMs, and other reproducibility/auditing tools.
+2. **Internalization** Depending on project partners' needs, a second step is to
+   enable the project partner's team to maintain internal forks of relevant
+   components, use an internal package index (e.g., Warehouse, Artifactory), and
+   an internal container host (e.g., GitHub, Amazon ECR).
+3. **Handoff** In general, I strive to keep my code elegant and well documented,
+   and am happy to produce additional training materials, give trainings, etc.
+   to support technology transfer.
+4. **Support** Alternatively, some partners opt for medium- or long-term service
+   contracts.
 
-Code that I write for working code that works with internal data, integrates
-with internal systems, or accomplishes business-driven objectives is
-internal/proprietary by default. Project partners take responsibility for this
-code at the end of projects, but similarly, I strive to make this code elegant,
-well-documented, and easy to hand over.
+#### Summary
+
+In practice, this model allows project partners to benefit from a continuously
+improving open-source foundation while retaining full control over proprietary
+data, integrations, and business logic. Licensing, contribution boundaries, and
+handoff expectations are discussed explicitly at project outset and can be
+adapted to partner requirements.
