@@ -18,10 +18,10 @@ and use semantic mappings.
 
 ### Proliferation of Formats
 
-The first major challenge with semantic mappings is the variety of forms they
-can take. This both includes different data models and serializations of those
-models. Let's start with a lightning review (please let me know if I missed
-something):
+The first challenge with semantic mappings is the variety of forms they can
+take. This both includes different data models and serializations of those
+models. This problem is effectively solved, but I think is worth reviewing for
+historical purposes (please let me know if I missed something):
 
 <img src="https://forge.extranet.logilab.fr/uploads/-/system/project/avatar/107/external-content.duckduckgo.com.jpeg" align="left" style="max-height: 3em;" alt="SKOS logo"/>
 [Simple Knowledge Organization System (SKOS)](https://www.w3.org/TR/skos-reference)
