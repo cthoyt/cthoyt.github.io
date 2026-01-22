@@ -55,7 +55,7 @@ knowledge graphs, e.g., in early-stage drug discovery. My [blog](..) provides
 more context on various components of the Biopragmatics Stack and related,
 domain-agnostic tooling that I develop and maintain.
 
-#### Open Source vs. Internal
+#### Open Source vs. Proprietary
 
 **My guiding principle:** generic improvements are open; partner-specific work
 remain private.
