@@ -289,6 +289,11 @@ IL6-STAT cascade, where IL6 is the HGNC gene symbol for the Interleukin 6
 protein. Most of the time, the HGNC approved gene symbol is an initialism or
 other abbreviation of the protein, but this isn't always the case.
 
+Edit: Sue Bello pointed out that most journals enforce gene names being put in
+italics (_IL6_) and proteins without italics, though this requires the author
+and reader to know that distinction, as well as for formatting to be preserved,
+which it often isn't unless you're reading the original PDF or publisher's HTML.
+
 Similar to the literature, many pathway databases that accumulate knowledge
 about the processes and reactions in which proteins take part actually use gene
 symbols (or other gene identifiers) to curate proteins.
@@ -310,7 +315,7 @@ humanities, I will try and update this section to have alternate perspectives.
 
 ### Evidence
 
-A key challenged that motivated the development of SSSOM as a standard was to
+A key challenge that motivated the development of SSSOM as a standard was to
 associate high-quality metadata with semantic mappings, such as the reason the
 mapping was produced (e.g., manual curation, lexical matching, structural
 matching), who produced it (e.g., a person, algorithm, agent), when, how, and
