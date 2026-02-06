@@ -113,3 +113,9 @@ improving open-source foundation while retaining full control over proprietary
 data, integrations, and business logic. Licensing, contribution boundaries, and
 handoff expectations are discussed explicitly at project outset, documented as
 part of the engagement, and can be adapted to partner requirements.
+
+I've had success with this model in the past, such as by delivering custom,
+proprietary implementations of causal reasoning algorithms for the
+[Biological Expression Language](https://biological-expression-language.github.io/)
+to [Philip Morris International (PMI)](https://www.pmi.com) based on the
+[PyBEL](https://github.com/pybel/pybel/) open source package.
