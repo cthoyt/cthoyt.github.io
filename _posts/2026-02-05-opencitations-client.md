@@ -1,7 +1,7 @@
 ---
 layout: post
-title: OpenCitations
-date: 2026-02-05 13:46:00 +0100
+title: Efficient Bulk Access to Citations in OpenCitations
+date: 2026-02-10 10:46:00 +0100
 author: Charles Tapley Hoyt
 tags:
   - bibliometrics
@@ -135,6 +135,11 @@ that can be used to swap between principled `curies.Reference` data structures
 that explicitly encode identifiers, simple string local unique identifiers that
 match the input prefix, or full citation objects (only available through
 OpenCitations API).
+
+See the `opencitations-client` code on GitHub
+([https://github.com/cthoyt/opencitations-client](https://github.com/cthoyt/opencitations-client))
+and documentation on ReadTheDocs
+([https://opencitations-client.readthedocs.io](https://opencitations-client.readthedocs.io)).
 
 ---
 
