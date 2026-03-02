@@ -3,7 +3,8 @@ layout: post
 title: You Should Use a Private Email on Publications
 date: 2022-02-06 22:55:00 +0100
 author: Charles Tapley Hoyt
-tags: bibliometrics
+tags:
+  - bibliometrics
 ---
 
 While we were recently preparing to submit a manuscript, the lead author said

@@ -3,7 +3,13 @@ layout: post
 title: Idiomatic conversion between URIs and compact URIs
 date: 2023-01-10 13:28:00 +0100
 author: Charles Tapley Hoyt
-tags: semantic-web curies prefixes iris uris python
+tags:
+  - semantic web
+  - CURIEs
+  - prefixes
+  - IRIs
+  - URIs
+  - Python
 ---
 
 The semantic web and ontology communities needed a reusable Python package for

@@ -4,7 +4,10 @@ title: How to Curate the INDRA Database
 date: 2021-09-16 13:30:00 +0100
 modified_date: 2023-01-02 15:06:00 -0500
 author: Charles Tapley Hoyt
-tags: nlp indra biocuration
+tags:
+  - nlp
+  - indra
+  - biocuration
 ---
 
 With the recent paper on Gilda and approaching INDRA 2 and INDRA database papers

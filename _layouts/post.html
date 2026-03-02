@@ -23,7 +23,13 @@ layout: default
             <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
             {%- if forloop.last == false %}, {% endif -%}
         {% endfor %}
-      {%- endif -%}</p>
+      {%- endif -%}
+      {%- if page.tags -%}
+        {%- for topic in page.tags -%}
+        &nbsp;• <span>{{ topic }}</span>
+        {%- endfor -%}
+      {%- endif -%}
+    </p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">

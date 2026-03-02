@@ -4,11 +4,11 @@ title: Semantic Pydantic
 date: 2024-01-10 14:38:00 +0100
 author: Charles Tapley Hoyt
 tags:
-  - bioregistry
+  - Bioregistry
   - semantic web
-  - pydantic
-  - fastapi
-  - python
+  - Pydantic
+  - FastAPI
+  - Python
 ---
 
 Using [Pydantic](https://docs.pydantic.dev) for encoding data models and

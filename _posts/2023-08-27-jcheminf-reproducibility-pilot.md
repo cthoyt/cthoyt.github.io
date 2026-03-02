@@ -3,7 +3,9 @@ layout: post
 title: Reproducibility Pilot in the Journal of Cheminformatics
 date: 2023-08-27 00:00:00 -0800
 author: Charles Tapley Hoyt
-tags: cheminformatics reproducibility
+tags:
+  - cheminformatics
+  - reproducibility
 ---
 
 I've been working on improving reproducibility in the field of cheminformatics

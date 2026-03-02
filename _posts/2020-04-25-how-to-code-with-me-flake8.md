@@ -3,7 +3,8 @@ layout: post
 title: How to Code with Me - Flake8 Hell
 date: 2020-04-25 00:00:00 -0800
 author: Charles Tapley Hoyt
-tags: code-with-me
+tags:
+  - code with me
 ---
 
 As scientists, we place huge importance on the communication of our results. We

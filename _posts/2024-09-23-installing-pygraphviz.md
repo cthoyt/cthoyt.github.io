@@ -6,7 +6,7 @@ author: Charles Tapley Hoyt
 tags:
   - Python
   - GraphViz
-  - Environments
+  - environments
 ---
 
 [Graphviz](https://graphviz.org) is software for graph visualization written in

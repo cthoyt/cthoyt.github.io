@@ -3,7 +3,8 @@ layout: post
 title: Connecting Preprints to Peer-reviewed Articles on Wikidata
 date: 2023-01-02 13:27:00 -0500
 author: Charles Tapley Hoyt
-tags: bibliometrics
+tags:
+  - bibliometrics
 ---
 
 After the [BioCypher](https://arxiv.org/abs/2212.13543) preprint went up on the

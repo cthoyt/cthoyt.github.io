@@ -3,13 +3,14 @@ layout: post
 title: Machine Learning Needs More Generators
 date: 2021-08-18 12:21:00 +0100
 author: Charles Tapley Hoyt
-tags: machine-learning
+tags:
+  - machine learning
 ---
 
 I've spent the last two days cleaning up some research machine learning code
 that blew up when I tried applying it to my own data due to memory constraints.
-This post is about the anti-pattern that caused this, how I fixed it, and how
-you can avoid it too.
+This post is about the antipattern that caused this, how I fixed it, and how you
+can avoid it too.
 
 The [INDRA Lab](https://indralab.github.io/) has been collaborating with my old
 PhD cellmate [Daniel Domingo-Fernández](https://github.com/ddomingof) and his

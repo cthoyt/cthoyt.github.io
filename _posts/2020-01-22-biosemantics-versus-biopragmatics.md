@@ -3,6 +3,9 @@ layout: post
 title: Biosemantics vs. Biopragmatics
 date: 2020-01-22 00:00:00 -0800
 author: Charles Tapley Hoyt
+tags:
+  - semantics
+  - meta
 ---
 
 In language, semantics describe the names and meanings of words. The

@@ -6,7 +6,6 @@ author: Charles Tapley Hoyt
 tags:
   - ChEMBL
   - cheminformatics
-  - chemoinformatics
   - chemistry
   - bibliometrics
 ---

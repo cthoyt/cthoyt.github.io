@@ -3,6 +3,9 @@ layout: post
 title: "Host a Graduate Seminar Before Writing Your Thesis"
 date: 2020-02-09 00:00:00 -0800
 author: Charles Tapley Hoyt
+tags:
+  - doctoral thesis
+  - teaching
 ---
 
 The other day I saw a tweet lamenting the drag that is literature review during

@@ -3,14 +3,16 @@ layout: post
 title: Pre-loading a PostgreSQL Docker Container
 date: 2021-08-28 15:44:00 +0100
 author: Charles Tapley Hoyt
-tags: docker ontology
+tags:
+  - docker
+  - ontology
 ---
 
 [PostgreSQL](https://www.postgresql.org/) is a powerful relational database
 management system that can be easily downloaded and installed from its
 [official image on DockerHub](https://hub.docker.com/_/postgres) using
 [Docker](https://www.docker.com/). However, it's not so straightforward to
-pre-load your own data. This blog post is about preparing a derivative of the
+preload your own data. This blog post is about preparing a derivative of the
 base PostgreSQL Docker image that's preloaded with your own database and pushing
 it back to DockerHub for redistribution.
 

@@ -3,7 +3,9 @@ layout: post
 title: Explaining MCI Conversion with Path Queries to NeuroMMSig
 date: 2021-02-23 23:53:00 +0100
 author: Charles Tapley Hoyt
-tags: curation bioinformatics
+tags:
+  - curation
+  - bioinformatics
 ---
 
 In late 2017, I visited the [Critical Path Institute](https://c-path.org/) in
