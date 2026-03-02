@@ -40,7 +40,7 @@ class TestIntegrity(unittest.TestCase):
                 self.assertIsInstance(tags, list, msg=f"\n -> {path.name}")
                 for tag in tags:
                     self.assertNotIn("-", tag, msg=f"\n -> {path.name}")
-                    xx[tag.lower()][tag].append(path)
+                    xx[tag.lower().rstrip("s")][tag].append(path)
 
         for k, v in xx.items():
             with self.subTest(name=k):

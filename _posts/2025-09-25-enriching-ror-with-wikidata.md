@@ -6,7 +6,6 @@ author: Charles Tapley Hoyt
 tags:
   - ROR
   - Wikidata
-  - organization
   - organizations
   - bibliometrics
 ---

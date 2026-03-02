@@ -122,7 +122,7 @@ predictions, including some of these molecules in the training set and others in
 the test set would enable trivial inference and ultimately result in an
 over-estimation of the performance of your model (barring discussion about how
 this could be considered trivial is a huge triumph of modern pharmacology and
-chemoinformatics). The solution often referenced in
+cheminformatics). The solution often referenced in
 [proteochemometrics](https://www.universiteitleiden.nl/en/research/research-projects/science/lacdr-proteochemometrics)
 papers is to use scaffold-based splitting like Bemis-Murcko scaffold splitting
 or to pre-cluster molecules based on structural similarity and to split based on

@@ -482,7 +482,7 @@ by PyBEL and BEL Commons.
 **January 24th, 2017** [Asif Emon](https://www.linkedin.com/in/asifemon/)
 (Fraunhofer) publishes
 [Using Drugs as Molecular Probes: A Computational Chemical Biology Approach in Neurodegenerative Diseases](https://content.iospress.com/articles/journal-of-alzheimers-disease/jad160222)
-which jump started both the chemoinformatics side of BEL and inspired the later
+which jump started both the cheminformatics side of BEL and inspired the later
 Bio2BEL project.
 
 **February 22th, 2017**
