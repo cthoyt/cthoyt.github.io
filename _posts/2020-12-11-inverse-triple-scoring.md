@@ -3,7 +3,9 @@ layout: post
 title: Scoring Inverse Triples
 date: 2020-12-11 00:00:00 -0800
 author: Charles Tapley Hoyt
-tags: knowledge-graphs pykeen
+tags:
+  - knowledge graphs
+  - pykeen
 ---
 
 When training a knowledge graph embedding model with inverse triples, two scores

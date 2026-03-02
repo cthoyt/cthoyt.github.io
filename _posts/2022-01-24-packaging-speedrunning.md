@@ -3,7 +3,8 @@ layout: post
 title: The Official Rules of Python Packaging Speedrunning
 date: 2022-01-24 01:30:00 +0100
 author: Charles Tapley Hoyt
-tags: programming
+tags:
+  - programming
 ---
 
 I figured over the holiday break or early days of the new year, I'd catch up on

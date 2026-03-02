@@ -5,7 +5,9 @@ title:
   open data, and public infrastructure
 date: 2023-01-03 11:28:00 -0500
 author: Charles Tapley Hoyt
-tags: biocuration philosophy
+tags:
+  - biocuration
+  - philosophy
 ---
 
 The

@@ -3,7 +3,10 @@ layout: post
 title: Reproducibly Loading the ChEMBL Relational Database
 date: 2021-08-05 15:36:00 +0100
 author: Charles Tapley Hoyt
-tags: cheminformatics chembl sql
+tags:
+  - cheminformatics
+  - chembl
+  - sql
 ---
 
 In his blog post,

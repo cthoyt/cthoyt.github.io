@@ -5,7 +5,8 @@ title:
   (BEL)
 date: 2020-05-22 14:50:00 +0100
 author: Charles Tapley Hoyt
-tags: bel
+tags:
+  - BEL
 ---
 
 This post is evolving from a reading list to a review of the academic papers

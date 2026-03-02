@@ -3,7 +3,9 @@ layout: post
 title: Current Perspectives on KGEMs in and out of Biomedicine
 date: 2021-04-05 13:13:00 +0100
 author: Charles Tapley Hoyt
-tags: bioinformatics pykeen
+tags:
+  - bioinformatics
+  - pykeen
 ---
 
 After many discussions scientists from AstraZeneca's knowledge graph and target

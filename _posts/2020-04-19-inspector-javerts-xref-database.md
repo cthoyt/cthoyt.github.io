@@ -3,6 +3,8 @@ layout: post
 title: Inspector Javert's Xref Database
 date: 2020-04-19 00:00:00 -0800
 author: Charles Tapley Hoyt
+tags:
+  - mappings
 ---
 
 On top the issue of [resolving identifiers to their

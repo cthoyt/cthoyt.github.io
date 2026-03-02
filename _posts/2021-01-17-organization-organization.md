@@ -3,7 +3,8 @@ layout: post
 title: Organizing the Public Data about your Research Organization
 date: 2021-01-17 19:23:00 +0100
 author: Charles Tapley Hoyt
-tags: bibliometrics
+tags:
+  - bibliometrics
 ---
 
 If you've ever read a scientific paper, you know that the information that makes

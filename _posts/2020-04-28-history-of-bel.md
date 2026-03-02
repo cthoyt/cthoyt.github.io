@@ -4,7 +4,8 @@ title:
   An Incomplete History of Selventa and the Biological Expression Language (BEL)
 date: 2020-04-28 00:00:00 -0800
 author: Charles Tapley Hoyt
-tags: bel
+tags:
+  - BEL
 ---
 
 The company and community that surround the Biological Expression Language (BEL)

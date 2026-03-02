@@ -3,8 +3,10 @@ import yaml
 import unittest
 
 HERE = Path(__file__).parent.resolve()
-DATA = HERE.parent.resolve().joinpath("_data")
+ROOT = HERE.parent.resolve()
+DATA = ROOT.joinpath("_data")
 EVENTS_PATH = DATA.joinpath("events.yml")
+POSTS = ROOT.joinpath("_posts")
 
 
 class TestIntegrity(unittest.TestCase):
@@ -26,3 +28,19 @@ class TestIntegrity(unittest.TestCase):
                     self.assertIsInstance(poster, dict)
                     self.assertIn("name", poster)
                     self.assertIn("url", poster)
+
+    def test_frontmatter(self) -> None:
+        for path in sorted(POSTS.glob("*.md")):
+            with self.subTest(post=path.name):
+                data = _read_frontmatter(path)
+                self.assertIn("tags", data)
+                tags = data['tags']
+                self.assertIsInstance(tags, list, msg=f"\n -> {path.name}")
+                for tag in tags:
+                    self.assertNotIn("-", tag, msg=f"\n -> {path.name}")
+
+
+def _read_frontmatter(path: Path) -> dict:
+    text = path.read_text()
+    t = text.split("---")[1]
+    return yaml.safe_load(t)

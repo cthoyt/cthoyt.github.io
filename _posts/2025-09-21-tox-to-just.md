@@ -8,7 +8,7 @@ tags:
   - python
   - tox
   - just
-  - cookiecutter-snekpack
+  - snekpack
   - automation
   - CI/CD
 ---

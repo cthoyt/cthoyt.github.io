@@ -3,7 +3,11 @@ layout: post
 title: Compliance of Bioregistry Prefixes to the W3C Standard
 date: 2023-01-12 00:17:00 +0100
 author: Charles Tapley Hoyt
-tags: bioregistry prefixes w3c python
+tags:
+  - bioregistry
+  - prefixes
+  - w3c
+  - python
 ---
 
 This post gives a brief background on the formal definition of the syntax and

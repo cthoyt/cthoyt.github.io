@@ -3,7 +3,9 @@ layout: post
 title: Referring to SARS-CoV-2 Proteins in BEL
 date: 2020-09-17 01:05:00 +0100
 author: Charles Tapley Hoyt
-tags: curation bel
+tags:
+  - curation
+  - BEL
 ---
 
 Many of the proteins in the severe acute respiratory syndrome coronavirus 2
