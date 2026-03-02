@@ -5,7 +5,7 @@ date: 2021-01-23 21:12:00 +0100
 author: Charles Tapley Hoyt
 tags:
   - bibliometrics
-  - wikidata
+  - Wikidata
 ---
 
 [Scholia](https://scholia.toolforge.org) is a powerful frontend for summarizing

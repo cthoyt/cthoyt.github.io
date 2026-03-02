@@ -5,8 +5,8 @@ date: 2025-09-21 11:21:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - packaging
-  - python
-  - tox
+  - Python
+  - Tox
   - just
   - snekpack
   - automation

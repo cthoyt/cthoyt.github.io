@@ -4,7 +4,7 @@ title: Querying Journals and Publishers in Wikidata
 date: 2023-06-22 19:00:23 +0200
 author: Charles Tapley Hoyt
 tags:
-  - wikidata
+  - Wikidata
   - bibliometrics
 ---
 

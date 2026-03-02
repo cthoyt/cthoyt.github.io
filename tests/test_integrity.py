@@ -1,3 +1,4 @@
+from collections import defaultdict
 from pathlib import Path
 import yaml
 import unittest
@@ -30,6 +31,7 @@ class TestIntegrity(unittest.TestCase):
                     self.assertIn("url", poster)
 
     def test_frontmatter(self) -> None:
+        xx = defaultdict(lambda: defaultdict(list))
         for path in sorted(POSTS.glob("*.md")):
             with self.subTest(post=path.name):
                 data = _read_frontmatter(path)
@@ -38,6 +40,12 @@ class TestIntegrity(unittest.TestCase):
                 self.assertIsInstance(tags, list, msg=f"\n -> {path.name}")
                 for tag in tags:
                     self.assertNotIn("-", tag, msg=f"\n -> {path.name}")
+                    xx[tag.lower()][tag].append(path)
+
+        for k, v in xx.items():
+            with self.subTest(name=k):
+                all_path_names = "\n".join(sorted(f"- {i.name} ({kk})" for kk, ii in v.items() for i in ii))
+                self.assertEqual(1, len(v), msg=f"unstandardized capitalization of {k} in\n\n{all_path_names}")
 
 
 def _read_frontmatter(path: Path) -> dict:

@@ -5,11 +5,11 @@ date: 2023-01-10 13:28:00 +0100
 author: Charles Tapley Hoyt
 tags:
   - semantic web
-  - curies
+  - CURIEs
   - prefixes
-  - iris
-  - uris
-  - python
+  - IRIs
+  - URIs
+  - Python
 ---
 
 The semantic web and ontology communities needed a reusable Python package for

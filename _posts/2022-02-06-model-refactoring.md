@@ -7,7 +7,7 @@ tags:
   - programming
   - machine learning
   - deep learning
-  - python
+  - Python
 ---
 
 This blog post is a tutorial that will take you from a naive implementation of a

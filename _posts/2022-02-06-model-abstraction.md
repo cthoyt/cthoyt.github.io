@@ -7,7 +7,7 @@ tags:
   - programming
   - machine learning
   - deep learning
-  - python
+  - Python
 ---
 
 As a follow-up to my [previous

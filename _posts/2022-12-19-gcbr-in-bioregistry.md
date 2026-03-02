@@ -4,7 +4,7 @@ title: Global Core Biodata Resources in the Bioregistry
 date: 2022-12-19 07:14:00 -0500
 author: Charles Tapley Hoyt
 tags:
-  - bioregistry
+  - Bioregistry
 ---
 
 The [Global Biodata Coalition](https://globalbiodata.org) released a list of

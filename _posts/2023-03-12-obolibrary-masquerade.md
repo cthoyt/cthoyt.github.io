@@ -4,8 +4,8 @@ title: Resources masquerading as OBO Foundry ontologies
 date: 2023-03-12 00:11:23 +0100
 author: Charles Tapley Hoyt
 tags:
-  - bioregistry
-  - obo
+  - Bioregistry
+  - OBO
   - ontologies
 ---
 

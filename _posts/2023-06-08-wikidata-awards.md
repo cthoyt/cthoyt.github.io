@@ -4,7 +4,7 @@ title: Modeling and Querying Awards in Wikidata
 date: 2023-06-08 12:09:23 +0200
 author: Charles Tapley Hoyt
 tags:
-  - wikidata
+  - Wikidata
   - bibliometrics
 ---
 

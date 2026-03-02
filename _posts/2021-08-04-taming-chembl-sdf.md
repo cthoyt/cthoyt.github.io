@@ -5,8 +5,8 @@ date: 2021-08-04 13:46:00 +0100
 author: Charles Tapley Hoyt
 tags:
   - cheminformatics
-  - chembl
-  - sdf
+  - ChEMBL
+  - SDF
 ---
 
 [ChEMBL](https://www.ebi.ac.uk/chembl) is easily the most useful database in a
