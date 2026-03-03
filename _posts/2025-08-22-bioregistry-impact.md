@@ -4,10 +4,10 @@ title: Measuring the impact of the Bioregistry
 date: 2025-08-22 16:54:00 +0200
 author: Charles Tapley Hoyt
 tags:
-  - CURIE
-  - URI
-  - URN
-  - IRI
+  - CURIEs
+  - URIs
+  - URNs
+  - IRIs
   - identifiers
   - identifier schema
   - Bioregistry

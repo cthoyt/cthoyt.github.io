@@ -3,7 +3,9 @@ layout: post
 title: Current Perspectives on KGEMs in and out of Biomedicine
 date: 2021-04-05 13:13:00 +0100
 author: Charles Tapley Hoyt
-tags: bioinformatics pykeen
+tags:
+  - bioinformatics
+  - pykeen
 ---
 
 After many discussions scientists from AstraZeneca's knowledge graph and target
@@ -120,7 +122,7 @@ predictions, including some of these molecules in the training set and others in
 the test set would enable trivial inference and ultimately result in an
 over-estimation of the performance of your model (barring discussion about how
 this could be considered trivial is a huge triumph of modern pharmacology and
-chemoinformatics). The solution often referenced in
+cheminformatics). The solution often referenced in
 [proteochemometrics](https://www.universiteitleiden.nl/en/research/research-projects/science/lacdr-proteochemometrics)
 papers is to use scaffold-based splitting like Bemis-Murcko scaffold splitting
 or to pre-cluster molecules based on structural similarity and to split based on

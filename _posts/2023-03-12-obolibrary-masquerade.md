@@ -3,7 +3,10 @@ layout: post
 title: Resources masquerading as OBO Foundry ontologies
 date: 2023-03-12 00:11:23 +0100
 author: Charles Tapley Hoyt
-tags: bioregistry obo ontologies
+tags:
+  - Bioregistry
+  - OBO
+  - ontologies
 ---
 
 Several controlled vocabularies and ontologies that aren't themselves

@@ -3,7 +3,8 @@ layout: post
 title: Tales from the Bonner Ausländeramt
 date: 2021-07-26 13:46:00 +0100
 author: Charles Tapley Hoyt
-tags: expat
+tags:
+  - expat
 ---
 
 This is a more personal blog post about my experience as an american expat in

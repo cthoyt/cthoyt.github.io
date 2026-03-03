@@ -3,7 +3,9 @@ layout: post
 title: The Trouble with Ontologies, or, How to Build an Ontology
 date: 2020-05-12 00:00:00 -0800
 author: Charles Tapley Hoyt
-tags: ontology curation
+tags:
+  - ontology
+  - curation
 ---
 
 Everyone's talking about biomedical ontologies! Let's look at where most people

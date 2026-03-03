@@ -6,7 +6,7 @@ author: Charles Tapley Hoyt
 tags:
   - biomarker
   - semantic spaces
-  - bioregistry
+  - Bioregistry
   - BiomarkerKB
 ---
 

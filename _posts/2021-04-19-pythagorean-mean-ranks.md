@@ -3,7 +3,8 @@ layout: post
 title: Pythagorean Mean Rank Metrics
 date: 2021-04-19 13:46:00 +0100
 author: Charles Tapley Hoyt
-tags: pykeen
+tags:
+  - pykeen
 ---
 
 The mean rank (MR) and mean reciprocal rank (MRR) are among the most popular

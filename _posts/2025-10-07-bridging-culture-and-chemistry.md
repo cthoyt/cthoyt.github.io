@@ -5,7 +5,7 @@ date: 2025-10-07 23:18:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - knowledge graphs
-  - sparql
+  - SPARQL
   - chemistry
   - culture
   - cultural heritage

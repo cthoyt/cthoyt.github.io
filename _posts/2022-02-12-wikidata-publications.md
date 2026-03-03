@@ -3,7 +3,8 @@ layout: post
 title: Curating Publications on Wikidata
 date: 2022-02-12 19:10:00 +0100
 author: Charles Tapley Hoyt
-tags: bibliometrics
+tags:
+  - bibliometrics
 ---
 
 This blog post is a tutorial on how to curate the links between a researcher and

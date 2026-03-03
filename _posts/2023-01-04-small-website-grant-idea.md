@@ -3,12 +3,15 @@ layout: post
 title: Long-term Funding for Small Biomedical Databases
 date: 2023-01-04 16:32:00 +0100
 author: Charles Tapley Hoyt
-tags: funding longevity sustainability
+tags:
+  - funding
+  - longevity
+  - sustainability
 ---
 
 Way back in 2021, during the annual general assembly of the
 [International Society for Biocuration (ISB)](https://www.biocuration.org) at
-the the
+the
 [14th Annual International Biocuration Conference (Biocuration 2021)](https://www.biocuration.org/14th-annual-biocuration-conference-virtual/)
 , there was a discussion about the notably underutilized budget of the society
 that resulted in an informal open call for ideas for new small funding schemes.

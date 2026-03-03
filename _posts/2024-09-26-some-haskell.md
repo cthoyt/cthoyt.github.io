@@ -6,7 +6,7 @@ author: Charles Tapley Hoyt
 tags:
   - Haskell
   - JATS
-  - Publishing
+  - publishing
   - Pandoc
 ---
 

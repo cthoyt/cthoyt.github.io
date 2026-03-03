@@ -5,9 +5,9 @@ date: 2024-11-19 13:39:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - Python
-  - Packaging
+  - packaging
   - Cookiecutter
-  - Documentation
+  - documentation
 ---
 
 [PEP 735](https://peps.python.org/pep-0735/) introduced dependency groups in

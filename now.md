@@ -2,6 +2,7 @@
 layout: page
 title: Now
 permalink: /now
+exclude_header: true
 ---
 
 This is a [now page](https://www.nownownow.com/about), and if you have your own

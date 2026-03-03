@@ -3,7 +3,9 @@ layout: post
 title: Querying Journals and Publishers in Wikidata
 date: 2023-06-22 19:00:23 +0200
 author: Charles Tapley Hoyt
-tags: wikidata bibliometrics
+tags:
+  - Wikidata
+  - bibliometrics
 ---
 
 Today's short post is about three SPARQL queries I wrote to get bibliometric

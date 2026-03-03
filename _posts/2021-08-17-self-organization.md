@@ -3,7 +3,8 @@ layout: post
 title: Organizing the Public Data about a Researcher
 date: 2021-08-17 12:21:00 +0100
 author: Charles Tapley Hoyt
-tags: bibliometrics
+tags:
+  - bibliometrics
 ---
 
 In a [previous post]({% post_url 2021-01-17-organization-organization %}), I

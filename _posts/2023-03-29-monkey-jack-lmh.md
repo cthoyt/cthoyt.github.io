@@ -3,7 +3,8 @@ layout: post
 title: The Representatives of Monkey Jack - German Battle of the Bands Finale
 date: 2023-03-29 20:33:23 +0100
 author: Charles Tapley Hoyt
-tags: music
+tags:
+  - music
 ---
 
 This blog is normally about <strong>very serious science</strong>, but I'm

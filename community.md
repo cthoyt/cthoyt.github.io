@@ -14,6 +14,10 @@ permalink: /community/
 {% endfor %}
 </ul>
 
+## Mentorship
+
+See [here](/mentorship/) for a list of my past and current mentors and mentees.
+
 ## Service
 
 <ul>
@@ -26,8 +30,8 @@ permalink: /community/
 
 ## Collaborators
 
-The following is an incomplete list that highlights previous
-and current collaborators:
+The following is an incomplete list that highlights previous and current
+collaborators:
 
 <ul>
 {%- for entry in site.data.collaborators %}

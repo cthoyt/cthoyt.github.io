@@ -3,7 +3,11 @@ layout: post
 title: Re-implementing the N2T ARK Resolver
 date: 2023-04-11 20:44:23 +0200
 author: Charles Tapley Hoyt
-tags: curies arks n2t pids
+tags:
+  - CURIEs
+  - ARKs
+  - N2T
+  - PIDs
 ---
 
 [Archival Resource Keys (ARKs)](https://arks.org/) are flavor of persistent
