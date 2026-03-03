@@ -1,0 +1,125 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+exclude_header: true
+---
+
+<div class="tags-page">
+    <h1 class="page-heading">Tags</h1>
+
+    <div class="tags-cloud">
+        {%- assign all_tags = site.posts | map: "tags" | flatten | uniq | sort -%}
+        {%- for tag in all_tags -%}
+        {%- assign tag_count = 0 -%}
+        {%- for post in site.posts -%}
+        {%- if post.tags contains tag -%}
+        {%- assign tag_count = tag_count | plus: 1 -%}
+        {%- endif -%}
+        {%- endfor -%}
+        <a href="#{{ tag | slugify }}" class="tag-pill" data-count="{{ tag_count }}">
+            {{ tag }} <span class="tag-count">{{ tag_count }}</span>
+        </a>
+        {%- endfor -%}
+    </div>
+
+    <div class="tags-list">
+        {%- for tag in all_tags -%}
+        <section id="{{ tag | slugify }}" class="tag-section">
+            <h2 class="tag-heading">{{ tag }}</h2>
+            <ul class="tag-posts">
+                {%- assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" -%}
+                {%- for post in tag_posts -%}
+                <li>
+                    <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        {{ post.date | date: "%b %-d, %Y" }}
+                    </time>
+                </li>
+                {%- endfor -%}
+            </ul>
+        </section>
+        {%- endfor -%}
+    </div>
+</div>
+
+<style>
+    .tags-page {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .tags-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0 3rem;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background-color: #e8f0fe;
+      color: #3367d6;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+
+    .tag-pill:hover {
+      background-color: #3367d6;
+      color: #fff;
+    }
+
+    .tag-count {
+      background-color: rgba(0,0,0,0.12);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      padding: 0.05rem 0.45rem;
+    }
+
+    .tag-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .tag-heading {
+      font-size: 1.25rem;
+      border-bottom: 2px solid #e8f0fe;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag-posts {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tag-posts li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      gap: 1rem;
+    }
+
+    .tag-posts li a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .tag-posts li a:hover {
+      text-decoration: underline;
+    }
+
+    .tag-posts time {
+      font-size: 0.8rem;
+      color: #888;
+      white-space: nowrap;
+    }
+</style>
