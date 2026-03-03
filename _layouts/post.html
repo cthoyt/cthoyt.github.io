@@ -26,7 +26,7 @@ layout: default
       {%- endif -%}
       {%- if page.tags -%}
         {%- for topic in page.tags -%}
-        &nbsp;• <a href="/tags/#{{ topic | replace: " ", "-" }}">{{ topic }}</a>
+        &nbsp;• <a href="/tags/#{{ topic | slugify }}">{{ topic }}</a>
         {%- endfor -%}
       {%- endif -%}
     </p>
