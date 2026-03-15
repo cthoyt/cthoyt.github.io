@@ -11,6 +11,7 @@ tags:
   - SSSOM
   - SSSOM Curator
   - Biomappings
+  - semantic mappings
 ---
 
 Interest in (open) educational resources (OERs) in the last twenty years has
@@ -35,12 +36,12 @@ with a third OER metadata model in Schema.org. The World Wide Web Consortium
 which developed [OERSchema](https://github.com/open-curriculum/oerschema), but
 this metadata model did not see critical adoption, the working group shut down
 in 2023, and the repository is effectively inactive. There's also numerous
-partially overlapping isolated efforts (surprisingly, many in Germany) with
+partially overlapping isolated efforts (surprisingly, many from German groups) with
 heterogeneous reusability (e.g., many are published by not downloadable, many
 are poorly constructed).
 
 Here's a non-exhaustive list of metadata models that follow semantic web
-standards (see bioregistry record https://semantic.farm/collection/0000018):
+standards (see Semantic Farm collection [0000018](https://semantic.farm/collection/0000018)):
 
 | Prefix                                         | Name                                                    | Homepage                                                             |
 | ---------------------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -53,10 +54,16 @@ standards (see bioregistry record https://semantic.farm/collection/0000018):
 
 ## TL;DR
 
-This post is about creating a semantic mapping repository using SSSOM Curator,
-filling it with predicted mappings between ontologies, data models, and other
-semantic spaces relevant for open educational resources (OERs), then opening the
-curation interface.
+This post is about predicting mappings between ontologies, data models, and other
+semantic spaces relevant for open educational resources (OERs) and curating them.
+
+
+
+with [SSSOM Curator](https://github.com/cthoyt/sssom-curator),
+a generalization and re-implementation of [Biomappings](https://github.com/biopragmatics/biomappings), a
+semi-automated, human-in-the-loop mapping curations workflow that was originally domain-specific for life sciences.
+
+
 
 ```console
 $ uv tool install sssom-curator[predict-lexical,exports,web]

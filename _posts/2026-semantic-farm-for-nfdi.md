@@ -12,7 +12,7 @@ tags:
   - Biomappings
 ---
 
-The Semantic Farm (https://semantic.farm) is a data interoperability platform
+The [Semantic Farm (https://semantic.farm)](https://semantic.farm) is a data interoperability platform
 that indexes ontologies, databases, and other resources that assign (persistent)
 identifiers.
 
