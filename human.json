@@ -1,0 +1,14 @@
+{
+  "version": "0.1.1",
+  "url": "https://cthoyt.com",
+  "vouches": [
+    {
+      "url": "https://www.scolby.com",
+      "vouched_at": "2026-03-15"
+    },
+    {
+      "url": "https://sethmlarson.dev",
+      "vouched_at": "2026-03-15"
+    }
+  ]
+}

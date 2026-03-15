@@ -20,6 +20,7 @@ CC BY 4.0
 
 ## File Explanations
 
-| File                         | Description                                                                                              |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [funding.json](funding.json) | A [funding manifest](https://floss.fund/funding-manifest/) for use with [FLOSS/fund](https://floss.fund) |
+| File                         | Description                                                                                                           |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| [funding.json](funding.json) | A [funding manifest](https://floss.fund/funding-manifest/) for use with [FLOSS/fund](https://floss.fund)              |
+| [human.json](human.json)     | An attestation that this website is handcrafted by a human, and not an AI. See https://codeberg.org/robida/human.json |
