@@ -36,7 +36,7 @@ class TestIntegrity(unittest.TestCase):
             with self.subTest(post=path.name):
                 data = _read_frontmatter(path)
                 self.assertIn("tags", data)
-                tags = data['tags']
+                tags = data["tags"]
                 self.assertIsInstance(tags, list, msg=f"\n -> {path.name}")
                 for tag in tags:
                     self.assertNotIn("-", tag, msg=f"\n -> {path.name}")
@@ -44,8 +44,14 @@ class TestIntegrity(unittest.TestCase):
 
         for k, v in xx.items():
             with self.subTest(name=k):
-                all_path_names = "\n".join(sorted(f"- {i.name} ({kk})" for kk, ii in v.items() for i in ii))
-                self.assertEqual(1, len(v), msg=f"unstandardized capitalization of {k} in\n\n{all_path_names}")
+                all_path_names = "\n".join(
+                    sorted(f"- {i.name} ({kk})" for kk, ii in v.items() for i in ii)
+                )
+                self.assertEqual(
+                    1,
+                    len(v),
+                    msg=f"unstandardized capitalization of {k} in\n\n{all_path_names}",
+                )
 
 
 def _read_frontmatter(path: Path) -> dict:
