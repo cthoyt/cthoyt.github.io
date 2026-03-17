@@ -137,6 +137,5 @@ committee chair. She showed us how she curates alleles in MGI using the paper
 
 ## Let us Interview You
 
-If you curate a resource and want to be featured on the podcast, please reach
-out. My contact information is on the bottom of my blog or ISB can be contacted
-[here](https://www.biocuration.org/contact-the-isb/).
+If you curate a resource and want to be featured on the podcast, please
+[fill out this form](https://forms.gle/5Q2DGjWgWTHYxa8dA).
