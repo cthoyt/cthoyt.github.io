@@ -13,6 +13,10 @@
     {
       "url": "https://hynek.me",
       "vouched_at": "2026-03-17"
+    },
+    {
+      "url": "https://nedbatchelder.com",
+      "vouched_at": "2026-03-23"
     }
   ]
 }
