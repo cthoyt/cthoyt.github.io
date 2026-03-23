@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="home">
+    {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+    {%- endif -%}
+
+    {{ content }}
+
+    <h2 class="post-list-heading">Recent Posts</h2>
+    <ul class="post-list">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {%- for post in site.posts limit:10 -%}
+        <li>
+            <span class="post-meta">{{ post.date | date: date_format }}</span>
+            <h3>
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                </a>
+            </h3>
+            {{ post.excerpt }}
+        </li>
+        {%- endfor -%}
+    </ul>
+
+    <a href="/archive">See {{ site.posts | size - 10 }} other previous posts in the archive.</a>
+</div>
