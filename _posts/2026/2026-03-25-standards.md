@@ -4,9 +4,8 @@ title: Standards
 date: 2026-05-19 13:08:00 +0200
 author: Charles Tapley Hoyt
 tags:
-  - SSSOM
-  - semantic mappings
   - knowledge graphs
+  - community building
 ---
 
 In late March 2026, Bruce Herr
@@ -17,22 +16,23 @@ Common Fund Data Ecosystem (CFDE) issued a
 for a proposed knowledge graph exchange format entitled _JSON Knowledge Graph
 Exchange Format (JKG)_. Bruce also posed the obvious question: why develop a new
 standard instead of reusing or collaborating on something like
-[Knowledge Graph Exchange (KGC)](https://github.com/biolink/kgx),
+[Knowledge Graph Exchange (KGX)](https://github.com/biolink/kgx),
 [JSON Graph Format (JGF)](https://jsongraph.github.io),
 [Cytoscape Exchange (CX)](<https://cytoscape.org/cx/cx2/specification/cytoscape-exchange-format-specification-(version-2)/>),
-or others?
+or others? Bruce only mentioned KGX from the Monarch / LinkML community, but I
+thought I would mention some other efforts that aspire to become _standards_
+here too.
 
 The knee-jerk reaction is course to reference
-[XKCD:927 "Standards"](https://xkcd.com/927/) and write
+[XKCD:927 "Standards"](https://xkcd.com/927/), shrug, write it off, then move
+on, but I wanted to share a much more nuanced take from Nico Matentzoglu in the
+follow-up discussion on the OBO Community Slack:
 
-This post is about a quote from Nico Matentzoglu.
-
-> JKG seems to be rooted in the UMLS culture (at least the way the node
-> attributes are named). But it is a little weird that JKG is promoted by HubMap
-> and KidsFirst - both of which are relatively close to the Monarch / LinkML
-> ecosystem (not quite touch it, but close). Whether it is better or worse I
-> don't know; it seems to have a lot of structure around probabilistic,
-> quantitative assertions. Let me say it like this:
+> [...] But it is a little weird that JKG is promoted by HubMap and KidsFirst -
+> both of which are relatively close to the Monarch / LinkML ecosystem (not
+> quite touch it, but close). Whether it is better or worse I don't know; it
+> seems to have a lot of structure around probabilistic, quantitative
+> assertions. Let me say it like this:
 >
 > 1. Creating a standard nowadays takes 4 hours for an experienced developer
 > 2. Coordinating a bit of consortium-wide uptake (for a medium-sized consortium
