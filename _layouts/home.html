@@ -25,5 +25,6 @@ layout: default
         {%- endfor -%}
     </ul>
 
-    <a href="/archive">See {{ site.posts | size - 10 }} other previous posts in the archive.</a>
+    See {{ site.posts | size | minus: 10 }} previous posts in the <a href="/archive">archive</a>
+    or browse by <a href="/tags">tag</a>.
 </div>
