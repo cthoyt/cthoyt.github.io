@@ -274,8 +274,8 @@ information.
 ---
 
 I'm a big fan of these meetings, especially because they are typically short and
-well-attended. While I focused on bigger picture discussions, I also had lots of
-small talks with friends and collaborators like
+well-attended. While this post focused on bigger picture discussions, I also had
+lots of small talks with friends and collaborators like
 [Kohulan](https://orcid.org/0000-0003-1066-7792) and
 [Chandu](https://orcid.org/0000-0002-2564-3243) that were completely invaluable
 to making NFDI4Chem a great experience. I'm looking forward to our next big
