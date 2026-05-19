@@ -66,7 +66,7 @@ I want to comment on several of his points:
 > of which are relatively close to the Monarch / LinkML ecosystem (not quite
 > touch it, but close).
 
-This is the part that's most like XKCD:927. I'm not so virtuous either - I've
+This is the part that's most like xkcd:927. I'm not so virtuous either - I've
 been guilty of doing the same thing. From my own experience, I can say there's a
 strong allure to:
 
@@ -76,8 +76,8 @@ strong allure to:
    bullet points below)
 4. Doing It Right This Time For The Last Time™
 5. having something to point to that's your creation (instead of, _we made minor
-   improvements to an existing resource_) which might come from pressure to
-   publish or from pressure from your institution
+   improvements to an existing resource_) which might come from e.g. pressure to
+   publish or pressure from your institution
 
 I can't speak towards why NIH didn't reuse, for example, KGX, but based on their
 general hesitance to engage with the community in other things, their tendency
@@ -121,7 +121,7 @@ limited to):
    (another reason this requires emotional resilience)
 9. and so it goes 🐦
 
-This is also tough considering that funding oftend doesn't take any of this into
+This is also tough considering that funding often doesn't take any of this into
 account. It's usually "make and deliver the thing" or "do the science" and you
 sneak "making the thing" in later, because you knew that "make the thing"
 wouldn't be a very good selling point when applying for funding.
@@ -163,3 +163,10 @@ Hard disagree.
 
 I assume that at some point, the RFC will get taken down. I archived it as PDF
 [here](/assets/cfde-jkg-rfc.pdf).
+
+Personally, I don't think JKG was created with best practices in linked (open)
+data in mind - it has some amateur mistakes like
+["id":"UBERON:0011153 CUI"](https://github.com/x-atlas-consortia/json-knowledge-graph/blob/f92fb24a54d899b4716be45f29deea0e2b677a1f/README.md?plain=1#L458),
+that's almost a CURIE but looses focus right at the end with `_CUI`. I'll be sad
+on the day if/when I need to write my own code to consume content in this
+format.
