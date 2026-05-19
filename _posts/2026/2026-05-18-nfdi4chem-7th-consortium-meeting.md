@@ -235,7 +235,7 @@ this with [Martin Reinhardt](https://orcid.org/0000-0002-1213-5135) and
 poster (photo below borrowed from Martin's
 [post on LinkedIn](https://www.linkedin.com/posts/martin-reinhardt_zaf-base4nfdi-nfdi-activity-7460274633150218241-OsNv)).
 
-![](/img/nfdi4chem-7th-consortium-meeting/base4nfdi-poster.jpg)
+![](/img/nfdi4chem-7-base4nfdi-poster.jpg)
 
 They had the exciting idea to encourage people to draw on their poster, so I
 added the relationships between TS4NFDI, KG4NFDI, and PID4NFDI and the Semantic
