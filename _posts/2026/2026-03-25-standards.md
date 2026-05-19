@@ -14,21 +14,22 @@ on the OBO Community Slack that the USA National Institute of Health (NIH)
 Common Fund Data Ecosystem (CFDE) issued a
 [request for comments](https://docs.google.com/document/d/1lQF0e8C134gmLB5aHsqYqPYWpC7n__PYMTiRayZ4Bbw/edit?pli=1&tab=t.0)
 for a proposed knowledge graph exchange format entitled _JSON Knowledge Graph
-Exchange Format (JKG)_.
+Exchange Format (JKG)_. This post is about the invisible effort behind making
+standards, and some sage wisdom from Nico Matentzoglu.
 
-Bruce also posed the obvious question: why develop a new standard instead of
-reusing an existing one or collaborating to extend or improve an existing one to
-a new use case? While Bruce's message specifically mentioned
-[Knowledge Graph Exchange (KGX)](https://github.com/biolink/kgx) as an existing
-standard from the Monarch / LinkML community, there also exist a myriad of
-others including [JSON Graph Format (JGF)](https://jsongraph.github.io),
+Along with sharing the RFC, Bruce also posed the obvious question: why develop a
+new standard instead of reusing an existing one or collaborating to extend or
+improve an existing one to a new use case? While Bruce's message specifically
+mentioned [Knowledge Graph Exchange (KGX)](https://github.com/biolink/kgx) as an
+existing standard from the Monarch / LinkML community, there also exist a myriad
+of others including [JSON Graph Format (JGF)](https://jsongraph.github.io),
 [Cytoscape Exchange (CX)](<https://cytoscape.org/cx/cx2/specification/cytoscape-exchange-format-specification-(version-2)/>),
 others implemented in
 [NetworkX](https://networkx.org/documentation/stable/reference/readwrite/index.html),
 and more.
 
 The knee-jerk reaction could easily be to reference
-[XKCD:927 "Standards"](https://xkcd.com/927/), shrug, write off the effort as
+[xkcd:927 "Standards"](https://xkcd.com/927/), shrug, write off the effort as
 needlessly redundant, then move on. However, I want to share a much more nuanced
 take from [Nico Matentzoglu](https://semanticly.ai/about/) in the follow-up
 discussion on the OBO Community Slack:
@@ -49,13 +50,15 @@ discussion on the OBO Community Slack:
 > powerful and mature tool ecosystem that it is worth standardizing against.
 
 I totally agree with everything Nico said here, and I consider him a total
-authority on the matter given his community-facing work in developing and
-evangelizing the OBO Foundry
+authority on the matter given his experience in community-facing work in
+developing and evangelizing the OBO Foundry
 [Principles](https://obofoundry.org/principles/fp-000-summary.html) and
 [Dashboard](https://dashboard.obofoundry.org/dashboard/index.html),
 [Ontology Development Kit (ODK)](https://incatools.github.io/ontology-development-kit/),
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom),
-and other standards.
+and other standards. Further, the International Society of Biocuration (ISB)
+recognized this in 2023 by conferring on him its
+[Advanced Career Award](https://www.biocuration.org/community/biocuration-career-awards/career-award-winners/).
 
 I want to comment on several of his points:
 
@@ -78,10 +81,14 @@ strong allure to:
 
 I can't speak towards why NIH didn't reuse, for example, KGX, but based on their
 general hesitance to engage with the community in other things, their tendency
-towards reinvention doesn't surprise me. That all being said, I've been on the
-receiving end of such a snub from groups that I collaborate with and from groups
-that, at minimum, should be aware of what I'm working on. It can hurt, and be
-demotivating.
+towards reinvention doesn't surprise me. All that being said, I've also been on
+the receiving end of such a snub from groups that I collaborate with and from
+groups that, at minimum, should be aware of what I'm working on.
+
+Many of us who are academic scientific software developers are doing it because
+of idealism, when there are often much better job prospects elsewhere. Many of
+us are proud of what we do, so it can hurt and be demotivating when this
+happens. This is why a snub can hurt and be demotivating, but
 
 > 1. Creating a standard nowadays takes 4 hours for an experienced developer
 
