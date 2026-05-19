@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NFDI4Chem 7th Consortium Meeting
+title: Discussions at the 7th NFDI4Chem Consortium Meeting
 date: 2026-05-18 15:51:00 +0100
 author: Charles Tapley Hoyt
 tags:
@@ -20,8 +20,8 @@ The [Semantic Farm](https://semantic.farm) (previously called the Bioregistry,
 now adapted to be domain-agnostic) is a registry of ontologies, controlled
 vocabularies, terminologies, and other resources that mint (persistent)
 identifiers. While it's already been widely adopted in the biomedical domain
-(e.g., in the OBO Foundry, Monarch Initiative) since its creation in 2019, I've
-been working to integrate it within NFDI4Chem and other consortia via the
+since its creation in 2019 (e.g., by the OBO Foundry, Monarch Initiative), I've
+been working to integrate it within NFDI4Chem and other NFDI consortia via the
 [NFDI Section Metadata Working Group for Ontology Harmonization and Mapping](https://github.com/nfdi-de/section-metadata-wg-onto/).
 I want to highlight a few discussions I had about the Semantic Farm at the
 7<sup>th</sup> NFDI4Chem consortium meeting:
@@ -44,7 +44,7 @@ information about:
 2. whether content negotiation is possible by sending an `Accept` header to tell
    the server which media type to return
 
-Steffen's use case in NFDI4Chem is the Semantic Farm entry for MassBank
+Steffen's use case in NFDI4Chem TA4 is the Semantic Farm entry for MassBank
 ([https://semantic.farm/massbank](https://semantic.farm/massbank)). Enabling
 Semantic Farm to resolve in different ways will support the development of
 computational workflows as well as make it more useful when implementing the
@@ -54,16 +54,20 @@ MassBank front-end.
 
 I talked with [Egon Willighagen](https://egonw.github.io) (a longtime
 collaborator of mine and a member of one of the
-[NFDI4Chem advisory boards](https://nfdi4chem.de/the-advisory-boards/) about how
-to extend the "resolver" functionality of Semantic Farm to support content
-negotiation. Normally, this redirects addresses constructed with a CURIE like
+[NFDI4Chem advisory boards](https://nfdi4chem.de/the-advisory-boards/)) about
+how to extend the "resolver" functionality of Semantic Farm to support content
+negotiation. The resolver redirects URLs constructed with a CURIE like
 https://semantic.farm/GO:0032571 to the first-party (or best) web page for human
-reading. Egon suggested that if a request to this endpoint contains an `Accept`
-header asking for `text/turtle` (or any other RDF-adjacent mimetype) that it
-could return the list of related URIs. Importantly, this functionality is
-already available to some extent on the front-end when viewing
-[https://semantic.farm/reference/GO:0032571] and via the API through
-[https://semantic.farm/api/reference/go:0032571].
+reading.
+
+Egon suggested that if a request contains an `Accept` header asking for
+`text/turtle` (or any other RDF-adjacent mimetype) that it could return the list
+of related URIs. Importantly, this functionality is already available via the
+API
+([https://semantic.farm/api/reference/GO:0032571](https://semantic.farm/api/reference/GO:0032571))
+and on the front-end
+([https://semantic.farm/reference/GO:0032571](https://semantic.farm/reference/GO:0032571)),
+but not possible through the resolver endpoint.
 
 In
 [biopragmatics/bioregistry#1954](https://github.com/biopragmatics/bioregistry/pull/1954),
@@ -73,12 +77,16 @@ following:
 ```python
 import requests
 
-res = requests.get("https://semantic.farm/GO:0032571", headers={"Accept": "text/turtle"})
+res = requests.get(
+   "https://semantic.farm/GO:0032571",
+   headers={"Accept": "text/turtle"},
+)
 ```
 
 I also added a way of adding query parameters to get the same results when
-navigating to [https://semantic.farm/GO:0032571?format=turtle]. For both, the
-following is returned:
+navigating to
+[https://semantic.farm/GO:0032571?format=turtle](https://semantic.farm/GO:0032571?format=turtle)
+(note the addition of `?format=turtle`). For both, the following is returned:
 
 ```turtle
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -98,27 +106,137 @@ following is returned:
         <https://www.ebi.ac.uk/QuickGO/term/GO:0032571>,
         <https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0032571>,
         <https://www.nextprot.org/term/GO:0032571> .
-
 ```
+
+### Semantic Farm and Base4NFDI
+
+I've been working towards proposing the Semantic Farm as a Base4NFDI service
+(despite the recent
+[announcement](https://all-chat.nfdi.de/channel/base4nfdi-general?msg=EMuGhpddQqfL748oM)
+that Base4NFDI won't be accepting any new proposals for funding). I discussed
+this with Martin Reinhardt and Hannah Butz from Base4NFDI at their poster (photo
+below borrowed from Martin's
+[post on LinkedIn](https://www.linkedin.com/posts/martin-reinhardt_zaf-base4nfdi-nfdi-activity-7460274633150218241-OsNv)).
 
 ![](/img/nfdi4chem-7th-consortium-meeting/base4nfdi-poster.jpg)
 
-https://www.linkedin.com/posts/martin-reinhardt_zaf-base4nfdi-nfdi-activity-7460274633150218241-OsNv
+They had the exciting idea to encourage people to draw on their poster, so I
+added the relationships between TS4NFDI, KG4NFDI, and PID4NFDI and the Semantic
+Farm. It's possible to see in the photo if you squint, but here's the same
+arrows drawn again:
 
-1. Discussion with Egon to improve Bioregistry / Semantic Farm lead to
-   https://github.com/biopragmatics/bioregistry/pull/1954
-2. Discussion with Mario WOlter in how to make a theoretical chemistry intiigy
-3. Preparation of CHMO-REX-FIX-GoldBook mappings
-4. discussion with Albert Engstfeld on how to incorporate ontology annotations
-   (e.g., from CHMO) into echemdb (electro chemistry) LinkML to use CHMO. high
-   relevance to pre-wor
-5. Discussion of using graph machine learning with Kenichi Endo (junior prof in
-   Stuttgart) and Felix
-6. Discussion with Shashank Harivyasi (KIT) about plans to start sucking content
-   out of Chemotion
-7. Discussion with Nicole Jung (KIT) about converging in a data model for
-   representing reactions in chemotion/outside
-8. Discussion with Hans-Georg Weinig (h.weinig@gdch.de) on the trian home about
-   getting some training materials from the German Chemical Society into DALIA.
-9. Talked with Base4NFDI folks on how Semantic Farm could support existing Base
-   services
+```mermaid
+flowchart LR
+    ts4nfdi[TS4NFDI] -->|already uses|sf[Semantic Farm]
+    kgi4nfdi[KGI4NFDI] -->|should use|sf
+    pid4nfdi[PID4NFDI] -->|could use|sf
+```
+
+We discussed how the Semantic Farm is already a key service as part of the
+TS4NFDI, how it should be adopted by KGI4NFDI (e.g., to make sure that all NFDI
+knowledge graphs use the same prefixes, CURIEs, and URIs for the same things),
+and how could fit in with PID4NFDI to support them in better communicating what
+identifiers do, where they come from, and how they make data FAIR beyond the
+limited number of identifier spaces (e.g., DOI, ORCiD, ROR, Handles) on which
+they currently focus. They also suggested I attend the
+[Base4NFDI User Conference 2026](https://base4nfdi.de/?view=article&id=152:save-the-date-uc4b-2026-in-berlin&catid=8)
+in Berlin to communicate these things further.
+
+## Ontologies and Mappings
+
+My work in ontologies fits in to NFDI4Chem TA6 and Section Metadata WG Onto.
+
+### Ontology for Theoretical Chemistry
+
+I discussed with Mario Wolter and Philip Strömert on how we could support
+Mario's use case of making molecular dynamics and simulation experimental
+metadata more fair by constructing an ontology for theoretical chemistry.
+
+The [NFDI4Chem Ontologies Collection](https://semantic.farm/collection/0000014)
+on the Semantic Farm (adapted from
+[Ontologies4Chem: the landscape of ontologies in chemistry](https://doi.org/10.1515/pac-2021-2007))
+lists the Computational Chemistry Ontology from the World Avatar project, but
+that resource is effectively unusable, motivating the curation of a new ontology
+(which when applicable can map back to the World Avatar ontology).
+
+We plan to use the
+[Ontology Development Kit (ODK)](https://incatools.github.io/ontology-development-kit/)
+to begin work and will first focus on capturing basis sets used in computation.
+The ODK supports us in curating mappings to the World Avatar project's ontology
+(when applicable) in [SSSOM](https://mapping-commons.github.io/sssom/).
+Interestingly, in the week since the conference, we identified parallel work in
+the NFDI on the
+[Molecular Simulation Ontology (MOLSIM)](https://github.com/CPCLab/molsim-ontology)
+which will need to be considered further.
+
+### Semantic Mappings for CHMO
+
+In the weeks leading up to the consortium meeting, I have been discussing with
+Philip Strömert how to leverage
+[SSSOM Curator](https://github.com/cthoyt/sssom-curator/) to predict and curate
+semantic mappings between CHMO, FIX, REX, IUPAC OrangeBook, IUPAC GoldBook, and
+DAPHNE4NFDI's PaNET ontology. While his HiWi made initial mappings between CHMO
+and GoldBook (among other changes) in
+[NFDI4Chem/rsc-cmo#17](https://github.com/NFDI4Chem/rsc-cmo/pull/17), I was able
+to prepare mappings at scale between all resources using SSSOM Curator, then
+curate them relatively quickly (within a few hours) in
+[nfdi-de/section-metadata-wg-onto#88](https://github.com/nfdi-de/section-metadata-wg-onto/pull/88)
+and
+[nfdi-de/section-metadata-wg-onto#89](https://github.com/nfdi-de/section-metadata-wg-onto/pull/89).
+Philip and I were able to coordinate in person next steps for the ontology
+agenda for NFDI4Chem, which will include porting several other chemistry
+ontologies to using the ODK (RXNO, CHEMINF) and to write manuscript describing
+how we can produce ontology bridge files from the SSSOM semantic mappings
+curations.
+
+### Annotating Interfacial Electrochemistry Data
+
+Albert Engstfeld presented [echemdb](https://www.echemdb.org/), a community
+project for interfacial electrochemistry and local research data management.
+They recently ported their data model to [LinkML](https://linkml.io/), but
+weren't aware of how ontologies could be used to annotate data. We discussed how
+their free-text descriptions of electrode types could be replaced with
+references to terms in the
+[Chemical Methods Ontology (CHMO)](https://semantic.farm/chmo) under the
+[`CHMO:0002344` (electrode)](http://purl.obolibrary.org/obo/CHMO_0002344)
+hierarchy.
+
+Immediately, Albert identified missing electrode terms from CHMO and places
+where the terms could be better organized. Luckily, NFDI4Chem is currently under
+the process of taking stewardship over CHMO and making a major update, so we
+will be able to support and enable Albert to improve the ontology to better suit
+his data resource. In general, this shows the power of the
+[open data, open code, open infrastructure (O3)](https://www.nature.com/articles/s41597-024-03406-w)
+mindset codified by the
+[OBO Foundry Principles](https://academic.oup.com/database/article/doi/10.1093/database/baab069/6410158)
+that influenced the original development of CHMO.
+
+### Knowledge Graphs and Graph Machine Learning
+
+I discussed with
+[Kenichi Endo](https://www.ipoc.uni-stuttgart.de/pcmc/team/Endo/) and Felix
+Neubauer (U. Stuttgart) how to find ontologies to annotate their data describing
+reaction and process steps, and ultimately how these could be converted into
+knowledge graphs. We also discussed graph machine learning methods, particularly
+knowledge graph embedding models (KGEMs) and the
+[PyKEEN](https://github.com/pykeen/pykeen/) graph machine learning library that
+I co-developed.
+
+## Chemotion
+
+I'm currently leading the effort to develop a data infrastructure for the
+[Catalaix](https://catalaix.com/en) project which will capture experimental
+information about polymerization and depolymerization reactions from both the
+literature and experiments in our laboratory. Our researchers are using
+Chemotion, so we discussed requirements for programmatically extracting data from
+Chemotion with Shashank Harivyasi (KIT), the Chemotion developer responsible for
+Chemotion's API. I also discussed with Nicole Jung (KIT) our more general need
+to identify and reuse, or develop, an external standard for reaction
+information.
+
+## Training Materials and DALIA
+
+On the train ride home, I discussed with Hans-Georg Weinig (GDCh, German
+Chemical Society) how we could incorporate training materials from the German
+Chemical Society into [DALIA](https://search.dalia.education/basic/), the NFDI's
+search portal for training materials.
