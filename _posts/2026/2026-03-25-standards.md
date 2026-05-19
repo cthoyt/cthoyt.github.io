@@ -10,8 +10,8 @@ tags:
 
 In late March 2026, Bruce Herr
 [shared](https://obo-communitygroup.slack.com/archives/C01DP18L5GW/p1774444307246689)
-on the OBO Community Slack that the USA National Institute of Health (NIH)
-Common Fund Data Ecosystem (CFDE) issued a
+on the OBO Community Slack that the United States National Institutes of Health
+(NIH) Common Fund Data Ecosystem issued a
 [request for comments](https://docs.google.com/document/d/1lQF0e8C134gmLB5aHsqYqPYWpC7n__PYMTiRayZ4Bbw/edit?pli=1&tab=t.0)
 for a proposed knowledge graph exchange format entitled _JSON Knowledge Graph
 Exchange Format (JKG)_. This post is about the invisible effort behind making
@@ -86,9 +86,8 @@ the receiving end of such a snub from groups that I collaborate with and from
 groups that, at minimum, should be aware of what I'm working on.
 
 Many of us who are academic scientific software developers are doing it because
-of idealism, when there are often much better job prospects elsewhere. Many of
-us are proud of what we do, so it can hurt and be demotivating when this
-happens. This is why a snub can hurt and be demotivating, but
+of idealism, when there are often much better job prospects elsewhere. We are
+proud of what we do, so it can hurt and be demotivating when this happens.
 
 > 1. Creating a standard nowadays takes 4 hours for an experienced developer
 
@@ -103,7 +102,55 @@ of his next points set in.
 >    like theirs) takes maybe 3 months of work (meetings, etc.)
 
 This part consumes huge amounts of time, energy, and emotional resilience. Even
-if something you make is great
+if something you make is good, it's almost never the case that the target users
+are proactive looking for new tools. Evangelizing new tools requires (but is not
+limited to):
+
+1. contacting people, often
+2. fighting for their precious attention
+3. coordinating setting up meetings
+4. preparing presentations and documentation
+5. giving the same pitch over and over
+6. rewriting presentations and documentation to cover things you missed
+7. responding to questions from an audience with a variety of backgrounds and
+   can often be frustrating due to mismatch in your expectations of what the
+   audience should know and care about, and what they actually know and care
+   about. You still have to be nice, even when frustrated (one reason this
+   requires emotional resilience)
+8. struggling with when people would rather use someone else's tool than yours
+   (another reason this requires emotional resilience)
+9. and so it goes 🐦
+
+This is also tough considering that funding oftend doesn't take any of this into
+account. It's usually "make and deliver the thing" or "do the science" and you
+sneak "making the thing" in later, because you knew that "make the thing"
+wouldn't be a very good selling point when applying for funding.
+
+> 3. Get the world to pick up a specific standard takes years.
+
+Eventually, you might have some demonstrations of your thing working, some
+publications to share, and even some grants that (after waving your hands) can
+be claimed to have supported the development of your thing. If you're lucky (or
+cursed), then people might actually start using your thing (assuming you keep
+doing the Point 2. things).
+
+> The hard work is not to make some proposal and get 4 big fish to approve it.
+> The hard part is to come out of that box and convince the world with a
+> powerful and mature tool ecosystem that it is worth standardizing against.
+
+Your mileage may vary here. I agree with Nico that talk is cheap. The best way
+is to start collecting requirements, forming consensus, and building against
+those expectations. But, this requires a lot of flexibility in terms of time. It
+might be the case that you need the right people to support something before
+even getting started.
+
+Now that I made it here, I'm not so happy with that being a trailing sentiment.
+I've been lucky to have been in a position in the last 10 years of my career to
+be flexible in the way I allocate my time, to have good mentorship (s/o again to
+Nico and Melissa Haendel, who helped me get the Bioregistry / Semantic Farm off
+the ground), and to have a very particular set of skills, skills I have acquired
+over a (very) long career, skills that make me a ~nightmare for people like you~
+minimally okay fit for this kind of work.
 
 ---
 
@@ -113,3 +160,6 @@ When I asked Nico if I could quote him in a blog post, he said this:
 > an authority on the subject
 
 Hard disagree.
+
+I assume that at some point, the RFC will get taken down. I archived it as PDF
+[here](/assets/cfde-jkg-rfc.pdf).
