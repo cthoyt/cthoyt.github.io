@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Standards
+title: Standards are about Community Work
 date: 2026-05-19 13:08:00 +0200
 author: Charles Tapley Hoyt
 tags:
@@ -14,7 +14,9 @@ on the OBO Community Slack that the USA National Institute of Health (NIH)
 Common Fund Data Ecosystem (CFDE) issued a
 [request for comments](https://docs.google.com/document/d/1lQF0e8C134gmLB5aHsqYqPYWpC7n__PYMTiRayZ4Bbw/edit?pli=1&tab=t.0)
 for a proposed knowledge graph exchange format entitled _JSON Knowledge Graph
-Exchange Format (JKG)_. Bruce also posed the obvious question: why develop a new
+Exchange Format (JKG)_.
+
+Bruce also posed the obvious question: why develop a new
 standard instead of reusing or collaborating on something like
 [Knowledge Graph Exchange (KGX)](https://github.com/biolink/kgx),
 [JSON Graph Format (JGF)](https://jsongraph.github.io),
@@ -42,3 +44,7 @@ follow-up discussion on the OBO Community Slack:
 > The hard work is not to make some proposal and get 4 big fish to approve it.
 > The hard part is to come out of that box and convince the world with a
 > powerful and mature tool ecosystem that it is worth standardizing against.
+
+Nico also said
+
+> I am happy for you to use this quote :stuck_out_tongue: Not that I am really an authority on the subject
