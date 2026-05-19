@@ -28,11 +28,21 @@ I want to highlight a few discussions I had about the Semantic Farm at the
 
 ### Extending Semantic Farm's Provider Data Model
 
-I talked with Steffen Neumann () about extending the data model for providers in
-Semantic Farm to include information about what media types (e.g., HTML, JSON,
-RDF) each provider returns and whether content negotiation is possible (i.e.,
-when sending an `Accept` header to tell the server what kind of media type to
-return).
+For each ontology, controlled vocabulary, terminology, and other resources that
+mint (persistent) identifiers, the Semantic Farm keeps track of one or more
+websites that can provide information about entities from that resource. For
+example, there is a first-party provider for the Gene Ontology that shows
+information terms like `GO:0032571` (response to vitamin K). There are also many
+third party providers such as through the EBI Ontology Lookup Service (OLS) and
+Jackson Laboratories' browser.
+
+I talked with [Steffen Neumann](https://orcid.org/0000-0002-7899-7192) (TA4)
+about extending the Semantic Farm's data model for providers to include more
+information about:
+
+1. what media types (e.g., HTML, JSON, RDF) the provider returns by default
+2. whether content negotiation is possible by sending an `Accept` header to tell
+   the server which media type to return
 
 Steffen's use case in NFDI4Chem is the Semantic Farm entry for MassBank
 ([https://semantic.farm/massbank](https://semantic.farm/massbank)). Enabling
@@ -91,7 +101,9 @@ following is returned:
 
 ```
 
-![](https://media.licdn.com/dms/image/v2/D4D22AQHqfgc54wvFUw/feedshare-shrink_1280/B4DZ4g4PxrJcAM-/0/1778668076762?e=1780531200&v=beta&t=_dakjbl7LvozLAYKTGkzGFsSQ6Wtg4wV89HLaahyUYg)
+![](/img/nfdi4chem-7th-consortium-meeting/base4nfdi-poster.jpg)
+
+https://www.linkedin.com/posts/martin-reinhardt_zaf-base4nfdi-nfdi-activity-7460274633150218241-OsNv
 
 1. Discussion with Egon to improve Bioregistry / Semantic Farm lead to
    https://github.com/biopragmatics/bioregistry/pull/1954
