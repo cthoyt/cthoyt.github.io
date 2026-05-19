@@ -55,25 +55,42 @@ evangelizing the OBO Foundry
 [Dashboard](https://dashboard.obofoundry.org/dashboard/index.html),
 [Ontology Development Kit (ODK)](https://incatools.github.io/ontology-development-kit/),
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom),
-and other standards. I want to comment on each of his points:
+and other standards.
+
+I want to comment on several of his points:
 
 > But it is a little weird that JKG is promoted by HubMap and KidsFirst - both
 > of which are relatively close to the Monarch / LinkML ecosystem (not quite
 > touch it, but close).
 
-This is definitely the part that's most like XKCD:927, and I've done this myself
-too. The allure of starting fresh, having full control, not needing to
-collaborate, and having something to point to that's your creation (instead of,
-_we made minor improvements to an existing resource_) is strong. Nico and I have
-had philosophical debates about this kind of thing, and his position is that
-it's better to have something that works 80% percent for many use cases, but at
-least everyone aligns on the standard.
+This is the part that's most like XKCD:927. I'm not so virtuous either - I've
+been guilty of doing the same thing. From my own experience, I can say there's a
+strong allure to:
+
+1. starting fresh
+2. having full control
+3. not needing to collaborate or find consensus (see discussion of Nico's 3
+   bullet points below)
+4. Doing It Right This Time For The Last Time™
+5. having something to point to that's your creation (instead of, _we made minor
+   improvements to an existing resource_) which might come from pressure to
+   publish or from pressure from your institution
+
+I can't speak towards why NIH didn't reuse, for example, KGX, but based on their
+general hesitance to engage with the community in other things, their tendency
+towards reinvention doesn't surprise me. That all being said, I've been on the
+receiving end of such a snub from groups that I collaborate with and from groups
+that, at minimum, should be aware of what I'm working on. It can hurt, and be
+demotivating.
 
 > 1. Creating a standard nowadays takes 4 hours for an experienced developer
 
-When I've taken the idealistic approach and gone the route of doing it myself,
-it's usually the case that I can make something better, but then the more
-important reality of his next points set in.
+Nico and I have had philosophical debates about this kind of thing, and his
+position is that it's better to have something that works 80% percent for many
+use cases, but at least everyone aligns on the standard. When I've taken the
+"idealistic" approach described above and built something myself, it's usually
+the case that I can make something better, but then the more important reality
+of his next points set in.
 
 > 2. Coordinating a bit of consortium-wide uptake (for a medium-sized consortium
 >    like theirs) takes maybe 3 months of work (meetings, etc.)
