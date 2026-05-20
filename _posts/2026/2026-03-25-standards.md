@@ -154,15 +154,9 @@ minimally okay fit for this kind of work.
 
 ---
 
-When I asked Nico if I could quote him in a blog post, he said this:
-
-> I am happy for you to use this quote :stuck_out_tongue: Not that I am really
-> an authority on the subject
-
-Hard disagree.
-
-I assume that at some point, the RFC will get taken down. I archived it as PDF
-[here](/assets/cfde-jkg-rfc.pdf).
+There's also a dark side to all of this. It's possible to build something that is
+not itself excellent, but be very good at the community work and push a standard
+that isn't... great. 
 
 Personally, I don't think JKG was created with best practices in linked (open)
 data in mind - it has some amateur mistakes like
@@ -170,3 +164,19 @@ data in mind - it has some amateur mistakes like
 that's almost a CURIE but looses focus right at the end with `_CUI`. I'll be sad
 on the day if/when I need to write my own code to consume content in this
 format.
+
+NIH isn't so good at community work, so I don't think that this will be a big deal.
+In general, it's even more difficult to convince a group to give up on their own standards
+and adopt yours (trust me, I tried / trust me, people have tried on me).
+
+I assume that at some point, the RFC will get taken down. I archived it as PDF
+[here](/assets/cfde-jkg-rfc.pdf).
+
+---
+
+When I asked Nico if I could quote him in a blog post, he said this:
+
+> I am happy for you to use this quote :stuck_out_tongue: Not that I am really
+> an authority on the subject
+
+Hard disagree.
