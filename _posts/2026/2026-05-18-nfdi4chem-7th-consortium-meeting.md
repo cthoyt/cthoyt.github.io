@@ -266,8 +266,9 @@ I'm currently leading the effort to develop a data infrastructure for the
 information about polymerization and depolymerization reactions from both the
 literature and experiments in our laboratory. Our researchers are using
 Chemotion, so I discussed requirements for programmatically extracting data from
-Chemotion with Shashank Harivyasi (KIT), the Chemotion developer responsible for
-Chemotion's API. I also discussed with Nicole Jung (KIT) our more general need
+Chemotion with [Shashank Harivyasi](https://harivyasi.com) (KIT), the Chemotion
+developer responsible for Chemotion's API. I also discussed with
+[Nicole Jung](https://orcid.org/0000-0001-9513-2468) (KIT) our more general need
 to identify and reuse, or develop, an external standard for reaction
 information.
 
