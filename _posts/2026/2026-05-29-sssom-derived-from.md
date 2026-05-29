@@ -30,7 +30,7 @@ sure that we stay precise.
 
 A _mapping triple_ is a subject, predicate, and object such as `mesh:C000089`,
 `skos:exactMatch`, `CHEBI:28646`. By semantic web conventions based on the open
-world assumption ( OWA), triples are assumed to be true.
+world assumption (OWA), triples are assumed to be true unless stated otherwise.
 
 ```mermaid
 flowchart LR
@@ -49,8 +49,8 @@ boolean). SSSOM represents the truthiness using the `predicate_modifier` field,
 where an empty value means that the mapping is true, and a value of `Not` means
 that it is false.
 
-For example, (`mesh:C000089`, `skos:exactMatch`, `CHEBI:28646`, True) makes the
-example _mapping triple_ from above into a mapping quadruple that explicitly
+For example, (`mesh:C000089`, `skos:exactMatch`, `CHEBI:28646`, `True`) makes
+the example _mapping triple_ from above into a mapping quadruple that explicitly
 states its truthiness.
 
 ```mermaid
@@ -63,10 +63,9 @@ CHEBI:28646]
 mesh:C000089-->|"skos:exactMatch\n(true)"|CHEBI:28646
 ```
 
-Conversely, (`CHEBI:10057`, `skos:exactMatch`, `mesh:C002563`, False) is false
+Conversely, (`CHEBI:10057`, `skos:exactMatch`, `mesh:C002563`, `False`) is false
 because `CHEBI:10057` refers to 9H-xanthene, a small molecule, and
-`mesh:C002563` refers to xanthan gum, a polysaccharide. By convention, mapping
-triples are implicitly considered to refer to the "true" mapping quadruple.
+`mesh:C002563` refers to xanthan gum, a polysaccharide.
 
 ```mermaid
 flowchart LR
@@ -77,6 +76,9 @@ CHEBI:10057]
 
 mesh:C002563-->|"not skos:exactMatch"|CHEBI:10057
 ```
+
+By convention, mapping triples are implicitly considered to refer to the
+corresponding _true_ mapping quadruple.
 
 ### Mapping Record
 
@@ -128,23 +130,22 @@ had a more explicit provenance model for which mapping records (e.g., from
 SSSOM) were used to infer new mapping quadruples. As SeMRA and its applications
 have matured, I have been able to backport many of its good ideas to SSSOM. This
 post is specifically about how I've proposed a simple, optional, explicit
-provenance model that allows mapping records produced by inference to reference
-the set of mapping quadruples that were used in a new `derived_from` slot.
+provenance model that allows mapping records in SSSOM produced by inference to
+reference the set of mapping quadruples that were used during inference, in a
+new `derived_from` slot.
+
+### Reference the Triple, Quadruple, or Record?
 
 This slot is deliberately under-specified, but there's a key nuance that the
 values in this field should point to identifiers for mapping quadruples, not
-mapping records. This is because the inference happens on the mapping quadruple
-level, and not the mapping record level. This is a key consideration to enable
-cascading propagation of confidences from primary mapping sources through
-secondary mappings.
-
-For the purposes of inference, the mapping quadruple should be used:
+mapping triples nor mapping records for the following reasons:
 
 1. Mapping triples are insufficient: without the judgment of whether a mapping
    is true or false, then an algorithm could accidentally conclude from
    `A skos:exactMatch B` and `B (not) skos:exactMatch C` that
    `A skos:exactMatch C`. This is why mapping triples are insufficient
-2. Full mapping records are inflexible: the SSSOM data should be flexible so if
+2. Inference happens on the mapping quadruple level
+3. Full mapping records are inflexible: the SSSOM data should be flexible so if
    additional evidence (i.e., records) for a given mapping quadruple are found,
    then the confidence in the inferred/derived mapping (e.g., chained or
    inverted) can be adjusted accordingly. This is possible because most chaining
@@ -173,23 +174,79 @@ generating the pretty [Mermaid](https://mermaid.js.org/) diagrams I've used
 throughout this post in
 [cthoyt/sssom-pydantic#129](https://github.com/cthoyt/sssom-pydantic/pull/129).
 
+Here's how this looks in Python:
+
+```python
+from curies import Converter, NamableReference, NamedReference
+from curies.vocabulary import charlie, manual_mapping_curation, mapping_chaining, exact_match
+
+from sssom_pydantic import SemanticMapping, hash_triple_to_reference
+
+CONVERTER = Converter.from_prefix_map({
+    "BTO": "http://purl.obolibrary.org/obo/CHEBI_",
+    "CL": "http://purl.obolibrary.org/obo/CL_",
+    "mesh": "http://id.nlm.nih.gov/mesh/",
+    "wikidata": "http://www.wikidata.org/entity/",
+    "orcid": "https://orcid.org/",
+    "semapv": "https://w3id.org/semapv/vocab/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+
+})
+
+E1 = NamedReference.from_curie("BTO:0006078", name="pluripotent stem cell")
+E2 = NamedReference.from_curie("CL:0002248", name="pluripotent stem cell")
+E3 = NamedReference.from_curie("mesh:D039904", name="Pluripotent Stem Cells")
+SOURCE = NamableReference.from_curie("wikidata:Q111239110", name="Biomappings")
+
+m1 = SemanticMapping(
+    subject=E1,
+    predicate=exact_match,
+    object=E2,
+    justification=manual_mapping_curation,
+    authors=[charlie],
+    source=SOURCE,
+)
+m2 = SemanticMapping(
+    subject=E2,
+    predicate=exact_match,
+    object=E3,
+    justification=manual_mapping_curation,
+    authors=[charlie],
+    source=SOURCE,
+)
+m3 = SemanticMapping(
+    subject=E1,
+    predicate=exact_match,
+    object=E3,
+    justification=mapping_chaining,
+    # This is the new part!
+    derived_from=[
+        hash_triple_to_reference(m1, CONVERTER),
+        hash_triple_to_reference(m2, CONVERTER),
+    ],
+)
+```
+
 Damien Goutte-Gattat also implemented the `derived_from` in
 [SSSOM Java](https://github.com/gouttegd/sssom-java) in
 [gouttegd/sssom-java#19](https://github.com/gouttegd/sssom-java/pull/19).
 
-## Inference
+## Examples
 
-There are several mechanisms for inference:
+Below, I give five real examples below that correspond to:
 
-- Inference via chaining (see [chaining rules](chaining-rules.md)), which should
-  be tagged with `semapv:MappingChaining` as a justification
-- Inference via mapping inversion, which should be tagged with
-  `semapv:MappingInversion` as a justification
-- Inference via prior knowledge, which should be tagged with
-  `semapv:BackgroundKnowledgeBasedMatching` as a justification
-
-Below, I'm going to give some examples showing how these look in SSSOM, in
-Python (via SSSOM Pydantic), and make visualizations.
+1. Inference via mapping inversion, which should be tagged with
+   `semapv:MappingInversion` as a justification
+2. Inference via chaining (see
+   [SSSOM chaining rules](https://mapping-commons.github.io/sssom/chaining-rules/)),
+   which should be tagged with `semapv:MappingChaining` as a justification
+3. Inference via chaining, including negative mappings (which will lead to a
+   future proposal of additional chaining rules)
+4. Inference based on prior knowledge, which should be tagged with
+   `semapv:BackgroundKnowledgeBasedMatching` as a justification. SeMRA
+   contributes key philosophical discussions on how this should be done
+5. An end-to-end example that combines all three inference types together to do
+   make a relatively benign mapping, but with full transparency and provenance
 
 ### Inversion
 
@@ -258,14 +315,6 @@ faeefc6d1dd08238a9732de5a3c9dcf99388e62fa8b1caaf9ba28c7eaf6d483a -->|has evidenc
 
 ## Chaining
 
-The following
-
-| subject_id  | subject_label         | predicate_id    | object_id    | object_label           | mapping_justification        | author_id                 | mapping_source      | derived_from                                                             |
-| :---------- | :-------------------- | :-------------- | :----------- | :--------------------- | :--------------------------- | :------------------------ | :------------------ | :----------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| BTO:0006078 | pluripotent stem cell | skos:exactMatch | CL:0002248   | pluripotent stem cell  | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                          |
-| CL:0002248  | pluripotent stem cell | skos:exactMatch | mesh:D039904 | pluripotent stem cells | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                          |
-| BTO:0006078 | pluripotent stem cell | skos:exactMatch | mesh:D039904 | pluripotent stem cells | semapv:MappingChaining       |                           |                     | mapping:8a12a396b85642cccfc799fb24320c51a4aabf3294780cb31116d45f773a2572 | mapping:988ce14e26fdbf24aeb27b4d8b5ad4bcc25b5cdb46be4e674bfa88a2abe12264 |
-
 ```mermaid
 flowchart LR
     BTO:0006078[pluripotent stem cell
@@ -324,13 +373,18 @@ AC5F57BF466F5641 -->|derived from|8a12a396b85642cccfc799fb24320c51a4aabf3294780c
 AC5F57BF466F5641 -->|derived from|988ce14e26fdbf24aeb27b4d8b5ad4bcc25b5cdb46be4e674bfa88a2abe12264
 ```
 
-## Chaining with Negatives
+<details>
+<summary>Source SSSOM TSV</summary>
 
-| subject_id  | subject_label | predicate_id    | predicate_modifier | object_id    | object_label | mapping_justification        | author_id                 | mapping_source      | derived_from                                                              |
-| :---------- | :------------ | :-------------- | :----------------- | :----------- | :----------- | :--------------------------- | :------------------------ | :------------------ | :------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| CHEBI:10057 | 9H-xanthene   | skos:exactMatch | Not                | mesh:C002563 | xanthan gum  | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                           |
-| cas:92-83-1 | Xanthene      | skos:exactMatch |                    | CHEBI:10057  | 9H-xanthene  | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                           |
-| cas:92-83-1 | Xanthene      | skos:exactMatch | Not                | mesh:C002563 | xanthan gum  | semapv:MappingChaining       |                           |                     | mapping:58f24ccfaf71431276da873c9e7b77ea61a2425e4e8b283b943542290deb292b~ | mapping:bb1162fb2afb1c519c0aa8be98c352061720af220e2d052c571a1fecabff9800 |
+| subject_id  | subject_label         | predicate_id    | object_id    | object_label           | mapping_justification        | author_id                 | mapping_source      | derived_from                                                             |
+| :---------- | :-------------------- | :-------------- | :----------- | :--------------------- | :--------------------------- | :------------------------ | :------------------ | :----------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| BTO:0006078 | pluripotent stem cell | skos:exactMatch | CL:0002248   | pluripotent stem cell  | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                          |
+| CL:0002248  | pluripotent stem cell | skos:exactMatch | mesh:D039904 | pluripotent stem cells | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                          |
+| BTO:0006078 | pluripotent stem cell | skos:exactMatch | mesh:D039904 | pluripotent stem cells | semapv:MappingChaining       |                           |                     | mapping:8a12a396b85642cccfc799fb24320c51a4aabf3294780cb31116d45f773a2572 | mapping:988ce14e26fdbf24aeb27b4d8b5ad4bcc25b5cdb46be4e674bfa88a2abe12264 |
+
+</details>
+
+## Chaining with Negatives
 
 ```mermaid
 flowchart LR
@@ -390,12 +444,18 @@ mesh:C002563 -->|object of|25AC613A93F7EF14
 25AC613A93F7EF14 -->|derived from|bb1162fb2afb1c519c0aa8be98c352061720af220e2d052c571a1fecabff9800
 ```
 
-## Background Knowledge
+<details>
+<summary>Source SSSOM TSV</summary>
 
-| subject_id  | subject_label | predicate_id       | predicate_label              | object_id   | object_label | mapping_justification                   | mapping_source | derived_from                                                             |
-| :---------- | :------------ | :----------------- | :--------------------------- | :---------- | :----------- | :-------------------------------------- | :------------- | :----------------------------------------------------------------------- |
-| CHEBI:10057 | 9H-xanthene   | oboInOwl:hasDbXref | has database cross-reference | cas:92-83-1 | Xanthene     | semapv:UnspecifiedMatching              | obo:chebi      |                                                                          |
-| CHEBI:10057 | 9H-xanthene   | skos:exactMatch    |                              | cas:92-83-1 | Xanthene     | semapv:BackgroundKnowledgeBasedMatching |                | mapping:887c2cc0c006b49df5fa0bc281e23bd3722880d5096e27218082bd6edf96f59e |
+| subject_id  | subject_label | predicate_id    | predicate_modifier | object_id    | object_label | mapping_justification        | author_id                 | mapping_source      | derived_from                                                              |
+| :---------- | :------------ | :-------------- | :----------------- | :----------- | :----------- | :--------------------------- | :------------------------ | :------------------ | :------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| CHEBI:10057 | 9H-xanthene   | skos:exactMatch | Not                | mesh:C002563 | xanthan gum  | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                           |
+| cas:92-83-1 | Xanthene      | skos:exactMatch |                    | CHEBI:10057  | 9H-xanthene  | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                           |
+| cas:92-83-1 | Xanthene      | skos:exactMatch | Not                | mesh:C002563 | xanthan gum  | semapv:MappingChaining       |                           |                     | mapping:58f24ccfaf71431276da873c9e7b77ea61a2425e4e8b283b943542290deb292b~ | mapping:bb1162fb2afb1c519c0aa8be98c352061720af220e2d052c571a1fecabff9800 |
+
+</details>
+
+## Background Knowledge
 
 ```mermaid
 flowchart LR
@@ -434,15 +494,17 @@ e61f33dbb925f2282823afdad56c24feee9875953ea2de9124a50e47bd63418a -->|has evidenc
 B5CF0F3AB755AC6D -->|derived from|887c2cc0c006b49df5fa0bc281e23bd3722880d5096e27218082bd6edf96f59e
 ```
 
-## End-to-End Inference
+<details>
+<summary>Source SSSOM TSV</summary>
 
-| subject_id   | subject_label      | predicate_id       | predicate_label              | object_id      | object_label       | mapping_justification                   | mapping_source      | derived_from                                                             | author_id                                                                |
-| :----------- | :----------------- | :----------------- | :--------------------------- | :------------- | :----------------- | :-------------------------------------- | :------------------ | :----------------------------------------------------------------------- | :----------------------------------------------------------------------- | --- |
-| CHEBI:133530 | tyramine sulfate   | oboInOwl:hasDbXref | has database cross-reference | cas:30223-92-8 | Tyramine sulfate   | semapv:UnspecifiedMatching              | obo:chebi           |                                                                          |                                                                          |
-| CHEBI:133530 | tyramine sulfate   | skos:exactMatch    |                              | cas:30223-92-8 | Tyramine sulfate   | semapv:BackgroundKnowledgeBasedMatching |                     | mapping:0b8eb968c306d65e1715a7b0961f6a4d99b5b19081edb67cee701fd887af1290 |                                                                          |
-| CHEBI:133530 | tyramine sulfate   | skos:exactMatch    |                              | mesh:C027957   | tyramine O-sulfate | semapv:ManualMappingCuration            | wikidata:Q111239110 |                                                                          | orcid:0000-0003-4423-4370                                                |
-| mesh:C027957 | tyramine O-sulfate | skos:exactMatch    |                              | CHEBI:133530   | tyramine sulfate   | semapv:MappingInversion                 |                     | mapping:b8d737b89a421bd6ca058314564c9ed507cbfe3ec4a2e82979fefdfe708019ea |                                                                          |
-| mesh:C027957 | tyramine O-sulfate | skos:exactMatch    |                              | cas:30223-92-8 | Tyramine sulfate   | semapv:MappingChaining                  |                     | mapping:a0022401f47964288ecc1ab706d79b4d4abc10edf33d0a71953834a0b0b3c24c | mapping:1036c55358639c5db78ada181ac38d8eda337e83efe1db901716d101777f8474 |     |
+| subject_id  | subject_label | predicate_id       | predicate_label              | object_id   | object_label | mapping_justification                   | mapping_source | derived_from                                                             |
+| :---------- | :------------ | :----------------- | :--------------------------- | :---------- | :----------- | :-------------------------------------- | :------------- | :----------------------------------------------------------------------- |
+| CHEBI:10057 | 9H-xanthene   | oboInOwl:hasDbXref | has database cross-reference | cas:92-83-1 | Xanthene     | semapv:UnspecifiedMatching              | obo:chebi      |                                                                          |
+| CHEBI:10057 | 9H-xanthene   | skos:exactMatch    |                              | cas:92-83-1 | Xanthene     | semapv:BackgroundKnowledgeBasedMatching |                | mapping:887c2cc0c006b49df5fa0bc281e23bd3722880d5096e27218082bd6edf96f59e |
+
+</details>
+
+## End-to-End Inference
 
 ```mermaid
 flowchart LR
@@ -529,3 +591,16 @@ b5cd9f2dfa98540a3485a473bed0870720d7de23b87847ba508b8c85961e3b7d -->|has evidenc
 AED810A43159DA66 -->|derived from|a0022401f47964288ecc1ab706d79b4d4abc10edf33d0a71953834a0b0b3c24c
 AED810A43159DA66 -->|derived from|1036c55358639c5db78ada181ac38d8eda337e83efe1db901716d101777f8474
 ```
+
+<details>
+<summary>Source SSSOM TSV</summary>
+
+| subject_id   | subject_label      | predicate_id       | predicate_label              | object_id      | object_label       | mapping_justification                   | mapping_source      | derived_from                                                             | author_id                                                                |
+| :----------- | :----------------- | :----------------- | :--------------------------- | :------------- | :----------------- | :-------------------------------------- | :------------------ | :----------------------------------------------------------------------- | :----------------------------------------------------------------------- | --- |
+| CHEBI:133530 | tyramine sulfate   | oboInOwl:hasDbXref | has database cross-reference | cas:30223-92-8 | Tyramine sulfate   | semapv:UnspecifiedMatching              | obo:chebi           |                                                                          |                                                                          |
+| CHEBI:133530 | tyramine sulfate   | skos:exactMatch    |                              | cas:30223-92-8 | Tyramine sulfate   | semapv:BackgroundKnowledgeBasedMatching |                     | mapping:0b8eb968c306d65e1715a7b0961f6a4d99b5b19081edb67cee701fd887af1290 |                                                                          |
+| CHEBI:133530 | tyramine sulfate   | skos:exactMatch    |                              | mesh:C027957   | tyramine O-sulfate | semapv:ManualMappingCuration            | wikidata:Q111239110 |                                                                          | orcid:0000-0003-4423-4370                                                |
+| mesh:C027957 | tyramine O-sulfate | skos:exactMatch    |                              | CHEBI:133530   | tyramine sulfate   | semapv:MappingInversion                 |                     | mapping:b8d737b89a421bd6ca058314564c9ed507cbfe3ec4a2e82979fefdfe708019ea |                                                                          |
+| mesh:C027957 | tyramine O-sulfate | skos:exactMatch    |                              | cas:30223-92-8 | Tyramine sulfate   | semapv:MappingChaining                  |                     | mapping:a0022401f47964288ecc1ab706d79b4d4abc10edf33d0a71953834a0b0b3c24c | mapping:1036c55358639c5db78ada181ac38d8eda337e83efe1db901716d101777f8474 |     |
+
+</details>
