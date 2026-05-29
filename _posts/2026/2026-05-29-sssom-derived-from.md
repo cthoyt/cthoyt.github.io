@@ -305,10 +305,11 @@ faeefc6d1dd08238a9732de5a3c9dcf99388e62fa8b1caaf9ba28c7eaf6d483a -->|has evidenc
 <details>
 <summary>Source SSSOM TSV</summary>
 
-| subject_id   | subject_label | predicate_id    | object_id    | object_label | mapping_justification        | author_id                 | mapping_source      | derived_from                                                             |
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
+      <th>subject_id</th>
+      <th>subject_label</th>
       <th>predicate_id</th>
       <th>object_id</th>
       <th>object_label</th>
