@@ -6,6 +6,11 @@ author: Charles Tapley Hoyt
 tags:
   - SSSOM
   - semantic mappings
+  - Biomappings
+  - ChEBI
+  - SEMAPV
+  - cas
+  - Medical Subject Headings
 ---
 
 The
