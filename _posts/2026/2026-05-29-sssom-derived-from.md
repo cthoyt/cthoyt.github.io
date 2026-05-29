@@ -306,10 +306,43 @@ faeefc6d1dd08238a9732de5a3c9dcf99388e62fa8b1caaf9ba28c7eaf6d483a -->|has evidenc
 <summary>Source SSSOM TSV</summary>
 
 | subject_id   | subject_label | predicate_id    | object_id    | object_label | mapping_justification        | author_id                 | mapping_source      | derived_from                                                             |
-| :----------- | :------------ | :-------------- | :----------- | :----------- | :--------------------------- | :------------------------ | :------------------ | :----------------------------------------------------------------------- |
-| mesh:C000089 | ammeline      | skos:exactMatch | CHEBI:28646  | ammeline     | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                          |
-| CHEBI:28646  | ammeline      | skos:exactMatch | mesh:C000089 | ammeline     | semapv:MappingInversion      |                           |                     | mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a |
-
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>predicate_id</th>
+      <th>object_id</th>
+      <th>object_label</th>
+      <th>mapping_justification</th>
+      <th>author_id</th>
+      <th>mapping_source</th>
+      <th>derived_from</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mesh:C000089</td>
+      <td>ammeline</td>
+      <td>skos:exactMatch</td>
+      <td>chebi:28646</td>
+      <td>ammeline</td>
+      <td>semapv:ManualMappingCuration</td>
+      <td>orcid:0000-0003-4423-4370</td>
+      <td>wikidata:Q111239110</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>chebi:28646</td>
+      <td>ammeline</td>
+      <td>skos:exactMatch</td>
+      <td>mesh:C000089</td>
+      <td>ammeline</td>
+      <td>semapv:MappingInversion</td>
+      <td></td>
+      <td></td>
+      <td>mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a</td>
+    </tr>
+  </tbody>
+</table>
 </details>
 
 ## Chaining
@@ -383,12 +416,56 @@ AC5F57BF466F5641 -->|derived from|988ce14e26fdbf24aeb27b4d8b5ad4bcc25b5cdb46be4e
 <details>
 <summary>Source SSSOM TSV</summary>
 
-| subject_id  | subject_label         | predicate_id    | object_id    | object_label           | mapping_justification        | author_id                 | mapping_source      | derived_from                                                             |
-| :---------- | :-------------------- | :-------------- | :----------- | :--------------------- | :--------------------------- | :------------------------ | :------------------ | :----------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| BTO:0006078 | pluripotent stem cell | skos:exactMatch | CL:0002248   | pluripotent stem cell  | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                          |
-| CL:0002248  | pluripotent stem cell | skos:exactMatch | mesh:D039904 | pluripotent stem cells | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                          |
-| BTO:0006078 | pluripotent stem cell | skos:exactMatch | mesh:D039904 | pluripotent stem cells | semapv:MappingChaining       |                           |                     | mapping:8a12a396b85642cccfc799fb24320c51a4aabf3294780cb31116d45f773a2572 | mapping:988ce14e26fdbf24aeb27b4d8b5ad4bcc25b5cdb46be4e674bfa88a2abe12264 |
-
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>subject_id</th>
+      <th>subject_label</th>
+      <th>predicate_id</th>
+      <th>object_id</th>
+      <th>object_label</th>
+      <th>mapping_justification</th>
+      <th>author_id</th>
+      <th>mapping_source</th>
+      <th>derived_from</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BTO:0006078</td>
+      <td>pluripotent stem cell</td>
+      <td>skos:exactMatch</td>
+      <td>CL:0002248</td>
+      <td>pluripotent stem cell</td>
+      <td>semapv:ManualMappingCuration</td>
+      <td>orcid:0000-0003-4423-4370</td>
+      <td>wikidata:Q111239110</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>CL:0002248</td>
+      <td>pluripotent stem cell</td>
+      <td>skos:exactMatch</td>
+      <td>mesh:D039904</td>
+      <td>Pluripotent Stem Cells</td>
+      <td>semapv:ManualMappingCuration</td>
+      <td>orcid:0000-0003-4423-4370</td>
+      <td>wikidata:Q111239110</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>BTO:0006078</td>
+      <td>pluripotent stem cell</td>
+      <td>skos:exactMatch</td>
+      <td>mesh:D039904</td>
+      <td>Pluripotent Stem Cells</td>
+      <td>semapv:MappingChaining</td>
+      <td></td>
+      <td></td>
+      <td>mapping:8a12a396b85642cccfc799fb24320c51a4aabf3294780cb31116d45f773a2572|mapping:988ce14e26fdbf24aeb27b4d8b5ad4bcc25b5cdb46be4e674bfa88a2abe12264</td>
+    </tr>
+  </tbody>
+</table>
 </details>
 
 ## Chaining with Negatives
@@ -461,12 +538,60 @@ mesh:C002563 -->|object of|25AC613A93F7EF14
 <details>
 <summary>Source SSSOM TSV</summary>
 
-| subject_id  | subject_label | predicate_id    | predicate_modifier | object_id    | object_label | mapping_justification        | author_id                 | mapping_source      | derived_from                                                              |
-| :---------- | :------------ | :-------------- | :----------------- | :----------- | :----------- | :--------------------------- | :------------------------ | :------------------ | :------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| CHEBI:10057 | 9H-xanthene   | skos:exactMatch | Not                | mesh:C002563 | xanthan gum  | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                           |
-| cas:92-83-1 | Xanthene      | skos:exactMatch |                    | CHEBI:10057  | 9H-xanthene  | semapv:ManualMappingCuration | orcid:0000-0003-4423-4370 | wikidata:Q111239110 |                                                                           |
-| cas:92-83-1 | Xanthene      | skos:exactMatch | Not                | mesh:C002563 | xanthan gum  | semapv:MappingChaining       |                           |                     | mapping:58f24ccfaf71431276da873c9e7b77ea61a2425e4e8b283b943542290deb292b~ | mapping:bb1162fb2afb1c519c0aa8be98c352061720af220e2d052c571a1fecabff9800 |
-
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>subject_id</th>
+      <th>subject_label</th>
+      <th>predicate_id</th>
+      <th>predicate_modifier</th>
+      <th>object_id</th>
+      <th>object_label</th>
+      <th>mapping_justification</th>
+      <th>author_id</th>
+      <th>mapping_source</th>
+      <th>derived_from</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>chebi:10057</td>
+      <td>9H-xanthene</td>
+      <td>skos:exactMatch</td>
+      <td>Not</td>
+      <td>mesh:C002563</td>
+      <td>xanthan gum</td>
+      <td>semapv:ManualMappingCuration</td>
+      <td>orcid:0000-0003-4423-4370</td>
+      <td>wikidata:Q111239110</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>cas:92-83-1</td>
+      <td>Xanthene</td>
+      <td>skos:exactMatch</td>
+      <td></td>
+      <td>chebi:10057</td>
+      <td>9H-xanthene</td>
+      <td>semapv:ManualMappingCuration</td>
+      <td>orcid:0000-0003-4423-4370</td>
+      <td>wikidata:Q111239110</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>cas:92-83-1</td>
+      <td>Xanthene</td>
+      <td>skos:exactMatch</td>
+      <td>Not</td>
+      <td>mesh:C002563</td>
+      <td>xanthan gum</td>
+      <td>semapv:MappingChaining</td>
+      <td></td>
+      <td></td>
+      <td>mapping:58f24ccfaf71431276da873c9e7b77ea61a2425e4e8b283b943542290deb292b~|mapping:bb1162fb2afb1c519c0aa8be98c352061720af220e2d052c571a1fecabff9800</td>
+    </tr>
+  </tbody>
+</table>
 </details>
 
 ## Background Knowledge
@@ -520,11 +645,45 @@ B5CF0F3AB755AC6D -->|derived from|887c2cc0c006b49df5fa0bc281e23bd3722880d5096e27
 <details>
 <summary>Source SSSOM TSV</summary>
 
-| subject_id  | subject_label | predicate_id       | predicate_label              | object_id   | object_label | mapping_justification                   | mapping_source | derived_from                                                             |
-| :---------- | :------------ | :----------------- | :--------------------------- | :---------- | :----------- | :-------------------------------------- | :------------- | :----------------------------------------------------------------------- |
-| CHEBI:10057 | 9H-xanthene   | oboInOwl:hasDbXref | has database cross-reference | cas:92-83-1 | Xanthene     | semapv:UnspecifiedMatching              | obo:chebi      |                                                                          |
-| CHEBI:10057 | 9H-xanthene   | skos:exactMatch    |                              | cas:92-83-1 | Xanthene     | semapv:BackgroundKnowledgeBasedMatching |                | mapping:887c2cc0c006b49df5fa0bc281e23bd3722880d5096e27218082bd6edf96f59e |
-
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>subject_id</th>
+      <th>subject_label</th>
+      <th>predicate_id</th>
+      <th>predicate_label</th>
+      <th>object_id</th>
+      <th>object_label</th>
+      <th>mapping_justification</th>
+      <th>mapping_source</th>
+      <th>derived_from</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>chebi:10057</td>
+      <td>9H-xanthene</td>
+      <td>oboInOwl:hasDbXref</td>
+      <td>has database cross-reference</td>
+      <td>cas:92-83-1</td>
+      <td>Xanthene</td>
+      <td>semapv:UnspecifiedMatching</td>
+      <td>obo:chebi</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>chebi:10057</td>
+      <td>9H-xanthene</td>
+      <td>skos:exactMatch</td>
+      <td></td>
+      <td>cas:92-83-1</td>
+      <td>Xanthene</td>
+      <td>semapv:BackgroundKnowledgeBasedMatching</td>
+      <td></td>
+      <td>mapping:887c2cc0c006b49df5fa0bc281e23bd3722880d5096e27218082bd6edf96f59e</td>
+    </tr>
+  </tbody>
+</table>
 </details>
 
 ## End-to-End Inference
@@ -629,12 +788,82 @@ AED810A43159DA66 -->|derived from|1036c55358639c5db78ada181ac38d8eda337e83efe1db
 <details>
 <summary>Source SSSOM TSV</summary>
 
-| subject_id   | subject_label      | predicate_id       | predicate_label              | object_id      | object_label       | mapping_justification                   | mapping_source      | derived_from                                                             | author_id                                                                |
-| :----------- | :----------------- | :----------------- | :--------------------------- | :------------- | :----------------- | :-------------------------------------- | :------------------ | :----------------------------------------------------------------------- | :----------------------------------------------------------------------- | --- |
-| CHEBI:133530 | tyramine sulfate   | oboInOwl:hasDbXref | has database cross-reference | cas:30223-92-8 | Tyramine sulfate   | semapv:UnspecifiedMatching              | obo:chebi           |                                                                          |                                                                          |
-| CHEBI:133530 | tyramine sulfate   | skos:exactMatch    |                              | cas:30223-92-8 | Tyramine sulfate   | semapv:BackgroundKnowledgeBasedMatching |                     | mapping:0b8eb968c306d65e1715a7b0961f6a4d99b5b19081edb67cee701fd887af1290 |                                                                          |
-| CHEBI:133530 | tyramine sulfate   | skos:exactMatch    |                              | mesh:C027957   | tyramine O-sulfate | semapv:ManualMappingCuration            | wikidata:Q111239110 |                                                                          | orcid:0000-0003-4423-4370                                                |
-| mesh:C027957 | tyramine O-sulfate | skos:exactMatch    |                              | CHEBI:133530   | tyramine sulfate   | semapv:MappingInversion                 |                     | mapping:b8d737b89a421bd6ca058314564c9ed507cbfe3ec4a2e82979fefdfe708019ea |                                                                          |
-| mesh:C027957 | tyramine O-sulfate | skos:exactMatch    |                              | cas:30223-92-8 | Tyramine sulfate   | semapv:MappingChaining                  |                     | mapping:a0022401f47964288ecc1ab706d79b4d4abc10edf33d0a71953834a0b0b3c24c | mapping:1036c55358639c5db78ada181ac38d8eda337e83efe1db901716d101777f8474 |     |
-
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>subject_id</th>
+      <th>subject_label</th>
+      <th>predicate_id</th>
+      <th>predicate_label</th>
+      <th>object_id</th>
+      <th>object_label</th>
+      <th>mapping_justification</th>
+      <th>mapping_source</th>
+      <th>derived_from</th>
+      <th>author_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>chebi:133530</td>
+      <td>tyramine sulfate</td>
+      <td>oboInOwl:hasDbXref</td>
+      <td>has database cross-reference</td>
+      <td>cas:30223-92-8</td>
+      <td>Tyramine sulfate</td>
+      <td>semapv:UnspecifiedMatching</td>
+      <td>obo:chebi</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>chebi:133530</td>
+      <td>tyramine sulfate</td>
+      <td>skos:exactMatch</td>
+      <td></td>
+      <td>cas:30223-92-8</td>
+      <td>Tyramine sulfate</td>
+      <td>semapv:BackgroundKnowledgeBasedMatching</td>
+      <td></td>
+      <td>mapping:0b8eb968c306d65e1715a7b0961f6a4d99b5b19081edb67cee701fd887af1290</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>chebi:133530</td>
+      <td>tyramine sulfate</td>
+      <td>skos:exactMatch</td>
+      <td></td>
+      <td>mesh:C027957</td>
+      <td>tyramine O-sulfate</td>
+      <td>semapv:ManualMappingCuration</td>
+      <td>wikidata:Q111239110</td>
+      <td></td>
+      <td>orcid:0000-0003-4423-4370</td>
+    </tr>
+    <tr>
+      <td>mesh:C027957</td>
+      <td>tyramine O-sulfate</td>
+      <td>skos:exactMatch</td>
+      <td></td>
+      <td>chebi:133530</td>
+      <td>tyramine sulfate</td>
+      <td>semapv:MappingInversion</td>
+      <td></td>
+      <td>mapping:b8d737b89a421bd6ca058314564c9ed507cbfe3ec4a2e82979fefdfe708019ea</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>mesh:C027957</td>
+      <td>tyramine O-sulfate</td>
+      <td>skos:exactMatch</td>
+      <td></td>
+      <td>cas:30223-92-8</td>
+      <td>Tyramine sulfate</td>
+      <td>semapv:MappingChaining</td>
+      <td></td>
+      <td>mapping:a0022401f47964288ecc1ab706d79b4d4abc10edf33d0a71953834a0b0b3c24c|mapping:1036c55358639c5db78ada181ac38d8eda337e83efe1db901716d101777f8474</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 </details>
