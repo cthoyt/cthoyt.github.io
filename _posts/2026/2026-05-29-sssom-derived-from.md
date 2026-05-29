@@ -156,7 +156,6 @@ to the proposal in https://github.com/ts4nfdi/mapping-sameness-identifier (which
 currently is under review). For now, the SSSOM specification isn't prescribing
 how to assign identifiers to mapping quadruples.
 
-
 ## Contribution
 
 See the original issue
@@ -178,7 +177,6 @@ Damien Goutte-Gattat also implemented the `derived_from` in
 [SSSOM Java](https://github.com/gouttegd/sssom-java) in
 [gouttegd/sssom-java#19](https://github.com/gouttegd/sssom-java/pull/19).
 
-
 ## Inference
 
 There are several mechanisms for inference:
@@ -190,8 +188,8 @@ There are several mechanisms for inference:
 - Inference via prior knowledge, which should be tagged with
   `semapv:BackgroundKnowledgeBasedMatching` as a justification
 
-Below, I'm going to give some examples showing how these look in SSSOM,
-in Python (via SSSOM Pydantic), and make visualizations.
+Below, I'm going to give some examples showing how these look in SSSOM, in
+Python (via SSSOM Pydantic), and make visualizations.
 
 ### Inversion
 
