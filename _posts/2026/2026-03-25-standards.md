@@ -165,8 +165,7 @@ Personally, I don't think JKG was created with best practices in linked (open)
 data in mind - it has some amateur mistakes like
 ["id":"UBERON:0011153 CUI"](https://github.com/x-atlas-consortia/json-knowledge-graph/blob/f92fb24a54d899b4716be45f29deea0e2b677a1f/README.md?plain=1#L458),
 that's almost a CURIE but looses focus right at the end with `_CUI`. I'll be sad
-on the day if/when I need to write my own code to consume content in this
-format.
+on the day if/when I need to work with data in this format.
 
 NIH isn't so good at community work, so I don't think that this will be a big
 deal. In general, it's even more difficult to convince a group to give up on
