@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Improved provenance for inferred semantic mappings in SSSOM
+title: Transparent provenance for derived semantic mappings in SSSOM
 date: 2026-05-29 12:11:00 +0200
 author: Charles Tapley Hoyt
 tags:
@@ -132,12 +132,12 @@ and the publication of its companion article
 
 Initially, SeMRA implemented a custom data model that was similar to SSSOM, but
 had a more explicit provenance model for which mapping records (e.g., from
-SSSOM) were used to infer new mapping quadruples. As SeMRA and its applications
-have matured, I have been able to backport many of its good ideas to SSSOM. This
-post is specifically about how I've proposed a simple, optional, explicit
-provenance model that allows mapping records in SSSOM produced by inference to
-reference the set of mapping quadruples that were used during inference, in a
-new `derived_from` slot.
+SSSOM) were used to infer/derive new mapping quadruples. As SeMRA and its
+applications have matured, I have been able to backport many of its good ideas
+to SSSOM. This post is specifically about how I've proposed a simple, optional,
+explicit provenance model that allows mapping records in SSSOM derived through
+inference to reference the set of mapping quadruples that were used during
+inference, in a new `derived_from` slot.
 
 ### Reference the Triple, Quadruple, or Record?
 
@@ -149,13 +149,16 @@ mapping triples nor mapping records for the following reasons:
    is true or false, then an algorithm could accidentally conclude from
    `A skos:exactMatch B` and `B (not) skos:exactMatch C` that
    `A skos:exactMatch C`. This is why mapping triples are insufficient
-2. Inference happens on the mapping quadruple level
+2. Inference happens on the mapping quadruple level, so it matches nicely
 3. Full mapping records are inflexible: the SSSOM data should be flexible so if
    additional evidence (i.e., records) for a given mapping quadruple are found,
    then the confidence in the inferred/derived mapping (e.g., chained or
    inverted) can be adjusted accordingly. This is possible because most chaining
    and inversion algorithms logically operate on mapping quadruples, and not on
    records.
+
+This is why in the following diagrams, there are mapping quads represented in
+pink boxes and mapping records represented by purple boxes.
 
 Note: the local unique identifiers used for mappings in this example are related
 to the proposal in https://github.com/ts4nfdi/mapping-sameness-identifier (which
@@ -240,9 +243,9 @@ Damien Goutte-Gattat also implemented the `derived_from` in
 
 To finish off this post, I've included five real-world examples combining
 manually curated mappings from
-[Biomappings](https://github.com/biopragmatics/biomappings) and the ChEBI ontology that
-show off three types of inference: inversion, chaining, and background
-knowledge-based mapping.
+[Biomappings](https://github.com/biopragmatics/biomappings) and the ChEBI
+ontology that show off three types of inference: inversion, chaining, and
+background knowledge-based mapping.
 
 ### Inversion
 
