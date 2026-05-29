@@ -66,7 +66,7 @@ I want to comment on several of his points:
 > of which are relatively close to the Monarch / LinkML ecosystem (not quite
 > touch it, but close).
 
-This is the part that's most like xkcd:927. I'm not so virtuous either - I've
+This is the part that's most like `xkcd:927`. I'm not so virtuous either - I've
 been guilty of doing the same thing. From my own experience, I can say there's a
 strong allure to:
 
@@ -76,18 +76,20 @@ strong allure to:
    bullet points below)
 4. Doing It Right This Time For The Last Time™
 5. having something to point to that's your creation (instead of, _we made minor
-   improvements to an existing resource_) which might come from e.g. pressure to
-   publish or pressure from your institution
+   improvements to an existing resource_) which might come from, for example,
+   pressure to publish for career progression or to do implicit outreach for
+   your institution/employer
 
 I can't speak towards why NIH didn't reuse, for example, KGX, but based on their
 general hesitance to engage with the community in other things, their tendency
-towards reinvention doesn't surprise me. All that being said, I've also been on
-the receiving end of such a snub from groups that I collaborate with and from
-groups that, at minimum, should be aware of what I'm working on.
+towards reinvention doesn't surprise me.
 
-Many of us who are academic scientific software developers are doing it because
-of idealism, when there are often much better job prospects elsewhere. We are
-proud of what we do, so it can hurt and be demotivating when this happens.
+All that being said, I've also been on the receiving end of such a snub from
+groups that I collaborate with and from groups that, at minimum, should be aware
+of what I'm working on. It can hurt and be demotivating when this happens,
+especially because many of us who are academic scientific software developers
+are doing it because of idealism and pride in the value of our work, despite
+there are often much better job prospects elsewhere.
 
 > 1. Creating a standard nowadays takes 4 hours for an experienced developer
 
@@ -117,8 +119,9 @@ limited to):
    audience should know and care about, and what they actually know and care
    about. You still have to be nice, even when frustrated (one reason this
    requires emotional resilience)
-8. struggling with when people would rather use someone else's tool than yours
-   (another reason this requires emotional resilience)
+8. struggling with when people would rather use someone else's tool than yours,
+   especially when you know yours is a better fit (another reason this requires
+   emotional resilience)
 9. and so it goes 🐦
 
 This is also tough considering that funding often doesn't take any of this into
@@ -154,9 +157,9 @@ minimally okay fit for this kind of work.
 
 ---
 
-There's also a dark side to all of this. It's possible to build something that is
-not itself excellent, but be very good at the community work and push a standard
-that isn't... great. 
+There's also a dark side to all of this. It's possible to build something that
+is not itself excellent, but be very good at the community work and push a
+standard that isn't... great.
 
 Personally, I don't think JKG was created with best practices in linked (open)
 data in mind - it has some amateur mistakes like
@@ -165,9 +168,10 @@ that's almost a CURIE but looses focus right at the end with `_CUI`. I'll be sad
 on the day if/when I need to write my own code to consume content in this
 format.
 
-NIH isn't so good at community work, so I don't think that this will be a big deal.
-In general, it's even more difficult to convince a group to give up on their own standards
-and adopt yours (trust me, I tried / trust me, people have tried on me).
+NIH isn't so good at community work, so I don't think that this will be a big
+deal. In general, it's even more difficult to convince a group to give up on
+their own standards and adopt yours (trust me, I tried / trust me, people have
+tried on me).
 
 I assume that at some point, the RFC will get taken down. I archived it as PDF
 [here](/assets/cfde-jkg-rfc.pdf).
