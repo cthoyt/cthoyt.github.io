@@ -233,20 +233,11 @@ Damien Goutte-Gattat also implemented the `derived_from` in
 
 ## Examples
 
-Below, I give five real examples below that correspond to:
-
-1. Inference via mapping inversion, which should be tagged with
-   `semapv:MappingInversion` as a justification
-2. Inference via chaining (see
-   [SSSOM chaining rules](https://mapping-commons.github.io/sssom/chaining-rules/)),
-   which should be tagged with `semapv:MappingChaining` as a justification
-3. Inference via chaining, including negative mappings (which will lead to a
-   future proposal of additional chaining rules)
-4. Inference based on prior knowledge, which should be tagged with
-   `semapv:BackgroundKnowledgeBasedMatching` as a justification. SeMRA
-   contributes key philosophical discussions on how this should be done
-5. An end-to-end example that combines all three inference types together to do
-   make a relatively benign mapping, but with full transparency and provenance
+To finish off this post, I've included five real-world examples combining
+manually curated mappings from
+[Biomappings](https://github.com/biopragmatics/biomappings) and the ChEBI ontology that
+show off three types of inference: inversion, chaining, and background
+knowledge-based mapping.
 
 ### Inversion
 
@@ -314,6 +305,14 @@ faeefc6d1dd08238a9732de5a3c9dcf99388e62fa8b1caaf9ba28c7eaf6d483a -->|has evidenc
 </details>
 
 ## Chaining
+
+A mapping chaining workflow applies
+[SSSOM chaining rules](https://mapping-commons.github.io/sssom/chaining-rules/)
+to combine one or more mappings who share subjects/objects. The resulting
+mappings should be tagged with `semapv:MappingChaining` as a justification.
+
+Depending on the implementation, directionality is important, so inferring
+inverted mappings before chaining is important.
 
 ```mermaid
 flowchart LR
@@ -386,6 +385,13 @@ AC5F57BF466F5641 -->|derived from|988ce14e26fdbf24aeb27b4d8b5ad4bcc25b5cdb46be4e
 
 ## Chaining with Negatives
 
+When I wrote the initial
+[SSSOM chaining rules](https://mapping-commons.github.io/sssom/chaining-rules/),
+I did not include any examples on how negative modifiers interact with the
+rules. This example is a prospective look on how negative mappings and positive
+mappings could interact. I will be making some improvements to the SSSOM docs
+with additional concrete rules soon.
+
 ```mermaid
 flowchart LR
     CHEBI:10057[9H-xanthene
@@ -457,6 +463,15 @@ mesh:C002563 -->|object of|25AC613A93F7EF14
 
 ## Background Knowledge
 
+Inference based on background knowledge was one of the key contributions of
+SeMRA. For example, it's known that mappings in ChEBI to CAS are exact matches,
+but by curation convention, they're annotated with the less precise
+`oboInOwl:hasDbXref`. Workflows that incorporate this knowledge should be tagged
+with `semapv:BackgroundKnowledgeBasedMatching` as a mapping justification.
+
+In this example, I show how a poorly specified mapping from ChEBI is upgraded to
+an exact match.
+
 ```mermaid
 flowchart LR
     CHEBI:10057[9H-xanthene
@@ -505,6 +520,17 @@ B5CF0F3AB755AC6D -->|derived from|887c2cc0c006b49df5fa0bc281e23bd3722880d5096e27
 </details>
 
 ## End-to-End Inference
+
+This end-to-end example demonstrates the cumulation of inversion, chaining, and
+background-based workflows. While it only starts with two mappings, it shows how
+the successive application of these workflows can give full transparency and
+auditability in the process of inference.
+
+In real-world scenarios, I would want to use the mesh-cas exact match to
+automatically integrate data, such as in the construction of a knowledge graph.
+In case this mapping is adjacent to a node important for a prediction, I would
+want to be able to fully audit how that node was constructed via this mapping
+diagram.
 
 ```mermaid
 flowchart LR
