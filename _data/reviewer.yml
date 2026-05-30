@@ -10,7 +10,9 @@ journals:
 grants:
   - CZI Essential Open Source Software (EOSS) Cycle 6 (2023)
 articles:
-  - title: Research and Applications of Knowledge Graph Embedding Technique in Chemistry
+  - title:
+      Research and Applications of Knowledge Graph Embedding Technique in
+      Chemistry
     editor: Boris Furtula
     authors: C. Wang, Y. Yang, S. Li, J. Song, X. Nan
     journal:

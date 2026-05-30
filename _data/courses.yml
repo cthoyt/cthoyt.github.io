@@ -99,7 +99,8 @@
     month: October
     year: 2019
   presentation:
-    name: Knowledge Graphs as Support for Modeling in Systems and Networks Biology
+    name:
+      Knowledge Graphs as Support for Modeling in Systems and Networks Biology
     url: https://docs.google.com/presentation/d/1MggA-IfZ9_6aKgtm6g9Ta52TfwN7JNQxNGk6D24P5jY/edit?usp=sharing
 
 - name: Enzyme Technology Internship
@@ -120,7 +121,9 @@
     day: 29
     month: March
     year: 2019
-  description: Planned course, helped teach curation in BEL, usage of PyBEL, and analysis of biological networks
+  description:
+    Planned course, helped teach curation in BEL, usage of PyBEL, and analysis
+    of biological networks
 
 - name: Life Sciences Knowledge Discovery
   level: Master's course
@@ -146,7 +149,9 @@
     name: Introduction to Machine Learning
     url: https://docs.google.com/presentation/d/1p_rYsFUpIfIo-iX_urqw57m8A74AI8Rb-jK-zbEN7Ow/edit?usp=sharing
 
-- name: Knowledge Assembly, Data Integration, and Modeling in Systems and Networks Biology
+- name:
+    Knowledge Assembly, Data Integration, and Modeling in Systems and Networks
+    Biology
   level: Master's course
   type: Seminar
   role: Instructor
@@ -174,7 +179,9 @@
     month: January
     year: 2019
   presentation:
-    name: An Introduction to Knowledge Assembly, Data Integration, and Modeling in Systems and Networks Biology
+    name:
+      An Introduction to Knowledge Assembly, Data Integration, and Modeling in
+      Systems and Networks Biology
     url: https://docs.google.com/presentation/d/1Zj71JN_ENrbEB4hFDnjzhCVENoOfOvBIo3tt5ygTj44/edit?usp=sharing
 
 - name: Life Sciences Knowledge Discovery
