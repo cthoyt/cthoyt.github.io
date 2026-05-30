@@ -1,3 +1,10 @@
+- name: NFDI4Chem
+  role: Member
+  url: https://nfdi4chem.de
+  wikidata: Q96678459
+  start:
+    year: 2025
+
 - name: International Society of Biocuration
   role: Member
   url: https://www.biocuration.org
@@ -26,6 +33,8 @@
   wikidata: Q655757
   start:
     year: 2016
+  end:
+    year: 2026
 
 - name: American Chemical Society
   role: Member

@@ -4,6 +4,11 @@
   role: Executive Committee
   type: organization
 
+- name: Biocuration 2026 Virtual Conference
+  url: https://www.biocuration.org/events/biocuration2026-virtual/
+  role: Co-organizer
+  type: organization
+
 - name: ICBO 2024
   url: https://icbo-conference.github.io/icbo2024/
   role: Program Committee

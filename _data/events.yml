@@ -1,3 +1,43 @@
+- name: Virtual Biocuration Conference 2026
+  link: https://www.biocuration.org/events/biocuration2026-virtual/
+  online: true
+  start:
+    month: February
+    day: 9
+    year: 2026
+  end:
+    month: September
+    day: 14
+    year: 2026
+
+- name: 4th Biohackathon Germany
+  link: https://www.denbi.de/de-nbi-events/1840-4th-biohackathon-germany
+  location:
+    city: Walsrode
+    country: Germany
+  start:
+    day: 1
+    month: December
+    year: 2025
+  end:
+    day: 5
+    month: December
+    year: 2025
+
+- name: 4th Ontologies4Chem Workshop
+  link: https://docs.google.com/document/d/17xbqr4l1CeN2LNBhwCPVzo4NDkdAq4wuqEipfE7Ng-Q/edit?tab=t.0#heading=h.yz9v4lwf4van
+  location:
+    city: Limburg
+    country: Germany
+  start:
+    day: 11
+    month: November
+    year: 2025
+  end:
+    day: 13
+    month: November
+    year: 2025
+
 - name: Biocuration 2025
   link: https://www.stowers.org/events/biocuration2025
   location:
