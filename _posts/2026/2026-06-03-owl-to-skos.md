@@ -136,14 +136,13 @@ and would instead prefer to produce a SKOS vocabulary.
 
 My work on ontologizing GoldBook was done without discussion with IUPAC, similar
 to most PyOBO sources. Personally, I think it's much more valuable to ascribe
-precise semantics. I am less dogmatic about what it means to make an
-"ontological commitment" than others in the ontology community, and have usually
-focused on what makes a data resource useful for me. In this case, it was being
-able to access GoldBook through an ontology-like interface such that it could be
-loaded in SSSOM Curator to
+precise semantics. I am less dogmatic about ontological commitments and have
+usually focused on what makes a data resource useful for me. In this case, it
+was being able to access GoldBook through an ontology-like interface such that
+it could be loaded in SSSOM Curator to
 [lexically predict then manually curate CHMO-GoldBook mappings](https://github.com/biopragmatics/biomappings/pull/240).
 
-However, now with the SKOS exporter described earlier in this post, we can have
+However, now with the SKOS exporter described earlier in this post, I can have
 it both ways: first starting with a more precise OWL artifact, then downscaling
 to a simpler SKOS artifact with entries that look like:
 
