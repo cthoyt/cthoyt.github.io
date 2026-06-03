@@ -113,7 +113,7 @@ fplx:Sarcoglycan_complex a skos:Concept ;
     skos:scopeNote "A family of transmembrane dystrophin-associated proteins that play a role in the membrane association of the DYSTROPHIN-ASSOCIATED PROTEIN COMPLEX." .
 ```
 
-## Encoding Institutional Knowledge in Code while Translating Databases into Ontologies
+## More or Less, Semantics
 
 We have the goal in NFDI4Chem to map from ontology terms in the Chemical Methods
 Ontology (CHMO) to the [IUPAC GoldBook](https://goldbook.iupac.org), a
