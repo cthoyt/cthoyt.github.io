@@ -18,13 +18,13 @@ semantics. This post describes the workflow I implemented to
 [downscale OWL to SKOS](https://github.com/biopragmatics/pyobo/pull/509).
 
 Before diving into this, I searched for previous work in mapping OWL to SKOS and
-was surprised to find only a few things:
+was surprised to find only a few things (and they're all old):
 
 - [Exploring the Relationships between OWL and SKOS](https://www.cs.man.ac.uk/~stevensr/papers/iswc2009DC.pdf)
   by Nor Azlinayati Abdul Manaf (2009)
 - [Using OWL and SKOS](https://www.w3.org/2006/07/SWD/SKOS/skos-and-owl/master.html)
   by Sean Bechhofer and Alstair Miles (2008)
-- [SKOS2OWL](https://www.heppnetz.de/projects/skos2owl/)
+- [SKOS2OWL](https://www.heppnetz.de/projects/skos2owl/) by Hepp _et al._ (2007)
 
 ## Predicate Mappings
 
@@ -52,8 +52,8 @@ in
 [information-artifact-ontology/ontology-metadata#193](https://github.com/information-artifact-ontology/ontology-metadata/pull/193)
 to enable ontologies to explicitly annotate which predicates should be used
 during hierarchical browsing (in addition to `rdf:subClassOf`). For example, the
-Uber Anatomy Ontology (UBERON) contains a partonomy of anatomical features, and
-should therefore be browsable based on the
+[Uber Anatomy Ontology (UBERON)](https://semantic.farm/uberon) contains a
+partonomy of anatomical features, and should therefore be browsable based on the
 [`BFO:0000050` (part of)](https://semantic.farm/BFO:0000050) relationship. This
 annotation was originally inspired by the custom configuration for adding new
 ontologies to the EBI's
@@ -115,81 +115,50 @@ fplx:Sarcoglycan_complex a skos:Concept ;
 
 ## Encoding Institutional Knowledge in Code while Translating Databases into Ontologies
 
-The effort to encode databases into ontologies has two main parts:
-
-1. Automate downloading and parsing the source data, whether from TSV, Excel,
-   relational databases, JSON, or any other format
-2. Interpret what each field is supposed to be, and ascribe well-defined
-   semantics
-3. Enable access through a common data model
-
 We have the goal in NFDI4Chem to map from ontology terms in the Chemical Methods
 Ontology (CHMO) to the [IUPAC GoldBook](https://goldbook.iupac.org), a
 compendium of chemical terminology which also covers instrumentation and
-experimental techniques. However, IUPAC has a custom (and poorly-described) data
-model.
+experimental techniques.
 
-<details>
-<summary>See Example IUPAC GoldBook JSON</summary>
+While GoldBook's data is now available in both JSON and XML, neither ascribe
+semantics to their fields, i.e., the XML doesn't use namespaces and the JSON
+doesn't have a _linked data_ component. This meant that as I implemented a PyOBO
+source for GoldBook in
+[biopragmatics/pyobo#436](https://github.com/biopragmatics/pyobo/pull/436), I
+had to interpret what each field means, and ascribe semantics to them by
+assigning existing, well-known predicates to each.
 
-This is the JSON for [`goldbook:08003`](https://semantic.farm/08003).
+However, based on
+[discussions](https://github.com/NFDI4Chem/Ontologies4Chem2026/discussions/7) in
+preparation for the 6<sup>th</sup> Ontologies4Chem workshop later this year, it
+appears IUPAC does not want to make ontological commitments for its entities,
+and would instead prefer to produce a SKOS vocabulary.
 
-```json
-{
-  "term": {
-    "id": "08003",
-    "title": "analytical chemistry",
-    "longtitle": "IUPAC Gold Book - analytical chemistry",
-    "doi": "10.1351\/goldbook.08003",
-    "code": "08003",
-    "status": "current",
-    "definitions": [
-      {
-        "id": 1,
-        "text": "Scientific discipline that develops and applies strategies, instruments, and procedures to obtain information on the composition and nature of matter in space and time.",
-        "notes": {
-          "1": "The definition was coined by the Working Party on Analytical Chemistry (WPAC) of the Federation of European Chemical Societies (FECS) and is known as the \"Edinburgh Definition\".",
-          "2": "The term \"analytical science\" was coined in 1998 to emphasize the impact of informatics on analytical chemistry."
-        },
-        "links": [
-          {
-            "term": "chemical analysis",
-            "url": "https:\/\/goldbook.iupac.org\/\/terms\/view\/08004"
-          }
-        ],
-        "sources": [
-          "PAC, 2021, 93, 997. 'Metrological and quality concepts in analytical chemistry (IUPAC Recommendations 2021)' on page 999 (https:\/\/doi.org\/10.1515\/pac-2019-0819)"
-        ]
-      }
-    ],
-    "altoutputs": {
-      "html": "https:\/\/goldbook.iupac.org\/terms\/view\/08003\/html",
-      "xml": "https:\/\/goldbook.iupac.org\/terms\/view\/08003\/xml",
-      "plain": "https:\/\/goldbook.iupac.org\/terms\/view\/08003\/plain"
-    },
-    "citation": "Citation: 'analytical chemistry' in IUPAC Compendium of Chemical Terminology, 5th ed. International Union of Pure and Applied Chemistry; 2025. Online version 5.0.0, 2025. 10.1351\/goldbook.08003",
-    "license": "The IUPAC Gold Book is licensed under Creative Commons Attribution-ShareAlike CC BY-SA 4.0 International (https:\/\/creativecommons.org\/licenses\/by-sa\/4.0\/) for individual terms.",
-    "collection": "If you are interested in licensing the Gold Book for commercial use, please contact the IUPAC Executive Director at executivedirector@iupac.org .",
-    "disclaimer": "The International Union of Pure and Applied Chemistry (IUPAC) is continuously reviewing and, where needed, updating terms in the Compendium of Chemical Terminology (the IUPAC Gold Book). Users of these terms are encouraged to include the version of a term with its use and to check regularly for updates to term definitions that you are using.",
-    "accessed": "2025-09-11T08:12:32+00:00"
-  }
-}
+My work on ontologizing GoldBook was done without discussion with IUPAC, similar
+to most PyOBO sources. Personally, I think it's much more valuable to ascribe
+precise semantics. I am less dogmatic about what it means to make an
+"ontological commitment" than others in the ontology community, and have usually
+focused on what makes a data resource useful for me. In this case, it was being
+able to access GoldBook through an ontology-like interface such that it could be
+loaded in SSSOM Curator to
+[lexically predict then manually curate CHMO-GoldBook mappings](https://github.com/biopragmatics/biomappings/pull/240).
+
+However, now with the SKOS exporter described earlier in this post, we can have
+it both ways: first starting with a more precise OWL artifact, then downscaling
+to a simpler SKOS artifact with entries that look like:
+
+```ttl
+goldbook:08003 a skos:Concept ;
+    skos:inScheme <https://w3id.org/biopragmatics/resources/goldbook/goldbook.ttl> ;
+    skos:prefLabel "analytical chemistry" ;
+    skos:scopeNote "Scientific discipline that develops and applies strategies, instruments, and procedures to obtain information on the composition and nature of matter in space and time." .
 ```
-
-</details>
-
-https://github.com/biopragmatics/pyobo/pull/436
-
-It is not about turning the Goldbook into an ontology, since this would entail
-making ontological commitments IUPAC doesn't want to make. So a SKOS vocabulary
-is the intended goal.
 
 ---
 
 There are still a few parts of SKOS that I'm not familiar with, so I expect that
-this translation
-
-Interestingly, SKOS has better support for language tags because it is so
-closely defined based on RDF as a serialization (whereas OWL can be serialized
-in RDF, but OBO does not have many of the language support ideas that are
-inherent to RDF things)
+this translation will evolve over time. For example, because SKOS is so tightly
+tied to RDF as a serialization, it has better support for language tags. OWL can
+be serialized in RDF, but the OBO Flat File Format is inherently limited in its
+ability to express language. I'm interested to overcome these limits in the
+PyOBO implementation.
