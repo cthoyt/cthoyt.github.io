@@ -34,9 +34,10 @@ used in SKOS:
 
 - `rdfs:label` maps to `skos:prefLabel`
 - synonym predicates from OBO-flavored OWL (`oboInOwl:hasExactSynonym`,
-  `oboInOwl:hasNarrowSynonym`, `oboInOwl:hasBroadSynonym`) are squashed to
-  `skos:altLabel`, and synonym type information is thrown away
-- `dcterms:description` maps to `skos:scopeNote`
+  `oboInOwl:hasNarrowSynonym`, `oboInOwl:hasBroadSynonym`, and
+  `oboInOwl:hasRelatedSynonym`) are squashed to `skos:altLabel`, and synonym
+  type information is thrown away
+- `dcterms:description` maps to `skos:definition`
 - `rdf:subClassOf` and `rdf:type` are squashed to `skos:broadMatch`
 - similarly, individuals (`owl:NamedIndividual`) and classes (`owl:Class`) are
   both squashed to `skos:Concept`
