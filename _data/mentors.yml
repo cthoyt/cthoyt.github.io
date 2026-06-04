@@ -1,3 +1,25 @@
+- name: Prof. Dr. rer. nat. Sonja Herres-Pawlis
+  orcid: 0000-0002-4354-4353
+  linkedin: sonja-herres-pawlis-374673220
+  wikidata: Q21264701
+  roles:
+    - name: Group Leader
+      location:
+        organization:
+          name: RWTH Aachen University
+          url: https://www.northeastern.edu
+        institute:
+          name: Institute of Inorganic Chemistry
+          url: https://www.iac.rwth-aachen.de
+        group:
+          name: Chair for Bioinorganic Chemistry
+          url: https://www.bioac.ac.rwth-aachen.de
+        city: Aachen
+        country: Germany
+      start:
+        month: June
+        year: 2025
+
 - name: Prof. Dr. Benjamin Gyori
   orcid: 0000-0001-9439-5346
   linkedin: benjamin-m-gyori-0519b630

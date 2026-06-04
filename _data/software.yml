@@ -13,7 +13,9 @@
   pypi: bio2bel
   language: python
   github: bio2bel/bio2bel
-  description: A framework for reproducible data integration in BEL and knowledge graph construction
+  description:
+    A framework for reproducible data integration in BEL and knowledge graph
+    construction
   logo: https://github.com/bio2bel/bio2bel-art/raw/master/bio2bel-logo-100.png
   roles:
     - creator
@@ -26,9 +28,9 @@
   roles:
     - creator
     - maintainer
-  description: A web application for the interactive exploration of networks encoded in BEL
+  description:
+    A web application for the interactive exploration of networks encoded in BEL
   logo: https://github.com/pybel/pybel-art/raw/master/BEL%20Commons/BELcommons-square-100.png
-
 
 - name: PyKEEN
   pypi: pykeen
@@ -59,7 +61,8 @@
   roles:
     - creator
     - maintainer
-  description: Access and processing of ontologies on top of ROBOT and OBO Graphs
+  description:
+    Access and processing of ontologies on top of ROBOT and OBO Graphs
 
 - name: PyOBO
   pypi: pyobo
@@ -68,7 +71,8 @@
   roles:
     - creator
     - maintainer
-  description: Harmonization of biological ontologies and controlled vocabularies
+  description:
+    Harmonization of biological ontologies and controlled vocabularies
   logo: /img/logos/pyobo.png
 
 - name: curies
@@ -87,7 +91,9 @@
   roles:
     - advisor
     - maintainer
-  description: Target prioritization framework using gene expression and network representation learning
+  description:
+    Target prioritization framework using gene expression and network
+    representation learning
   logo: /img/logos/guiltytargets.png
 
 - name: RatVec
@@ -114,7 +120,8 @@
   roles:
     - advisor
     - contributor
-  description: Drug repositioning framework based on network representation learning
+  description:
+    Drug repositioning framework based on network representation learning
   logo: https://avatars0.githubusercontent.com/u/53968086?s=200&v=4
 
 - name: CLEP
@@ -124,7 +131,8 @@
   roles:
     - advisor
     - contributor
-  description: Patient stratification framework based on network representation learning
+  description:
+    Patient stratification framework based on network representation learning
   logo: /img/logos/clep.jpg
 
 - name: BEL2SCM
@@ -141,8 +149,8 @@
   language: python
   github: y0-causal-inference/y0
   roles:
-  - creator
-  - maintainer
+    - creator
+    - maintainer
   description: Representation and manipulating probabilistic expressions
   logo: /img/logos/y0.png
 
@@ -153,7 +161,8 @@
   roles:
     - advisor
     - contributor
-  description: Multimodal Transformers for biomedical text and Knowledge Graph data
+  description:
+    Multimodal Transformers for biomedical text and Knowledge Graph data
   logo: https://avatars.githubusercontent.com/u/81307925?s=200&v=4
 
 - name: ChemicalX
@@ -162,7 +171,9 @@
   github: AstraZeneca/chemicalx
   roles:
     - contributor
-  description: A deep learning library for drug-drug interaction, polypharmacy side effect, and synergy prediction.
+  description:
+    A deep learning library for drug-drug interaction, polypharmacy side effect,
+    and synergy prediction.
   logo: https://github.com/AstraZeneca/chemicalx/raw/main/images/chemicalx_logo.jpg?sanitize=true
 
 - name: PathMe
@@ -180,7 +191,9 @@
   github: PathwayMerger/PathMe
   roles:
     - contributor
-  description: Benchmarking pathway databases in functional enrichment analysis and prediction methods
+  description:
+    Benchmarking pathway databases in functional enrichment analysis and
+    prediction methods
   logo: https://avatars3.githubusercontent.com/u/49114317?s=200&
   skipcv: true
 
@@ -207,14 +220,18 @@
   roles:
     - contributor
     - maintainer
-  description: A $10^8$ relation-scale knowledge graph extending on causal knowledge from INDRA
+  description:
+    A $10^8$ relation-scale knowledge graph extending on causal knowledge from
+    INDRA
 
 - name: MIRA
   github: indralab/mira
   language: python
   roles:
     - maintainer
-  description: Machine-assisted scientific modeling using meta-model templates and domain knowledge graphs
+  description:
+    Machine-assisted scientific modeling using meta-model templates and domain
+    knowledge graphs
 
 - name: Gilda
   github: indralab/gilda
@@ -222,4 +239,6 @@
   roles:
     - contributor
     - maintainer
-  description: Biomedical named entity recognition and grounding using machine-learned disambiguation
+  description:
+    Biomedical named entity recognition and grounding using machine-learned
+    disambiguation

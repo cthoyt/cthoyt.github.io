@@ -1,7 +1,9 @@
 - name: Bioregistry
   role: creator, maintainer
   github: bioregistry/bioregistry
-  description: An integrative meta-registry of biological databases, ontologies, and nomenclatures.
+  description:
+    An integrative meta-registry of biological databases, ontologies, and
+    nomenclatures.
   logo: /img/logos/bioregistry.png
   url: https://bioregistry.io
 
@@ -15,7 +17,9 @@
 
 - name: Biolookup
   role: creator, maintainer
-  description: Comprehensive database of identifiers, names, synonyms, cross-references, properties, and relations for biomedical entities
+  description:
+    Comprehensive database of identifiers, names, synonyms, cross-references,
+    properties, and relations for biomedical entities
   github: biopragmatics/biolookup
   url: http://biolookup.io
   logo: https://github.com/biopragmatics/biolookup/raw/main/src/biolookup/app/static/logo.svg
@@ -24,7 +28,8 @@
   github: biopragmatics/bioversions
   role: creator, maintainer
   zenodo: 4320054
-  description: Automated tracking of the current version for each biological database?
+  description:
+    Automated tracking of the current version for each biological database?
   logo: /img/logos/bioversions.png
 
 - name: OBO Database Ingest
@@ -55,9 +60,10 @@
   github: ComPath/ComPath
   url: https://compath.scai.fraunhofer.de/
   role: contributor
-  description: A data integration pipeline, manually curated dataset of mappings between pathway databases, and web application for integrative analysis of pathways
+  description:
+    A data integration pipeline, manually curated dataset of mappings between
+    pathway databases, and web application for integrative analysis of pathways
   logo: https://avatars0.githubusercontent.com/u/36850400?s=200&v=4
-
 #- name: Ooh Na Na
 #  role: creator, maintainer
 #  description: Comprehensive metadatabase of identifiers and names for biological entities

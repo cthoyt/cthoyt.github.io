@@ -1,13 +1,16 @@
 - funder: Chan Zuckerberg Initiative (CZI)
   award: 2023-329850
-  name: Advancing Data Integration and Discovery in Biomedicine with the Bioregistry
+  name:
+    Advancing Data Integration and Discovery in Biomedicine with the Bioregistry
   pi: Benjamin M. Gyori
   project_start:
     year: 2023
   url: https://discover.lanl.gov/news/1027-vaccine-development
   personal_start:
     year: 2023
-  role: Key person. Co-wrote proposal, responsible for design and implementation of research plan.
+  role:
+    Key person. Co-wrote proposal, responsible for design and implementation of
+    research plan.
   money: "\\$250K overall, 2023-2025 (24 months), Grant: 2023-329850"
   current: true
 
@@ -30,7 +33,9 @@
     Responsible for design and implementation of research plan. 
     Lead developer of semantic and analytical technologies.
     Note: left position before project completion.
-  money: "\\$623K (subcontract) / \\$15M overall, 2022-2024 (18 months), Grant: HDTRA1242031"
+  money:
+    "\\$623K (subcontract) / \\$15M overall, 2022-2024 (18 months), Grant:
+    HDTRA1242031"
 
 - funder: DARPA ASKEM Program
   award: HR00112220036
@@ -64,7 +69,9 @@
   money: "\\$750K, 2020-2023 (36 months)"
 
 - name: Ecosystem of Machine-maintained Models with Automated Assembly
-  funder: DARPA Automating Scientific Knowledge Extraction (ASKE) / Artificial Intelligence Exploration (AIE) program
+  funder:
+    DARPA Automating Scientific Knowledge Extraction (ASKE) / Artificial
+    Intelligence Exploration (AIE) program
   abbreviation: ASKE
   pi: Benjamin M. Gyori
   url: https://govtribe.com/award/federal-contract-award/other-transaction-idv-hr00111990009
@@ -84,14 +91,18 @@
   award: Internal
   abbreviation: FML
   money: "\\$40K 2019 (3 months)"
-  role: Key person. Co-wrote proposal. Responsible for design and implementation of research plan including applications of PyKEEN in biomedicine.
+  role:
+    Key person. Co-wrote proposal. Responsible for design and implementation of
+    research plan including applications of PyKEEN in biomedicine.
 
 - name: Fraunhofer Service Contract
   funder: Philip Morris International
   pi: Martin Hofmann-Apitius
   award: Contract
   money: "€80K 2019-2020 (4 months)"
-  role: Key Person. Co-responsible for design and implementation of visual analytics software for the Biological Expression Language.
+  role:
+    Key Person. Co-responsible for design and implementation of visual analytics
+    software for the Biological Expression Language.
 
 - name: Human Brain Pharmacome
   funder: Fraunhofer, under the MAVO Scheme
@@ -118,11 +129,15 @@
   pi: Martin Hofmann-Apitius
   award: Contract
   money: "\\$28K 2018 (6 months)"
-  role: Key person. Wrote proposal. Responsible for design and implementation of research plan for implementing interoperability between PyBEL and NDEx.
+  role:
+    Key person. Wrote proposal. Responsible for design and implementation of
+    research plan for implementing interoperability between PyBEL and NDEx.
 
 - name: AETIONOMY
   url: https://www.ihi.europa.eu/projects-results/project-factsheets/aetionomy
-  funder: European Union (EU), European Federation of Pharmaceutical Industries and Associations (EFPIA), and Innovative Health Initiative (IMI)
+  funder:
+    European Union (EU), European Federation of Pharmaceutical Industries and
+    Associations (EFPIA), and Innovative Health Initiative (IMI)
   role: |
     Participant. 
     Note: Joined in 2016.

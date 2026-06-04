@@ -1,3 +1,43 @@
+- name: Virtual Biocuration Conference 2026
+  link: https://www.biocuration.org/events/biocuration2026-virtual/
+  online: true
+  start:
+    month: February
+    day: 9
+    year: 2026
+  end:
+    month: September
+    day: 14
+    year: 2026
+
+- name: 4th Biohackathon Germany
+  link: https://www.denbi.de/de-nbi-events/1840-4th-biohackathon-germany
+  location:
+    city: Walsrode
+    country: Germany
+  start:
+    day: 1
+    month: December
+    year: 2025
+  end:
+    day: 5
+    month: December
+    year: 2025
+
+- name: 4th Ontologies4Chem Workshop
+  link: https://docs.google.com/document/d/17xbqr4l1CeN2LNBhwCPVzo4NDkdAq4wuqEipfE7Ng-Q/edit?tab=t.0#heading=h.yz9v4lwf4van
+  location:
+    city: Limburg
+    country: Germany
+  start:
+    day: 11
+    month: November
+    year: 2025
+  end:
+    day: 13
+    month: November
+    year: 2025
+
 - name: Biocuration 2025
   link: https://www.stowers.org/events/biocuration2025
   location:
@@ -29,8 +69,7 @@
     date:
       day: 6
       month: April
-      year:
-        2025
+      year: 2025
   name: Bioregistry Workshop @ Biocuration 2025
   link: https://www.stowers.org/events/biocuration2025
   location:
@@ -83,7 +122,9 @@
 
 - talk:
     invited: true
-    name: "Assembly and inference over semantic mappings to support the NFDI Terminology Service"
+    name:
+      "Assembly and inference over semantic mappings to support the NFDI
+      Terminology Service"
     url: https://bit.ly/semra4nfdi
     date:
       day: 9
@@ -141,7 +182,9 @@
 
 - talk:
     invited: true
-    name: "Machine-assisted integration of data and knowledge at scale to support biomedical discovery"
+    name:
+      "Machine-assisted integration of data and knowledge at scale to support
+      biomedical discovery"
     url: https://www.dropbox.com/scl/fi/phd98s1oql2knjp2v9lhq/2023-12-07_hoyt_gyori_nih_bisti.pdf?rlkey=qlorv5a1d79ofhhkatjpmj3tb&dl=0
     date:
       day: 7
@@ -172,7 +215,9 @@
 
 - talk:
     invited: true
-    name: "Democratizing Biocuration, or, How I Learned to Love the Drive-by Curation"
+    name:
+      "Democratizing Biocuration, or, How I Learned to Love the Drive-by
+      Curation"
     url: https://docs.google.com/presentation/d/1D6P-1hQefXU_yRODSJkOFLH3tPxsk9Abi20ycA0xKWU/edit?usp=sharing
     date:
       day: 18
@@ -187,7 +232,8 @@
 
 - talk:
     invited: false
-    name: "Standardization of chemical prefixes, CURIEs, URIs, and semantic mappings"
+    name:
+      "Standardization of chemical prefixes, CURIEs, URIs, and semantic mappings"
     url: https://bit.ly/ontologies4chem2023-cth
     date:
       day: 12
@@ -207,7 +253,9 @@
 
 - talk:
     invited: false
-    name: "Improving the reproducibility of cheminformatics workflows with chembl-downloader"
+    name:
+      "Improving the reproducibility of cheminformatics workflows with
+      chembl-downloader"
     url: https://bit.ly/cth-rdkit-ugm-2023
     date:
       day: 21
@@ -261,7 +309,9 @@
 
 - talk:
     invited: false
-    name: "Promoting the longevity of curated scientific resources through open code, open data, and public infrastructure"
+    name:
+      "Promoting the longevity of curated scientific resources through open
+      code, open data, and public infrastructure"
     url: https://docs.google.com/presentation/d/1hEryoMNyp8gwt2pvPy2ErKaw_QPvnWOmzPT0Sn4Yl4s/edit?usp=sharing
     date:
       day: 26
@@ -284,7 +334,9 @@
 
 - talk:
     invited: false
-    name: Using dashboards to monitor ontology standardisation and community activity
+    name:
+      Using dashboards to monitor ontology standardisation and community
+      activity
     url: https://docs.google.com/presentation/d/1oKxBzSCZGuFlIhw6jAXw00xgEGs7KgmaVR54NEdPprw/edit?usp=sharing
   name: Ontology Summit 2023
   link: https://ontologforum.org/index.php/ConferenceCall_2023_02_15
@@ -331,8 +383,9 @@
     year: 2022
 
 - talk:
-    name: "Closing the Semantic Gap: Identifying Missing Mappings and Merging Equivalent
-Concepts to Support Knowledge Graph Assembly"
+    name:
+      "Closing the Semantic Gap: Identifying Missing Mappings and Merging
+      Equivalent Concepts to Support Knowledge Graph Assembly"
     url: https://bit.ly/sorger-lab-biomappings
     invited: false
   name: Harvard Medical School - Sorger Lab Meeting
@@ -371,7 +424,9 @@ Concepts to Support Knowledge Graph Assembly"
 
 - link: https://graph-learning-benchmarks.github.io/glb2022
   talk:
-    name: "A Unified Framework for Rank-based Evaluation Metrics for Link Prediction in Knowledge Graphs"
+    name:
+      "A Unified Framework for Rank-based Evaluation Metrics for Link Prediction
+      in Knowledge Graphs"
     url: https://bit.ly/glb2022-ranking-metrics
     invited: false
   name: Graph Learning Benchmarks (GLB 2022)
@@ -390,11 +445,13 @@ Concepts to Support Knowledge Graph Assembly"
     month: April
     year: 2022
 
-- name: "Machine-Actionable Data Interoperability for Chemical Sciences (MADICES)"
+- name:
+    "Machine-Actionable Data Interoperability for Chemical Sciences (MADICES)"
   link: https://madices.github.io/
   talk:
     invited: true
-    name: "The Biopragmatics Stack: Biomedical and Chemical Semantics for Humans"
+    name:
+      "The Biopragmatics Stack: Biomedical and Chemical Semantics for Humans"
     url: https://docs.google.com/presentation/d/1D0HIX41IgVdTQYKlakWcvlZvOktX23EqbLcs3LmI7mg/edit?usp=sharing
     date:
       day: 8
@@ -421,7 +478,7 @@ Concepts to Support Knowledge Graph Assembly"
     day: 13
     month: January
     year: 2022
-   
+
 - name: Connected Data World Workshop on Graph Machine Learning
   link: https://2021.connected-data.world/
   online: true
@@ -480,11 +537,14 @@ Concepts to Support Knowledge Graph Assembly"
     month: October
     year: 2021
 
-- name: 4th Session of the International Society of Biocuration 2021 Virtual Conference
+- name:
+    4th Session of the International Society of Biocuration 2021 Virtual
+    Conference
   online: true
   link: https://www.biocuration.org/14th-annual-biocuration-conference-virtual/
   poster:
-    name: "Biomappings: Community Curation of Mappings between Biomedical Entities"
+    name:
+      "Biomappings: Community Curation of Mappings between Biomedical Entities"
     invited: false
     url: https://f1000research.com/posters/10-1005
   date:
@@ -495,7 +555,9 @@ Concepts to Support Knowledge Graph Assembly"
 - name: Graph Machine Learning in Industry
   link: https://sites.google.com/view/graph-ml-in-industry/home
   talk:
-    name: Current Issues in Theory, Reproducibility, and Utility of Graph Machine Learning in the Life Sciences
+    name:
+      Current Issues in Theory, Reproducibility, and Utility of Graph Machine
+      Learning in the Life Sciences
     invited: true
     url: https://www.youtube.com/watch?v=bLN1V5fZD2g&t=3665s
   wikidata: Q107633454
@@ -526,7 +588,9 @@ Concepts to Support Knowledge Graph Assembly"
     month: September
     year: 2021
 
-- name: 3rd Session of the International Society of Biocuration 2021 Virtual Conference
+- name:
+    3rd Session of the International Society of Biocuration 2021 Virtual
+    Conference
   online: true
   link: https://www.biocuration.org/14th-annual-biocuration-conference-virtual/
   date:
@@ -594,7 +658,9 @@ Concepts to Support Knowledge Graph Assembly"
   link: https://disease-maps.org/DMCM2020
 
 - talk:
-    name: Introduction to the Biological Expression Language and the Rational Enrichment Workflow
+    name:
+      Introduction to the Biological Expression Language and the Rational
+      Enrichment Workflow
     url: https://youtu.be/rHhuVBpoKdI
     invited: true
   online: true
@@ -650,7 +716,9 @@ Concepts to Support Knowledge Graph Assembly"
 - name: 4th Disease Maps Community Meeting
   wikidata: Q70206378
   poster:
-    name: Maintenance and Enrichment of Disease Maps in Biological Expression Language
+    name:
+      Maintenance and Enrichment of Disease Maps in Biological Expression
+      Language
     url: https://doi.org/10.6084/m9.figshare.9917753.v3
   location:
     city: Seville
@@ -667,7 +735,7 @@ Concepts to Support Knowledge Graph Assembly"
 
 - talk:
     name: Generation and Application of Biomedical Knowledge Graphs
-    url:  https://docs.google.com/presentation/d/11CG_Q3JrsqqKsDhl8uXP_TZzcyALhcVLvoP_pDmQ5JA/edit?usp=sharing
+    url: https://docs.google.com/presentation/d/11CG_Q3JrsqqKsDhl8uXP_TZzcyALhcVLvoP_pDmQ5JA/edit?usp=sharing
     invited: true
   name: Harvard Medical School
   location:
@@ -681,7 +749,9 @@ Concepts to Support Knowledge Graph Assembly"
 - name: The Eighth Joint Sheffield Conference on Chemoinformatics
   wikidata: Q64682140
   poster:
-    name: Identifying Drug Repositioning Candidates using Representation Learning on Heterogeneous Networks
+    name:
+      Identifying Drug Repositioning Candidates using Representation Learning on
+      Heterogeneous Networks
     url: https://doi.org/10.6084/m9.figshare.8288822.v2
   location:
     city: Sheffield
@@ -792,7 +862,9 @@ Concepts to Support Knowledge Graph Assembly"
     year: 2018
   link: https://proventainternational.com/bioinformatics-eu-2018/
 
-- name: Intelligent Systems for Molecular Biology and the 16th European Conference on Computational Biology
+- name:
+    Intelligent Systems for Molecular Biology and the 16th European Conference
+    on Computational Biology
   location:
     city: Prague
     country: Czech Republic
