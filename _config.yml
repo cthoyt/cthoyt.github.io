@@ -30,3 +30,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
+# settings for https://github.com/jekyll/jekyll-feed
+feed:
+  posts_limit: 200
