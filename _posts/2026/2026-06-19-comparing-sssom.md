@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Comparing manually curated SSSOM
+title: Comparing manually curated semantic mappings in SSSOM
 date: 2026-06-19 14:47:00 +0200
 author: Charles Tapley Hoyt
 tags:
@@ -15,9 +15,12 @@ I am currently supporting [Philip Strömert](https://github.com/StroemPhi) and
 revitalize the [Chemical Methods Ontology (CHMO)](https://semantic.farm/chmo) to
 support annotation of instrumentation used to produce experimental data captured
 in the [Chemotion](https://chemotion.net/) electronic laboratory notebook as
-part of [NFDIChem](https://nfdi4chem.de).
+part of [NFDIChem](https://nfdi4chem.de). This post is about the adoption of
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom)
+to support interoperability between CHMO and other resources, and the workflow I
+developed to compare overlapping manual curations from different researchers.
 
-They have already completed the important initial steps of assuming
+Philip and Noura have already completed the important initial steps of assuming
 maintainership from the Royal Society of Chemistry, porting the ontology to use
 a standardized
 [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit/)
@@ -35,8 +38,9 @@ extent for this purpose, DAPHNE4NFDI additionally develops the
 and FAIRmat develops the [NeXus format](https://www.nexusformat.org/) and
 associated [NeXus Ontology](https://semantic.farm/nexus) as part of the
 [NOMAD](https://nomad-lab.eu/nomad-lab/index.html) materials science data
-management platform. Further, there are several other resources with similar
-goals including the
+management platform.
+
+Further, there are several other resources with similar goals including the
 [Allotrope Foundation Ontology (AFO)](https://www.allotrope.org/ontologieshttps://www.allotrope.org/ontologies),
 the deprecated
 [Physico-chemical Methods and Properties (FIX)](https://semantic.farm/fix)
@@ -52,11 +56,14 @@ using the
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom)
 to curate exact matches, narrow matches, and broad matches between CHMO terms
 and external ones in PANET, NeXuS (sort of), AFO, FIX, REX, IUPAC GoldBook, and
-Wikidata. First, Philip had Ambika, a student research assistant (_Hiwi_,
-abbreviated in German), work for several months to manually curate mappings from
-CHMO to REX, FIX, AFO, and Wikidata (see
-[this PR](https://github.com/rsc-ontology/rsc-cmo/pull/77)). In parallel, I took
-the opportunity to spin up a new instance of a
+Wikidata.
+
+First, Philip had Ambika, a student research assistant (_Hiwi_, abbreviated in
+German), work for several months to manually curate mappings from CHMO to REX,
+FIX, AFO, and Wikidata (see
+[this PR](https://github.com/rsc-ontology/rsc-cmo/pull/77)).
+
+In parallel, I took the opportunity to spin up a new instance of a
 [SSSOM Curator](https://github.com/cthoyt/sssom-curator/) repository within the
 NFDI Section Metadata Working Group for Ontology Harmonization and Mappings
 [GitHub repository](https://github.com/nfdi-de/section-metadata-wg-onto/tree/main/sssom),
@@ -69,19 +76,16 @@ course of about an hour.
 ## Need for Comparison
 
 The next challenge was to efficiently triage the similarities and differences
-between my curations and Ambika's. I implemented a workflow for comparing the
-manually curated mappings in two SSSOM documents in
+between my curations and Ambika's. Therefore, I implemented a workflow for
+comparing the manually curated mappings in two SSSOM documents in
 [cthoyt/sssom-pydantic#141](https://github.com/cthoyt/sssom-pydantic/pull/141).
 This workflow creates a Markdown file describing similarities and differences.
-Luckily, there were only a small number of discrepancies which have obvious
-solutions. There were also a few interesting discrepancies which were novel to
-either my or Ambika's curations, which can be reviewed by a third curator (sorry
-Philip, more work for you).
 
-I ran the following bash commands to generate the summary, which I'll embed at
-the end of this post. Since the comparison workflow outputs Markdown, its
-results can easily be embedded in GitHub issues or my blog, which is itself
-written in Markdown.
+I chained together the following two CLI commands with `sssom_pydantic` to get
+the separate mapping files from Ambika's branch in the NFDI4Chem fork of CHMO,
+merge them, then run the comparison against my own curations. Note that these
+won't be reproducible after the branch is merged and deleted, and the actual
+results will change as more curation is done.
 
 ```console
 $ sssom_pydantic merge \
@@ -100,14 +104,27 @@ $ sssom_pydantic compare \
     --right-label Charlie
 ```
 
-## Final Remarks
+Since the comparison workflow outputs Markdown, its results can easily be
+embedded in GitHub issues or my blog, which is itself written in Markdown.
 
-I am quite happy with the first version of the comparison workflow. I think that
-it can be extended to identify and report on one-to-many, many-to-one, and
-many-to-many mappings which arise when jointly examining two mapping sets.
+## Results
 
-This is the first step in a larger agenda, which I would like to write about in
-other posts that also includes workflows for:
+I am happy with the first version of the comparison workflow. Luckily, there
+were only a small number of discrepancies which have obvious solutions. There
+were also a few interesting discrepancies which were novel to either my or
+Ambika's curations, which can be reviewed by a third curator (sorry Philip, more
+work for you).
+
+## Next Steps
+
+I think that it can be extended to identify and report on one-to-many,
+many-to-one, and many-to-many mappings which arise when jointly examining two
+mapping sets. After Philip and others interact with the results, I'm sure we
+will be able to extend it with other analyses.
+
+More generally, the implementation of the comparison workflow is part of a
+larger suite of workflows that I would like to describe in future posts
+including:
 
 1. [merging manually curated mappings](https://github.com/cthoyt/sssom-pydantic/pull/136)
 2. [generating OWL ontology bridges](https://github.com/cthoyt/sssom-pydantic/pull/128)
@@ -118,7 +135,8 @@ other posts that also includes workflows for:
    [automated evaluation of predicted mappings](https://github.com/cthoyt/sssom-pydantic/pull/131),
    which I hope can be used to run future mapping challenges
 
-Without further ado, here's the comparison:
+Without further ado, here's the comparison, copied verbatim from the output of
+the previous command:
 
 # Comparison between Ambika and Charlie
 
