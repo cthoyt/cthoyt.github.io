@@ -8,26 +8,25 @@ tags:
   - community building
 ---
 
-In March 2026, the NIH [Common Fund Data Ecosystem](https://commonfund.nih.gov/dataecosystem) issued a
+In March 2026, the NIH
+[Common Fund Data Ecosystem](https://commonfund.nih.gov/dataecosystem) issued a
 [request for comments](https://docs.google.com/document/d/1lQF0e8C134gmLB5aHsqYqPYWpC7n__PYMTiRayZ4Bbw/edit?pli=1&tab=t.0)
-for a proposal for a knowledge graph exchange format entitled _JSON Knowledge Graph
-Exchange Format (JKG)_. This post is about the burden of proposing yet another standard and
-highlights sage wisdom from Nico Matentzoglu about the importance of community work
-in pushing standards. 
+for a proposal for a knowledge graph exchange format entitled _JSON Knowledge
+Graph Exchange Format (JKG)_. This post is about the burden of proposing yet
+another standard and highlights sage wisdom from Nico Matentzoglu about the
+importance of community work in pushing standards.
 
-Discussion in the OBO community began after
-Bruce Herr
-[shared](https://obo-communitygroup.slack.com/archives/C01DP18L5GW/p1774444307246689) a link
-to the proposal in the OBO community Slack workspace.
-Along with a link to the proposal, 
-Bruce also posed the obvious question: why develop a
-new standard instead of reusing an existing one or collaborating to extend or
+Discussion in the OBO community began after Bruce Herr
+[shared](https://obo-communitygroup.slack.com/archives/C01DP18L5GW/p1774444307246689)
+a link to the proposal in the OBO community Slack workspace. Along with a link
+to the proposal, Bruce also posed the obvious question: why develop a new
+standard instead of reusing an existing one or collaborating to extend or
 improve an existing one to a new use case?
 
-Bruce's message specifically
-mentioned [Knowledge Graph Exchange (KGX)](https://github.com/biolink/kgx) as an
-existing standard from the Monarch / LinkML community, but there also exist a myriad
-of others including [JSON Graph Format (JGF)](https://jsongraph.github.io),
+Bruce's message specifically mentioned
+[Knowledge Graph Exchange (KGX)](https://github.com/biolink/kgx) as an existing
+standard from the Monarch / LinkML community, but there also exist a myriad of
+others including [JSON Graph Format (JGF)](https://jsongraph.github.io),
 [Cytoscape Exchange (CX)](<https://cytoscape.org/cx/cx2/specification/cytoscape-exchange-format-specification-(version-2)/>),
 several implemented in
 [NetworkX](https://networkx.org/documentation/stable/reference/readwrite/index.html),
@@ -36,8 +35,8 @@ and more.
 The knee-jerk reaction could easily be to reference
 [xkcd:927 "Standards"](https://xkcd.com/927/), shrug, write off the proposal as
 needlessly redundant, then move on. However, I want to share a much more nuanced
-perspective from [Nico Matentzoglu](https://semanticly.ai/about/) in the follow-up
-discussion on Slack:
+perspective from [Nico Matentzoglu](https://semanticly.ai/about/) in the
+follow-up discussion on Slack:
 
 > [...] But it is a little weird that JKG is promoted by HubMap and KidsFirst -
 > both of which are relatively close to the Monarch / LinkML ecosystem (not
@@ -54,10 +53,9 @@ discussion on Slack:
 > The hard part is to come out of that box and convince the world with a
 > powerful and mature tool ecosystem that it is worth standardizing against.
 
-I totally agree with everything Nico said here. I consider him an
-authority given his experience and success in the
-development and evangelization the OBO Foundry
-[Principles](https://obofoundry.org/principles/fp-000-summary.html) and
+I totally agree with everything Nico said here. I consider him an authority
+given his experience and success in the development and evangelization the OBO
+Foundry [Principles](https://obofoundry.org/principles/fp-000-summary.html) and
 [Dashboard](https://dashboard.obofoundry.org/dashboard/index.html),
 [Ontology Development Kit (ODK)](https://incatools.github.io/ontology-development-kit/),
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom),
