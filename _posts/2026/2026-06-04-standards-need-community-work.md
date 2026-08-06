@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Standards are about Community Work
+title: Standards Don't Succeed Without Community Work
 date: 2026-06-04 09:08:00 +0200
 author: Charles Tapley Hoyt
 tags:
