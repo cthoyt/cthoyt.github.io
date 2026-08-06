@@ -107,15 +107,16 @@ of his next points set in.
 
 This part consumes huge amounts of time, energy, and emotional resilience. Even
 if something you make is good, it's almost never the case that the target users
-are proactive looking for new tools. Evangelizing new tools requires (but is not
-limited to):
+are proactive looking for new standards, tools, etc. Evangelizing new tools
+requires (but is not limited to):
 
 1. contacting people, often
 2. fighting for their precious attention
 3. coordinating setting up meetings
 4. preparing presentations and documentation
 5. giving the same pitch over and over
-6. rewriting presentations and documentation to cover things you missed
+6. rewriting presentations and documentation to cover things you missed and
+   common points of confusion
 7. responding to questions from an audience with a variety of backgrounds, which
    can often be frustrating due to mismatch in your expectations of what the
    audience should know and care about, and what they actually know and care
@@ -128,26 +129,25 @@ limited to):
 This is also tough considering that funding often doesn't take any of this into
 account. Most grants on which I've been funded are written towards a scientific
 goal and are not explicit about the infrastructure and community work required.
-I'll leave it at that - discussing the reasons why we avoid this is a topic for
-another post.
+Discussing why this is the case is a topic for another post.
 
 > 3. Get the world to pick up a specific standard takes years.
 
 Eventually, you might have some demonstrations of your thing working, some
-publications to share, and even some grants that (after waving your hands) can
-be claimed to have supported the development of your thing. If you're lucky (or
-cursed), then people might actually start using your thing (assuming you keep
-doing the Point 2. things).
+publications to share, and even some grants that have supported the development
+of your thing. If you're lucky (or cursed), then people might actually start
+using your thing (assuming you keep doing the Point 2. things).
 
 > The hard work is not to make some proposal and get 4 big fish to approve it.
 > The hard part is to come out of that box and convince the world with a
 > powerful and mature tool ecosystem that it is worth standardizing against.
 
-Your mileage may vary here. I agree with Nico that talk is cheap. The best way
-is to start collecting requirements, forming consensus, and building against
-those expectations. But, this requires a lot of flexibility in terms of time. It
-might be the case that you need the right people to support something before
-even getting started.
+Your mileage may vary here. I agree with Nico that talk is cheap. The most
+rigorous way is to start collecting requirements, forming consensus, and
+building against those expectations. But, this requires a lot of flexibility in
+terms of time. But, it still might be the case that you need the right people to
+support something before a powerful and mature tool ecosystem is even
+considered.
 
 Now that I made it here, I'm not so happy with that being a trailing sentiment.
 I've been lucky to have been in a position in the last ten years of my career to
