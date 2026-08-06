@@ -63,9 +63,7 @@ and other standards. Further, the International Society of Biocuration (ISB)
 recognized this in 2023 by conferring on him its
 [Advanced Career Award](https://www.biocuration.org/community/biocuration-career-awards/career-award-winners/).
 
----
-
-I want to comment on several of his points:
+I want to comment on each of the five parts of what Nico wrote:
 
 > But it is a little weird that JKG is promoted by HubMap and KidsFirst - both
 > of which are relatively close to the Monarch / LinkML ecosystem (not quite
@@ -90,10 +88,10 @@ observed their general hesitance to engage with, e.g., the biocuration
 community, so their tendency towards reinvention doesn't surprise me.
 
 I've also been on the receiving end of such a snub from groups that I
-collaborate with, who, at minimum, should have been aware of what I'm working
-on. It can hurt and be demotivating when this happens, especially because many
-of us who are academic scientific software developers are doing it because of
-idealism and pride in the value of our work.
+collaborate with or work in the same space as me , who, at minimum, should have
+been aware of what I'm working on. It can hurt and be demotivating when this
+happens, especially because many of us who are academic scientific software
+developers are doing it because of idealism and pride in the value of our work.
 
 > 1. Creating a standard nowadays takes 4 hours for an experienced developer
 
