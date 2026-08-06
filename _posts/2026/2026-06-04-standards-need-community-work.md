@@ -183,4 +183,5 @@ When I asked Nico if I could quote him in a blog post, he said this:
 > I am happy for you to use this quote 😛 Not that I am really an authority on
 > the subject
 
-Like I said above, hard disagree.
+Like I said above, hard disagree. Nico is definitely an authority on the
+subject.
