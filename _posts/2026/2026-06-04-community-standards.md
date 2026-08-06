@@ -32,8 +32,8 @@ several implemented in
 [NetworkX](https://networkx.org/documentation/stable/reference/readwrite/index.html),
 and more.
 
-The knee-jerk reaction could easily be to reference
-[xkcd:927 "Standards"](https://xkcd.com/927/), shrug, write off the proposal as
+My knee-jerk reaction was to reference
+[xkcd 927 (Standards)](https://xkcd.com/927/), shrug, write off the proposal as
 needlessly redundant, then move on. However, I want to share a much more nuanced
 perspective from [Nico Matentzoglu](https://semanticly.ai/about/) in the
 follow-up discussion on Slack:
@@ -53,9 +53,9 @@ follow-up discussion on Slack:
 > The hard part is to come out of that box and convince the world with a
 > powerful and mature tool ecosystem that it is worth standardizing against.
 
-I totally agree with everything Nico said here. I consider him an authority
-given his experience and success in the development and evangelization the OBO
-Foundry [Principles](https://obofoundry.org/principles/fp-000-summary.html) and
+I totally agree with everything Nico said here. He is an authority with a proven
+track of the success in the development and evangelization the OBO Foundry
+[Principles](https://obofoundry.org/principles/fp-000-summary.html) and
 [Dashboard](https://dashboard.obofoundry.org/dashboard/index.html),
 [Ontology Development Kit (ODK)](https://incatools.github.io/ontology-development-kit/),
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom),
@@ -63,43 +63,44 @@ and other standards. Further, the International Society of Biocuration (ISB)
 recognized this in 2023 by conferring on him its
 [Advanced Career Award](https://www.biocuration.org/community/biocuration-career-awards/career-award-winners/).
 
+---
+
 I want to comment on several of his points:
 
 > But it is a little weird that JKG is promoted by HubMap and KidsFirst - both
 > of which are relatively close to the Monarch / LinkML ecosystem (not quite
 > touch it, but close).
 
-This is the part that's most like `xkcd:927`. I'm not so virtuous either - I've
-been guilty of doing the same thing. From my own experience, I can say there's a
-strong allure to:
+This is the part that's most like xkcd 927. From my own experience, I can say
+there's a strong allure to:
 
-1. starting fresh
+1. starting a project fresh
 2. having full control
 3. not needing to collaborate or find consensus (see discussion of Nico's 3
    bullet points below)
-4. Doing It Right This Time For The Last Time™
-5. having something to point to that's your creation (instead of, _we made minor
+4. directly addressing one's own use cases
+5. finally Getting It Right
+6. having something to point to that's your creation (instead of, _we made minor
    improvements to an existing resource_) which might come from, for example,
    pressure to publish for career progression or to do implicit outreach for
    your institution/employer
 
-I can't speak towards why NIH didn't reuse, for example, KGX, but based on their
-general hesitance to engage with the community in other things, their tendency
-towards reinvention doesn't surprise me.
+I can't speak towards why NIH didn't reuse, for example, KGX, but I have
+observed their general hesitance to engage with, e.g., the biocuration
+community, so their tendency towards reinvention doesn't surprise me.
 
-All that being said, I've also been on the receiving end of such a snub from
-groups that I collaborate with and from groups that, at minimum, should be aware
-of what I'm working on. It can hurt and be demotivating when this happens,
-especially because many of us who are academic scientific software developers
-are doing it because of idealism and pride in the value of our work, despite
-there are often much better job prospects elsewhere.
+I've also been on the receiving end of such a snub from groups that I
+collaborate with, who, at minimum, should have been aware of what I'm working
+on. It can hurt and be demotivating when this happens, especially because many
+of us who are academic scientific software developers are doing it because of
+idealism and pride in the value of our work.
 
 > 1. Creating a standard nowadays takes 4 hours for an experienced developer
 
 Nico and I have had philosophical debates about this kind of thing, and his
 position is that it's better to have something that works 80% percent for many
 use cases, but at least everyone aligns on the standard. When I've taken the
-"idealistic" approach described above and built something myself, it's usually
+_idealistic_ approach described above and built something myself, it's usually
 the case that I can make something better, but then the more important reality
 of his next points set in.
 
@@ -117,7 +118,7 @@ limited to):
 4. preparing presentations and documentation
 5. giving the same pitch over and over
 6. rewriting presentations and documentation to cover things you missed
-7. responding to questions from an audience with a variety of backgrounds and
+7. responding to questions from an audience with a variety of backgrounds, which
    can often be frustrating due to mismatch in your expectations of what the
    audience should know and care about, and what they actually know and care
    about. You still have to be nice, even when frustrated (one reason this
@@ -125,12 +126,12 @@ limited to):
 8. struggling with when people would rather use someone else's tool than yours,
    especially when you know yours is a better fit (another reason this requires
    emotional resilience)
-9. and so it goes 🐦
 
 This is also tough considering that funding often doesn't take any of this into
-account. It's usually "make and deliver the thing" or "do the science" and you
-sneak "making the thing" in later, because you knew that "make the thing"
-wouldn't be a very good selling point when applying for funding.
+account. Most grants on which I've been funded are written towards a scientific
+goal and are not explicit about the infrastructure and community work required.
+I'll leave it at that - discussing the reasons why we avoid this is a topic for
+another post.
 
 > 3. Get the world to pick up a specific standard takes years.
 
@@ -151,12 +152,11 @@ might be the case that you need the right people to support something before
 even getting started.
 
 Now that I made it here, I'm not so happy with that being a trailing sentiment.
-I've been lucky to have been in a position in the last 10 years of my career to
+I've been lucky to have been in a position in the last ten years of my career to
 be flexible in the way I allocate my time, to have good mentorship (s/o again to
-Nico and Melissa Haendel, who helped me get the Bioregistry / Semantic Farm off
-the ground), and to have a very particular set of skills, skills I have acquired
-over a (very) long career, skills that make me a ~nightmare for people like you~
-minimally okay fit for this kind of work.
+Nico and Melissa Haendel, who helped me get the Bioregistry/Semantic Farm off
+the ground), and to have had the opportunity to improve some of the skills
+listed above.
 
 ---
 
@@ -182,7 +182,7 @@ I assume that at some point, the RFC will get taken down. I archived it as PDF
 
 When I asked Nico if I could quote him in a blog post, he said this:
 
-> I am happy for you to use this quote :stuck_out_tongue: Not that I am really
-> an authority on the subject
+> I am happy for you to use this quote 😛 Not that I am really an authority on
+> the subject
 
-Hard disagree.
+Like I said above, hard disagree.
