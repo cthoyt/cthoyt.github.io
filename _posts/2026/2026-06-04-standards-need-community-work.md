@@ -113,7 +113,7 @@ requires (but is not limited to):
 
 1. contacting people, often
 2. fighting for their precious attention
-3. coordinating setting up meetings
+3. coordinating setting up meetings and trainings
 4. preparing presentations and documentation
 5. giving the same pitch over and over
 6. rewriting presentations and documentation to cover things you missed and
