@@ -46,13 +46,12 @@ OWL/XML. This spanned four pull requests to `cthoyt/sssom-pydantic`:
 [#128](https://github.com/cthoyt/sssom-pydantic/pull/128),
 [#157](https://github.com/cthoyt/sssom-pydantic/pull/157),
 [#158](https://github.com/cthoyt/sssom-pydantic/pull/158), and
-[#159](https://github.com/cthoyt/sssom-pydantic/pull/159). Ultimately, this post
-is an adaptation of the
+[#159](https://github.com/cthoyt/sssom-pydantic/pull/159); this post is an
+adaptation of the accompanying
 [documentation](https://sssom-pydantic.readthedocs.io/en/latest/owl.html) I
-wrote for the `sssom_pydantic.contrib.owl` module. If you're interested in other
-SSSOM transformations, see my previous posts on [SSSOM to
-JSKOS]({% post_url 2026-01-15-sssom-to-jskos %}) and [SSSOM to
-Wikidata]({% post_url 2026-01-07-sssom-to-wikidata %}).
+wrote along the way. If you're interested in other SSSOM transformations, see my
+previous posts on [SSSOM to JSKOS]({% post_url 2026-01-15-sssom-to-jskos %}) and
+[SSSOM to Wikidata]({% post_url 2026-01-07-sssom-to-wikidata %}).
 
 ## Usage
 
