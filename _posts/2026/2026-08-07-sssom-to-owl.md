@@ -12,27 +12,56 @@ tags:
   - functional OWL
 ---
 
-The [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
-specifies a transformation from its data model to the to [Web Ontology Language (OWL)](https://www.w3.org/TR/owl2-overview/)
-its [documentation](https://mapping-commons.github.io/sssom/dev/spec-formats-owl/). This post is
-about implementing and extending that transformation in the
-[sssom-pydantic](https://github.com/cthoyt/sssom-pydantic/pull/159) Python package.
+The
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
+specifies a transformation from its data model to the to
+[Web Ontology Language (OWL)](https://www.w3.org/TR/owl2-overview/) its
+[documentation](https://mapping-commons.github.io/sssom/dev/spec-formats-owl/).
+This post is about implementing and extending that transformation in the
+[sssom-pydantic](https://github.com/cthoyt/sssom-pydantic/pull/159) Python
+package and the implications for ontology curation and maintenance, especially
+within the context of [NFDI4Chem](https://nfdi4chem.de).
 
-The transformation from SSSOM to OWL enables ontology curators to externalize curation of semantic mappings into
-SSSOM TSV files, which better support curators in capturing precise mapping
-predicates and provenance metadata. After, SSSOM can be transformed into OWL and
-merged with their ontology edit file during release, for example, using the
-[ROBOT](https://robot.obolibrary.org/) tool.
+The transformation from SSSOM to OWL enables ontology curators to externalize
+curation of semantic mappings into SSSOM TSV files, which better support
+curators in capturing precise mapping predicates and provenance metadata. After,
+SSSOM can be transformed into OWL and merged with their ontology edit file
+during release, for example, using the [ROBOT](https://robot.obolibrary.org/)
+tool.
 
-SSSOM-Pydantic implements the
-transformation into the [OWL Functional-Style Syntax](https://www.w3.org/TR/owl2-syntax/)
-object model with the [`functional-owl`](https://github.com/cthoyt/functional-owl) package,
+This post was specifically motivated by my current work in
+[NFDI4Chem](https://nfdi4chem.de) and
+[NFDI Section Metadata Working Group on Ontology Harmonization and Mapping](https://github.com/nfdi-de/section-metadata-wg-onto)
+to support [Philip Strömert](https://github.com/StroemPhi) and
+[Noura Rayya](https://github.com/NRayya) in revitalizing the
+[Chemical Methods Ontology (CHMO)](https://semantic.farm/chmo) and restructuring
+it to use the
+[Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
+
+I implemented in SSSOM-Pydantic the transformation to
+[OWL Functional-Style Syntax](https://www.w3.org/TR/owl2-syntax/) object model
+with the [`functional-owl`](https://github.com/cthoyt/functional-owl) package,
 which enables serialization to OWL Functional Notation (OFN), OWL/RDF, and
-OWL/XML.
+OWL/XML. This spanned four pull requests:
+[cthoyt/sssom-pydantic#128](https://github.com/cthoyt/sssom-pydantic/pull/128),
+[cthoyt/sssom-pydantic#157](https://github.com/cthoyt/sssom-pydantic/pull/157),
+[cthoyt/sssom-pydantic#158](https://github.com/cthoyt/sssom-pydantic/pull/158),
+and
+[cthoyt/sssom-pydantic#159](https://github.com/cthoyt/sssom-pydantic/pull/159).
+Ultimately, this post was an adaptation of the
+[documentation](https://sssom-pydantic.readthedocs.io/en/latest/owl.html) I
+wrote for the `sssom_pydantic.contrib.owl` module which significantly extends
+the official
+[SSSOM specification](https://mapping-commons.github.io/sssom/dev/spec-formats-owl/).
+If you're interested in other SSSOM transformations, see my previous posts on
+[SSSOM to JSKOS]({% post_url 2026-01-15-sssom-to-jskos %}) and [SSSOM to
+Wikidata]({% post_url 2026-01-07-sssom-to-wikidata %}).
 
 ## Usage
 
-A semantic mapping can be transformed with the [`get_axiom()`](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.contrib.owl.get_axiom.html) function:
+A semantic mapping can be transformed with the
+[`get_axiom()`](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.contrib.owl.get_axiom.html)
+function:
 
 ```python
 from curies import Converter
@@ -48,7 +77,8 @@ get_axiom(mapping, converter).to_funowl()
 ```
 
 A collection of semantic mappings and optional mapping set metadata can be
-written to an OWL file with [`write_owl`](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.contrib.owl.write_owl.html).
+written to an OWL file with
+[`write_owl`](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.contrib.owl.write_owl.html).
 
 ```python
 from curies import Converter, Reference
@@ -91,8 +121,9 @@ Ontology(
 ```
 
 Throughout this post, I'm going to omit the annotations on the annotation
-assertions that come from other SSSOM metadata such as the confidence and author.
-These can be added with the `mapping_annotations=True` in `write_owl()`.
+assertions that come from other SSSOM metadata such as the confidence and
+author. These can be added with the `mapping_annotations=True` in `write_owl()`.
+
 This workflow can also be called from the command line with:
 
 ```console
@@ -119,19 +150,19 @@ originating from SKOS, are transformed using the `AnnotationAssertion()` axioms
 as follows:
 
 | Semantic Mapping                     | Functional OWL Expression                                 |
-|--------------------------------------|-----------------------------------------------------------|
+| ------------------------------------ | --------------------------------------------------------- |
 | `S skos:exactMatch O`                | `AnnotationAssertion(skos:exactMatch S O)`                |
 | `S skos:broadMatch O`                | `AnnotationAssertion(skos:broadMatch S O)`                |
 | `S skos:narrowMatch O`               | `AnnotationAssertion(skos:narrowMatch S O)`               |
-| `S skos:closeMatch O`                | `AnnotationAssertion(skos:closeMatch S O)`                |      
+| `S skos:closeMatch O`                | `AnnotationAssertion(skos:closeMatch S O)`                |
 | `S skos:relatedMatch O`              | `AnnotationAssertion(skos:relatedMatch S O)`              |
 | `S rdfs:seeAlso O`                   | `AnnotationAssertion(skos:seeAlso S O)`                   |
 | `S oboInOwl:hasDbXref O`             | `AnnotationAssertion(oboInOwl:hasDbXref S O)`             |
 | `S IAO:0000118 O` (alternate term)   | `AnnotationAssertion(IAO:0000118 S O)`                    |
 | `S IAO:0100001 O` (term replaced by) | `AnnotationAssertion(IAO:0100001 S O)`                    |
-| `S semapv:crossSpeciesExactMatch O`  | `AnnotationAssertion(semapv:crossSpeciesExactMatch S O)`  |               
-| `S semapv:crossSpeciesNarrowMatch O` | `AnnotationAssertion(semapv:crossSpeciesNarrowMatch S O)` |                
-| `S semapv:crossSpeciesBroadMatch O`  | `AnnotationAssertion(semapv:crossSpeciesBroadMatch S O)`  |               
+| `S semapv:crossSpeciesExactMatch O`  | `AnnotationAssertion(semapv:crossSpeciesExactMatch S O)`  |
+| `S semapv:crossSpeciesNarrowMatch O` | `AnnotationAssertion(semapv:crossSpeciesNarrowMatch S O)` |
+| `S semapv:crossSpeciesBroadMatch O`  | `AnnotationAssertion(semapv:crossSpeciesBroadMatch S O)`  |
 
 In practice, any semantic mapping predicate that doesn't have another
 transformation rule associated with it in the following sections
@@ -146,7 +177,7 @@ false information is annotated onto the annotation assertion using
 `Annotation(sssom:predicate_modifier "Not")` as in:
 
 | Semantic Mapping            | Functional Expression                                                                   |
-|-----------------------------|-----------------------------------------------------------------------------------------|
+| --------------------------- | --------------------------------------------------------------------------------------- |
 | `S not skos:exactMatch O`   | `AnnotationAssertion(Annotation(sssom:predicate_modifier "Not") skos:exactMatch S O)`   |
 | `S not skos:broadMatch O`   | `AnnotationAssertion(Annotation(sssom:predicate_modifier "Not") skos:broadMatch S O)`   |
 | `S not skos:narrowMatch O`  | `AnnotationAssertion(Annotation(sssom:predicate_modifier "Not") skos:narrowMatch S O)`  |
@@ -159,10 +190,10 @@ mapping and its transformation into OWL, serialized in OWL functional notation
 (OFN). The prefix map and metadata are omitted from both the SSSOM and OWL
 output for clarity.
 
-| subject_id   | subject_label | predicate_id     | predicate_modifier | object_id     | object_label           | mapping_justification         |
-|--------------|--------------|------------------|--------------------|---------------|------------------------|-------------------------------|
-| CHEBI:28646  | ammeline     | skos:exactMatch  |                    |  mesh:C000089 | ammeline               | semapv:ManualMappingCuration  |
-| CHEBI:10057  | 9H-xanthene  | skos:exactMatch  | Not                | mesh:C002563  | xanthan gum            | semapv:ManualMappingCuration  |
+| subject_id  | subject_label | predicate_id    | predicate_modifier | object_id    | object_label | mapping_justification        |
+| ----------- | ------------- | --------------- | ------------------ | ------------ | ------------ | ---------------------------- |
+| CHEBI:28646 | ammeline      | skos:exactMatch |                    | mesh:C000089 | ammeline     | semapv:ManualMappingCuration |
+| CHEBI:10057 | 9H-xanthene   | skos:exactMatch | Not                | mesh:C002563 | xanthan gum  | semapv:ManualMappingCuration |
 
 ```
 Ontology(
@@ -183,7 +214,7 @@ describing classes. Any semantic mapping using these predicates have their
 subject and object types interpreted as classes.
 
 | Semantic Mapping          | Functional OWL Expression                    |
-|---------------------------|----------------------------------------------|
+| ------------------------- | -------------------------------------------- |
 | `S owl:equivalentClass O` | `EquivalentClasses(S O)`                     |
 | `S rdfs:subClassOf O`     | `SubClassOf(S O)`                            |
 | `S owl:complementOf O`    | `EquivalentClasses(S ObjectComplementOf(O))` |
@@ -193,11 +224,11 @@ subject and object types interpreted as classes.
 
 The following semantic mapping predicates are expanded into OWL logical axioms
 describing named individuals. Any semantic mapping using these predicates have
-their subject and object types interpreted as named indiduals, with the
+their subject and object types interpreted as named individuals, with the
 exception being `rdfs:type`, which infers the object is a class.
 
 | Semantic Mapping        | Functional OWL Expression   |
-|-------------------------|-----------------------------|
+| ----------------------- | --------------------------- |
 | `S rdfs:type O`         | `ClassAssertion(O S)`       |
 | `S owl:sameAs O`        | `SameIndividual(S O)`       |
 | `S owl:differentFrom O` | `DifferentIndividuals(S O)` |
@@ -206,7 +237,7 @@ Here's an example SSSOM table and accompanying OWL output containing examples
 for each semantic mapping predicate.
 
 | subject_id    | subject_label          | predicate_id      | object_id     | object_label | mapping_justification        |
-|---------------|------------------------|-------------------|---------------|--------------|------------------------------|
+| ------------- | ---------------------- | ----------------- | ------------- | ------------ | ---------------------------- |
 | ror:04xfq0f34 | RWTH Aachen University | rdf:type          | OBI:0000245   | organization | semapv:ManualMappingCuration |
 | ror:04fbd2g40 | BioNTech (Germany)     | owl:sameAs        | VO:0004946    | BioNTech     | semapv:ManualMappingCuration |
 | ror:04fbd2g40 | BioNTech (Germany)     | owl:differentFrom | ror:054q96n74 | AstraZeneca  | semapv:ManualMappingCuration |
@@ -224,11 +255,9 @@ Ontology(
 )
 ```
 
-:::: note ::: title Note :::
-
 The semantics of `owl:sameAs` and `owl:differentFrom` are exactly negated,
 meaning that this could be extended to incorporate negated semantic mappings.
-See the section below on [Negations](#negations) for more information. ::::
+See the section below on [Negations](#negations) for more information.
 
 ## Logical Axioms for Properties
 
@@ -243,7 +272,7 @@ functional OWL expression. When `subject_type` is unavailable, this
 implementation assumes that the property is an object property.
 
 | Semantic Mapping Functional    | OWL Expression                    | Subject Type        |
-|--------------------------------|-----------------------------------|---------------------|
+| ------------------------------ | --------------------------------- | ------------------- |
 | `S owl:equivalentProperty O`   | `EquivalentObjectProperties(S O)` | object property     |
 | `S owl:equivalentProperty O`   | `EquivalentDataProperties(S O)`   | data property       |
 | `S owl:equivalentProperty O`   | does not exist[^1]                | annotation property |
@@ -257,12 +286,31 @@ implementation assumes that the property is an object property.
 | `S owl:inverseOf O`            | doesn't make sense[^3]            | data property       |
 | `S owl:inverseOf O`            | does not exist[^4]                | annotation property |
 
+[^1]:
+    This seems like an oversight, because stating that two annotation properties
+    are interchangeable (e.g., `dce:creator` and `dcterms:creator`) is important
+
+[^2]:
+    Because the `owl:propertyDisjointWith` is interpreted in a logical way, it
+    doesn't make sense for OWL to have a corresponding functional OWL expression
+    for annotation properties.
+
+[^3]:
+    Literals don't appear as subjects in triples in OWL, so having an inverse
+    for a data property doesn't make sense
+
+[^4]:
+    Annotation properties can meaningfully be inverted if their range isn't a
+    literal, so this seems like an oversight. OWL probably didn't include this
+    since it's only informative and not part of a logical definition of an
+    entity.
+
 Here's an example SSSOM table and accompanying OWL output containing examples
 for some semantic mapping predicates.
 
 | subject_id               | subject_label           | subject_type            | predicate_id           | object_id                      | object_label               | mapping_justification        |
-|--------------------------|-------------------------|-------------------------|------------------------|--------------------------------|----------------------------|------------------------------|
-| RO:0018033               | is deprotonated form of | owl object property     | owl:equivalentProperty | obo:chebi#is_conjugate_base_of | is conjugate base of       | semapv:ManualMappingCuration | 
+| ------------------------ | ----------------------- | ----------------------- | ---------------------- | ------------------------------ | -------------------------- | ---------------------------- |
+| RO:0018033               | is deprotonated form of | owl object property     | owl:equivalentProperty | obo:chebi#is_conjugate_base_of | is conjugate base of       | semapv:ManualMappingCuration |
 | RO:0018002               | myristoylates           | owl object property     | rdfs:subPropertyOf     | RO:0002436                     | molecularly interacts with | semapv:ManualMappingCuration |
 | oboInOwl:hasBroadSynonym | has broad synonym       | owl annotation property | rdfs:subPropertyOf     | IAO:0000118                    | alternative label          | semapv:ManualMappingCuration |
 
@@ -297,16 +345,11 @@ SSSOM with Ontology Development Kit (ODK) release workflows and briefly
 described
 [here](https://github.com/INCATools/ontology-development-kit/issues/626#issuecomment-3285032670).
 SSSOM Pydantic extends Damien's original idea with additional rules described in
-the following table, which are implemented in
-`get_upgraded_annotation_property`{.interpreted-text role="func"}.
-
-:::: note ::: title Note :::
-
-In the following table, `class` is shorthand for `rdfs:Class`, `rdfs:Resource`,
-`owl:Class`, or `skos:Concept`. ::::
+the following table. In the subject type column, `class` is shorthand for
+`rdfs:Class`, `rdfs:Resource`, `owl:Class`, or `skos:Concept`:
 
 | Semantic Mapping       | Functional OWL Expression         | Subject Type                      |
-|------------------------|-----------------------------------|-----------------------------------|
+| ---------------------- | --------------------------------- | --------------------------------- |
 | `S skos:exactMatch O`  | `EquivalentClasses(S O)`          | class or undefined                |
 | `S skos:exactMatch O`  | `SameIndividual(S O)`             | `owl:NamedIndividual`             |
 | `S skos:exactMatch O`  | `EquivalentObjectProperties(S O)` | `owl:ObjectProperty` or undefined |
@@ -323,19 +366,17 @@ In the following table, `class` is shorthand for `rdfs:Class`, `rdfs:Resource`,
 | `O skos:broadMatch S`  | `SubDataPropertyOf(S O)`          | `owl:DataProperty`                |
 | `O skos:broadMatch S`  | `SubAnnotationPropertyOf(S O)`    | `owl:AnnotationProperty`          |
 
-:::: warning ::: title Warning :::
-
 The rules between `skos:broadMatch` and `skos:narrowMatch` are complementary,
 which is why the `S` and `O` are flipped. In practice, the implementation
 requires applying
-`sssom_pydantic.process.invert_narrow_matches`{.interpreted-text role="func"} to
-flip all narrow matches into broad matches before transforming to OWL. ::::
+[`invert_narrow_matches()`](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.invert_narrow_matches.html)
+to flip all narrow matches into broad matches before transforming to OWL.
 
-Adding the `mode="bridge"` parameter to `write_owl()` opts into this upgrading behavior to transform the following SSSOM
-into OWL.
+Adding the `mode="bridge"` parameter to `write_owl()` opts into this upgrading
+behavior to transform the following SSSOM into OWL.
 
 | subject_id  | subject_label | predicate_id    | object_id    | object_label | mapping_justification        |
-|-------------|---------------|-----------------|--------------|--------------|------------------------------|
+| ----------- | ------------- | --------------- | ------------ | ------------ | ---------------------------- |
 | CHEBI:28646 | ammeline      | skos:exactMatch | mesh:C000089 | ammeline     | semapv:ManualMappingCuration |
 
 ```
@@ -351,7 +392,7 @@ Similarly, the `--mode bridge` option can be passed to the CLI to enable
 bridging upgrades.
 
 ```console
-sssom_pydantic owl --mode bridge -i test.sssom.tsv -o test.ofn
+$ sssom_pydantic owl --mode bridge -i test.sssom.tsv -o test.ofn
 ```
 
 ## Negations
@@ -369,8 +410,8 @@ However, there are a few major caveats to such ascription.
     `A not exact match B` is a trivial negative mapping, and should be
     discarded. Otherwise, the production of `A disjointFrom B` would cause an
     unsatisfiability. The
-    `sssom_pydantic.process.remove_trivial_negative`{.interpreted-text
-    role="func"} identifies and removes trivial negative mappings.
+    [`remove_trivial_negative()`](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.remove_trivial_negative.html)
+    function identifies and removes trivial negative mappings.
 2.  Even the lack of existence of another explicit positive mapping such as
     `A subclass of B` doesn't mean that the positive mapping is true.
     Constructing a logical axiom from a negative mapping can only work if based
@@ -378,31 +419,29 @@ However, there are a few major caveats to such ascription.
     mapping between `A` and `B` implies that no positive mapping exists.
 
 While these caveats apply to class and property mappings, negative modifiers on
-mappings between individuals can be more confidently handled. The negatition of
+mappings between individuals can be more confidently handled. The negation of
 the `owl:differentFrom` relation always means that they are the same, and the
 negation of `owl:sameAs` always means they are different.
 
-The following table describes rules for doing this which are implemented in
-`get_implied_negation_axiom`{.interpreted-text role="func"}.
+The following table contains the negation rules:
 
-
-| Semantic Mapping                   | Functional OWL Expression                  | Subject Type                      |
-|------------------------------------|--------------------------------------------|-----------------------------------|
-| `S not skos:exactMatch O`          | `DisjointClasses(S O)`                     | class or undefined                |
-| `S not skos:exactMatch O`          | `DifferentIndividuals(S O)`                | `owl:NamedIndividual`             |
-| `S not skos:exactMatch O`          | `DisjointObjectProperties(S O)`            | `owl:ObjectProperty`              |
-| `S not skos:exactMatch O`          | `DisjointDataProperties(S O)`              | `owl:DataProperty`                |
-| `S not skos:exactMatch O`          | does not exist                             | `owl:AnnotationProperty`          |
-| `S not owl:equivalentClass O`      | `DisjointClasses(S O)`                     |                                   |
-| `S not owl:disjointWith O`         | `EquivalentClasses(S O)`                   |                                   |
-| `S not owl:differentFrom O`        | `SameIndividual(S O)`                      |                                   |
-| `S not owl:sameAs O`               | `DifferentIndividuals(S O)`                |                                   |
-| `S not owl:equivalentProperty O`   | `DisjointObjectProperties(S O)`            | `owl:ObjectProperty` or undefined |
-| `S not owl:equivalentProperty O`   | `DisjointDataProperties(S O)`              | `owl:DataProperty`                |
-| `S not owl:equivalentProperty O`   | does not exist                             | `owl:AnnotationProperty`          |
-| `S not owl:propertyDisjointWith O` | `EquivalentObjectProperties(S O)`          | `owl:ObjectProperty` or undefined |
-| `S not owl:propertyDisjointWith O` | `EquivalentDataProperties(S O)`            | `owl:DataProperty`                |
-| `S not owl:propertyDisjointWith O` | does not exist                             | `owl:AnnotationProperty`          |
+| Semantic Mapping                   | Functional OWL Expression         | Subject Type                      |
+| ---------------------------------- | --------------------------------- | --------------------------------- |
+| `S not skos:exactMatch O`          | `DisjointClasses(S O)`            | class or undefined                |
+| `S not skos:exactMatch O`          | `DifferentIndividuals(S O)`       | `owl:NamedIndividual`             |
+| `S not skos:exactMatch O`          | `DisjointObjectProperties(S O)`   | `owl:ObjectProperty`              |
+| `S not skos:exactMatch O`          | `DisjointDataProperties(S O)`     | `owl:DataProperty`                |
+| `S not skos:exactMatch O`          | does not exist                    | `owl:AnnotationProperty`          |
+| `S not owl:equivalentClass O`      | `DisjointClasses(S O)`            |                                   |
+| `S not owl:disjointWith O`         | `EquivalentClasses(S O)`          |                                   |
+| `S not owl:differentFrom O`        | `SameIndividual(S O)`             |                                   |
+| `S not owl:sameAs O`               | `DifferentIndividuals(S O)`       |                                   |
+| `S not owl:equivalentProperty O`   | `DisjointObjectProperties(S O)`   | `owl:ObjectProperty` or undefined |
+| `S not owl:equivalentProperty O`   | `DisjointDataProperties(S O)`     | `owl:DataProperty`                |
+| `S not owl:equivalentProperty O`   | does not exist                    | `owl:AnnotationProperty`          |
+| `S not owl:propertyDisjointWith O` | `EquivalentObjectProperties(S O)` | `owl:ObjectProperty` or undefined |
+| `S not owl:propertyDisjointWith O` | `EquivalentDataProperties(S O)`   | `owl:DataProperty`                |
+| `S not owl:propertyDisjointWith O` | does not exist                    | `owl:AnnotationProperty`          |
 
 The following example shows how the negative semantic mapping from the section
 [Annotation Properties](#annotation-properties) now produces a
@@ -412,7 +451,7 @@ It also reuses the examples from
 but flips inverts their predicates.
 
 | subject_id    | subject_label      | predicate_id      | predicate_modifier | object_id     | object_label | mapping_justification            |
-|---------------|--------------------|-------------------|--------------------|---------------|--------------|----------------------------------|
+| ------------- | ------------------ | ----------------- | ------------------ | ------------- | ------------ | -------------------------------- |
 | CHEBI:10057   | 9H-xanthene        | skos:exactMatch   | Not                | mesh:C002563  | xanthan      | gum semapv:ManualMappingCuration |
 | ror:04fbd2g40 | BioNTech (Germany) | owl:differentFrom | Not                | VO:0004946    | BioNTech     | semapv:ManualMappingCuration     |
 | ror:04fbd2g40 | BioNTech (Germany) | owl:sameAs        | Not                | ror:054q96n74 | AstraZeneca  | semapv:ManualMappingCuration     |
@@ -435,24 +474,13 @@ The `--negation-workflow` option can be passed to the CLI to enable this
 workflow when in bridge mode.
 
 ```console
-sssom_pydantic owl --mode bridge --negation-workflow -i test.sssom.tsv -o test.ofn
+$ sssom_pydantic owl --mode bridge --negation-workflow -i test.sssom.tsv -o test.ofn
 ```
 
-[^1]:
-    This seems like an oversight, because stating that two annotation properties
-    are interchangable (e.g., `dce:creator` and `dcterms:creator`) is important
+---
 
-[^2]:
-    Because the `owl:propertyDisjointWith` is interpreted in a logical way, it
-    doesn't make sense for OWL to have a corresponding functional OWL expression
-    for annotation properties.
-
-[^3]:
-    Literals don't appear as subjects in triples in OWL, so having an inverse
-    for a data property doesn't make sense
-
-[^4]:
-    Annotation properties can meaningfully be inverted if their range isn't a
-    literal, so this seems like an oversight. OWL probably didn't include this
-    since it's only informative and not part of a logical definition of an
-    entity.
+Converting SSSOM to OWL is part of a more grand workflow for semi-automated
+curation and review of mappings and incorporation into ontologies. The next post
+coming up in this series will be about SSSOM review workflows that will
+complement my previous post on [comparison of manually curated SSSOM
+documents]({% post_url 2026-06-19-comparing-sssom %}).
