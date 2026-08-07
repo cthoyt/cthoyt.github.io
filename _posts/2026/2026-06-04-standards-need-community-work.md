@@ -170,10 +170,11 @@ data in mind - it has some amateur mistakes like
 that's almost a CURIE but looses focus right at the end with `_CUI`. I'll be sad
 on the day if/when I need to work with data in this format.
 
-NIH isn't so good at community work, so I don't think that this will be a big
-deal. In general, it's even more difficult to convince a group to give up on
-their own standards and adopt yours (trust me, I tried / trust me, people have
-tried on me).
+I have doubts that a group making a proposal that has not previously engaged
+with the community will be successful at engaging with the community after, so I
+don't think that this will be a big deal. In general, it's even more difficult
+to convince a group to give up on their own standards and adopt yours - trust
+me, I tried, and people have tried on me.
 
 I assume that at some point, the RFC will get taken down. I archived it as PDF
 [here](/assets/cfde-jkg-rfc.pdf).
