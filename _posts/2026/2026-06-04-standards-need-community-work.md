@@ -83,8 +83,8 @@ there's a strong allure to:
    pressure to publish for career progression or to do implicit outreach for
    your institution/employer
 
-I can't speak towards why NIH didn't reuse, for example, KGX, but I have
-observed their general hesitance to engage with, e.g., the biocuration
+I can't speak towards why the JKG authors didn't reuse, for example, KGX, but I
+have observed their general hesitance to engage with, e.g., the biocuration
 community, so their tendency towards reinvention doesn't surprise me.
 
 I've also been on the receiving end of such a snub from groups that I
