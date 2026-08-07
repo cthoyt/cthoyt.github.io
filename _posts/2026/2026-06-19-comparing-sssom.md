@@ -128,6 +128,8 @@ including:
 
 1. [merging manually curated mappings](https://github.com/cthoyt/sssom-pydantic/pull/136)
 2. [generating OWL ontology bridges](https://github.com/cthoyt/sssom-pydantic/pull/128)
+   (update as of August 7<sup>th</sup>, 2026, that post is
+   [here]({% post_url 2026/2026-08-07-sssom-to-owl %}))
 3. incorporating SSSOM into ODK builds, which I will support
    [Damien Goutte-Gattat](https://github.com/gouttegd) to document in the ODK
    repository and the [OBOOK](https://oboacademy.github.io/obook).
