@@ -111,7 +111,8 @@ if something you make is good, it's almost never the case that the target users
 are proactive looking for new standards, tools, etc. Evangelizing new tools
 requires (but is not limited to):
 
-1. contacting people, often
+1. contacting people, often. This is more likely to be successful in one-on-one
+   or small group settings.
 2. fighting for their precious attention
 3. coordinating setting up meetings and trainings
 4. preparing presentations and documentation
