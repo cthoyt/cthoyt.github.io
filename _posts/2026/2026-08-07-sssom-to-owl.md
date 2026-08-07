@@ -49,9 +49,8 @@ OWL/XML. This spanned four pull requests to `cthoyt/sssom-pydantic`:
 [#159](https://github.com/cthoyt/sssom-pydantic/pull/159); this post is an
 adaptation of the accompanying
 [documentation](https://sssom-pydantic.readthedocs.io/en/latest/owl.html) I
-wrote along the way. If you're interested in other SSSOM transformations, see my
-previous posts on [SSSOM to JSKOS]({% post_url 2026-01-15-sssom-to-jskos %}) and
-[SSSOM to Wikidata]({% post_url 2026-01-07-sssom-to-wikidata %}).
+wrote along the way. This functionality is now available in
+[`sssom-pydantic` v0.6.0](https://github.com/cthoyt/sssom-pydantic/releases/tag/v0.6.0).
 
 ## Usage
 
@@ -480,4 +479,8 @@ Converting SSSOM to OWL is part of a more grand workflow for semi-automated
 curation and review of mappings and incorporation into ontologies. The next post
 coming up in this series will be about SSSOM review workflows that will
 complement my previous post on [comparison of manually curated SSSOM
-documents]({% post_url 2026-06-19-comparing-sssom %}).
+documents]({% post_url 2026/2026-06-19-comparing-sssom %}).
+
+If you're interested in other SSSOM transformations, see my previous posts on
+[SSSOM to JSKOS]({% post_url 2026-01-15-sssom-to-jskos %}) and [SSSOM to
+Wikidata]({% post_url 2026-01-07-sssom-to-wikidata %}).
