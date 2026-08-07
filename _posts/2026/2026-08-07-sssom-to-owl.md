@@ -42,19 +42,16 @@ I implemented in SSSOM-Pydantic the transformation to
 [OWL Functional-Style Syntax](https://www.w3.org/TR/owl2-syntax/) object model
 with the [`functional-owl`](https://github.com/cthoyt/functional-owl) package,
 which enables serialization to OWL Functional Notation (OFN), OWL/RDF, and
-OWL/XML. This spanned four pull requests:
-[cthoyt/sssom-pydantic#128](https://github.com/cthoyt/sssom-pydantic/pull/128),
-[cthoyt/sssom-pydantic#157](https://github.com/cthoyt/sssom-pydantic/pull/157),
-[cthoyt/sssom-pydantic#158](https://github.com/cthoyt/sssom-pydantic/pull/158),
-and
-[cthoyt/sssom-pydantic#159](https://github.com/cthoyt/sssom-pydantic/pull/159).
-Ultimately, this post was an adaptation of the
+OWL/XML. This spanned four pull requests to `cthoyt/sssom-pydantic`:
+[#128](https://github.com/cthoyt/sssom-pydantic/pull/128),
+[#157](https://github.com/cthoyt/sssom-pydantic/pull/157),
+[#158](https://github.com/cthoyt/sssom-pydantic/pull/158), and
+[#159](https://github.com/cthoyt/sssom-pydantic/pull/159). Ultimately, this post
+is an adaptation of the
 [documentation](https://sssom-pydantic.readthedocs.io/en/latest/owl.html) I
-wrote for the `sssom_pydantic.contrib.owl` module which significantly extends
-the official
-[SSSOM specification](https://mapping-commons.github.io/sssom/dev/spec-formats-owl/).
-If you're interested in other SSSOM transformations, see my previous posts on
-[SSSOM to JSKOS]({% post_url 2026-01-15-sssom-to-jskos %}) and [SSSOM to
+wrote for the `sssom_pydantic.contrib.owl` module. If you're interested in other
+SSSOM transformations, see my previous posts on [SSSOM to
+JSKOS]({% post_url 2026-01-15-sssom-to-jskos %}) and [SSSOM to
 Wikidata]({% post_url 2026-01-07-sssom-to-wikidata %}).
 
 ## Usage
