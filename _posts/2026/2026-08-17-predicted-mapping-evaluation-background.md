@@ -57,10 +57,7 @@ including the [HOBBIT](https://project-hobbit.eu/outcomes/hobbit-platform/),
 MELT framework can now accept mappings in the
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom).
 
-[^1]:
-
-The most recent report from OAEI in 2024 points to `https://seals-project.eu`,
-which appears to have been hijacked by a cryptocurrency scam.
+[^1]: The most recent report from OAEI in 2024 points to `https://seals-project.eu`, which appears to have been hijacked by a cryptocurrency scam.
 
 During its two-decade runtime, the OAEI consistently reuses the same benchmarks.
 For example, the [largebio](https://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/)
@@ -167,8 +164,8 @@ its downstream impact. The use of SSSOM also feeds into ontology curation
 environments like the
 [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit),
 which have implemented SSSOM support in order to enable the external curation of
-semantic mappings. I wrote about this in detail in a [previous post]
-({% post_url 2026/2026-08-07-sssom-to-owl %}).
+semantic mappings. I wrote about this in detail in a [previous
+post]({% post_url 2026/2026-08-07-sssom-to-owl %}).
 
 The OAEI could achieve more meaningful impact by storing the predictions in the
 SSSOM a git repository where they could be more easily reviewed, either with
@@ -210,35 +207,35 @@ this game.
 In the [second
 part]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-implementation %})
 of this post, I present an implementation of a new workflow for constructing and
-evaluating benchmarks that builds on mature tools for handling ontologies and
-SSSOM mappings.
+evaluating benchmarks that closes this loop and addresses many of the challenges
+and opportunities described above.
 
 ## Appendix
 
 For reference, here are the OAEI Calls and Publications between 2004-2026:
 
-| Year | Call                                   | Publication                                                            |
-| ---: | -------------------------------------- | ---------------------------------------------------------------------- |
-| 2026 | https://oaei.ontologymatching.org/2026 |                                                                        |
-| 2025 | https://oaei.ontologymatching.org/2025 |                                                                        |
-| 2024 | https://oaei.ontologymatching.org/2024 | https://inria.hal.science/hal-04892635/                                |
-| 2023 | https://oaei.ontologymatching.org/2023 | https://ora.ox.ac.uk/objects/uuid:e167c7dc-72cd-476a-ba23-d4bcc86e0b60 |
-| 2022 | https://oaei.ontologymatching.org/2022 | https://hal.science/hal-04351729/                                      |
-| 2021 | https://oaei.ontologymatching.org/2021 | https://openaccess.city.ac.uk/id/eprint/27602/                         |
-| 2020 | https://oaei.ontologymatching.org/2020 | https://hal.science/hal-04312966/                                      |
-| 2019 | https://oaei.ontologymatching.org/2019 | https://openaccess.city.ac.uk/id/eprint/23708/                         |
-| 2018 | https://oaei.ontologymatching.org/2018 | https://hal.science/hal-02089249/                                      |
-| 2017 | https://oaei.ontologymatching.org/2017 | https://air.unimi.it/handle/2434/550707                                |
-| 2016 | https://oaei.ontologymatching.org/2016 | https://inria.hal.science/hal-01421833/                                |
-| 2015 | https://oaei.ontologymatching.org/2015 | https://hal.science/hal-01254907/                                      |
-| 2014 | https://oaei.ontologymatching.org/2014 | https://hal.science/hal-01180915/                                      |
-| 2013 | https://oaei.ontologymatching.org/2013 | https://inria.hal.science/hal-01140027/                                |
-| 2012 | https://oaei.ontologymatching.org/2012 | https://inria.hal.science/hal-00768409/                                |
-| 2011 | https://oaei.ontologymatching.org/2011 | https://inria.hal.science/hal-00781022/                                |
-| 2010 | https://oaei.ontologymatching.org/2010 | https://inria.hal.science/hal-00793276/                                |
-| 2009 | https://oaei.ontologymatching.org/2009 | https://inria.hal.science/hal-00794918/                                |
-| 2008 | https://oaei.ontologymatching.org/2008 | https://inria.hal.science/hal-00793535/                                |
-| 2007 | https://oaei.ontologymatching.org/2007 | https://inria.hal.science/hal-00822893/                                |
-| 2006 | https://oaei.ontologymatching.org/2006 | https://ceur-ws.org/Vol-225/paper7.pdf                                 |
-| 2005 | https://oaei.ontologymatching.org/2005 | https://inria.hal.science/hal-00922283/                                |
-| 2004 | https://oaei.ontologymatching.org/2002 | https://inria.hal.science/hal-04892635/                                |
+| Year | Call                                           | Publication                                                            |
+| ---: |------------------------------------------------| ---------------------------------------------------------------------- |
+| 2026 | [Call](https://oaei.ontologymatching.org/2026) |                                                                        |
+| 2025 | [Call](https://oaei.ontologymatching.org/2025) |                                                                        |
+| 2024 | [Call](https://oaei.ontologymatching.org/2024) | https://inria.hal.science/hal-04892635/                                |
+| 2023 | [Call](https://oaei.ontologymatching.org/2023) | https://ora.ox.ac.uk/objects/uuid:e167c7dc-72cd-476a-ba23-d4bcc86e0b60 |
+| 2022 | [Call](https://oaei.ontologymatching.org/2022) | https://hal.science/hal-04351729/                                      |
+| 2021 | [Call](https://oaei.ontologymatching.org/2021) | https://openaccess.city.ac.uk/id/eprint/27602/                         |
+| 2020 | [Call](https://oaei.ontologymatching.org/2020) | https://hal.science/hal-04312966/                                      |
+| 2019 | [Call](https://oaei.ontologymatching.org/2019) | https://openaccess.city.ac.uk/id/eprint/23708/                         |
+| 2018 | [Call](https://oaei.ontologymatching.org/2018) | https://hal.science/hal-02089249/                                      |
+| 2017 | [Call](https://oaei.ontologymatching.org/2017) | https://air.unimi.it/handle/2434/550707                                |
+| 2016 | [Call](https://oaei.ontologymatching.org/2016) | https://inria.hal.science/hal-01421833/                                |
+| 2015 | [Call](https://oaei.ontologymatching.org/2015) | https://hal.science/hal-01254907/                                      |
+| 2014 | [Call](https://oaei.ontologymatching.org/2014) | https://hal.science/hal-01180915/                                      |
+| 2013 | [Call](https://oaei.ontologymatching.org/2013) | https://inria.hal.science/hal-01140027/                                |
+| 2012 | [Call](https://oaei.ontologymatching.org/2012) | https://inria.hal.science/hal-00768409/                                |
+| 2011 | [Call](https://oaei.ontologymatching.org/2011) | https://inria.hal.science/hal-00781022/                                |
+| 2010 | [Call](https://oaei.ontologymatching.org/2010) | https://inria.hal.science/hal-00793276/                                |
+| 2009 | [Call](https://oaei.ontologymatching.org/2009) | https://inria.hal.science/hal-00794918/                                |
+| 2008 | [Call](https://oaei.ontologymatching.org/2008) | https://inria.hal.science/hal-00793535/                                |
+| 2007 | [Call](https://oaei.ontologymatching.org/2007) | https://inria.hal.science/hal-00822893/                                |
+| 2006 | [Call](https://oaei.ontologymatching.org/2006) | https://ceur-ws.org/Vol-225/paper7.pdf                                 |
+| 2005 | [Call](https://oaei.ontologymatching.org/2005) | https://inria.hal.science/hal-00922283/                                |
+| 2004 | [Call](https://oaei.ontologymatching.org/2004) | https://inria.hal.science/hal-04892635/                                |
