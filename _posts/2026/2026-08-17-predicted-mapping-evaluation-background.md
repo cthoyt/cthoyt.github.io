@@ -32,27 +32,35 @@ as a well-established, yearly competition occurring since 2004. It has produced
 and evaluated benchmarks for ontology mapping software across biology, medicine,
 ecology, digital humanities, archaeology, and other disciplines.
 
-> [!CAUTION] I don't have a working understanding of the entire history of the
-> competition, and I found navigating its site and artifacts to be challenging.
-> It's possible I missed something, so if you find that I did, please let me
-> know with the comment box at the bottom of the post.
+<!-- prettier-ignore-start -->
 
-In order to submit their ontology mapping software to the OAEI for evaluation,
-developers must ensure their software consumes ontologies in the
-[Web Ontology Language (OWL)](https://www.w3.org/OWL/) format and outputs
-predicted semantic mappings in the
+> [!CAUTION]
+> I found navigating the OAEI site difficult and its artifacts hard to find,
+> so it's possible I missed something. If you find that I did, please let me
+> know with the comment box at the bottom of the post and I will update the
+> post accordingly.
+
+<!-- prettier-ignore-end -->
+
+The OAEI documents on their website that ontology mapping software should
+consume ontologies in the [Web Ontology Language (OWL)](https://www.w3.org/OWL/)
+format and outputs predicted semantic mappings the XML-based
 [Expressive and Declarative Ontology Alignment Language (EDOAL)](https://moex.gitlabpages.inria.fr/alignapi/edoal.html)
-format. Then, the software can be automatically evaluated by the OAEI's
+format.
+
+Originally, the results were to be submitted to the OAEI's
 [Alignment API and Alignment Server](https://moex.gitlabpages.inria.fr/alignapi),
-and more recently, a larger set of frameworks and tools including
-[HOBBIT](https://project-hobbit.eu/outcomes/hobbit-platform/),
-[MELT](https://github.com/dwslab/melt/), and SEALS[^1], orchestrated through
-Docker.
+but there are now three additional frameworks for preparing code for submission
+including the [HOBBIT](https://project-hobbit.eu/outcomes/hobbit-platform/),
+[MELT](https://github.com/dwslab/melt/), and SEALS[^1]. I even found in the
+[OAEI's 2024 results paper](https://inria.hal.science/hal-04892635/) that the
+MELT framework can now accept mappings in the
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom).
 
 [^1]:
-    The most recent report from OAEI in 2024 points to
-    `https://seals-project.eu`, which appears to have been hijacked by a
-    cryptocurrency scam.
+
+The most recent report from OAEI in 2024 points to `https://seals-project.eu`,
+which appears to have been hijacked by a cryptocurrency scam.
 
 During its two-decade runtime, the OAEI consistently reuses the same benchmarks.
 For example, the [largebio](https://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/)
@@ -69,36 +77,46 @@ writing in 2026.
 ## Challenges and Opportunities
 
 There are several opportunities for improving the way the evaluation of
-predicted semantic mappings is done. Even though I'm using OAEI, its data
-format, and technology stack as an example, these ideas are widely applicable to
+predicted semantic mappings is done. Even though I'm using OAEI as an example
+along with its format and technology stack, these ideas are widely applicable to
 any automated evaluation of predicted semantic mappings.
 
 ### Improved Standards and Software
 
-The EDOAL format is relatively challenging to understand and work with and the
-number and complexity of frameworks involved in the OAEI evaluation (e.g.,
-SEALS, HOBBIT, MELTS) has increased dramatically.
+The revelation that the OAEI can now accept semantic mappings in SSSOM came late
+into the process of writing this post, so the main point to make on the software
+is that the proliferation and complexity of four frameworks for submitting to
+OAEI (and their need to support the legacy EDOAL format) is overwhelming and not
+obviously documented from their website.
 
-The
-[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom)
-presents an alternative for the automated evaluation of predicted semantic
+<details style="margin-bottom: 1em">
+<summary>expand to show why SSSOM is great anyway</summary>
+<p>
+SSSOM presents an alternative for the automated evaluation of predicted semantic
 mappings whose:
-
-- specification is defined with modern tooling (i.e.,
-  [LinkML](https://linkml.io))
-- primary exchange format is simpler (TSV instead of XML)
-- documentation is more approachable and complete
-- software ecosystem
-  ([sssom-pydantic](https://github.com/cthoyt/sssom-pydantic/),
-  [sssom-py](https://github.com/mapping-commons/sssom-py), and
-  [sssom-java](https://incenp.org/dvlpt/sssom-java/)) is still under active
+</p>
+<ul>
+<li>specification is defined with modern tooling (i.e.,
+  <a href="https://linkml.io">LinkML</a>)</li>
+<li>primary exchange format is simpler (TSV instead of XML)</li>
+<li>documentation is more approachable and complete</li>
+<li>software ecosystem (
+  <a href="https://github.com/cthoyt/sssom-pydantic">sssom-pydantic</a>,
+  <a href="https://github.com/mapping-commons/sssom-py">sssom-py</a>, and
+  <a href="https://incenp.org/dvlpt/sssom-java/">sssom-java</a>) is still under active
   development (the Alignment API project has been inactive since 2021) and
-  available in Python
+  available in Python and does not require containerization
+</li>
+</ul>
+</details>
 
-Ideally, evaluation would just be the comparison of semantic mappings in the
-SSSOM format from two sources: **manual curation from experts** and
-**predictions from software**. This could significantly reduce the complexity
-and proliferation of evaluation software.
+Further, the concept of evaluation could be greatly simplified. Ideally,
+evaluation would just be the comparison of semantic mappings from two sources:
+**manual curation from experts** and **predictions from software**. SSSOM has
+the benefit of storing a mapping justification that tracks exactly this,
+enabling the ingestion of arbitrary number of self-documenting SSSOM files,
+rather than relying on external configuration, file identify, file naming
+conventions, or other fragile mechanisms to differentiate between mapping types.
 
 As an aside, `sssom-py` implements a preliminary
 [EDOAL importer](https://mapping-commons.github.io/sssom-py/api/parsers/?h=xml#sssom.parsers.parse_alignment_xml),
@@ -129,48 +147,73 @@ and manually curated results available through version control systems like
 [Git](https://git-scm.com/) via a forge like [GitHub](https://github.com).
 
 Biomappings spun out its code into the stand-alone
-[SSSOM Curator](https://github.com/cthoyt/sssom-curator) software to enable the
-creation and management of new semantic mapping repositories beyond Biomappings
-that exist for various tasks, projects, or domains.
+[SSSOM Curator](https://github.com/cthoyt/sssom-curator) software package to
+enable the creation and management of new semantic mapping repositories beyond
+Biomappings, which might be created for various tasks, projects, or domains.
 
 ### Making the Results Actionable
 
 If the predicted semantic mappings were stored and shared, then expert curators
 could review them and submit them to the upstream resources that they concern.
 This would be an opportunity for OAEI to have a meaningful impact on the
-downstream scientific tasks that consume mappings.
+downstream scientific tasks that consume mappings, as the goal of predicting
+mappings is to complete alignments between pairs of ontologies (and other
+semantic spaces).
 
-Again, the Biomappings repository pioneered combining the prediction, storage,
-and curation workflows into a single software stack. Such a workflow could be
-adopted by OAEI (and similar mapping challenges) to increase its downstream
-impact. This would be supported by ontology curation environments like the
+Again, the Biomappings repository pioneered combining the semantic mapping
+prediction, storage, and curation workflows into a single software stack. Such a
+workflow could be adopted by OAEI (and similar mapping challenges) to increase
+its downstream impact. The use of SSSOM also feeds into ontology curation
+environments like the
 [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit),
-which are implementing SSSOM support to enable the external curation of semantic
-mappings. I wrote about this in detail in a [previous post]({%
-post_url 2026/2026-08-07-sssom-to-owl %}).
+which have implemented SSSOM support in order to enable the external curation of
+semantic mappings. I wrote about this in detail in a [previous post]
+({% post_url 2026/2026-08-07-sssom-to-owl %}).
+
+The OAEI could achieve more meaningful impact by storing the predictions in the
+SSSOM a git repository where they could be more easily reviewed, either with
+SSSOM Curator or any other similar workflow that maintains full provenance from
+prediction to review/curation.
 
 ### Making Benchmarks More Dynamic
 
-The benchmark datasets in OAEI appear to be static, i.e., they are not updated
-as the resources they concern are updated with new terms and new first-party
-semantic mappings. Ideally, the benchmarks would be updated each year to
-incorporate not only first party curations from the ontologies, but also third
-party curations of predicted mappings from previous years.
+The benchmark datasets in OAEI appear to be static, i.e., they do not appear to
+be updated as the resources they concern are updated with new terms and new
+first-party semantic mappings. Ideally, the benchmarks would be updated each
+year to incorporate not only first party curations from the ontologies, but also
+third party reviews/curations of predicted mappings from previous years'
+competitions. Benchmark tasks could then be retired when the alignment between
+two or more ontologies are completed.
 
-Benchmark tasks could then be retired when the alignment between two or more
-ontologies are complete. Further, new benchmarking tasks should be much easier
-to produce based on first-party semantic mappings available in ontologies and
-third-party semantic mappings from repositories like Biomappings.
+Further, a workflow that can (semi-)automatically maintain a benchmark should
+also be able to easier produce new benchmarking tasks based on first-party
+semantic mappings available in ontologies and third-party semantic mappings from
+repositories like Biomappings.
 
----
+## Conclusions
+
+Competitions like the
+[Critical Assessment of Structure Prediction (CASP)](https://predictioncenter.org/index.cgi)
+work because they ask for predictions to be made before performing an expensive,
+specialized experiment in the laboratory. Conversely, the prediction of semantic
+mappings exists in a very different space, where predictions can be easily
+reviewed and validated. Therefore, I think that the automated evaluation of
+predicted semantic mappings is long overdue for a perspective change, where the
+goal shouldn't be to focus on the development of new tools, but rather to focus
+on the prediction and curation of novel mappings that serve downstream
+scientific applications.
+
+In short: make your predictions, curate them, contribute them to Biomappings or
+directly upstream, then everyone benefits, and we don't have to keep playing
+this game.
 
 In the [second
 part]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-implementation %})
 of this post, I present an implementation of a new workflow for constructing and
 evaluating benchmarks that builds on mature tools for handling ontologies and
-SSSOM mappings
+SSSOM mappings.
 
----
+## Appendix
 
 For reference, here are the OAEI Calls and Publications between 2004-2026:
 

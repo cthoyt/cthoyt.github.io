@@ -14,7 +14,7 @@ tags:
 
 This is the second of a two-part blog post on the past and future of automated
 evaluation of predicted semantic mappings. This part describes the
-[implementation](https://github.com/cthoyt/sssom-pydantic/pulls/131) of an
+[implementation](https://github.com/cthoyt/sssom-pydantic/pull/131) of an
 automated workflow in SSSOM-Pydantic for the evaluation of predicted mappings
 that consumes arbitrary
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom)
