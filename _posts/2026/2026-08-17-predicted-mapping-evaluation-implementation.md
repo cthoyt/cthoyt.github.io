@@ -14,9 +14,13 @@ tags:
 
 This is the second of a two-part blog post on the past and future of automated
 evaluation of predicted semantic mappings. This part describes the
-implementation of an automated workflow for the evaluation of predicted mappings
-that consumes arbitrary SSSOM files with a combination of expert-curated and
-predicted mappings.
+[implementation](https://github.com/cthoyt/sssom-pydantic/pulls/131) of an
+automated workflow in SSSOM-Pydantic for the evaluation of predicted mappings
+that consumes arbitrary
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom)
+files, containing a combination of manually curated and predicted semantic
+mappings, then produces an evaluation for stratified for each source-target
+pair.
 
 The [first
 part]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %}) of
@@ -31,8 +35,6 @@ to assemble semantic mappings at scale. In the interim, I upstreamed many of the
 important features of the SeMRA data model into the SSSOM specification, and I
 was recently able to adapt the ideas from the original workflow to be fully
 generic for arbitrary SSSOM sources.
-
-https://github.com/cthoyt/sssom-pydantic/pulls/131
 
 ### Maintenance of Benchmarks
 
