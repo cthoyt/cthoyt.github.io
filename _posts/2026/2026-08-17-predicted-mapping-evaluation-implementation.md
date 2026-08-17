@@ -1,7 +1,8 @@
 ---
 layout: post
 title:
-  "Automating the Evaluation of Predicted Semantic Mappings: A New Workflow"
+  "Automating the Evaluation of Predicted Semantic Mappings Part 2: A New
+  Workflow"
 date: 2026-08-17 17:19:00 +0200
 author: Charles Tapley Hoyt
 tags:
@@ -12,21 +13,24 @@ tags:
 ---
 
 This is the second of a two-part blog post on the past and future of automated
-evaluation of predicted semantic mappings. This part describes the implementation
-of an automated workflow for the evaluation of predicted mappings that consumes arbitrary
-SSSOM files with a combination of expert-curated and predicted mappings.
+evaluation of predicted semantic mappings. This part describes the
+implementation of an automated workflow for the evaluation of predicted mappings
+that consumes arbitrary SSSOM files with a combination of expert-curated and
+predicted mappings.
 
-The [first part]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %})
-of this post described some of the opportunities for improving the automated
-evaluation of predicted semantic mappings. However, this background isn't necessary
-if you just want to see what I've made.
+The [first
+part]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %}) of
+this post described some of the opportunities for improving the automated
+evaluation of predicted semantic mappings. However, this background isn't
+necessary if you just want to see what I've made.
 
-My idea to automate evaluation of predicted mappings using SSSOM-like semantic mappings
-originated in 2023 while implementing the
+My idea to automate evaluation of predicted mappings using SSSOM-like semantic
+mappings originated in 2023 while implementing the
 [Semantic Mapping Reasoner and Assembler (SeMRA)](https://github.com/biopragmatics/semra)
-to assemble semantic mappings at scale. In the interim, I upstreamed many of the important
-features of the SeMRA data model into the SSSOM specification, and I was recently able to
-adapt the ideas from the original workflow to be fully generic for arbitrary SSSOM sources.
+to assemble semantic mappings at scale. In the interim, I upstreamed many of the
+important features of the SeMRA data model into the SSSOM specification, and I
+was recently able to adapt the ideas from the original workflow to be fully
+generic for arbitrary SSSOM sources.
 
 https://github.com/cthoyt/sssom-pydantic/pulls/131
 
@@ -53,17 +57,18 @@ skew that more of my manual curations result in positive calls).
 
 ## Stratification
 
-The first step in implementing the automated evaluation workflow was to implement mapping
-stratification rules. This is important to enable the simultaneous usage of multiple sources
-of semantic mappings from different SSSOM files, e.g., originating by extracting (and processing)
-mappings from ontologies, from repositories like Biomappings, and from predicted systems.
+The first step in implementing the automated evaluation workflow was to
+implement mapping stratification rules. This is important to enable the
+simultaneous usage of multiple sources of semantic mappings from different SSSOM
+files, e.g., originating by extracting (and processing) mappings from
+ontologies, from repositories like Biomappings, and from predicted systems.
 
-It's important that such an algorithm does not rely on the specific file from which mappings
-come to decide their function, but rather to stratify 
+It's important that such an algorithm does not rely on the specific file from
+which mappings come to decide their function, but rather to stratify
 
-this is because resources like Biomappings might include a combination
-of manually curated positive semantic mappings, manually curated negative semantic mappings,
-and predicted (positive) semantic mpapings.
+this is because resources like Biomappings might include a combination of
+manually curated positive semantic mappings, manually curated negative semantic
+mappings, and predicted (positive) semantic mpapings.
 
 Semantic mappings are stratified as predicted versus curated based on their
 mapping justification. Predicted semantic mappings have one of the following:
