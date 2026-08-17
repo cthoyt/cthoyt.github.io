@@ -57,7 +57,10 @@ including the [HOBBIT](https://project-hobbit.eu/outcomes/hobbit-platform/),
 MELT framework can now accept mappings in the
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom).
 
-[^1]: The most recent report from OAEI in 2024 points to `https://seals-project.eu`, which appears to have been hijacked by a cryptocurrency scam.
+[^1]:
+    The most recent report from OAEI in 2024 points to
+    `https://seals-project.eu`, which appears to have been hijacked by a
+    cryptocurrency scam.
 
 During its two-decade runtime, the OAEI consistently reuses the same benchmarks.
 For example, the [largebio](https://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/)
@@ -215,7 +218,7 @@ and opportunities described above.
 For reference, here are the OAEI Calls and Publications between 2004-2026:
 
 | Year | Call                                           | Publication                                                            |
-| ---: |------------------------------------------------| ---------------------------------------------------------------------- |
+| ---: | ---------------------------------------------- | ---------------------------------------------------------------------- |
 | 2026 | [Call](https://oaei.ontologymatching.org/2026) |                                                                        |
 | 2025 | [Call](https://oaei.ontologymatching.org/2025) |                                                                        |
 | 2024 | [Call](https://oaei.ontologymatching.org/2024) | https://inria.hal.science/hal-04892635/                                |
