@@ -30,6 +30,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-gfm-admonitions
 
 # settings for https://github.com/jekyll/jekyll-feed
 feed:
