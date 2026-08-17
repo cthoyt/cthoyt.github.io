@@ -1,6 +1,8 @@
 ---
 layout: post
-title: Automating the Evaluation of Predicted Semantic Mappings
+title:
+  "Automating the Evaluation of Predicted Semantic Mappings: Opportunities for
+  OAEI"
 date: 2026-08-17 11:41:00 +0200
 author: Charles Tapley Hoyt
 tags:
@@ -9,55 +11,105 @@ tags:
   - EDOAL
 ---
 
+What is this post: Why does it exist: What should people look at:
+
+This idea was originally from 2023 and was developed inside SeMRA, but with the
+re-implementation of SSSOM software in SSSOM-Pydantic in the last year, I was
+able to make it fully generic.
+
+This post is an adaptation of the docs at XXX
+
+## A Brief History of the OAEI
+
 The
 [Ontology Alignment Evaluation Initiative (OAEI)](https://oaei.ontologymatching.org)
 has produced and evaluated benchmarks for ontology mapping software across
 biology, medicine, ecology, digital humanities, archaeology, and other
-disciplines since 2004. In order to submit, developers must ensure their
-ontology mapping software consumes ontologies in the
-[Web Ontology Language (OWL)](https://www.w3.org/OWL/) format and outputs
-mappings in the
+disciplines since 2004. In order to submit their ontology mapping software to
+the OAEI for evaluation, developers must ensure their software consumes
+ontologies in the [Web Ontology Language (OWL)](https://www.w3.org/OWL/) format
+and outputs predicted semantic mappings in the
 [Expressive and Declarative Ontology Alignment Language (EDOAL)](https://moex.gitlabpages.inria.fr/alignapi/edoal.html)
-format, which can then be automatically evaluated by the OAEI's
+format. Then, the software can be automatically evaluated by the OAEI's
 [Alignment API and Alignment Server](https://moex.gitlabpages.inria.fr/alignapi).
-A table of past OAEI calls and results are available below.
 
 During its two-decade runtime, the OAEI consistently reuses the same benchmarks.
 For example, the [largebio](https://www.cs.ox.ac.uk/isg/projects/SEALS/oaei/)
 task for mapping between the
 [Foundational Model of Anatomy (FMA)](https://semantic.farm/registry/fma>)
-ontology, [Systematized Nomenclature of Medicine
+ontology,
+[Systematized Nomenclature of Medicine - Clinical Terms (SNOMED-CT)](https://semantic.farm/registry/snomedct),
+and United States
+[National Cancer Institute Thesaurus (NCIT)](https://semantic.farm/registry/ncit)
+ran between 2011 and 2022 before being incorporated into the
+[Bio-ML](https://krr-oxford.github.io/OAEI-Bio-ML/) task, which still runs as of
+writing in 2026.
 
-- Clinical Terms (SNOMED-CT)](https://semantic.farm/registry/snomedct), and
-  United States
-  [National Cancer Institute Thesaurus (NCIT)](https://semantic.farm/registry/ncit)
-  ran between 2011 and 2022 before being incorporated into the
-  [Bio-ML](https://krr-oxford.github.io/OAEI-Bio-ML/) task, which still runs as
-  of 2026.
+## Future Opportunities
 
-This presents several opportunities to go beyond OAEI, in order to:
+There are several opportunities for improving the way the evaluation of
+predicted semantic mappings is done.
+
+### Improved Standards and Software
+
+The EDOAL format is relatively challenging to understand and work with. The
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom)
+presents an alternative for the automated evaluation of predicted semantic
+mappings whose:
+
+- specification is defined with modern tooling (i.e.,
+  [LinkML](https://linkml.io))
+- primary exchange format is simpler (TSV instead of XML)
+- documentation is more approachable and complete
+- software ecosystem
+  ([sssom-pydantic](https://github.com/cthoyt/sssom-pydantic/),
+  [sssom-java](https://incenp.org/dvlpt/sssom-java/)) is still under active
+  development (the Alignment API project has been inactive since 2021) and
+  available in Python
+
+### Improved Transparency and Longevity
+
+The OAEI does not have an obvious mechanism through which it stores and shares
+predicted semantic mappings and their metadata. This is an openness and
+transparency issue that poses challenges in the reuse of previously results,
+such as for reproduction. It also hinders historical analyses such as the
+elucidation trends in software performance, for assessment of reproducibility,
+
+Community repositories for semantic mappings like
+[Biomappings](https://github.com/biopragmatics/biomappings) demonstrated how an
+[open data, open code, and open infrastructure (O3)](https://doi.org/10.1038/s41597-024-03406-w)
+approach democratizes the storage and curation of semantic mappings. O3
+resources achieve transparency and longevity by making their static results
+available through long-term archival systems like [Zenodo](https://zenodo.org)
+and manually curated results available through version control systems like
+[Git](https://git-scm.com/) via a forge like [GitHub](https://github.com).
+
+### Making the Results Actionable
+
+Biomappings spun out its code into the stand-alone
+[SSSOM Curator](https://github.com/cthoyt/sssom-curator) software to wrap
+arbitrary prediction pipelines and provide an interactive curation interface for
+end users. SSSOM Curator can be used to spin up new repositories like
+Biomappings for various tasks, projects, or domains.
+
+Biomappings spun out its code into the stand-alone
+[SSSOM Curator](https://github.com/cthoyt/sssom-curator) software to wrap
+arbitrary prediction pipelines and provide an interactive curation interface for
+end users. SSSOM Curator can be used to spin up new repositories like
+Biomappings for various tasks, projects, or domains.
+
+But, more importantly, it hinders the ability for expert curators to review the
+mappings and incorporate them into the upstream resources that they concern.
+This is a missed opportunity for the results of OAEI to have meaningful impact
+on downstream research. Further, it's a missed opportunity to improve the
+usefulness of the benchmarks by having them be more complete.
+
+### Streamline Benchmark Maitenance
 
 1. adopt a better semantic mapping format and software ecosystem
 2. store and manually curate the results of mapping prediction
 3. maintain old benchmarks and create new ones
 4. retire benchmarks for which ontology alignment has been completed
-
-The
-[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom)
-and its associated software ecosystem are still under active maintenance
-(whereas the alignment API project has not been updated since 2021), are already
-considerably better documented than the alignment API and EDOAL, and adopt much
-more straightforward languages (Python instead of Java) and formats (TSV instead
-of XML).
-
-Community repositories for semantic mappings like
-[Biomappings](https://github.com/biopragmatics/biomappings) demonstrated how an
-[open data, open code, and open infrastructure (O3)](https://doi.org/10.1038/s41597-024-03406-w)
-approach democratizes the storage and curation of semantic mappings. The
-Biomappings project itself led to the development of the
-[SSSOM Curator](https://github.com/cthoyt/sssom-curator) software to wrap
-prediction pipelines and provide an interactive curation interface for end
-users.
 
 The goal of the SSSOM-Pydantic evaluation pipeline is to build on existing tools
 for extracting mappings from ontologies (e.g.,
@@ -74,6 +126,8 @@ are an estimation of the true metrics, since the positive and negative manually
 curated mappings likely are not complete and therefore have some bias in which
 things were curated (e.g., I always curate the easiest first, leading towards a
 skew that more of my manual curations result in positive calls).
+
+## Evaluating Lexical Predictions produced by SSSOM Curator
 
 In the following example, three sources of mappings are combine for the
 evaluation:
@@ -137,12 +191,22 @@ ontologies mapping to MeSH, a table like this is produced:
 | [vto](https://semantic.farm/vto)       | [mesh](https://semantic.farm/mesh) |       0.3% |    50.0% |     50.0% | 100.0% | 66.7% |
 | [xlmod](https://semantic.farm/xlmod)   | [mesh](https://semantic.farm/mesh) |      44.7% |    98.7% |     98.7% | 100.0% | 99.3% |
 
+Why am I looking at mesh? Many ontologies use MeSH as a starting point. MeSH is
+a highly valuable lexical resource developed to index papers in PubMed, but it
+doesn't go as far as to develop itself as an ontology with more precise
+definitions of relationships and axioms. Therefore, many OBO Foundry ontologies
+can be mapped back to mesh. OMIT even shamelessly imports the entirety of MeSH
+under http://purl.obolibrary.org/obo/OMIT_0000110 (shameless because it assigns
+new identifiers but doens't cross-reference back to the original MeSH terms)
+
 Note that lexical matching typically has a high precision (i.e., most
 predictions are right) but lower recall (i.e., some potential predictions are
 missed). Given the problem domain that (almost all) ontologies don't have
 one-to-many or many-to-one mappings, then it's also possible to identify
 entities for which there is no mapping between two given resources and further
 increase the accuracy of the accuracy metric.
+
+## Next Steps
 
 Looking forward, this workflow can be arbitrarily extended with additional
 curations of mappings in Biomappings (or any other manually curated SSSOM files
@@ -151,6 +215,10 @@ on mapping tool, but if there are additional ones put into use (such as LeonMap,
 implemented by Harshit Soni and suggested
 [here](https://github.com/biopragmatics/biomappings/pull/274), then this is an
 important step towards building an automated, rerunnable evaluation workflow.
+
+## Appendix
+
+For reference, here are the OAEI Calls and Publications between 2004-2026:
 
 | Year | Call                                   | Publication                                                            |
 | ---: | -------------------------------------- | ---------------------------------------------------------------------- |
