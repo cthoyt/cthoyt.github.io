@@ -88,16 +88,16 @@ mappings:
 > There are a few caveats about the evaluation:
 >
 > 1. Until all predictions are curated, the accuracy, precision, recall, and
->    $F_1$ are an estimation of the true metrics, since the positive and
->    negative manually curated mappings likely are not complete and therefore
->    have some bias in which things were curated (e.g., I always curate the
->    easiest first, leading towards a skew that more of my manual curations
->    result in positive calls).
+> $F_1$ are an estimation of the true metrics, since the positive and
+> negative manually curated mappings likely are not complete and therefore
+> have some bias in which things were curated (e.g., I always curate the
+> easiest first, leading towards a skew that more of my manual curations
+> result in positive calls).
 > 2. SSSOM-Pydantic does not yet explicitly support `sssom:NoTermFound`, meaning
->    that prior knowledge about unmappable entities isn't considered. This
->    artificially increases the perceived mapping burden and deflates other
->    metrics. I have been collecting ideas on how to model unmappabilities
->    [here](https://github.com/cthoyt/sssom-pydantic/issues/163).
+> that prior knowledge about unmappable entities isn't considered. This
+> artificially increases the perceived mapping burden and deflates other
+> metrics. I have been collecting ideas on how to model unmappabilities
+> [here](https://github.com/cthoyt/sssom-pydantic/issues/163).
 
 <!-- prettier-ignore-end -->
 
@@ -162,10 +162,16 @@ manually curated negative mapping without a corresponding positive prediction,
 then it's considered that the negative prediction was made (and it's a true
 negative).
 
-## Evaluating Lexical Predictions produced by SSSOM Curator
+## Example Evaluation
 
-In the following example, three sources of mappings are combine for the
-evaluation:
+The implementation of the evaluation workflow is available with a
+well-documented Python API in
+[ `sssom_pydantic.workflow.evaluation`](https://sssom-pydantic.readthedocs.io/en/latest/workflow/evaluation.html)
+as well as via the `sssom_pydantic evaluate` command line interface.
+
+Below, I present an end-to-end example evaluation of lexical predictions
+produced by SSSOM Curator, in which three sources of mappings are produced and
+combine:
 
 1. Mappings from [Medical Action Ontology (MAXO)](https://semantic.farm/maxo)
    extracted using PyOBO, which include mappings to
@@ -175,13 +181,18 @@ evaluation:
 2. Manually curated mappings from Biomappings, which includes previously curated
    mappings between MAXO and MeSH with high precision predicates and
    justification.
-3. Mappings predicted by the SSSOM Curator between MAXO and MeSH with lexical
-   matching
+3. Mappings predicted by the
+   [SSSOM Curator](https://github.com/cthoyt/sssom-curator) between MAXO and
+   MeSH with lexical matching
+
+The following commands use `uvx` for automatic installation and running of
+command line interfaces for PyOBO and SSSOM-Pydantic to acquire/produce the
+SSSOM files that are run in evaluation:
 
 ```console
-$ pyobo lookup sssom maxo -o maxo.sssom.tsv
+$ uvx pyobo lookup sssom maxo -o maxo.sssom.tsv
 
-$ sssom_pydantic subset \
+$ uvx sssom_pydantic subset \
     -i https://w3id.org/biopragmatics/biomappings/sssom/biomappings.sssom.tsv \
     --prefix maxo \
     --target-prefix mesh \
@@ -191,20 +202,28 @@ $ sssom_pydantic subset \
     -o biomappings-maxo-mesh.sssom.tsv
 
 $ mkdir maxo-mesh-predictions
-$ sssom_curator init --directory maxo-mesh-predictions
-$ sssom_curator -p maxo-mesh-predictions predict lexical mesh maxo
+$ uvx sssom_curator init --directory maxo-mesh-predictions
+$ uvx sssom_curator -p maxo-mesh-predictions predict lexical mesh maxo
 
-$ sssom_pydantic evaluate \
+$ uvx sssom_pydantic evaluate \
     -i maxo.sssom.tsv \
     -i biomappings-maxo-mesh.sssom.tsv \
     -i maxo-mesh-predictions/data/predictions.sssom.tsv \
     --accept-unspecified
 ```
 
-This workflow pools arbitrary SSSOM files then stratifies them into positive,
-negative, predicted (positive), and predicted negative mappings using the
-`stratify()` function. When extending this workflow to several other OBO Foundry
-ontologies mapping to MeSH, a table like this is produced:
+I extended this workflow to evaluate the mapping between several other
+[Open Biological and Biomedical Ontology Foundry (OBO) Foundry](https://obofoundry.org/)
+ontologies and MeSH and present the results below.
+
+MeSH is a highly valuable lexical resource developed to index papers in PubMed,
+but it doesn't go as far as to develop itself as an ontology with more precise
+definitions of relationships and axioms. Therefore, many OBO Foundry ontologies
+either use MeSH as a starting point, or at least cover similar topics. Many
+additionally curate mappings back to MeSH, but this isn't always available. For
+example, OMIT even shamelessly imports the entirety of MeSH under
+http://purl.obolibrary.org/obo/OMIT_0000110 but provides no cross-references
+back to the original terms!
 
 | Prefix 1                               | Prefix 2                           | Completion | Accuracy | Precision | Recall | $F_1$ |
 | -------------------------------------- | ---------------------------------- | ---------: | -------: | --------: | -----: | ----: |
@@ -225,14 +244,6 @@ ontologies mapping to MeSH, a table like this is produced:
 | [vo](https://semantic.farm/vo)         | [mesh](https://semantic.farm/mesh) |      69.4% |    64.1% |     91.2% |  53.8% | 67.6% |
 | [vto](https://semantic.farm/vto)       | [mesh](https://semantic.farm/mesh) |       0.3% |    50.0% |     50.0% | 100.0% | 66.7% |
 | [xlmod](https://semantic.farm/xlmod)   | [mesh](https://semantic.farm/mesh) |      44.7% |    98.7% |     98.7% | 100.0% | 99.3% |
-
-Why am I looking at mesh? Many ontologies use MeSH as a starting point. MeSH is
-a highly valuable lexical resource developed to index papers in PubMed, but it
-doesn't go as far as to develop itself as an ontology with more precise
-definitions of relationships and axioms. Therefore, many OBO Foundry ontologies
-can be mapped back to mesh. OMIT even shamelessly imports the entirety of MeSH
-under http://purl.obolibrary.org/obo/OMIT_0000110 (shameless because it assigns
-new identifiers but doens't cross-reference back to the original MeSH terms)
 
 Note that lexical matching typically has a high precision (i.e., most
 predictions are right) but lower recall (i.e., some potential predictions are
