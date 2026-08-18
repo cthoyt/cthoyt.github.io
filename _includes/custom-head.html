@@ -1,10 +1,10 @@
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color" content="#ffffff" />
 
 <!-- see tutorial https://rknight.me/blog/setting-up-mastodon-author-tags/ -->
 <meta name="fediverse:creator" content="@cthoyt@scholar.social" />
@@ -13,35 +13,38 @@
 <link rel="human-json" href="/human.json" />
 
 <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-        inlineMath: [['$','$']]
-      }
-    });
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
 </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"
+></script>
 
 <!-- from https://mrinalcs.github.io/generate-diagrams-jekyll-mermaid -->
 <script type="module">
-    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-    mermaid.initialize({ startOnLoad: true });
-    document
-      .querySelectorAll("pre > code.language-mermaid")
-      .forEach((codeBlock) => {
-        codeBlock.parentElement.outerHTML = `<pre class="mermaid">${codeBlock.textContent}</pre>`;
-      });
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+  document
+    .querySelectorAll("pre > code.language-mermaid")
+    .forEach((codeBlock) => {
+      codeBlock.parentElement.outerHTML = `<pre class="mermaid">${codeBlock.textContent}</pre>`;
+    });
 </script>
 
 <!-- overrides the weird purple background and border for mermaid diagrams -->
 <style>
-    pre.mermaid {
-      border: none;
-      background-color: transparent;
-    }
+  pre.mermaid {
+    border: none;
+    background-color: transparent;
+  }
 
-    .post-list > li > h3 {
-        margin-bottom: 0.25em;
-        line-height: 1.5em;
-    }
+  .post-list > li > h3 {
+    margin-bottom: 0.25em;
+    line-height: 1.5em;
+  }
 </style>
