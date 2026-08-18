@@ -220,10 +220,12 @@ MeSH is a highly valuable lexical resource developed to index papers in PubMed,
 but it doesn't go as far as to develop itself as an ontology with more precise
 definitions of relationships and axioms. Therefore, many OBO Foundry ontologies
 either use MeSH as a starting point, or at least cover similar topics. Many
-additionally curate mappings back to MeSH, but this isn't always available. For
-example, OMIT even shamelessly imports the entirety of MeSH under
+additionally curate mappings back to MeSH, but if they're available, they're not
+always complete. In the most eggrigious case, the
+[Ontology for MicroRNA Target (OMIT)](https://semantic.farm/omit) clones the
+entirety of MeSH under
 [OMIT:0000110 (MeSH_term)](http://purl.obolibrary.org/obo/OMIT_0000110) but
-provides no cross-references back to the original terms!
+provides no cross-references back to the original terms 🤦
 
 | Prefix 1                               | Prefix 2                           | Completion | Accuracy | Precision | Recall | $F_1$ |
 | -------------------------------------- | ---------------------------------- | ---------: | -------: | --------: | -----: | ----: |
@@ -247,14 +249,21 @@ provides no cross-references back to the original terms!
 
 Note that lexical matching typically has a high precision (i.e., most
 predictions are right) but lower recall (i.e., some potential predictions are
-missed). Given the problem domain that (almost all) ontologies don't have
-one-to-many or many-to-one mappings, then it's also possible to identify
-entities for which there is no mapping between two given resources and further
-increase the accuracy of the accuracy metric.
+missed). However, this is also biased, because most curations are biased towards
+the easiest, and therefore, most likely to be correct.
 
-I'm only presenting the completion metric for now, which corresponds to the
-percentage of predictions that have been curated, so there's still quite a way
-to go in terms of completing these alignments.
+Given the problem domain that (almost all) ontologies don't have one-to-many or
+many-to-one mappings, then it's also possible to identify entities for which
+there is no mapping between two given resources and further increase the
+accuracy of the accuracy metric, recall the use of `sssom:NoTermFound`.
+
+In this table, I only present the completion, which corresponds to the
+percentage of predictions that have been curated. There's still lots of work to
+go - I could imagine doing a bit more math to estimate curation burden in terms
+of hours and even cost. I've been preparing these curations with a local version
+of SSSOM-Curator, but the goal in the future is to have a hosted instance that
+is more accessible, e.g., for ontology curators or other NFDI stakeholders (see
+[tracking issue](https://github.com/cthoyt/sssom-curator/issues/47)).
 
 ## Next Steps
 
@@ -265,4 +274,9 @@ on mapping tool, but if there are additional ones put into use (e.g., Harshit
 Soni has recently suggested adding predictions produced by LeonMap in
 [biopragmatics/biomappings#274](https://github.com/biopragmatics/biomappings/pull/274)),
 then this is an important step towards building an automated, rerunnable
-evaluation workflow.
+evaluation workflow that could also be used to run competitions.
+
+Though, in my [previous
+post]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %}), I
+outlined why I don't like the idea of ontology mapping competition, and am much
+more interested in seeing collaborative curation being done and shared.
