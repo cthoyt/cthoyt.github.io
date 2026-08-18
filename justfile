@@ -6,6 +6,5 @@ pinact:
   pinact run --update
 
 format:
-  npx prettier --prose-wrap always --write --check "*.md"
-  npx prettier --prose-wrap always --write --check "**/*.yml"
-  npx prettier --prose-wrap always --write --check "_posts/**/*.md"
+  pnpx prettier --prose-wrap always --write --check "**/*.md"
+  pnpx prettier --prose-wrap always --write --check "**/*.yml"

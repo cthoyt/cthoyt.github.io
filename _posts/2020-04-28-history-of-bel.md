@@ -387,7 +387,8 @@ Here is another case where I omitted several other papers following the
 BioCreative challenge, as none of the other solutions were accessible. This is
 very, very sad in my opinon.
 
-**November 9th, 2015** [Afroza Khanam Irin]() (Fraunhofer) publishes
+**November 9th, 2015** [Afroza Khanam Irin](https://dblp.org/pid/170/4305.html)
+(Fraunhofer) publishes
 [Computational Modelling Approaches on Epigenetic Factors in Neurodegenerative and Autoimmune Diseases and Their Mechanistic Analysis](https://www.hindawi.com/journals/jir/2015/737168/),
 which outlined a possible addition to the BEL specification to allow the
 codification of epigenetic modifications in BEL. Unfortunately, this proposal
