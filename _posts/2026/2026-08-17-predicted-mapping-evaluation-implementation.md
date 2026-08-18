@@ -286,6 +286,7 @@ in Biomappings in
 and recent discussion with the
 [OntoAligner](https://github.com/sciknoworg/OntoAligner) developers to include
 SSSOM export in their tool in
+[sciknoworg/OntoAligner#123](https://github.com/sciknoworg/OntoAligner/issues/123).
 Then, this evaluation workflow could be used to run competitions and make
 comparison tools between mapping tools or hyperparameter optimization for a
 single tool.
