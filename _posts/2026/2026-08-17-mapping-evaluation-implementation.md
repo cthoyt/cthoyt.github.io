@@ -10,6 +10,7 @@ tags:
   - benchmarks
   - EDOAL
   - OAEI
+  - Python
 ---
 
 This is the second of a two-part blog post on the past and future of automated
