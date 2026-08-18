@@ -14,13 +14,12 @@ tags:
 
 This is the second of a two-part blog post on the past and future of automated
 evaluation of predicted semantic mappings. This part describes the
-[implementation](https://github.com/cthoyt/sssom-pydantic/pull/131) of an
-automated workflow in SSSOM-Pydantic for the evaluation of predicted mappings
-that consumes arbitrary
-[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom)
-files, containing a combination of manually curated and predicted semantic
-mappings, then produces an evaluation for stratified for each source-target
-pair.
+[implementation](https://github.com/cthoyt/sssom-pydantic/pull/131) of a new
+automated workflow for the evaluation of predicted semantic mappings that
+consumes arbitrary
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom),
+stratifies mappings as manually curated or predicted, then produces an
+evaluation for each source-target ontology pair present.
 
 The [first
 part]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %}) of
@@ -28,53 +27,85 @@ this post described some of the opportunities for improving the automated
 evaluation of predicted semantic mappings. However, this background isn't
 necessary if you just want to see what I've made.
 
-My idea to automate evaluation of predicted mappings using SSSOM-like semantic
-mappings originated in 2023 while implementing the
-[Semantic Mapping Reasoner and Assembler (SeMRA)](https://github.com/biopragmatics/semra)
-to assemble semantic mappings at scale. In the interim, I upstreamed many of the
-important features of the SeMRA data model into the SSSOM specification, and I
-was recently able to adapt the ideas from the original workflow to be fully
-generic for arbitrary SSSOM sources in
-[cthoyt/sssom-pydantic#131](https://github.com/cthoyt/sssom-pydantic/pull/131).
+## Development History
 
-### Maintenance of Benchmarks
+I originally developed the idea and proof-of-concept for an evaluation workflow
+that could consume arbitrary semantic mappings using the object model I
+implemented in
+[Semantic Mapping Reasoner and Assembler (SeMRA)](https://github.com/biopragmatics/semra) -
+a software package for assembling semantic mappings at scale. These mappings
+came from a variety of sources (e.g., ontologies, TSV, XML), data formats (e.g.,
+SSSOM, EDOAL, OWL, OBO), justifications (e.g., manual curation, lexical
+matching, ontology reasoning), and truthiness (positive or negative).
 
-The goal of the SSSOM-Pydantic evaluation pipeline is to build on existing tools
-for extracting mappings from ontologies (e.g.,
-[PyOBO](https://github.com/biopragmatics/pyobo)), curated resources like
-Biomappings, and easily reusable prediction workflows like SSSOM-Curator to
-automatically construct new benchmarks based on existing SSSOM documents then
-automatically calculate statistics about alignment completion (i.e., how many
-more curations are needed to check all predicted mappings, and how many more
-curations are needed to complete the alignment?) and the correctness of the
-prediction software (e.g., accuracy, precision, recall, $F_1$).
+Therefore, it was key to consume and organize arbitrary sets semantic mappings
+which may mix sources, formats, justifications, and truthiness. Specifically, I
+wanted to make sure I could make use of:
 
-Until all predictions are curated, the accuracy, precision, recall, and $F_1$
-are an estimation of the true metrics, since the positive and negative manually
-curated mappings likely are not complete and therefore have some bias in which
-things were curated (e.g., I always curate the easiest first, leading towards a
-skew that more of my manual curations result in positive calls).
+1. existing tools for extracting semantic mappings from ontologies such as
+   [PyOBO](https://github.com/biopragmatics/pyobo)
+2. semantic mapping repositories that contain positive, negative, and predicted
+   semantic mappings such as
+   [Biomappings](https://github.com/biopragmatics/biomappings)
+3. easily reusable prediction workflows like
+   [SSSOM-Curator](https://github.com/cthoyt/sssom-curator)
 
-1. Explain the implementation
-2. Show the results
+While the initial 2023 implementation in
+[biopragmatics/semra#12](https://github.com/biopragmatics/semra/pull/12) sat
+untouched for a few years, I upstreamed some of the SeMRA's best ideas into the
+SSSOM specification, implemented a new and more ergonomic SSSOM package in
+Python ([SSSOM-Pydantic](https://github.com/cthoyt/sssom-pydantic)), then
+re-implemented SeMRA to be fully SSSOM-compliant on top of SSSOM-Pydantic.
 
-## Stratification
+Finally, with motivation from my work in [NFDI4Chem](https://nfdi4chem.de) and
+[NFDI Section Metadata Working Group on Ontology Harmonization and Mapping](https://github.com/nfdi-de/section-metadata-wg-onto)
+supporting [Philip Strömert](https://github.com/StroemPhi) and
+[Noura Rayya](https://github.com/NRayya) in revitalizing the
+[Chemical Methods Ontology (CHMO)](https://semantic.farm/chmo) and other
+chemistry ontologies, I was ready to re-implement the evaluation workflow to use
+SSSOM rather than the SeMRA custom data model.
 
-The first step in implementing the automated evaluation workflow was to
-implement mapping stratification rules. This is important to enable the
-simultaneous usage of multiple sources of semantic mappings from different SSSOM
-files, e.g., originating by extracting (and processing) mappings from
-ontologies, from repositories like Biomappings, and from predicted systems.
+## Workflow
 
-It's important that such an algorithm does not rely on the specific file from
-which mappings come to decide their function, but rather to stratify
+After assembling semantic mappings that comprise a _benchmark_, then there are
+several questions to answer when evaluating predicted mappings between each pair
+of resources (often ontologies), whose terms appear as subjects/objects in
+mappings:
 
-this is because resources like Biomappings might include a combination of
-manually curated positive semantic mappings, manually curated negative semantic
-mappings, and predicted (positive) semantic mpapings.
+- what percentage of entities are already manually mapped?
+- what percentage of entities are already known to be unmappable (i.e.,
+  annotated with [sssom:NoTermFound](https://w3id.org/sssom/NoTermFound))?
+- what percentage of entities that aren't already manually mapped have
+  predictions that could be curated?
+- what is the curation burden to check all predictions? to complete the
+  alignment?
+- how correct are the predictions, reported with accuracy, precision, recall,
+  $F_1$, etc.?
 
-Semantic mappings are stratified as predicted versus curated based on their
-mapping justification. Predicted semantic mappings have one of the following:
+<!-- prettier-ignore-start -->
+
+> [!WARNING]
+> There are a few caveats about the evaluation:
+>
+> 1. Until all predictions are curated, the accuracy, precision, recall, and
+>    $F_1$ are an estimation of the true metrics, since the positive and
+>    negative manually curated mappings likely are not complete and therefore
+>    have some bias in which things were curated (e.g., I always curate the
+>    easiest first, leading towards a skew that more of my manual curations
+>    result in positive calls).
+> 2. SSSOM-Pydantic does not yet explicitly support `sssom:NoTermFound`, meaning
+>    that prior knowledge about unmappable entities isn't considered. This
+>    artificially increases the perceived mapping burden and deflates other
+>    metrics. I have been collecting ideas on how to model unmappabilities
+>    [here](https://github.com/cthoyt/sssom-pydantic/issues/163).
+
+<!-- prettier-ignore-end -->
+
+### Stratification
+
+After concatenating semantic mappings from mixed sources, they are stratified as
+predicted versus curated based on their mapping justification. Predicted
+semantic mappings have one of the following justifications:
 
 - `semapv:LexicalMatching`
 - `semapv:LexicalSimilarityThresholdMatching`
@@ -94,12 +125,42 @@ positive or negative (i.e., when the predicate modifier is set to `Not`). Note,
 there are typically no negative predicted semantic mappings because software
 focuses on producing positive semantic mappings.
 
+### Statistics
+
+A [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) is produced
+with the following four count values, which can be calculated with simple set
+operations:
+
+- **true positives (TP)** comprise predicted positive mappings that have
+  corresponding manually curated positive mappings.
+- **false positives (FP)** comprise predicted positive mappings that have
+  corresponding manually curated negative mappings. In practice, the false
+  positive count becomes more accurate over time as predicted mappings get
+  reviewed and incorporated into the manually curated set
+- **true negatives (TN)** comprise predicted negative mappings that have
+  corresponding manually curated negative mappings. In practice, prediction
+  tools do not typically produce negative predictions.
+- **false negatives (FN)** comprise predicted negative mappings that have
+  corresponding manually curated positive mappings. Again, in practice,
+  prediction tools do not typically produce negative predictions.
+
+The formula for recall, precision, $F_1$, and others can be read off the linked
+Wikipedia page. However, the lack of negatives makes statistics involving the
+true negative and false negative counts less applicable.
+
 If needed, negative mappings can be sampled using techniques based on the open
 world assumption (OWA) or local closed world assumption (LCWA). The
 [PyKEEN](https://github.com/pykeen/pykeen/) graph machine learning library has
 [detailed documentation](https://pykeen.readthedocs.io/en/stable/reference/negative_sampling.html)
-on these processes. However, SSSOM-Pydantic focuses on evaluations that don't
-consider predicted negative mappings.
+on these processes.
+
+In the SSSOM-Pydantic implementation, the local closed world assumption is used,
+meaning that for every manually curated positive mapping, if there is not a
+corresponding positive prediction, then it's considered that a negative
+prediction was made (and it's a false negative). Similarly, if there is a
+manually curated negative mapping without a corresponding positive prediction,
+then it's considered that the negative prediction was made (and it's a true
+negative).
 
 ## Evaluating Lexical Predictions produced by SSSOM Curator
 

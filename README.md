@@ -28,3 +28,7 @@ CC BY 4.0
 ## Pages
 
 The [pages](pages/) directory.
+
+## Jekyll Plugins Used
+
+- https://github.com/Helveg/jekyll-gfm-admonitions/
