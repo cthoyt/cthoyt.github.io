@@ -277,9 +277,10 @@ This workflow doesn't yet stratify by mapping tool, since in practice,
 Biomappings and SSSOM-Curator have mostly used the lexical matching workflow,
 except for the interesting case of mapping image annotations to chemical
 instrumentation in my post on [Bridging NFDI's culture and chemistry knowledge
-graphs]({% post_url 2025/10/07/bridging-culture-and-chemistry %}). However, I'm
-motivated to include this extension because of a recent submission from
-[Harshit Soni](https://github.com/HarshitSoni1903) to include predictions from
+graphs]({% post_url 2025-10-07-bridging-culture-and-chemistry %}) with text
+embedding-based matching. However, I'm motivated to make this extension because
+of a recent submission from [Harshit Soni](https://github.com/HarshitSoni1903)
+to include predictions from
 [LeonMap](https://github.com/HarshitSoni1903/Weakly-Supervised-Representation-Learning-for-Cross-Ontology-Mapping)
 in Biomappings in
 [biopragmatics/biomappings#274](https://github.com/biopragmatics/biomappings/pull/274)
@@ -289,7 +290,10 @@ SSSOM export in their tool in
 [sciknoworg/OntoAligner#123](https://github.com/sciknoworg/OntoAligner/issues/123).
 Then, this evaluation workflow could be used to run competitions and make
 comparison tools between mapping tools or hyperparameter optimization for a
-single tool.
+single tool, and significantly simplify competitions like the
+[Ontology Alignment Evaluation Initiative (OAEI)](https://oaei.ontologymatching.org),
+which I discussed in detail in my [previous
+post]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %})
 
 However, as I mentioned in the closing remarks of my [previous
 post]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %}), I
@@ -299,3 +303,9 @@ mapping software past simple lexical prediction. Ideally, I would like to see
 more improvement in integration of various components of the mapping prediction,
 curation, and publication stack to support the most downstream tasks that
 actually consume mappings.
+
+---
+
+in case you're wondering, it took about 8-10 days to do all the implementation
+and write these posts. it's finally raining in Bonn, and I'm feeling good about
+finishing this up.
