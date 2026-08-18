@@ -19,8 +19,8 @@ opportunities for challenges like the
 and how they could be addressed with
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom),
 and its ecosystem. In the [second
-part]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-implementation %}),
-I present a concrete implementation of a new automated evaluation system that
+part]({% post_url 2026/2026-08-17-mapping-evaluation-implementation %}), I
+present a concrete implementation of a new automated evaluation system that
 address some of those challenges.
 
 ## Brief Background on OAEI
@@ -208,8 +208,8 @@ directly upstream, then everyone benefits, and we don't have to keep playing
 this game.
 
 In the [second
-part]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-implementation %})
-of this post, I present an implementation of a new workflow for constructing and
+part]({% post_url 2026/2026-08-17-mapping-evaluation-implementation %}) of this
+post, I present an implementation of a new workflow for constructing and
 evaluating benchmarks that closes this loop and addresses many of the challenges
 and opportunities described above.
 

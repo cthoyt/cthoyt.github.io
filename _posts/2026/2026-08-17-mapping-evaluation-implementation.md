@@ -22,9 +22,8 @@ consumes arbitrary
 stratifies mappings as manually curated or predicted, then produces an
 evaluation for each source-target ontology pair present.
 
-The [first
-part]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %}) of
-this post described some of the opportunities for improving the automated
+The [first part]({% post_url 2026/2026-08-17-mapping-evaluation-background %})
+of this post described some of the opportunities for improving the automated
 evaluation of predicted semantic mappings. However, this background isn't
 necessary if you just want to see what I've made.
 
@@ -294,16 +293,16 @@ comparison tools between mapping tools or hyperparameter optimization for a
 single tool, and significantly simplify competitions like the
 [Ontology Alignment Evaluation Initiative (OAEI)](https://oaei.ontologymatching.org),
 which I discussed in detail in my [previous
-post]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %})
+post]({% post_url 2026/2026-08-17-mapping-evaluation-background %}#brief-background-on-oeai)
 
 However, as I mentioned in the closing remarks of my [previous
-post]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %}), I
-don't think that competition should be the point here - tools are more than good
-enough, and I haven't yet seen a benefit in increasingly complex and expensive
-mapping software past simple lexical prediction. Ideally, I would like to see
-more improvement in integration of various components of the mapping prediction,
-curation, and publication stack to support the most downstream tasks that
-actually consume mappings.
+post]({% post_url 2026/2026-08-17-mapping-evaluation-background %}#conclusions),
+I don't think that competition should be the point here - tools are more than
+good enough, and I haven't yet seen a benefit in increasingly complex and
+expensive mapping software past simple lexical prediction. Ideally, I would like
+to see more improvement in integration of various components of the mapping
+prediction, curation, and publication stack to support the most downstream tasks
+that actually consume mappings.
 
 ---
 
