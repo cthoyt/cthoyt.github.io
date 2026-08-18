@@ -212,7 +212,7 @@ $ uvx sssom_pydantic evaluate \
     --accept-unspecified
 ```
 
-I extended this workflow to evaluate the mapping between several other
+I actually extended this workflow to evaluate the mapping between several other
 [Open Biological and Biomedical Ontology Foundry (OBO) Foundry](https://obofoundry.org/)
 ontologies and MeSH and present the results below.
 
@@ -222,8 +222,8 @@ definitions of relationships and axioms. Therefore, many OBO Foundry ontologies
 either use MeSH as a starting point, or at least cover similar topics. Many
 additionally curate mappings back to MeSH, but this isn't always available. For
 example, OMIT even shamelessly imports the entirety of MeSH under
-http://purl.obolibrary.org/obo/OMIT_0000110 but provides no cross-references
-back to the original terms!
+[OMIT:0000110 (MeSH_term)](http://purl.obolibrary.org/obo/OMIT_0000110) but
+provides no cross-references back to the original terms!
 
 | Prefix 1                               | Prefix 2                           | Completion | Accuracy | Precision | Recall | $F_1$ |
 | -------------------------------------- | ---------------------------------- | ---------: | -------: | --------: | -----: | ----: |
@@ -252,12 +252,17 @@ one-to-many or many-to-one mappings, then it's also possible to identify
 entities for which there is no mapping between two given resources and further
 increase the accuracy of the accuracy metric.
 
+I'm only presenting the completion metric for now, which corresponds to the
+percentage of predictions that have been curated, so there's still quite a way
+to go in terms of completing these alignments.
+
 ## Next Steps
 
 Looking forward, this workflow can be arbitrarily extended with additional
 curations of mappings in Biomappings (or any other manually curated SSSOM files
 or ontologies) to be applied. It currently doesn't automatically stratify based
-on mapping tool, but if there are additional ones put into use (such as LeonMap,
-implemented by Harshit Soni and suggested
-[here](https://github.com/biopragmatics/biomappings/pull/274), then this is an
-important step towards building an automated, rerunnable evaluation workflow.
+on mapping tool, but if there are additional ones put into use (e.g., Harshit
+Soni has recently suggested adding predictions produced by LeonMap in
+[biopragmatics/biomappings#274](https://github.com/biopragmatics/biomappings/pull/274)),
+then this is an important step towards building an automated, rerunnable
+evaluation workflow.
