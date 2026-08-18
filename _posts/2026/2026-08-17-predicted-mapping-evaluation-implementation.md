@@ -269,14 +269,32 @@ is more accessible, e.g., for ontology curators or other NFDI stakeholders (see
 
 Looking forward, this workflow can be arbitrarily extended with additional
 curations of mappings in Biomappings (or any other manually curated SSSOM files
-or ontologies) to be applied. It currently doesn't automatically stratify based
-on mapping tool, but if there are additional ones put into use (e.g., Harshit
-Soni has recently suggested adding predictions produced by LeonMap in
-[biopragmatics/biomappings#274](https://github.com/biopragmatics/biomappings/pull/274)),
-then this is an important step towards building an automated, rerunnable
-evaluation workflow that could also be used to run competitions.
+or ontologies) to create new benchmarks, which stay up-to-date by being
+reproducibly constructed against the most recent versions of the upstream
+ontologies and Biomappings.
 
-Though, in my [previous
+This workflow doesn't yet stratify by mapping tool, since in practice,
+Biomappings and SSSOM-Curator have mostly used the lexical matching workflow,
+except for the interesting case of mapping image annotations to chemical
+instrumentation in my post on [Bridging NFDI's culture and chemistry knowledge
+graphs]({% post_url 2025/10/07/bridging-culture-and-chemistry %}). However, I'm
+motivated to include this extension because of a recent submission from
+[Harshit Soni](https://github.com/HarshitSoni1903) to include predictions from
+[LeonMap](https://github.com/HarshitSoni1903/Weakly-Supervised-Representation-Learning-for-Cross-Ontology-Mapping)
+in Biomappings in
+[biopragmatics/biomappings#274](https://github.com/biopragmatics/biomappings/pull/274)
+and recent discussion with the
+[OntoAligner](https://github.com/sciknoworg/OntoAligner) developers to include
+SSSOM export in their tool in
+Then, this evaluation workflow could be used to run competitions and make
+comparison tools between mapping tools or hyperparameter optimization for a
+single tool.
+
+However, as I mentioned in the closing remarks of my [previous
 post]({% post_url 2026/2026-08-17-predicted-mapping-evaluation-background %}), I
-outlined why I don't like the idea of ontology mapping competition, and am much
-more interested in seeing collaborative curation being done and shared.
+don't think that competition should be the point here - tools are more than good
+enough, and I haven't yet seen a benefit in increasingly complex and expensive
+mapping software past simple lexical prediction. Ideally, I would like to see
+more improvement in integration of various components of the mapping prediction,
+curation, and publication stack to support the most downstream tasks that
+actually consume mappings.
