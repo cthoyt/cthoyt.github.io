@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Semantic Mapping Review Workflows"
+title: Semantic Mapping Review Workflows
 date: 2026-08-27 11:00:00 +0200
 author: Charles Tapley Hoyt
 tags:
