@@ -9,11 +9,22 @@ tags:
   - review
 ---
 
+This post describes and categorizes several different workflows for reviewing
+semantic mappings, both created through manual curation and (semi-)automated
+methods.
+
+Why:
+
+1. follow-up to post about the [sssom comparion
+   workflow]({% post_url 2026-06-19-comparing-sssom %})
+2. have to decide how to go about reviewing student mappings for CHMO
+3. thinking about implementation of the web-based mechanism in SSSOM-Curator
+
 A flowchart.
 
 ```mermaid
 flowchart TD
-    Start[[Generation of Mappings]]
+    Start[[Mapping Creation]]
     Manual[Manual Curation]
     Automated[Automated Production]
     Final[Confidence Assessment]
@@ -58,10 +69,12 @@ kinds of mappings include a [confidence](https://w3id.org/sssom/confidence),
 which allows either the mapping tool or the curator to self-report the
 confidence in the mapping's correctness.
 
-| record_id | subject_id                                           | subject_label         | predicate_id                                             | object_id                                    | object_label          | mapping_justification                                                       | author_id                                                                    | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence |
-| --------- | ---------------------------------------------------- | --------------------- | -------------------------------------------------------- | -------------------------------------------- | --------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------- |
-| ex:1      | [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934) | aleutian mink disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) |               |                                                                  |                      | 0.99       |
-| ex:2      | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease         | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease         | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                | 0.778      |
+| record_id | subject_id                                           | subject_label                    | predicate_id                                             | object_id                                          | object_label                         | mapping_justification                                                       | author_id                                                                    | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence |
+| --------- | ---------------------------------------------------- | -------------------------------- | -------------------------------------------------------- | -------------------------------------------------- | ------------------------------------ | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------: |
+| ex:1      | [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease            | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934)       | aleutian mink disease                | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) |               |                                                                  |                      |       0.99 |
+| ex:2      | [FIX:0000629](https://semantic.farm/FIX:0000629)     | pulsed field gel electrophoresis | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [CHMO:0002315](https://semantic.farm/CHMO:0002315) | pulsed-field electrophoresis         | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0009-0009-1663-1003](https://semantic.farm/orcid:0009-0009-1663-1003) |               |                                                                  |                      |        0.8 |
+| ex:3      | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease                    | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154)       | borna disease                        | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |      0.778 |
+| ex:4      | [MONDO:0015053](https://semantic.farm/MONDO:0015053) | hereditary angioedema type 1     | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [mesh:D056829](https://semantic.farm/mesh:D056829) | Hereditary Angioedema Types I and II | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |       0.54 |
 
 ## M1: Reviewing a Manually Curated Mapping
 
@@ -84,8 +97,25 @@ from `ex:1`. Scroll to the right to see the `reviewer_id` and
 section of the SSSOM Specification.
 
 | record_id | subject_id                                           | subject_label         | predicate_id                                             | object_id                                    | object_label          | mapping_justification                                                       | author_id                                                                    | confidence | reviewer_id                                                                  | reviewer_agreement |
-| --------- | ---------------------------------------------------- | --------------------- | -------------------------------------------------------- | -------------------------------------------- | --------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------------- | ------------------ |
-| ex:3      | [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934) | aleutian mink disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) | 0.99       | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) | 1.0                |
+| --------- | ---------------------------------------------------- | --------------------- | -------------------------------------------------------- | -------------------------------------------- | --------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------------- | -----------------: |
+| ex:5      | [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934) | aleutian mink disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) | 0.99       | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) |                1.0 |
+
+The following example illustrates what it looked like when Philip Strömert (one
+of the new maintainers of CHMO) negatively reviewed the manually curated mapping
+between the FIX and CHMO terms in `ex:2`, which actually should have the
+relation that the
+[FIX:0000629 (pulsed field gel electrophoresis)](https://semantic.farm/FIX:0000629)
+is narrower than
+[CHMO:0002315 (pulsed-field electrophoresis)](https://semantic.farm/CHMO:0002315).
+Therefore, the `reviewer_agreement` is set to -1.0, meaning full disagree.
+
+| record_id | subject_id                                       | subject_label                    | predicate_id                                             | object_id                                           | object_label                 | mapping_justification                                                       | author_id                                                                    | confidence | reviewer_id                                                                  | reviewer_agreement |
+| --------- | ------------------------------------------------ | -------------------------------- | -------------------------------------------------------- | --------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: | ---------------------------------------------------------------------------- | -----------------: |
+| ex:6      | [FIX:0000629](https://semantic.farm/FIX:0000629) | pulsed field gel electrophoresis | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [CHMO:0002315](https://semantic-.farm/CHMO:0002315) | pulsed-field electrophoresis | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0009-0009-1663-1003](https://semantic.farm/orcid:0009-0009-1663-1003) |        0.8 | [orcid:0000-0002-1595-3213](https://semantic.farm/orcid:0000-0002-1595-3213) |               -1.0 |
+
+It's not so common to have a situation where the reviewer will be fully
+ambivalent and annotate the `reviewer_agreement` as $0.0$, so no example is
+given for this scenario.
 
 > [!WARNING]
 >
@@ -98,9 +128,15 @@ section of the SSSOM Specification.
 
 ## M2: Replacing a Manually Curated Mapping
 
-This M1 review workflow has the disadvantage that when the reviewer disagrees,
-it does not materialize a new semantic mapping with the correct `predicate_id`
-and `predicate_modifier`.
+The primary disadvantage with M1 workflow for reviewing a manually curated
+mapping is that when the reviewer disagrees, it does not have the opportunity to
+either explicitly mark the mapping as incorrect (by flipping the
+`predicate_modifier`) or to materialize a new, more correct mapping. In the case
+of `ex:2`, there are tw
+
+| record_id | subject_id                                       | subject_label                    | predicate_id                                             | predicate_modifier | object_id                                           | object_label                 | mapping_justification                                                       | author_id                                                                    | confidence |
+| --------- | ------------------------------------------------ | -------------------------------- | -------------------------------------------------------- | ------------------ | --------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: |
+| ex:7      | [FIX:0000629](https://semantic.farm/FIX:0000629) | pulsed field gel electrophoresis | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | Not                | [CHMO:0002315](https://semantic-.farm/CHMO:0002315) | pulsed-field electrophoresis | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid.0000-0002-1595-3213](https://semantic.farm/orcid:0000-0002-1595-3213) |       0.95 |
 
 For example, if the originally curated mapping had `skos:exactMatch` and no
 predicate modifier, but the reviewer decided it was incorrect because they are
@@ -108,6 +144,10 @@ not an exact match, then they might either want to materialize a new mapping
 with the predicate `skos:exactMatch` and the `Not` predicate modifier, or they
 might be able to choose a different SKOS mapping predicate that is more correct
 (e.g., broad, narrow, close, or related).
+
+| record_id | subject_id                                       | subject_label                    | predicate_id                                               | object_id                                           | object_label                 | mapping_justification                                                       | author_id                                                                    | confidence |
+| --------- | ------------------------------------------------ | -------------------------------- | ---------------------------------------------------------- | --------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: |
+| ex:8      | [FIX:0000629](https://semantic.farm/FIX:0000629) | pulsed field gel electrophoresis | [skos:narrowMatch](https://semantic.farm/skos:narrowMatch) | [CHMO:0002315](https://semantic-.farm/CHMO:0002315) | pulsed-field electrophoresis | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid.0000-0002-1595-3213](https://semantic.farm/orcid:0000-0002-1595-3213) |       0.95 |
 
 ## M3: Achieving Curator Consensus
 
@@ -118,13 +158,19 @@ results.
 the curator consensus workflow can also feed into the review workflow, as each
 mapping can be reviewed separately.
 
-| subject_id                                           | subject_label         | predicate_id                                             | object_id                                    | object_label          | mapping_justification                                                       | author_id                                                                    | confidence |
-| ---------------------------------------------------- | --------------------- | -------------------------------------------------------- | -------------------------------------------- | --------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------- |
-| [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934) | aleutian mink disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) | 0.99       |
-| [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934) | aleutian mink disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-1307-2508](https://semantic.farm/orcid:0000-0003-1307-2508) | 0.98       |
+in this example, I could imagine recruiting my sister for help in curation, like
+we did on the original Biomappings paper while we were both sitting home
+together during the pandemic.
 
-Warning: this workflow is _idempotent_, meaning that the identity of the
-original record does _not_ change.
+| record_id | subject_id                                           | subject_label         | predicate_id                                             | object_id                                    | object_label          | mapping_justification                                                       | author_id                                                                    | confidence |
+| --------- | ---------------------------------------------------- | --------------------- | -------------------------------------------------------- | -------------------------------------------- | --------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: |
+| ex:1      | [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934) | aleutian mink disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) |       0.99 |
+| ex:9      | [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934) | aleutian mink disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-1307-2508](https://semantic.farm/orcid:0000-0003-1307-2508) |       0.98 |
+
+> [!NOTE]
+>
+> Note that this review workflow is _idempotent_ - it does not alter the
+> identity of the semantic mapping record (i.e., a row in the SSSOM file).
 
 ## A1: Reviewing a Predicted Mapping
 
@@ -135,8 +181,8 @@ confident in the correctness of the manual curation, that it doesn't explicitly
 capture this in the mapping justification. This motivates the next workflow
 
 | subject_id                                           | subject_label | predicate_id                                             | object_id                                    | object_label  | mapping_justification                                                  | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence | reviewer_id                                                                  | reviewer_agreement |
-| ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | ---------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------- | ---------------------------------------------------------------------------- | ------------------ |
-| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                | 0.778      | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) | 1.0                |
+| ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | ---------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------: | ---------------------------------------------------------------------------- | -----------------: |
+| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |      0.778 | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) |                1.0 |
 
 ## A2.1: Replacing a Predicted Mapping with a Manual Curation
 
@@ -146,8 +192,8 @@ prediction metadata are dropped, the `author_id` is filled out, and the
 `confidence` is overwritten with the curator's confidence.
 
 | subject_id                                           | subject_label | predicate_id                                             | object_id                                    | object_label  | mapping_justification                                                  | author_id                                                                    | confidence |
-| ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------- |
-| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) | 1.0        |
+| ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: |
+| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) |        1.0 |
 
 TODO: give example of disagreement and of ambivalence
 
@@ -161,9 +207,9 @@ original predicted mapping record via the
 This is implemented in SSSOM Pydantic (note, the example hash is made up).
 
 | subject_id                                           | subject_label | predicate_id                                             | object_id                                    | object_label  | mapping_justification                                                       | author_id                                                                    | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence | derived_from        |
-| ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------- | ------------------- |
-| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) |               |                                                                  |                      | 0.99       | `mapping:CED101AFD` |
-| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                | 0.778      |                     |
+| ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------: | ------------------- |
+| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) |               |                                                                  |                      |       0.99 | `mapping:CED101AFD` |
+| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |      0.778 |                     |
 
 ## on LLMs
 
