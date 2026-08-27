@@ -312,12 +312,14 @@ Nico Matentzoglu, _et al._ (2023) published
 [MapperGPT: large language models for linking and mapping entities](https://arxiv.org/abs/2310.03666),
 which suggests that agentic workflows such as those based on large language
 models (LLMs) could be used to _review_ semantic mappings. Since 2023, several
-others have investigated the idea as well. I'm skeptical of the use of the word
-_review_ here - I think that the `reviewer_id` slot should be reserved only
-review by a human (or group humans; the slot is multivalued). In my opinion, the
-point of review is to add a trustworthy judgment to a semantic mapping. I'm not
-against the use of (semi-) automated methods for producing mappings, but it
-seems silly to have one stochastic automated method to assess another one.
+others have investigated the idea as well.
+
+I'm skeptical of the use of the word _review_ here - I think that the
+`reviewer_id` slot should be reserved only review by a human (or group humans;
+the slot is multivalued). In my opinion, the point of review is to add a
+trustworthy judgment to a semantic mapping. I'm not against the use of (semi-)
+automated methods for producing mappings, but it seems silly to have one
+stochastic automated method to assess another one.
 
 ### Back to CHMO
 
@@ -329,10 +331,12 @@ were manually curated, but had conflicts, so this meant that we need to apply a
 combination of workflow M1 to accept the correct mappings and workflow M2 to
 mark the incorrect ones or fix them. Then, either the consensus workflow M3
 could be used for the rest, or Philip could do lots of painstaking work and do
-workflow M1. Since we want this to be a gold standard, he's going to go down the
-M1 route and do a careful review of everything from the perspective of the
-student's curations. Then, we could always apply the whole comparison workflow
-again and take a quick final pass!
+workflow M1.
+
+Since we want this to be a gold standard, he's going to go down the M1 route and
+do a careful review of everything from the perspective of the student's
+curations. Then, we could always apply the whole comparison workflow again and
+take a quick final pass!
 
 ### Confidence Model
 
