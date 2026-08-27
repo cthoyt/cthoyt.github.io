@@ -130,24 +130,29 @@ given for this scenario.
 
 The primary disadvantage with M1 workflow for reviewing a manually curated
 mapping is that when the reviewer disagrees, it does not have the opportunity to
-either explicitly mark the mapping as incorrect (by flipping the
-`predicate_modifier`) or to materialize a new, more correct mapping. In the case
-of `ex:2`, there are tw
+either explicitly mark the mapping as incorrect. The first version of the M2
+workflow is to replace the original with a new mapping with the following
+changes:
+
+1. Invert the `predicate_modifier` (which almost always just means adding one)
+2. Replace the reference in the `author_id` column with the reviewer's ORCiD
+3. Replace the original author's confidence with the reviewer's
 
 | record_id | subject_id                                       | subject_label                    | predicate_id                                             | predicate_modifier | object_id                                           | object_label                 | mapping_justification                                                       | author_id                                                                    | confidence |
 | --------- | ------------------------------------------------ | -------------------------------- | -------------------------------------------------------- | ------------------ | --------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: |
 | ex:7      | [FIX:0000629](https://semantic.farm/FIX:0000629) | pulsed field gel electrophoresis | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | Not                | [CHMO:0002315](https://semantic-.farm/CHMO:0002315) | pulsed-field electrophoresis | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid.0000-0002-1595-3213](https://semantic.farm/orcid:0000-0002-1595-3213) |       0.95 |
 
-For example, if the originally curated mapping had `skos:exactMatch` and no
-predicate modifier, but the reviewer decided it was incorrect because they are
-not an exact match, then they might either want to materialize a new mapping
-with the predicate `skos:exactMatch` and the `Not` predicate modifier, or they
-might be able to choose a different SKOS mapping predicate that is more correct
-(e.g., broad, narrow, close, or related).
+The second version of the M2 workflow is applicable when the reviewer knows how
+to fix the mapping. In the pulsed-field electrophoresis example, the mapping can
+be fixed by changing the predicate from exact match to narrow match. Similarly,
+the old mapping gets replaced with the reviewer's ORCiD as the new author, a new
+predicate, a new confidence, and any other relevant changes.
 
 | record_id | subject_id                                       | subject_label                    | predicate_id                                               | object_id                                           | object_label                 | mapping_justification                                                       | author_id                                                                    | confidence |
 | --------- | ------------------------------------------------ | -------------------------------- | ---------------------------------------------------------- | --------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: |
 | ex:8      | [FIX:0000629](https://semantic.farm/FIX:0000629) | pulsed field gel electrophoresis | [skos:narrowMatch](https://semantic.farm/skos:narrowMatch) | [CHMO:0002315](https://semantic-.farm/CHMO:0002315) | pulsed-field electrophoresis | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid.0000-0002-1595-3213](https://semantic.farm/orcid:0000-0002-1595-3213) |       0.95 |
+
+After, this mapping can once again undergo mapping workflow M1!
 
 ## M3: Achieving Curator Consensus
 
