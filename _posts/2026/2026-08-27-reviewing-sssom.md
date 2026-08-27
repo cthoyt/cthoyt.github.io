@@ -16,7 +16,7 @@ methods.
 Why:
 
 1. follow-up to post about the [sssom comparion
-   workflow]({% post_url 2026-06-19-comparing-sssom %})
+   workflow]({% post_url 2026/2026-06-19-comparing-sssom %})
 2. have to decide how to go about reviewing student mappings for CHMO
 3. thinking about implementation of the web-based mechanism in SSSOM-Curator
 
@@ -48,15 +48,16 @@ flowchart TD
     A3 -.-> M1
 ```
 
-### Example Semantic Mappings
-
-I drew four example semantic mappings from Biomappings and CHMO that I'll use
-throughout this post. Rather than showing valid SSSOM TSV file each time, I'm
-going to omit the mapping set metadata. You should assume that I'm always using
-stadard prefixes from the [Semantic Farm](https://semantic.farm/) (previously
-called Bioregistry), except in the case of the `record_id` column where I added
-dummy identifiers using the `ex:` prefix (typically expanded with
-`https://example.org/`) for ease of reference throughout this post.
+The table below contains four semantic mappings in the SSSOM TSV format that
+I'll use as examples through this post. They are drawn from the
+community-curated [Biomappings](https://github.com/biopragmatics/biomappings)
+project and [current work](https://github.com/rsc-ontology/rsc-cmo/pull/77) on
+the [Chemical Methods Ontology (CHMO)](https://semantic.farm) driven by
+NFDI4Chem. Rather than showing valid SSSOM TSV file each time, I'm going to omit
+the mapping set metadata. You should assume that I'm always using stadard
+prefixes from the [Semantic Farm](https://semantic.farm/) (previously called
+Bioregistry), except in the case of the `record_id` column where I added dummy
+identifiers using the `ex:` prefix for ease of reference throughout this post.
 
 The first two example mappings `ex:1` and `ex:2` are manually curated. This is
 reflected in the `mapping_justification` field which contains
@@ -137,27 +138,30 @@ given for this scenario.
 > your semantic mapping review software persists its semantic mappings.
 
 This workflow is implemented in SSSOM Pydantic in
-[sssom_pydantic.process.review()](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html).
+[sssom_pydantic.process.review ()](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html).
 SSSOM Pydantic models semantic mappings as frozen objects, meaning that no
 operations happen in-place (i.e., all are _destructive_).
 
 ### M2: Replacing a Manually Curated Mapping
 
-The primary disadvantage with M1 workflow for reviewing a manually curated
-mapping is that when the reviewer disagrees, it does not have the opportunity to
-either explicitly mark the mapping as incorrect. The first version of the M2
-workflow is to replace the original with a new mapping with the following
+The primary disadvantage with workflow M1 for reviewing a manually curated
+mapping is that when the reviewer disagrees, the workflow does not give the
+opportunity for the reviewer to either explicitly mark the mapping as incorrect
+or to fix it. The first version of the M2 workflow is to replace the original
+with a new mapping explicitly marking it as incorrect by making the following
 changes:
 
 1. Invert the `predicate_modifier` (which almost always just means adding one)
 2. Replace the reference in the `author_id` column with the reviewer's ORCiD
 3. Replace the original author's confidence with the reviewer's
 
+Below, the first version of workflow M2 is applied to `ex:2`:
+
 | record_id | subject_id                                       | subject_label                    | predicate_id                                             | predicate_modifier | object_id                                           | object_label                 | mapping_justification                                                       | author_id                                                                    | confidence |
 | --------- | ------------------------------------------------ | -------------------------------- | -------------------------------------------------------- | ------------------ | --------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: |
 | ex:7      | [FIX:0000629](https://semantic.farm/FIX:0000629) | pulsed field gel electrophoresis | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | Not                | [CHMO:0002315](https://semantic-.farm/CHMO:0002315) | pulsed-field electrophoresis | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0002-1595-3213](https://semantic.farm/orcid:0000-0002-1595-3213) |       0.95 |
 
-The second version of the M2 workflow is applicable when the reviewer knows how
+The second version of the workflow M2 is applicable when the reviewer knows how
 to fix the mapping. In the pulsed-field electrophoresis example, the mapping can
 be fixed by changing the predicate from exact match to narrow match. Similarly,
 the old mapping gets replaced with the reviewer's ORCiD as the new author, a new
@@ -171,10 +175,10 @@ After, this mapping can once again undergo mapping workflow M1!
 
 ### M3: Achieving Curator Consensus
 
-In the third workflow, two or more curators are tasked to independently manually
+In the workflow M3, two or more curators are tasked to independently manually
 curate mappings (e.g., between the same two resources). The appearance of the
 same mapping in two or more of the curators results can be used as a stand-in
-for review. Conversely, this workflow can also amplify systematically incorrect
+for review. Conversely, workflow M3 can also amplify systematically incorrect
 correct, e.g., where every curator makes the same mistake because of some
 qualities of the resources being curated.
 
@@ -192,8 +196,8 @@ confidence (and any other columns).
 
 After applying workflow M3, the comparison workflow I proposed [in a previous
 post]({% post_url
-2026-06-19-comparing-sssom %}) can be used to highlight discrepancies that can
-be reviewed with workflow M1 and/or M2.
+2026/2026-06-19-comparing-sssom %}) can be used to highlight discrepancies that
+can be reviewed with workflow M1 and/or M2.
 
 > [!NOTE]
 >
@@ -227,7 +231,7 @@ disagreement.
 | ex:11     | [MONDO:0015053](https://semantic.farm/MONDO:0015053) | hereditary angioedema type 1 | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [mesh:D056829](https://semantic.farm/mesh:D056829) | Hereditary Angioedema Types I and II | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |       0.54 | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) |               -1.0 |
 
 This workflow is implemented in SSSOM Pydantic in
-[sssom_pydantic.process.review()](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html).
+[sssom_pydantic.process.review ()](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html).
 The implementation is shared for workflow W1 and A1.
 
 ### A2: Replacing a Predicted Mapping with a Manual Curation
@@ -254,7 +258,7 @@ workflow M2. Similarly, the results of any application of workflow A2 can then
 be reviewed with workflow M1 after.
 
 This workflow is implemented in SSSOM Pydantic in
-[sssom_pydantic.process.curate()](<[https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.curate.html)>).
+[sssom_pydantic.process.curate ()](<[https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.curate.html)>).
 SSSOM Pydantic models semantic mappings as frozen objects, meaning that no
 operations happen in-place (i.e., all are _destructive_).
 
@@ -267,12 +271,13 @@ mapping intact and simply append the new mapping. Importantly, the new mapping
 uses the [derived_from](https://w3id.org/sssom/derived_from) field to point back
 to original predicted mapping record via the
 [SSSOM record hash](https://mapping-commons.github.io/sssom/spec-support-hashing/).
-This is implemented in SSSOM Pydantic (note, the example hash is made up).
+This is implemented in SSSOM Pydantic (note, the example hash in `ex:13` is made
+up, I might add a real one later).
 
 | record_id | subject_id                                           | subject_label | predicate_id                                             | object_id                                    | object_label  | mapping_justification                                                       | author_id                                                                    | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence | derived_from        |
 | --------- | ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------: | ------------------- |
-| ex:3      | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) |               |                                                                  |                      |       0.99 | `mapping:CED101AFD` |
-| ex:13     | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |      0.778 |                     |
+| ex:3      | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |      0.778 |                     |
+| ex:13     | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) |               |                                                                  |                      |       0.99 | `mapping:CED101AFD` |
 
 This workflow is implemented by a combination of SSSOM Pydantic's `curate()`
 function and the harness implemented by SSSOM Curator, but the way that mappings
@@ -287,17 +292,36 @@ workflow A2 while curating some CHMO and IUPAC Goldbook mappings.
 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/FkXkOhT8gdc?si=fwlqCPTttYTxy1oR&amp;start=448" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## on LLMs
+## Parting Thoughts
 
-I don't consider machine-assisted review to be review, but rather a different
-form of prediction.
+### Review with LLMs
 
-[MapperGPT: large language models for linking and mapping entities](https://arxiv.org/abs/2310.03666)
-from Nico Matentzoglu, _et al._ (2023)
+Nico Matentzoglu, _et al._ (2023) published
+[MapperGPT: large language models for linking and mapping entities](https://arxiv.org/abs/2310.03666),
+which suggests that agentic workflows such as those based on large language
+models (LLMs) could be used to _review_ semantic mappings. I'm skeptical of the
+use of the word _review_ here - I think that the `reviewer_id` slot should be
+reserved only review by a human (or group of humans, the slot is multivalued).
+In my opinion, the point of review is to add a trustworthy judgement to a
+semantic mapping. I'm not against the use of (semi-) automated methods for
+producing mappings, but it seems silly to have one automated method to assess
+another one.
 
-The usage of a machine for review is simply not accomplishing the goal, which is
-to increase the confidence
+### Confidence Model
 
-## Confidence model, looking forward
+Each of the workflows presented here has drawbacks and might be appropriate
+depending on your goals and the software you're using. In the end, you might
+have a combination of manually curated and automatically generated mappings,
+some of which are reviewed and some of which are not.
 
-https://mapping-commons.github.io/sssom/dev/confidence-model/
+The next step is to collapse many evidences into a single mapping that can be
+used for downstream applications of semantic mappings, such as in the
+construction of knowledge graphs. Part of that is to estimate the confidence of
+the consensus mapping. I originally started thinking about these ideas while
+developing the
+[Semantic Mapping Reasoner and Assembler (SeMRA)](https://github.com/biopragmatics/semra),
+but refined and generalized the ideas to be applicable to arbitrary semantic
+mappings in SSSOM
+[here](https://mapping-commons.github.io/sssom/dev/confidence-model). In a
+follow-up post, I'll write more about the SSSOM confidence model and the
+algorithm I proposed for estimating combine confidences.
