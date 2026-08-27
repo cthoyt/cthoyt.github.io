@@ -20,7 +20,13 @@ Why:
 2. have to decide how to go about reviewing student mappings for CHMO
 3. thinking about implementation of the web-based mechanism in SSSOM-Curator
 
-A flowchart.
+## Classification of Review Workflows
+
+The main goal of this post is to present several different workflows and
+strategies for reviewing both manually curated semantic mappings and predicted
+semantic mappings in the
+[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
+format.
 
 ```mermaid
 flowchart TD
@@ -42,36 +48,36 @@ flowchart TD
     A3 -.-> M1
 ```
 
-[Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/).
+### Example Semantic Mappings
 
-## Classification of Review Workflows
+I drew four example semantic mappings from Biomappings and CHMO that I'll use
+throughout this post. Rather than showing valid SSSOM TSV file each time, I'm
+going to omit the mapping set metadata. You should assume that I'm always using
+stadard prefixes from the [Semantic Farm](https://semantic.farm/) (previously
+called Bioregistry), except in the case of the `record_id` column where I added
+dummy identifiers using the `ex:` prefix (typically expanded with
+`https://example.org/`) for ease of reference throughout this post.
 
-The following SSSOM omits the metadata - standard
-[Semantic Farm](https://semantic.farm/) prefixes should be assumed (previously
-called Bioregistry).
-
-The following SSSOM contains two mappings between the
-[Monarch Disease Ontology (MONDO)](https://semantic.farm/mondo) - one that was
+The first two example mappings `ex:1` and `ex:2` are manually curated. This is
+reflected in the `mapping_justification` field which contains
+[Semantic Mapping Vocabulary (SEMAPV)](https://semantic.farm/semapv) term
+[semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration). The
+second two example mappings are lexical predictions from the Biomappings project
 produced through [SSSOM Curator's](https://github.com/cthoyt/sssom-curator)
-lexical matching workflow, and one that was manually curated.
+lexical matching workflow and therefore have
+[semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) as their
+justifications.
 
-The way the mappings were captured is reflected in the `mapping_justification`
-field via [Semantic Mapping Vocabulary (SEMAPV)](https://semantic.farm/semapv)
-terms - the lexical matching gets
-[semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) and the
-manual curation gets
-[semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration).
-
-The kind of mapping also strongly suggests what metadata gets added to the
-mapping. The lexical mapping has information about the mapping tool (and could
-additionally include fields like
+The mapping justification also strongly suggests what metadata gets added to the
+mapping. The manually curated mappings contains an `author_id` for the
+individual who did the curation. The lexical mappings have information about the
+mapping tool (and could additionally include fields like
 [subject_match_field](https://w3id.org/sssom/subject_match_field),
 [object_match_field](https://w3id.org/sssom/object_match_field), and
-[match_string](https://w3id.org/sssom/match_string)). Importantly, the manual
-curation contains an `author_id` for the individual who did the curation. Both
-kinds of mappings include a [confidence](https://w3id.org/sssom/confidence),
-which allows either the mapping tool or the curator to self-report the
-confidence in the mapping's correctness.
+[match_string](https://w3id.org/sssom/match_string)). Both kinds of mappings
+include a [confidence](https://w3id.org/sssom/confidence), which allows either
+the mapping tool or the curator to self-report the confidence in the mapping's
+correctness.
 
 | record_id | subject_id                                           | subject_label                    | predicate_id                                             | object_id                                          | object_label                         | mapping_justification                                                       | author_id                                                                    | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence |
 | --------- | ---------------------------------------------------- | -------------------------------- | -------------------------------------------------------- | -------------------------------------------------- | ------------------------------------ | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------: |
@@ -277,9 +283,9 @@ get persisted are ultimately an implementation detail.
 In the following demo, I show how the
 [SSSOM Curator](https://github.com/cthoyt/sssom-curator), which runs the
 [Biomappings](https://github.com/biopragmatics/biomappings) project, implements
-workflow A2:
+workflow A2 while curating some CHMO and IUPAC Goldbook mappings.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FkXkOhT8gdc?si=fwlqCPTttYTxy1oR&amp;start=448" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/FkXkOhT8gdc?si=fwlqCPTttYTxy1oR&amp;start=448" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## on LLMs
 
@@ -291,3 +297,7 @@ from Nico Matentzoglu, _et al._ (2023)
 
 The usage of a machine for review is simply not accomplishing the goal, which is
 to increase the confidence
+
+## Confidence model, looking forward
+
+https://mapping-commons.github.io/sssom/dev/confidence-model/
