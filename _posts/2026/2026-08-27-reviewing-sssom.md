@@ -156,26 +156,34 @@ After, this mapping can once again undergo mapping workflow M1!
 
 ## M3: Achieving Curator Consensus
 
-the second semantic mapping review workflow is to have a second (or more)
-curators manually curate the same mapping in isolation, then to compare the
-results.
+In the third workflow, two or more curators are tasked to independently manually
+curate mappings (e.g., between the same two resources). The appearance of the
+same mapping in two or more of the curators results can be used as a stand-in
+for review. Conversely, this workflow can also amplify systematically incorrect
+correct, e.g., where every curator makes the same mistake because of some
+qualities of the resources being curated.
 
-the curator consensus workflow can also feed into the review workflow, as each
-mapping can be reviewed separately.
-
-in this example, I could imagine recruiting my sister for help in curation, like
-we did on the original Biomappings paper while we were both sitting home
-together during the pandemic.
+While I was locked down with my parents and sister (a microbiologist) during the
+COVID-19 pandemic, I trained her in semantic mapping curation, then she made
+significant contributions to the original Biomappings paper and then to disease
+mappings in MONDO and DOID. I could imagine recuriting her for a curator
+consensus scenario, where she would independently add `ex:9` with her own
+confidence (and any other columns).
 
 | record_id | subject_id                                           | subject_label         | predicate_id                                             | object_id                                    | object_label          | mapping_justification                                                       | author_id                                                                    | confidence |
 | --------- | ---------------------------------------------------- | --------------------- | -------------------------------------------------------- | -------------------------------------------- | --------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: |
 | ex:1      | [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934) | aleutian mink disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) |       0.99 |
 | ex:9      | [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934) | aleutian mink disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-1307-2508](https://semantic.farm/orcid:0000-0003-1307-2508) |       0.98 |
 
+After applying workflow M3, the comparison workflow I proposed [in a previous
+post]({% post_url 2026-06-19-comparing-sssom %}) can be used to highlight
+discrepancies that can be reviewed with workflow M1 and/or M2.
+
 > [!NOTE]
 >
-> Note that this review workflow is _idempotent_ - it does not alter the
-> identity of the semantic mapping record (i.e., a row in the SSSOM file).
+> Unlike workflows M1 and M2, this review workflow is _idempotent_ - it does not
+> alter the identity of the semantic mapping record (i.e., a row in the SSSOM
+> file).
 
 ## A1: Reviewing a Predicted Mapping
 
