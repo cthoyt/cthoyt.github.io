@@ -33,8 +33,8 @@ this.
 ## Classification of Review Workflows
 
 The main goal of this post is to present several different workflows and
-strategies for reviewing both manually curated semantic mappings and predicted
-semantic mappings in the
+strategies for reviewing both manually curated semantic mappings and
+automatically generated semantic mappings in the
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
 format.
 
@@ -73,9 +73,9 @@ The first two example mappings `ex:1` and `ex:2` are manually curated. This is
 reflected in the `mapping_justification` field which contains
 [Semantic Mapping Vocabulary (SEMAPV)](https://semantic.farm/semapv) term
 [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration). The
-second two example mappings are lexical predictions from the Biomappings project
-produced through [SSSOM Curator's](https://github.com/cthoyt/sssom-curator)
-lexical matching workflow and therefore have
+second two example mappings were produced through
+[SSSOM Curator's](https://github.com/cthoyt/sssom-curator) lexical matching
+workflow for the Biomappings project therefore have
 [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) as their
 justifications.
 
@@ -220,7 +220,7 @@ can be reviewed with workflow M1 and/or M2.
 This workflow operates similarly to workflow M1 where a reviewer adds their
 information into the `reviewer_id`, `reviewer_agreement`, and `review_date`
 slots. However, the disadvantage of this workflow is that justifications for
-predicted mappings such as
+automatically generated mappings such as
 [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) and
 [semapv:SemanticSimilarityThresholdMatching](https://semantic.farm/semapv:SemanticSimilarityThresholdMatching)
 are weaker, and review does not upgrade their justification to
@@ -246,13 +246,13 @@ The implementation is shared for workflow W1 and A1.
 
 ### A2: Replacing a Predicted Mapping with a Manual Curation
 
-In this workflow that mirrors workflow M2, a reviewer of a predicted mapping
-overwrites the predicted mapping with a manual curation. Unlike M2, this
-workflow importantly includes the following changes:
+In this workflow that mirrors workflow M2, a reviewer of an automatically
+generated mapping overwrites the automatically generated mapping with a manual
+curation. Unlike M2, this workflow importantly includes the following changes:
 
 - Update the mapping justification to
   [semapv:ManualMappingCuration](https://semantic.farm/semapv:ManualMappingCuration)
-- Drop mapping tool and prediction-related fields
+- Drop mapping tool and automatic generation-related fields
 - Fill out the `author_id` field and `confidence` (not the `reviewer_id` and
   `reviewer_agreement`)
 
@@ -279,7 +279,7 @@ information from the lexical mapping. Depending on your use case, it might be
 desired to keep that. Workflow A3 extends workflow A2 to keep the original
 mapping intact and simply append the new mapping. Importantly, the new mapping
 uses the [derived_from](https://w3id.org/sssom/derived_from) field to point back
-to original predicted mapping record via the
+to original automatically generated mapping record via the
 [SSSOM record hash](https://mapping-commons.github.io/sssom/spec-support-hashing/).
 This is implemented in SSSOM Pydantic (note, the example hash in `ex:13` is made
 up, I might add a real one later).
@@ -317,7 +317,7 @@ _review_ here - I think that the `reviewer_id` slot should be reserved only
 review by a human (or group humans; the slot is multivalued). In my opinion, the
 point of review is to add a trustworthy judgment to a semantic mapping. I'm not
 against the use of (semi-) automated methods for producing mappings, but it
-seems silly to have one automated method to assess another one.
+seems silly to have one stochastic automated method to assess another one.
 
 ### Back to CHMO
 
