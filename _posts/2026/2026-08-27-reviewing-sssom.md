@@ -37,10 +37,14 @@ flowchart TD
     M3 -.-> M1
     Automated --> A1[A1: Add reviewer] --> Final
     Automated --> A2[A2: Replace with manual curation] --> Final
+    Automated --> A3[A3: Replace with manual curation + provenance] --> Final
     A2 -.-> M1
+    A3 -.-> M1
 ```
 
 [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/).
+
+## Classification of Review Workflows
 
 The following SSSOM omits the metadata - standard
 [Semantic Farm](https://semantic.farm/) prefixes should be assumed (previously
@@ -76,7 +80,7 @@ confidence in the mapping's correctness.
 | ex:3      | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease                    | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154)       | borna disease                        | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |      0.778 |
 | ex:4      | [MONDO:0015053](https://semantic.farm/MONDO:0015053) | hereditary angioedema type 1     | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [mesh:D056829](https://semantic.farm/mesh:D056829) | Hereditary Angioedema Types I and II | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |       0.54 |
 
-## M1: Reviewing a Manually Curated Mapping
+### M1: Reviewing a Manually Curated Mapping
 
 The most obvious review workflow for manually curated semantic mappings is for a
 second curator (the reviewer) to decide if they agree, disagree, or are unsure
@@ -126,7 +130,12 @@ given for this scenario.
 > changes. This is an important implementation detail depending on how you or
 > your semantic mapping review software persists its semantic mappings.
 
-## M2: Replacing a Manually Curated Mapping
+This workflow is implemented in SSSOM Pydantic in
+[sssom_pydantic.process.review()](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html).
+SSSOM Pydantic models semantic mappings as frozen objects, meaning that no
+operations happen in-place (i.e., all are _destructive_).
+
+### M2: Replacing a Manually Curated Mapping
 
 The primary disadvantage with M1 workflow for reviewing a manually curated
 mapping is that when the reviewer disagrees, it does not have the opportunity to
@@ -154,7 +163,7 @@ predicate, a new confidence, and any other relevant changes.
 
 After, this mapping can once again undergo mapping workflow M1!
 
-## M3: Achieving Curator Consensus
+### M3: Achieving Curator Consensus
 
 In the third workflow, two or more curators are tasked to independently manually
 curate mappings (e.g., between the same two resources). The appearance of the
@@ -176,8 +185,9 @@ confidence (and any other columns).
 | ex:9      | [MONDO:0005641](https://semantic.farm/MONDO:0005641) | aleutian mink disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:2934](https://semantic.farm/DOID:2934) | aleutian mink disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-1307-2508](https://semantic.farm/orcid:0000-0003-1307-2508) |       0.98 |
 
 After applying workflow M3, the comparison workflow I proposed [in a previous
-post]({% post_url 2026-06-19-comparing-sssom %}) can be used to highlight
-discrepancies that can be reviewed with workflow M1 and/or M2.
+post]({% post_url
+2026-06-19-comparing-sssom %}) can be used to highlight discrepancies that can
+be reviewed with workflow M1 and/or M2.
 
 > [!NOTE]
 >
@@ -185,44 +195,91 @@ discrepancies that can be reviewed with workflow M1 and/or M2.
 > alter the identity of the semantic mapping record (i.e., a row in the SSSOM
 > file).
 
-## A1: Reviewing a Predicted Mapping
+### A1: Reviewing a Predicted Mapping
 
-this workflow is effectively equivalent to M1, in which a reviewer of a
-predicted mapping adds their review into the `reviewer_id` slot. The
-disadvantage of this workflow in the situation that the reviewer is highly
-confident in the correctness of the manual curation, that it doesn't explicitly
-capture this in the mapping justification. This motivates the next workflow
+This workflow operates similarly to workflow M1 where a reviewer adds their
+information into the `reviewer_id`, `reviewer_agreement`, and `review_date`
+slots. However, the disadvantage of this workflow is that justifications for
+predicted mappings such as
+[semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) and
+[semapv:SemanticSimilarityThresholdMatching](https://semantic.farm/semapv:SemanticSimilarityThresholdMatching)
+are weaker, and review does not upgrade their justification to
+[semapv:ManualMappingCuration](https://semantic.farm/semapv:ManualMappingCuration),
+which is implicitly more trustworthy.
 
-| subject_id                                           | subject_label | predicate_id                                             | object_id                                    | object_label  | mapping_justification                                                  | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence | reviewer_id                                                                  | reviewer_agreement |
-| ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | ---------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------: | ---------------------------------------------------------------------------- | -----------------: |
-| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |      0.778 | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) |                1.0 |
+In the following example, mapping `ex:3` is reviewed with high agreement.
 
-## A2.1: Replacing a Predicted Mapping with a Manual Curation
+| record_id | subject_id                                           | subject_label | predicate_id                                             | object_id                                    | object_label  | mapping_justification                                                  | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence | reviewer_id                                                                  | reviewer_agreement |
+| --------- | ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | ---------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------: | ---------------------------------------------------------------------------- | -----------------: |
+| ex:10     | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |      0.778 | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) |                1.0 |
 
-In the case where the author is sure about their review, then the mapping can be
-overwritten with a manual curation. Then, the mapping tool and lexical
-prediction metadata are dropped, the `author_id` is filled out, and the
-`confidence` is overwritten with the curator's confidence.
+Conversely, in the following example, mapping `ex:4` is reviewed, with high
+disagreement.
 
-| subject_id                                           | subject_label | predicate_id                                             | object_id                                    | object_label  | mapping_justification                                                  | author_id                                                                    | confidence |
-| ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: |
-| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) |        1.0 |
+| record_id | subject_id                                           | subject_label                | predicate_id                                             | object_id                                          | object_label                         | mapping_justification                                                  | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence | reviewer_id                                                                  | reviewer_agreement |
+| --------- | ---------------------------------------------------- | ---------------------------- | -------------------------------------------------------- | -------------------------------------------------- | ------------------------------------ | ---------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------: | ---------------------------------------------------------------------------- | -----------------: |
+| ex:11     | [MONDO:0015053](https://semantic.farm/MONDO:0015053) | hereditary angioedema type 1 | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [mesh:D056829](https://semantic.farm/mesh:D056829) | Hereditary Angioedema Types I and II | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |       0.54 | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) |               -1.0 |
 
-TODO: give example of disagreement and of ambivalence
+This workflow is implemented in SSSOM Pydantic in
+[sssom_pydantic.process.review()](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html).
+The implementation is shared for workflow W1 and A1.
 
-## A2.2 Replacing a Predicted Mapping with a Manual Curation (with full provenance)
+### A2: Replacing a Predicted Mapping with a Manual Curation
 
-If full provenance is desired, then the original mapping can be retained, and
-the curated mapping can use the
-[derived_from](https://w3id.org/sssom/derived_from) field to point back to
-original predicted mapping record via the
+In this workflow that mirrors workflow M2, a reviewer of a predicted mapping
+overwrites the predicted mapping with a manual curation. Unlike M2, this
+workflow importantly includes the following changes:
+
+- Update the mapping justification to
+  [semapv:ManualMappingCuration](https://semantic.farm/semapv:ManualMappingCuration)
+- Drop mapping tool and prediction-related fields
+- Fill out the `author_id` field and `confidence` (not the `reviewer_id` and
+  `reviewer_agreement`)
+
+The following example shows this workflow applied to mapping `ex:3`:
+
+| record_id | subject_id                                           | subject_label | predicate_id                                             | object_id                                    | object_label  | mapping_justification                                                  | author_id                                                                    | confidence |
+| --------- | ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------: |
+| ex:12     | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching) | [orcid:0000-0001-5208-3432](https://semantic.farm/orcid:0000-0001-5208-3432) |        1.0 |
+
+I'm going to omit showing what happens when you want to reject a mapping (`Not`
+gets added) or update the predicate. These both work as expected in light of
+workflow M2. Similarly, the results of any application of workflow A2 can then
+be reviewed with workflow M1 after.
+
+This workflow is implemented in SSSOM Pydantic in
+[sssom_pydantic.process.curate()](<[https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.curate.html)>).
+SSSOM Pydantic models semantic mappings as frozen objects, meaning that no
+operations happen in-place (i.e., all are _destructive_).
+
+### A3: Deriving a Manual Curation from a Predicted Mapping
+
+One of the drawbacks of workflow A2 is that it throws away provenance
+information from the lexical mapping. Depending on your use case, it might be
+desired to keep that. Workflow A3 extends workflow A2 to keep the original
+mapping intact and simply append the new mapping. Importantly, the new mapping
+uses the [derived_from](https://w3id.org/sssom/derived_from) field to point back
+to original predicted mapping record via the
 [SSSOM record hash](https://mapping-commons.github.io/sssom/spec-support-hashing/).
 This is implemented in SSSOM Pydantic (note, the example hash is made up).
 
-| subject_id                                           | subject_label | predicate_id                                             | object_id                                    | object_label  | mapping_justification                                                       | author_id                                                                    | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence | derived_from        |
-| ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------: | ------------------- |
-| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) |               |                                                                  |                      |       0.99 | `mapping:CED101AFD` |
-| [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |      0.778 |                     |
+| record_id | subject_id                                           | subject_label | predicate_id                                             | object_id                                    | object_label  | mapping_justification                                                       | author_id                                                                    | mapping_tool  | mapping_tool_id                                                  | mapping_tool_version | confidence | derived_from        |
+| --------- | ---------------------------------------------------- | ------------- | -------------------------------------------------------- | -------------------------------------------- | ------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- | -------------------- | ---------: | ------------------- |
+| ex:3      | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:ManualMappingCuration](https://semantic.farm/ManualMappingCuration) | [orcid:0000-0003-4423-4370](https://semantic.farm/orcid:0000-0003-4423-4370) |               |                                                                  |                      |       0.99 | `mapping:CED101AFD` |
+| ex:13     | [MONDO:0005676](https://semantic.farm/MONDO:0005676) | borna disease | [skos:exactMatch](https://semantic.farm/skos:exactMatch) | [DOID:5154](https://semantic.farm/DOID:5154) | borna disease | [semapv:LexicalMatching](https://semantic.farm/semapv:LexicalMatching)      |                                                                              | SSSOM Curator | [wikidata:Q138902949](https://semantic.farm/wikidata:Q138902949) | 0.6.3                |      0.778 |                     |
+
+This workflow is implemented by a combination of SSSOM Pydantic's `curate()`
+function and the harness implemented by SSSOM Curator, but the way that mappings
+get persisted are ultimately an implementation detail.
+
+## Demo
+
+In the following demo, I show how the
+[SSSOM Curator](https://github.com/cthoyt/sssom-curator), which runs the
+[Biomappings](https://github.com/biopragmatics/biomappings) project, implements
+workflow A2:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FkXkOhT8gdc?si=fwlqCPTttYTxy1oR&amp;start=448" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## on LLMs
 
