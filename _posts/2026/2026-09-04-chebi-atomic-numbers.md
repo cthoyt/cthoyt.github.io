@@ -84,7 +84,8 @@ ontology module is available
 ## How did I make it?
 
 I started with a cursory search of ChEBI to understand the different senses in
-which atoms/elements are encoded - the atom hierarchy typically has the element
+which atoms/elements are encoded - the
+[atom hierarchy](https://semantic.farm/CHEBI:33250) typically has the element
 name plus "atom" at the end, except in a few cases. I curated a dictionary
 mapping from atomic number to element name in Python then used
 [PyOBO](https://github.com/biopragmatics/pyobo) to look up ChEBI terms based on
@@ -159,7 +160,8 @@ The contents of the file look like this:
 | [CHEBI:194541](https://semantic.farm/CHEBI:194541) | class | oganesson atom  |                                                                               118 |
 
 Note that there are two header rows: the first contains labels and the second
-contains ROBOT commands. Here's what each means:
+contains [ROBOT template commands](https://robot.obolibrary.org/template.html).
+Here's what each means:
 
 1. The `ID` command says that this column contains the CURIE for the entity
    we're annotating. We write `ID` in both the human label and the ROBOT command
@@ -201,12 +203,12 @@ from Protégé.
 
 The usage of [`robot template`](https://robot.obolibrary.org/template.html) is
 encoded in the repository's
-[ `justfile`](<[justfile](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/justfile)>).
+[`justfile`](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/justfile).
 This does the following:
 
 1. Qualifies all prefixes used (CHEBI and ChEMROF)
 2. Merges a dedicate metadata ontology module
-   [`metadata.ofn`](<[src/metadata.ofn](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/src/metadata.ofn)>)
+   [`metadata.ofn`](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/src/metadata.ofn)
 3. Adds declaration information for the data property that doesn't appear in
    `entities.tsv` that is in a different ROBOT template
    [`properties.tsv`](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/src/properties.tsv)
