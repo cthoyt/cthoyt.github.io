@@ -10,6 +10,45 @@ tags:
   - biocuration
 ---
 
+This post describes how I produced a
+[novel ontology module](https://github.com/cthoyt/chebi-atomic-numbers-ontology/raw/refs/heads/main/chebi-atomic-numbers.owl)
+that axiomatizes the relationships between terms representing elements in ChEBI
+(i.e., subclasses of [CHEBI:33250](https://semantic.farm/CHEBI:33250)) and their
+atomic numbers as subclass expressions with data restrictions, and the ROBOT
+[template](https://robot.obolibrary.org/template.html) magic that made it
+possible.
+
+## Motivation
+
+I am currently developing a suite of ontologies for theoretical chemistry with
+[Mario Wolter](https://github.com/MarioWolter) and
+[Robin Ströhmann](https://github.com/CodoRob) as part of
+[NFDI4Chem](https://nfdi4chem.de).
+
+In our first module, we are ontologizing
+[basis sets](https://en.wikipedia.org/wiki/Basis_set_%28chemistry%29), sets of
+mathematical functions and their respective parametrization used to construct
+wave equations in computational chemistry experiments. We are building on the
+[Basis Set Exchange](https://www.basissetexchange.org), a comprehensive database
+of basis sets that itself is missing the organization of an ontology.
+
+[![](/img/basis-set-to-elements.svg)](https://docs.google.com/drawings/d/1ejVJLlijiJEdzlasYgKAIf9oXjRmSVvi6v6QbVUND4c/edit?usp=sharing)
+
+A key aspect of a basis set is definition of how each orbital is modeled for
+each element. Not all basis sets can be used to model all elements.
+
+The definition of each basis set in Basis Set Exchange is transformed into
+axioms about which atoms it supports, where the atoms are encoded with ChEBI
+terms under the CHEBI:33250 (atom) hierarchy Molecules that are encoded in ChEBI
+have axioms saying which atoms are in them A logical rule can be encoded in BSEO
+so reasoners can infer whether a given basis set is applicable to a molecule if
+all atoms that are parts of the molecule are also supported by the basis set.
+We're currently in the process of determining how to best formalize this Of
+course, this can also be trivially implemented using any modern cheminformatics
+software package, but the implications are that this logic can be formalized
+
+https://github.com/NFDI4Chem/basis-set-exchange-ontology
+
 Why? im currently working on making an ontology for theoretical chemistry with
 Mario and Robin. we're looking at basis sets, and need to ontologize the fact
 that some basis sets are only applicable for certain atoms. I wanted a mapping
