@@ -94,7 +94,7 @@ labels using the following (pseudo)code:
 import pyobo
 from pystow.utils import safe_open_writer
 
-element_to_name = {
+atomic_number_to_name = {
     1: "hydrogen",
     # and everything in between, omitted for brevity
     118: "oganesson",
@@ -103,22 +103,24 @@ grounder = pyobo.get_grounder("chebi")
 with safe_open_writer("elements.tsv") as writer:
     writer.writerow(("ID", "TYPE", "label", "atomic number"))
     writer.writerow(("ID", "TYPE", "", "SC 'ChEMROF:atomic_number' value %"))
-    for element, name in element_to_name.items():
+    for atomic_number, name in atomic_number_to_name.items():
         if match := grounder.get_best_match(f"{name} atom"):
-            writer.writerow((match.curie, "class", match.name, element))
+            writer.writerow((match.curie, "class", match.name, atomic_number))
         elif match := grounder.get_best_match(name):
             # all nine of these cases were post-checked to be correct, see table below
-            writer.writerow((match.curie, "class - check/fix", match.name, element))
+            writer.writerow(
+                (match.curie, "class - check/fix", match.name, atomic_number)
+            )
         else:
             # this never happens, because ChEBI is comprehensive
             raise ValueError(f"no match available for {name}")
 ```
 
 Along the way, I found nine elements that fell within the atom hierarchy but
-were named just with the element name and no "atom" suffix. I also found that
-for aluminum and cesium that ChEBI only encoded the British spelling and not the
-American spelling, so these had to be post-curated by hand. I opened up an issue
-on the ChEBI repository summarizing the situation at
+were named without the "atom" suffix. I also found that for aluminum and cesium
+that ChEBI only encoded the British spelling and not the American spelling, so
+these had to be post-curated by hand. I opened up an issue on the ChEBI
+repository summarizing the situation at
 [ebi-chebi/ChEBI#4958](https://github.com/ebi-chebi/ChEBI/issues/4958):
 
 | atomic number | ChEBI label  | CURIE                                            | Problem                                                                                                       |
@@ -137,12 +139,15 @@ on the ChEBI repository summarizing the situation at
 
 ## How does this work?
 
-The primary manually curated artifact in this repository is
-[src/elements.tsv](src/elements.tsv), a tab-separated values (TSV) file that
-contains templating information in its header that directs
-[ROBOT](https://robot.obolibrary.org) how to convert it into an ontology file.
+The primary manually curated artifact in this repository
+([cthoyt/chebi-atomic-numbers-ontology](https://github.com/cthoyt/chebi-atomic-numbers-ontology))
+is
+[elements.tsv](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/src/elements.tsv),
+a tab-separated values (TSV) file that contains templating information in its
+header that directs [ROBOT](https://robot.obolibrary.org) how to convert it into
+an ontology file.
 
-The file looks like this:
+The contents of the file look like this:
 
 | ID                                                 | TYPE  | label           |                                                                     atomic number |
 | -------------------------------------------------- | ----- | --------------- | --------------------------------------------------------------------------------: |
@@ -162,14 +167,11 @@ contains ROBOT commands. Here's what each means:
 2. `TYPE` says what kind of entity it is and how it should get declared. Either
    an informal abbreviation `class` or fully qualified CURIE `owl:Class` can be
    used in this column
-3. `label` having a label column is important to make this file readable, but I
-   actually didn't want to add label axioms this way. The issue is this TSV
-   could get out of sync with the upstream, especially because I suggested
-   several of the relevant classes get their names improved in
-   https://github.com/ebi-chebi/ChEBI/issues/4958 while I was working on this.
-   As an alternative, these can be slurped from the current OWL file and merged
-   (future work). If I wanted to include this, I would add
-   `AT rdfs:label^^xsd:string`.
+3. `label` having a label column is important to make this file human-readable,
+   but it's better to keep the output ontology module lean, so I didn't add a
+   ROBOT command.  
+   If I had wanted to serialize these values, I could have used the ROBOT
+   command `AT rdfs:label^^xsd:string`.
 4. `atomic number` this is the coolest part of what's going on in this file.
    `SC 'ChEMROF:atomic_number' value %` has four parts:
    1. `SC` means that this is going to be a subclass expression
@@ -184,17 +186,30 @@ Because of the flexibility of the ROBOT templating language, this TSV can
 effectively be used as a normal TSV, e.g., to programmatically get the mapping
 from ChEBI identifiers to atomic numbers without going through OWL software.
 
+In addition to keeping the ontology lean, omitting the labels also avoids the
+issue where the labels in my curated resource might get out of sync with the
+upstream ChEBI ontology. This is especially true because this work prompted me
+to petition ChEBI to update some of these labels! A typical ontology workflow is
+to have both a _lean_ and a _full_ export. In the full export, I can use the
+`robot extract` command with the
+[MIREOT algorithm](https://robot.obolibrary.org/extract.html#mireot) to pull in
+all descendants of the ChEBI atom class and merge them in the build. This also
+has the benefit of making the _full_ export easier for humans to navigate, e.g.,
+from Protégé.
+
 ## How to make the ontology export
 
 The usage of [`robot template`](https://robot.obolibrary.org/template.html) is
-encoded in this repository's [ `justfile`](justfile). This does the following:
+encoded in the repository's
+[ `justfile`](<[justfile](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/justfile)>).
+This does the following:
 
 1. Qualifies all prefixes used (CHEBI and ChEMROF)
-2. Merges in metadata from a different ontology file
-   [`src/metadata.ofn`](src/metadata.ofn)
-3. Adds declaration information for the data property from
-   [`src/properties.tsv`](src/properties.tsv) that doesn't appear in
-   `entities.tsv`
+2. Merges a dedicate metadata ontology module
+   [`metadata.ofn`](<[src/metadata.ofn](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/src/metadata.ofn)>)
+3. Adds declaration information for the data property that doesn't appear in
+   `entities.tsv` that is in a different ROBOT template
+   [`properties.tsv`](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/src/properties.tsv)
 
 These can all be re-run with:
 
@@ -214,14 +229,9 @@ SubClassOf(CHEBI:194541 DataHasValue(ChEMROF:atomic_number "118"^^xsd:integer))
 
 ## Next Steps
 
-I want to make a "full" version of this which also uses the MIREOT algorithm to
-get all atoms and pull in the upstream annotations from the upstream ChEBI
-ontology file. That's happening in
-https://github.com/cthoyt/chebi-atomic-numbers-ontology, with the goal to make
-an easier to explore OWL file.
-
 ---
 
 While I put everything in a GitHub repository and archived it on Zenodo
 [![DOI](https://zenodo.org/badge/1357107774.svg)](https://doi.org/10.5281/zenodo.22306043),
-I would love to see this get upstreamed to ChEBI itself.
+I would love to see this get upstreamed to ChEBI itself. Now, I can get back to
+the original goal of encoding the basis set information 🚀
