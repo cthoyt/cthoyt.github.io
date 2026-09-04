@@ -8,7 +8,7 @@ My personal website, served at https://cthoyt.com
 $ just serve
 ```
 
-## Lint
+## Format
 
 ```console
 $ just format
