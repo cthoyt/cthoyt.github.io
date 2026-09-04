@@ -95,23 +95,23 @@ import pyobo
 from pystow.utils import safe_open_writer
 
 element_to_name = {
-   1: "hydrogen",
-   # and everything in between, omitted for brevity
-   118: "oganesson",
+    1: "hydrogen",
+    # and everything in between, omitted for brevity
+    118: "oganesson",
 }
 grounder = pyobo.get_grounder("chebi")
 with safe_open_writer("elements.tsv") as writer:
-   writer.writerow(("ID", "TYPE", "label", "atomic number"))
-   writer.writerow(("ID", "TYPE", "", "SC 'ChEMROF:atomic_number' value %"))
-   for element, name in element_to_name.items():
-      if match := grounder.get_best_match(f"{name} atom"):
-         writer.writerow((match.curie, "class", match.name, element))
-      elif match := grounder.get_best_match(name):
-         # all nine of these cases were post-checked to be correct, see table below
-         writer.writerow((match.curie, "class - check/fix", match.name, element))
-      else:
-         # this never happens, because ChEBI is comprehensive
-         raise ValueError(f"no match available for {name}")
+    writer.writerow(("ID", "TYPE", "label", "atomic number"))
+    writer.writerow(("ID", "TYPE", "", "SC 'ChEMROF:atomic_number' value %"))
+    for element, name in element_to_name.items():
+        if match := grounder.get_best_match(f"{name} atom"):
+            writer.writerow((match.curie, "class", match.name, element))
+        elif match := grounder.get_best_match(name):
+            # all nine of these cases were post-checked to be correct, see table below
+            writer.writerow((match.curie, "class - check/fix", match.name, element))
+        else:
+            # this never happens, because ChEBI is comprehensive
+            raise ValueError(f"no match available for {name}")
 ```
 
 Along the way, I found nine elements that fell within the atom hierarchy but
