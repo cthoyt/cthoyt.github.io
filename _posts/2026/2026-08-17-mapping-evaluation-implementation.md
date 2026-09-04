@@ -277,7 +277,7 @@ This workflow doesn't yet stratify by mapping tool, since in practice,
 Biomappings and SSSOM-Curator have mostly used the lexical matching workflow,
 except for the interesting case of mapping image annotations to chemical
 instrumentation in my post on [Bridging NFDI's culture and chemistry knowledge
-graphs]({% post_url 2025-10-07-bridging-culture-and-chemistry %}) with text
+graphs]({% post_url 2025/2025-10-07-bridging-culture-and-chemistry %}) with text
 embedding-based matching. However, I'm motivated to make this extension because
 of a recent submission from [Harshit Soni](https://github.com/HarshitSoni1903)
 to include predictions from
