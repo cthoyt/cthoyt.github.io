@@ -56,10 +56,10 @@ where ass.tid = 165
 """
 
 with sql.connect(
-    host='localhost',
-    database='chembl_26',
-    user='pwalters',
-    password='itsasecret',
+    host="localhost",
+    database="chembl_26",
+    user="pwalters",
+    password="itsasecret",
 ) as con:
     df = pd.read_sql(sql, con=con)
 ```

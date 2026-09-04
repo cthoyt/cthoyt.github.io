@@ -66,8 +66,8 @@ testing_triples = nations.testing.mapped_triples
 
 res = pipeline(
     dataset=nations,
-    model='RotatE',
-    training_loop='LCWA',
+    model="RotatE",
+    training_loop="LCWA",
     training_kwargs=dict(num_epochs=60),
 )
 

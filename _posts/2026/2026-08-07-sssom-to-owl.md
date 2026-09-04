@@ -62,10 +62,13 @@ function:
 from curies import Converter
 from sssom_pydantic import SemanticMapping
 from sssom_pydantic.contrib.owl import get_axiom
-converter = Converter.from_prefix_map({
-    "mesh": "http://id.nlm.nih.gov/mesh/",
-    "CHEBI": "http://purl.obolibrary.org/obo/CHEBI_",
-})
+
+converter = Converter.from_prefix_map(
+    {
+        "mesh": "http://id.nlm.nih.gov/mesh/",
+        "CHEBI": "http://purl.obolibrary.org/obo/CHEBI_",
+    }
+)
 mapping = SemanticMapping.exact("mesh:C000089", "CHEBI:28646")
 get_axiom(mapping, converter).to_funowl()
 # AnnotationAssertion(skos:exactMatch mesh:C000089 CHEBI:28646)
@@ -81,12 +84,14 @@ from sssom_pydantic import SemanticMapping, MappingSet
 from sssom_pydantic.examples import TEST_CONVERTER
 from sssom_pydantic.contrib.owl import write_owl
 
-converter = Converter.from_prefix_map({
-    "CHEBI": "http://purl.obolibrary.org/obo/CHEBI_",
-    "dcterms": "http://purl.org/dc/terms/",
-    "mesh": "http://id.nlm.nih.gov/mesh/",
-    "orcid": "https://orcid.org/",
-})
+converter = Converter.from_prefix_map(
+    {
+        "CHEBI": "http://purl.obolibrary.org/obo/CHEBI_",
+        "dcterms": "http://purl.org/dc/terms/",
+        "mesh": "http://id.nlm.nih.gov/mesh/",
+        "orcid": "https://orcid.org/",
+    }
+)
 metadata = MappingSet(
     id="https://example.org/test.sssom.tsv",
     creators=[Reference(prefix="orcid", identifier="0000-0003-4423-4370")],

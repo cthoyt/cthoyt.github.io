@@ -1,7 +1,8 @@
+import unittest
 from collections import defaultdict
 from pathlib import Path
+
 import yaml
-import unittest
 
 HERE = Path(__file__).parent.resolve()
 ROOT = HERE.parent.resolve()

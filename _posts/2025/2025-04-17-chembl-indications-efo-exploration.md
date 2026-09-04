@@ -120,6 +120,7 @@ I wrote the following function to do a bit of exploring, based on the prefix.
 ```python
 import chembl_downloader
 
+
 def print_indications_with_prefix(prefix: str) -> None:
     sql = f"""\
         SELECT DISTINCT
@@ -133,7 +134,9 @@ def print_indications_with_prefix(prefix: str) -> None:
         ORDER BY MOLECULE_DICTIONARY.pref_name
         """
     df = chembl_downloader.query(sql)
-    df["chembl_id"] = df["chembl_id"].map(lambda s: f"[{s}](https://bioregistry.io/chembl.compound:{s})")
+    df["chembl_id"] = df["chembl_id"].map(
+        lambda s: f"[{s}](https://bioregistry.io/chembl.compound:{s})"
+    )
     df["efo_id"] = df["efo_id"].map(lambda s: f"[{s}](https://bioregistry.io/{s})")
     print(df.to_markdown(tablefmt="github", index=False))
 ```

@@ -186,20 +186,26 @@ Here's how this looks in Python:
 
 ```python
 from curies import Converter, NamableReference, NamedReference
-from curies.vocabulary import charlie, manual_mapping_curation, mapping_chaining, exact_match
+from curies.vocabulary import (
+    charlie,
+    manual_mapping_curation,
+    mapping_chaining,
+    exact_match,
+)
 
 from sssom_pydantic import SemanticMapping, hash_triple_to_reference
 
-CONVERTER = Converter.from_prefix_map({
-    "BTO": "http://purl.obolibrary.org/obo/CHEBI_",
-    "CL": "http://purl.obolibrary.org/obo/CL_",
-    "mesh": "http://id.nlm.nih.gov/mesh/",
-    "wikidata": "http://www.wikidata.org/entity/",
-    "orcid": "https://orcid.org/",
-    "semapv": "https://w3id.org/semapv/vocab/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-
-})
+CONVERTER = Converter.from_prefix_map(
+    {
+        "BTO": "http://purl.obolibrary.org/obo/CHEBI_",
+        "CL": "http://purl.obolibrary.org/obo/CL_",
+        "mesh": "http://id.nlm.nih.gov/mesh/",
+        "wikidata": "http://www.wikidata.org/entity/",
+        "orcid": "https://orcid.org/",
+        "semapv": "https://w3id.org/semapv/vocab/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+    }
+)
 
 E1 = NamedReference.from_curie("BTO:0006078", name="pluripotent stem cell")
 E2 = NamedReference.from_curie("CL:0002248", name="pluripotent stem cell")

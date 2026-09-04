@@ -50,6 +50,7 @@ with:
 
 ```python
 import selventa_knowledge
+
 selventa_graph = selventa_knowledge.get_graph()
 selventa_graph.summarize()
 ```
@@ -73,6 +74,7 @@ After installation, it can be directly used with PyBEL like:
 
 ```python
 import neurommsig_epilepsy
+
 epilepsy_graph = neurommsig_epilepsy.get_graph()
 epilepsy_graph.summarize()
 ```
@@ -95,6 +97,7 @@ After installation, it can be directly used with PyBEL like:
 
 ```python
 import conib
+
 conib_graph = conib.get_graph()
 conib_graph.summarize()
 ```
@@ -119,6 +122,7 @@ After installation, it can be directly used with PyBEL like:
 
 ```python
 import hemekg
+
 heme_graph = hemekg.get_graph()
 heme_graph.summarize()
 ```
@@ -142,6 +146,7 @@ After installation, it can be directly used with PyBEL like:
 
 ```python
 import covid19kg
+
 covid19_graph = covid19kg.get_graph()
 covid19_graph.summarize()
 ```
@@ -223,10 +228,12 @@ associated metadata as well as enrich them with content from Bio2BEL.
 
 ```python
 import covid19kg
+
 graph = covid19kg.get_graph()
 
 import pybel
-pybel.to_bel_commons(graph, host='...', user='...', password='...')
+
+pybel.to_bel_commons(graph, host="...", user="...", password="...")
 ```
 
 If you would like to host your own instance of BEL Commons, it can be downloaded
@@ -250,10 +257,14 @@ the examples in this module will be described.
 
 ```python
 import covid19kg
+
 graph = covid19kg.get_graph()
 
 import pybel
-pybel.to_biodati(graph, host='https://nanopubstore.demo.biodati.com', user='...', password='...')
+
+pybel.to_biodati(
+    graph, host="https://nanopubstore.demo.biodati.com", user="...", password="..."
+)
 ```
 
 More information on uploading to BioDati can be found in the documentation of
@@ -267,9 +278,11 @@ content to INDRA with the following code:
 
 ```python
 import covid19kg
+
 graph = covid19kg.get_graph()
 
 import pybel
+
 statements = pybel.to_indra_statements(graph)
 ```
 

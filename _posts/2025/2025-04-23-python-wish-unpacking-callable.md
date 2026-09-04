@@ -38,12 +38,15 @@ from typing import Callable, Generic, Unpack, ParamSpec, TypeVar
 P = ParamSpec("P")
 T = TypeVar("T")
 
+
 class Box(Generic[P, T]):
     def __init__(self, func: Callable[P, T]) -> None:
         self.func = func
 
+
 def f(x: int) -> str:
     return str(x)
+
 
 # This works!
 box_1: Box[[int], str] = Box(f)

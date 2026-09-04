@@ -126,7 +126,9 @@ for prefix, resource in bioregistry.read_registry().items():
     if resource.uri_format and OBOLIBRARY_SUBSTRING in resource.uri_format:
         rows.append((l, name, "curated", "", resource.uri_format))
         continue
-    elif (uri_format := resource.get_uri_format()) and OBOLIBRARY_SUBSTRING in uri_format:
+    elif (
+        uri_format := resource.get_uri_format()
+    ) and OBOLIBRARY_SUBSTRING in uri_format:
         rows.append((l, name, "default", "", uri_format))
         continue
     for metaprefix in resource.get_mappings():
@@ -137,7 +139,13 @@ for prefix, resource in bioregistry.read_registry().items():
         if OBOLIBRARY_SUBSTRING in p.uri_format:
             rows.append((l, name, "extra", p.code, p.uri_format))
 
-print(tabulate(rows, headers=["prefix", "name", "type", "code", "uri_format"], tablefmt="github"))
+print(
+    tabulate(
+        rows,
+        headers=["prefix", "name", "type", "code", "uri_format"],
+        tablefmt="github",
+    )
+)
 ```
 
 </details>

@@ -320,9 +320,11 @@ class EducationalResource(BaseModel):
     reference: Reference | None = Field(
         None,
         description="The primary reference for this learning material",
-        examples=[Reference(prefix="dalia", identifier="")]
+        examples=[Reference(prefix="dalia", identifier="")],
     )
-    title: InternationalizedStr = Field(..., description="The title of the learning material")
+    title: InternationalizedStr = Field(
+        ..., description="The title of the learning material"
+    )
     authors: list[Author | Organization] = Field(
         default_factory=list,
         description="An ordered list of authors (i.e., persons or organizations) of the learning material",

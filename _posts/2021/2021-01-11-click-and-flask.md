@@ -44,7 +44,7 @@ def home():
     return "There's no place like home."
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
 ```
 
@@ -76,10 +76,11 @@ def main():
 @click.command()
 def web():
     from .wsgi import app
+
     app.run()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
@@ -108,14 +109,15 @@ def main():
 
 
 @click.command()
-@click.option('--host', default='0.0.0.0')
-@click.option('--port', default=5000, type=int)
+@click.option("--host", default="0.0.0.0")
+@click.option("--port", default=5000, type=int)
 def web(host: str, port: int):
     from .wsgi import app
+
     app.run(host=host, port=port)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
@@ -139,10 +141,11 @@ def main():
 @port_option
 def web(host: str, port: str):
     from .wsgi import app
+
     app.run(host=host, port=port)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
@@ -194,10 +197,11 @@ def main():
 @port_option
 def web(host: str, port: str):
     from .wsgi import app
+
     run_app(app=app, with_gunicorn=True, host=host, port=port)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
@@ -209,7 +213,13 @@ workers for your Gunicorn server based on the following complete example:
 ```python
 # cli.py
 import click
-from more_click import host_option, port_option, with_gunicorn_option, workers_option, run_app
+from more_click import (
+    host_option,
+    port_option,
+    with_gunicorn_option,
+    workers_option,
+    run_app,
+)
 
 
 @click.group()
@@ -224,10 +234,11 @@ def main():
 @workers_option
 def web(host: str, port: str, with_gunicorn: bool, workers: int):
     from .wsgi import app
+
     run_app(app=app, with_gunicorn=with_gunicorn, host=host, port=port, workers=workers)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
@@ -254,9 +265,9 @@ def main():
     """My awesome CLI."""
 
 
-make_web_command('my_package_name.wsgi:app', group=main)
+make_web_command("my_package_name.wsgi:app", group=main)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
@@ -275,11 +286,11 @@ def main():
     """My awesome CLI."""
 
 
-web = make_web_command('my_package_name.wsgi:app')
+web = make_web_command("my_package_name.wsgi:app")
 
 main.add_command(web)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
@@ -290,9 +301,9 @@ also works well for apps that don't need the click Group.
 # cli.py
 from more_click import make_web_command
 
-web = make_web_command('granola_explosion.wsgi:app')
+web = make_web_command("granola_explosion.wsgi:app")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     web()
 ```
 

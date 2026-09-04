@@ -81,7 +81,7 @@ using a declarative setup. It should always look exactly like this:
 
 import setuptools
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     setuptools.setup()
 ```
 
@@ -242,6 +242,7 @@ in `tests/test_import.py`:
 
 import unittest
 
+
 class TestImport(unittest.TestCase):
     """A test case for import tests."""
 
@@ -363,13 +364,13 @@ it might make sense to make a folder in the user's home directory.
 import os
 
 __all__ = [
-    'PYBEL_HOME',
+    "PYBEL_HOME",
 ]
 
 # Have a reasonable default location
-_DEFAULT_HOME = os.path.join(os.path.expanduser('~'), '.pybel')
+_DEFAULT_HOME = os.path.join(os.path.expanduser("~"), ".pybel")
 # Allow the user to modify the location with an environment variable
-PYBEL_HOME = os.path.abspath(os.getenv('PYBEL_HOME', _DEFAULT_HOME))
+PYBEL_HOME = os.path.abspath(os.getenv("PYBEL_HOME", _DEFAULT_HOME))
 os.makedirs(PYBEL_HOME, exist_ok=True)
 ```
 
@@ -404,13 +405,13 @@ configuration might look.
 import os
 from configparser import ConfigParser
 
-CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'pybel.ini')
+CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".config", "pybel.ini")
 
 cfp = ConfigParser()
 cfp.read(CONFIG_PATH)
 
 try:
-    config = cfp['pybel']
+    config = cfp["pybel"]
 except KeyError:
     config = {}
 
@@ -426,6 +427,7 @@ often, I encapsulated it in a function in `pystow`:
 
 ```python
 import pystow
+
 
 def get_config(key):
     pystow.get_config("pybel", key)

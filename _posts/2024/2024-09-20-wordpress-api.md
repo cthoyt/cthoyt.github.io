@@ -50,7 +50,7 @@ password = pystow.get_config("isb", "wordpress_password", raise_on_missing=True)
 token = base64.b64encode(f"{username}:{password}".encode()).decode("utf-8")
 
 res = requests.get(
-    'https://www.biocuration.org/wp-json/wp/v2/users',
+    "https://www.biocuration.org/wp-json/wp/v2/users",
     headers={"Authorization": f"Basic {token}", "user-agent": "curl"},
 )
 ```
@@ -66,9 +66,9 @@ username = pystow.get_config("isb", "wordpress_username", raise_on_missing=True)
 password = pystow.get_config("isb", "wordpress_password", raise_on_missing=True)
 
 res = requests.get(
-    'https://www.biocuration.org/wp-json/wp/v2/users',
+    "https://www.biocuration.org/wp-json/wp/v2/users",
     auth=(username, password),
-    headers={"user-agent": "curl"}
+    headers={"user-agent": "curl"},
 )
 ```
 

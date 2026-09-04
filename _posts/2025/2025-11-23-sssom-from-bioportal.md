@@ -170,7 +170,9 @@ from sssom_pydantic.contrib.ontoportal import from_bioportal
 from sssom_pydantic import SemanticMapping
 
 converter = bioregistry.get_converter()
-mappings: list[SemanticMapping] = from_bioportal("SNOMEDCT", "AERO", converter=converter)
+mappings: list[SemanticMapping] = from_bioportal(
+    "SNOMEDCT", "AERO", converter=converter
+)
 ```
 
 You have to bring your own `curies.Converter` because OntoPortal's data model
@@ -232,16 +234,22 @@ for internal, bioportal in tqdm(sorted(internal_to_bioportal.items())):
         tqdm.write(click.style(f"{bioportal} already cached to {path}", fg="green"))
         continue
     tqdm.write(click.style(bioportal, fg="green"))
-    metadata = MappingSet(id=f'https://w3id.org/biopragmatics/mappings/bioportal/{name}')
+    metadata = MappingSet(
+        id=f"https://w3id.org/biopragmatics/mappings/bioportal/{name}"
+    )
     with logging_redirect_tqdm():
         try:
             mappings = from_bioportal("SNOMEDCT", bioportal, converter=converter)
         except requests.exceptions.HTTPError:
             tqdm.write(click.style(f"failed on {bioportal}\n", fg="red"))
         else:
-            tqdm.write(click.style(f"{bioportal} got {len(mappings):,} mappings", fg="green"))
+            tqdm.write(
+                click.style(f"{bioportal} got {len(mappings):,} mappings", fg="green")
+            )
             if mappings:
-                sssom_pydantic.write(mappings, path, converter=converter, metadata=metadata)
+                sssom_pydantic.write(
+                    mappings, path, converter=converter, metadata=metadata
+                )
                 tqdm.write(click.style(f"{bioportal} wrote to {path}\n", fg="green"))
 ```
 
