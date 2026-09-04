@@ -36,7 +36,8 @@ import pyobo
 
 element_to_name = {
     1: "hydrogen",
-    # and so on
+    # everything in between
+    118: "oganesson",
 }
 
 grounder = pyobo.get_grounder("chebi")
@@ -49,9 +50,9 @@ https://github.com/ebi-chebi/ChEBI/issues/4958
 
 | atomic number | ChEBI label  | CURIE                                            | Problem                                                                                                       |
 | ------------: | ------------ | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-|            13 | Aluminum     | [CHEBI:28984](https://semantic.farm/CHEBI:28984) | missing american spelling variant, see [ebi-chebi/ChEBI#4956](https://github.com/ebi-chebi/ChEBI/issues/4956) |
+|            13 | Aluminium    | [CHEBI:28984](https://semantic.farm/CHEBI:28984) | missing american spelling variant, see [ebi-chebi/ChEBI#4956](https://github.com/ebi-chebi/ChEBI/issues/4956) |
 |            46 | Palladium    | [CHEBI:33363](https://semantic.farm/CHEBI:33363) | is in atom hierarchy, but name is missing suffix "atom"                                                       |
-|            55 | Cesium       | [CHEBI:30514](https://semantic.farm/CHEBI:30514) | missing american spelling variant [ebi-chebi/ChEBI#4957](https://github.com/ebi-chebi/ChEBI/issues/4957)      |
+|            55 | Caesium      | [CHEBI:30514](https://semantic.farm/CHEBI:30514) | missing american spelling variant [ebi-chebi/ChEBI#4957](https://github.com/ebi-chebi/ChEBI/issues/4957)      |
 |            58 | Cerium       | [CHEBI:33369](https://semantic.farm/CHEBI:33369) | is in atom hierarchy, but name is missing suffix "atom"                                                       |
 |            68 | Erbium       | [CHEBI:33379](https://semantic.farm/CHEBI:33379) | is in atom hierarchy, but name is missing suffix "atom"                                                       |
 |            70 | Ytterbium    | [CHEBI:33381](https://semantic.farm/CHEBI:33381) | is in atom hierarchy, but name is missing suffix "atom"                                                       |
