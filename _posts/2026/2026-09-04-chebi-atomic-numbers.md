@@ -227,8 +227,6 @@ SubClassOf(CHEBI:194539 DataHasValue(ChEMROF:atomic_number "117"^^xsd:integer))
 SubClassOf(CHEBI:194541 DataHasValue(ChEMROF:atomic_number "118"^^xsd:integer))
 ```
 
-## Next Steps
-
 ---
 
 While I put everything in a GitHub repository and archived it on Zenodo
