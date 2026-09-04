@@ -119,13 +119,25 @@ class CreditGetter(Obo):
 
     def iter_terms(self, force: bool = False):
         yield ROOT_TERM
-        for records in ensure_json(PREFIX, url=DATA_URL, name="picklist-api.json", force=force):
-            with ensure_open(PREFIX, "picklist", url=records["download_url"], backend="requests", force=force) as file:
+        for records in ensure_json(
+            PREFIX, url=DATA_URL, name="picklist-api.json", force=force
+        ):
+            with ensure_open(
+                PREFIX,
+                "picklist",
+                url=records["download_url"],
+                backend="requests",
+                force=force,
+            ) as file:
                 header, *rest = file.read().splitlines()
-                data = {key.removeprefix("## "): value for key, value in chunked(rest, 2)}
+                data = {
+                    key.removeprefix("## "): value for key, value in chunked(rest, 2)
+                }
                 term = Term.from_triple(
                     prefix=PREFIX,
-                    identifier=data["Canonical URL"].removeprefix(URI_PREFIX).rstrip("/"),
+                    identifier=data["Canonical URL"]
+                    .removeprefix(URI_PREFIX)
+                    .rstrip("/"),
                     name=header.removeprefix("# Contributor Roles/"),
                     definition=data["Short definition"],
                 )

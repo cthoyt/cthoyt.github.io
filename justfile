@@ -6,6 +6,7 @@ pinact:
   pinact run --update
 
 format:
+  ruff format
   pnpx prettier --prose-wrap always --write --check "**/*.md"
   pnpx prettier --prose-wrap always --write --check "**/*.yml"
   pnpx prettier --prose-wrap always --write --check "_includes/custom-head.html"

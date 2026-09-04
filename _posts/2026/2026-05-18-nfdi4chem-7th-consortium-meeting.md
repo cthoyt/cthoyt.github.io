@@ -194,8 +194,8 @@ following:
 import requests
 
 res = requests.get(
-   "https://semantic.farm/GO:0032571",
-   headers={"Accept": "text/turtle"},
+    "https://semantic.farm/GO:0032571",
+    headers={"Accept": "text/turtle"},
 )
 ```
 

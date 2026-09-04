@@ -40,8 +40,8 @@ is set then returned is bad:
 
 ```python
 if cond:
-    ... # big code block
-    value = ... # final line that assigns value
+    ...  # big code block
+    value = ...  # final line that assigns value
 else:
     value = ...  # one-liner assigning value
 return value
@@ -54,6 +54,6 @@ takes one line to assign it in the `else block`
 if not cond:
     return ...  # one-liner assigning value
 
-... # big code block
-return ... # final line that assigns value
+...  # big code block
+return ...  # final line that assigns value
 ```

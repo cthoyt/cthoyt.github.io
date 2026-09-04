@@ -103,6 +103,7 @@ def identity(x: int) -> int:
 def plus_two(x: int) -> int:
     return x + 2
 
+
 my_list: ListOfFunctions[[int], int] = ListOfFunctions([identity, plus_two])
 ```
 

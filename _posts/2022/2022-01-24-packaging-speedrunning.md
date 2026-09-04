@@ -68,6 +68,7 @@ that the package can be imported using the same directory structure where
 import importlib
 import unittest
 
+
 class TestTrivial(unittest.TestCase):
     def test_import(self):
         name = "<your package name goes here>"

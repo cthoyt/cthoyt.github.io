@@ -351,7 +351,7 @@ class Scholar(BaseModel):
 
 
 charlie = Scholar(orcid="0000-0003-4423-4370", name="Charles Tapley Hoyt")
-assert charlie.orcid_url == 'https://orcid.org/0000-0003-4423-4370'
+assert charlie.orcid_url == "https://orcid.org/0000-0003-4423-4370"
 ```
 
 ### Run the Demo

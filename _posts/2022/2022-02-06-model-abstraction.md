@@ -31,13 +31,15 @@ from torch import nn
 
 class MLP7(nn.Sequential):
     def __init__(self, dims: list[int]):
-        super().__init__(*chain.from_iterable(
-            (
-                nn.Linear(in_features, out_features),
-                nn.ReLU(),
+        super().__init__(
+            *chain.from_iterable(
+                (
+                    nn.Linear(in_features, out_features),
+                    nn.ReLU(),
+                )
+                for in_features, out_features in pairwise(dims)
             )
-            for in_features, out_features in pairwise(dims)
-        ))
+        )
 ```
 
 ## Incremental Improvements
@@ -65,13 +67,15 @@ class MLP8(nn.Sequential):
             activation = nn.Hardtanh()
         else:
             raise KeyError(f"Unsupported activation: {activation}")
-        super().__init__(chain.from_iterable(
-            (
-                nn.Linear(in_features, out_features),
-                activation,
+        super().__init__(
+            chain.from_iterable(
+                (
+                    nn.Linear(in_features, out_features),
+                    activation,
+                )
+                for in_features, out_features in pairwise(dims)
             )
-            for in_features, out_features in pairwise(dims)
-        ))
+        )
 ```
 
 The first issue with this MLP8 is it relies on a hard-coded set of conditional
@@ -94,13 +98,15 @@ activation_lookup: dict[str, nn.Module] = {
 class MLP9(nn.Sequential):
     def __init__(self, dims: list[int], activation: str = "relu"):
         activation = activation_lookup[activation]
-        super().__init__(chain.from_iterable(
-            (
-                nn.Linear(in_features, out_features),
-                activation,
+        super().__init__(
+            chain.from_iterable(
+                (
+                    nn.Linear(in_features, out_features),
+                    activation,
+                )
+                for in_features, out_features in pairwise(dims)
             )
-            for in_features, out_features in pairwise(dims)
-        ))
+        )
 ```
 
 Unfortunately, the approach in MLP9 rigid because it requires pre-instantiation
@@ -131,13 +137,15 @@ class MLP10(nn.Sequential):
     ):
         activation_cls = activation_lookup[activation]
         activation = activation_cls(**(activation_kwargs or {}))
-        super().__init__(chain.from_iterable(
-            (
-                nn.Linear(in_features, out_features),
-                activation,
+        super().__init__(
+            chain.from_iterable(
+                (
+                    nn.Linear(in_features, out_features),
+                    activation,
+                )
+                for in_features, out_features in pairwise(dims)
             )
-            for in_features, out_features in pairwise(dims)
-        ))
+        )
 ```
 
 MLP10 is a big improvement in terms of flexibility, but it has a few remaining
@@ -206,9 +214,9 @@ assert nn.ReLU() == activation_resolver.make("ReLU")
 assert nn.ReLU() == activation_resolver.make(nn.ReLU)
 
 # Class-based instantiation w/ keyword arguments
-assert nn.Hardtanh(0.0, 6.0) == activation_resolver.make("hardtanh", {
-    "min_val": 0.0, "max_value": 6.0
-})
+assert nn.Hardtanh(0.0, 6.0) == activation_resolver.make(
+    "hardtanh", {"min_val": 0.0, "max_value": 6.0}
+)
 ```
 
 ## Bringing it All Together
@@ -236,13 +244,15 @@ class MLP11(nn.Sequential):
         activation: None | str | nn.Module | type[nn.Module] = None,
         activation_kwargs: None | dict[str, any] = None,
     ):
-        super().__init__(chain.from_iterable(
-            (
-                nn.Linear(in_features, out_features),
-                activation_resolver.make(activation, activation_kwargs),
+        super().__init__(
+            chain.from_iterable(
+                (
+                    nn.Linear(in_features, out_features),
+                    activation_resolver.make(activation, activation_kwargs),
+                )
+                for in_features, out_features in pairwise(dims)
             )
-            for in_features, out_features in pairwise(dims)
-        ))
+        )
 ```
 
 Now, you can instantiate the MLP with any of the following:
@@ -254,10 +264,16 @@ MLP11(dims=[10, 200, 40], activation="ReLU")  # uses stylized
 MLP11(dims=[10, 200, 40], activation=nn.ReLU)  # uses class
 MLP11(dims=[10, 200, 40], activation=nn.ReLU())  # uses instance
 
-MLP11(dims=[10, 200, 40], activation="hardtanh",
-      activation_kwargs={"min_val": 0.0, "max_value": 6.0})  # uses kwargs
-MLP11(dims=[10, 200, 40], activation=nn.HardTanh,
-      activation_kwargs={"min_val": 0.0, "max_value": 6.0})  # uses kwargs
+MLP11(
+    dims=[10, 200, 40],
+    activation="hardtanh",
+    activation_kwargs={"min_val": 0.0, "max_value": 6.0},
+)  # uses kwargs
+MLP11(
+    dims=[10, 200, 40],
+    activation=nn.HardTanh,
+    activation_kwargs={"min_val": 0.0, "max_value": 6.0},
+)  # uses kwargs
 MLP11(dims=[10, 200, 40], activation=nn.HardTanh(0.0, 6.0))  # uses instance
 ```
 
@@ -288,11 +304,13 @@ class MLP(nn.Sequential):
         activation: None | str | nn.Module | type[nn.Module] = None,
         activation_kwargs: None | dict[str, any] = None,
     ):
-        super().__init__(chain.from_iterable(
-            (
-                nn.Linear(in_features, out_features),
-                activation_resolver.make(activation, activation_kwargs),
+        super().__init__(
+            chain.from_iterable(
+                (
+                    nn.Linear(in_features, out_features),
+                    activation_resolver.make(activation, activation_kwargs),
+                )
+                for in_features, out_features in pairwise(dims)
             )
-            for in_features, out_features in pairwise(dims)
-        ))
+        )
 ```

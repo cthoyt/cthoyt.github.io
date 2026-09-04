@@ -226,7 +226,7 @@ how to use it. Later, I would also like to host this service for anyone to use.
 import requests
 
 # Get all entities mapped to MAPT, including through chains of xrefs
-successful_request = requests.get('http://localhost:5000/mappings/hgnc:6893').json()
+successful_request = requests.get("http://localhost:5000/mappings/hgnc:6893").json()
 """
 {
     "orphanet:123144": [
@@ -253,11 +253,13 @@ successful_request = requests.get('http://localhost:5000/mappings/hgnc:6893').js
 """
 
 # Keep in mind this isn't a validation service
-unsuccessful_request = requests.get('http://localhost:5000/mappings/hgnc:0000').json()
+unsuccessful_request = requests.get("http://localhost:5000/mappings/hgnc:0000").json()
 # {"message": "could not find curie", "query": {"curie": "hgnc:0000"}, "success": False}
 
 # Get all paths mapping MAPT in HGNC to Ensembl. Returns a list of paths (which are lists of xrefs)
-path_request = requests.get('http://localhost:5000/mappings/hgnc:6893/ensembl:ENSG00000186868').json()
+path_request = requests.get(
+    "http://localhost:5000/mappings/hgnc:6893/ensembl:ENSG00000186868"
+).json()
 """
 [
     [
@@ -271,11 +273,13 @@ path_request = requests.get('http://localhost:5000/mappings/hgnc:6893/ensembl:EN
 """
 
 # Get the priority identifier for MAPT identified by Ensembl
-prioritize_request = requests.get('http://localhost:5000/prioritize/cosmic:MAPT').json()
+prioritize_request = requests.get("http://localhost:5000/prioritize/cosmic:MAPT").json()
 # {"found": True, "query": "cosmic:MAPT", "result": "hgnc:6893"}
 
 # What happens when a CURIE can't be found for prioritization
-unsuccessful_prioritize_request = requests.get('http://localhost:5000/prioritize/cosmic:NOPE').json()
+unsuccessful_prioritize_request = requests.get(
+    "http://localhost:5000/prioritize/cosmic:NOPE"
+).json()
 # {"found": False, "query": "cosmic:NOPE"}
 ```
 

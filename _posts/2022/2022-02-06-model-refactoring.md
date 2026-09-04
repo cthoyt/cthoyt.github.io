@@ -167,10 +167,12 @@ class MLP5(nn.Module):
         super().__init__()
         layers = []
         for in_features, out_features in pairwise(dims):
-            layers.extend((
-                nn.Linear(in_features, out_features),
-                nn.ReLU(),
-            ))
+            layers.extend(
+                (
+                    nn.Linear(in_features, out_features),
+                    nn.ReLU(),
+                )
+            )
         self.layers = nn.Sequential(*layers)
 
     def forward(self, x: torch.FloatTensor) -> torch.FloatTensor:
@@ -199,10 +201,7 @@ we know that we can transform it using a list comprehension like
 
 ```python
 old_list = ...
-new_list = [
-    transform(x)
-    for x in old_list
-]
+new_list = [transform(x) for x in old_list]
 ```
 
 There's an analogous pattern for when we're successively extending a list, like
@@ -223,10 +222,7 @@ like
 from itertools import chain
 
 old_list = ...
-new_list = list(chain.from_iterable(
-    transform(x)
-    for x in old_list
-))
+new_list = list(chain.from_iterable(transform(x) for x in old_list))
 ```
 
 While this may be a few extra lines (because it's broken up for readability), it
@@ -250,13 +246,15 @@ from torch import nn
 class MLP6(nn.Module):
     def __init__(self, dims: list[int]):
         super().__init__()
-        self.layers = nn.Sequential(*chain.from_iterable(
-            (
-                nn.Linear(in_features, out_features),
-                nn.ReLU(),
+        self.layers = nn.Sequential(
+            *chain.from_iterable(
+                (
+                    nn.Linear(in_features, out_features),
+                    nn.ReLU(),
+                )
+                for in_features, out_features in pairwise(dims)
             )
-            for in_features, out_features in pairwise(dims)
-        ))
+        )
 
     def forward(self, x: torch.FloatTensor) -> torch.FloatTensor:
         return self.layers(x)
@@ -275,13 +273,15 @@ from torch import nn
 
 class MLP7(nn.Sequential):
     def __init__(self, dims: list[int]):
-        super().__init__(*chain.from_iterable(
-            (
-                nn.Linear(in_features, out_features),
-                nn.ReLU(),
+        super().__init__(
+            *chain.from_iterable(
+                (
+                    nn.Linear(in_features, out_features),
+                    nn.ReLU(),
+                )
+                for in_features, out_features in pairwise(dims)
             )
-            for in_features, out_features in pairwise(dims)
-        ))
+        )
 ```
 
 MLP7 is now a much more simple implementation that uses a few neat tricks to

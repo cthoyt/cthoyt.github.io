@@ -139,12 +139,8 @@ line break before operator rule. I want to write long conditionals with and
 statements on the first line, like this:
 
 ```python
-if (
-   condition_1
-   and condition_2
-   and condition_3
-):
-    print('all true')
+if condition_1 and condition_2 and condition_3:
+    print("all true")
 ```
 
 One of the benefits of this style is you can add more lines with only single

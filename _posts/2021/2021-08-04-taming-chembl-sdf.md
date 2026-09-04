@@ -35,7 +35,7 @@ with gzip.open(in_path) as file:
         data.append(...)
 
 out_path = "../data/chembl29_sssdata.pkl"
-with open(out_path, 'wb') as file:
+with open(out_path, "wb") as file:
     pickle.dump(data, file)
 ```
 
@@ -59,8 +59,10 @@ package:
 ```python
 import chembl_downloader
 
-version = "29"                                             # <-- This line changed for this example
-in_path = chembl_downloader.download_sdf(version=version)  # <-- This line changed for this example
+version = "29"  # <-- This line changed for this example
+in_path = chembl_downloader.download_sdf(
+    version=version
+)  # <-- This line changed for this example
 
 with gzip.open(in_path) as file:
     data = []
@@ -69,7 +71,7 @@ with gzip.open(in_path) as file:
         data.append(...)
 
 out_path = "../data/chembl29_sssdata.pkl"
-with open(out_path, 'wb') as file:
+with open(out_path, "wb") as file:
     pickle.dump(data, file)
 ```
 
@@ -96,7 +98,7 @@ this.
 ```python
 import chembl_downloader
 
-version = chembl_downloader.latest()                       # <-- This line changed for this example
+version = chembl_downloader.latest()  # <-- This line changed for this example
 in_path = chembl_downloader.download_sdf(version=version)
 
 with gzip.open(in_path) as file:
@@ -106,7 +108,7 @@ with gzip.open(in_path) as file:
         data.append(...)
 
 out_path = "../data/chembl29_sssdata.pkl"
-with open(out_path, 'wb') as file:
+with open(out_path, "wb") as file:
     pickle.dump(data, file)
 ```
 
@@ -134,9 +136,12 @@ with gzip.open(in_path) as file:
         ...
         data.append(...)
 
-import pystow                                                  # <-- This line changed for this example
-out_path = pystow.join("chembl", version, name="sssdata.pkl")  # <-- This line changed for this example
-with open(out_path, 'wb') as file:
+import pystow  # <-- This line changed for this example
+
+out_path = pystow.join(
+    "chembl", version, name="sssdata.pkl"
+)  # <-- This line changed for this example
+with open(out_path, "wb") as file:
     pickle.dump(data, file)
 ```
 
@@ -164,6 +169,6 @@ with chembl_downloader.supplier(version=version) as suppl:
 import pystow
 
 out_path = pystow.join("chembl", version, name="sssdata.pkl")
-with open(out_path, 'wb') as file:
+with open(out_path, "wb") as file:
     pickle.dump(data, file)
 ```

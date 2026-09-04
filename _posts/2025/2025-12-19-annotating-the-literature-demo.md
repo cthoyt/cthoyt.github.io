@@ -83,7 +83,9 @@ grounder: ssslm.Grounder = pyobo.get_grounder("mesh", versions="2018")
 pubmed_ids: list[str] = pubmed_downloader.search("diabetes", backend="api", retmax=5)
 click.echo(f"got {len(pubmed_ids)} pubmed IDs")
 
-for article in pubmed_downloader.get_articles(pubmed_ids, error_strategy="skip", progress=True):
+for article in pubmed_downloader.get_articles(
+    pubmed_ids, error_strategy="skip", progress=True
+):
     abstract: str = article.get_abstract()
 
     # get a list of annotations, which contain the offsets of the entity

@@ -103,10 +103,12 @@ from drugbank_downloader import download_drugbank
 username = ...  # suggestion: load from environment with os.getenv('DRUGBANK_USERNAME')
 password = ...
 
-path = download_drugbank(version='5.1.7', username=username, password=password)
+path = download_drugbank(version="5.1.7", username=username, password=password)
 
 # This is where it gets downloaded: ~/.data/drugbank/5.1.7/full database.xml.zip
-expected_path = os.path.join(os.path.expanduser('~'), '.data', 'drugbank', '5.1.7', 'full database.xml.zip')
+expected_path = os.path.join(
+    os.path.expanduser("~"), ".data", "drugbank", "5.1.7", "full database.xml.zip"
+)
 assert expected_path == path.as_posix()
 ```
 
@@ -138,7 +140,9 @@ path = download_drugbank(username=username, password=password)
 
 # This is where it gets downloaded: ~/.data/drugbank/5.1.7/full database.xml.zip based on the latest
 # version, as of December 14th, 2020.
-expected_path = os.path.join(os.path.expanduser('~'), '.data', 'drugbank', '5.1.7', 'full database.xml.zip')
+expected_path = os.path.join(
+    os.path.expanduser("~"), ".data", "drugbank", "5.1.7", "full database.xml.zip"
+)
 assert expected_path == path.as_posix()
 ```
 
@@ -155,7 +159,7 @@ from drugbank_downloader import download_drugbank
 path = download_drugbank(username=..., password=...)
 
 with zipfile.ZipFile(path) as zip_file:
-    with zip_file.open('full database.xml') as file:
+    with zip_file.open("full database.xml") as file:
         pass  # do something with the file
 ```
 
@@ -203,17 +207,17 @@ you'd like. If these steps are slow, you could even write code that caches it in
 the middle. Below is my template for an expensive processing step.
 
 ```python
-
 from drugbank_downloader import parse_drugbank
 
-def process_data():
-    ...
 
-def save_my_parsing_results(processed_data, file):
-    ...
+def process_data(): ...
 
-def load_my_parsing_results(path):
-    ...
+
+def save_my_parsing_results(processed_data, file): ...
+
+
+def load_my_parsing_results(path): ...
+
 
 def get_processed_data():
     cache_path = ...
@@ -222,7 +226,7 @@ def get_processed_data():
     else:
         root = parse_drugbank(username=..., password=...)
         processed_data = process_data(root)
-        with open(cache_path, 'w') as file:
+        with open(cache_path, "w") as file:
             save_my_parsing_results(root, file)
     return processed_data
 ```
