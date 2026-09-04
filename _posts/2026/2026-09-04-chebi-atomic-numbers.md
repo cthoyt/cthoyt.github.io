@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ChEBI Atomic Numbers
+title: Axiomatizing Atomic Numbers in ChEBI
 date: 2026-09-04 16:35:00 +0200
 author: Charles Tapley Hoyt
 tags:
@@ -10,9 +10,14 @@ tags:
   - biocuration
 ---
 
-NFDI4Chem
+Why? im currently working on making an ontology for theoretical chemistry with
+Mario and Robin. we're looking at basis sets, and need to ontologize the fact
+that some basis sets are only applicable for certain atoms. I wanted a mapping
+from atomic number to an ontology identifier - ChEBI would be the first guess,
+but they don't have this mapping. Therefore, I wanted to make this mapping
+explicit so I could reuse it in Python code and also to axiomatize it in OWL.
 
-[![DOI](https://zenodo.org/badge/1357107774.svg)](https://doi.org/10.5281/zenodo.22306043)
+https://github.com/cthoyt/chebi-atomic-numbers-ontology
 
 This repository contains an ontology component that injects axioms for the
 atomic numbers for the atoms in ChEBI's
@@ -129,3 +134,17 @@ SubClassOf(CHEBI:30217 DataHasValue(ChEMROF:atomic_number "2"^^xsd:integer))
 SubClassOf(CHEBI:194539 DataHasValue(ChEMROF:atomic_number "117"^^xsd:integer))
 SubClassOf(CHEBI:194541 DataHasValue(ChEMROF:atomic_number "118"^^xsd:integer))
 ```
+
+## Next Steps
+
+I want to make a "full" version of this which also uses the MIREOT algorithm to
+get all atoms and pull in the upstream annotations from the upstream ChEBI
+ontology file. That's happening in
+https://github.com/cthoyt/chebi-atomic-numbers-ontology, with the goal to make
+an easier to explore OWL file.
+
+---
+
+While I put everything in a GitHub repository and archived it on Zenodo
+[![DOI](https://zenodo.org/badge/1357107774.svg)](https://doi.org/10.5281/zenodo.22306043),
+I would love to see this get upstreamed to ChEBI itself.
