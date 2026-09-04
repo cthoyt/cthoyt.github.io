@@ -68,7 +68,9 @@ The resulting ontology artifact is available from
 
 ## How did I make it?
 
-I started with a dictionary of element to name, then used PyOBO
+I started with a dictionary of element to name, then used
+[PyOBO](https://github.com/biopragmatics/pyobo) to look up ChEBI terms based on
+labels using the following (pseudo)code:
 
 ```python
 import pyobo
@@ -78,10 +80,15 @@ element_to_name = {
     # everything in between
     118: "oganesson",
 }
-
 grounder = pyobo.get_grounder("chebi")
 for element, name in element_to_name.items():
-    match = grounder.get_best_match(name)
+    if match := grounder.get_best_match(f"{name} atom"):
+        pass  # output to template TSV
+    elif match := grounder.get_best_match(name):
+        pass  # check table below, then output to template TSV
+    else:
+        # this never happens, because ChEBI is comprehensive
+        raise ValueError(f"no match available for {name}")
 ```
 
 Issues along the way I had to contribute back to ChEBI in
