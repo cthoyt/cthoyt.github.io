@@ -20,79 +20,106 @@ possible.
 
 ## Motivation
 
-I am currently developing a suite of ontologies for theoretical chemistry with
+I am currently working in [NFDI4Chem](https://nfdi4chem.de) with
 [Mario Wolter](https://github.com/MarioWolter) and
-[Robin Ströhmann](https://github.com/CodoRob) as part of
-[NFDI4Chem](https://nfdi4chem.de).
-
-In our first module, we are ontologizing
-[basis sets](https://en.wikipedia.org/wiki/Basis_set_%28chemistry%29), sets of
+[Robin Ströhmann](https://github.com/CodoRob) at TU Braunschweig towards
+developing an ontology for theoretical chemistry. Our first narrowly scoped
+module covers
+[basis sets](https://en.wikipedia.org/wiki/Basis_set_%28chemistry%29) - sets of
 mathematical functions and their respective parametrization used to construct
-wave equations in computational chemistry experiments. We are building on the
-[Basis Set Exchange](https://www.basissetexchange.org), a comprehensive database
-of basis sets that itself is missing the organization of an ontology.
+wave equations in computational chemistry experiments. Our initial approach is
+to extend the [Basis Set Exchange](https://www.basissetexchange.org), an
+existing comprehensive database of basis sets that could be made more valuable
+by ontologizing its contents.
+
+A key aspect of each basis set is to which elements it is applicable. While any
+general purpose programming language with a cheminformatics package could be
+used to parse a molecule from SMILES, InChI, Molfile, SDF, or other format then
+cross-check against the basis set metadata (see below), our goal is to enable an
+ontology reasoner to determine which basis sets are applicable to a molecule
+based on logical axioms connecting the molecule with the
+[has part (BFO:0000051)](https://semantic.farm/BFO:0000051) relationship to a
+subclass of [atom (CHEBI:33250)](https://semantic.farm/CHEBI:33250).
 
 [![](/img/basis-set-to-elements.svg)](https://docs.google.com/drawings/d/1ejVJLlijiJEdzlasYgKAIf9oXjRmSVvi6v6QbVUND4c/edit?usp=sharing)
 
-A key aspect of a basis set is definition of how each orbital is modeled for
-each element. Not all basis sets can be used to model all elements.
+Each basis set in the Basis Set Exchange can be downloaded as JSON from their
+API. For example, the _4-31G valence double-zeta basis set_ can be downloaded
+[here](http://www.basissetexchange.org/api/basis/4-31g/format/json/?version=1)
+and gives the following JSON (lightly edited and abridge for clarity, element
+values removed):
 
-The definition of each basis set in Basis Set Exchange is transformed into
-axioms about which atoms it supports, where the atoms are encoded with ChEBI
-terms under the CHEBI:33250 (atom) hierarchy Molecules that are encoded in ChEBI
-have axioms saying which atoms are in them A logical rule can be encoded in BSEO
-so reasoners can infer whether a given basis set is applicable to a molecule if
-all atoms that are parts of the molecule are also supported by the basis set.
-We're currently in the process of determining how to best formalize this Of
-course, this can also be trivially implemented using any modern cheminformatics
-software package, but the implications are that this logic can be formalized
+```json
+{
+  "name": "4-31G",
+  "family": "pople",
+  "description": "4-31G valence double-zeta basis set",
+  "role": "orbital",
+  "elements": {
+    "1": {},
+    "2": {},
+    "5": {},
+    "6": {},
+    "7": {},
+    "8": {},
+    "9": {},
+    "10": {},
+    "15": {},
+    "16": {},
+    "17": {}
+  }
+}
+```
 
-https://github.com/NFDI4Chem/basis-set-exchange-ontology
+With this data, I am very close to being able to create axioms on my basis set
+terms for which atoms they support. The issue with this data is that I don't
+have a mapping from the atomic numbers appearing as keys in the `elements`
+dictionary to the ChEBI terms for each atom.
 
-Why? im currently working on making an ontology for theoretical chemistry with
-Mario and Robin. we're looking at basis sets, and need to ontologize the fact
-that some basis sets are only applicable for certain atoms. I wanted a mapping
-from atomic number to an ontology identifier - ChEBI would be the first guess,
-but they don't have this mapping. Therefore, I wanted to make this mapping
-explicit so I could reuse it in Python code and also to axiomatize it in OWL.
-
-https://github.com/cthoyt/chebi-atomic-numbers-ontology
-
-This repository contains an ontology component that injects axioms for the
-atomic numbers for the atoms in ChEBI's
-[atom (CHEBI:33250)](https://www.ebi.ac.uk/chebi/CHEBI:33250) hierarchy.
-
-The resulting ontology artifact is available from
-[https://github.com/cthoyt/chebi-atomic-numbers-ontology/raw/refs/heads/main/chebi-atomic-numbers.owl](https://github.com/cthoyt/chebi-atomic-numbers-ontology/raw/refs/heads/main/chebi-atomic-numbers.owl)
-(PURL coming soon).
+It turns out, that this information isn't encoded in ChEBI at all! My natural
+reflex was to start curating and to start coding a solution. The resulting
+ontology module is available
+[here](https://github.com/cthoyt/chebi-atomic-numbers-ontology/raw/refs/heads/main/chebi-atomic-numbers.owl).
 
 ## How did I make it?
 
-I started with a dictionary of element to name, then used
+I started with a cursory search of ChEBI to understand the different senses in
+which atoms/elements are encoded - the atom hierarchy typically has the element
+name plus "atom" at the end, except in a few cases. I curated a dictionary
+mapping from atomic number to element name in Python then used
 [PyOBO](https://github.com/biopragmatics/pyobo) to look up ChEBI terms based on
 labels using the following (pseudo)code:
 
 ```python
 import pyobo
+from pystow.utils import safe_open_writer
 
 element_to_name = {
-    1: "hydrogen",
-    # everything in between
-    118: "oganesson",
+   1: "hydrogen",
+   # and everything in between, omitted for brevity
+   118: "oganesson",
 }
 grounder = pyobo.get_grounder("chebi")
-for element, name in element_to_name.items():
-    if match := grounder.get_best_match(f"{name} atom"):
-        pass  # output to template TSV
-    elif match := grounder.get_best_match(name):
-        pass  # check table below, then output to template TSV
-    else:
-        # this never happens, because ChEBI is comprehensive
-        raise ValueError(f"no match available for {name}")
+with safe_open_writer("elements.tsv") as writer:
+   writer.writerow(("ID", "TYPE", "label", "atomic number"))
+   writer.writerow(("ID", "TYPE", "", "SC 'ChEMROF:atomic_number' value %"))
+   for element, name in element_to_name.items():
+      if match := grounder.get_best_match(f"{name} atom"):
+         writer.writerow((match.curie, "class", match.name, element))
+      elif match := grounder.get_best_match(name):
+         # all nine of these cases were post-checked to be correct, see table below
+         writer.writerow((match.curie, "class - check/fix", match.name, element))
+      else:
+         # this never happens, because ChEBI is comprehensive
+         raise ValueError(f"no match available for {name}")
 ```
 
-Issues along the way I had to contribute back to ChEBI in
-https://github.com/ebi-chebi/ChEBI/issues/4958
+Along the way, I found nine elements that fell within the atom hierarchy but
+were named just with the element name and no "atom" suffix. I also found that
+for aluminum and cesium that ChEBI only encoded the British spelling and not the
+American spelling, so these had to be post-curated by hand. I opened up an issue
+on the ChEBI repository summarizing the situation at
+[ebi-chebi/ChEBI#4958](https://github.com/ebi-chebi/ChEBI/issues/4958):
 
 | atomic number | ChEBI label  | CURIE                                            | Problem                                                                                                       |
 | ------------: | ------------ | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
@@ -117,7 +144,7 @@ contains templating information in its header that directs
 
 The file looks like this:
 
-| ID                                                 | type  | label           |                                                                     atomic number |
+| ID                                                 | TYPE  | label           |                                                                     atomic number |
 | -------------------------------------------------- | ----- | --------------- | --------------------------------------------------------------------------------: |
 | ID                                                 | TYPE  |                 | SC '[ChEMROF:atomic_number](https://semantic.farm/ChEMROF:atomic_number)' value % |
 | [CHEBI:49637](https://semantic.farm/CHEBI:49637)   | class | hydrogen atom   |                                                                                 1 |
