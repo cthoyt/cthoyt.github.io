@@ -31,14 +31,17 @@ The resulting ontology artifact is available from
 
 I started with a dictionary of element to name, then used PyOBO
 
-```bibtex
+```python
 import pyobo
 
-element_to_name = {1: "hydrogen", ...}
+element_to_name = {
+    1: "hydrogen",
+    # and so on
+}
 
 grounder = pyobo.get_grounder("chebi")
 for element, name in element_to_name.items():
-match = grounder.get_best_match(name)
+    match = grounder.get_best_match(name)
 ```
 
 Issues along the way I had to contribute back to ChEBI in
