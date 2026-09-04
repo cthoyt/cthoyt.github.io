@@ -482,5 +482,5 @@ complement my previous post on [comparison of manually curated SSSOM
 documents]({% post_url 2026/2026-06-19-comparing-sssom %}).
 
 If you're interested in other SSSOM transformations, see my previous posts on
-[SSSOM to JSKOS]({% post_url 2026-01-15-sssom-to-jskos %}) and [SSSOM to
-Wikidata]({% post_url 2026-01-07-sssom-to-wikidata %}).
+[SSSOM to JSKOS]({% post_url 2026/2026-01-15-sssom-to-jskos %}) and [SSSOM to
+Wikidata]({% post_url 2026/2026-01-07-sssom-to-wikidata %}).
