@@ -12,9 +12,9 @@ tags:
 
 This post describes how I produced a
 [novel ontology module](https://github.com/cthoyt/chebi-atomic-numbers-ontology/raw/refs/heads/main/chebi-atomic-numbers.owl)
-that axiomatizes the atomic numbers for ChEBI terms representing atoms
-(i.e., subclasses of [CHEBI:33250](https://semantic.farm/CHEBI:33250))
-using subclass expressions with data restrictions, and the ROBOT
+that axiomatizes the atomic numbers for ChEBI terms representing atoms (i.e.,
+subclasses of [CHEBI:33250](https://semantic.farm/CHEBI:33250)) using subclass
+expressions with data restrictions, and the ROBOT
 [template](https://robot.obolibrary.org/template.html) magic that made it
 possible.
 
