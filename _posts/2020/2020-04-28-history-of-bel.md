@@ -118,7 +118,7 @@ observations (state changes).
 statistical methods that power the inference engine and that are used to
 evaluate the results of simulations.
 
-**February 24, 2004** Genstruct appoints
+**February 24th, 2004** Genstruct appoints
 [Doug Lauffenberg](https://www.linkedin.com/in/douglas-lauffenburger-34a0282),
 Director of the Biological Engineering Division and Uncas & Helen Whitaker
 Professor of Biological Engineering, Chemical Engineering and Biology at the
@@ -141,7 +141,7 @@ profile claims that it was cash flow positive in 2008 and 2009.
 
 ## 2008
 
-**April 30, 2008** Genstruct and Sirtris win the BioIT World Best Practices
+**April 30th, 2008** Genstruct and Sirtris win the BioIT World Best Practices
 Award for their work using the Genstruct Platform to identify the mechanisms of
 action for the Sirtris Sirt1 activators. Sirtris was acquired by GSK to further
 develop its Sirt1 activators.
@@ -325,7 +325,7 @@ Biological Expression Language itself. When you skip ahead it might seem obvious
 that I'm collating information to put together a new reference paper describing
 the updates from the following six years.
 
-**July 11, 2014** Florian Martin (Philip Morris International) and colleagues
+**July 11th, 2014** Florian Martin (Philip Morris International) and colleagues
 published their
 [third paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4227138/) (I think;
 they have been quite prolific in the 2010's) paper describing the Network
@@ -333,15 +333,15 @@ Perturbation Amplitude analysis, this time with no co-authors from Selventa.
 
 ## 2015
 
-**Sometime between 2015-2017** With the withdrawn of support from Christoph
+**Sometime between 2015-2017** With the withdrawal of support from Christoph
 Brockel (sometime between 2015 and 2017, when he left Pfizer), Pfizer divests
 from BEL. Its internal BEL-based analytical platform, the
 [Causal Reasoning Engine](https://academic.oup.com/bioinformatics/article/28/8/1114/195407)
 and its underlying knowledgebase are publicized, but never released.
 
 **January 23rd, 2015** In concert with the sbv IMPROVER's adoption of BEL from
-PMI,
-the[fifth iteration of the BioCreative Challenge](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-v/)
+PMI, the
+[fifth iteration of the BioCreative Challenge](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-v/)
 hosts its first
 [BEL-specific text mining challenge](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-v/track-4-bel-task/).
 It was organized by OntoGene (Fabio Rinaldi), the sbv IMPROVER/PMI (Sam Ansari,
@@ -385,7 +385,7 @@ following the fifth BioCreative challenge in
 [_Oxford Database_](https://academic.oup.com/database/article/doi/10.1093/database/bav057/2433190).
 Here is another case where I omitted several other papers following the
 BioCreative challenge, as none of the other solutions were accessible. This is
-very, very sad in my opinon.
+very, very sad in my opinion.
 
 **November 9th, 2015** [Afroza Khanam Irin](https://dblp.org/pid/170/4305.html)
 (Fraunhofer) publishes
@@ -453,7 +453,7 @@ I may be biased, but I think this marked the beginning of the rejuvination of
 the BEL community. Many more developments from me and colleagues at Fraunhofer
 follow for the next 3 years through my master's and doctoral work.
 
-**October 25, 2016** Christian Ebeling (Fraunhofer)
+**October 25th, 2016** Christian Ebeling (Fraunhofer)
 [presents](https://www.youtube.com/watch?v=JOCTVQx2y34&list=PLv0yMFogDiDjiizm6acS49ngKyOuc4rdx&index=9&t=0s)
 PyBEL at the
 [tranSMART Foundation 2016 Annual Meeting](https://transmartfoundation.org/2016-annual-meeting/).
@@ -486,7 +486,7 @@ by PyBEL and BEL Commons.
 which jump started both the cheminformatics side of BEL and inspired the later
 Bio2BEL project.
 
-**February 22th, 2017**
+**February 22nd, 2017**
 [John Bachman](https://www.linkedin.com/in/john-bachman-0563725/) (Harvard
 Medical School; HMS) and
 [Ben Gyori](https://www.linkedin.com/in/benjamin-m-gyori-0519b630/) (HMS) begin
@@ -502,7 +502,7 @@ later that year.
 hosts a
 [text mining challenge for BEL](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-3/).
 It was lead by Fraunhofer (Juliane Fluck, Sumit Madan, Martin Hofmann-Apitius)
-and Philip Morris International (Justyna Szostak). Again, almost all of the
+and Philip Morris International (Justyna Szostak). Again, almost all the
 software published for this track did not include a demo.
 
 **May 22nd, 2017** The final version of `bel.rb`
@@ -529,13 +529,13 @@ but in late April 2020, has not yet been accepted for publication.
 
 ## 2018
 
-**January 30, 2018** [BioDati, Inc.](https://biodati.com/) officially forms as a
-spin-off of ADS and
+**January 30th, 2018** [BioDati, Inc.](https://biodati.com/) officially forms as
+a spin-off of ADS and
 [announces](https://medium.com/biodati/biodati-inc-announcement-af205a57d0cb)
 that it is developing a product called BioDati Studio for BEL curation and
 visualization.
 
-**January 31, 2018** William Hayes (now of ADS/BioDati, Inc.)
+**January 31st, 2018** William Hayes (now of ADS/BioDati, Inc.)
 [announces](https://medium.com/biodati/bel-bio-announcement-c0a911373757) the
 launch of the [BEL.bio](https://bel.bio/) website as a replacement for the
 OpenBEL website. It also announced the
@@ -576,7 +576,7 @@ this event are available at
 [https://www.youtube.com/playlist?list=PLwXD2R4UjER0IfAQpqxOBkSe08gTPws41](https://www.youtube.com/playlist?list=PLwXD2R4UjER0IfAQpqxOBkSe08gTPws41).
 
 **Also May 14th, 2018** Christian Ebeling (Fraunhofer) publishes an
-[Atom](https://atom.io/)) plugin for BEL syntax highlighting at
+[Atom](https://atom.io) plugin for BEL syntax highlighting at
 [https://atom.io/packages/language-bel](https://atom.io/packages/language-bel).
 
 **June 4th, 2018** Dexter Pratt (on behalf of the Cytoscape Consortium)
@@ -665,7 +665,7 @@ to the [Heme Knowledge Graph (HemeKG)](https://github.com/hemekg/hemekg). It is
 later published in
 [_Frontiers in Bioengineering and Biotechnology_](https://doi.org/10.3389/fbioe.2020.00074).
 
-**September 24, 2019** Charles Tapley Hoyt (Fraunhofer)
+**September 24th, 2019** Charles Tapley Hoyt (Fraunhofer)
 [announces](https://medium.com/bel-news/bel-v2-2-enhancements-cfb4b27b22cb) the
 release of the BEL v2.2 specification on behalf of the BEL Language Committee.
 
@@ -714,7 +714,7 @@ resulting in further interest in BEL in the
 There are a few things that I would like to mention as afterthoughts that I
 don't know where to place on the timeline.
 
-One of the most egregious ommisions I have made is the date of the BEL 2.0
+One of the most egregious omisions I have made is the date of the BEL 2.0
 release and the events that lead up to it. Even crazier, I don't know much of
 the pre-2016 history of how my group at Fraunhofer got involved with Selventa -
 perhaps it was their long history of text mining (since the dictionary and CRF
