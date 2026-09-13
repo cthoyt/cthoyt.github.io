@@ -506,7 +506,7 @@ Then, it was only a matter of stringing together code that converts DALIA to
 OERbservatory, OERbservatory to TeSS, and then to upload to TeSS.
 
 In parallel, Martin worked on improving the devops behind the
-[PaNOSC TeSSHub](https://tesshub.hzdr.de) to enable quicky spinning up new TeSS
+[PaNOSC TeSSHub](https://tesshub.hzdr.de) to enable quickly spinning up new TeSS
 instances that each have their own subdomain. He created a different subdomain
 for each of DALIA, OERSI, GTN/KCD, and OERhub. Finally, we wrote a script that
 uploaded all open educational resources and learning material from each source
