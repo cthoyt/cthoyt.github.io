@@ -174,7 +174,7 @@ I've worked for several years on the
 standard for storing semantic mappings, so this was naturally the target for our
 work. Further, I have been working on a domain-agnostic workflow for predicting
 semantic mappings with lexical matching and deploying a curation interface
-called [SSSOM Curator](github.com/cthoyt/sssom-curator/). I gave a tutorial for
+called [SSSOM Curator](https://github.com/cthoyt/sssom-curator/). I gave a tutorial for
 using SSSOM Curator to the team based on a previous tutorial I made (that can be
 found on YouTube [here](https://www.youtube.com/watch?v=FkXkOhT8gdc&t=293s)). We
 prepared predicted semantic mappings between several learning material-related

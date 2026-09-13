@@ -342,8 +342,8 @@ their associated metadata.
 <!--
 Some registries are directly imported and reused in other places (e.g., GO
 Registry reused in
-psi-mi-CV [https://github.com/HUPO-PSI/psi-ms-CV/blob/master/db-xrefs.yaml],
-NCBI GenBank Registry reused in https://www.ddbj.nig.ac.jp/ddbj/db_xref-e.html).
+[psi-mi-CV](https://github.com/HUPO-PSI/psi-ms-CV/blob/master/db-xrefs.yaml),
+NCBI GenBank Registry reused in [DDBJ](https://www.ddbj.nig.ac.jp/ddbj/db_xref-e.html)).
 -->
 
 ## Metaregistry

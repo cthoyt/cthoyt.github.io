@@ -268,7 +268,7 @@ workflow M2. Similarly, the results of any application of workflow A2 can then
 be reviewed with workflow M1 after.
 
 This workflow is implemented in SSSOM Pydantic in
-[sssom_pydantic.process.curate ()](<[https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.curate.html)>).
+[sssom_pydantic.process.curate ()](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html).
 SSSOM Pydantic models semantic mappings as frozen objects, meaning that no
 operations happen in-place (i.e., all are _destructive_).
 

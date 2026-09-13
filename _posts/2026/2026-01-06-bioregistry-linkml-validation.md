@@ -85,7 +85,7 @@ The Bioregistry has public, well-defined
 and
 [project governance](https://github.com/biopragmatics/bioregistry/blob/main/docs/GOVERNANCE.md)
 to support making curation contributions. Alternatively, the
-[issue tracker](github.com/biopragmatics/bioregistry/issues) allows
+[issue tracker](https://github.com/biopragmatics/bioregistry/issues) allows
 non-technical users to post requests that the Bioregistry team can follow up on.
 
 Based on the output above, I made improvements to the Bioregistry in
