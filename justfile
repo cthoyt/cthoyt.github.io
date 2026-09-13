@@ -17,3 +17,6 @@ format-rumdl:
 
 check:
     uvx rumdl check
+
+spelling:
+    uvx codespell **/*.md

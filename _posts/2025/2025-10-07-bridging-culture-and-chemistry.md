@@ -631,7 +631,7 @@ WHERE {
     # yet incorporate CHMO
     SERVICE <https://ubergraph.apps.renci.org/sparql> {
         # this could be extended further to do variable
-        # hierchical traversal of measurement processes'
+        # hierarchical traversal of measurement processes'
         # and instruments' subclassess, but skipped for
         # brevity
         ?measurmentProcess rdfs:subClassOf [

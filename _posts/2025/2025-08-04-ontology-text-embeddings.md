@@ -124,7 +124,7 @@ import pyobo
 This could be improved with the ability to do batch lookup, which is probably
 the way people would want to use this functionality. Even better, because of how
 ML is implemented on GPUs and related hardware, batching effectively comes for
-free, only limited by memory contraints.
+free, only limited by memory constraints.
 
 ---
 

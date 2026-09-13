@@ -95,7 +95,7 @@ The [sssom-js](https://github.com/gbv/sssom-js) JavaScript package contains the
 first SSSOM to JSKOS converter and has an
 [open issue](https://github.com/gbv/sssom-js/issues/5) for conversion back to
 SSSOM (TSV). It was developed by the JSKOS team, meaning that I have high
-confidence that the implemenation of the crosswalk is accurate.
+confidence that the implementation of the crosswalk is accurate.
 
 While it can be invoked from the command line using `npx` like in
 `npx sssom-js --from tsv --to jskos --output output.json input.sssom.tsv`, it
