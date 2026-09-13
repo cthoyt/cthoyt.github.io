@@ -125,7 +125,7 @@ External Account Links:
    department" ![Wikidata create item page](/img/wikidata_create_item.png)
 3. You'll see a mostly blank page. Start by clicking the "+ add statement" link
    in the middle to bring up the following box. On the left where "Property" is
-   greyed out, you can type the name of the relationship and click the right
+   grayed out, you can type the name of the relationship and click the right
    suggestion from the dropdown
    ![Wikidata add statement step 1](/img/wikidata_add_statement_1.png)
 4. In the middle, you can type the object of the relationship. If the property

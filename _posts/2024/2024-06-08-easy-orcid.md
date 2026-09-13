@@ -230,7 +230,7 @@ Bioregistry (where possible). Note that this was prioritized by the most common
 cross-references, and is not complete. To capture _all_ would be a lot of work
 and require many more corner cases to less common services. I also threw away
 links to non-professional social networks like Facebook/Instagram. I also made
-the value judgement to throw away links to Twitter since it doesn't reflect open
+the value judgment to throw away links to Twitter since it doesn't reflect open
 and inclusive scientific community values anymore.
 
 | Resource                                                  |     Count |

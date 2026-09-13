@@ -70,7 +70,7 @@ the INDRA Database.
 ![Navigate the hierarchical search results](/img/indra_curation/08_navigate_search_results.png)
 
 Now that the curation menu has come up, you can select one of several error
-types. Use your best judgement if a statement is really correct. Note that INDRA
+types. Use your best judgment if a statement is really correct. Note that INDRA
 does synonym disambiguation, so the label for the statement may not match to the
 highlighted text. You can click the entity names in the statement header to open
 pages with more information about the entities, including their synonyms.

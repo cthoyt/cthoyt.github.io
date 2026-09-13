@@ -129,7 +129,7 @@ free, only limited by memory constraints.
 ---
 
 Text embeddings aren't the end of the story - I've been working for several
-years on applications fo graph machine learning in biomedical applications. A
+years on applications of graph machine learning in biomedical applications. A
 lot of the good methodological and software engineering ideas I've
 had/encountered have gone into the [PyKEEN](https://github.com/pykeen/pykeen)
 Python software package. One of those ideas that jointly leverages text and
