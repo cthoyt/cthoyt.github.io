@@ -158,7 +158,7 @@ annotations in the BFO ontology or from Wikidata itself (since I curated those
 into Wikidata years ago when we were preparing the (unpublished) relation
 ontology paper).
 
-I made an intermediate output of all of thet triples
+I made an intermediate output of all of the triples
 [here](https://github.com/cthoyt/ror-wikidata-enrichment/raw/refs/heads/main/data/4-ror-relations.tsv),
 licensed under CC0.
 

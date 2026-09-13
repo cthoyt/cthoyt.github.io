@@ -108,7 +108,7 @@ phenotypes because of the variety of language used to describe each, the
 differences in semantics of how each is defined, and the sheer number of
 databases. Unfortunately, some of the most popular like MeSH and to an extent,
 UMLS, NCIT, SNOMED-CT, and ICD (seemingly the culprits are mostly American!?)
-provide very little accessible information. Some are even paid, so the ony
+provide very little accessible information. Some are even paid, so the only
 cross-references that exist are externally curated ones from other laudable
 sources like HP, DOID, and EFO. In fact, dealing with phenotypes is such a pain,
 that there is a project called the
@@ -206,7 +206,7 @@ identifier that is the best mapping. Then, each connected component would become
 a star graph. There's actually a better data structure for this, since each
 entity points to exactly one thing - a mapping. This is a more efficient data
 structure for storage, and if your graph is implemented as an adjacency
-dictionary (becuase you're using `networkx`, right?), then you basically already
+dictionary (because you're using `networkx`, right?), then you basically already
 have this.
 
 I've provided an implementation for all of these in PyOBO. They can be run as a
@@ -284,7 +284,7 @@ unsuccessful_prioritize_request = requests.get(
 ```
 
 I'd like to give a big thanks to my high school music teacher, Ken Tedeschi, for
-helping me (and basically everyone else) fall in love with Les Mis in high
+helping me (and basically everyone else) fall in love with _Les Mis_ in high
 school. Writing about my work was so much more fun in extended metaphor. I would
 also like to thank Hugh Jackman. You know, for being Hugh Jackman.
 

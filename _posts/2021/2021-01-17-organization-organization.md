@@ -16,7 +16,7 @@ metadata, they are also working towards using [ROR identifiers](https://ror.org)
 for organizations. There are still a few growing pains for ROR, so I chimed in
 on a [discussion](https://github.com/manubot/manubot/issues/155) on GitHub about
 how Wikidata might be a potential solution for organizing and retrieving
-information about reserach organizations. I said I'd describe my idea more in
+information about research organizations. I said I'd describe my idea more in
 detail, so here I go!
 
 ## Step 1: Wikidata
@@ -125,7 +125,7 @@ External Account Links:
    department" ![Wikidata create item page](/img/wikidata_create_item.png)
 3. You'll see a mostly blank page. Start by clicking the "+ add statement" link
    in the middle to bring up the following box. On the left where "Property" is
-   greyed out, you can type the name of the relationship and click the right
+   grayed out, you can type the name of the relationship and click the right
    suggestion from the dropdown
    ![Wikidata add statement step 1](/img/wikidata_add_statement_1.png)
 4. In the middle, you can type the object of the relationship. If the property

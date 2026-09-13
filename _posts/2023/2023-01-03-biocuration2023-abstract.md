@@ -54,7 +54,7 @@ as social workflows like pull requests for the submission and review of changes.
 responsibilities and authority (e.g., for reviewing/merging changes to the
 code/data) across multiple institutions such that it is more robust to
 fluctuation in funding and personnel that can also be updated over time. It
-prescribes liberal attribution and acknowledgement of the individuals and
+prescribes liberal attribution and acknowledgment of the individuals and
 institutions (both internal and external to the project) who contribute on a
 variety of levels (e.g., code, data, discussion, funding). More generally, our
 model requires that a minimal governance model is codified and instituted as

@@ -88,7 +88,7 @@ def f_helper(df: pd.DataFrame) -> Iterable[Mapping[Any, Any]]:
 ```
 
 If you're not familiar with `yield`, here are a two videos to get you thinking
-aboout how to use loops like a Pythonista:
+about how to use loops like a Pythonista:
 
 - [Loop like a native: while, for, iterators, generators (PyCon US 2013)](https://www.youtube.com/watch?v=EnSu9hHGq5o&list=PLPFmTfhIBiumfYT3rsa35fHJxabB78er1&index=5)
 - [Trey Hunner - Comprehensible Comprehensions (PyCon 2020)](https://www.youtube.com/watch?v=ei71YpmfRX4&list=PLPFmTfhIBiumfYT3rsa35fHJxabB78er1&index=6)
@@ -96,7 +96,7 @@ aboout how to use loops like a Pythonista:
 Now that we have `f_helper`, we solved issue #2. The solution to issue #1 is to
 have functions that take in only the parts that are needed to build up each new
 row. This means you should accept an iterable, and have the high level function
-slice up the dataframe or do whatever pre-procesing is necessary first:
+slice up the dataframe or do whatever pre-processing is necessary first:
 
 ```python
 import pandas as pd

@@ -280,8 +280,7 @@ if __name__ == "__main__":
     )
 ```
 
-After all of this, I added a first set of curations to the Biomappings project
-in
+After all this, I added a first set of curations to the Biomappings project in
 [biopragmatics/biomappings#205](https://github.com/biopragmatics/biomappings/pull/205)
 which are stored in SSSOM within the GitHub repository. Normally, I commit all
 predictions, but they are so noisy and numerous, that I only committed the
@@ -631,7 +630,7 @@ WHERE {
     # yet incorporate CHMO
     SERVICE <https://ubergraph.apps.renci.org/sparql> {
         # this could be extended further to do variable
-        # hierchical traversal of measurement processes'
+        # hierarchical traversal of measurement processes'
         # and instruments' subclassess, but skipped for
         # brevity
         ?measurmentProcess rdfs:subClassOf [

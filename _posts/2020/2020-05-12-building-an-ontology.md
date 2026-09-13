@@ -187,7 +187,7 @@ diff'd / viewed in GitHub. However, I would accept the following alternative:
 <blockquote class="twitter-tweet">
 <p lang="en" dir="ltr">I propose we change CSV to Clown Separated Values since that tends to be about how well CSV parsers work. <a href="https://t.co/C8Uys3H9Kp">pic.twitter.com/C8Uys3H9Kp</a></p>&mdash; Kevin Jones 🏳️‍🌈 🧼👏 (@vcsjones) <a href="https://twitter.com/vcsjones/status/1170828523881271298?ref_src=twsrc%5Etfw">September 8, 2019</a></blockquote>
 
-In a later post, I'll come back to how to programatically generate OWL, OBO,
+In a later post, I'll come back to how to programmatically generate OWL, OBO,
 BEL, and other formats that are commonly used for ontologies from your curation
 sheets.
 

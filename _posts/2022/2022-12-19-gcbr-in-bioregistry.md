@@ -229,7 +229,7 @@ the list of GCBRs. There are several other examples of databases transitively
 used by other GCBRs appearing in other parts of this categorization where this
 is also true. Without exhaustively going through all four resources, I thought
 I'd use the [GWAS Catalog](https://www.ebi.ac.uk/gwas) to illustrate how it
-looks when a database re-uses other identifier schemata-providing databases.
+looks when a database reuses other identifier schemata-providing databases.
 
 First, a genome-wide association study (GWAS) identifies statistical correlation
 between genomic markers such as single nucleotide polymorphisms (SNPs) and

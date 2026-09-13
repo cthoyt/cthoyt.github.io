@@ -17,3 +17,12 @@ format-rumdl:
 
 check:
     uvx rumdl check
+
+spelling:
+    uvx codespell --builtin 'clear,rare,en-GB_to_en-US' **/*.md
+    grep -r "the the"
+    grep -r "\sall\sof"
+
+clean:
+    rm -rf _site
+    rm -rf .rumdl_cache

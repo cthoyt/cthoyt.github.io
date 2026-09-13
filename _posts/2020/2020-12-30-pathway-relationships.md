@@ -24,7 +24,7 @@ and elaborate.
 <blockquote><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/KEGG">#KEGG</a> provides a namespace of non-species-specific pathway terms that all of its species-specific pathways can map to. <a href="https://twitter.com/reactome">@reactome</a> could you provide the same?</p>&mdash; Charles Tapley Hoyt (@cthoyt) <a href="https://twitter.com/cthoyt/status/1344076052386238464">December 30, 2020</a></blockquote>
 
 This blog post will follow apoptosis, one of the most ubiquitous pathways in
-biology that covers all manners of programed cell death. This blog post isn't
+biology that covers all manners of programmed cell death. This blog post isn't
 about the nitty-gritty difference between pathways, biological processes, and
 mechanisms - so we will consider all variants of apoptosis and apoptotic process
 effectively the same.
@@ -134,7 +134,7 @@ orthologous pathways as seen on
 
 ![Reactome Orthology Box](/img/reactome_orthology_box.png)
 
-However, this information is not programatically available (AFAIK), and it is
+However, this information is not programmatically available (AFAIK), and it is
 not available for other databases like WikiPathways and KEGG. Therefore, we can
 introduce a relationship `orthology` to start curating triples like:
 

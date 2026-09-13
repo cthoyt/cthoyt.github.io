@@ -64,7 +64,7 @@ few months in advance. After finishing graduate studies in Germany, you can get
 an 18-month "work search visa" which is mostly the same as a work visa but is
 issued even if you don't already have a job. I was exited by this because I
 wanted to take some time off. The only issue was they issued my appointment
-after when my visa expired. This was particularly bad becuase it was in
+after when my visa expired. This was particularly bad because it was in
 December, and I wanted to travel for the holidays. If I did this and my visa
 expired while I was out of the country, I would have a big problem - you can't
 re-enter for 6 months after your visa expires. I tried emailing (unsuccessfully)
@@ -163,7 +163,7 @@ issue a Fiktionsbescheinigung (perhaps with an apology note) if they can't get
 you an appointment before the expiration. Even most of the stuff that you need
 to do at the appointment (present documents, etc.) can be automated through the
 internet (even if only applicable to a subset of easy cases, like mine)! I'm
-sure this would make this a much more pleasent experience for the case workers
+sure this would make this a much more pleasant experience for the case workers
 and clients.
 
 Update 2021-07-28: I've received a Fiktionsbescheinigung in the post, it was

@@ -105,7 +105,7 @@ This actually worked! But, it wasn't the end of the story.
 
 It turns out that the user data model isn't all that comprehensive in Wordpress.
 What we really needed was the full name and email address for each person, and
-that was stored in an auxillary SQL table created and managed by the memberships
+that was stored in an auxiliary SQL table created and managed by the memberships
 plugin. Note that the plugin lives on top of Wordpress's first-party users list,
 and doesn't modify the API access to the user list.
 

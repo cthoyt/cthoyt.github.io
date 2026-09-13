@@ -212,7 +212,7 @@ appropriate
 [P1547 (depends on software)](https://www.wikidata.org/wiki/Property:P1547)
 relations between them.
 
-Unfortunately, this workflow is still limited because it doesn't find depedent
+Unfortunately, this workflow is still limited because it doesn't find dependent
 software. This could be solved by doing a bulk download of PyPI and a
 large-scale network analysis. It might also be possible to extract this
 information from GitHub. However, for now, this is a good first step.

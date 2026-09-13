@@ -168,7 +168,7 @@ appears:
      submitted to the OBO Foundry
    - The Reagent Ontology (REO) was abandoned and never submitted to the OBO
      Foundry
-4. Ontologies that closely used by the OBO Foundry ecosystem, and are somtimes
+4. Ontologies that closely used by the OBO Foundry ecosystem, and are sometimes
    mistaken for being in it (e.g., EFO)
 5. Not all ontologies, controlled vocabularies, or other semantic spaces have
    associated PURLs. Several registries (e.g., Prefix Commons, BioContext,

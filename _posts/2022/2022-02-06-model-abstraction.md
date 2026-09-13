@@ -157,7 +157,7 @@ practical issues:
 3. you have to get the casing of the string keys just right
 4. the default is hard-coded as a string, which means this has to get copied
    (error-prone) in any place that creates an MLP
-5. you have to re-write this logic for all of your classes
+5. you have to re-write this logic for all your classes
 
 ## The `class-resolver`
 

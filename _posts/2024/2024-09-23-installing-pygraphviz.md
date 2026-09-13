@@ -115,7 +115,7 @@ but I couldn't figure this out for `uv pip install`.
 ## 2023 Era
 
 I was on Python 3.10 on a M2 Mac with macOS 13. `pygraphviz` didn't have a
-pre-built wheel for my systen so `python -m pip install pygraphviz` gave the
+pre-built wheel for my system so `python -m pip install pygraphviz` gave the
 following error:
 
 ```console
