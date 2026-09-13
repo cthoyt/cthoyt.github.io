@@ -19,7 +19,9 @@ check:
     uvx rumdl check
 
 spelling:
-    uvx codespell **/*.md
+    uvx codespell --builtin 'clear,rare,en-GB_to_en-US' **/*.md
+    grep -r "the the"
+    grep -r "all of"
 
 clean:
     rm -rf _site
