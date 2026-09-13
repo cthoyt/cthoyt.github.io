@@ -728,12 +728,13 @@ they are not included in this history.
 The Chemotoxicogenomics Database had been converted to BEL by Thomas Weigers a
 long time ago, when the XML BEL format existed (another thing that I think
 wasn't worth bringing). I corresponded with him about it when I was at
-Fraunhofer, but unfortunately don't have access my the emails anymore to double-check
-exactly what we talked about. He did send me the database as XBEL which he
-said he made with a script he wrote but didn't have anymore. Ultimately, I
-decided to re-write the converter to play nicer in the Bio2BEL ecosystem, which
-worked for a while and then broke because its downstream dependency for parsing
-the database wasn't updated. I never got around to re-writing this _again_.
+Fraunhofer, but unfortunately don't have access my the emails anymore to
+double-check exactly what we talked about. He did send me the database as XBEL
+which he said he made with a script he wrote but didn't have anymore.
+Ultimately, I decided to re-write the converter to play nicer in the Bio2BEL
+ecosystem, which worked for a while and then broke because its downstream
+dependency for parsing the database wasn't updated. I never got around to
+re-writing this _again_.
 
 I'm not sure what happened at PatientsLikeMe, but from LinkedIn I can tell that
 there was a mass migration of ex-Selventa to
@@ -772,9 +773,9 @@ did during my master's and doctoral work at Fraunhofer. I'm thankful for all the
 people who were interested in my projects, contributed to them, and then joined
 me as co-authors on my publications. When it came to writing this history, I was
 in a situation where I had lots of high granular information to share on the
-things that I worked on and also the desire to share as much of it as
-possible. I hope I did a good enough job at laying out the landscape of the
-other things going on outside my perspective.
+things that I worked on and also the desire to share as much of it as possible.
+I hope I did a good enough job at laying out the landscape of the other things
+going on outside my perspective.
 
 If you've got something to add, all of my contact information is available on
 the footer of my blog. Or make a

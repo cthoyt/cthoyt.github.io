@@ -107,8 +107,8 @@ $ python 03_visualize.py
 ```
 
 Downloading takes a bit of time (about 40 minutes) but there's a `tqdm` bar to
-keep you entertained in the meantime. Normally I package all of my code, but
-the one-off scripts here didn't seem to warrant it.
+keep you entertained in the meantime. Normally I package all of my code, but the
+one-off scripts here didn't seem to warrant it.
 
 As a final note, I'd like to shout out to Marshall Brennan
 ([@Organometallica](https://twitter.com/Organometallica)) for being an excellent

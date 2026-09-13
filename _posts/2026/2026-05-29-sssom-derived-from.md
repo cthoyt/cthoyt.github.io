@@ -161,9 +161,9 @@ This is why in the following diagrams, there are mapping quads represented in
 pink boxes and mapping records represented by purple boxes.
 
 Note: the local unique identifiers used for mappings in this example are related
-to the proposal in <https://github.com/ts4nfdi/mapping-sameness-identifier> (which
-currently is under review). For now, the SSSOM specification isn't prescribing
-how to assign identifiers to mapping quadruples.
+to the proposal in <https://github.com/ts4nfdi/mapping-sameness-identifier>
+(which currently is under review). For now, the SSSOM specification isn't
+prescribing how to assign identifiers to mapping quadruples.
 
 ## Contribution
 

@@ -99,8 +99,8 @@ df["name"] = df["prefix"].map(bioregistry.get_name)
 df["homepage"] = df["prefix"].map(bioregistry.get_homepage)
 ```
 
-| prefix   |  count | name                                     | homepage                                           |
-| -------- | -----: | ---------------------------------------- | -------------------------------------------------- |
+| prefix   |  count | name                                     | homepage                                             |
+| -------- | -----: | ---------------------------------------- | ---------------------------------------------------- |
 | EFO      | 37,603 | Experimental Factor Ontology             | <http://www.ebi.ac.uk/efo>                           |
 | MONDO    | 13,532 | Mondo Disease Ontology                   | <https://monarch-initiative.github.io/mondo>         |
 | HP       |  3,381 | Human Phenotype Ontology                 | <http://www.human-phenotype-ontology.org/>           |

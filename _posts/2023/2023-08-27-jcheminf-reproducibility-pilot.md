@@ -74,8 +74,8 @@ of them together. With the magic of the GitHub API, this is possible.
 
 Below, I apply the seven point reproducibility review prescribed by
 [Improving reproducibility and reusability in the Journal of Cheminformatics](https://doi.org/10.1186/s13321-023-00730-y)
-to the default branch of repository <https://github.com/Macau-LYXia/MVAE-DFDTnet>
-(commit
+to the default branch of repository
+<https://github.com/Macau-LYXia/MVAE-DFDTnet> (commit
 [c0858c8](https://github.com/Macau-LYXia/MVAE-DFDTnet/commit/c0858c8cdf61d62f945fbd74d0d60f2531394287)),
 accessed on August 27<sup>th</sup>, 2023.
 
@@ -153,9 +153,9 @@ the position where they have the flexibility/freedom/initiative to do this.
 That all being said, we are now entering an era where progressive and newly
 minted PIs actually have training as computational scientists. The next paper in
 my queue for a reproducibility review is for
-<https://github.com/Steinbeck-Lab/cheminformatics-python-microservice>, which will
-pass the 7 criteria with flying colors. I'm looking forward to the future when
-we expect more excellent science on the regular. See you there!
+<https://github.com/Steinbeck-Lab/cheminformatics-python-microservice>, which
+will pass the 7 criteria with flying colors. I'm looking forward to the future
+when we expect more excellent science on the regular. See you there!
 
 ---
 

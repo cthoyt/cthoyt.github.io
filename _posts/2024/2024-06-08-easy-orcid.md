@@ -217,10 +217,10 @@ I found several interesting things while parsing these sections:
    some places, this was as easy as using the Bioregistry prefix
    standardization, but in other places required more custom URL parsing. This
    is especially true for Google Scholar, which can appear with a number of
-   domain names (e.g., <https://scholar.google.com> or <https://scholar.google.es>).
-   The local unique identifier appears here inside the URL parameters, which can
-   be in any order along with the language tag, so this needs URL parsing
-   instead of more simple URI prefix handling _a la_ the
+   domain names (e.g., <https://scholar.google.com> or
+   <https://scholar.google.es>). The local unique identifier appears here inside
+   the URL parameters, which can be in any order along with the language tag, so
+   this needs URL parsing instead of more simple URI prefix handling _a la_ the
    [`curies`](https://github.com/biopragmatics/curies) Python Package.
 
 ### Summary

@@ -25,9 +25,9 @@ and specifically an endpoint to list
 
 After logging into the ISB's Wordpress site, I was able to list users by
 navigating to the endpoint in browser
-<https://biocuration.org/wp-json/wp/v2/users>. Note: this page won't work for you
-unless you're on the EC and have admin powers. I wanted to replicate accessing
-this page through a Python script, so I was suggested by the
+<https://biocuration.org/wp-json/wp/v2/users>. Note: this page won't work for
+you unless you're on the EC and have admin powers. I wanted to replicate
+accessing this page through a Python script, so I was suggested by the
 [official Wordpress documentation](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/)
 to create an application password and then use simple HTTP authentication. The
 docs said try this, after replacing the username with the Wordpress account (for

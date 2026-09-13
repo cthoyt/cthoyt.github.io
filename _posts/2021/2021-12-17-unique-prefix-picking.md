@@ -76,8 +76,8 @@ many resources, it's sufficient to just check the Bioregistry and BioPortal
 The first way to check if your prefix is unique is to manually read through some
 of the sites.
 
-| Resource    | Home Page                         | Prefix List                                  |
-| ----------- | --------------------------------- | -------------------------------------------- |
+| Resource    | Home Page                           | Prefix List                                    |
+| ----------- | ----------------------------------- | ---------------------------------------------- |
 | Bioregistry | <https://bioregistry.io>            | <https://bioregistry.io/registry>              |
 | Bioportal   | <https://bioportal.bioontology.org> | <https://bioportal.bioontology.org/ontologies> |
 

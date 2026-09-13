@@ -407,17 +407,16 @@ to assert `A disjointFrom B`.
 However, there are a few major caveats to such an ascription:
 
 1. If another positive mapping such as `A subclass of B` exists, then
-   `A not exact match B` is a trivial negative mapping, and should be
-   discarded. Otherwise, the production of `A disjointFrom B` would cause an
+   `A not exact match B` is a trivial negative mapping, and should be discarded.
+   Otherwise, the production of `A disjointFrom B` would cause an
    unsatisfiability in a reasoner. The
    [`remove_trivial_negative()`](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.remove_trivial_negative.html)
    function identifies and removes trivial negative mappings.
-2. Even the lack of materialization of another explicit positive mapping such
-   as `A subclass of B` doesn't mean that there does not exist a true positive
+2. Even the lack of materialization of another explicit positive mapping such as
+   `A subclass of B` doesn't mean that there does not exist a true positive
    mapping. Constructing a logical axiom from a negative mapping can only work
    if based on your curation workflow, you are sure that the existence of a
-   negative mapping between `A` and `B` implies that no positive mapping
-   exists.
+   negative mapping between `A` and `B` implies that no positive mapping exists.
 
 While these caveats apply to class and property mappings, negative modifiers on
 mappings between individuals can be more confidently handled. The negation of

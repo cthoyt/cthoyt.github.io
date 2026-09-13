@@ -102,9 +102,10 @@ The two tricks here are:
 Now, all we need to do is instantiate the app and serve it with any WSGI tool
 like Gunicorn, Uvicorn, or Flask's built-in development server (from Werkzeug).
 Navigating to <http://localhost:5000/ark:/53355/cl010277627> redirects to
-<https://collections.louvre.fr/ark:/53355/cl010277627> and gets some nice art from
-the Louvre. In general, you can stick any ARK after `http://localhost:5000/ark:`
-that is resolvable via N2T when running this server.
+<https://collections.louvre.fr/ark:/53355/cl010277627> and gets some nice art
+from the Louvre. In general, you can stick any ARK after
+`http://localhost:5000/ark:` that is resolvable via N2T when running this
+server.
 
 All of this code is on
 [GitHub](https://github.com/cthoyt/n2t-ark-resolver/tree/main) and can be run

@@ -217,10 +217,10 @@ and opportunities described above.
 
 For reference, here are the OAEI Calls and Publications between 2004-2026:
 
-| Year | Call                                           | Publication                                                            |
-| ---: | ---------------------------------------------- | ---------------------------------------------------------------------- |
-| 2026 | [Call](https://oaei.ontologymatching.org/2026) |                                                                        |
-| 2025 | [Call](https://oaei.ontologymatching.org/2025) |                                                                        |
+| Year | Call                                           | Publication                                                              |
+| ---: | ---------------------------------------------- | ------------------------------------------------------------------------ |
+| 2026 | [Call](https://oaei.ontologymatching.org/2026) |                                                                          |
+| 2025 | [Call](https://oaei.ontologymatching.org/2025) |                                                                          |
 | 2024 | [Call](https://oaei.ontologymatching.org/2024) | <https://inria.hal.science/hal-04892635/>                                |
 | 2023 | [Call](https://oaei.ontologymatching.org/2023) | <https://ora.ox.ac.uk/objects/uuid:e167c7dc-72cd-476a-ba23-d4bcc86e0b60> |
 | 2022 | [Call](https://oaei.ontologymatching.org/2022) | <https://hal.science/hal-04351729/>                                      |
