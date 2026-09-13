@@ -72,7 +72,7 @@ $ bioregistry validate linkml --tablefmt github --use-preferred https://github.c
 | AFQ     | `http://purl.allotrope.org/ontologies/quality#AFQ_` | unknown CURIE prefix      |                                 |
 | nmrCV   | `http://nmrML.org/nmrCV#NMR:`                       | non-standard CURIE prefix | Switch to preferred prefix: NMR |
 | AFRL    | `http://purl.allotrope.org/ontologies/role#AFRL_`   | unknown CURIE prefix      |                                 |
-| SIO     | `http://semanticscience.org/resource/SIO_ `         | non-standard CURIE prefix | Switch to preferred prefix: sio |
+| SIO     | `http://semanticscience.org/resource/SIO_`          | non-standard CURIE prefix | Switch to preferred prefix: sio |
 
 Curation feedback is not absolute - it's always possible that the Bioregistry is
 missing key content. Luckily, it conforms to the

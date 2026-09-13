@@ -11,7 +11,7 @@ While we were recently preparing to submit a manuscript, the lead author said
 they looked at my last few papers and noticed I always used a private email
 address instead of an institutional email address. They asked, perplexed, if
 they should also use my private email address with our submission. The answer
-was a resounding _yes_; always use a private email address. Here's why.
+was a resounding yes; always use a private email address. Here's why.
 
 I actually started thinking about this way back one thousand years ago in 2020
 and started an interesting discussion on Twitter:
