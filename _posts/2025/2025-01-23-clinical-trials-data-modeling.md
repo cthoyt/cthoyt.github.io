@@ -570,7 +570,7 @@ It's a bit tricky to ask the open-ended question _what's the maximum phase that
 arsenic-containing drugs have been used in for each disease class?_ because it
 depends on the construction of the disease hierarchy. Other common aggregations
 here are for rare diseases, cancers, neurodegenerative diseases, etc. In
-practice, I usualy have an additional way of tagging the terms in the hierarchy
+practice, I usually have an additional way of tagging the terms in the hierarchy
 that I want to aggregate on, either by labeling the node in a property graph, or
 using yet another relationship to a node representing a grouping of my desired
 query terms.

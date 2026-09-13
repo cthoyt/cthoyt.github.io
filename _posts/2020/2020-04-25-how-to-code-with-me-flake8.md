@@ -145,7 +145,7 @@ if condition_1 and condition_2 and condition_3:
 
 One of the benefits of this style is you can add more lines with only single
 line diffs. The other is that the reader always sees the operation that goes
-with each line. Same could be done with arithmatic that could incorporate not
+with each line. Same could be done with arithmetic that could incorporate not
 only `+` but also `-`.
 
 Next is the `exclude` block. Just copy/paste this each time, since it has lots

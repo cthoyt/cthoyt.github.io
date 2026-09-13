@@ -147,7 +147,7 @@ action for the Sirtris Sirt1 activators. Sirtris was acquired by GSK to further
 develop its Sirt1 activators.
 
 **July 2008** Genstruct begins a collaboration with Manuel Pietsch and his group
-on the use of the Genstruct technology to assess the stength and extent of
+on the use of the Genstruct technology to assess the strength and extent of
 toxicity using network analysis
 
 ## 2009
@@ -404,7 +404,7 @@ Fraunhofer's BEL activities throughout the AETIONOMY which cumulated in
 **Sometime in 2016** Selventa dissolves
 ([ref](https://www.flagshippioneering.com/companies/selventa)). I think this
 where this story gets interesting - because it's also the part that we will be
-able to understand the least from an outside perspective. If you serch the
+able to understand the least from an outside perspective. If you search the
 internet for Selventa, you will indeed find lots of well-written press releases
 describing the contracts they had made over the years with several notable
 biotech and pharmaceutical industries. I've heard gossip that the reason it fell
@@ -503,7 +503,7 @@ hosts a
 [text mining challenge for BEL](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-3/).
 It was lead by Fraunhofer (Juliane Fluck, Sumit Madan, Martin Hofmann-Apitius)
 and Philip Morris International (Justyna Szostak). Again, almost all of the
-softwares published for this track did not include a demo.
+software published for this track did not include a demo.
 
 **May 22nd, 2017** The final version of `bel.rb`
 ([v1.1.2](https://rubygems.org/gems/bel/versions/1.1.2)) is released. The code
@@ -653,7 +653,7 @@ but I'm not sure). With this abandonment, previously written BEL files could no
 longer be compiled without a new resources server being deployed and the BEL
 files updated. Luckily, the website was being built from a repository on the
 OpenBEL GitHub organization, so only the files needed to be updated. The
-responsibility of maitenance of the Selventa Large Corpus and Selventa Small
+responsibility of maintenance of the Selventa Large Corpus and Selventa Small
 Corpus (previous released by Selventa under the CC-BY-3.0 license) was taken by
 Charles Tapley Hoyt (Fraunhofer) and moved to
 [a new GitHub repository](https://github.com/cthoyt/selventa-knowledge/).

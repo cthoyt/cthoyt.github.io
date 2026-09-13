@@ -16,7 +16,7 @@ metadata, they are also working towards using [ROR identifiers](https://ror.org)
 for organizations. There are still a few growing pains for ROR, so I chimed in
 on a [discussion](https://github.com/manubot/manubot/issues/155) on GitHub about
 how Wikidata might be a potential solution for organizing and retrieving
-information about reserach organizations. I said I'd describe my idea more in
+information about research organizations. I said I'd describe my idea more in
 detail, so here I go!
 
 ## Step 1: Wikidata

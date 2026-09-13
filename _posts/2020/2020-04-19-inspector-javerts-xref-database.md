@@ -206,7 +206,7 @@ identifier that is the best mapping. Then, each connected component would become
 a star graph. There's actually a better data structure for this, since each
 entity points to exactly one thing - a mapping. This is a more efficient data
 structure for storage, and if your graph is implemented as an adjacency
-dictionary (becuase you're using `networkx`, right?), then you basically already
+dictionary (because you're using `networkx`, right?), then you basically already
 have this.
 
 I've provided an implementation for all of these in PyOBO. They can be run as a

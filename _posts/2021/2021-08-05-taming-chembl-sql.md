@@ -177,7 +177,7 @@ the authors really just didn't want to ever touch their code again because it
 was very complicated, relied on tons of finnicky dependencies, and was overall
 written poorly. I don't think shaming scientists for writing bad code is a very
 constructive nor a good way to motivate them to write better code. I've found on
-many occassions that authors usually just don't have the right training or
+many occasions that authors usually just don't have the right training or
 mindset to do reproducible/reusable science. A better solution is to offer pull
 requests to their code that demonstrates how to fix the issues and explain in
 detail how it works. Then, the best you can do is hope that they learn something

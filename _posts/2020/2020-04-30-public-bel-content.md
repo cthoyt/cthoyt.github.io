@@ -13,7 +13,7 @@ tags:
 While many researchers have a pathway or pathology of interest, their first time
 curating content in the Biological Expression Language (BEL) may seem
 intimidating. This post lists several disease maps and BEL content sources that
-are directly available for re-use.
+are directly available for reuse.
 
 ## Manually Curated BEL
 

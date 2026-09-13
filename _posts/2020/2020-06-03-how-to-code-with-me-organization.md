@@ -380,7 +380,7 @@ example, PyBEL will download a copy of Daniel Himmelstein's
 [hetionet](https://github.com/hetio/hetionet) for conversion to BEL and put it
 in its cache folder.
 
-Becuase this kind of configuration is so ubiquitous, I've written an package
+Because this kind of configuration is so ubiquitous, I've written an package
 that supports doing this called [`pystow`](https://github.com/cthoyt/pystow)
 that simplifies the previous code to:
 
