@@ -106,8 +106,8 @@ then adds their ORCiD into the `reviewer_id` column and their level of agreement
 in the [reviewer_agreement](https://w3id.org/sssom/reviewer_agreement) column,
 in which $+1.0$ means full agreement, $0.0$ means ambivalence, and $-1.0$ means
 full disagreement. The reviewer can optionally add the date of review in the
-[ `review_date`](https://w3id.org/sssom/review_date) column to support
-historical analyses, e.g., that help understand the lifecycles of mappings.
+[`review_date`](https://w3id.org/sssom/review_date) column to support historical
+analyses, e.g., that help understand the lifecycles of mappings.
 
 The following example illustrates what it would look like if Nicole Vasilevsky
 (one of the primary maintainers of MONDO) positively reviewed the manually
@@ -268,7 +268,7 @@ workflow M2. Similarly, the results of any application of workflow A2 can then
 be reviewed with workflow M1 after.
 
 This workflow is implemented in SSSOM Pydantic in
-[sssom_pydantic.process.curate ()](<[https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.curate.html)>).
+[sssom_pydantic.process.curate ()](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.review.html).
 SSSOM Pydantic models semantic mappings as frozen objects, meaning that no
 operations happen in-place (i.e., all are _destructive_).
 

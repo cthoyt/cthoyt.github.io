@@ -53,7 +53,7 @@ burden of testing, and ease maintenance.
 OpenCitations publishes its
 [bulk data dumps](https://download.opencitations.net/) across several records in
 Figshare and Zenodo. I've previously written
-[ `zenodo-client`](https://github.com/cthoyt/zenodo-client/) to interact with
+[`zenodo-client`](https://github.com/cthoyt/zenodo-client/) to interact with
 Zenodo's API and orchestrates downloading and caching. `zenodo-client` heavily
 builds on [`pystow`](https://github.com/cthoyt/pystow), which implements I/O and
 filesystem operations to enable reproducible, automated downloading, caching,

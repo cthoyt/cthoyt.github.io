@@ -377,7 +377,7 @@ and the exported artifacts are listed here:
 Here's what some OBO instances for clinical studies look like for each clinical
 study type:
 
-```
+```text
 [Instance]
 id: clinicaltrials:NCT00000102
 name: Congenital Adrenal Hyperplasia\: Calcium Channels as Therapeutic Targets

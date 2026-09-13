@@ -49,7 +49,7 @@ ontology, the deprecated
 [IUPAC GoldBook](https://goldbook.iupac.org), and
 [Wikidata](https://wikidata.org).
 
-# Establishing Interoperability
+## Establishing Interoperability
 
 In order to establish interoperability between these many resources, we are
 using the
@@ -73,7 +73,7 @@ manually curate the results in
 [this PR](https://github.com/nfdi-de/section-metadata-wg-onto/pull/89) over the
 course of about an hour.
 
-## Need for Comparison
+### Need for Comparison
 
 The next challenge was to efficiently triage the similarities and differences
 between my curations and Ambika's. Therefore, I implemented a workflow for
@@ -107,7 +107,7 @@ $ sssom_pydantic compare \
 Since the comparison workflow outputs Markdown, its results can easily be
 embedded in GitHub issues or my blog, which is itself written in Markdown.
 
-## Results
+### Results
 
 I am happy with the first version of the comparison workflow. Luckily, there
 were only a small number of discrepancies which have obvious solutions. There
@@ -115,7 +115,7 @@ were also a few interesting discrepancies which were novel to either my or
 Ambika's curations, which can be reviewed by a third curator (sorry Philip, more
 work for you).
 
-## Next Steps
+### Next Steps
 
 I think that it can be extended to identify and report on one-to-many,
 many-to-one, and many-to-many mappings which arise when jointly examining two
@@ -140,14 +140,14 @@ including:
 Without further ado, here's the comparison, copied verbatim from the output of
 the previous command:
 
-# Comparison between Ambika and Charlie
+## Comparison between Ambika and Charlie
 
 1. [CHMO to FIX](#chmo-to-fix)
 1. [CHMO to REX](#chmo-to-rex)
 
-## CHMO to FIX
+### CHMO to FIX
 
-### Subject Comparison
+#### Subject Comparison
 
 - 288 entities appear as subjects only in Ambika
 - 19 entities appear as subjects only in Charlie only
@@ -164,7 +164,7 @@ The following 6 subjects (4.3%) appearing in both have conflicting objects:
 | CHMO:0000366 | electron energy loss spectroscopy                   | FIX:0000664 (electron impact spectroscopy)                        | FIX:0000663 (electron energy loss spectroscopy)  |                                                          |
 | CHMO:0000570 | proton transfer reaction ion trap mass spectrometry | FIX:0000919 (proton transfer reaction ion trap mass spectrometry) |                                                  | FIX:0000918 (proton transfer reaction mass spectrometry) |
 
-### Object Comparison
+#### Object Comparison
 
 - 296 entities appear as objects only in Ambika
 - 19 entities appear as objects only in Charlie
@@ -177,7 +177,7 @@ The following 2 objects (1.4%) appearing in both have conflicting subjects:
 | FIX:0000629 | pulsed field gel electrophoresis | CHMO:0002315 (pulsed-field electrophoresis) |                                         | CHMO:0002316 (pulsed-field gel electrophoresis) |
 | FIX:0000816 | square-wave polarography         | CHMO:0000040 (square-wave voltammetry)      | CHMO:0000035 (square-wave polarography) |                                                 |
 
-### Subject-Object Pair Comparison
+#### Subject-Object Pair Comparison
 
 - 301 subject-object pairs only appear in Ambika
 - 20 subject-object pairs only appear in Charlie
@@ -190,21 +190,21 @@ predicates or predicate modifiers:
 | ------------ | ------------------- | ----------- | ------------------- | ------------------- | ---------------- | --------------- |
 | CHMO:0000164 | electron scattering | FIX:0000401 | electron scattering | different predicate | skos:narrowMatch | skos:exactMatch |
 
-## CHMO to REX
+### CHMO to REX
 
-### Subject Comparison
+#### Subject Comparison
 
 - 1 entities appear as subjects only in Ambika
 - 18 entities appear as subjects only in Charlie only
 - 0 entities appear as subjects in both
 
-### Object Comparison
+#### Object Comparison
 
 - 1 entities appear as objects only in Ambika
 - 18 entities appear as objects only in Charlie
 - 0 entities appear as objects in both
 
-### Subject-Object Pair Comparison
+#### Subject-Object Pair Comparison
 
 - 1 subject-object pairs only appear in Ambika
 - 18 subject-object pairs only appear in Charlie

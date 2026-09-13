@@ -24,7 +24,7 @@ suite of command line utilities, including `createdb`, which I use in the middle
 of this tutorial. I'm usually using [fish](https://fishshell.com/), but the
 following instructions are given with Bourne-again shell (bash) syntax.
 
-**Notes** Throughout this post, I'll shorten PostgreSQL to postgres. All the
+**Notes** Throughout this post, I'll shorten PostgreSQL to Postgres. All the
 commands in this tutorial are run from the shell of the host system, i.e. I did
 not ssh or exec into the Docker image itself to run them.
 
@@ -39,7 +39,7 @@ what that service is and what it does (think
 [Ontology Lookup Service](https://www.ebi.ac.uk/ols/index), but not just
 restricted to ontologies).
 
-```shell
+```console
 $ docker pull postgres
 $ docker run \
     -p 5434:5432 \
@@ -95,7 +95,7 @@ $ docker run \
 Creating the database on the already running postgres docker image is a bit more
 straightforwards:
 
-```shell
+```console
 $ PGPASSWORD=biolookup createdb -h localhost -p 5434 -U postgres biolookup
 ```
 
@@ -127,7 +127,7 @@ Loading the database requires the
 automatically downloads the data from the latest releases on Zenodo if not
 available locally, then puts it in the database.
 
-```shell
+```console
 $ python -m pip install biolookup
 $ biolookup load --uri postgresql+psycopg2://postgres:biolookup@localhost:5434/biolookup --test
 ```
@@ -141,7 +141,7 @@ The `docker commit` checks what the difference between the base image and the
 current state of the image is. Because of the `-e PGDATA=...`, it also tracks
 the new data added. For the Biolookup Service, the image has gone from about
 300mb to almost 40gb, so be patient. I went and made breakfast while this was
-happening and it was done by the time I came back. For reference, it was a
+happening, and it was done by the time I came back. For reference, it was a
 saturday morning American breakfast.
 
 ```shell
@@ -157,7 +157,7 @@ After committing, it's time to push to DockerHub. You might need to do
 `<organization>/<name>[:<tag>]`. Make sure you push to an organization that you
 have rights to, and the tag (the part after the colon) is optional.
 
-```shell
+```console
 $ docker push biopragmatics/postgres-biolookup:latest
 ```
 
@@ -169,14 +169,14 @@ You can check to see it was uploaded properly
 Since the `biolookup` web application is automatically installed with PyOBO and
 the database is now built locally, you can test it locally with:
 
-```shell
+```console
 $ biolookup web --sql --uri postgresql+psycopg2://postgres:biolookup@localhost:5434/biolookup
 ```
 
 ## Run with Docker Compose
 
 You can use the following configuration as a `docker-compose.yml` file to
-orchestrate the pre-loaded database with the front-end web application (more
+orchestrate the preloaded database with the front-end web application (more
 information on that [here](https://github.com/biopragmatics/biolookup-docker/)):
 
 ```yaml
@@ -201,7 +201,7 @@ services:
 You can run this with `docker-compose up --detach`. When you do this, you need
 to be patient (1-5 minutes) for the database to start up before making requests
 from the web application. If you didn't detach when running docker-compose,
-postgres will actually log when it's ready. If you try making a request before
+Postgres will actually log when it's ready. If you try making a request before
 it's done starting, you'll probably get an error message that looks like this:
 
 ```python-traceback

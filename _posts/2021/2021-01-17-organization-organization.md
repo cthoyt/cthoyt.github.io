@@ -196,7 +196,7 @@ item to the scalar GRID identifier.
 Many publishers use the Ringgold system for organization resolution (such as
 Manuscript Central). For a group interested in scholarly publishing (which could
 either be an academic or commercial organization), you can simultaneously apply
-for a Ringgold and ISNI by emailing isni@ringgold.com (copied from their
+for a Ringgold and ISNI by emailing <isni@ringgold.com> (copied from their
 [FAQ](https://www.ringgold.com/isni/)).
 
 These can be linked to a Wikidata item with the

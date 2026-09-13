@@ -60,51 +60,51 @@ Here's how you can use the validator I wrote:
 $ bioregistry validate virtuoso https://nfdi4culture.de/sparql --tablefmt github
 ```
 
-| prefix    | uri_prefix                                            | issue                     | solution                                                          |
-| --------- | ----------------------------------------------------- | ------------------------- | ----------------------------------------------------------------- |
-| as        | https://www.w3.org/ns/activitystreams#                | unknown CURIE prefix      | Switch to CURIE prefix ac, inferred from URI prefix               |
-| bif       | http://www.openlinksw.com/schemas/bif#                | unknown CURIE prefix      |                                                                   |
-| dawgt     | http://www.w3.org/2001/sw/DataAccess/tests/test-dawg# | unknown CURIE prefix      |                                                                   |
-| dbpprop   | http://dbpedia.org/property/                          | unknown CURIE prefix      | Switch to CURIE prefix dbpedia.property, inferred from URI prefix |
-| fn        | http://www.w3.org/2005/xpath-functions/#              | unknown CURIE prefix      |                                                                   |
-| formats   | http://www.w3.org/ns/formats/                         | unknown CURIE prefix      |                                                                   |
-| gqi       | http://www.openlinksw.com/schemas/graphql/intro#      | unknown CURIE prefix      |                                                                   |
-| gql       | http://www.openlinksw.com/schemas/graphql#            | unknown CURIE prefix      |                                                                   |
-| gr        | http://purl.org/goodrelations/v1#                     | unknown CURIE prefix      |                                                                   |
-| ldp       | http://www.w3.org/ns/ldp#                             | unknown CURIE prefix      |                                                                   |
-| math      | http://www.w3.org/2000/10/swap/math#                  | unknown CURIE prefix      |                                                                   |
-| nci       | http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#   | non-standard CURIE prefix | Switch to standard prefix: ncit                                   |
-| ogc       | http://www.opengis.net/                               | unknown CURIE prefix      |                                                                   |
-| ogcgml    | http://www.opengis.net/ont/gml#                       | unknown CURIE prefix      |                                                                   |
-| ogcgs     | http://www.opengis.net/ont/geosparql#                 | unknown CURIE prefix      |                                                                   |
-| ogcgsf    | http://www.opengis.net/def/function/geosparql/        | unknown CURIE prefix      |                                                                   |
-| ogcgsr    | http://www.opengis.net/def/rule/geosparql/            | unknown CURIE prefix      |                                                                   |
-| ogcsf     | http://www.opengis.net/ont/sf#                        | unknown CURIE prefix      |                                                                   |
-| product   | http://www.buy.com/rss/module/productV2/              | unknown CURIE prefix      |                                                                   |
-| protseq   | http://purl.org/science/protein/bysequence/           | unknown CURIE prefix      |                                                                   |
-| rdfdf     | http://www.openlinksw.com/virtrdf-data-formats#       | unknown CURIE prefix      |                                                                   |
-| sc        | http://purl.org/science/owl/sciencecommons/           | unknown CURIE prefix      |                                                                   |
-| scovo     | http://purl.org/NET/scovo#                            | unknown CURIE prefix      |                                                                   |
-| sd        | http://www.w3.org/ns/sparql-service-description#      | unknown CURIE prefix      |                                                                   |
-| sioc      | http://rdfs.org/sioc/ns#                              | unknown CURIE prefix      | Switch to CURIE prefix sioc.core, inferred from URI prefix        |
-| sql       | http://www.openlinksw.com/schemas/sql#                | unknown CURIE prefix      |                                                                   |
-| stat      | http://www.w3.org/ns/posix/stat#                      | unknown CURIE prefix      |                                                                   |
-| vcard2006 | http://www.w3.org/2006/vcard/ns#                      | unknown CURIE prefix      | Switch to CURIE prefix vcard, inferred from URI prefix            |
-| virtcxml  | http://www.openlinksw.com/schemas/virtcxml#           | unknown CURIE prefix      |                                                                   |
-| virtrdf   | http://www.openlinksw.com/schemas/virtrdf#            | unknown CURIE prefix      |                                                                   |
-| xf        | http://www.w3.org/2004/07/xpath-functions             | unknown CURIE prefix      |                                                                   |
-| xsl10     | http://www.w3.org/XSL/Transform/1.0                   | unknown CURIE prefix      |                                                                   |
-| xsl1999   | http://www.w3.org/1999/XSL/Transform                  | unknown CURIE prefix      |                                                                   |
-| xslwd     | http://www.w3.org/TR/WD-xsl                           | unknown CURIE prefix      |                                                                   |
-| yago      | http://dbpedia.org/class/yago/                        | unknown CURIE prefix      |                                                                   |
+| prefix    | uri_prefix                                              | issue                     | solution                                                          |
+| --------- | ------------------------------------------------------- | ------------------------- | ----------------------------------------------------------------- |
+| as        | `https://www.w3.org/ns/activitystreams#`                | unknown CURIE prefix      | Switch to CURIE prefix ac, inferred from URI prefix               |
+| bif       | `http://www.openlinksw.com/schemas/bif#`                | unknown CURIE prefix      |                                                                   |
+| dawgt     | `http://www.w3.org/2001/sw/DataAccess/tests/test-dawg#` | unknown CURIE prefix      |                                                                   |
+| dbpprop   | `http://dbpedia.org/property/`                          | unknown CURIE prefix      | Switch to CURIE prefix dbpedia.property, inferred from URI prefix |
+| fn        | `http://www.w3.org/2005/xpath-functions/#`              | unknown CURIE prefix      |                                                                   |
+| formats   | `http://www.w3.org/ns/formats/`                         | unknown CURIE prefix      |                                                                   |
+| gqi       | `http://www.openlinksw.com/schemas/graphql/intro#`      | unknown CURIE prefix      |                                                                   |
+| gql       | `http://www.openlinksw.com/schemas/graphql#`            | unknown CURIE prefix      |                                                                   |
+| gr        | `http://purl.org/goodrelations/v1#`                     | unknown CURIE prefix      |                                                                   |
+| ldp       | `http://www.w3.org/ns/ldp#`                             | unknown CURIE prefix      |                                                                   |
+| math      | `http://www.w3.org/2000/10/swap/math#`                  | unknown CURIE prefix      |                                                                   |
+| nci       | `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#`   | non-standard CURIE prefix | Switch to standard prefix: ncit                                   |
+| ogc       | `http://www.opengis.net/`                               | unknown CURIE prefix      |                                                                   |
+| ogcgml    | `http://www.opengis.net/ont/gml#`                       | unknown CURIE prefix      |                                                                   |
+| ogcgs     | `http://www.opengis.net/ont/geosparql#`                 | unknown CURIE prefix      |                                                                   |
+| ogcgsf    | `http://www.opengis.net/def/function/geosparql/`        | unknown CURIE prefix      |                                                                   |
+| ogcgsr    | `http://www.opengis.net/def/rule/geosparql/`            | unknown CURIE prefix      |                                                                   |
+| ogcsf     | `http://www.opengis.net/ont/sf#`                        | unknown CURIE prefix      |                                                                   |
+| product   | `http://www.buy.com/rss/module/productV2/`              | unknown CURIE prefix      |                                                                   |
+| protseq   | `http://purl.org/science/protein/bysequence/`           | unknown CURIE prefix      |                                                                   |
+| rdfdf     | `http://www.openlinksw.com/virtrdf-data-formats#`       | unknown CURIE prefix      |                                                                   |
+| sc        | `http://purl.org/science/owl/sciencecommons/`           | unknown CURIE prefix      |                                                                   |
+| scovo     | `http://purl.org/NET/scovo#`                            | unknown CURIE prefix      |                                                                   |
+| sd        | `http://www.w3.org/ns/sparql-service-description#`      | unknown CURIE prefix      |                                                                   |
+| sioc      | `http://rdfs.org/sioc/ns#`                              | unknown CURIE prefix      | Switch to CURIE prefix sioc.core, inferred from URI prefix        |
+| sql       | `http://www.openlinksw.com/schemas/sql#`                | unknown CURIE prefix      |                                                                   |
+| stat      | `http://www.w3.org/ns/posix/stat#`                      | unknown CURIE prefix      |                                                                   |
+| vcard2006 | `http://www.w3.org/2006/vcard/ns#`                      | unknown CURIE prefix      | Switch to CURIE prefix vcard, inferred from URI prefix            |
+| virtcxml  | `http://www.openlinksw.com/schemas/virtcxml#`           | unknown CURIE prefix      |                                                                   |
+| virtrdf   | `http://www.openlinksw.com/schemas/virtrdf#`            | unknown CURIE prefix      |                                                                   |
+| xf        | `http://www.w3.org/2004/07/xpath-functions`             | unknown CURIE prefix      |                                                                   |
+| xsl10     | `http://www.w3.org/XSL/Transform/1.0`                   | unknown CURIE prefix      |                                                                   |
+| xsl1999   | `http://www.w3.org/1999/XSL/Transform`                  | unknown CURIE prefix      |                                                                   |
+| xslwd     | `http://www.w3.org/TR/WD-xsl`                           | unknown CURIE prefix      |                                                                   |
+| yago      | `http://dbpedia.org/class/yago/`                        | unknown CURIE prefix      |                                                                   |
 
 ## Interpreting the results
 
 Some of the key takeaways from this table are:
 
 1. The feedback on `as` is a false positive - a look at
-   https://www.w3.org/ns/activitystreams# shows that the W3 standard wants `as`
-   to be the preferred prefix
+   <https://www.w3.org/ns/activitystreams#> shows that the W3 standard wants
+   `as` to be the preferred prefix
 2. There are several true positive suggestions, like fixing the `ncit` prefix.
 3. There's a whole group of URI spaces using `opengis.net` from the
    [Open Geospatial Consortium](http://www.opengeospatial.org), dealing with

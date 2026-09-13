@@ -179,7 +179,7 @@ it would make sense to investigate the third
 [Pythagorean mean](https://en.wikipedia.org/wiki/Pythagorean_means): the
 geometric mean.
 
-<img style="max-width: 500px; text-align: center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/MathematicalMeans.svg/2560px-MathematicalMeans.svg.png"  alt="Pythagorean Mean Diagram"/>
+<img style="max-width: 500px; text-align: center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/MathematicalMeans.svg/2560px-MathematicalMeans.svg.png" alt="Pythagorean Mean Diagram"/>
 
 This figure (from Wikimedia) shows the relationship between the arithmetic mean
 (A), geometric mean (G), and harmonic mean (H) on a triangle circumscribed by a

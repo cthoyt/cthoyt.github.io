@@ -48,11 +48,11 @@ outputs text in a more vertical format.
 $ bioregistry validate ttl https://github.com/ISE-FIZKarlsruhe/chemotion-kg/raw/4cb5c24af/processing/output_bfo_compliant.ttl
 ```
 
-| prefix   | uri_prefix                               | issue                     | solution                                                                                                          |
-| -------- | ---------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| nfdicore | https://nfdi.fiz-karlsruhe.de/ontology/  | non-standard CURIE prefix | Switch to standard prefix: nfdi.core                                                                              |
-| ns1      | http://purls.helmholtz-metadaten.de/mwo/ | unknown CURIE prefix      | Consider switching to the more specific CURIE/URI prefix pair mwo: `http://purls.helmholtz-metadaten.de/mwo/mwo_` |
-| ns2      | http://purl.obolibrary.org/obo/chebi/    | unknown CURIE prefix      |                                                                                                                   |
+| prefix   | uri_prefix                                 | issue                     | solution                                                                                                          |
+| -------- | ------------------------------------------ | ------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| nfdicore | `https://nfdi.fiz-karlsruhe.de/ontology/`  | non-standard CURIE prefix | Switch to standard prefix: nfdi.core                                                                              |
+| ns1      | `http://purls.helmholtz-metadaten.de/mwo/` | unknown CURIE prefix      | Consider switching to the more specific CURIE/URI prefix pair mwo: `http://purls.helmholtz-metadaten.de/mwo/mwo_` |
+| ns2      | `http://purl.obolibrary.org/obo/chebi/`    | unknown CURIE prefix      |                                                                                                                   |
 
 I was able to directly
 [open an issue](https://github.com/ISE-FIZKarlsruhe/chemotion-kg/issues/2) on

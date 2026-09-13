@@ -99,17 +99,17 @@ df["name"] = df["prefix"].map(bioregistry.get_name)
 df["homepage"] = df["prefix"].map(bioregistry.get_homepage)
 ```
 
-| prefix   |  count | name                                     | homepage                                           |
-| -------- | -----: | ---------------------------------------- | -------------------------------------------------- |
-| EFO      | 37,603 | Experimental Factor Ontology             | http://www.ebi.ac.uk/efo                           |
-| MONDO    | 13,532 | Mondo Disease Ontology                   | https://monarch-initiative.github.io/mondo         |
-| HP       |  3,381 | Human Phenotype Ontology                 | http://www.human-phenotype-ontology.org/           |
-| Orphanet |    359 | Orphanet                                 | http://www.orpha.net/consor/                       |
-| MP       |    281 | Mammalian Phenotype Ontology             | https://www.informatics.jax.org/vocab/mp_ontology/ |
-| GO       |     50 | Gene Ontology                            | http://geneontology.org/                           |
-| DOID     |     45 | Human Disease Ontology                   | http://www.disease-ontology.org                    |
-| CHEBI    |     19 | Chemical Entities of Biological Interest | http://www.ebi.ac.uk/chebi                         |
-| UBERON   |      1 | Uber Anatomy Ontology                    | http://uberon.org                                  |
+| prefix   |  count | name                                     | homepage                                             |
+| -------- | -----: | ---------------------------------------- | ---------------------------------------------------- |
+| EFO      | 37,603 | Experimental Factor Ontology             | <http://www.ebi.ac.uk/efo>                           |
+| MONDO    | 13,532 | Mondo Disease Ontology                   | <https://monarch-initiative.github.io/mondo>         |
+| HP       |  3,381 | Human Phenotype Ontology                 | <http://www.human-phenotype-ontology.org/>           |
+| Orphanet |    359 | Orphanet                                 | <http://www.orpha.net/consor/>                       |
+| MP       |    281 | Mammalian Phenotype Ontology             | <https://www.informatics.jax.org/vocab/mp_ontology/> |
+| GO       |     50 | Gene Ontology                            | <http://geneontology.org/>                           |
+| DOID     |     45 | Human Disease Ontology                   | <http://www.disease-ontology.org>                    |
+| CHEBI    |     19 | Chemical Entities of Biological Interest | <http://www.ebi.ac.uk/chebi>                         |
+| UBERON   |      1 | Uber Anatomy Ontology                    | <http://uberon.org>                                  |
 
 The ones that stand out to me are `CHEBI`, `UBERON`, and `GO`, since these
 resources are respectively for chemicals, anatomical entities, and biological

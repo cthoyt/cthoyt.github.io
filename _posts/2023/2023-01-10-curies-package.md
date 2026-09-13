@@ -148,11 +148,11 @@ converter = Converter.from_extended_prefix_map(extended_prefix_map)
 Here's a short (probably incomplete) list of other packages I've found that have
 related functionalities:
 
-- https://github.com/prefixcommons/prefixcommons-py (Python)
-- https://github.com/prefixcommons/curie-util (Java)
-- https://github.com/geneontology/curie-util-py (Python)
-- https://github.com/geneontology/curie-util-es5 (Node.js)
-- https://github.com/endoli/curie.rs (Rust)
+- <https://github.com/prefixcommons/prefixcommons-py> (Python)
+- <https://github.com/prefixcommons/curie-util> (Java)
+- <https://github.com/geneontology/curie-util-py> (Python)
+- <https://github.com/geneontology/curie-util-es5> (Node.js)
+- <https://github.com/endoli/curie.rs> (Rust)
 
 ---
 

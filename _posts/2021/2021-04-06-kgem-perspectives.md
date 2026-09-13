@@ -17,7 +17,7 @@ giving a talk in their group tomorrow - this blog post is a longer form of some
 ideas I'll be presenting there. Here are
 [the slides](https://docs.google.com/presentation/d/1JyTkf58LnK7OEiwYUtqkHXuk4n3le3-mAWSI6t4IEp8).
 
-### Who is the Arbiter of Benchmarks?
+## Who is the Arbiter of Benchmarks?
 
 The publication of each new knowledge graph embedding model is usually
 accompanied by an evaluation of the link prediction task on common benchmark
@@ -65,7 +65,7 @@ budgets of many small academic institutions. As machine learning continues to
 rely on larger, more exotic models, we will soon have to reckon with this
 divide.
 
-### Testing/Validation Leakage
+## Testing/Validation Leakage
 
 Leakage is when triples in the testing/validation sets can be trivially inferred
 from triples in the training set. This leads to an over-estimation in the
@@ -131,7 +131,7 @@ clusters. More information on these methods is reviewed in
 and
 [Parks _et al._ (2020)](https://www.frontiersin.org/articles/10.3389/fmolb.2020.00093/full).
 
-### Redundant Information in Graphs
+## Redundant Information in Graphs
 
 Transcriptomics experiments are often analyzed with statistical
 over-representation analysis or
@@ -172,7 +172,7 @@ links between functionally equivalent pathways, but this kind of information is
 not readily used by typical knowledge graph embedding models. Alternative
 rule-based and symbolic reasoning systems might present solutions in this area.
 
-### The Effect of Non-Determinism
+## The Effect of Non-Determinism
 
 There are several meaningful non-deterministic factors that affect the
 performance of a model:
@@ -217,7 +217,7 @@ this model/dataset in particular:
 While there are a few insights into the formulations of models and the
 properties of datasets that could inform users to avoid using models like
 DistMult with datasets like Hetionet, the more general case is likely more
-bleak - even small changes in hyper-parameters could potentially affect the
+bleak - even small changes in hyperparameters could potentially affect the
 robustness of a model to non-determinism. However, there does not yet exist a
 comprehensive benchmarking study (even over small KGs) to confirm this nor
 elucidate general insight.
@@ -226,7 +226,7 @@ As an end note - this is not meant to say that non-determinism should be
 mitigated nor removed. It is a vital part to creating meaningful results and
 fixing the random seed is certainly not a viable solution.
 
-### Splits Aren't Gospel
+## Splits Aren't Gospel
 
 Benchmark datasets for knowledge graph embedding models typically consist of a
 pre-stratified training, testing, and validation set. The FB15k, FB15k-237,
@@ -314,7 +314,7 @@ networks:
    [code](https://github.com/hetio/xswap))
 3. Relabeling of nodes, similarly to the y-scrambling technique
 
-[Himmelstein _et al_ (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5640425/)
+[Himmelstein _et al._ (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5640425/)
 provides a gold standard on how these techniques could be used to report on how
 meaningful results are from a link prediction model on a knowledge graph.
 
@@ -324,7 +324,7 @@ needed to train the model to make meaningful prediction. This would be done for
 multiple increments (e.g., remove 10% of the training set, remove 20% of the
 training set) with multiple trials on each.
 
-### Are KGEMs King Now?
+## Are KGEMs King Now?
 
 The COVID-19 pandemic has not only been a battle for public health, but it has
 also resulted in the largest wave of low quality scientific work in recent
@@ -373,7 +373,7 @@ values, chemical-receptor EC<sub>50</sub> values, GWAS _p_-values, etc. that all
 have widely different scales and dynamic ranges that are difficult to
 simultaneously incorporate in any of these methods in a meaningful way.
 
-### Willkommen in der Zukunft (The Future)
+## Willkommen in der Zukunft (The Future)
 
 Random parting thoughts:
 

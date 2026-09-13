@@ -64,15 +64,15 @@ gives the following output:
 $ bioregistry validate linkml --tablefmt github --use-preferred https://github.com/HendrikBorgelt/CatCore/raw/refs/heads/main/src/catcore/schema/catcore.yaml
 ```
 
-| prefix  | uri_prefix                                        | issue                     | solution                        |
-| ------- | ------------------------------------------------- | ------------------------- | ------------------------------- |
-| catcore | https://w3id.org/nfdi4cat/catcore/                | unknown CURIE prefix      |                                 |
-| AFR     | http://purl.allotrope.org/ontologies/result#AFR_  | unknown CURIE prefix      |                                 |
-| AFP     | http://purl.allotrope.org/ontologies/process#AFP_ | unknown CURIE prefix      |                                 |
-| AFQ     | http://purl.allotrope.org/ontologies/quality#AFQ_ | unknown CURIE prefix      |                                 |
-| nmrCV   | http://nmrML.org/nmrCV#NMR:                       | non-standard CURIE prefix | Switch to preferred prefix: NMR |
-| AFRL    | http://purl.allotrope.org/ontologies/role#AFRL_   | unknown CURIE prefix      |                                 |
-| SIO     | http://semanticscience.org/resource/SIO_          | non-standard CURIE prefix | Switch to preferred prefix: sio |
+| prefix  | uri_prefix                                          | issue                     | solution                        |
+| ------- | --------------------------------------------------- | ------------------------- | ------------------------------- |
+| catcore | `https://w3id.org/nfdi4cat/catcore/`                | unknown CURIE prefix      |                                 |
+| AFR     | `http://purl.allotrope.org/ontologies/result#AFR_`  | unknown CURIE prefix      |                                 |
+| AFP     | `http://purl.allotrope.org/ontologies/process#AFP_` | unknown CURIE prefix      |                                 |
+| AFQ     | `http://purl.allotrope.org/ontologies/quality#AFQ_` | unknown CURIE prefix      |                                 |
+| nmrCV   | `http://nmrML.org/nmrCV#NMR:`                       | non-standard CURIE prefix | Switch to preferred prefix: NMR |
+| AFRL    | `http://purl.allotrope.org/ontologies/role#AFRL_`   | unknown CURIE prefix      |                                 |
+| SIO     | `http://semanticscience.org/resource/SIO_`          | non-standard CURIE prefix | Switch to preferred prefix: sio |
 
 Curation feedback is not absolute - it's always possible that the Bioregistry is
 missing key content. Luckily, it conforms to the
@@ -85,7 +85,7 @@ The Bioregistry has public, well-defined
 and
 [project governance](https://github.com/biopragmatics/bioregistry/blob/main/docs/GOVERNANCE.md)
 to support making curation contributions. Alternatively, the
-[issue tracker](github.com/biopragmatics/bioregistry/issues) allows
+[issue tracker](https://github.com/biopragmatics/bioregistry/issues) allows
 non-technical users to post requests that the Bioregistry team can follow up on.
 
 Based on the output above, I made improvements to the Bioregistry in

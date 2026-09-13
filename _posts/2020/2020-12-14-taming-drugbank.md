@@ -47,7 +47,7 @@ as of the time of writing this post on December 14th, 2020.
 ![DrugBank Citations](/img/drugbank_citations.png)
 
 Search conducted on December 14th, 2020 with
-https://pubmed.ncbi.nlm.nih.gov/?term=drugbank.
+<https://pubmed.ncbi.nlm.nih.gov/?term=drugbank>.
 
 It's difficult to tell which, if any, of these efforts are meaningful. Without
 the ability to reproduce the steps taken to do analyses based on DrugBank, we
@@ -78,7 +78,7 @@ Enter [`drugbank_downloader`](https://github.com/cthoyt/drugbank_downloader).
 This is a Python library with three functions exactly for this. First, you have
 to install it with:
 
-```bash
+```console
 $ pip install drugbank-downloader
 ```
 

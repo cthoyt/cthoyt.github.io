@@ -97,7 +97,7 @@ translated into a narrow match.
 For example, in FamPlex, complexes are annotated with the
 [`RO:0002351` (has member)](https://semantic.farm/RO:0002351) relationship to
 genes. This algorithm looks up the inverse relationship
-[ `RO:0002350` (is member of)](https://semantic.farm/RO:0002350) and annotates
+[`RO:0002350` (is member of)](https://semantic.farm/RO:0002350) and annotates
 that as a complex has narrow match to gene triple, and simultaneously, gene has
 broad match to complex triple.
 

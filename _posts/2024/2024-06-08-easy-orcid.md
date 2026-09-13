@@ -27,9 +27,9 @@ most recent (2023) dump is available at
 [doi:10.23640/07243.24204912](https://doi.org/10.23640/07243.24204912.v1).
 Previous versions are deposited with under different DOIs:
 
-- 2022 ORCID Public Data File (https://doi.org/10.23640/07243.21220892.v4)
-- 2021 ORCID Public Data File (https://doi.org/10.23640/07243.16750535.v1)
-- 2020 ORCID Public Data File (https://doi.org/10.23640/07243.13066970)
+- 2022 ORCID Public Data File (<https://doi.org/10.23640/07243.21220892.v4>)
+- 2021 ORCID Public Data File (<https://doi.org/10.23640/07243.16750535.v1>)
+- 2020 ORCID Public Data File (<https://doi.org/10.23640/07243.13066970>)
 - ...
 
 Unfortunately, this arrangement makes it difficult to automatically discover new
@@ -109,7 +109,7 @@ simple, well-defined schema (see
 [`schema.json`](https://zenodo.org/records/11518845/files/schema.json?download=1)).
 Here are a few rows ( expanded for viewing comfort) as example:
 
-```
+```text
 {
   "orcid": "0000-0001-5045-1000",
   "name": "Patricio Sánchez Quinchuela",
@@ -217,10 +217,10 @@ I found several interesting things while parsing these sections:
    some places, this was as easy as using the Bioregistry prefix
    standardization, but in other places required more custom URL parsing. This
    is especially true for Google Scholar, which can appear with a number of
-   domain names (e.g., https://scholar.google.com or https://scholar.google.es).
-   The local unique identifier appears here inside the URL parameters, which can
-   be in any order along with the language tag, so this needs URL parsing
-   instead of more simple URI prefix handling _a la_ the
+   domain names (e.g., <https://scholar.google.com> or
+   <https://scholar.google.es>). The local unique identifier appears here inside
+   the URL parameters, which can be in any order along with the language tag, so
+   this needs URL parsing instead of more simple URI prefix handling _a la_ the
    [`curies`](https://github.com/biopragmatics/curies) Python Package.
 
 ### Summary
@@ -348,11 +348,11 @@ education entry corresponds to the degree.
 I started by looking for existing resources (both structured and unstructured)
 that have lists of degrees. Here are a few things I found:
 
-1. https://degree.studentnews.eu lists degrees conferred in the EU/Europe
-2. https://github.com/vivo-ontologies/academic-degree-ontology is an
+1. <https://degree.studentnews.eu> lists degrees conferred in the EU/Europe
+2. <https://github.com/vivo-ontologies/academic-degree-ontology> is an
    incomplete/abandoned effort from 2020 to ontologize degree names
 3. Wikidata has a class for academic degree
-   https://www.wikidata.org/wiki/Q189533. Its
+   <https://www.wikidata.org/wiki/Q189533>. Its
    `SPARQL query service <https://query.wikidata.org>`\_ can be queried with the
    following, though note that the Wikidata class hierarchy is broken in several
    places.
@@ -371,7 +371,7 @@ combination (e.g., Master of Science in Chemistry). This meant that a lot of
 string processing and heuristics would be required on top of lexical approaches.
 Instead, I took the tried-and-true method of listing the strings by frequency
 and just curating from the top. The results are in
-https://github.com/cthoyt/orcid_downloader/blob/851af81d8aacebf2768bfc591080cbceab2047cc/src/orcid_downloader/standardize.py.
+<https://github.com/cthoyt/orcid_downloader/blob/851af81d8aacebf2768bfc591080cbceab2047cc/src/orcid_downloader/standardize.py>.
 Of course, this is incomplete in many ways, and could be extended to capture
 further cases. I also found that there are a huge number of Spanish and
 Portuguese entries that I needed help from my international friends to get the
@@ -501,7 +501,7 @@ It's still TBD on the best way to encode the cross-references.
 ## Code
 
 The artifacts described here were all automatically generated with code in
-https://github.com/cthoyt/orcid_downloader.
+<https://github.com/cthoyt/orcid_downloader>.
 
 ---
 

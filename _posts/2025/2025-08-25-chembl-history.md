@@ -63,7 +63,7 @@ every version of ChEMBL with a few two caveats:
 ## Results of Temporal Analysis
 
 I wrote a CLI utility
-[ `chembl_downloader history`](https://chembl-downloader.readthedocs.io/en/latest/cli.html#chembl-downloader-history)
+[`chembl_downloader history`](https://chembl-downloader.readthedocs.io/en/latest/cli.html#chembl-downloader-history)
 which downloads, decompresses, analyzes, and then deletes each version of ChEMBL
 iteratively over the span of about three hours.
 

@@ -17,7 +17,7 @@ Historically, this has been done manually by exporting the list from the
 membership management plugin in the ISB Wordpress blog once per month and
 emailing it to th This post is about my journey trying to automate it
 
-# 1. There must be an API for this
+## 1. There must be an API for this
 
 Wordpress has a [programmatic API](https://developer.wordpress.org/rest-api/),
 and specifically an endpoint to list
@@ -25,9 +25,9 @@ and specifically an endpoint to list
 
 After logging into the ISB's Wordpress site, I was able to list users by
 navigating to the endpoint in browser
-https://biocuration.org/wp-json/wp/v2/users. Note: this page won't work for you
-unless you're on the EC and have admin powers. I wanted to replicate accessing
-this page through a Python script, so I was suggested by the
+<https://biocuration.org/wp-json/wp/v2/users>. Note: this page won't work for
+you unless you're on the EC and have admin powers. I wanted to replicate
+accessing this page through a Python script, so I was suggested by the
 [official Wordpress documentation](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/)
 to create an application password and then use simple HTTP authentication. The
 docs said try this, after replacing the username with the Wordpress account (for
@@ -77,7 +77,7 @@ the user agents for the `request` and `httpx` libraries. Therefore, you have to
 explicitly set the `user-agent` header to something else, or you get a HTTP 403
 forbidden error.
 
-# 2. The API doesn't do what I wanted
+## 2. The API doesn't do what I wanted
 
 It turns out that by default, all the users that never made a post get filtered
 out. This is bad since the only users who are making posts on the ISB are the
@@ -88,7 +88,7 @@ API works. I found a
 [comment](https://github.com/WP-API/WP-API/issues/2300#issuecomment-299202391)
 from Tim Jensen, a Wordpress developer, that suggests adding the following hooks
 into the Wordpress theme's `functions.php` file by navigating to
-https://www.biocuration.org/wp-admin/theme-editor.php?file=functions.php&theme=executive:
+<https://www.biocuration.org/wp-admin/theme-editor.php?file=functions.php&theme=executive:>
 
 ```php
 function remove_has_published_posts_from_api_user_query($prepared_args, $request)
@@ -101,7 +101,7 @@ add_filter('rest_user_query', 'remove_has_published_posts_from_api_user_query', 
 
 This actually worked! But, it wasn't the end of the story.
 
-# 3. Full names are part of the plugin's metadata
+## 3. Full names are part of the plugin's metadata
 
 It turns out that the user data model isn't all that comprehensive in Wordpress.
 What we really needed was the full name and email address for each person, and
@@ -190,7 +190,7 @@ function register_pmp_export_route() {
 add_action('rest_api_init', 'register_pmp_export_route');
 ```
 
-# 4. Automate it
+## 4. Automate it
 
 Why stop at just being able to export the sheet? I wanted to go another mile and
 make sure that Wordpress sends an email to the right person at the journal on a

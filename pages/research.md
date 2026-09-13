@@ -109,7 +109,7 @@ machine learning tasks such as subgroup identification and survival analysis.
     <a href="{{ entry.talk.url }}">{{ entry.talk.name }}</a>{% if entry.talk.invited %} (invited){% endif %}
     at {{ entry.name }}
     {% comment %}
- {% if entry.online %}(online) {% else %}in {{ entry.location.city }}, {{ entry.location.country }}{% endif %} on {{ entry.date.month }} 
+ {% if entry.online %}(online) {% else %}in {{ entry.location.city }}, {{ entry.location.country }}{% endif %} on {{ entry.date.month }}
     {{ entry.date.day }}, {{ entry.date.year }}
     {% endcomment %}
     </li>

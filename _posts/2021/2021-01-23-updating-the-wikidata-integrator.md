@@ -59,7 +59,7 @@ with `pip install wikidataintegrator`, a program
 `wikidataintegrator-publication` is installed for direct usage from the shell.
 It can be used like this:
 
-```shell
+```console
 $ wikidataintegrator-publication --idtype arxiv 2101.05136
 $ wikidataintegrator-publication --idtype biorxiv 2020.08.20.259226
 $ wikidataintegrator-publication --idtype chemrxiv 13607438
@@ -168,7 +168,7 @@ Try running the following code with a valid ID and hope that everything works!
 If you are having issues here, then you can always send a draft pull request to
 solicit help from the maintainers of the project.
 
-```shell
+```console
 $ wikidataintegrator-publication --idtype "your key" "your id"
 ```
 

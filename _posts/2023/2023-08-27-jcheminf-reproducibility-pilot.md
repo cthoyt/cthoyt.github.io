@@ -74,20 +74,20 @@ of them together. With the magic of the GitHub API, this is possible.
 
 Below, I apply the seven point reproducibility review prescribed by
 [Improving reproducibility and reusability in the Journal of Cheminformatics](https://doi.org/10.1186/s13321-023-00730-y)
-to the default branch of repository https://github.com/Macau-LYXia/MVAE-DFDTnet
-(commit
+to the default branch of repository
+<https://github.com/Macau-LYXia/MVAE-DFDTnet> (commit
 [c0858c8](https://github.com/Macau-LYXia/MVAE-DFDTnet/commit/c0858c8cdf61d62f945fbd74d0d60f2531394287)),
 accessed on August 27<sup>th</sup>, 2023.
 
 1. **Does the repository contain a LICENSE file in its root?**<br/> No. The
    GitHub license picker can be used to facilitate adding one by following this
    link:
-   https://github.com/Macau-LYXia/MVAE-DFDTnet/community/license/new?branch=main.
+   <https://github.com/Macau-LYXia/MVAE-DFDTnet/community/license/new?branch=main>.
    Ideal software licenses for open source software include the MIT License, BSD
    family of licenses, and other licenses approved by the
    [Open Source Initiative](https://opensource.org/licenses). A simple,
    informative guide for picking a license can be found at
-   https://choosealicense.com.
+   <https://choosealicense.com>.
 2. Does the repository contain a README file in its root?<br/> No. A minimal
    viable README file contains:
    - A short, one line description of the project
@@ -103,22 +103,22 @@ accessed on August 27<sup>th</sup>, 2023.
      manuscript
 
    GitHub can be used to create a README file with
-   https://github.com/Macau-LYXia/MVAE-DFDTnet/new/main?filename=README.md.
+   <https://github.com/Macau-LYXia/MVAE-DFDTnet/new/main?filename=README.md>.
    Repositories typically use the Markdown format, which is explained
    [here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 3. Does the repository contain an associated public issue tracker?<br/> Yes. It
-   is available at https://github.com/Macau-LYXia/MVAE-DFDTnet/issues.
+   is available at <https://github.com/Macau-LYXia/MVAE-DFDTnet/issues>.
 4. Has the repository been externally archived on Zenodo, FigShare, or an
    equivalent that is referenced in the README?<br/> No, there is no README.
    This is also not mentioned in the manuscript. See
-   https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content
+   <https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content>
    for a tutorial on how to do this.
 5. Does the README contain installation documentation?<br/> No, there is no
    README. This is also not mentioned in the manuscript.
 6. Is the code in the repository installable in a straight-forward manner?<br/>
    No, the code is not laid out in a typical structure, e.g., as described in
-   https://blog.ionelmc.ro/2014/05/25/python-packaging. Further, there is no
+   <https://blog.ionelmc.ro/2014/05/25/python-packaging>. Further, there is no
    setup configuration that encodes the dependencies or facilitates reuse of the
    code.
 7. Does the code in the repository conform to an external linter (e.g., `black`
@@ -136,7 +136,7 @@ one of the seven points of the reproducibility review, I recommend rejecting the
 article and inviting later resubmission following addressing the points.
 
 For posterity, this review has also been included on
-https://github.com/Macau-LYXia/MVAE-DFDTnet/issues/1.
+<https://github.com/Macau-LYXia/MVAE-DFDTnet/issues/1>.
 
 ## The Future is Looking Good
 
@@ -153,9 +153,9 @@ the position where they have the flexibility/freedom/initiative to do this.
 That all being said, we are now entering an era where progressive and newly
 minted PIs actually have training as computational scientists. The next paper in
 my queue for a reproducibility review is for
-https://github.com/Steinbeck-Lab/cheminformatics-python-microservice, which will
-pass the 7 criteria with flying colors. I'm looking forward to the future when
-we expect more excellent science on the regular. See you there!
+<https://github.com/Steinbeck-Lab/cheminformatics-python-microservice>, which
+will pass the 7 criteria with flying colors. I'm looking forward to the future
+when we expect more excellent science on the regular. See you there!
 
 ---
 

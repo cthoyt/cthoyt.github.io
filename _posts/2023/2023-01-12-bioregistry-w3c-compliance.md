@@ -27,7 +27,7 @@ pages and reading cryptic definitions in a
 Below is a short explanation of the two important parts and a nice
 simplification:
 
-```
+```text
 safe_curie  :=  '[' curie ']'
 curie       :=  [ [ prefix ] ':' ] reference
 prefix      :=  NCName
@@ -37,7 +37,7 @@ reference   :=  irelative-ref
 where `NCName` is defined
 [on this page](http://www.w3.org/TR/1999/REC-xml-names-19990114/#NT-NCName) as
 
-```
+```text
 NCName     ::= (Letter | '_') (NCNameChar)*
 NCNameChar ::= Letter | Digit  | '.' | '-' | '_' | CombiningChar | Extender
 ```

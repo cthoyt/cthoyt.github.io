@@ -22,9 +22,9 @@ covers fiscal sponsorship:
 
 Interesting blog posts about open source funding:
 
-- https://kvinogradov.com/algo-sponsors/
-- https://opensourcepledge.com/
-- https://heidiseibold.kit.com/posts/how-to-get-funding-by-caring-about-research-software-i
+- <https://kvinogradov.com/algo-sponsors/>
+- <https://opensourcepledge.com/>
+- <https://heidiseibold.kit.com/posts/how-to-get-funding-by-caring-about-research-software-i>
   (this one is really good, basically a superset of my list)
 
 ---

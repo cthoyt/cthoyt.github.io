@@ -28,7 +28,7 @@ I extended this class in the
 [`bioregistry`](https://github.com/biopragmatics/bioregistry) in order to
 validate and standardize prefixes and local unique identifiers using its
 detailed set of metadata rules. This is implemented in the
-[ `bioregistry.NormalizedReference`](https://bioregistry.readthedocs.io/en/stable/api/bioregistry.Registry.html).
+[`bioregistry.NormalizedReference`](https://bioregistry.readthedocs.io/en/stable/api/bioregistry.Registry.html).
 
 In other places, like [`ssslm`](https://github.com/cthoyt/ssslm), I've built on
 the `curies.Reference` data structure for maximum compatibility. However,
@@ -94,8 +94,8 @@ I tried a few other things:
 None of this worked, so I asked for help. Turns out, other people ran into this
 issue already and brought it up with MyPy.
 
-- https://github.com/python/mypy/issues/3737
-- https://github.com/python/mypy/issues/12962
-- https://github.com/python/mypy/issues/18812
+- <https://github.com/python/mypy/issues/3737>
+- <https://github.com/python/mypy/issues/12962>
+- <https://github.com/python/mypy/issues/18812>
 
 Right now, I don't think my use case can be solved, so I'll have to sit tight!

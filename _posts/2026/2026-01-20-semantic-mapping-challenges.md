@@ -16,7 +16,7 @@ solutions, and describes opportunities for next steps for the community of
 curators, semantic engineers, software developers, and data scientists who make
 and use semantic mappings.
 
-### Proliferation of Formats
+## Proliferation of Formats
 
 The first challenge with semantic mappings is the variety of forms they can
 take. This both includes different data models and serializations of those
@@ -35,14 +35,14 @@ a JSON-based extension of the SKOS data model. I recently wrote a post about
 converting between [SSSOM and
 JSKOS]({% post_url 2026/2026-01-15-sssom-to-jskos %}).
 
-<img src="https://www.jean-delahousse.net/wp-content/uploads/2020/09/Owl_logo-258x300.png"  align="left" style="max-height: 3em; margin-right: 0.5em;" alt="OWL logo">
+<img src="https://www.jean-delahousse.net/wp-content/uploads/2020/09/Owl_logo-258x300.png" align="left" style="max-height: 3em; margin-right: 0.5em;" alt="OWL logo">
 [Web Ontology Language (OWL)](https://www.w3.org/TR/owl2-syntax/) is primarily
 used for ontologies. It has first-class language support for encoding
 equivalences between classes, properties, or individuals. Other semantic
 mappings can be encoded as annotation properties on classes, properties, or
 individuals, e.g., using SKOS predicates.
 
-<img src="https://obofoundry.org/images/foundrylogo.png"  align="left" style="max-height: 3em; margin-right: 0.5em;" alt="OBO logo">
+<img src="https://obofoundry.org/images/foundrylogo.png" align="left" style="max-height: 3em; margin-right: 0.5em;" alt="OBO logo">
 The
 [OBO Flat File Format](https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html)
 is a simplified version of OWL with macros most useful for curating biomedical
@@ -113,7 +113,7 @@ underlying technology stack from Biomappings eventually got spun out to
 [SSSOM Curator](https://github.com/cthoyt/sssom-curator) and is now fully
 domain-agnostic.
 
-### Different Precision or Conflicts
+## Different Precision or Conflicts
 
 Another challenge with semantic mappings is when different resources have
 different level of precision. In the example below, OrphaNet uses low-precision
@@ -129,17 +129,17 @@ example, if one resource says exact match and another says broader match. In
 SeMRA, I devised a confidence assessment scheme (which should get its own post
 later).
 
-### Common Conflations
+## Common Conflations
 
 There are three flavors of conflations that make curating and reviewing mappings
 difficult that I want to highlight.
 
-#### Different Ontology Encodings
+### Different Ontology Encodings
 
 Classes, instances, and properties are mutually exclusive by design. This means
 that any semantic mappings between them are nonsense, but there are many
 situations where these mappings might get produced by an automated system or by
-a curator who is less knowledgable about the ontology aspect of semantic
+a curator who is less knowledgeable about the ontology aspect of semantic
 mappings. There's also a much more subtle discussion about classes, instances,
 and metaclasses ( see
 [this discussion](https://github.com/OBOFoundry/OBOFoundry.github.io/issues/2454))
@@ -154,7 +154,7 @@ the text of the abstract itself: [schema:abstract](http://schema.org/abstract).
 These both have the same label `abstract`, which means that it's possible to
 conflate (i.e., accidentally map them).
 
-#### Different Entity Types
+### Different Entity Types
 
 The second kind of conflation is even more subtle, when two classes, instances,
 or properties come from similar but distinct hierarchies.
@@ -175,7 +175,7 @@ subtleties here) using SSSOM Curator with the command:
 [SSSOM Curator documentation](https://sssom-curator.readthedocs.io/en/latest/projects.html#making-predictions)
 for more information on the lexical matching workflow.
 
-#### Different Senses
+### Different Senses
 
 The [basic formal ontology (BFO)](https://basic-formal-ontology.org) is an
 upper-level ontology that is used by many ontologies, including almost the
@@ -230,13 +230,13 @@ lower levels of accuracy and precision must be merged. In practice, I have
 merged triples using conflicting senses for diseases in a useful way, without
 issue.
 
-### Interpretation is Important
+## Interpretation is Important
 
 While the last few examples were cautionary tales for when things (probably)
 shouldn't be mapped, the next examples are about when things (probably) should
 be mapped.
 
-#### Definitions
+### Definitions
 
 Here are three vocabularies' terms for proteins and their textual definitions
 (though, many more contain their own term for proteins):
@@ -314,7 +314,7 @@ very important in the digital humanities. As I'm better understanding the use
 cases of colleagues in other NFDI Consortia that focus on the digital
 humanities, I will try and update this section to have alternate perspectives.
 
-### Evidence
+## Evidence
 
 A key challenge that motivated the development of SSSOM as a standard was to
 associate high-quality metadata with semantic mappings, such as the reason the
@@ -330,7 +330,7 @@ encode different kinds of evidence such as for manual curation of mappings,
 lexical matching, structural matching, and others. SSSOM is well-suited towards
 capturing simple evidences (blue).
 
-#### Provenance for Inferences
+### Provenance for Inferences
 
 The purple evidence from the figure in the last section requires a more detailed
 data model to represent provenance for inferred semantic mappings that simply
@@ -344,7 +344,7 @@ a Neo4j counterpart:
 
 [![](/img/mappings-are-hard/semra-data-model.svg)](https://docs.google.com/drawings/d/1C5l1UmwKohMsgprSXRK6Lo2egLsRWhXPIfoVo09tJ9I/edit?usp=sharing)
 
-### Negative Semantic Mappings
+## Negative Semantic Mappings
 
 SSSOM also has first-class support for encoding _negative_ relationships,
 meaning that the following can be represented:
