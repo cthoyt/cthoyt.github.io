@@ -56,30 +56,30 @@ tickets.
 Second, click <i>Streamingtickets</i>. If you want to be cool while speaking
 German, you should throw in some English words (or internationalisms).
 
-![](/img/monkey-jack-lmh/step1.png)
+![A screenshot for Step 1](/img/monkey-jack-lmh/step1.png)
 
 Third, click <i>Auswählen</i>. This verb means that you are pledging your
 allegiance to Monkey Jack and promise to follow <strong><i>Him</i></strong>.
 
-![](/img/monkey-jack-lmh/step2.png)
+![A screenshot for Step 2](/img/monkey-jack-lmh/step2.png)
 
-Fourth, click <i>Bitte Wählen</i> (please choose). This is a drop down menu to
+Fourth, click <i>Bitte Wählen</i> (please choose). This is a drop-down menu to
 show your support for Monkey Jack and his representatives. Note that you only
 need one streaming ticket per stream, obviously you should throw a party/ritual
 to represent Monkey Jack yourself.
 
-![](/img/monkey-jack-lmh/step3.png)
+![A screenshot for Step 3](/img/monkey-jack-lmh/step3.png)
 
 Fifth, click <i>Monkey Jack</i>.
 
-![](/img/monkey-jack-lmh/step4.png)
+![A screenshot for Step 4](/img/monkey-jack-lmh/step4.png)
 
 Sixth, You can fill in the form with your information. The image below annotates
 what each of the fields means. Plz is short for "Postleitzahl", which means Zip
 code. Don't worry about the part of the form with the country picker. You're a
 German now.
 
-![](/img/monkey-jack-lmh/step5.png)
+![A screenshot for Step 5](/img/monkey-jack-lmh/step5.png)
 
 After you click it, it will bring you to a PayPal page. They'll email you a
 confirmation within 5-10 minutes and send the streaming link the day of the
