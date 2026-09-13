@@ -131,7 +131,7 @@ heme_graph.summarize()
 
 The COVID-19 Knowledge graph encodes biology surrounding the infection of the
 novel coronavirus. It was published by Domingo-Fernández _et al._ in
-[ COVID-19 Knowledge Graph: a computable, multi-modal, cause-and-effect knowledge model of COVID-19 pathophysiology](https://doi.org/10.1101/2020.04.14.040667).
+[COVID-19 Knowledge Graph: a computable, multi-modal, cause-and-effect knowledge model of COVID-19 pathophysiology](https://doi.org/10.1101/2020.04.14.040667).
 
 It is available on GitHub under
 [covid19kg/covid19kg](https://github.com/covid19kg/covid19kg) or can be
@@ -252,7 +252,7 @@ documentation.
 > longer exists, but it will remain in this post for posterity.
 
 BioDati is a paid, closed-source platform for hosting BEL content. However, they
-do have a demo instance running at https://studio.demo.biodati.com with which
+do have a demo instance running at <https://studio.demo.biodati.com> with which
 the examples in this module will be described.
 
 ```python

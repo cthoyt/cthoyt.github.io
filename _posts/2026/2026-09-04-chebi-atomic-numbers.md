@@ -221,7 +221,7 @@ $ just convert
 
 The results are OWL that look like this (shown in OFN for brevity):
 
-```
+```text
 SubClassOf(CHEBI:49637 DataHasValue(ChEMROF:atomic_number "1"^^xsd:integer))
 SubClassOf(CHEBI:30217 DataHasValue(ChEMROF:atomic_number "2"^^xsd:integer))
 ...

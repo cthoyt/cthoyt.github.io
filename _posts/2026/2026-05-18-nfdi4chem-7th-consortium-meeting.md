@@ -173,7 +173,7 @@ collaborator of mine and a member of one of the
 [NFDI4Chem advisory boards](https://nfdi4chem.de/the-advisory-boards/)) about
 how to extend the "resolver" functionality of Semantic Farm to support content
 negotiation. The resolver redirects URLs constructed with a CURIE like
-https://semantic.farm/GO:0032571 to the first-party (or best) web page for human
+<https://semantic.farm/GO:0032571> to the first-party (or best) web page for human
 reading.
 
 Egon suggested that if a request contains an `Accept` header asking for

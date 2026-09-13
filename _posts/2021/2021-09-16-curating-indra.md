@@ -12,7 +12,7 @@ tags:
 
 With the recent paper on Gilda and approaching INDRA 2 and INDRA database papers
 coming up, I've put together a visual guide on how to curate statements
-extracted by INDRA through the web interface at https://db.indra.bio.
+extracted by INDRA through the web interface at <https://db.indra.bio>.
 
 Navigate to the INDRA database portal using [this link](https://db.indra.bio).
 

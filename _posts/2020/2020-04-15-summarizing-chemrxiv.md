@@ -30,7 +30,7 @@ run for any institution. Fun fact: the institution code for ChemRxiv is `259`.
 
 I got to work writing my
 [own repository](https://github.com/cthoyt/chemrxiv-summarize) to wrap the
-client, take care of downloading all of the bibliographic information available,
+client, take care of downloading all the bibliographic information available,
 and generating some pretty pictures. I originally ran the scripts and generated
 pictures on January 20th, 2020 (the day Egon posed the question). Since the
 pandemic has got the whole science community introspecting, I came back to this
@@ -42,14 +42,14 @@ be automatically updated with my GitHub repository. This also implicitly means
 that there's a history of each image, but because two of them are plotting time
 course information, the history is already conveyed within the chart.
 
-### How many articles were contributed each month to ChemRxiv?
+## How many articles were contributed each month to ChemRxiv?
 
 How many papers were submitted each month to ChemRxiv? Keep in mind that the
 current month is likely not complete.
 
 ![Articles per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/articles_per_month.png)
 
-### How many unique authors contribute each month to ChemRxiv?
+## How many unique authors contribute each month to ChemRxiv?
 
 This only counts using the ORCID iDs of the first authors; it's pretty
 inconsistent what other identifying information is included in the metadata for
@@ -57,7 +57,7 @@ each article.
 
 ![Unique Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/unique_authors_per_month.png)
 
-### How many author submit multiple times each month?
+## How many author submit multiple times each month?
 
 How many authors submitted more than once per month? This chart shows spikes in
 August, which I will guess is when most people are submitting before their
@@ -65,11 +65,11 @@ summer breaks :)
 
 ![Percent Duplicate Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/percent_duplicate_authors_per_month.png)
 
-### How many authors submitted for their first time each month?
+## How many authors submitted for their first time each month?
 
 ![First Time First Authors per Month](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/first_time_first_authors_per_month.png)
 
-### How many unique first authors are there on ChemRxiv?
+## How many unique first authors are there on ChemRxiv?
 
 How many first authors have historically contributed to ChemRxiv at each month?
 We can take the first date of authorship for each author then count at each
@@ -79,14 +79,14 @@ point in time.
 
 ![Historical Authorship](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/historical_authorship.png)
 
-### How many authors are prolific on ChemRxiv?
+## How many authors are prolific on ChemRxiv?
 
 If we aggregate the data, we can ask how many authors have submitted lots of
 articles:
 
 ![Author Prolificness](https://raw.githubusercontent.com/cthoyt/chemrxiv-summarize/master/figshare/chemrxiv/author_prolificness.png)
 
-### What licenses are popular on ChemRxiv?
+## What licenses are popular on ChemRxiv?
 
 The following chart shows the popularity of different licenses over time. The
 [CC BY-NC-ND 4.0 license](https://creativecommons.org/licenses/by-nc-nd/4.0/) is
@@ -98,17 +98,17 @@ a resounding victor. You can learn about Creative Commons (CC) licenses
 If you're interested to regenerate these charts yourself, you're welcome to do
 so with the following code:
 
-```bash
-git clone https://github.com/cthoyt/chemrxiv-summarize
-cd chemrxiv-summarize
-python 01_download.py
-python 02_process.py
-python 03_visualize.py
+```console
+$ git clone https://github.com/cthoyt/chemrxiv-summarize
+$ cd chemrxiv-summarize
+$ python 01_download.py
+$ python 02_process.py
+$ python 03_visualize.py
 ```
 
 Downloading takes a bit of time (about 40 minutes) but there's a `tqdm` bar to
-keep you entertained in the mean time. Normally I package all of my code, but
-the one off scripts here didn't seem to warrant it.
+keep you entertained in the meantime. Normally I package all of my code, but
+the one-off scripts here didn't seem to warrant it.
 
 As a final note, I'd like to shout out to Marshall Brennan
 ([@Organometallica](https://twitter.com/Organometallica)) for being an excellent

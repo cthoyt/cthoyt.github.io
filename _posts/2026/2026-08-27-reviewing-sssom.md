@@ -106,7 +106,7 @@ then adds their ORCiD into the `reviewer_id` column and their level of agreement
 in the [reviewer_agreement](https://w3id.org/sssom/reviewer_agreement) column,
 in which $+1.0$ means full agreement, $0.0$ means ambivalence, and $-1.0$ means
 full disagreement. The reviewer can optionally add the date of review in the
-[ `review_date`](https://w3id.org/sssom/review_date) column to support
+[`review_date`](https://w3id.org/sssom/review_date) column to support
 historical analyses, e.g., that help understand the lifecycles of mappings.
 
 The following example illustrates what it would look like if Nicole Vasilevsky

@@ -130,7 +130,7 @@ collecting orthology relationships, such as
 It follows that orthology could be applied to pathways as well. In fact,
 Reactome's web interface already has a box below each pathway linking to the
 orthologous pathways as seen on
-https://reactome.org/content/detail/R-HSA-109581:
+<https://reactome.org/content/detail/R-HSA-109581:>
 
 ![Reactome Orthology Box](/img/reactome_orthology_box.png)
 
@@ -145,7 +145,7 @@ introduce a relationship `orthology` to start curating triples like:
 Orthology relationships effectively convey the same information as
 `speciesSpecific` with the advantage that they do not require the addition of a
 parent term. However, between N orthologous pathways, there will be a complete
-subggraph of (1/2) _ N _ (N-1) edges (also called a clique in graph theory).
+subgraph of $\frac{N(N-1)}{2}$ edges (also called a clique in graph theory).
 Depending on the downstream use case, these kinds of subgraphs can be
 problematic.
 
@@ -190,13 +190,13 @@ protein family.
 
 There is specific interest in connecting disease maps appearing in pathway
 databases to the diseases themselves. WikiPathways has already begun doing this
-as can be seen on https://www.wikipathways.org/index.php/Pathway:WP2059.
+as can be seen on <https://www.wikipathways.org/index.php/Pathway:WP2059>.
 
 ![WikiPathways Ontology Terms](/img/wikipathways_ontology_terms.png)
 
 It might be justified to propose an alternate relationship with more specific
 semantics. More information on various disease-specific curation projects
-outside major pathway databases can be found at https://disease-maps.org.
+outside major pathway databases can be found at <https://disease-maps.org>.
 
 ## Disease-specific Variant of a Pathway
 

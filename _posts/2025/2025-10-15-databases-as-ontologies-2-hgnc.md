@@ -98,7 +98,7 @@ in their place, the name is often a reasonable alternative.
 
 Here's an example record in OBO flat file format to illustrate:
 
-```
+```text
 [Term]
 id: hgnc:100
 name: ASIC1
@@ -217,7 +217,7 @@ need updating.
 [RO:0001025 (located in)](https://bioregistry.io/RO:0001025) is used for single
 point annotations, such as in [hgnc:10080](https://bioregistry.io/hgnc:10080).
 
-```
+```text
 [Term]
 id: hgnc:10080
 name: RNPS1
@@ -231,7 +231,7 @@ Multiple [RO:0001025 (located in)](https://bioregistry.io/RO:0001025) is used
 for pairs of point annotations, e.g., when written like `Xq28 and chrYq12`, like
 in [hgnc:38513](https://bioregistry.io/hgnc:38513):
 
-```
+```text
 id: hgnc:38513
 name: WASIR1
 is_a: SO:0002127 ! lncRNA_gene
@@ -251,7 +251,7 @@ in OWL, but not serializable directly in the OBO flat file format.
 chromosomes, e.g., when written like `8q11.23-q12.1`, like in
 [hgnc:10263](https://bioregistry.io/hgnc:10263):
 
-```
+```text
 [Term]
 id: hgnc:10263
 name: RP1
@@ -267,7 +267,7 @@ Genes that are mapped to the mitochondrial chromosome get mapped to the
 [GO:0000262](https://bioregistry.io/GO:0000262) instead of a Chromosome Ontology
 term, like in [hgnc:50279](https://bioregistry.io/hgnc:50279):
 
-```
+```text
 [Term]
 id: hgnc:50279
 name: MT-LIPCAR
@@ -280,7 +280,7 @@ relationship: RO:0001025 GO:0000262 ! located in mitochondrial chromosome
 Some annotations that end with a qualifier "not on reference assembly",
 "unplaced", or "alternate reference locus" get them annotated as comment axioms.
 
-```
+```text
 [Term]
 id: hgnc:10082
 name: RNR1

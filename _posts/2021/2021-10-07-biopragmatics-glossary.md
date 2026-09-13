@@ -134,12 +134,12 @@ While providers typically return human-readable HTML, they can also return many
 other data types, including:
 
 - Images (e.g.,
-  https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&chebiId=132964
+  <https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&chebiId=132964>
   for the ChEBI entry on fluazifop-P-butyl)
-- XML (e.g., https://www.uniprot.org/uniprot/P10636.xml for UniProt entry on
+- XML (e.g., <https://www.uniprot.org/uniprot/P10636.xml> for UniProt entry on
   human Microtubule-associated protein tau)
 - JSON (e.g.,
-  https://gen3.biodatacatalyst.nhlbi.nih.gov/ga4gh/drs/v1/objects/0000ffeb-36e0-4a29-b21d-84423bda979d
+  <https://gen3.biodatacatalyst.nhlbi.nih.gov/ga4gh/drs/v1/objects/0000ffeb-36e0-4a29-b21d-84423bda979d>
   for NCBI's BioData Catalyst)
 - RDF
 
@@ -189,13 +189,13 @@ different local identifier (in orange). Here's an example, using the ChEBI local
 identifier for
 [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=138488):
 
-<span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=</span><span style="color:orange">138488</span>
+<span style="color:red"><https://www.ebi.ac.uk/chebi/searchId.do?chebiId=></span><span style="color:orange">138488</span>
 
 There may be potentially many URI prefixes corresponding to the same semantic
 space and therefore many URIs describing the same entity. For example, ChEBI
 also serves images with:
 
-<span style="color:red">https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=</span><span style="color:orange">138488</span>
+<span style="color:red"><https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=></span><span style="color:orange">138488</span>
 
 ### Compact Uniform Resource Identifiers (CURIEs)
 
@@ -262,7 +262,7 @@ Unfortunately, not all URLs that provide information about entities in semantic
 spaces can be trivially split into a URI prefix and a local identifier. For
 example, the [REBASE](https://bioregistry.io/rebase) entry for
 [Asp14HI](https://bioregistry.io/rebase:101) has the URI
-http://rebase.neb.com/rebase/enz/101.html. Note the pesky `.html` at the end,
+<http://rebase.neb.com/rebase/enz/101.html>. Note the pesky `.html` at the end,
 which if removed, causes an HTTP 404 error due to the implementation of the
 REBASE website.
 

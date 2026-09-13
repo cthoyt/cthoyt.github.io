@@ -171,7 +171,7 @@ Here's what the (abridged to only show a single term) OBO export looks like.
 Full exports of CRediT in all formats (e.g., OFN, OBO, OWL/XML) can be found
 [here](https://github.com/biopragmatics/obo-db-ingest/tree/main/export/credit#readme).
 
-```
+```text
 data-version: 2022
 idspace: credit https://credit.niso.org/contributor-roles/ "Contributor Roles Taxonomy"
 idspace: dcterms http://purl.org/dc/terms/ "Dublin Core Metadata Initiative Terms"
@@ -272,13 +272,13 @@ Here's what a few PURLs look like for OBO files (replace the file extension with
 
 | Resource                                                                       | Latest OBO PURL                                                          | Version Type | Example Versioned OBO PURL                                                     |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------ | ------------------------------------------------------------------------------ |
-| [Reactome](https://w3id.org/biopragmatics/resources/reactome#readme)           | https://w3id.org/biopragmatics/resources/reactome/reactome.obo           | Sequential   | https://w3id.org/biopragmatics/resources/reactome/83/reactome.obo              |
-| [Interpro](https://w3id.org/biopragmatics/resources/interpro#readme)           | https://w3id.org/biopragmatics/resources/interpro/interpro.obo           | Major/Minor  | https://w3id.org/biopragmatics/resources/interpro/92.0/interpro.obo            |
-| [DrugBank Salt](https://w3id.org/biopragmatics/resources/drugbank.salt#readme) | https://w3id.org/biopragmatics/resources/drugbank.salt/drugbank.salt.obo | Semantic     | https://w3id.org/biopragmatics/resources/drugbank.salt/5.1.9/drugbank.salt.obo |
-| [MeSH](https://w3id.org/biopragmatics/resources/mesh#readme)                   | https://w3id.org/biopragmatics/resources/mesh/mesh.obo.gz                | Year         | https://w3id.org/biopragmatics/resources/mesh/2023/mesh.obo.gz                 |
-| [UniProt](https://w3id.org/biopragmatics/resources/uniprot#readme)             | https://w3id.org/biopragmatics/resources/uniprot/uniprot.obo.gz          | Year/Month   | https://w3id.org/biopragmatics/resources/uniprot/2022_05/uniprot.obo.gz        |
-| [HGNC](https://w3id.org/biopragmatics/resources/hgnc#readme)                   | https://w3id.org/biopragmatics/resources/hgnc/hgnc.obo                   | Date         | https://w3id.org/biopragmatics/resources/hgnc/2023-02-01/hgnc.obo              |
-| [CGNC](https://w3id.org/biopragmatics/resources/cgnc#readme)                   | https://w3id.org/biopragmatics/resources/cgnc/cgnc.obo                   | unversioned  | N/A                                                                            |
+| [Reactome](https://w3id.org/biopragmatics/resources/reactome#readme)           | <https://w3id.org/biopragmatics/resources/reactome/reactome.obo>           | Sequential   | <https://w3id.org/biopragmatics/resources/reactome/83/reactome.obo>              |
+| [Interpro](https://w3id.org/biopragmatics/resources/interpro#readme)           | <https://w3id.org/biopragmatics/resources/interpro/interpro.obo>           | Major/Minor  | <https://w3id.org/biopragmatics/resources/interpro/92.0/interpro.obo>            |
+| [DrugBank Salt](https://w3id.org/biopragmatics/resources/drugbank.salt#readme) | <https://w3id.org/biopragmatics/resources/drugbank.salt/drugbank.salt.obo> | Semantic     | <https://w3id.org/biopragmatics/resources/drugbank.salt/5.1.9/drugbank.salt.obo> |
+| [MeSH](https://w3id.org/biopragmatics/resources/mesh#readme)                   | <https://w3id.org/biopragmatics/resources/mesh/mesh.obo.gz>                | Year         | <https://w3id.org/biopragmatics/resources/mesh/2023/mesh.obo.gz>                 |
+| [UniProt](https://w3id.org/biopragmatics/resources/uniprot#readme)             | <https://w3id.org/biopragmatics/resources/uniprot/uniprot.obo.gz>          | Year/Month   | <https://w3id.org/biopragmatics/resources/uniprot/2022_05/uniprot.obo.gz>        |
+| [HGNC](https://w3id.org/biopragmatics/resources/hgnc#readme)                   | <https://w3id.org/biopragmatics/resources/hgnc/hgnc.obo>                   | Date         | <https://w3id.org/biopragmatics/resources/hgnc/2023-02-01/hgnc.obo>              |
+| [CGNC](https://w3id.org/biopragmatics/resources/cgnc#readme)                   | <https://w3id.org/biopragmatics/resources/cgnc/cgnc.obo>                   | unversioned  | N/A                                                                            |
 
 The script also outputs a
 [full manifest](https://github.com/biopragmatics/obo-db-ingest/raw/refs/heads/main/docs/_data/manifest.yml)

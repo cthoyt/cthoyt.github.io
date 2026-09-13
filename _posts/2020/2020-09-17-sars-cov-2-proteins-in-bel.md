@@ -75,7 +75,7 @@ However, this leaves two tasks for me:
 2. Generate equivalence relationships in BEL linking the CURIE-named and
    ontologically-defined versions of each as in:
 
-   ```
+   ```text
    p(uniprot.chain:PRO_0000449619) equivalentTo p(uniprot:P0DTD1 ! R1AB_SARS2, frag(1_180))
    ...
    p(uniprot.chain:PRO_0000449633) equivalentTo p(uniprot:P0DTD1 ! R1AB_SARS2, frag(6799_7096))

@@ -4,7 +4,7 @@ title: Hire Me
 permalink: /hiring/
 ---
 
-### Public Projects
+## Public Projects
 
 My employer, RWTH Aachen University, charges at cost for human resources, plus
 around a 50% overhead for administration and facilities.
@@ -22,7 +22,7 @@ While it would be more lucrative to run projects privately, I currently prefer
 to run projects through the university as funding is tied to career progression
 towards the rank of professor.
 
-### Privacy and Non-disclosure Agreements
+## Privacy and Non-disclosure Agreements
 
 I am able to participate in (mutual) non-disclosure agreements (NDAs) for
 university-scoped projects through the Institute of Inorganic Chemistry at RWTH
@@ -32,9 +32,9 @@ I am also able to privately sign NDAs, but not in parallel with nor before a
 university NDA, i.e., it's not possible to sign a personal NDA for development
 of a project that would be run through the university.
 
-### Technology Transfer
+## Technology Transfer
 
-#### Prior Art
+### Prior Art
 
 I bring to projects a mature ecosystem of
 [free/libre and open-source software (FLOSS)](https://www.gnu.org/philosophy/floss-and-foss.en.html)
@@ -55,7 +55,7 @@ knowledge graphs, e.g., in early-stage drug discovery. My [blog](..) provides
 more context on various components of the Biopragmatics Stack and related,
 domain-agnostic tooling that I develop and maintain.
 
-#### Open Source vs. Proprietary
+### Open Source vs. Proprietary
 
 **My guiding principle:** generic improvements are open; partner-specific work
 remain private.
@@ -81,7 +81,7 @@ By default, workflows that implement the partner-specific business needs that
 directly interface with their data, systems, and other infrastructure remain
 private and proprietary to the project partner.
 
-#### Technology Transfer
+### Technology Transfer
 
 Some or all of the following steps might apply for technology transfer:
 
@@ -106,7 +106,7 @@ Some or all of the following steps might apply for technology transfer:
 4. **Support** Alternatively, some partners opt for medium- or long-term service
    contracts instead of, or after handoff.
 
-#### Summary
+### Summary
 
 In practice, this model allows project partners to benefit from a continuously
 improving open-source foundation while retaining full control over proprietary

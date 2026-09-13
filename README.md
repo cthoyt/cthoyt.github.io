@@ -1,6 +1,6 @@
 # cthoyt.github.io
 
-My personal website, served at https://cthoyt.com
+My personal website, served at <https://cthoyt.com>
 
 ## Serve Locally
 
@@ -23,7 +23,7 @@ CC BY 4.0
 | File                         | Description                                                                                                           |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | [funding.json](funding.json) | A [funding manifest](https://floss.fund/funding-manifest/) for use with [FLOSS/fund](https://floss.fund)              |
-| [human.json](human.json)     | An attestation that this website is handcrafted by a human, and not an AI. See https://codeberg.org/robida/human.json |
+| [human.json](human.json)     | An attestation that this website is handcrafted by a human, and not an AI. See <https://codeberg.org/robida/human.json> |
 
 ## Pages
 
@@ -31,4 +31,4 @@ The [pages](pages/) directory.
 
 ## Jekyll Plugins Used
 
-- https://github.com/Helveg/jekyll-gfm-admonitions/
+- <https://github.com/Helveg/jekyll-gfm-admonitions/>

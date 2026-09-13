@@ -103,7 +103,7 @@ $ bioregistry validate virtuoso https://nfdi4culture.de/sparql --tablefmt github
 Some of the key takeaways from this table are:
 
 1. The feedback on `as` is a false positive - a look at
-   https://www.w3.org/ns/activitystreams# shows that the W3 standard wants `as`
+   <https://www.w3.org/ns/activitystreams#> shows that the W3 standard wants `as`
    to be the preferred prefix
 2. There are several true positive suggestions, like fixing the `ncit` prefix.
 3. There's a whole group of URI spaces using `opengis.net` from the

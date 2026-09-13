@@ -160,10 +160,10 @@ The `max-line-length` is a very contentious setting. I think 120 is fine. Some
 people think 78, 79, or 80 is best because of the standard sizes of old computer
 screens or punch cards... When I get older and I can't read my computer screen,
 I'll probably make the text bigger and change my mind about this. If you find
-yourself breaking up lines in a totally non-sensical, unstyled way, then you're
+yourself breaking up lines in a totally nonsensical, unstyled way, then you're
 conforming too tightly to the rules. Sorry about the mixed messages!
 
-```
+```ini
 import-order-style = pycharm
 application-import-names =
     pybel
@@ -176,7 +176,7 @@ I copied this again because this part is really important. You have to tell
 group python builtin packages, then 3rd party packages, then my packages. The
 `application-import-names` is a place to list what are your packages.
 
-Last is the `format` entry, which gives the nice colorful output. Copy paste
+Last is the `format` entry, which gives the nice colorful output. Copy and paste
 this! I borrowed mine from [Scott Colby](https://github.com/scolby33).
 
 ---

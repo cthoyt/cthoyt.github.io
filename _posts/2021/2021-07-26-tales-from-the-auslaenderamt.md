@@ -30,7 +30,7 @@ Bonner Ausländeramt (Terminvereinbarung im Ausländeramt). Side bar: an
 adjectival is when you turn a noun into an adjective. In the German language,
 most places can be converted into an adjectival by adding the -er suffix. That's
 why it's called Wiener Schnitzel - it's Schnitzel from Wien (Vienna). Sign-ups
-for appointments are online (https://www.bonn.de/antrag_auslaenderamt), then
+for appointments are online (<https://www.bonn.de/antrag_auslaenderamt>), then
 they send you information about your appointment by snail mail. Unfortunately,
 this office has not yet digitalized. You're assigned a case worker based on your
 last name, and you typically stay with them the entire time you live in the

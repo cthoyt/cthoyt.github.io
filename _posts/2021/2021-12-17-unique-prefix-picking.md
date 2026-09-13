@@ -78,8 +78,8 @@ of the sites.
 
 | Resource    | Home Page                         | Prefix List                                  |
 | ----------- | --------------------------------- | -------------------------------------------- |
-| Bioregistry | https://bioregistry.io            | https://bioregistry.io/registry              |
-| Bioportal   | https://bioportal.bioontology.org | https://bioportal.bioontology.org/ontologies |
+| Bioregistry | <https://bioregistry.io>            | <https://bioregistry.io/registry>              |
+| Bioportal   | <https://bioportal.bioontology.org> | <https://bioportal.bioontology.org/ontologies> |
 
 While the BioPortal API is locked behind API key access, the Bioregistry
 additionally has a search endpoint at `https://bioregistry.io/api/search?q=...`

@@ -159,7 +159,7 @@ accessible, interoperable, reusable) using the
 this isn't the goal of this demo.
 
 I've mocked some Python code that bridges Pydantic and the Bioregistry in this
-repository (https://github.com/cthoyt/semantic-pydantic). I'm calling it
+repository (<https://github.com/cthoyt/semantic-pydantic>). I'm calling it
 **Semantic Pydantic** because it lets us annotate our data models with external
 metadata (and because it rhymes).
 

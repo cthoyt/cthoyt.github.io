@@ -51,7 +51,7 @@ follow these instructions:
 3. Install [Python](https://www.python.org).
 4. Run the following in your terminal:
 
-   ```shell
+   ```console
    $ pip install citation-url[endnote]
    $ python -m citation_url.endnote <LOCAL FILE PATH TO YOUR ENDNOTE FILE>
    ```
@@ -84,6 +84,7 @@ resources.
    [this link](https://author-disambiguator.toolforge.org/names_oauth.php?action=authorize)
    to sign in to the Author Disambiguator tool using your Wikidata
    username/password. We'll need this for later steps.
+
 2. [Scholia](https://scholia.toolforge.org) is a frontend for navigating
    scholarly data within Wikidata. Navigating to your Scholia curation by
    replacing `<YOUR Q NUMBER>` in
@@ -94,6 +95,7 @@ resources.
    [this link](https://scholia.toolforge.org/author/Q47475003/curation#missing-author-resolving)
    to see my curation page on Scholia as an example to make sure you're in the
    right place for yours.
+
 3. Click the link next to the specific text string you want to curate:
 
    ![](/img/wikidata-publications/scholia-interface.png)
@@ -105,12 +107,12 @@ resources.
 
    ![](/img/wikidata-publications/select.png)
 
-5. Scroll down past all the check boxes to the section labeled _Potential Author
+5. Scroll down past all the checkboxes to the section labeled _Potential Author
    Items_. Select the radio box corresponding to your Wikidata entry (1), then
    click _Link Selected Works to Author_ (2).
 
    ![](/img/wikidata-publications/finish.png)
 
 6. A new window will appear so you can track the status of the job, but you can
-   close it and it will finish in the background. Give a few minutes, then your
+   close it, and it will finish in the background. Give a few minutes, then your
    profile on Scholia will be updated.

@@ -41,7 +41,7 @@ doing the same for others, the same as they did for us.
         <li>
         {{ role.name }}{% if role.location.group.name %} in the
         {% if role.location.group.url %}
-        <a href="{{ role.location.group.url }}">{{ role.location.group.name }}</a> 
+        <a href="{{ role.location.group.url }}">{{ role.location.group.name }}</a>
         {% else %}
         {{ role.location.group.name }}
         {% endif %}{% endif %}

@@ -22,7 +22,7 @@ PEP 735. So far, uv and tox have released support - all that's left is
 [ReadTheDocs](https://about.readthedocs.com/). This post summarizes the issue I
 added to their issue tracker and the following discussion.
 
-## Summary of optional dependencies and dependency groups.
+## Summary of optional dependencies and dependency groups
 
 Before PEP 735, optional dependencies were often used both for extra features
 (e.g., installing `lxml` for faster XML parsing) as well as development
@@ -88,7 +88,7 @@ $ pip install --dependency-groups=tests,typing .[faster-xml]
 ## Preparing an environment on ReadTheDocs
 
 ReadTheDocs currently supports specifying optional dependencies (see
-https://docs.readthedocs.io/en/stable/config-file/v2.html#packages) with
+<https://docs.readthedocs.io/en/stable/config-file/v2.html#packages>) with
 configuration like the following:
 
 ```yaml

@@ -11,7 +11,7 @@ tags:
 Everyone's talking about biomedical ontologies! Let's look at where most people
 go wrong and how to do it right.
 
-# The Trouble with Biomedical Ontologies
+## The Trouble with Biomedical Ontologies
 
 There's a lot of confusion within the biomedical community as to what
 constitutes an ontology. It's been aggravated by the impenetrable discourse used
@@ -77,7 +77,7 @@ own. The rest of this blog post is about what happens next, where it all goes
 wrong, and how you can avoid it when you're in the situation that you just
 became an ontologist, too.
 
-# How to Build Your Own Biomedical Ontology
+## How to Build Your Own Biomedical Ontology
 
 The curation I trust most is by people who know what they're doing, and more
 importantly by people who love what they're doing.
@@ -93,11 +93,11 @@ groups that I've praised elsewhere in this blog. So keep in mind while you're
 reading this guide that you might be causing more harm than good by making yet
 another ontology.
 
-## Preparation
+### Preparation
 
 Before you start curating you need to do a bit of planning.
 
-### Pick a memorable name and prefix
+#### Pick a memorable name and prefix
 
 There are a lot of ontologies, so pick a name that's both unique and
 descriptive. Then, you need to pick a relatively short "prefix" which will be
@@ -109,7 +109,7 @@ existing one. You can search through registries like
 [OBO Foundry](http://www.obofoundry.org/) (which, on a side note, don't exactly
 contain all the same stuff) to check out the existing landscape.
 
-### Pick a scheme for identifiers
+#### Pick a scheme for identifiers
 
 Even if you're just here to build and maintain your controlled vocabulary, it's
 still necessary to give identifiers to each of the entries in your ontology. In
@@ -162,7 +162,7 @@ identifiers for later validation. In the MeSH example, the regular expression is
 between 6 and 9 numbers. The `^` means beginning of the string and `$` means end
 of the string, so it's clear that nothing can precede or follow.
 
-### Pick your scope
+#### Pick your scope
 
 The last, and most important, part of planning is to pick the scope of your
 ontology. You have to choose what kinds of entities you want to include (genes,
@@ -170,7 +170,7 @@ proteins, side effects, etc.). Keep in mind that if you're picking one of these
 examples, there's probably already a good nomenclature source for it, so it's
 best you don't curate it again.
 
-## Curation
+### Curation
 
 It's time to start curating entries in your ontology. Most people go right to
 [Protégé](https://protege.stanford.edu/).
@@ -191,7 +191,7 @@ In a later post, I'll come back to how to programatically generate OWL, OBO,
 BEL, and other formats that are commonly used for ontologies from your curation
 sheets.
 
-### Curate entities
+#### Curate entities
 
 The most important thing in an ontology is the entities. Make a file called
 _entities.tsv_. It needs a few columns to hold the most important information
@@ -219,7 +219,7 @@ ontology, then you can also include it in this sheet. Later, the properties and
 relationships sheets can be used for other information and other relationships
 such as parent/child relationships, physical properties, etc..
 
-### Curate synonyms
+#### Curate synonyms
 
 Make a file called _synonyms.tsv_. It needs a few columns to describe synonyms
 for each term and the provenance of where they came from:
@@ -235,7 +235,7 @@ for each term and the provenance of where they came from:
    [OBO 1.4 standard](https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html).
    If you're not sure, just put EXACT.
 
-### Curate xrefs
+#### Curate xrefs
 
 Make a file called _xrefs.tsv_. It needs three columns:
 
@@ -251,7 +251,7 @@ parsing CURIEs later.
 It's best to consider xrefs as equivalences. All other relationships should be
 in the relationships page (later).
 
-### Curate typedefs
+#### Curate typedefs
 
 An xref is a very specific type of relationship, so it has first-class status.
 The parent-child relationship is also first-class and it goes without saying.
@@ -273,7 +273,7 @@ defining relationships. It should have the following columns:
    a special case that doesn't appear in the relationships sheets because _isA_
    relationships are so important.
 
-### Curate relationships
+#### Curate relationships
 
 You're ready to use the relationships defined in _typedefs.tsv_ to write out
 relationships. Make _out_relations.tsv_ with the following columns:
@@ -301,7 +301,7 @@ Between these two sheets, you can encode relationships between entities in the
 ontology that are both incoming and outgoing, removing the need to define ad-hoc
 inverses of common relationships, like _isA_.
 
-### Curate properties
+#### Curate properties
 
 Properties are like relationships that point to scalar values instead of other
 entities. For a counterexample, synonyms are a first-class property that
@@ -328,7 +328,7 @@ their best job to fill out entries in each of them every time a new entity is
 added. It's also necessary to keep track of the uniqueness of entity identifiers
 as new ones are added. It's best if they're consecutive and increasing, too.
 
-## Maintenance
+### Maintenance
 
 One of the other real dangers of starting your own ontology is the entire
 concept of maintenance and quality assurance. If you're working in an academic
@@ -344,7 +344,7 @@ conflicts with spaces or commas, tabs never show up in real text, and GitHub
 will make nice renders of TSVs and show you the diffs as versions change, versus
 Excel documents, which are saved as binary.
 
-### Version Control
+#### Version Control
 
 As I've just alluded, use version control. Keep track of how your ontology
 changes over time by making a repository on GitHub. I've heard rumors that git
@@ -358,7 +358,7 @@ working on teams. If you're not working on a team, try pulling in a collaborator
 to review your work as a pull request. Or email/tweet me! I'd be happy to help
 if you're working in open source with a publicly usable license.
 
-### Tooling
+#### Tooling
 
 The next few suggestions rely on a bit of technical expertise. The first is that
 you should write scripts that validate the content's integrity, formatting,
@@ -383,11 +383,11 @@ with all the files, scripts, and configuration that you need to do this without
 any programming at all. An example of most of it in practice is the Curation of
 Neurodegeneration Supporting Ontology (CONSO)
 ([source code](https://github.com/pharmacome/conso);
-[web site](https://pharmacome.github.io/conso/)). It has a few differences from
+[website](https://pharmacome.github.io/conso/)). It has a few differences from
 the recommendations I've made in this post - some of them inspired by choices I
 made during the curation of CONSO that I think could have been done better.
 
-### Choose a License
+#### Choose a License
 
 The license tells other people how they're allowed to use your ontology. If you
 don't use an appropriate open license, other people will not be legally allowed
@@ -396,10 +396,10 @@ making it (yes, I'm being pedantic here). Check out
 [https://choosealicense.com/non-software/](https://choosealicense.com/non-software/)
 for some pointers. I suggest the
 [CC0](https://choosealicense.com/licenses/cc0-1.0/) license, which is the most
-usable one out there. Don't fear - people will cite your work and thank you for
+usable one out there. Don't fear - people will cite your work, and thank you for
 it, even if the license doesn't legally obligate them to.
 
-### Making Releases and Long Term Maintenance
+#### Making Releases and Long Term Maintenance
 
 If you're using GitHub, you can easily integrate the repository with
 [Zenodo](https://zenodo.org/), which archives the repository when you make a tag
@@ -412,7 +412,7 @@ over time. This is okay because your identifiers are persistent! However, you
 might have to retire entries. This might mean adding a column to _entities.tsv_
 with the date that a term is made obsolete.
 
-### Upgrade to more powerful tooling
+#### Upgrade to more powerful tooling
 
 While this guide was focused on how to get started with building ontologies if
 you're new, there are obviously a lot of good reasons why people use more
@@ -428,13 +428,13 @@ don't fit into a TSV-only world for curation.
 
 > [Use of OWL within the Gene Ontology](https://doi.org/10.1101/010090)
 > Christopher J Mungall, Heiko Dietze, David Osumi-Sutherland. _bioRxiv_,
-> 010090; DOI: `10.1101/010090 `
+> 010090; DOI: `10.1101/010090`
 
 He also gave two links to some previously developed tools that can help you get
 started with generating ontologies from tables:
 
-- https://github.com/INCATools/ontology-development-kit/
-- http://robot.obolibrary.org/template
+- <https://github.com/INCATools/ontology-development-kit/>
+- <http://robot.obolibrary.org/template>
 
 These accomplish a similar goal to what I'll present in the next blog post, and
 I'll have to do my due diligence to figure out how they work to provide a more

@@ -15,7 +15,7 @@ wrapper for it. The issue is that getting Python to know about the C headers
 changes every few months. I'll try and keep this blog post updated every time
 there are some changes.
 
-# November 2024
+## November 2024
 
 These days, `pip install graphviz` seemed to work but `uv pip install graphviz`
 gave the following:
@@ -96,7 +96,7 @@ error: command '/usr/bin/clang' failed with exit code 1
 
 Here's one solution that work (of the many possible ones):
 
-```python
+```console
 $ export CFLAGS="-I$(brew --prefix graphviz)/include"
 $ export LDFLAGS="-L$(brew --prefix graphviz)/lib"
 $ uv pip install pygraphviz
@@ -112,7 +112,7 @@ There's also talk of using `--global-option` to pass
 `-I/opt/homebrew/opt/graphviz/include` and `-L/opt/homebrew/opt/graphviz/lib`,
 but I couldn't figure this out for `uv pip install`.
 
-# 2023 Era
+## 2023 Era
 
 I was on Python 3.10 on a M2 Mac with macOS 13. `pygraphviz` didn't have a
 pre-built wheel for my systen so `python -m pip install pygraphviz` gave the
@@ -131,11 +131,11 @@ clang -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic 
 ```
 
 I figured out based on the Homebrew troubleshooting in the docs
-(https://pygraphviz.github.io/documentation/stable/install.html#homebrew) that
+(<https://pygraphviz.github.io/documentation/stable/install.html#homebrew>) that
 the following works:
 
-```shell
-python -m pip install --use-pep517 \
+```console
+$ python -m pip install --use-pep517 \
     --config-setting="--global-option=build_ext" \
     --config-setting="--build-option=-I$(brew --prefix graphviz)/include/" \
     --config-setting="--build-option=-L$(brew --prefix graphviz)/lib/" \

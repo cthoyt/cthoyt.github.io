@@ -108,7 +108,7 @@ write_owl(
 
 which outputs the following OWL functional notation (OFN):
 
-```
+```text
 Prefix(CHEBI:=<http://purl.obolibrary.org/obo/CHEBI_>)
 Prefix(dcterms:=<http://purl.org/dc/terms/>)
 Prefix(mesh:=<http://id.nlm.nih.gov/mesh/>)
@@ -195,7 +195,7 @@ output for clarity.
 | CHEBI:28646 | ammeline      | skos:exactMatch |                    | mesh:C000089 | ammeline     | semapv:ManualMappingCuration |
 | CHEBI:10057 | 9H-xanthene   | skos:exactMatch | Not                | mesh:C002563 | xanthan gum  | semapv:ManualMappingCuration |
 
-```
+```text
 Ontology(
     Declaration(Class(CHEBI:28646))
     Declaration(Class(CHEBI:10057))
@@ -242,7 +242,7 @@ for each semantic mapping predicate.
 | ror:04fbd2g40 | BioNTech (Germany)     | owl:sameAs        | VO:0004946    | BioNTech     | semapv:ManualMappingCuration |
 | ror:04fbd2g40 | BioNTech (Germany)     | owl:differentFrom | ror:054q96n74 | AstraZeneca  | semapv:ManualMappingCuration |
 
-```
+```text
 Ontology(
     Declaration(Class(OBI:0000245))
     Declaration(NamedIndividual(ror:04xfq0f34))
@@ -314,7 +314,7 @@ for some semantic mapping predicates.
 | RO:0018002               | myristoylates           | owl object property     | rdfs:subPropertyOf     | RO:0002436                     | molecularly interacts with | semapv:ManualMappingCuration |
 | oboInOwl:hasBroadSynonym | has broad synonym       | owl annotation property | rdfs:subPropertyOf     | IAO:0000118                    | alternative label          | semapv:ManualMappingCuration |
 
-```
+```text
 Ontology(
     Declaration(ObjectProperty(RO:0018033))
     Declaration(ObjectProperty(RO:0018002))
@@ -379,7 +379,7 @@ behavior to transform the following SSSOM into OWL.
 | ----------- | ------------- | --------------- | ------------ | ------------ | ---------------------------- |
 | CHEBI:28646 | ammeline      | skos:exactMatch | mesh:C000089 | ammeline     | semapv:ManualMappingCuration |
 
-```
+```text
 Ontology(
     Declaration(Class(CHEBI:28646))
     Declaration(Class(mesh:C000089))
@@ -406,18 +406,18 @@ to assert `A disjointFrom B`.
 
 However, there are a few major caveats to such an ascription:
 
-1.  If another positive mapping such as `A subclass of B` exists, then
-    `A not exact match B` is a trivial negative mapping, and should be
-    discarded. Otherwise, the production of `A disjointFrom B` would cause an
-    unsatisfiability in a reasoner. The
-    [`remove_trivial_negative()`](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.remove_trivial_negative.html)
-    function identifies and removes trivial negative mappings.
-2.  Even the lack of materialization of another explicit positive mapping such
-    as `A subclass of B` doesn't mean that there does not exist a true positive
-    mapping. Constructing a logical axiom from a negative mapping can only work
-    if based on your curation workflow, you are sure that the existence of a
-    negative mapping between `A` and `B` implies that no positive mapping
-    exists.
+1. If another positive mapping such as `A subclass of B` exists, then
+   `A not exact match B` is a trivial negative mapping, and should be
+   discarded. Otherwise, the production of `A disjointFrom B` would cause an
+   unsatisfiability in a reasoner. The
+   [`remove_trivial_negative()`](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.process.remove_trivial_negative.html)
+   function identifies and removes trivial negative mappings.
+2. Even the lack of materialization of another explicit positive mapping such
+   as `A subclass of B` doesn't mean that there does not exist a true positive
+   mapping. Constructing a logical axiom from a negative mapping can only work
+   if based on your curation workflow, you are sure that the existence of a
+   negative mapping between `A` and `B` implies that no positive mapping
+   exists.
 
 While these caveats apply to class and property mappings, negative modifiers on
 mappings between individuals can be more confidently handled. The negation of
@@ -457,7 +457,7 @@ but flips inverts their predicates.
 | ror:04fbd2g40 | BioNTech (Germany) | owl:differentFrom | Not                | VO:0004946    | BioNTech     | semapv:ManualMappingCuration     |
 | ror:04fbd2g40 | BioNTech (Germany) | owl:sameAs        | Not                | ror:054q96n74 | AstraZeneca  | semapv:ManualMappingCuration     |
 
-```
+```text
 Ontology(
     Declaration(Class(CHEBI:10057))
     Declaration(Class(mesh:C002563))

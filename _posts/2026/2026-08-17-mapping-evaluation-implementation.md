@@ -166,7 +166,7 @@ negative).
 
 The implementation of the evaluation workflow is available with a
 well-documented Python API in
-[ `sssom_pydantic.workflow.evaluation`](https://sssom-pydantic.readthedocs.io/en/latest/workflow/evaluation.html)
+[`sssom_pydantic.workflow.evaluation`](https://sssom-pydantic.readthedocs.io/en/latest/workflow/evaluation.html)
 as well as via the `sssom_pydantic evaluate` command line interface.
 
 Below, I present an end-to-end example evaluation of lexical predictions

@@ -146,13 +146,13 @@ Mubassher Leser, U., & Hakenberg, J. (2005).
 [What makes a gene name? Named entity recognition in the biomedical literature](https://doi.org/10.1093/bib/6.4.357).
 Briefings in Bioinformatics, 6(4), 357–369.
 
-Pre-print: https://www.biorxiv.org/content/early/2017/03/08/115022
+Pre-print: <https://www.biorxiv.org/content/early/2017/03/08/115022>
 
 Bachman, J. A., Gyori, B. M., & Sorger, P. K. (2018).
 [FamPlex: A resource for entity recognition and relationship resolution of human protein families and complexes in biomedical text mining](https://doi.org/10.1186/s12859-018-2211-5).
 _BMC Bioinformatics_, 19(1), 1–14.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/07/29/379446
+Pre-print: <https://www.biorxiv.org/content/early/2018/07/29/379446>
 
 ### Week 2 - November 7th, 2018 - Identifiers
 
@@ -160,13 +160,13 @@ Laibe, C., & Le Novère, N. (2007).
 [MIRIAM Resources: tools to generate and resolve robust cross-references in Systems’ Biology](https://doi.org/10.1186/1752-0509-1-58).
 _BMC Systems Biology_, 1, 58.
 
-Pre-print: https://www.biorxiv.org/content/early/2017/07/24/167619
+Pre-print: <https://www.biorxiv.org/content/early/2017/07/24/167619>
 
 Juty, N., Le Nover̀e, N., & Laibe, C. (2012).
 [Identifiers.org and MIRIAM Registry: Community resources to provide persistent identification](https://doi.org/10.1093/nar/gkr1097).
 _Nucleic Acids Research_, 40(D1), 580–586.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/02/14/101279
+Pre-print: <https://www.biorxiv.org/content/early/2018/02/14/101279>
 
 ### Week 3 - November 14th, 2018 - Information Extraction
 
@@ -174,13 +174,13 @@ Novichkova, S., _et al._ (2003).
 [MedScan, a natural language processing engine for MEDLINE abstracts](https://doi.org/10.1093/bioinformatics/btg207).
 _Bioinformatics_, 19(13), 1699–1706.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/08/29/403667
+Pre-print: <https://www.biorxiv.org/content/early/2018/08/29/403667>
 
 Ali, M., _et al._ (2017).
 [Automatic Extraction of BEL-Statements based on Neural Networks](http://publica.fraunhofer.de/eprints/urn_nbn_de_0011-n-4972978.pdf).
 _Proceedings of BioCreative VI Challenge and Workshop_, (October).
 
-Pre-print : https://osf.io/j76y3/
+Pre-print : <https://osf.io/j76y3/>
 
 ### Week 4 - November 21nd, 2018 - Knowledge Representations
 
@@ -188,13 +188,13 @@ Demir, E., _et al._ (2010).
 [The BioPAX community standard for pathway data sharing](https://doi.org/10.1038/nbt1210-1308c).
 _Nature Biotechnology_, 28(12), 1308–1308.
 
-Pre-print: https://www.biorxiv.org/content/10.1101/192856v1
+Pre-print: <https://www.biorxiv.org/content/10.1101/192856v1>
 
 Hucka, M., _et al._ (2003).
 [The systems biology markup language (SBML): a medium for representation and exchange of biochemical network models](http://www.ncbi.nlm.nih.gov/pubmed/12611808).
 _Bioinformatics (Oxford, England)_, 19(4), 524–31.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/01/23/246470
+Pre-print: <https://www.biorxiv.org/content/early/2018/01/23/246470>
 
 ### Week 5 - November 28th - Knowledge Representations (cont...)
 
@@ -202,13 +202,13 @@ Le Novère, _et al._ (2009).
 [The Systems Biology Graphical Notation](https://doi.org/10.1038/nbt.1558).
 _Nature Biotechnology_, 27(8), 735–41.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/01/30/256750
+Pre-print: <https://www.biorxiv.org/content/early/2018/01/30/256750>
 
 Carbon, S., _et al._ (2017).
 [Expansion of the gene ontology knowledgebase and resources: The gene ontology consortium](https://doi.org/10.1093/nar/gkw1108).
 _Nucleic Acids Research_, 45(D1), D331–D338.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/10/07/437020
+Pre-print: <https://www.biorxiv.org/content/early/2018/10/07/437020>
 
 ### Week 6 - December 12th, 2018 - Pathway Databases and Semantic Data Integration
 
@@ -219,25 +219,25 @@ _Nucleic Acids Research_, 42(D1), D472–D477. **AND** Fabregat, A., _et al._
 [The Reactome Pathway Knowledgebase](https://doi.org/10.1093/nar/gkx1132).
 _Nucleic Acids Research_, 46(D1), D649–D655.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/10/09/375097
+Pre-print: <https://www.biorxiv.org/content/early/2018/10/09/375097>
 
 Cerami, E. G., _et al._ (2011).
 [Pathway Commons, a web resource for biological pathway data](https://doi.org/10.1093/nar/gkq1039).
 _Nucleic Acids Research_, 39(SUPPL. 1), 685–690.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/09/03/353235
+Pre-print: <https://www.biorxiv.org/content/early/2018/09/03/353235>
 
 Khatri, P., Sirota, M., & Butte, A. J. (2012).
 [Ten years of pathway analysis: Current approaches and outstanding challenges](https://doi.org/10.1371/journal.pcbi.1002375).
 _PLoS Computational Biology_, 8(2).
 
-Pre-print: https://www.biorxiv.org/content/early/2018/09/13/416131
+Pre-print: <https://www.biorxiv.org/content/early/2018/09/13/416131>
 
 Gligorijević, V., & Pržulj, N. (2015).
 [Methods for biological data integration: perspectives and challenges](https://doi.org/10.1098/rsif.2015.0571).
 _Journal of The Royal Society Interface_, 12(112), 20150571.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/12/13/358390
+Pre-print: <https://www.biorxiv.org/content/early/2018/12/13/358390>
 
 ### Week 8 - January 16th, 2019 - Applications
 
@@ -245,13 +245,13 @@ Saqi, M., _et al._ (2018).
 [Navigating the disease landscape: knowledge representations for contextualizing molecular signatures](https://doi.org/10.1093/bib/bby025).
 _Briefings In Bioinformatics_, (May), 1–15.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/11/23/475202
+Pre-print: <https://www.biorxiv.org/content/early/2018/11/23/475202>
 
 Himmelstein, D. S., _et al._ (2017).
 [Systematic integration of biomedical knowledge prioritizes drugs for repurposing](https://doi.org/10.7554/eLife.26726).
 _ELife_, 6.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/10/13/442640
+Pre-print: <https://www.biorxiv.org/content/early/2018/10/13/442640>
 
 ### Week 9 - January 23rd, 2019 - Applications
 
@@ -259,10 +259,10 @@ Lopez, C. F., _et al._ (2013).
 [Programming biological models in Python using PySB](https://doi.org/10.1038/msb.2013.1).
 _Molecular Systems Biology_, 9(646), 646.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/12/23/503359
+Pre-print: <https://www.biorxiv.org/content/early/2018/12/23/503359>
 
 Gyori, B. M., _et al._ (2017).
 [From word models to executable models of signaling networks using automated assembly](https://doi.org/10.15252/msb.20177651).
 _Molecular Systems Biology, 13(11)_, 954.
 
-Pre-print: https://www.biorxiv.org/content/early/2018/05/15/322156
+Pre-print: <https://www.biorxiv.org/content/early/2018/05/15/322156>

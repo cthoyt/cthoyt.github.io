@@ -48,7 +48,7 @@ you incorrectly, please get in touch. Finally, I plan on maintaining this post
 as time goes on and more cool things are published in this community. And so, we
 being on a dark and stormy night in 2001....
 
-### 2001
+## 2001
 
 **2001** Selventa is
 [founded](https://www.flagshippioneering.com/companies/selventa) by
@@ -57,7 +57,7 @@ The concept was to create a computational complement to the company
 [Beyond Genomics, Inc.](https://bg-medicine.com) - which was a systems biology
 company also founded by AGTC (a predecessor fund to Flagship).
 
-### 2002
+## 2002
 
 **Summer 2002** Keith Elliston is hired by Flagship Ventures (later renamed
 Flagship Pioneering) to work with the founding team of Genstruct (Navin Chandra,
@@ -75,7 +75,7 @@ biological networks proposed by Navin Chandra and developed by the team. The
 board approves the plan, approves investment in Genstruct, and hires Keith as
 the CEO.
 
-### 2003
+## 2003
 
 **January 2003** Genstruct does its first commercial project, a pilot project
 with Pfizer, where they successfully identified the mechanism of action of an
@@ -107,7 +107,7 @@ during which they acquire the Pappas portfolio company
 [John Wilbanks](https://www.linkedin.com/in/johnwilbanks/) and
 [Toby Segaran](https://www.linkedin.com/in/toby-segaran-80bbb9/)).
 
-### 2004
+## 2004
 
 **2004** Toby Segaren, working with Justin Sun and other developers at the
 company, develop the first practical version of the Genstruct Inference Engine.
@@ -127,19 +127,19 @@ Massachusetts Institute of Technology (MIT), to the board of directors.
 **November 2004** Genstruct and Pfizer extend and expand their partnership,
 applying the Genstruct platform to various R&D and Toxicology programs
 throughout Pfizer.
-(https://www.genomeweb.com/archive/genstruct-pfizer-expand-research-partnership#.X3jczJNKh24)
+(<https://www.genomeweb.com/archive/genstruct-pfizer-expand-research-partnership#.X3jczJNKh24>)
 
-### 2006
+## 2006
 
 **August 2006** Genstruct and GSK extend their partnership to apply the
 Genstruct platform to define compound mechanisms of action in Oncology
-(https://www.fdanews.com/articles/61568-genstruct-extends-collaboration-in-cancer-with-glaxosmithkline)
+(<https://www.fdanews.com/articles/61568-genstruct-extends-collaboration-in-cancer-with-glaxosmithkline>)
 
 **Sometime in 2006** Gensruct reaches cashflow break even
 ([ref](https://www.linkedin.com/in/keithelliston/)). Keith Elliston's LinkedIn
 profile claims that it was cash flow positive in 2008 and 2009.
 
-### 2008
+## 2008
 
 **April 30, 2008** Genstruct and Sirtris win the BioIT World Best Practices
 Award for their work using the Genstruct Platform to identify the mechanisms of
@@ -150,7 +150,7 @@ develop its Sirt1 activators.
 on the use of the Genstruct technology to assess the stength and extent of
 toxicity using network analysis
 
-### 2009
+## 2009
 
 **2009** Genstruct develops the "Network Perturbation Amplitude" algorithm,
 based on early work done by Jim Watters on pathway expression activation.
@@ -158,7 +158,7 @@ based on early work done by Jim Watters on pathway expression activation.
 **September 2009** Board appoints Chris Varma from Flagship Ventures as
 Executive Chairman.
 
-### 2010
+## 2010
 
 **Jan 2010** Keith Elliston resigns from the company,
 [Chris Varma](https://www.linkedin.com/in/chris-varma-59828a4/) named CEO
@@ -179,7 +179,7 @@ which will occur in late 2011.
 
 **December 2010** David de Graaf named CEO.
 
-### 2011
+## 2011
 
 **June 23rd, 2011** Selventa makes its
 [first tweet](https://twitter.com/Selventa/status/84290855413891072?s=20) from
@@ -189,7 +189,7 @@ which will occur in late 2011.
 [raises $5M](https://www.crunchbase.com/funding_round/selventa-series-unknown--7be2c689#section-overview)
 in its final Venture Round.
 
-### 2012
+## 2012
 
 **April 27th, 2012** The OpenBEL Consortium begins and establishes
 [http://openbel.org](http://openbel.org) as a community resource
@@ -270,7 +270,7 @@ Sciences</a> in the Fall 2012 issue of _Drug Discovery World_ as well as a
 companion piece
 [Saved by the BEL - ringing in a common language for the life sciences](https://www.ddw-online.com/media/32/6950/saved-by-the-bel---ringing-in-a-common-language-for-the-life-sciences.pdf)
 
-### 2013
+## 2013
 
 **August 26th, 2013** OpenBEL becomes a Linux Foundation Collaborative Project
 ([ref 1](https://www.linuxfoundation.org/press-release/2013/08/life-sciences-information-framework-openbel-to-become-a-linux-foundation-collaborative-project/),
@@ -311,7 +311,7 @@ and colleagues publish the
 [Reverse Causal Reasoning algorithm](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-340)
 in _BMC Bioinformatics_, this time with no co-authors from PMI.
 
-### 2014
+## 2014
 
 **January 23rd, 2014** With the death of the OpenBEL Framework in sight, the
 [@openbel](https://twitter.com/openbel) Twitter account
@@ -331,7 +331,7 @@ published their
 they have been quite prolific in the 2010's) paper describing the Network
 Perturbation Amplitude analysis, this time with no co-authors from Selventa.
 
-### 2015
+## 2015
 
 **Sometime between 2015-2017** With the withdrawn of support from Christoph
 Brockel (sometime between 2015 and 2017, when he left Pfizer), Pfizer divests
@@ -399,7 +399,7 @@ under a _very slow_ debate.
 Fraunhofer's BEL activities throughout the AETIONOMY which cumulated in
 [this publication](https://www.mdpi.com/1422-0067/16/12/26148/pdf).
 
-### 2016
+## 2016
 
 **Sometime in 2016** Selventa dissolves
 ([ref](https://www.flagshippioneering.com/companies/selventa)). I think this
@@ -478,7 +478,7 @@ knowledge graph for psychiatric conditions in the BEL4IMOCEDE project
 [ref 2](https://www.linkedin.com/in/asifemon/?originalSubdomain=de)), supported
 by PyBEL and BEL Commons.
 
-### 2017
+## 2017
 
 **January 24th, 2017** [Asif Emon](https://www.linkedin.com/in/asifemon/)
 (Fraunhofer) publishes
@@ -527,7 +527,7 @@ much greater focus on reproducibility and automation. It was later
 [pre-printed](https://www.biorxiv.org/content/biorxiv/early/2019/05/08/631812.full.pdf)
 but in late April 2020, has not yet been accepted for publication.
 
-### 2018
+## 2018
 
 **January 30, 2018** [BioDati, Inc.](https://biodati.com/) officially forms as a
 spin-off of ADS and
@@ -621,7 +621,7 @@ ComPath pathway equivalence database and the
 towards unifying major public pathway databases in BEL. The source code and
 underlying data were published on [GitHub](https://github.com/ComPath).
 
-### 2019
+## 2019
 
 **February 15th, 2019** Mehdi Ali (University of Bonn) publishes the
 [BioKEEN machine learning package](https://github.com/smartdataanalytics/biokeen/)
@@ -675,10 +675,10 @@ Fraunhofer makes its
 [last public commit](https://github.com/pharmacome/conib/commit/98fe95b4c2dab202b313bf911257d4b009ce4440)
 to the
 [Curation of Neurodegeneration in BEL (CONIB)](https://github.com/pharmacome/conib)
-project before the the departure of Charles Tapley Hoyt following his PhD and
+project before the departure of Charles Tapley Hoyt following his PhD and
 interest in public curation in this project dwindled.
 
-### 2020
+## 2020
 
 **March 4th, 2020** The [Hetionet project](https://github.com/hetio/hetionet/)
 adopts BEL as a
@@ -728,8 +728,8 @@ they are not included in this history.
 The Chemotoxicogenomics Database had been converted to BEL by Thomas Weigers a
 long time ago, when the XML BEL format existed (another thing that I think
 wasn't worth bringing). I corresponded with him about it when I was at
-Fraunhofer, but unfortunately don't have access my the emails anymore to double
-check exactly what we talked about. He did send me the database as XBEL which he
+Fraunhofer, but unfortunately don't have access my the emails anymore to double-check
+exactly what we talked about. He did send me the database as XBEL which he
 said he made with a script he wrote but didn't have anymore. Ultimately, I
 decided to re-write the converter to play nicer in the Bio2BEL ecosystem, which
 worked for a while and then broke because its downstream dependency for parsing
@@ -772,7 +772,7 @@ did during my master's and doctoral work at Fraunhofer. I'm thankful for all the
 people who were interested in my projects, contributed to them, and then joined
 me as co-authors on my publications. When it came to writing this history, I was
 in a situation where I had lots of high granular information to share on the
-things that I worked on and also the the desire to share as much of it as
+things that I worked on and also the desire to share as much of it as
 possible. I hope I did a good enough job at laying out the landscape of the
 other things going on outside my perspective.
 

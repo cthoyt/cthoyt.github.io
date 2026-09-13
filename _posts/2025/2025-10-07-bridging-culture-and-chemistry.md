@@ -178,7 +178,7 @@ that can be used with standard tooling. However, some of the source data is
 available on GitHub at [iconclass/data](https://github.com/iconclass/data), so
 it's possible to write custom code that wrangles it into an ontology-like shape.
 I've actually done this for dozens of repositories already, and written
-[ PyOBO](https://github.com/biopragmatics/pyobo), a library of reusable tooling
+[PyOBO](https://github.com/biopragmatics/pyobo), a library of reusable tooling
 to support ingesting new resources across domains in an ontology-like shape.
 
 Accordingly, I added a source to PyOBO to ingest Iconclass in
