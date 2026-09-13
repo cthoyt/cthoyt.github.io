@@ -20,3 +20,7 @@ check:
 
 spelling:
     uvx codespell **/*.md
+
+clean:
+    rm -rf _site
+    rm -rf .rumdl_cache
