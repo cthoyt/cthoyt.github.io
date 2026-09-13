@@ -484,8 +484,8 @@ queries through federation.
 
 However, there wasn't already a CLI tool for spinning up a lightweight SPARQL
 endpoint based on SSSOM, so I contributed one to
-[sssom-py](https://github.com/mapping-commons/sssom-py), the first-party SSSOM Python
-package, in
+[sssom-py](https://github.com/mapping-commons/sssom-py), the first-party SSSOM
+Python package, in
 [mapping-commons/sssom-py#619](https://github.com/mapping-commons/sssom-py/pull/619).
 It works by combining the built-in functionality to create an in-memory RDF
 cache using [RDFlib](https://github.com/RDFLib/rdflib) with Vincent Emonet's
