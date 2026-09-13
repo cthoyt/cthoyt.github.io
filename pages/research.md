@@ -46,7 +46,7 @@ developed [PyBEL](https://github.com/pybel). To interactively explore these
 graphs in a web-based environment and identify biological contractions, I
 developed [BEL Commons](https://github.com/bel-commons).
 
-Finally, to integrate all of the rich biological data sources available to the
+Finally, to integrate all the rich biological data sources available to the
 public, I developed [Bio2BEL](https://github.com/bio2bel). During the process, I
 was able to support the [ComPath](https://github.com/compath) project, which
 used the Bio2BEL framework to support the curation of equivalencies and

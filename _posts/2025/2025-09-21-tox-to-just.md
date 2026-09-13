@@ -142,7 +142,7 @@ generic concern of most packages. The next steps are to test replacing all Tox
 environments with corresponding just commands in SSSLM, then upstream this to my
 cookiecutter template
 [https://github.com/cthoyt/cookiecutter-snekpack](https://github.com/cthoyt/cookiecutter-snekpack)
-so all of my repositories can benefit.
+so all my repositories can benefit.
 
 ## What We Really Want
 

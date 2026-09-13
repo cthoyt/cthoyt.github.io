@@ -31,7 +31,7 @@ under the permissive CC0 license.
 
 My first thought was that there are tons of ORCID-Twitter connections available
 under the CC0 license through Wikidata that they could use to complement this
-content. The following SPARQL query retrieves all of these links:
+content. The following SPARQL query retrieves all these links:
 
 ```sparql
 SELECT ?item ?itemLabel ?orcid ?twitter
@@ -82,8 +82,8 @@ them used in more and more scientific workflows.
 
 It appears that OpenCheck is an effort from a company called
 [Metarational, LLC](https://www.metarational.net) run by
-[John Beatty](https://twitter.com/john_d_beatty) that has has a more long-term
-goal of supporting verification online (i.e., better than an $8 blue star). I'm
+[John Beatty](https://twitter.com/john_d_beatty) that has a more long-term goal
+of supporting verification online (i.e., better than an $8 blue star). I'm
 excited to see what they do next!
 
 If you want to make sure that your ORCID, Twitter, and other academic profiles

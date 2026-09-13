@@ -251,7 +251,7 @@ their own issues:
    which nicely subclasses OBI's investigation class, but ERO has been abandoned
    and marked as deprecated in the OBO Foundry.
 5. The [Ontology for MicroRNA Target (OMIT)](https://bioregistry.io/omit)
-   haphazardly imported all of MeSH at some point and has a term
+   haphazardly imported the entirety of MeSH and has a term
    [Clinical Trial (OMIT:0016936)](https://www.ebi.ac.uk/ols4/ontologies/omit/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FOMIT_0016936).
 6. The [Clinical Trials Ontology (CTO)](https://bioregistry.io/registry/cto) is
    an OBO Foundry ontology that nominally has the correct scope and has a term
@@ -334,7 +334,7 @@ text.
 [PyOBO](https://github.com/biopragmatics/pyobo) is Python software package that
 implements an in-memory data structure for OBO/OWL ontologies as well as I/O
 operations. On top of this, it implements workflows for converting databases
-like HGNC, MeSH, and ChEMBL into OBO/OWL ontolgies. These workflows are careful
+like HGNC, MeSH, and ChEMBL into OBO/OWL ontologies. These workflows are careful
 to make good design decisions, reusing classes and relations from other OBO
 ontologies when possible. This is crucial for them to be readily integratable
 with other resources.
@@ -366,13 +366,13 @@ A summary page can be found in the `obo-db-ingest` repository
 [here](https://github.com/biopragmatics/obo-db-ingest/tree/main/export/clinicaltrials)
 and the exported artifacts are listed here:
 
-| Artifact       | Download PURL                                                                                                                                                    |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| OBO            | [https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.obo.gz](https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.obo.gz)   |
-| OFN            | [https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.ofn.gz](https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.ofn.gz)   |
-| OWL            | [https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.owl.gz](https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.owl.gz)   |
-| OBO Graph JSON | [https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.json.gz](https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.json.gz) |
-| Nodes          | [https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.tsv](https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.tsv)         |
+| Artifact       | Download PURL                                                                    |
+| -------------- | -------------------------------------------------------------------------------- |
+| OBO            | <https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.obo.gz>  |
+| OFN            | <https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.ofn.gz>  |
+| OWL            | <https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.owl.gz>  |
+| OBO Graph JSON | <https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.json.gz> |
+| Nodes          | <https://w3id.org/biopragmatics/resources/clinicaltrials/clinicaltrials.tsv>     |
 
 Here's what some OBO instances for clinical studies look like for each clinical
 study type:
@@ -509,7 +509,7 @@ For small molecule drugs, the principle of structure-activity relationship (SAR)
 states that there is often a high correlation between the chemical structure and
 its functional activity. Many similar drugs work because they share a privileged
 substructure. For example, the beta-hydroxy lactone appearing in statins enable
-their HMC-CoA reducatase inhibitor activity, which confers their ability to
+their HMC-CoA reductase inhibitor activity, which confers their ability to
 reduce LDL and risk of cardiovascular disease. Similarly, sulfonamides were a
 classic substructure used in first-generation antibacterials due to their
 competitive inhibition of dihydropteroate synthase, a key part of folate
@@ -559,7 +559,7 @@ arsenic-containing drugs have been used in for malaria?_
 ```
 
 The second case study extended the way we look at drugs by adding the
-hieararchical substructure relationships from ChEBI. If we want to aggregate
+hierarchical substructure relationships from ChEBI. If we want to aggregate
 diseases at a different granularity, we can do so by incorporating the subclass
 relationships from a resource like the Disease Ontology. Then, we can ask the
 previous question at a chosen level of granularity, like _what's the maximum
