@@ -21,7 +21,7 @@ check:
 spelling:
     uvx codespell --builtin 'clear,rare,en-GB_to_en-US' **/*.md
     grep -r "the the"
-    grep -r "all of"
+    grep -r "\sall\sof"
 
 clean:
     rm -rf _site
