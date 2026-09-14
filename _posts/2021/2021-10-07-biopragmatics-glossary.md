@@ -190,6 +190,7 @@ identifier for
 [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=138488):
 
 <!-- rumdl-disable MD034 MD013-->
+
 <span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=</span><span style="color:orange">138488</span>
 <!-- rumdl-enable MD034 MD013-->
 
@@ -198,6 +199,7 @@ space and therefore many URIs describing the same entity. For example, ChEBI
 also serves images with:
 
 <!-- rumdl-disable MD034 MD013-->
+
 <span style="color:red">https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=</span><span style="color:orange">138488</span>
 <!-- rumdl-enable MD034 MD013-->
 
@@ -297,6 +299,7 @@ parts:
 4. An ontology local identifier (in blue)
 
 <!-- rumdl-disable MD034 -->
+
 <span style="color:red">http://purl.obolibrary.org/obo/</span><span style="color:orange">DRON</span>\_<span style="color:blue">0000005</span>
 <!-- rumdl-enable MD034 -->
 
