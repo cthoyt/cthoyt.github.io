@@ -172,7 +172,7 @@ $$\text{IAMR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r
 This has the benefit that it's more comparable to the mean reciprocal rank
 because $\\text{IAMR} \\in (0,1]$.
 
-## Demistying the Metrics
+## Demistifying the Metrics
 
 Since we're thinking about arithmetic means and harmonic means over the ranks,
 it would make sense to investigate the third
