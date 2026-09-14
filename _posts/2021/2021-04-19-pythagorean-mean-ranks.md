@@ -84,7 +84,8 @@ is given as:
 {% raw %}
 
 $$
-\text{score}_k = \frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} \mathbb{I}[r \leq k]
+\text{score}_k = \frac{1}{|\mathcal{I}|}
+\sum \limits_{r \in \mathcal{I}} \mathbb{I}[r \leq k]
 $$
 
 {% endraw %}
@@ -128,8 +129,8 @@ is defined as:
 {% raw %}
 
 $$
-\text{MRR} =\frac{1}{|\mathcal{I}|} \sum_{r \in \mathcal{I}} r^{-1} = \bigg(\frac{|\mathcal{I}|}{ \sum_{r \in
-\mathcal{I}} r^{-1}}\bigg)^{-1}
+\text{MRR} =\frac{1}{|\mathcal{I}|} \sum_{r \in \mathcal{I}} r^{-1}
+= \bigg(\frac{|\mathcal{I}|}{ \sum_{r \in \mathcal{I}} r^{-1}}\bigg)^{-1}
 $$
 
 {% endraw %}
@@ -170,7 +171,8 @@ really the arithmetic mean rank) by:
 {% raw %}
 
 $$
-\text{IAMR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r \bigg)^{-1} = \frac{1}{\text{MR}}
+\text{IAMR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r \bigg)^{-1}
+= \frac{1}{\text{MR}}
 $$
 
 {% endraw %}
@@ -213,7 +215,8 @@ metrics, its inverse, the inverse geometric mean rank (IGMR) can be defined as:
 {% raw %}
 
 $$
-\text{IGMR} = \frac{1}{\text{GMR}} = \bigg(\sqrt[\|\mathcal{I}\|]{\prod \limits_{r \in \mathcal{I}} r}\bigg)^{-1}
+\text{IGMR} = \frac{1}{\text{GMR}}
+= \bigg(\sqrt[\|\mathcal{I}\|]{\prod \limits_{r \in \mathcal{I}} r}\bigg)^{-1}
 $$
 
 {% endraw %}

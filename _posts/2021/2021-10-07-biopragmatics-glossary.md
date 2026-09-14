@@ -298,10 +298,10 @@ parts:
 3. A delimiter (in black; always the same)
 4. An ontology local identifier (in blue)
 
-<!-- rumdl-disable MD034 -->
+<!-- rumdl-disable MD034 MD013 -->
 
 <span style="color:red">http://purl.obolibrary.org/obo/</span><span style="color:orange">DRON</span>\_<span style="color:blue">0000005</span>
-<!-- rumdl-enable MD034 -->
+<!-- rumdl-enable MD034 MD013 -->
 
 Confusingly, the entire combination of the ontology's prefix, the delimiter, and
 the ontology's local identifier (e.g., `DRON_0000005`) are considered in some
