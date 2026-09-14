@@ -263,7 +263,7 @@ spaces can be trivially split into a URI prefix and a local identifier. For
 example, the [REBASE](https://bioregistry.io/rebase) entry for
 [Asp14HI](https://bioregistry.io/rebase:101) has the URI
 <http://rebase.neb.com/rebase/enz/101.html>. Note the pesky `.html` at the end,
-which if removed, causes an HTTP 404 error due to the implementation of the
+which, if removed, causes an HTTP 404 error due to the implementation of the
 REBASE website.
 
 While this creates a big problem for parsing URIs into CURIEs, it's still
