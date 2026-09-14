@@ -103,7 +103,7 @@ given as:
 
 {% raw %}
 
-$$\text{MR} =\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r$$
+$$\text{MR} = \frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r$$
 
 {% endraw %}
 
