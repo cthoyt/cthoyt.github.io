@@ -68,8 +68,9 @@ XML + Java), and has not seen a lot of traction in the biomedical space.
 <img src="https://ontoportal.org/images/logo.png" align="left" style="max-height: 3em; margin-right: 0.5em;" alt="OntoPortal logo"/>
 [OntoPortal](https://ontoportal.org/) has its own data model for semantic
 mappings that has low metadata precision. I recently wrote a post on converting
-[OntoPortal to SSSOM]({% post_url 2025/2025-11-23-sssom-from-bioportal %}). OntoPortal would also like
-to invest more in SSSOM infrastructure if it can organize funding and human resources.
+[OntoPortal to SSSOM]({% post_url 2025/2025-11-23-sssom-from-bioportal %}).
+OntoPortal would also like to invest more in SSSOM infrastructure if it can
+organize funding and human resources.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Wikidata-logo-en.svg" align="left" style="max-height: 3em" alt="Wikidata logo">
 [Wikidata](https://www.wikidata.org) has its own data model for semantic

@@ -292,8 +292,8 @@ Then, this evaluation workflow could be used to run competitions and make
 comparison tools between mapping tools or hyperparameter optimization for a
 single tool, and significantly simplify competitions like the
 [Ontology Alignment Evaluation Initiative (OAEI)](https://oaei.ontologymatching.org),
-which I discussed in detail in my [previous
-post]({% post_url 2026/2026-08-17-mapping-evaluation-background %}#brief-background-on-oeai)
+which I discussed in detail in my [previous post]({% post_url
+2026/2026-08-17-mapping-evaluation-background %}#brief-background-on-oeai)
 
 However, as I mentioned in the closing remarks of my [previous
 post]({% post_url 2026/2026-08-17-mapping-evaluation-background %}#conclusions),
