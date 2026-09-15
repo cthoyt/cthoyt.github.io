@@ -133,6 +133,10 @@ software package, which has bindings to Python, Java, R, Rust, and JavaScript
    [previous post]({% post_url 2025/2025-09-04-bioregistry-turtle-validation
    %}).
 
+Further, there is an evolving (but not yet well-documented)
+notion of *NFDI standards* where we would like
+to promote the Semantic Farm prefix map.
+
 **Semantic Farm enables data integration** The Semantic Farm was a key tool
 that enabled the integration of the NFDI4Chem and
 NFDI4Culture's KGs that wasn't possible using other NFDI tools like
