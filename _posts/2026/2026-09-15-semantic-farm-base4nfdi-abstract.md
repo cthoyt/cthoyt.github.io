@@ -25,13 +25,12 @@ I'd like to extend a special thanks to co-authors Mark Doerr (University
 Greifswald), Ulrik Stervbo (Ruhr-Universität Bochum), Benjamin Zapilko (GESIS),
 and Sonja Herres-Pawlis (RWTH Aachen). Their interest and support for the
 Semantic Farm has been key in its integration in the NFDI Section Metadata
-Working Group for Ontology Harmonzition and Mapping (WG Onto) and first steps
-into other NFDI sections, working groups, and services.
+Working Group for Ontology Harmonzition and Mapping and next steps towards its
+adoption into other NFDI sections, working groups, and services.
 
 We posted the original abstract to Zenodo such that it can be cited by
-<https://doi.org/10.5281/zenodo.21686485>. The following abstract
-below has minor embellishments (and many added links for context) and
-an extra section.
+<https://doi.org/10.5281/zenodo.21686485>. The following abstract below has
+minor embellishments (and many added links for context) and an extra section.
 
 ## Abstract
 
@@ -133,14 +132,13 @@ software package, which has bindings to Python, Java, R, Rust, and JavaScript
    [previous post]({% post_url 2025/2025-09-04-bioregistry-turtle-validation
    %}).
 
-Further, there is an evolving (but not yet well-documented)
-notion of *NFDI standards* where we would like
-to promote the Semantic Farm prefix map.
+Further, there is an evolving (but not yet well-documented) notion of
+*NFDI standards* where we would like to promote the Semantic Farm prefix map.
 
-**Semantic Farm enables data integration** The Semantic Farm was a key tool
-that enabled the integration of the NFDI4Chem and
-NFDI4Culture's KGs that wasn't possible using other NFDI tools like
-TS4NFDI and KGI4NFDI. This scenario was described in detail [here]({% post_url
+**Semantic Farm enables data integration** The Semantic Farm was a key tool that
+enabled the integration of the NFDI4Chem and NFDI4Culture's KGs that wasn't
+possible using other NFDI tools like TS4NFDI and KGI4NFDI. This scenario was
+described in detail [here]({% post_url
 2025/2025-10-07-bridging-culture-and-chemistry %}).
 
 **Semantic Farm has demonstrated widespread impact** While measuring the impact
@@ -148,3 +146,37 @@ of a data resource or software package is challenging, we collated a combination
 of direct and indirect usages of the Semantic Farm across programming languages,
 use cases, and countries in [this post]({% post_url
 2025/2025-08-22-bioregistry-impact %}).
+
+## Semantic Farm for KG4NFDI
+
+KG4NFDI could proactively adopt the Semantic Farm's prefix map as a standard,
+contribute towards the design and implementation of new validation workflows,
+and use its organizational energy to promote the standard across consortia,
+sections, and section working groups that produce (and consume) knowledge
+graphs.
+
+This could directly unlock opportunities for federation and interdisciplinary
+querying and exploration.
+
+## Semantic Farm for PID4NFDI
+
+The idea of persistent identifiers (PIDs) is an important facet of the
+standardized identification of entities, but frequent narrow focus on popular
+PID providers (ORCiD, ROR, DOI, etc.) often obscures the other important aspects
+of standardized identification. For example, while the question of how to
+identify entity types outside the popular PID providers is often eschewed, the
+Semantic Farm is a database that describes thousands of resources that mint PIDs
+for other entity types (e.g., proteins).
+
+The Semantic Farm can be used as an informational resource by PID-minded NFDI
+consortia, sections, and working groups to better understand the challenges and
+best practices surrounding standardized identification of entities and how they
+fit into the larger goals of data standardization, data integration, and
+ultimately application to scientific endeavors.
+
+The Semantic Farm can also provide a more straightforward way of documenting
+popular PID providers and what they do. Accordingly, the Semantic Farm has a
+[collection](https://semantic.farm/collection/0000044) describing the popular
+PID providers
+[listed by the PID4NFDI](https://pid.services.base4nfdi.de/get-pid/providers/)
+on their website.
