@@ -28,8 +28,9 @@ Semantic Farm has been key in its integration in the NFDI Section Metadata
 Working Group for Ontology Harmonzition and Mapping (WG Onto) and first steps
 into other NFDI sections, working groups, and services.
 
-We posted the abstract to Zenodo such that it can be cited by
-<https://doi.org/10.5281/zenodo.21686485>.
+We posted the original abstract to Zenodo such that it can be cited by
+<https://doi.org/10.5281/zenodo.21686485>. The following abstract
+below has minor embellishments (and many added links for context).
 
 ## Abstract
 
@@ -105,29 +106,38 @@ Further information on the Semantic Farm's KPIs can be found [here]({% post_url
 and to support its integration in more NFDI services and usage in data
 resources.
 
-## See Also
+## Additional Context
 
-The Semantic Farm is a data standard - it produces a standard prefix map that
-connects CURIE prefixes to URI prefixes. The associated software tooling in
-Python, Java, R, Rust, and JavaScript (via WASM) makes this an actionable
-standard. For example:
+**Semantic Farm as a data standard** The Semantic Farm induces a standard prefix
+map that is simultaneously a reflection of real-world usage as well as
+community-curated standards for CURIE prefixes to URI prefixes. The flagship
+Semantic Farm software package is implemented in Python, but the prefix map can
+be operationalized as a data standard through the lower-level
+[curies.rs](http://github.com/biopragmatics/curies.rs)
+software package, which has bindings to Python, Java, R, Rust, and JavaScript
+(via WASM) .makes this an actionable standard. For example:
 
 1. LinkML schemas can be checked to use correct CURIE prefixes and URI prefixes,
-   see [previous post]({% post_url 2026/2026-01-06-bioregistry-linkml-validation
-   %}).
+   see this [previous post]({% post_url
+   2026/2026-01-06-bioregistry-linkml-validation %}).
 2. Prefix maps in triple stores, such as the NFDI4Culture
    [Culture Knowledge Graph](https://nfdi4culture.de/services/details/culture-knowledge-graph.html),
-   can be contextualized and checked for standard CURIE prefix usage, see
+   can be contextualized and checked for standard CURIE prefix usage, see this
    [previous post]({% post_url 2025/2025-09-11-nfdi4culture-prefix-validation
    %}).
 3. Turtle (and other RDF) artifacts, such as those produced for SKOS
-   vocabularies and knowledge graphs, can be validated similarly, see [previous
-   post]({% post_url 2025/2025-09-04-bioregistry-turtle-validation %}).
+   vocabularies and knowledge graphs, can be validated similarly, see this
+   [previous post]({% post_url 2025/2025-09-04-bioregistry-turtle-validation
+   %}).
 
-The Semantic Farm was a key tool in the integration between NFDI4Chem and
-NFDI4Culture's KGs which requires standardization that isn't covered by TS4NFDI
-nor KGI4NFDI, see [previous post]({% post_url
+**Semantic Farm enables data integration** The Semantic Farm was a key tool
+that enabled the integration of the NFDI4Chem and
+NFDI4Culture's KGs that wasn't possible using other NFDI tools like
+TS4NFDI and KGI4NFDI. This scenario was described in detail [here]({% post_url
 2025/2025-10-07-bridging-culture-and-chemistry %}).
 
-Measuring the impact, see [previous post]({% post_url
+**Semantic Farm has demonstrated widespread impact** While measuring the impact
+of a data resource or software package is challenging, we collated a combination
+of direct and indirect usages of the Semantic Farm across programming languages,
+use cases, and countries in [this post]({% post_url
 2025/2025-08-22-bioregistry-impact %}).

@@ -15,7 +15,7 @@ format:
 
 spelling:
     uvx codespell --builtin 'clear,rare,en-GB_to_en-US' **/*.md
-    grep -r "the the"
+    grep -r "the\sthe\s"
     grep -r "\sall\sof"
 
 clean:
