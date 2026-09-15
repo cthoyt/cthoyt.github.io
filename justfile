@@ -8,15 +8,10 @@ pinact:
 format:
   ruff format
   ruff check --fix --unsafe-fixes .
-  pnpx prettier --prose-wrap always --write --check "**/*.md"
+  uvx rumdl fmt
+  uvx rumdl check --fix
   pnpx prettier --prose-wrap always --write --check "**/*.yml"
   pnpx prettier --prose-wrap always --write --check "_includes/custom-head.html"
-
-format-rumdl:
-    uvx rumdl fmt
-
-check:
-    uvx rumdl check
 
 spelling:
     uvx codespell --builtin 'clear,rare,en-GB_to_en-US' **/*.md

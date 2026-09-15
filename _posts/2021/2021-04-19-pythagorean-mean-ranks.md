@@ -83,7 +83,10 @@ is given as:
 
 {% raw %}
 
-$$\text{score}_k = \frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} \mathbb{I}[r \leq k]$$
+$$
+\text{score}_k = \frac{1}{|\mathcal{I}|}
+\sum \limits_{r \in \mathcal{I}} \mathbb{I}[r \leq k]
+$$
 
 {% endraw %}
 
@@ -103,7 +106,7 @@ given as:
 
 {% raw %}
 
-$$\text{MR} =\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r$$
+$$\text{MR} = \frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r$$
 
 {% endraw %}
 
@@ -126,8 +129,8 @@ is defined as:
 {% raw %}
 
 $$
-\text{MRR} =\frac{1}{|\mathcal{I}|} \sum_{r \in \mathcal{I}} r^{-1} = \bigg(\frac{|\mathcal{I}|}{ \sum_{r \in
-\mathcal{I}} r^{-1}}\bigg)^{-1}
+\text{MRR} =\frac{1}{|\mathcal{I}|} \sum_{r \in \mathcal{I}} r^{-1}
+= \bigg(\frac{|\mathcal{I}|}{ \sum_{r \in \mathcal{I}} r^{-1}}\bigg)^{-1}
 $$
 
 {% endraw %}
@@ -154,7 +157,9 @@ would make sense to report the harmonic mean rank (HMR) as well, defined by:
 
 {% raw %}
 
-$$\text{HMR} = \frac{|\mathcal{I}|}{ \sum_{r \in \mathcal{I}} r^{-1}} = \frac{1}{\text{MRR}}$$
+$$
+\text{HMR} = \frac{|\mathcal{I}|}{ \sum_{r \in \mathcal{I}} r^{-1}} = \frac{1}{\text{MRR}}
+$$
 
 {% endraw %}
 
@@ -165,14 +170,17 @@ really the arithmetic mean rank) by:
 
 {% raw %}
 
-$$\text{IAMR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r \bigg)^{-1} = \frac{1}{\text{MR}}$$
+$$
+\text{IAMR} = \bigg(\frac{1}{|\mathcal{I}|} \sum \limits_{r \in \mathcal{I}} r \bigg)^{-1}
+= \frac{1}{\text{MR}}
+$$
 
 {% endraw %}
 
 This has the benefit that it's more comparable to the mean reciprocal rank
 because $\\text{IAMR} \\in (0,1]$.
 
-## Demistying the Metrics
+## Demistifying the Metrics
 
 Since we're thinking about arithmetic means and harmonic means over the ranks,
 it would make sense to investigate the third
@@ -206,7 +214,10 @@ metrics, its inverse, the inverse geometric mean rank (IGMR) can be defined as:
 
 {% raw %}
 
-$$\text{IGMR} = \frac{1}{\text{GMR}} = \bigg(\sqrt[\|\mathcal{I}\|]{\prod \limits_{r \in \mathcal{I}} r}\bigg)^{-1}$$
+$$
+\text{IGMR} = \frac{1}{\text{GMR}}
+= \bigg(\sqrt[\|\mathcal{I}\|]{\prod \limits_{r \in \mathcal{I}} r}\bigg)^{-1}
+$$
 
 {% endraw %}
 

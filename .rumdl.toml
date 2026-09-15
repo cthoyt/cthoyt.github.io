@@ -7,7 +7,6 @@
 [global]
 # List of rules to disable (uncomment and modify as needed)
 disable = [
-    "MD013", # line length
     "MD033", # HTML
     "MD014", # remove $ from console with no output
     # REMOVE
@@ -44,6 +43,7 @@ exclude = [
     # Specific files or patterns
     "CHANGELOG.md",
     "LICENSE.md",
+    "_site",
 ]
 
 # Respect .gitignore files when scanning directories (default: true)
@@ -58,18 +58,22 @@ flavor = "kramdown"
 # [MD003]
 # style = "atx"  # Heading style (atx, atx_closed, setext)
 
-# [MD004]
-# style = "asterisk"  # Unordered list style (asterisk, plus, dash, consistent)
+[MD004]
+style = "dash"  # Unordered list style (asterisk, plus, dash, consistent)
 
 # [MD007]
 # indent = 4  # Unordered list indentation
 
-# [MD013]
-# line-length = 100  # Line length
-# code-blocks = false  # Exclude code blocks from line length check
-# tables = false  # Exclude tables from line length check
+[MD013]
+line-length = 80  # Line length
+reflow = true
+code-blocks = false  # Exclude code blocks from line length check
+tables = false  # Exclude tables from line length check
 # headings = true  # Include headings in line length check
 
 [MD044]
 # names = ["rumdl", "Markdown", "GitHub"]  # Proper names that should be capitalized correctly
 # code-blocks = false  # Check code blocks for proper names (default: false, skips code blocks)
+
+[per-file-ignores]
+"index.md" = ["MD041"]
