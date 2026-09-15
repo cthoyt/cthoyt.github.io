@@ -30,7 +30,8 @@ into other NFDI sections, working groups, and services.
 
 We posted the original abstract to Zenodo such that it can be cited by
 <https://doi.org/10.5281/zenodo.21686485>. The following abstract
-below has minor embellishments (and many added links for context).
+below has minor embellishments (and many added links for context) and
+an extra section.
 
 ## Abstract
 
@@ -107,6 +108,8 @@ and to support its integration in more NFDI services and usage in data
 resources.
 
 ## Additional Context
+
+This section was not part of the original abstract.
 
 **Semantic Farm as a data standard** The Semantic Farm induces a standard prefix
 map that is simultaneously a reflection of real-world usage as well as
