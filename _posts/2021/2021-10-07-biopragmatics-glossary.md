@@ -189,13 +189,19 @@ different local identifier (in orange). Here's an example, using the ChEBI local
 identifier for
 [alsterpaullone](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=138488):
 
-<span style="color:red"><https://www.ebi.ac.uk/chebi/searchId.do?chebiId=></span><span style="color:orange">138488</span>
+<!-- rumdl-disable MD034 MD013-->
+
+<span style="color:red">https://www.ebi.ac.uk/chebi/searchId.do?chebiId=</span><span style="color:orange">138488</span>
+<!-- rumdl-enable MD034 MD013-->
 
 There may be potentially many URI prefixes corresponding to the same semantic
 space and therefore many URIs describing the same entity. For example, ChEBI
 also serves images with:
 
-<span style="color:red"><https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=></span><span style="color:orange">138488</span>
+<!-- rumdl-disable MD034 MD013-->
+
+<span style="color:red">https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&imageIndex=0&chebiId=</span><span style="color:orange">138488</span>
+<!-- rumdl-enable MD034 MD013-->
 
 ### Compact Uniform Resource Identifiers (CURIEs)
 
@@ -263,7 +269,7 @@ spaces can be trivially split into a URI prefix and a local identifier. For
 example, the [REBASE](https://bioregistry.io/rebase) entry for
 [Asp14HI](https://bioregistry.io/rebase:101) has the URI
 <http://rebase.neb.com/rebase/enz/101.html>. Note the pesky `.html` at the end,
-which if removed, causes an HTTP 404 error due to the implementation of the
+which, if removed, causes an HTTP 404 error due to the implementation of the
 REBASE website.
 
 While this creates a big problem for parsing URIs into CURIEs, it's still
@@ -292,7 +298,10 @@ parts:
 3. A delimiter (in black; always the same)
 4. An ontology local identifier (in blue)
 
+<!-- rumdl-disable MD034 MD013 -->
+
 <span style="color:red">http://purl.obolibrary.org/obo/</span><span style="color:orange">DRON</span>\_<span style="color:blue">0000005</span>
+<!-- rumdl-enable MD034 MD013 -->
 
 Confusingly, the entire combination of the ontology's prefix, the delimiter, and
 the ontology's local identifier (e.g., `DRON_0000005`) are considered in some
