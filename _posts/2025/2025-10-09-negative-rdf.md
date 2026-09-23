@@ -65,6 +65,9 @@ This paper is still
 and also might be of limited use because it uses sneaky N3 syntax `{` `}` which
 are used to express [formulae](https://www.w3.org/TeamSubmission/n3/#Quoting).
 
+See the published version
+[here](https://www.semantic-web-journal.net/content/rdf-surfaces-enabling-classical-negation-and-first-order-expressivity-semantic-web-0)
+
 ---
 
 I haven't actually gone out to do a deep survey on this. If you are aware of
