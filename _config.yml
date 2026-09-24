@@ -35,3 +35,10 @@ plugins:
 # settings for https://github.com/jekyll/jekyll-feed
 feed:
   posts_limit: 200
+
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - .rumdl.toml
+  - .rumdl_cache
+  - .ruff_cache
