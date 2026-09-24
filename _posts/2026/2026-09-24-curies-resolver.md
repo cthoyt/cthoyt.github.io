@@ -160,4 +160,15 @@ $ uvx \
     curies resolver
     --format prefix_map \
     https://prefix.zazuko.com/api/v1/prefixes
+Installed 15 packages in 11ms
+ * Serving Flask app 'curies.resolver_service'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8764
+ * Running on http://192.168.2.118:8764
+Press CTRL+C to quit
 ```
+
+Flags can be used to toggle the implementation (FastAPI or Flask) and the server
+(werkzeug, gunicorn, uvicorn). See `--help` for more information.
