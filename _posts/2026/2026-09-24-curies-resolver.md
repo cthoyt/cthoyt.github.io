@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Deploying a Resolver using the CURIEs Package
-date: 2023-01-10 15:44:00 +0100
+date: 2026-09-24 13:47:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - semantic-web
