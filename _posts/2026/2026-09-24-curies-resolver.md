@@ -17,8 +17,9 @@ URI, then sends a redirect to the URI as a response. Several resolvers for life
 and natural sciences resources exist such as the Bioregistry, Identifiers.org,
 Name-to-Thing, and the OBO Foundry's PURL service. However, most of these
 services' implementations are either opaque, difficult to configure, or not
-extensible. The [`curies`](https://github.com/biopragmatics/curies) Python package provides the ability to generate a web
-service from any user-defined prefix map (or related format).
+extensible. The [`curies`](https://github.com/biopragmatics/curies) Python
+package provides the ability to generate a web service from any user-defined
+prefix map (or related format).
 
 ## Flask
 
@@ -123,6 +124,7 @@ app: FastAPI = get_fastapi_app(converter)
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app)
 ```
 
