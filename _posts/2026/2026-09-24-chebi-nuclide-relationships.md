@@ -80,15 +80,12 @@ relationships between classes.
 
 [Isotopes](https://en.wikipedia.org/wiki/Isotope)
 are atoms of the same element with different number of neutrons.
-eFor example,
-[nitrogen-15 (CHEBI:36934)](https://semantic.farm/CHEBI:36934)
-and [oxygen-15 (CHEBI:36932)](https://semantic.farm/CHEBI:36932) are isobars
-with the same nucleon number of 15. For example,
+For example,
 [thallium-199 (CHEBI:37805)](https://semantic.farm/CHEBI:37805),
 [thallium-201 (CHEBI:37804)](https://semantic.farm/CHEBI:37804),
 [thallium-203 (CHEBI:37802)](https://semantic.farm/CHEBI:37802), and
 [thallium-205 (CHEBI:37803)](https://semantic.farm/CHEBI:37803) are isotopes
-of thalium.
+of thallium.
 
 The following SPARQL materializes isotope relationships between atoms
 using the [ChEMROF:isotope_of](https://semantic.farm/ChEMROF:isotope_of)
@@ -113,6 +110,13 @@ WHERE {
 ```
 
 ### Isotone
+
+[Isotones](https://en.wikipedia.org/wiki/Isotone)
+are atoms of different elements with the same number of neutrons. For example,
+[nitrogen-17 (CHEBI:36937)](https://semantic.farm/)
+[oxygen-18 (CHEBI:33815)](https://semantic.farm/CHEBI:33815), and
+[fluorine-19 (CHEBI:36940)](https://semantic.farm/CHEBI:36940) each have 10
+neutrons.
 
 The following SPARQL materializes isotone relationships between atoms
 using the [ChEMROF:isotone_of](https://semantic.farm/ChEMROF:isotone_of)
