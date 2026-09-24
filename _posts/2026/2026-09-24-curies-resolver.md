@@ -12,14 +12,27 @@ tags:
   - python
 ---
 
-A resolver is a web application with a route that accepts a CURIE, converts to a
-URI, then sends a redirect to the URI as a response. Several resolvers for life
-and natural sciences resources exist such as the Bioregistry, Identifiers.org,
-Name-to-Thing, and the OBO Foundry's PURL service. However, most of these
-services' implementations are either opaque, difficult to configure, or not
-extensible. The [`curies`](https://github.com/biopragmatics/curies) Python
-package provides the ability to generate a web service from any user-defined
-prefix map (or related format).
+A resolver is a web application that returns a redirect response for the uniform
+resource identifier (URI) expansion of a compact URI (CURIE). This post
+demonstrates the resolver implemented as part of the
+[`curies`](https://github.com/biopragmatics/curies) Python package, which is
+used by the [Bioregistry](https://bioregistry.io) and
+[Semantic Farm](https://semantic.farm).
+
+I actually wrote the first version of this post in 2023 as I started
+externalizing functionality from the `bioregistry` that could be made more
+generic. At the time, there were already several other resolvers (sometimes
+called meta-resolvers):
+
+- [Identifiers.org](https://identifiers.org) and
+  [Name-to-Thing](https://n2t.net) both implement custom resolver code
+- the OBO Foundry's PURL service, w3id.org, purl.org, and others implement
+  resolution using `.htaccess` rules
+
+However, there are issues here with transparency, easy of configuration, and
+extensibility. I had already begun writing about the `curies` package as a
+_final_ implementation of CURIE and URI conversion logic in a [previous post]({%
+post_url 2023/2023-01-10-curies-package %}) on the `curies` package.
 
 ## Flask
 
@@ -84,8 +97,7 @@ port 5000 by default.
 
 ## FastAPI
 
-The same thing works for FastAPI applications, except with
-a `fastapi.Router`:
+The same thing works for FastAPI applications, except with a `fastapi.Router`:
 
 ```python
 # fastapi_example.py
@@ -133,4 +145,19 @@ In the command line, either run your Python file directly, or via with
 
 ```console
 $ uvicorn --bind 0.0.0.0:5000 fastapi_example:app
+```
+
+## Command Line
+
+There's a high-level CLI built in to the `curies` package that can be pointed at
+a given local or remove prefix map, extended prefix map, or JSON-LD context to
+make a resolver:
+
+```console
+$ uvx \
+    --with click \
+    --with flask \
+    curies resolver
+    --format prefix_map \
+    https://prefix.zazuko.com/api/v1/prefixes
 ```
