@@ -16,20 +16,22 @@ nucleon numbers for isotopes that appear in ChEBI as children of atom terms,
 then materializes isotope (same atomic number), isotone (same neutron number),
 and isobar (same nucleon number) relationships between them.
 
-This post covers
+While the previous post was directly motivated by needs for the upcoming basis
+set ontology for NFDI4Chem, extending the axiomizations from partially qualified
+atoms (with just atomic number) to fully qualified atoms (with both atomic and
+neutron number) was an obvious next step once I was already familiar with the
+ChEBI atom hierarchy.
+
+The code and data presented in this post were added in
 [cthoyt/chebi-atomic-numbers-ontology@2](https://github.com/cthoyt/chebi-atomic-numbers-ontology/pull/2)
 and
 [cthoyt/chebi-atomic-numbers-ontology#3](https://github.com/cthoyt/chebi-atomic-numbers-ontology/pull/3).
 
-## Making a ROBOT template
+## Making the ROBOT template
 
 While ChEBI has full coverage through element 117 in the atoms branch, it only
-has light coverage of isotopes. While some of them have been operationalized
-with the `isotopes.tsv` file, the following script can be used to generate
-additional rows.
-
-With the exception of the three isotopes of hydrogen, which each have their own
-labels, all isotopes have the nomenclature scheme `<element>-<nucleon number>`.
+has partial coverage of isotopes. I used the following script to produce an
+initial ROBOT template:
 
 ```python
 import pandas as pd
@@ -49,8 +51,13 @@ for curie, _, label, number in elements_df.values:
             print(f"failed on {child.curie} - {full_name}")
 
 isotopes_df = pd.DataFrame(rows)
-isotopes_df.to_csv("isotopes-extended.tsv", sep="\t", index=False)
+isotopes_df.to_csv("isotopes.tsv", sep="\t", index=False)
 ```
+
+Except the three isotopes of hydrogen, which each have their own labels, all
+isotopes' labels have the following form: `<element>-<nucleon number>`. Here are
+few example rows from the
+[full ROBOT template](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/src/isotopes.tsv):
 
 | curie       | type  | label          |                      nucleon number |                      neutron number |
 | ----------- | ----- | -------------- | ----------------------------------: | ----------------------------------: |
@@ -63,15 +70,37 @@ isotopes_df.to_csv("isotopes-extended.tsv", sep="\t", index=False)
 | CHEBI:30219 | class | helium-4       |                                   4 |                                   2 |
 | CHEBI:37003 | class | helium-6       |                                   6 |                                   4 |
 
-<https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/src/isotopes.tsv>
+This template works the same way I described in the [previous post]({% post_url
+2026/2026-09-04-chebi-atomic-numbers %}), now using two columns for data value
+constraints instead of just a single column.
 
-## Materializing relationships
+Interestingly, a related
+[discussion](https://github.com/NFDI4Chem/Ontologies4Chem2026/discussions/8)
+will be taking place at the
+[Ontologies4Chem Workshop 2026](https://nfdi4chem.de/event/5th-ontologies4chem-workshop/).
+I would like to add the missing isotopes to ChEBI, but this will probably take a
+while!
 
-OWL is really against encoding logical relationship rules about classes. I wish
-SWRL supported this, but the ivory tower says "don't do that" once again. If you
-want to get around this, you have to invoke the arcane arts of punning, and I
-don't think that it's worth it. So instead, I used SPARQL to create new
-relationships between classes.
+## Materializing Relationships
+
+I had high hopes that formalizing the atomic number, nucleon number, and neutron
+number would allow for me to encode inference rules to cover what it means for
+two fully qualified atoms to be isotopes, isobars, or isotones of each other,
+for example, using
+[Semantic Web Rule Language (SWRL)](https://www.w3.org/2003/11/swrl#). However,
+I had a pretty typical experience that the OWL and semantic web technologies
+don't directly support this (IMO) rather obvious use case.
+
+Instead, I opted to write several SPARQL queries that can be used with
+[`robot query`](https://robot.obolibrary.org/query.html) to manipulate OWL as
+RDF and add in new object property constraints directly with a command like:
+
+```console
+$ robot query \
+    --update src/isobar-construct.ru \
+    --update src/isotone-construct.ru \
+    --update src/isotope-construct.ru
+```
 
 ### Isotopes
 
@@ -171,7 +200,10 @@ WHERE {
 }
 ```
 
-### Additional relationships
+## Additional Relationships
+
+While I exhausted the current ChEMROF predicates, there still remain a few that
+I found while reading up on Wikipedia.
 
 [Isodiaphers](https://en.wikipedia.org/wiki/Nuclide#Types_of_nuclides) are atoms
 with equal neutron excess (i.e., neutron number minus atomic number). They can
