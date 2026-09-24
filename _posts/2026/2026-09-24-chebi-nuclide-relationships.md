@@ -10,11 +10,12 @@ tags:
   - biocuration
 ---
 
-This post describes how I extended the work in my [previous post]({% post_url
-2026/2026-09-04-chebi-atomic-numbers %}) that axiomatizes neutron numbers and
-nucleon numbers for isotopes that appear in ChEBI as children of atom terms,
-then materializes isotope (same atomic number), isotone (same neutron number),
-and isobar (same nucleon number) relationships between them.
+This post describes how I extended the work in my [previous
+post]({% post_url 2026/2026-09-04-chebi-atomic-numbers %}) that axiomatizes
+neutron numbers and nucleon numbers for isotopes that appear in ChEBI as
+children of atom terms, then materializes isotope (same atomic number), isotone
+(same neutron number), and isobar (same nucleon number) relationships between
+them.
 
 While the previous post was directly motivated by needs for the upcoming basis
 set ontology for NFDI4Chem, extending the axiomizations from partially qualified
@@ -59,20 +60,21 @@ isotopes' labels have the following form: `<element>-<nucleon number>`. Here are
 few example rows from the
 [full ROBOT template](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/src/isotopes.tsv):
 
-| curie       | type  | label          |                      nucleon number |                      neutron number |
-| ----------- | ----- | -------------- | ----------------------------------: | ----------------------------------: |
-| ID          | TYPE  |                | SC 'ChEMROF:nucleon_number' value % | SC 'ChEMROF:neutron_number' value % |
-| CHEBI:29236 | class | protium atom   |                                   1 |                                   0 |
-| CHEBI:29237 | class | deuterium atom |                                   2 |                                   1 |
-| CHEBI:29238 | class | tritium atom   |                                   3 |                                   2 |
-| CHEBI:30218 | class | helium-3       |                                   3 |                                   1 |
-| CHEBI:37004 | class | helium-8       |                                   8 |                                   6 |
-| CHEBI:30219 | class | helium-4       |                                   4 |                                   2 |
-| CHEBI:37003 | class | helium-6       |                                   6 |                                   4 |
+| curie                                            | type  | label          |                                                                      nucleon number |                                                                      neutron number |
+| ------------------------------------------------ | ----- | -------------- | ----------------------------------------------------------------------------------: | ----------------------------------------------------------------------------------: |
+| ID                                               | TYPE  |                | SC '[ChEMROF:nucleon_number](https://semantic.farm/ChEMROF:nucleon_number)' value % | SC '[ChEMROF:neutron_number](https://semantic.farm/ChEMROF:neutron_number)' value % |
+| [CHEBI:29236](https://semantic.farm/CHEBI:29236) | class | protium atom   |                                                                                   1 |                                                                                   0 |
+| [CHEBI:29237](https://semantic.farm/CHEBI:29237) | class | deuterium atom |                                                                                   2 |                                                                                   1 |
+| [CHEBI:29238](https://semantic.farm/CHEBI:29238) | class | tritium atom   |                                                                                   3 |                                                                                   2 |
+| [CHEBI:30218](https://semantic.farm/CHEBI:30218) | class | helium-3       |                                                                                   3 |                                                                                   1 |
+| [CHEBI:37004](https://semantic.farm/CHEBI:37004) | class | helium-8       |                                                                                   8 |                                                                                   6 |
+| [CHEBI:30219](https://semantic.farm/CHEBI:30219) | class | helium-4       |                                                                                   4 |                                                                                   2 |
+| [CHEBI:37003](https://semantic.farm/CHEBI:37003) | class | helium-6       |                                                                                   6 |                                                                                   4 |
 
 This template works the same way I described in the [previous post]({% post_url
 2026/2026-09-04-chebi-atomic-numbers %}), now using two columns for data value
-constraints instead of just a single column.
+constraints instead of just a single column. Note, the links are added here for
+convenience, and don't/shouldn't actually appear in ROBOT templates.
 
 Interestingly, a related
 [discussion](https://github.com/NFDI4Chem/Ontologies4Chem2026/discussions/8)
@@ -101,6 +103,9 @@ $ robot query \
     --update src/isotone-construct.ru \
     --update src/isotope-construct.ru
 ```
+
+See the full incorporation into the build in the repository's
+[justfile](https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/justfile).
 
 ### Isotopes
 
