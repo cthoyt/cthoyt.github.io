@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Axiomatizing Nuclides and their Relationships in ChEBI
+title: Axiomatizing Nuclides in ChEBI
 date: 2026-09-24 12:00:00 +0200
 author: Charles Tapley Hoyt
 tags:
@@ -10,16 +10,11 @@ tags:
   - biocuration
 ---
 
-In my [previous post]({% post_url 2026/2026-09-04-chebi-atomic-numbers %}),
-I created axioms for atomic numbers for atoms represented in ChEBI.
-
-In this post, I take a similar approach to axiomizing the neutron number and
-nucleon number (i.e., atomic number + neutron number) for fully qualified atoms
-appearing as children of partially qualified atoms in ChEBI.
-
-Then, I materialize relationships between fully qualified atoms: isotope (same
-atomic number), isotone (same neutron number), and isobar (same nucleon number)
-materialization.
+This post describes how I extended the work in my [previous post]({% post_url
+2026/2026-09-04-chebi-atomic-numbers %}) that axiomatizes neutron numbers and
+nucleon numbers for isotopes that appear in ChEBI as children of atom terms,
+then materializes isotope (same atomic number), isotone (same neutron number),
+and isobar (same nucleon number) relationships between them.
 
 This post covers
 [cthoyt/chebi-atomic-numbers-ontology@2](https://github.com/cthoyt/chebi-atomic-numbers-ontology/pull/2)
@@ -58,7 +53,7 @@ isotopes_df.to_csv("isotopes-extended.tsv", sep="\t", index=False)
 ```
 
 | curie       | type  | label          |                      nucleon number |                      neutron number |
-|-------------|-------|----------------|------------------------------------:|------------------------------------:|
+| ----------- | ----- | -------------- | ----------------------------------: | ----------------------------------: |
 | ID          | TYPE  |                | SC 'ChEMROF:nucleon_number' value % | SC 'ChEMROF:neutron_number' value % |
 | CHEBI:29236 | class | protium atom   |                                   1 |                                   0 |
 | CHEBI:29237 | class | deuterium atom |                                   2 |                                   1 |
@@ -67,6 +62,8 @@ isotopes_df.to_csv("isotopes-extended.tsv", sep="\t", index=False)
 | CHEBI:37004 | class | helium-8       |                                   8 |                                   6 |
 | CHEBI:30219 | class | helium-4       |                                   4 |                                   2 |
 | CHEBI:37003 | class | helium-6       |                                   6 |                                   4 |
+
+<https://github.com/cthoyt/chebi-atomic-numbers-ontology/blob/main/src/isotopes.tsv>
 
 ## Materializing relationships
 
@@ -78,19 +75,17 @@ relationships between classes.
 
 ### Isotopes
 
-[Isotopes](https://en.wikipedia.org/wiki/Isotope)
-are atoms of the same element with different number of neutrons. They can be
-produced, e.g., through the process of
-[neutron capture](https://en.wikipedia.org/wiki/Neutron_capture). For example,
-[thallium-199 (CHEBI:37805)](https://semantic.farm/CHEBI:37805),
+[Isotopes](https://en.wikipedia.org/wiki/Isotope) are atoms of the same element
+with different number of neutrons. They can be produced, e.g., through the
+process of [neutron capture](https://en.wikipedia.org/wiki/Neutron_capture). For
+example, [thallium-199 (CHEBI:37805)](https://semantic.farm/CHEBI:37805),
 [thallium-201 (CHEBI:37804)](https://semantic.farm/CHEBI:37804),
 [thallium-203 (CHEBI:37802)](https://semantic.farm/CHEBI:37802), and
-[thallium-205 (CHEBI:37803)](https://semantic.farm/CHEBI:37803) are isotopes
-of thallium.
+[thallium-205 (CHEBI:37803)](https://semantic.farm/CHEBI:37803) are isotopes of
+thallium.
 
-The following SPARQL materializes isotope relationships between atoms
-using the [ChEMROF:isotope_of](https://semantic.farm/ChEMROF:isotope_of)
-relationship.
+The following SPARQL materializes isotope relationships between atoms using the
+[ChEMROF:isotope_of](https://semantic.farm/ChEMROF:isotope_of) relationship.
 
 ```sparql
 INSERT {
@@ -112,18 +107,16 @@ WHERE {
 
 ### Isotone
 
-[Isotones](https://en.wikipedia.org/wiki/Isotone)
-are atoms of different elements with the same number of neutrons. They can be
-produced, e.g., through the process of
-[proton capture](https://en.wikipedia.org/wiki/Proton_capture). For example,
-[nitrogen-17 (CHEBI:36937)](https://semantic.farm/)
+[Isotones](https://en.wikipedia.org/wiki/Isotone) are atoms of different
+elements with the same number of neutrons. They can be produced, e.g., through
+the process of [proton capture](https://en.wikipedia.org/wiki/Proton_capture).
+For example, [nitrogen-17 (CHEBI:36937)](https://semantic.farm/)
 [oxygen-18 (CHEBI:33815)](https://semantic.farm/CHEBI:33815), and
 [fluorine-19 (CHEBI:36940)](https://semantic.farm/CHEBI:36940) each have 10
 neutrons.
 
-The following SPARQL materializes isotone relationships between atoms
-using the [ChEMROF:isotone_of](https://semantic.farm/ChEMROF:isotone_of)
-relationship.
+The following SPARQL materializes isotone relationships between atoms using the
+[ChEMROF:isotone_of](https://semantic.farm/ChEMROF:isotone_of) relationship.
 
 ```sparql
 INSERT {
@@ -147,16 +140,15 @@ WHERE {
 
 ### Isobar
 
-[Isobars](https://en.wikipedia.org/wiki/Isobar_(nuclide)) are atoms of different
-elements with the same number of nucleons. They can be produced, e.g., through
-the process of [beta decay](https://en.wikipedia.org/wiki/Beta_decay). For
-example,
-[nitrogen-15 (CHEBI:36934)](https://semantic.farm/CHEBI:36934)
-and [oxygen-15 (CHEBI:36932)](https://semantic.farm/CHEBI:36932) are isobars
-with the same nucleon number of 15.
+[Isobars](<https://en.wikipedia.org/wiki/Isobar_(nuclide)>) are atoms of
+different elements with the same number of nucleons. They can be produced, e.g.,
+through the process of [beta decay](https://en.wikipedia.org/wiki/Beta_decay).
+For example, [nitrogen-15 (CHEBI:36934)](https://semantic.farm/CHEBI:36934) and
+[oxygen-15 (CHEBI:36932)](https://semantic.farm/CHEBI:36932) are isobars with
+the same nucleon number of 15.
 
-The following SPARQL materializes isobar relationships between atoms
-using the [ChEMROF:nucleon_number](https://semantic.farm/ChEMROF:nucleon_number)
+The following SPARQL materializes isobar relationships between atoms using the
+[ChEMROF:nucleon_number](https://semantic.farm/ChEMROF:nucleon_number)
 relationship.
 
 ```sparql
@@ -181,14 +173,17 @@ WHERE {
 
 ### Additional relationships
 
-[Isodiaphers](https://en.wikipedia.org/wiki/Nuclide#Types_of_nuclides)
-are atoms with equal neutron excess (i.e., neutron number minus atomic number).
-They can be produced, e.g., through the process of
+[Isodiaphers](https://en.wikipedia.org/wiki/Nuclide#Types_of_nuclides) are atoms
+with equal neutron excess (i.e., neutron number minus atomic number). They can
+be produced, e.g., through the process of
 [alpha decay](https://en.wikipedia.org/wiki/Alpha_decay). For example,
 [carbon-13 (CHEBI:36928)](https://semantic.farm/CHEBI:36928),
 [nitrogen-15 (CHEBI:36934)](https://semantic.farm/CHEBI:36934), and
 [oxygen-17 (CHEBI:33819)](https://semantic.farm/CHEBI:33819) are isodiaphers
-with a neutron excess of 1.
+with a neutron excess of 1. I made a
+[pull request to ChEMROF](https://github.com/chemkg/chemrof/pull/95) to add this
+relationship - after some discussion, I might also include an additional SPARQL
+query.
 
 [Mirror nuclei](https://en.wikipedia.org/wiki/Mirror_nuclei) are atoms whose
 neutron numbers and atomic numbers are swapped. They can be produced, e.g.,
