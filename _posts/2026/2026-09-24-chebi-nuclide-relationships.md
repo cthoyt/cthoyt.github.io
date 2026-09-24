@@ -208,7 +208,7 @@ WHERE {
 ## Additional Relationships
 
 While I exhausted the current ChEMROF predicates, there still remain a few that
-I found while reading up on Wikipedia.
+I found while reading up on Wikipedia:
 
 [Isodiaphers](https://en.wikipedia.org/wiki/Nuclide#Types_of_nuclides) are atoms
 with equal neutron excess (i.e., neutron number minus atomic number). They can
