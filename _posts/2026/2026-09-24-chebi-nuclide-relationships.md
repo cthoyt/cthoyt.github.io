@@ -10,7 +10,7 @@ tags:
   - biocuration
 ---
 
-In my [previous post]({% post_url 2026/2026-09-04-chebi-atomic-numbers.md %}>),
+In my [previous post]({% post_url 2026/2026-09-04-chebi-atomic-numbers %}),
 I created axioms for atomic numbers for atoms represented in ChEBI.
 
 In this post, I take a similar approach to axiomizing the neutron number and
@@ -79,8 +79,9 @@ relationships between classes.
 ### Isotopes
 
 [Isotopes](https://en.wikipedia.org/wiki/Isotope)
-are atoms of the same element with different number of neutrons.
-For example,
+are atoms of the same element with different number of neutrons. They can be
+produced, e.g., through the process of
+[neutron capture](https://en.wikipedia.org/wiki/Neutron_capture). For example,
 [thallium-199 (CHEBI:37805)](https://semantic.farm/CHEBI:37805),
 [thallium-201 (CHEBI:37804)](https://semantic.farm/CHEBI:37804),
 [thallium-203 (CHEBI:37802)](https://semantic.farm/CHEBI:37802), and
@@ -112,7 +113,9 @@ WHERE {
 ### Isotone
 
 [Isotones](https://en.wikipedia.org/wiki/Isotone)
-are atoms of different elements with the same number of neutrons. For example,
+are atoms of different elements with the same number of neutrons. They can be
+produced, e.g., through the process of
+[proton capture](https://en.wikipedia.org/wiki/Proton_capture). For example,
 [nitrogen-17 (CHEBI:36937)](https://semantic.farm/)
 [oxygen-18 (CHEBI:33815)](https://semantic.farm/CHEBI:33815), and
 [fluorine-19 (CHEBI:36940)](https://semantic.farm/CHEBI:36940) each have 10
@@ -145,7 +148,9 @@ WHERE {
 ### Isobar
 
 [Isobars](https://en.wikipedia.org/wiki/Isobar_(nuclide)) are atoms of different
-elements with the same number of nucleons. For example,
+elements with the same number of nucleons. They can be produced, e.g., through
+the process of [beta decay](https://en.wikipedia.org/wiki/Beta_decay). For
+example,
 [nitrogen-15 (CHEBI:36934)](https://semantic.farm/CHEBI:36934)
 and [oxygen-15 (CHEBI:36932)](https://semantic.farm/CHEBI:36932) are isobars
 with the same nucleon number of 15.
@@ -173,3 +178,21 @@ WHERE {
     FILTER(?x != ?y)
 }
 ```
+
+### Additional relationships
+
+[Isodiaphers](https://en.wikipedia.org/wiki/Nuclide#Types_of_nuclides)
+are atoms with equal neutron excess (i.e., neutron number minus atomic number).
+They can be produced, e.g., through the process of
+[alpha decay](https://en.wikipedia.org/wiki/Alpha_decay). For example,
+[carbon-13 (CHEBI:36928)](https://semantic.farm/CHEBI:36928),
+[nitrogen-15 (CHEBI:36934)](https://semantic.farm/CHEBI:36934), and
+[oxygen-17 (CHEBI:33819)](https://semantic.farm/CHEBI:33819) are isodiaphers
+with a neutron excess of 1.
+
+[Mirror nuclei](https://en.wikipedia.org/wiki/Mirror_nuclei) are atoms whose
+neutron numbers and atomic numbers are swapped. They can be produced, e.g.,
+through the process of
+[positron emission](https://en.wikipedia.org/wiki/Positron_emission). For
+example, [tritium (CHEBI:29238)](https://semantic.farm/CHEBI:29238) and
+[helium-3 (CHEBI:30218)](https://semantic.farm/CHEBI:30218) are mirror nuclei.
