@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Axiomatizing Nuclides and their Relationships in ChEBI
-date: 2026-09-04 16:35:00 +0200
+date: 2026-09-24 12:00:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - ChEBI
