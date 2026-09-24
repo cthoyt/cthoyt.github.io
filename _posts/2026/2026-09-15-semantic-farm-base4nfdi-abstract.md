@@ -41,8 +41,8 @@ A key challenge in achieving the interoperability facet of the
 [FAIR data principles](https://doi.org/10.1038/sdata.2016.18) is the consistent
 identification of researchers, chemicals, paintings, and other entities relevant
 for NFDI. Often, this means choosing the correct standard
-[uniform resource identifier (URI)](https://www.rfc-editor.org/info/rfc3986/)
-or [compact URI (CURIE)](https://www.w3.org/TR/2010/NOTE-curie-20101216/) for an
+[uniform resource identifier (URI)](https://www.rfc-editor.org/info/rfc3986/) or
+[compact URI (CURIE)](https://www.w3.org/TR/2010/NOTE-curie-20101216/) for an
 entity from an ontology, controlled vocabulary, persistent identifier (PID)
 service, or database.
 
@@ -58,7 +58,7 @@ determine and communicate which is correct.
 
 The NFDI has not yet adopted an actionable, organization-wide policy for
 standardizing CURIEs and URIs. We present the
-[Semantic Farm](https://semantic.farm) (previously called *The Bioregistry*) on
+[Semantic Farm](https://semantic.farm) (previously called _The Bioregistry_) on
 behalf of the
 [NFDI Section Metadata Working Group for Ontology Harmonization and Mappings](https://github.com/nfdi-de/section-metadata-wg-onto/tree/main)
 as a pre-existing, mature solution for the standardization of CURIEs and URIs.
@@ -115,9 +115,9 @@ map that is simultaneously a reflection of real-world usage as well as
 community-curated standards for CURIE prefixes to URI prefixes. The flagship
 Semantic Farm software package is implemented in Python, but the prefix map can
 be operationalized as a data standard through the lower-level
-[curies.rs](http://github.com/biopragmatics/curies.rs)
-software package, which has bindings to Python, Java, R, Rust, and JavaScript
-(via WASM) .makes this an actionable standard. For example:
+[curies.rs](http://github.com/biopragmatics/curies.rs) software package, which
+has bindings to Python, Java, R, Rust, and JavaScript (via WASM) .makes this an
+actionable standard. For example:
 
 1. LinkML schemas can be checked to use correct CURIE prefixes and URI prefixes,
    see this [previous post]({% post_url
@@ -132,8 +132,8 @@ software package, which has bindings to Python, Java, R, Rust, and JavaScript
    [previous post]({% post_url 2025/2025-09-04-bioregistry-turtle-validation
    %}).
 
-Further, there is an evolving (but not yet well-documented) notion of
-*NFDI standards* where we would like to promote the Semantic Farm prefix map.
+Further, there is an evolving (but not yet well-documented) notion of _NFDI
+standards_ where we would like to promote the Semantic Farm prefix map.
 
 **Semantic Farm enables data integration** The Semantic Farm was a key tool that
 enabled the integration of the NFDI4Chem and NFDI4Culture's KGs that wasn't

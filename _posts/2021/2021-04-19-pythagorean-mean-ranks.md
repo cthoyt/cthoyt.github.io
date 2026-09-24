@@ -35,8 +35,7 @@ If you want to cite some of the ideas in this post, you can use:
 ## The Formulation of the Link Prediction Task
 
 The link prediction task in knowledge graphs is effectively a binary
-classification task for each potential triple $(h,
-r, t)$ on whether it is true
+classification task for each potential triple $(h, r, t)$ on whether it is true
 or not. While the accuracy, precision, recall, $F_1$,
 [Matthews correlation coefficient](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient)
 (MCC), the area under
@@ -145,8 +144,8 @@ among high rank values completely, and the mean rank changes uniformly across
 the full value range, the mean reciprocal rank is more affected by changes of
 low rank values than high ones without disregarding them completely like hits@k
 does for low rank values. Therefore, it can be considered as soft a version of
-hits@k that is less sensitive to outliers. It is bound on
-$\\text{MRR} \\in (0, 1]$ where closer to 1 is better.
+hits@k that is less sensitive to outliers. It is bound on $\\text{MRR} \\in (0,
+1]$ where closer to 1 is better.
 
 ### Inverse Arithmetic Mean Rank and Harmonic Mean Rank
 
