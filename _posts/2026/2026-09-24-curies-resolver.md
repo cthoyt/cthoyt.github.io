@@ -4,12 +4,14 @@ title: Deploying a Resolver using the CURIEs Package
 date: 2026-09-24 13:45:00 +0200
 author: Charles Tapley Hoyt
 tags:
-  - semantic-web
-  - curies
+  - semantic web
+  - CURIEs
   - prefixes
-  - iris
-  - uris
+  - IRIs
+  - URIs
+  - URLs
   - python
+  - prefix maps
 ---
 
 A resolver is a web application that returns a redirect response for the uniform
