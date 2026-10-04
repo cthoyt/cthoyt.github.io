@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Worldavatar, NFDI4Chem, and the Anatomy of an Open Science Contribution
+title: The World Avatar, NFDI, and the Anatomy of an Open Science Contribution
 date: 2026-09-24 13:45:00 +0200
 author: Charles Tapley Hoyt
 tags:
