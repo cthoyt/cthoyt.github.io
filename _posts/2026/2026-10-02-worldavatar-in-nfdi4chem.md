@@ -18,11 +18,14 @@ simulate the real world at the chemical, municipal, and geological scales. Its
 [computational chemistry ontology](https://semantic.farm/worldavatar.compchem),
 [ontology for chemical kinetic reaction mechanisms](https://semantic.farm/worldavatar.kin),
 and [chemical species ontology](https://semantic.farm/worldavatar.species) are
-of particular interest for reuse, extension, and/or harmonization
-with ontologies ued by [NFDI4Chem](https://nfdi4chem.de) and
+of particular interest for reuse, extension, and/or harmonization with
+ontologies ued by [NFDI4Chem](https://nfdi4chem.de) and
 [NFDI4Cat](https://nfdi4cat.org) (see the respective
 [NFDI4Chem ontology list](https://semantic.farm/collection/0000014) and
-[NFDI4Cat ontology list](https://semantic.farm/collection/0000011)).
+[NFDI4Cat ontology list](https://semantic.farm/collection/0000011)). This post
+is about the sequence of open source, open science contributions I made to the
+World Avatar project to improve its ontologies and ultimately add them in bulk
+to the Bioregistry/Semanatic Farm.
 
 ## Background
 
@@ -153,7 +156,7 @@ Ultimately, I updated the CSVs until they were able to produce OWL files in PR
 
 I identified five ontologies that had both source CSV files and OWL output
 files, but the CSVs had similar syntax and semantic issues as above. I fixed
-these in <https://github.com/TheWorldAvatar/ontology/pull/47/changes>/
+these in <https://github.com/TheWorldAvatar/ontology/pull/47>.
 
 ### Rebuilding
 
@@ -168,28 +171,47 @@ Once the ontologies had been updated, I was ready to write a script to parse
 their respective metadata and construct new Bioregistry/Semantic Farm records.
 This materialized in <https://github.com/biopragmatics/bioregistry/pull/2051>.
 
-I noticed a few interesting things along the way. First, the World Avatar
-doesn't have a standard URI scheme for its ontologies, using a combination of
-HTTP/HTTPs protocols and `.io`/`.com` domain names. They also use a non-standard
-combination of predicates for annotating metadata onto the ontology itself. It
-took several iterations, but I was able to capture these and other rules in my
-script for auto-generating records. Importantly, because I was able to parse the
+Here are few challenges I had to address along the way:
+
+1. lack of a standard URI scheme for its ontologies, using a combination of
+   HTTP/HTTPs protocols and `.io`/`.com` domain names.
+2. non-standard combination of predicates for annotating metadata onto the
+   ontology itself
+3. high collision rate for prefixes used for ontologies
+
+After several iterations of parsing the ontologies, I was able to encode
+rules in a script for auto-generating Bioregistry/Semantic Farm records that
+normalized and addressed the inconsistencies from the first two points.
+Importantly, because I was able to parse the
 entire ontologies, I was able to extract the URI prefixes and example local
 unique identifiers.
 
-I also had to decide on a systematic way of assigning prefixes. The World
-Avatar's were simply unusable - the project uses many short prefixes that clash
-with better known resources. Luckily, the typical solution is to subspace
-prefixes for projects/series like this, which remove the collisions.
+I also had to decide on a systematic way of assigning prefixes to address the
+third point. The World Avatar's were simply unusable - the project uses many
+short prefixes that clash with better known resources. Luckily, the typical
+solution is to subspace prefixes for projects/series like this, which remove the
+collisions.
 
 ## Parting Thoughts
 
-Along the way, I realized that it would be helpful to improve the way that "part
-of database" relationships get displayed in a unified way with keywords, so one
-can navigate to <https://semantic.farm/keyword/worldavatar> in order to get the
-whole list (code changes in
-<https://github.com/biopragmatics/bioregistry/pull/2052>).
+While working on this, I realized that there wasn't a good way to navigate the
+_part of database_ relationships, which connect prefixes to a string that
+represents a database (or any resource, in the future, it might make sense to
+ground these to FAIRsharing or Wikidata QIDs). In
+<https://github.com/biopragmatics/bioregistry/pull/2052>, I extended the page
+for navigating keywords to also include _part of database_ relationships, so
+now, <https://semantic.farm/keyword/worldavatar> shows the results from this
+work.
 
 This all just goes to show that when you're working in an open source setting,
 sometimes good ideas require a _lot_ of tangents. Being a good open source
 citizen means that all the effort put into this benefits everyone.
+
+### Next Steps for NFDI
+
+While I came at World Avatar from the NFDI4Chem perspective, its ontologies
+cover several domains relevant for other NFDI consortia. In next steps, I would
+like to more systematically identify which World Avatar ontologies are relevant
+for which NFDI consortia and generate semantic mappings to other ontologies used
+by those consortia using
+[SSSOM Curator](https://github.com/cthoyt/sssom-curator).
