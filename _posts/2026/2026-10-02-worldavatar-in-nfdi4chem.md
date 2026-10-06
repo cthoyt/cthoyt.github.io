@@ -11,6 +11,7 @@ tags:
   - Bioregistry
   - Semantic Farm
   - World Avatar
+  - NFDI
 ---
 
 The [World Avatar](https://theworldavatar.io) project aspires to model and
@@ -207,8 +208,8 @@ standardizes, and indexes ontologies and
 various prediction workflows such as lexical matching to predict semantic
 mappings.
 
-Because most WorldAvatar ontologies focus on object and data properties, I wrote
-a short script to map each against the
+Because most World Avatar ontologies focus on object and data properties, I
+wrote a short script to map each against the
 [Relation Ontology (RO)](https://semantic.farm/ro):
 
 ```python
@@ -224,7 +225,7 @@ lexical_prediction_cli("ro", prefixes, identifiers_are_names=True)
 ```
 
 Unfortunately, this script did not produce any mappings on the first try.
-WorldAvatar doesn't typically add labels to its predicates, so I added the
+World Avatar doesn't typically add labels to its predicates, so I added the
 `identifiers_are_names` argument, but I still have a few things to try as
 follow-up.
 
@@ -248,5 +249,5 @@ citizen means that all the effort put into this benefits everyone.
 While I came at World Avatar from the NFDI4Chem perspective, its ontologies
 cover several domains relevant for other NFDI consortia. In next steps, I would
 like to more systematically identify which World Avatar ontologies are relevant
-for which NFDI consortia and more carefulyl curate semantic mappings to other
+for which NFDI consortia and more carefully curate semantic mappings to other
 ontologies used by those consortia.
