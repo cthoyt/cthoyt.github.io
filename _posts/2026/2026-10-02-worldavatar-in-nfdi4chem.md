@@ -94,9 +94,9 @@ $ mvn clean install -DskipTests
 This immediately failed because some of the Java dependencies were distributed
 by GitHub's Maven repository, and this weirdly requires having an access token.
 Neither the documentation nor the error given by Maven made this clear, so I had
-to do some searching to figure it out. This must be something that you forget
-about when you're in the Java universe and already have this set up, but newbies
-never know it. In the end, I made a GitHub personal access token at
+to do some searching to figure it out. This must be something that's easy to
+forget about when in the Java universe after getting it initially set up, but
+newbies never know it. In the end, I made a GitHub personal access token at
 <https://github.com/settings/tokens/new> and adding into my `~/.m2/settings.xml`
 like:
 
@@ -147,7 +147,7 @@ files and opened <https://github.com/TheWorldAvatar/ontology/issues/41>. It
 turns out that these CSV files had syntax and semantic issues, which I figured
 out through a combination of trial-and-error running the TBox Generator and
 pattern matching against how other CSVs look. It's a core skill for biocurators
-to be able to do this with your own brain.
+to be able to do this with their own brain.
 
 Ultimately, I updated the CSVs until they were able to produce OWL files in PR
 <https://github.com/TheWorldAvatar/ontology/pull/45>.
@@ -169,7 +169,9 @@ can easily create release products with a single command!
 
 Once the ontologies had been updated, I was ready to write a script to parse
 their respective metadata and construct new Bioregistry/Semantic Farm records.
-This materialized in <https://github.com/biopragmatics/bioregistry/pull/2051>.
+This materialized in <https://github.com/biopragmatics/bioregistry/pull/2051>. I
+added 74 new prefixes on top of the 3 existing ones for World Avatar ontologies,
+which can be browsed [here](https://semantic.farm/keyword/worldavatar).
 
 Here are few challenges I had to address along the way:
 
@@ -184,13 +186,17 @@ rules in a script for auto-generating Bioregistry/Semantic Farm records that
 normalized and addressed the inconsistencies from the first two points.
 Importantly, because I was able to parse the
 entire ontologies, I was able to extract the URI prefixes and example local
-unique identifiers.
+unique identifiers in most cases. I had to do quite a bit of manual curation
+for descriptions, examples, and URI format strings in the end, too. Some of it
+required cyber-sleuthing, especially for ontologies whose names were acronyms
+like EMS (which means energy management system, in context).
 
 I also had to decide on a systematic way of assigning prefixes to address the
-third point. The World Avatar's were simply unusable - the project uses many
-short prefixes that clash with better known resources. Luckily, the typical
-solution is to subspace prefixes for projects/series like this, which remove the
-collisions.
+third point. The World Avatar's nomenclature scheme `Onto + <name>` wasn't
+usable - having self-referential or meta components of a prefix or resource name
+is distracting and misleading in some cases. Luckily, the typical solution is to
+subspace prefixes for projects/series like this, which remove the collisions, so
+OntoCompChem becomes `worldavatar.compchem`.
 
 ## Parting Thoughts
 
@@ -203,7 +209,7 @@ for navigating keywords to also include _part of database_ relationships, so
 now, <https://semantic.farm/keyword/worldavatar> shows the results from this
 work.
 
-This all just goes to show that when you're working in an open source setting,
+This all just goes to show that when working in an open source setting,
 sometimes good ideas require a _lot_ of tangents. Being a good open source
 citizen means that all the effort put into this benefits everyone.
 
