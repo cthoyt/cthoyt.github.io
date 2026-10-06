@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The World Avatar, NFDI, and the Anatomy of an Open Science Contribution
-date: 2026-09-24 13:45:00 +0200
+date: 2026-10-02 13:45:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - ontology
