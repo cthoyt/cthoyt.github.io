@@ -198,6 +198,36 @@ is distracting and misleading in some cases. Luckily, the typical solution is to
 subspace prefixes for projects/series like this, which remove the collisions, so
 OntoCompChem becomes `worldavatar.compchem`.
 
+## An Unsuccessful Attempt at Generating Semantic Mappings
+
+After adding a resource to the Semantic Farm, it immediately becomes usable in
+[pyobo](https://github.com/biopragmatics/pyobo), which downloads, parses,
+standardizes, and indexes ontologies and
+[SSSOM Curator](https://github.com/cthoyt/sssom-curator), which uses PyOBO and
+various prediction workflows such as lexical matching to predict semantic
+mappings.
+
+Because most WorldAvatar ontologies focus on object and data properties, I wrote
+a short script to map each against the
+[Relation Ontology (RO)](https://semantic.farm/ro):
+
+```python
+import bioregistry
+from biomappings import lexical_prediction_cli
+
+prefixes = {
+    resource.prefix
+    for resource in bioregistry.resources()
+    if resource.part_of_database == "worldavatar"
+}
+lexical_prediction_cli("ro", prefixes, identifiers_are_names=True)
+```
+
+Unfortunately, this script did not produce any mappings on the first try.
+WorldAvatar doesn't typically add labels to its predicates, so I added the
+`identifiers_are_names` argument, but I still have a few things to try as
+follow-up.
+
 ## Parting Thoughts
 
 While working on this, I realized that there wasn't a good way to navigate the
@@ -218,6 +248,5 @@ citizen means that all the effort put into this benefits everyone.
 While I came at World Avatar from the NFDI4Chem perspective, its ontologies
 cover several domains relevant for other NFDI consortia. In next steps, I would
 like to more systematically identify which World Avatar ontologies are relevant
-for which NFDI consortia and generate semantic mappings to other ontologies used
-by those consortia using
-[SSSOM Curator](https://github.com/cthoyt/sssom-curator).
+for which NFDI consortia and more carefulyl curate semantic mappings to other
+ontologies used by those consortia.
