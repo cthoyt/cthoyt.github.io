@@ -119,3 +119,8 @@ proprietary implementations of causal reasoning algorithms for the
 [Biological Expression Language](https://biological-expression-language.github.io/)
 to [Philip Morris International (PMI)](https://www.pmi.com) based on the
 [PyBEL](https://github.com/pybel/pybel/) open source package.
+
+---
+
+Additional reading:
+[Case study: How much does it cost to maintain a copy of an open source software package (at Google)?](https://web.archive.org/web/20261011161743/https://opensource.google/static/documentation/publications/Cost_of_OSS_Use_2026.pdf)
