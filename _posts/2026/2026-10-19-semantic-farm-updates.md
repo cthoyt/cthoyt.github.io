@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Semantic Farm Updates from Early October 2026
-date: 2026-10-19 12:44:00 +0200
+date: 2026-10-19 13:47:00 +0200
 author: Charles Tapley Hoyt
 tags:
   - NFDI
