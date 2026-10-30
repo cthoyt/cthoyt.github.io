@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Semantic Farm Updates - October 30th, 2026
+title: Semantic Farm and Bioregistry Updates - October 30th, 2026
 date: 2026-10-30 16:40:00 +0100
 author: Charles Tapley Hoyt
 tags:
@@ -10,34 +10,91 @@ tags:
   - Semantic Farm
 ---
 
-This week saw the addition of the [Library of Congress Class Schemes]() registry,
-overhaul of the aligner with the [Zazuko]() registry, the addition of 18 new records,
-and update of 222 records in the
-[Semantic Farm](https://semantic.farm) and
+This week saw the addition of the
+[Library of Congress Class Schemes](https://semantic.farm/metaregistry/loc.classschemes)
+registry, an overhaul of the alignment workflow with the
+[Zazuko](https://semantic.farm/metaregistry/zazuko) registry, the addition of 18
+new records, and finally the update of 222 records in the
+[Semantic Farm](https://semantic.farm) and the
 [Bioregistry](https://bioregistry.io).
+
+## External Alignment
+
+The Semantic Farm/Bioregistry ingests content from 36 external resources both to
+reduce curation burden but also to increase its coverage of resources across a
+variety of domains and disciplines.
+
+### Adding Library of Congress Classification Schemes
+
+The United States Library of Congress (LOC) Classification Schemes covers
+various classification systems across the natural sciences, humanities, and
+library sciences, such as the
+[Medical Subject Headings (MeSH)](https://semantic.farm/mesh),
+[Iconclass](https://semantic.farm/iconclass), and
+[Dewey Decimal Classification (DDC)](https://semantic.farm/ddc). I implemented
+an alignment workflow that ingests its entries and semi-automatically maps them
+to Semantic Farm/Bioregistry records based on lexical matching of prefixes in
+[biopragmatics/bioregistry#2156](https://github.com/biopragmatics/bioregistry/issues/2156).
+
+Compared to other external registries, LOC Classification Schemes is information
+poor - it only contains prefixes and names for its records, whereas external
+registries like Identifiers.org have higher minimum metadata standards. A
+comparison of metadata standards across all 36 external registries is available
+[here](https://semantic.farm/related) and is automatically updated when new ones
+(like LOC) are added!
+
+### Updating Zazuko
+
+[Zazuko](https://zazuko.com) is a company that builds semantic web technologies
+and solutions. It develops several of its own controlled vocabularies and
+ontologies to support its work, and importantly hosts
+<https://prefix.zazuko.com>, a unique frontend to many key semantic web
+controlled vocabularies and ontologies.
+
+I recently found that they host metadata about the resources they index that
+isn't available through its API, but rather through RDF files in N-tuples format
+on their GitHub. Therefore, I updated the alignment workflow in
+[biopragmatics/bioregistry#2144](https://github.com/biopragmatics/bioregistry/issues/2144)
+to parse key metadata such as names and descriptions. Given this new context, I
+was motivated to curate the remaining information for dozens of these resources
+in order to meet the Semantic Farm/Bioregistry's minimum metadata standards for
+new records.
 
 ## New Records
 
-Highlights:
+The Semantic Farm/Bioregistry enables the community to submit new records to
+best cover their resources and resources they use. This week had two external
+contributions that were accepted (with several under review):
 
-- [FAIR Mappings Schema (fairmap)](https://semantic.farm/fairmap) was contributed
-  by [Nico Matentzoglu](https://orcid.org/0000-0002-7356-1779) as part of the ongoing
-  work of the RDA FAIR Mappings Working group in <https://github.com/biopragmatics/bioregistry/issues/2147>.
-- [Scholarly Entity International Persistent Identifier Infrastructure (seipid)](https://semantic.farm/seipid) was
-  contributed by
-  [Nasir Razzaq](https://orcid.org/0000-0001-6939-2856) on behalf of his
-  firm [Xpertno Research Center](https://xrc.xpertno.com) in Pakistan
+- [FAIR Mappings Schema (fairmap)](https://semantic.farm/fairmap) was
+  contributed by [Nico Matentzoglu](https://orcid.org/0000-0002-7356-1779) as
+  part of the ongoing work of the
+  [RDA FAIR Mappings Working Group](https://mapping-commons.github.io/rda-fair-mappings/)
+  in
+  [biopragmatics/bioregistry#2147](https://github.com/biopragmatics/bioregistry/issues/2147).
+- [Scholarly Entity International Persistent Identifier Infrastructure (seipid)](https://semantic.farm/seipid)
+  was contributed by [Nasir Razzaq](https://orcid.org/0000-0001-6939-2856) on
+  behalf of his firm [Xpertno Research Center](https://xrc.xpertno.com) in
+  Pakistan in
+  [biopragmatics/bioregistry#2148](https://github.com/biopragmatics/bioregistry/issues/2148)
 
-[XHTML Datatypes (xh11d)](https://semantic.farm/xh11d) was contributed, then used to annotate the LinkML core
-metamodel types in [linkml/linkml-model$289](https://github.com/linkml/linkml-model/pull/289), which
-gives [LinkML](https://linkml.io) a better grounding to previously established semantic web standards
+I contributed [XHTML Datatypes (xh11d)](https://semantic.farm/xh11d), then
+curated mappings from the LinkML core metamodel types to `xh11d` in
+[linkml/linkml-model#289](https://github.com/linkml/linkml-model/pull/289),
+giving [LinkML](https://linkml.io) a better grounding to previously established
+semantic web standards.
 
-[Universal Decimal Classification (UDC)](https://semantic.farm/udc) was curated as part of <https://github.com/biopragmatics/bioregistry/issues/2153>
-in order to map from Dublin Core Terms (DCTERMS) [encoding schemes](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#section-4)
-to records in the Bioregistry/Semantic Farm. The other eight schemes listed already had corresponding records.
+[Universal Decimal Classification (UDC)](https://semantic.farm/udc) was added in
+[biopragmatics/bioregistry#2153](https://github.com/biopragmatics/bioregistry/issues/2153)
+in order to complete the mapping from Dublin Core Terms
+[encoding schemes](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#section-4)
+to corresponding records in the Semantic Farm/Bioregistry. The other eight
+schemes listed already had corresponding records.
 
-The remaining new records were all ingested from Zazuko and appropriately enriched to meet minimum metadata requirements
-for the Bioregistry/Semantic Farm in <https://github.com/biopragmatics/bioregistry/issues/2144>.
+The remaining new records were all ingested from
+[Zazuko](https://semantic.farm/metaregistry/zazuko) and appropriately enriched
+to meet minimum metadata requirements for the Semantic Farm/Bioregistry in
+[biopragmatics/bioregistry#2144](https://github.com/biopragmatics/bioregistry/issues/2144).
 
 | Prefix                                                             | Name                                                                |
 |--------------------------------------------------------------------|---------------------------------------------------------------------|
@@ -60,7 +117,19 @@ for the Bioregistry/Semantic Farm in <https://github.com/biopragmatics/bioregist
 | [udc](https://semantic.farm/udc)                                   | Universal Decimal Classification                                    |
 | [xh11d](https://semantic.farm/xh11d)                               | XHTML Datatypes                                                     |
 
-Updated 238 Prefixes
+## Updated Records
+
+There were 238 updates, which came from a combination of alignment to LOC Class
+Schemes, enrichment from metadata from Zazuko, and other updates ingested from
+external registries.
+
+Of those updates, only one was done as a stand-alone contribution. I updated the
+record for the
+[Gainesville Core Ontology](https://semantic.farm/gainesville.core) record in
+[biopragmatics/bioregistry#2152](https://github.com/biopragmatics/bioregistry/issues/2152)
+to ensure that it links to a downloadable OWL file in preparation for the
+[Ontologies4Chem](https://nfdi4chem.de/event/5th-ontologies4chem-workshop/)
+conference next week.
 
 | Updated Prefix                                                 | Name                                                                              |
 |----------------------------------------------------------------|-----------------------------------------------------------------------------------|
