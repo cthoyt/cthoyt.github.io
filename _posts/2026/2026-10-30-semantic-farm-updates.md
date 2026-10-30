@@ -53,12 +53,19 @@ controlled vocabularies and ontologies.
 
 I recently found that they host metadata about the resources they index that
 isn't available through its API, but rather through RDF files in N-tuples format
-on their GitHub. Therefore, I updated the alignment workflow in
+on their GitHub repository (e.g., for
+[Cube schema](https://raw.githubusercontent.com/zazuko/rdf-vocabularies/refs/heads/master/ontologies/cube/meta.nt)).
+Therefore, I updated the alignment workflow in
 [biopragmatics/bioregistry#2144](https://github.com/biopragmatics/bioregistry/issues/2144)
 to parse key metadata such as names and descriptions. Given this new context, I
 was motivated to curate the remaining information for dozens of these resources
 in order to meet the Semantic Farm/Bioregistry's minimum metadata standards for
 new records.
+
+There are countless opportunities for ingesting new records from external
+records, which are perfect for new curators who are interested to get involved.
+If that sounds like you, have a look at
+[this curation guide](https://github.com/biopragmatics/bioregistry/blob/main/docs/curation-import-external.md).
 
 ## New Records
 
